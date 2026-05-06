@@ -24,27 +24,20 @@ import { Resource } from './global/resource';
 /*** endif */
 
 /**
- * The Text module provides a set of APIs for text layout and font management. It aims to deliver high-quality
- * typesetting through features like character-to-glyph conversion, kerning, line breaking, alignment, and text
- * measurement. Additionally, it provides font management capabilities, including font registration, font descriptors,
- * and font collection management.
- *
- * This module provides the following classes for creating complex text paragraphs:
- *
- * - [TextStyle]{@link text.TextStyle}: defines the font type, size, spacing, and other text properties.
- * - [FontCollection]{@link text.FontCollection}: manages a collection of different fonts.
- * - [FontDescriptor]{@link text.FontDescriptor}: provides information about font descriptors.
- * - [ParagraphStyle]{@link text.ParagraphStyle}: controls line break and word break strategies for the entire
- * paragraph.
- * - [ParagraphBuilder]{@link text.ParagraphBuilder}: used to create different paragraph objects.
- * - [Paragraph]{@link text.ParagraphStyle}: created by calling [build()]{@link text.ParagraphBuilder.build} of the
- * **ParagraphBuilder** class.
- * - [LineTypeset]{@link text.LineTypeset}: created by calling
- * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset} of the **ParagraphBuilder** class.
- * - [TextLine]{@link text.TextLine}: paragraph text on a line-by-line basis, obtained by calling
- * [getTextLines()]{@link text.Paragraph.getTextLines} of the **Paragraph** class.
- * - [Run]{@link text.RunMetrics}: text typesetting unit, obtained by calling
- * [getGlyphRuns()]{@link text.TextLine.getGlyphRuns} of the **TextLine** class.
+ * 本模块提供一系列用于文本布局和字体管理的编程接口。文本布局相关的接口旨在提供高质量的排版，包括字符到字形的转换、字距调整、换行、对齐、文本测量等。字体管理接口提供字体注册、字体描述符、字体集管理等功能。
+ * 
+ * 该模块提供以下创建复杂样式的文本段落的常用类：
+ * 
+ * - [TextStyle]{@link text.TextStyle}：文本样式，控制文本的字体类型、大小、间距等属性。
+ * - [FontCollection]{@link text.FontCollection}：字体集，控制各种不同的字体。
+ * - [FontDescriptor]{@link text.FontDescriptor}：字体描述符信息。
+ * - [ParagraphStyle]{@link text.ParagraphStyle}：段落样式，控制整个段落的断行策略、断词策略等属性。
+ * - [ParagraphBuilder]{@link text.ParagraphBuilder}：段落生成器，控制生成不同的段落对象。
+ * - [Paragraph]{@link text.ParagraphStyle}：段落，由ParagraphBuilder类调用[build()]{@link text.ParagraphBuilder.build}接口构建而成。
+ * - [LineTypeset]{@link text.LineTypeset}：行排版器，由ParagraphBuilder类调用
+ * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset}接口构建而成。
+ * - [TextLine]{@link text.TextLine}：以行为单位的段落文本的载体，由Paragraph类调用[getTextLines()]{@link text.Paragraph.getTextLines}接口获取。
+ * - [Run]{@link text.RunMetrics}：文本排版单元，由TextLine类调用[getGlyphRuns()]{@link text.TextLine.getGlyphRuns}接口获取。
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @crossplatform [since 24]
@@ -56,7 +49,7 @@ import { Resource } from './global/resource';
 declare namespace text {
 
   /**
-   * Enumerates the text alignment modes.
+   * 文本对齐方式枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -66,7 +59,7 @@ declare namespace text {
    */
   enum TextAlign {
     /**
-     * Left-aligned.
+     * 文本靠左对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -77,7 +70,7 @@ declare namespace text {
     LEFT = 0,
 
     /**
-     * Right-aligned.
+     * 文本靠右对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -88,7 +81,7 @@ declare namespace text {
     RIGHT = 1,
 
     /**
-     * Center-aligned.
+     * 文本居中对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -99,8 +92,7 @@ declare namespace text {
     CENTER = 2,
 
     /**
-     * Justified, which means that each line (except the last line) is stretched so that every line has equal width, and
-     * the left and right margins are straight.
+     * 文本两侧对齐，对最后一行无效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -111,7 +103,7 @@ declare namespace text {
     JUSTIFY = 3,
 
     /**
-     * Aligned with the start position, which depends on [TextDirection]{@link text.TextDirection}.
+     * 基于文本的方向[TextDirection]{@link text.TextDirection}，文本靠开头方向对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -122,7 +114,7 @@ declare namespace text {
     START = 4,
 
     /**
-     * Aligned with the end position, which depends on [TextDirection]{@link text.TextDirection}.
+     * 基于文本的方向[TextDirection]{@link text.TextDirection}，文本以结束方向对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -134,7 +126,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the vertical alignment modes of text.
+   * 文本垂直对齐方式枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -144,7 +136,7 @@ declare namespace text {
    */
   enum TextVerticalAlign {
     /**
-     * Aligned to the baseline.
+     * 文本基线对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -154,7 +146,7 @@ declare namespace text {
      */
     BASELINE = 0,
     /**
-     * Bottom-aligned.
+     * 文本底部对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -164,7 +156,7 @@ declare namespace text {
      */
     BOTTOM = 1,
     /**
-     * Center-aligned.
+     * 文本居中对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -174,7 +166,7 @@ declare namespace text {
      */
     CENTER = 2,
     /**
-     * Top-aligned.
+     * 文本顶部对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -186,7 +178,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text directions.
+   * 文本排版方向枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -196,7 +188,7 @@ declare namespace text {
    */
   enum TextDirection {
     /**
-     * Right to left (RTL).
+     * 文本从右到左排版。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -207,7 +199,7 @@ declare namespace text {
     RTL = 0,
 
     /**
-     * Left to right (LTR).
+     * 文本从左到右排版。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -219,7 +211,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text break strategies.
+   * 断行策略枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -229,7 +221,7 @@ declare namespace text {
    */
   enum BreakStrategy {
     /**
-     * Fills the current line as much as possible without adding hyphens.
+     * 尽可能将当前行填满，不会自动添加连词符。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -240,7 +232,7 @@ declare namespace text {
     GREEDY = 0,
 
     /**
-     * Optimizes layout and may add hyphens when necessary.
+     * 布局优化，必要时会自动添加连词符。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -251,7 +243,7 @@ declare namespace text {
     HIGH_QUALITY = 1,
 
     /**
-     * Ensures consistent line width in a paragraph, adding hyphens if needed.
+     * 保证一个段落的每一行的宽度相同，必要时会添加连词符。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -263,7 +255,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the word break types.
+   * 断词策略枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -273,7 +265,7 @@ declare namespace text {
    */
   enum WordBreak {
     /**
-     * Default mode that break words based on language-specific conventions.
+     * 默认的换行规则。依据各自语言的规则，允许在字间发生换行。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -284,9 +276,7 @@ declare namespace text {
     NORMAL = 0,
 
     /**
-     * Allows breaks within any character in non-CJK text. (CJK means Chinese, Japanese, and Korean.) This value is
-     * suitable for Asian text that contains some non-Asian text. For example, it can be used to break consecutive
-     * English characters.
+     * 对于Non-CJK（非中文，日文，韩文）文本允许在任意字符内发生换行。该值适合包含一些非亚洲文本的亚洲文本，比如使连续的英文字符断行。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -297,9 +287,7 @@ declare namespace text {
     BREAK_ALL = 1,
 
     /**
-     * Allows breaks between any two characters in non-CJK text. It prioritizes breaking at whitespace or other natural
-     * breakpoints to keep words intact. If no breakpoints are found, it breaks between any two characters. For CJK text
-     * , this behaves like **NORMAL**.
+     * 对于Non-CJK的文本可在任意2个字符间断行，一行文本中有断行破发点（如空白符）时，优先按破发点换行，保障单词优先完整显示。若整一行文本均无断行破发点时，则在任意2个字符间断行。对于CJK与NORMAL效果一致。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -310,11 +298,9 @@ declare namespace text {
     BREAK_WORD = 2,
 
     /**
-     * Attempts to break words at the end of a line using a hyphen. If a hyphen cannot be added, it behaves like
-     * **BREAK_WORD**.
-     *
-     * When using this word break strategy, you need to use the `locale` attribute in [TextStyle]{@link text.TextStyle}
-     * to define the language environment, which affects the word break effect.
+     * 每行末尾单词尝试通过连字符“-”进行断行，若无法添加连字符“-”，则跟`BREAK_WORD`保持一致。
+     * 
+     * 使用此断词策略时，需与[TextStyle]{@link text.TextStyle}中`locale`属性配合使用，通过locale定义语言环境共同作用影响断词效果。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -326,7 +312,7 @@ declare namespace text {
   }
 
   /**
-   * Describes a text decoration.
+   * 文本装饰线。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -336,7 +322,7 @@ declare namespace text {
    */
   interface Decoration {
     /**
-     * Type of the decoration. The default value is **NONE**.
+     * 装饰线类型，默认为NONE。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -347,7 +333,7 @@ declare namespace text {
     textDecoration?: TextDecorationType;
 
     /**
-     * Color of the decoration. The default value is the text color.
+     * 装饰线颜色，默认为跟随文本颜色。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -358,7 +344,7 @@ declare namespace text {
     color?: common2D.Color;
 
     /**
-     * Style of the decoration. The default value is **SOLID**.
+     * 装饰线样式，默认为SOLID。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -369,8 +355,7 @@ declare namespace text {
     decorationStyle?: TextDecorationStyle;
 
     /**
-     * Scale factor for the thickness of the decoration line. The value is a floating point number. The default value is
-     * **1.0**. If the value is less than or equal to 0, no decoration line is drawn.
+     * 装饰线粗细系数，浮点数，默认为1.0。如果设置的值小于等于0，则不会绘制装饰线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -382,7 +367,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text decoration types.
+   * 装饰线类型枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -392,7 +377,7 @@ declare namespace text {
    */
   enum TextDecorationType {
     /**
-     * No decoration is used.
+     * 无装饰线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -403,7 +388,7 @@ declare namespace text {
     NONE = 0,
 
     /**
-     * An underline is used for decoration.
+     * 下划线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -414,7 +399,7 @@ declare namespace text {
     UNDERLINE = 1,
 
     /**
-     * An overline is used for decoration.
+     * 上划线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -425,7 +410,7 @@ declare namespace text {
     OVERLINE = 2,
 
     /**
-     * A strikethrough is used for decoration.
+     * 删除线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -437,7 +422,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text decoration styles.
+   * 装饰线样式枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -447,7 +432,7 @@ declare namespace text {
    */
   enum TextDecorationStyle {
     /**
-     * Solid style.
+     * 实线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -458,7 +443,7 @@ declare namespace text {
     SOLID = 0,
 
     /**
-     * Double style.
+     * 双层线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -469,7 +454,7 @@ declare namespace text {
     DOUBLE = 1,
 
     /**
-     * Dotted style.
+     * 点状线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -480,7 +465,7 @@ declare namespace text {
     DOTTED = 2,
 
     /**
-     * Dashed style.
+     * 虚线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -491,7 +476,7 @@ declare namespace text {
     DASHED = 3,
 
     /**
-     * Wavy style.
+     * 波浪线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -503,7 +488,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the font weights.
+   * 字重枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -513,7 +498,7 @@ declare namespace text {
    */
   enum FontWeight {
     /**
-     * Font weight W100.
+     * 100字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -524,7 +509,7 @@ declare namespace text {
     W100 = 0,
 
     /**
-     * Font weight W200.
+     * 200字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -535,7 +520,7 @@ declare namespace text {
     W200 = 1,
 
     /**
-     * Font weight W300.
+     * 300字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -546,7 +531,7 @@ declare namespace text {
     W300 = 2,
 
     /**
-     * Font weight W400.
+     * 400字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -557,7 +542,7 @@ declare namespace text {
     W400 = 3,
 
     /**
-     * Font weight W500.
+     * 500字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -568,7 +553,7 @@ declare namespace text {
     W500 = 4,
 
     /**
-     * Font weight W600.
+     * 600字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -579,7 +564,7 @@ declare namespace text {
     W600 = 5,
 
     /**
-     * Font weight W700.
+     * 700字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -590,7 +575,7 @@ declare namespace text {
     W700 = 6,
 
     /**
-     * Font weight W800.
+     * 800字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -601,7 +586,7 @@ declare namespace text {
     W800 = 7,
 
     /**
-     * Font weight W900.
+     * 900字重。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -613,7 +598,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the font styles.
+   * 字体样式枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -623,7 +608,7 @@ declare namespace text {
    */
   enum FontStyle {
     /**
-     * Normal.
+     * 常规样式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -634,7 +619,7 @@ declare namespace text {
     NORMAL = 0,
 
     /**
-     * Italic. If no italic version is available for the current font, the oblique version will be used instead.
+     * 斜体。如果当前字体没有可用的斜体版本，会选用倾斜体替代。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -645,7 +630,7 @@ declare namespace text {
     ITALIC = 1,
 
     /**
-     * Oblique. If no oblique version is available for the current font, the italic version will be used instead.
+     * 倾斜体。如果当前字体没有可用的倾斜体版本，会选用斜体替代。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -657,7 +642,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the font widths.
+   * 字体宽度的枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -667,7 +652,7 @@ declare namespace text {
    */
   enum FontWidth {
     /**
-     * Ultra condensed.
+     * 超窄字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -678,7 +663,7 @@ declare namespace text {
     ULTRA_CONDENSED = 1,
 
     /**
-     * Extra condensed.
+     * 特窄字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -689,7 +674,7 @@ declare namespace text {
     EXTRA_CONDENSED = 2,
 
     /**
-     * Condensed.
+     * 窄的字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -700,7 +685,7 @@ declare namespace text {
     CONDENSED = 3,
 
     /**
-     * Semi condensed.
+     * 半窄字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -711,7 +696,7 @@ declare namespace text {
     SEMI_CONDENSED = 4,
 
     /**
-     * Normal.
+     * 常规样式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -722,7 +707,7 @@ declare namespace text {
     NORMAL = 5,
 
     /**
-     * Semi expanded.
+     * 半宽字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -733,7 +718,7 @@ declare namespace text {
     SEMI_EXPANDED = 6,
 
     /**
-     * Expanded.
+     * 宽的字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -744,7 +729,7 @@ declare namespace text {
     EXPANDED = 7,
 
     /**
-     * Extra expanded.
+     * 特宽字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -755,7 +740,7 @@ declare namespace text {
     EXTRA_EXPANDED = 8,
 
     /**
-     * Ultra expanded.
+     * 超宽的字宽。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -767,7 +752,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text height modifier patterns.
+   * 文本高度修饰符模式枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -777,7 +762,7 @@ declare namespace text {
    */
   enum TextHeightBehavior {
     /**
-     * Allows the first line of the paragraph to rise and the last line to drop.
+     * 高度修饰符设置为段落中第一行上升、最后一行下降。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -788,7 +773,7 @@ declare namespace text {
     ALL = 0x0,
 
     /**
-     * Prevents the first line of a paragraph from rising.
+     * 高度修饰符设置为禁止段落中第一行上升。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -799,7 +784,7 @@ declare namespace text {
     DISABLE_FIRST_ASCENT = 0x1,
 
     /**
-     * Prevents the last line of a paragraph from dropping.
+     * 高度修饰符设置为禁止段落中最后一行下降。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -810,7 +795,7 @@ declare namespace text {
     DISABLE_LAST_ASCENT = 0x2,
 
     /**
-     * Prevents the first line of the paragraph to rise and the last line to drop.
+     * 高度修饰符设置为禁止段落中第一行上升、最后一行下降。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -822,7 +807,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text baseline types.
+   * 文本基线类型枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -832,7 +817,7 @@ declare namespace text {
    */
   enum TextBaseline {
     /**
-     * Alphabetic baseline, where the letters in Latin alphabets sit on.
+     * 用于拉丁字母的文本基线对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -843,7 +828,7 @@ declare namespace text {
     ALPHABETIC = 0,
 
     /**
-     * Ideographic baseline, where the baseline is at the bottom of the text area. It is usually used for CJK text.
+     * 用于CJK（中文，日文，韩文）的文本基线对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -855,9 +840,9 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the ellipsis styles.
-   *
-   * EllipsisMode.START and EllipsisMode.MIDDLE take effect only when text overflows in a single line.
+   * 省略号类型枚举。
+   * 
+   * EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -867,8 +852,7 @@ declare namespace text {
    */
   enum EllipsisMode {
     /**
-     * Ellipsis at the beginning. This enumerated value is valid only when **maxLines** is set to **1** in
-     * [ParagraphStyle]{@link text.ParagraphStyle}.
+     * 开头省略号，该枚举值只在[ParagraphStyle]{@link text.ParagraphStyle}中设置maxLines为1时生效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -879,8 +863,7 @@ declare namespace text {
     START = 0,
 
     /**
-     * Ellipsis in the middle. This enumerated value is valid only when **maxLines** is set to **1** in
-     * [ParagraphStyle]{@link text.ParagraphStyle}.
+     * 中间省略号，该枚举值只在[ParagraphStyle]{@link text.ParagraphStyle}中设置maxLines为1时生效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -891,8 +874,7 @@ declare namespace text {
     MIDDLE = 1,
 
     /**
-     * Ellipsis at the end. This enumerated value is valid when **maxLines** is set to any value in
-     * [ParagraphStyle]{@link text.ParagraphStyle}.
+     * 末尾省略号，该枚举值在[ParagraphStyle]{@link text.ParagraphStyle}中maxLines设置为任何值时均有效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -903,8 +885,7 @@ declare namespace text {
     END = 2,
 
     /**
-     * Ellipsis at the beginning. This enumerated value is valid when **maxLines** is set to any value in
-     * [ParagraphStyle]{@link text.ParagraphStyle}.
+     * 开头省略号，该枚举值在[ParagraphStyle]{@link text.ParagraphStyle}中maxLines设置为任何值时均有效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -913,8 +894,7 @@ declare namespace text {
     MULTILINE_START = 3,
 
     /**
-     * Ellipsis in the middle. This enumerated value is valid when **maxLines** is set to any value in
-     * [ParagraphStyle]{@link text.ParagraphStyle}.
+     * 中间省略号，该枚举值在[ParagraphStyle]{@link text.ParagraphStyle}中maxLines设置为任何值时均有效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -924,7 +904,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the text shadow.
+   * 字体阴影。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -934,7 +914,7 @@ declare namespace text {
    */
   interface TextShadow {
     /**
-     * Color of the text shadow. The default value is black (255, 0, 0, 0).
+     * 字体阴影的颜色，默认为黑色Color(255, 0, 0, 0)。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -944,8 +924,7 @@ declare namespace text {
      */
     color?: common2D.Color;
     /**
-     * Shadow offset position of the font based on the current text, in which the horizontal and vertical coordinates
-     * are greater than or equal to 0, with the unit being physical pixels (px).
+     * 字体阴影基于当前文本的偏移位置，横、纵坐标要大于等于零，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -955,7 +934,7 @@ declare namespace text {
      */
     point?: common2D.Point;
     /**
-     * Blur radius, a floating-point value in physical pixels (px), with a default value of **0.0**.
+     * 模糊半径，浮点数，单位为物理像素px，默认为0.0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -967,7 +946,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the style of a rectangle.
+   * 矩形框样式。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -977,7 +956,7 @@ declare namespace text {
    */
   interface RectStyle {
     /**
-     * Color of the rectangle.
+     * 矩形框的颜色。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -988,7 +967,7 @@ declare namespace text {
     color: common2D.Color;
 
     /**
-     * Upper left radius of the rectangle, in physical pixels (px).
+     * 矩形框的左上半径，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -999,7 +978,7 @@ declare namespace text {
     leftTopRadius: double;
 
     /**
-     * Upper right radius of the rectangle, in physical pixels (px).
+     * 矩形框的右上半径，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1010,7 +989,7 @@ declare namespace text {
     rightTopRadius: double;
 
     /**
-     * Lower right radius of the rectangle, in physical pixels (px).
+     * 矩形框的右下半径，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1021,7 +1000,7 @@ declare namespace text {
     rightBottomRadius: double;
 
     /**
-     * Lower left radius of the rectangle, in physical pixels (px).
+     * 矩形框的左下半径，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1033,7 +1012,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the line height scaling base.
+   * 行高缩放基数枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice [since 22]
@@ -1042,8 +1021,7 @@ declare namespace text {
    */
   enum LineHeightStyle {
     /**
-     * Uses the font size as the scaling base. The line height is calculated as follows:
-     * [TextStyle]{@link text.TextStyle}.fontSize * [TextStyle]{@link text.TextStyle}.heightScale.
+     * 以字号大小作为缩放基数。最终行高为[TextStyle]{@link text.TextStyle}.fontSize * [TextStyle]{@link text.TextStyle}.heightScale。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -1053,8 +1031,7 @@ declare namespace text {
     FONT_SIZE = 0,
 
     /**
-     * Uses the font height as the scaling base. The line height is calculated as follows: the height of the shaped
-     * glyph * [TextStyle]{@link text.TextStyle}.heightScale.
+     * 以字形高度作为缩放基数。最终行高为塑形后字形高度 * [TextStyle]{@link text.TextStyle}.heightScale。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -1065,7 +1042,7 @@ declare namespace text {
   }
 
   /**
-   * Describes a font feature.
+   * 文本字体特征。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1075,7 +1052,7 @@ declare namespace text {
    */
   interface FontFeature {
     /**
-     * String identified by the keyword in the font feature key-value pair.
+     * 字体特征键值对中的关键字标识的字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1085,7 +1062,7 @@ declare namespace text {
      */
     name: string;
     /**
-     * Value in the font feature key-value pair.
+     * 字体特征键值对的值。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1097,7 +1074,7 @@ declare namespace text {
   }
 
   /**
-   * Describes a font variation.
+   * 可变字体属性。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1107,7 +1084,7 @@ declare namespace text {
    */
   interface FontVariation {
     /**
-     * String identified by the keyword in the font variation key-value pair.
+     * 可变字体属性键值对中的关键字标识的字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1117,7 +1094,7 @@ declare namespace text {
      */
     axis: string;
     /**
-     * Value in the font variation key-value pair.
+     * 可变字体属性键值对的值。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1127,10 +1104,7 @@ declare namespace text {
      */
     value: double;
     /**
-     * Whether to normalize. If the value is **true**, the value range of the value field is -1 to 1, which maps the
-     * minimum value to the maximum value configured in the font file. The value **0** indicates the default value
-     * configured in the font file. If the value is **false**, the value range of the value field is the adjustable
-     * range supported by the font file itself. The default value is **false**.
+     * 是否归一化。值为true时，value字段取值范围为-1~1，映射字体文件中配置的最小值到最大值范围，0表示字体文件中配置的默认值；值为false时，value字段取值范围为字体文件本身支持调节的范围；默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -1140,7 +1114,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text badges.
+   * 文本上下标枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1150,7 +1124,7 @@ declare namespace text {
    */
   enum TextBadgeType {
     /**
-     * Disables the superscript and subscript.
+     * 不使能上下标。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1161,7 +1135,7 @@ declare namespace text {
     TEXT_BADGE_NONE = 0,
 
     /**
-     * Enables the superscript.
+     * 使能上标。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1172,7 +1146,7 @@ declare namespace text {
     TEXT_SUPERSCRIPT = 1,
 
     /**
-     * Enables the subscript.
+     * 使能下标。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1184,7 +1158,7 @@ declare namespace text {
   }
 
   /**
-   * Describes a text style.
+   * 文本样式。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1195,7 +1169,7 @@ declare namespace text {
   interface TextStyle {
 
     /**
-     * Text decoration. By default, no decoration is used.
+     * 装饰线设置，默认不使用装饰线。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1206,7 +1180,7 @@ declare namespace text {
     decoration?: Decoration;
 
     /**
-     * Text color. The default color is white.
+     * 文字颜色，默认为白色。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1217,9 +1191,7 @@ declare namespace text {
     color?: common2D.Color;
 
     /**
-     * Font weight. The default value is **W400**. Currently, only the default system font supports font weight
-     * adjustment. For other fonts, if the weight is less than semi-bold (W600), there is no variation in stroke
-     * thickness. If the weight is greater than or equal to semi-bold, it might result in a fake bold effect.
+     * 字重，默认为W400。 目前只有系统默认字体支持字重的调节，其他字体设置字重值小于semi-bold（即W600）时字体粗细无变化，当设置字重值大于等于semi-bold（即W600）时可能会触发伪加粗效果。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1230,7 +1202,7 @@ declare namespace text {
     fontWeight?: FontWeight;
 
     /**
-     * Font style. The default value is **NORMAL**.
+     * 字体样式，默认为常规样式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1241,7 +1213,7 @@ declare namespace text {
     fontStyle?: FontStyle;
 
     /**
-     * Text baseline type. The default value is **ALPHABETIC**.
+     * 文本基线类型，默认为ALPHABETIC。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1252,7 +1224,7 @@ declare namespace text {
     baseline?: TextBaseline;
 
     /**
-     * Array of font families. By default, the array is empty, indicating that all system fonts are matched.
+     * 字体家族名称列表，默认为空，匹配系统字体。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1263,7 +1235,7 @@ declare namespace text {
     fontFamilies?: Array<string>;
 
     /**
-     * Font size, a floating-point value with a default value of **14.0**, measured in physical pixels (px).
+     * 字体大小，浮点数，默认为14.0，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1274,8 +1246,7 @@ declare namespace text {
     fontSize?: double;
 
     /**
-     * Character spacing, a floating-point value in physical pixels (px) with a default value of **0.0**. A positive
-     * value widens the character gap, while a negative value narrows it.
+     * 字符间距，正数拉开字符距离，如果为负数则拉近字符距离，浮点数，单位为物理像素px，默认为0.0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1286,7 +1257,7 @@ declare namespace text {
     letterSpacing?: double;
 
     /**
-     * Word spacing, a floating-point value in physical pixels (px) with a default value of **0.0**.
+     * 单词间距，浮点数，单位为物理像素px，默认为0.0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1297,9 +1268,7 @@ declare namespace text {
     wordSpacing?: double;
 
     /**
-     * Maximum line height, in physical pixels (px). If the line height is scaled, the maximum line height takes effect
-     * when [TextStyle]{@link text.TextStyle}.heightScale is greater than 0. The value is a positive floating point
-     * number. The default value is **Number.MAX_VALUE**.
+     * 行高上限，单位为物理像素px。若同时应用行高缩放，行高上限在[TextStyle]{@link text.TextStyle}.heightScale大于0时生效。取值为正数浮点数，默认值为Number.MAX_VALUE。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -1309,9 +1278,7 @@ declare namespace text {
     lineHeightMaximum?: double;
 
     /**
-     * Minimum line height, in physical pixels (px). If the line height is scaled, the minimum line height takes effect
-     * when [TextStyle]{@link text.TextStyle}.heightScale is greater than 0. The value is a non-negative floating point
-     * number. The default value is **0**.
+     * 行高下限，单位为物理像素px。若同时应用行高缩放，行高下限在[TextStyle]{@link text.TextStyle}.heightScale大于0时生效。取值范围为非负浮点数，默认值为0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -1321,7 +1288,7 @@ declare namespace text {
     lineHeightMinimum?: double;
 
     /**
-     * Scaling base style of the line height. The default value is **FONT_SIZE**.
+     * 行高缩放基数样式。默认为FONT_SIZE。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -1331,8 +1298,7 @@ declare namespace text {
     lineHeightStyle?: LineHeightStyle;
 
     /**
-     * Scale factor of the line height. The value is a floating point number. The default value is **1.0**. This
-     * parameter is valid only when **heightOnly** is set to** true**.
+     * 行高缩放倍数，浮点数，默认为1.0，heightOnly为true时生效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1343,9 +1309,7 @@ declare namespace text {
     heightScale?: double;
 
     /**
-     * Whether half leading is enabled. Half leading is the leading split in half and applied equally to the top and
-     * bottom edges. The value **true** means that half leading is enabled, and **false** means the opposite. The
-     * default value is **false**.
+     * true表示将行间距平分至行的顶部与底部，false则不平分，默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1356,9 +1320,7 @@ declare namespace text {
     halfLeading?: boolean;
 
     /**
-     * How the height of the text box is set. The value **true** means that the height of the text box is set based on
-     * the font size and the value of **heightScale**, and **false** means that the height is set based on the line
-     * height and line spacing. The default value is **false**.
+     * true表示根据字体大小和heightScale设置文本框的高度，false表示根据行高和行距，默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1369,7 +1331,7 @@ declare namespace text {
     heightOnly?: boolean;
 
     /**
-     * Ellipsis content, which will be used to replace the extra content.
+     * 省略号文本，表示省略号生效后使用该字段值替换省略号部分。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1380,7 +1342,7 @@ declare namespace text {
     ellipsis?: string;
 
     /**
-     * Ellipsis type. The default value is **END**, indicating that the ellipsis is at the end of a line.
+     * 省略号类型，默认为END，行尾省略号。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1391,11 +1353,8 @@ declare namespace text {
     ellipsisMode?: EllipsisMode;
 
     /**
-     * Language type. For example, **'en-Latn'** indicates English (Latin script), **'zh-Hans'** indicates Simplified
-     * Chinese, and **'zh-Hant'** indicates Traditional Chinese. Supports two-segment language tags in the language-
-     * script format, where language complies with the ISO 639-1 standard and script complies with the ISO 15924
-     * standard. If the locale is not specified, set to an empty string, or set to **undefined**, the default locale is
-     * **'zh-Hans'**.
+     * 语言类型，例如'en-Latn'代表英文(拉丁文字)，'zh-Hans'代表简体中文，'zh-Hant'代表繁体中文。支持language-script格式的两段式语言标签，language遵循ISO 639-1规范，
+     * script遵循ISO 15924规范。未指定locale或者设置为空字符串或为undefined时，默认locale为'zh-Hans'。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1406,7 +1365,7 @@ declare namespace text {
     locale?: string;
 
     /**
-     * Underline offset of text, a floating-point value in physical pixels (px), with a default value of **0.0**.
+     * 文本下划线的偏移距离，浮点数，单位为物理像素px，默认为0.0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1417,7 +1376,7 @@ declare namespace text {
     baselineShift?: double;
 
     /**
-     * Array of font features.
+     * 文本字体特征数组。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1428,7 +1387,7 @@ declare namespace text {
     fontFeatures?: Array<FontFeature>;
 
     /**
-     * Array of shadows.
+     * 文本阴影数组。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1439,7 +1398,7 @@ declare namespace text {
     textShadows?: Array<TextShadow>;
 
     /**
-     * Rectangle style.
+     * 文本矩形框样式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1450,7 +1409,7 @@ declare namespace text {
     backgroundRect?: RectStyle;
 
     /**
-     * Array of font variations.
+     * 可变字体属性数组。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1461,9 +1420,7 @@ declare namespace text {
     fontVariations?: Array<FontVariation>;
 
     /**
-     * Sets whether to use superscript or subscript in text layout. **TEXT_SUPERSCRIPT** indicates that superscript is
-     * enabled, and **TEXT_SUBSCRIPT** indicates that subscript is enabled. The default value is **TEXT_BADGE_NONE**,
-     * indicating that neither superscript nor subscript is enabled.
+     * 设置文本排版时是否使能上标或下标。TEXT_SUPERSCRIPT表示使能上标，TEXT_SUBSCRIPT表示使能下标，默认值为TEXT_BADGE_NONE表示不使能。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1474,7 +1431,7 @@ declare namespace text {
     badgeType?: TextBadgeType;
 
     /**
-     * Font width. The default value is **NORMAL**.
+     * 字体宽度，默认为NORMAL。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -1484,7 +1441,9 @@ declare namespace text {
     fontWidth?: FontWidth;
 
     /**
-     * Edge processing mode for drawing texts. The default value is **ANTI_ALIAS**.
+     * 绘制文本的边缘处理方式，默认值为ANTI_ALIAS。
+     * 
+     * **模型约束：** 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -1495,7 +1454,7 @@ declare namespace text {
   }
 
   /**
-   * Implements a collection of fonts.
+   * 字体集。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1506,9 +1465,9 @@ declare namespace text {
    */
   class FontCollection {
     /**
-     * Obtains a global **FontCollection** instance.
+     * 获取应用全局FontCollection实例。
      *
-     * @returns { FontCollection } **FontCollection** instance.
+     * @returns { FontCollection } FontCollection对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -1518,9 +1477,9 @@ declare namespace text {
     static getGlobalInstance(): FontCollection;
 
     /**
-     * Obtains the local **FontCollection** instance. This API is recommended for widgets.
+     * 获取本地FontCollection实例，推荐卡片场景使用。
      *
-     * @returns { FontCollection } **FontCollection** instance.
+     * @returns { FontCollection } FontCollection对象。
      * @static
      * @syscap SystemCapability.Graphics.Drawing
      * @form
@@ -1531,14 +1490,10 @@ declare namespace text {
     static getLocalInstance(): FontCollection;
 
     /**
-     * Loads a custom font. This API returns the result synchronously. In this API, **name** specifies the alias of the
-     * font, and the custom font effect can be displayed only when the value of **name** is set in **fontFamilies** in
-     * **[TextStyle]{@link text.TextStyle}**. The supported font file formats are TTF and OTF.
+     * 同步接口，加载自定义字体。其中参数name对应的值需要在[TextStyle]{@link text.TextStyle}中的fontFamilies属性配置，才能显示自定义字体效果。支持的字体文件格式包含：ttf、otf。
      *
-     * @param { string } name - Name of the font to be called after the font is loaded.
-     * @param { string | Resource } path - Path of the font file to be imported. The path must be in the format of "
-     *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-     *     **resources/rawfile** directory in the project, which includes the font file name).
+     * @param { string } name - 加载字体后，调用该字体所使用的名称。
+     * @param { string | Resource } path - 需要导入的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 "rawfile/目录or文件名"。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @form [since 22]
@@ -1549,15 +1504,12 @@ declare namespace text {
     loadFontSync(name: string, path: string | Resource): void;
 
     /**
-     * Loads the custom font. This API uses a promise to return the result. In this API, **name** specifies the alias of
-     * the font, and the custom font effect can be displayed only when the value of **name** is set in **fontFamilies**
-     * in **[TextStyle]{@link text.TextStyle}**. The supported font file formats are TTF and OTF.
+     * 加载自定义字体。使用Promise异步回调。其中参数name对应的值需要在[TextStyle]{@link text.TextStyle}中的fontFamilies属性配置，才能显示自定义字体效果，支持的字体文件格式包含：
+     * ttf、otf。
      *
-     * @param { string } name - Name of the font. Any string is acceptable.
-     * @param { string | Resource } path - Path of the font file to be loaded. The path must be in the format of "
-     *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-     *     **resources/rawfile** directory in the project, which includes the font file name).
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } name - 加载字体后，调用该字体所使用的别名，可填写任意字符串，可使用该别名指定并使用该字体。
+     * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 "rawfile/目录or文件名"。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed. [since 24]
      * @syscap SystemCapability.Graphics.Drawing
@@ -1570,17 +1522,12 @@ declare namespace text {
     loadFont(name: string, path: string | Resource): Promise<void>;
 
     /**
-     * Loads a custom font. This API returns the result synchronously. In this API, **name** specifies the alias of the
-     * font, and the custom font effect can be displayed only when the value of **name** is set in **fontFamilies** in
-     * **[TextStyle]{@link text.TextStyle}**. The supported font file formats are TTF, OTF, and TTC.
+     * 同步接口，加载自定义字体。其中参数name对应的值需要在[TextStyle]{@link text.TextStyle}中的fontFamilies属性配置，才能显示自定义字体效果。支持的字体文件格式包含：ttf、otf、
+     * ttc。
      *
-     * @param { string } name - Name of the font. Any string is acceptable.
-     * @param { string | Resource } path - Path of the font file to be loaded. The path must be in the format of "
-     *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-     *     **resources/rawfile** directory in the project, which includes the font file name).
-     * @param { int } [index] - Font index to be loaded when the font file format is TTC. The default value is **0**,
-     *     indicating that the first font of the TTC file is loaded.<br>The index value of a non-TTC file is
-     *     meaningless. If an index is specified, the value can only be **0**.
+     * @param { string } name - 加载字体成功后，该字体对应的名称，可填写任意字符串，可使用该名称指定并使用该字体。
+     * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 $rawfile("字体文件路径")。
+     * @param { int } [index] - 字体文件格式为ttc时，指定加载的字体索引。默认为0：表示加载ttc的第一个字体。<br>非ttc格式文件索引值无意义，若指定索引，只能为0。
      * @throws { BusinessError } 25900001 - Parameter error.
      * @throws { BusinessError } 25900002 - File not found.
      * @throws { BusinessError } 25900003 - Failed to open the file.
@@ -1597,18 +1544,13 @@ declare namespace text {
     loadFontSyncWithCheck(name: string, path: string | Resource, index?: int): void;
 
     /**
-     * Loads a custom font. This API uses a promise to return the result. In this API, **name** specifies the alias of
-     * the font, and the custom font effect can be displayed only when the value of **name** is set in **fontFamilies**
-     * in **[TextStyle]{@link text.TextStyle}**. The supported font file formats are TTF, OTF, and TTC.
+     * 加载自定义字体，使用Promise异步回调。其中参数name对应的值需要在[TextStyle]{@link text.TextStyle}中的fontFamilies属性配置，才能显示自定义字体效果，支持的字体文件格式包含：
+     * ttf、otf、ttc。
      *
-     * @param { string } name - Name of the font. Any string is acceptable.
-     * @param { string | Resource } path - Path of the font file to be loaded. The path must be in the format of "
-     *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-     *     **resources/rawfile** directory in the project, which includes the font file name).
-     * @param { int } [index] - Font index to be loaded when the font file format is TTC. The default value is **0**,
-     *     indicating that the first font of the TTC file is loaded.<br>The index value of a non-TTC file is
-     *     meaningless. If an index is specified, the value can only be **0**.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } name - 加载字体成功后，该字体对应的名称，可填写任意字符串，可使用该名称指定并使用该字体。
+     * @param { string | Resource } path - 需要加载的字体文件的路径，支持两种格式： "file:// + 字体文件绝对路径" 或 $rawfile("字体文件路径")。
+     * @param { int } [index] - 字体文件格式为ttc时，指定加载的字体索引。默认为0：表示加载ttc的第一个字体。<br>非ttc格式文件索引值无意义，若指定索引，只能为0。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 25900001 - Parameter error.
      * @throws { BusinessError } 25900002 - File not found.
      * @throws { BusinessError } 25900003 - Failed to open the file.
@@ -1625,19 +1567,17 @@ declare namespace text {
     loadFontWithCheck(name: string, path: string | Resource, index?: int): Promise<void>;
 
     /**
-     * Uninstalls a specified custom font. This API is synchronous.
+     * 卸载指定的自定义字体，此接口为同步接口。
+     * 
+     * 使用此接口卸载字体别名所对应的自定义字体后，对应的自定义字体将不再可用。
+     * 
+     * 所有使用该字体别名的排版对象都应该被销毁重建。
+     * 
+     * - 卸载不存在的字体别名不会产生任何效果且不会抛出错误。
+     * - 此操作仅影响后续字体使用。
+     * - 卸载正在使用的字体可能导致文本渲染异常（如乱码或字形缺失）。
      *
-     * After this API is called to unload a custom font corresponding to a font alias, the custom font is no longer
-     * available.
-     *
-     * All layout objects that use the font alias must be destroyed and recreated.
-     *
-     * - Unloading a non-existent font alias does not produce any effect and does not throw an error.
-     * - This operation only affects future font usage.
-     * - Unloading a font that is currently in use may lead to text rendering exceptions (such as garbled characters or
-     * missing glyphs).
-     *
-     * @param { string } name - Font alias to be unregistered, which is the same as the alias used for loading the font.
+     * @param { string } name - 需要取消注册的字体别名，与加载字体时使用的别名相同。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @form [since 22]
@@ -1648,21 +1588,18 @@ declare namespace text {
     unloadFontSync(name: string): void;
 
     /**
-     * Uninstalls a specified custom font. This API uses a promise to return the result.
+     * 卸载指定的自定义字体。使用Promise异步回调。
+     * 
+     * 使用此接口卸载字体别名所对应的自定义字体后，对应的自定义字体将不再可用。
+     * 
+     * 所有使用该字体别名的排版对象都应该被销毁重建。
+     * 
+     * - 卸载不存在的字体别名不会产生任何效果且不会抛出错误。
+     * - 此操作仅影响后续字体使用。
+     * - 卸载正在使用的字体可能导致文本渲染异常（如乱码或字形缺失）。
      *
-     * After this API is called to unload a custom font corresponding to a font alias, the custom font is no longer
-     * available.
-     *
-     * All layout objects that use the font alias must be destroyed and recreated.
-     *
-     * - Unloading a non-existent font alias does not produce any effect and does not throw an error.
-     * - This operation only affects future font usage.
-     * - Unloading a font that is currently in use may lead to text rendering exceptions (such as garbled characters or
-     * missing glyphs).
-     *
-     * @param { string } name - Alias of the font to be uninstalled, which is the same as the alias used when the font
-     *     is loaded.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } name - 需要卸载的字体的别名，与加载字体时使用的别名相同。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @form [since 22]
@@ -1673,8 +1610,7 @@ declare namespace text {
     unloadFont(name: string): Promise<void>;
 
     /**
-     * Clears the font cache. (The font cache has a memory limit and a clearing mechanism. It occupies limited memory.
-     * You are not advised to clear it unless otherwise required.)
+     * 清理字体排版缓存（字体排版缓存本身设有内存上限和清理机制，所占内存有限，如无内存要求，不建议清理）。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1686,9 +1622,9 @@ declare namespace text {
     clearCaches(): void;
 
     /**
-     * Sets whether paragraph caches are enabled.
+     * 设置是否启用排版段落缓存。排版段落缓存可以加速重复文本的排版速度，但会占用额外的内存。未调用此接口前，系统默认开启排版段落缓存。
      *
-     * @param { boolean } enable - Indicates whether to enable paragraph caches, where true enables and false disables.
+     * @param { boolean } enable - 是否启用排版段落缓存。true表示启用，false表示禁用。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -1698,8 +1634,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the strut style, which determines the line spacing, baseline alignment mode, and other properties related
-   * to the line height when drawing texts. The strut style is disabled by default.
+   * 支柱样式，用于控制绘制文本的行间距、基线对齐方式以及其他与行高相关的属性，默认不开启。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1709,7 +1644,7 @@ declare namespace text {
    */
   interface StrutStyle {
     /**
-     * Array of font families. By default, the array is empty, indicating that all system fonts are matched.
+     * 字体家族名称列表，默认为空，匹配系统字体。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1720,7 +1655,7 @@ declare namespace text {
     fontFamilies?: Array<string>;
 
     /**
-     * Font style. The default value is **NORMAL**.
+     * 字体样式，默认为常规样式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1731,7 +1666,7 @@ declare namespace text {
     fontStyle?: FontStyle;
 
     /**
-     * Font width. The default value is **NORMAL**.
+     * 字体宽度，默认为NORMAL。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1742,9 +1677,7 @@ declare namespace text {
     fontWidth?: FontWidth;
 
     /**
-     * Font weight. The default value is **W400**. The default system font supports font weight adjustment. For other
-     * fonts, if the weight is less than W600, there is no variation in stroke thickness. If the weight is greater than
-     * or equal to W600, it might result in a fake bold effect.
+     * 字重，默认为W400。系统默认字体支持字重调节，其他字体设置字重值小于W600时无变化，大于等于W600时可能触发伪加粗效果。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1755,7 +1688,7 @@ declare namespace text {
     fontWeight?: FontWeight;
 
     /**
-     * Font size, a floating-point value with a default value of **14.0**, measured in physical pixels (px).
+     * 字体大小，浮点数，默认为14.0，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1766,7 +1699,7 @@ declare namespace text {
     fontSize?: double;
 
     /**
-     * Scale factor of the line height. The value is a floating point number. The default value is **1.0**.
+     * 行高缩放倍数，浮点数，默认为1.0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1777,8 +1710,7 @@ declare namespace text {
     height?: double;
 
     /**
-     * Custom line spacing applied to the strut, a floating-point value in physical pixels (px), with a default value of
-     * **-1.0**.
+     * 自定义应用于支柱的行距，浮点数，单位为物理像素px，默认为-1.0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1789,8 +1721,7 @@ declare namespace text {
     leading?: double;
 
     /**
-     * Whether to forcibly use the strut height for all lines. The value **true** means to forcibly use the strut height
-     * for all lines, and **false** means the opposite. The default value is **false**.
+     * 是否所有行都将使用支柱的高度，true表示使用，false表示不使用，默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1801,8 +1732,7 @@ declare namespace text {
     forceHeight?: boolean;
 
     /**
-     * Whether to enable the strut style. The value **true** means to enable the strut style, and **false** means the
-     * opposite. The default value is **false**.
+     * 是否启用支柱样式，true表示使用，false表示不使用，默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1813,8 +1743,7 @@ declare namespace text {
     enabled?: boolean;
 
     /**
-     * Whether to override the height. The value **true** means to override the height, and **false** means the
-     * opposite. The default value is **false**.
+     * 是否覆盖高度，true表示覆盖，false表示不覆盖，默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1825,9 +1754,7 @@ declare namespace text {
     heightOverride?: boolean;
 
     /**
-     * Whether half leading is enabled. Half leading is the leading split in half and applied equally to the top and
-     * bottom edges. The value **true** means that half leading is enabled, and **false** means the opposite. The
-     * default value is **false**.
+     * true表示将行间距平分至行的顶部与底部，false则不平分，默认为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1839,7 +1766,7 @@ declare namespace text {
   }
 
   /**
-   * Describes a paragraph style.
+   * 段落样式。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1849,7 +1776,7 @@ declare namespace text {
    */
   interface ParagraphStyle {
     /**
-     * Text style applied to the paragraph. The default value is the initial text style.
+     * 作用于整个段落的文本样式，默认为初始的文本样式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1860,7 +1787,7 @@ declare namespace text {
     textStyle?: TextStyle;
 
     /**
-     * Text direction. The default value is **LTR**.
+     * 文本方向，默认为LTR。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1871,8 +1798,7 @@ declare namespace text {
     textDirection?: TextDirection;
 
     /**
-     * Text alignment mode. The default value is **START**. This parameter is invalid when the **tab** parameter is
-     * configured.
+     * 文本对齐方式，默认为START。若同时配置tab属性，制表符对齐方式将失效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1883,7 +1809,7 @@ declare namespace text {
     align?: TextAlign;
 
     /**
-     * Word break type. The default value is **BREAK_WORD**.
+     * 断词类型，默认为BREAK_WORD。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1894,7 +1820,7 @@ declare namespace text {
     wordBreak?: WordBreak;
 
     /**
-     * Maximum number of lines. The value is an integer. The default value is **1e9**.
+     * 最大行数限制，整数，默认为1e9。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1905,7 +1831,7 @@ declare namespace text {
     maxLines?: int;
 
     /**
-     * Text break strategy. The default value is **GREEDY**.
+     * 断行策略，默认为GREEDY。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1916,7 +1842,7 @@ declare namespace text {
     breakStrategy?: BreakStrategy;
 
     /**
-     * Strut style. The default value is the initial **StrutStyle** object.
+     * 支柱样式，默认为初始的StrutStyle。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1927,7 +1853,7 @@ declare namespace text {
     strutStyle?: StrutStyle;
 
     /**
-     * Text height modifier pattern. The default value is **ALL**.
+     * 文本高度修饰符模式，默认为ALL。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1938,9 +1864,8 @@ declare namespace text {
     textHeightBehavior?: TextHeightBehavior;
 
     /**
-     * Alignment mode and position of the text after the tab character in a paragraph. By default, the tab character is
-     * replaced with a space. This parameter is invalid when it is used together with the **align** parameter or the
-     * **ellipsis** parameter in [TextStyle]{@link text.TextStyle}.
+     * 表示段落中文本制表符后的文本对齐方式及位置，默认将制表符替换为一个空格。此参数与文本对齐方式（align属性）或省略号样式（[TextStyle]{@link text.TextStyle}中的ellipsis属性）共同配置时
+     * 无效。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1951,9 +1876,7 @@ declare namespace text {
     tab?: TextTab;
 
     /**
-     * Whether to consider the alignment impact of trailing spaces during text layout. The value **true** indicates that
-     * the alignment impact of trailing spaces is ignored, and the value **false** indicates that the alignment impact
-     * of trailing spaces is considered. The default value is **false**.
+     * 表示文本排版时是否考虑行尾空格的对齐影响。true表示忽略行尾空格的对齐影响，false表示考虑行尾空格的对齐影响，默认值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1964,11 +1887,8 @@ declare namespace text {
     trailingSpaceOptimized?: boolean;
 
     /**
-     * Sets whether to enable automatic spacing during text typography. **true** indicates that the automatic spacing
-     * feature is enabled. In this case, automatic spacing applies between CJK (Chinese, Japanese, and Korean) and
-     * Western characters (Latin, Cyrillic, and Greek), between CJK and digits, between CJK and copyright symbols,
-     * between copyright symbols and digits, and between copyright symbols and Western characters. **false** (default)
-     * indicates that the automatic spacing feature is disabled.
+     * 设置文本排版时是否使能自动间距。true表示使能自动间距，则会在文本排版时自动调整CJK（中文字符、日文字符、韩文字符）与西文（拉丁字母、西里尔字母、希腊字母）、CJK与数字、CJK与版权符号、版权符号与数字、版权符号与西文之
+     * 间的间距。false表示不使能自动间距，默认值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1979,11 +1899,8 @@ declare namespace text {
     autoSpace?: boolean;
 
     /**
-     * Vertical alignment of text. This parameter takes effect when line height scaling (that is, **heightScale** of
-     * [TextStyle]{@link text.TextStyle}) is enabled or different font sizes (that is, **fontSize** of
-     * [TextStyle]{@link text.TextStyle}) are set for text in a line. If superscript and subscript text (that is,
-     * **badgeType** of [TextStyle]{@link text.TextStyle}) is set in a line, the superscript and subscript text will
-     * participate in vertical alignment as common text.
+     * 文本垂直对齐方式，开启行高缩放（即设置[TextStyle]{@link text.TextStyle}的heightScale）或行内不同字号（即设置[TextStyle]{@link text.TextStyle}的
+     * fontSize）文本混排时生效。若行内有上下标文本（即设置[TextStyle]{@link text.TextStyle}的badgeType属性文本），上下标文本将与普通文本一样参与垂直对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1994,10 +1911,8 @@ declare namespace text {
     verticalAlign?: TextVerticalAlign;
 
     /**
-     * Line spacing, in physical pixels (px). The default value is **0**. **lineSpacing** is not restricted by
-     * **lineHeightMaximum** and **lineHeightMinimum** in [TextStyle]{@link text.TextStyle}. By default, the line
-     * spacing is reserved for the last line. You can set [TextStyle]{@link text.TextStyle}.textHeightBehavior to
-     * **DISABLE_ALL** or **DISABLE_LAST_ASCENT** to disable the line spacing for the last line.
+     * 行间距，单位为物理像素px，默认值为0。lineSpacing不受[TextStyle]{@link text.TextStyle}中lineHeightMaximum和lineHeightMinimum限制。尾行默认保留行间
+     * 距，可通过设置[TextStyle]{@link text.TextStyle}.textHeightBehavior为DISABLE_ALL或DISABLE_LAST_ASCENT禁用尾行行间距。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -2007,31 +1922,27 @@ declare namespace text {
     lineSpacing?: double;
 
     /**
-     * Sets whether to use punctuation compression at the beginning of a line in text layout. **true** means yes;
-     * **false** otherwise. The default value is **false**.
-     *
-     * **NOTE**
-     *
-     * 1. The font file must support the ss08 feature in [FontFeature]{@link text.FontFeature}.
-     * Otherwise, compression cannot be performed.
-     * 2. Only the punctuations within the punctuation compression range at the beginning of a line
-     * are in the scope of this feature.
-     *
-     * Punctuation range at the beginning of a line.
-     * | Punctuation| Unicode Code Point| Unicode Name|
+     * 设置文本排版时是否使能行首标点压缩。true表示使能行首标点压缩，false表示不使能行首标点压缩，默认值为false。
+     * 
+     * **说明：**
+     * 
+     * 1. 需要字体文件支持[FontFeature]{@link text.FontFeature}中的"ss08"特性，否则无法压缩。
+     * 2. 在行首标点压缩范围内的标点才在本特性作用范围内。
+     * 行首压缩的标点范围:
+     * | 标点 | Unicode码位 | Unicode名称 |
      * |---------|---------|-------------|
-     * | 「| U+300C | LEFT CORNER BRACKET |
-     * | 『| U+300E | LEFT WHITE CORNER BRACKET |
+     * | 「 | U+300C | LEFT CORNER BRACKET |
+     * | 『 | U+300E | LEFT WHITE CORNER BRACKET |
      * | " | U+201C | LEFT DOUBLE QUOTATION MARK |
      * | ' | U+2018 | LEFT SINGLE QUOTATION MARK |
-     * | （| U+FF08 | FULLWIDTH LEFT PARENTHESIS |
-     * | 《| U+300A | LEFT DOUBLE ANGLE BRACKET |
-     * | 〈| U+3008 | LEFT ANGLE BRACKET |
-     * | 【| U+3010 | LEFT BLACK LENTICULAR BRACKET |
-     * | 〖| U+3016 | LEFT WHITE LENTICULAR BRACKET |
-     * | 〔| U+3014 | LEFT TORTOISE SHELL BRACKET |
-     * | ［| U+FF3B | FULLWIDTH LEFT SQUARE BRACKET |
-     * | ｛| U+FF5B | FULLWIDTH LEFT CURLY BRACKET |
+     * | （ | U+FF08 | FULLWIDTH LEFT PARENTHESIS |
+     * | 《 | U+300A | LEFT DOUBLE ANGLE BRACKET |
+     * | 〈 | U+3008 | LEFT ANGLE BRACKET |
+     * | 【 | U+3010 | LEFT BLACK LENTICULAR BRACKET |
+     * | 〖 | U+3016 | LEFT WHITE LENTICULAR BRACKET |
+     * | 〔 | U+3014 | LEFT TORTOISE SHELL BRACKET |
+     * | ［ | U+FF3B | FULLWIDTH LEFT SQUARE BRACKET |
+     * | ｛ | U+FF5B | FULLWIDTH LEFT CURLY BRACKET |
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2040,8 +1951,7 @@ declare namespace text {
     compressHeadPunctuation?: boolean;
 
     /**
-     * Sets whether to use padding at the beginning and end of a line in text layout. **true** means yes; **false**
-     * otherwise. The default value is **false**.
+     * 设置文本排版时是否使能首尾行padding。true表示使能首尾行padding，false表示不使能首尾行padding，默认值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2050,9 +1960,7 @@ declare namespace text {
     includeFontPadding?: boolean;
 
     /**
-     * Sets whether to enable line height rollback during text layout. If the set line height is less than the actual
-     * line height, the line height is rolled back to the actual line height. **true** means yes; **false** otherwise.
-     * The default value is **false**.
+     * 设置文本排版时是否使能行高回退，当设置的行高小于实际行高时，将行高回退为实际行高。true表示使能行高回退，false表示不使能行高回退，默认值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2061,7 +1969,13 @@ declare namespace text {
     fallbackLineSpacing?: boolean;
 
     /**
-     * Indentation before the first line of text.
+     * 设置段落首行缩进，缩进值需大于等于0，默认值为0。
+     * 
+     * 26.0.0 
+     * 
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
+     * 
+     * **模型约束：** 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2071,7 +1985,13 @@ declare namespace text {
     firstLineHeadIndent?: double;
 
     /**
-     * Indentation after each line of text.
+     * 设置行尾缩进数组，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值，缩进值需全大于等于0，默认为空数组。
+     * 
+     * 26.0.0 
+     * 
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
+     * 
+     * **模型约束：** 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2081,7 +2001,13 @@ declare namespace text {
     tailIndents?: Array<double>;
 
     /**
-     * Indentation before each line of text.
+     * 设置行首缩进数组，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值，缩进值需全大于等于0，默认为空数组。
+     * 
+     * 26.0.0 
+     * 
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
+     * 
+     * **模型约束：** 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2091,7 +2017,15 @@ declare namespace text {
     headIndents?: Array<double>;
 
     /**
-     * Whether to enable orphan char optimization.
+     * 设置文本排版时是否使能孤字优化。孤字优化通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[wordBreak]{@link text.WordBreak}为
+     * 非BREAK_ALL并且待排版文本首个[TextStyle]{@link text.TextStyle}的[locale]{@link text.TextStyle}为“zh-Hans”或“zh-Hant”时生效。true表示
+     * 使能孤字优化，false表示不使能孤字优化，默认值为false。
+     * 
+     * 26.0.0 
+     * 
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
+     * 
+     * **模型约束：** 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2102,16 +2036,16 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the vertical alignment modes of a placeholder relative to the surrounding text.
-   *
-   * ![image_PlaceholderAlignment.png](docroot://reference/apis-arkgraphics2d/figures/image_PlaceholderAlignment.png)
-   *
-   * > **NOTE**
+   * 占位符相对于周围文本的纵向对齐方式。
+   * 
+   * !
+   * [zh-ch_image_PlaceholderAlignment.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_PlaceholderAlignment.png)
+   * 
+   * > **说明：**
    * >
-   * > The figure shows the last three alignment modes. The first three alignment modes are similar in text baseline
-   * > alignment, with the comparison reference being the text baseline, indicated by the green line.
+   * > 示意图展示了后三种对齐方式，前三种对齐方式在文本基线对齐方式上类似，比较位置是文本基线，即绿色线条部分。
    * >
-   * > ![image_Baseline.png](docroot://reference/apis-arkgraphics2d/figures/image_Baseline.png)
+   * > ![zh-ch_image_Baseline.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_Baseline.png)
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2121,7 +2055,7 @@ declare namespace text {
    */
   enum PlaceholderAlignment {
     /**
-     * Aligns the baseline of the placeholder to the baseline of the text.
+     * 基线与文本基线对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2132,7 +2066,7 @@ declare namespace text {
     OFFSET_AT_BASELINE = 0,
 
     /**
-     * Aligns the bottom edge of the placeholder to the baseline of the text.
+     * 底部与文本基线对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2143,7 +2077,7 @@ declare namespace text {
     ABOVE_BASELINE = 1,
 
     /**
-     * Aligns the top edge of the placeholder to the baseline of the text.
+     * 顶部与文本基线对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2154,7 +2088,7 @@ declare namespace text {
     BELOW_BASELINE = 2,
 
     /**
-     * Aligns the top edge of the placeholder to the top edge of the text.
+     * 顶部与文本顶部对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2165,7 +2099,7 @@ declare namespace text {
     TOP_OF_ROW_BOX = 3,
 
     /**
-     * Aligns the bottom edge of the placeholder to the bottom edge of the text.
+     * 底部与文本底部对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2176,7 +2110,7 @@ declare namespace text {
     BOTTOM_OF_ROW_BOX = 4,
 
     /**
-     * Center-aligned.
+     * 文本居中对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2187,8 +2121,7 @@ declare namespace text {
     CENTER_OF_ROW_BOX = 5,
 
     /**
-     * Aligns with the text baseline.
-     *
+     * Follow Paragraph setting,
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2199,7 +2132,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the placeholder style.
+   * 描述占位符样式。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2209,7 +2142,7 @@ declare namespace text {
    */
   interface PlaceholderSpan {
     /**
-     * Width of the placeholder, in units of px. The value is a floating point number.
+     * 占位符的宽度，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2220,7 +2153,7 @@ declare namespace text {
     width: double;
 
     /**
-     * Height of the placeholder, in units of px. The value is a floating point number.
+     * 占位符的高度，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2231,7 +2164,7 @@ declare namespace text {
     height: double;
 
     /**
-     * Vertical alignment of the placeholder relative to the surrounding text.
+     * 相对于周围文本的纵向对齐方式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2242,7 +2175,7 @@ declare namespace text {
     align: PlaceholderAlignment;
 
     /**
-     * Type of the text baseline.
+     * 基线类型。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2253,7 +2186,7 @@ declare namespace text {
     baseline: TextBaseline;
 
     /**
-     * Offset to the text baseline, in units of px. The value is a floating point number.
+     * 基线偏移量，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2265,7 +2198,7 @@ declare namespace text {
   }
 
   /**
-   * Describes a left-closed and right-open interval.
+   * 描述左闭右开区间。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2275,7 +2208,7 @@ declare namespace text {
    */
   interface Range {
     /**
-     * Index of the leftmost point of the interval. The value is an integer.
+     * 区间左侧端点索引，整数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2286,7 +2219,7 @@ declare namespace text {
     start: int;
 
     /**
-     * Index of the rightmost point of the interval. The value is an integer.
+     * 区间右侧端点索引，整数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2298,7 +2231,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the font types, which can be combined through bitwise OR operations.
+   * 字体类型枚举，通过位或运算可实现组合类型。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2308,7 +2241,7 @@ declare namespace text {
    */
   enum SystemFontType {
     /**
-     * All font types, including the system font type, style font type, and user-installed font type.
+     * 所有字体类型，包括系统字体类型、风格字体类型和用户已安装字体类型。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2319,7 +2252,7 @@ declare namespace text {
     ALL = 1 << 0,
 
     /**
-     * System font type.
+     * 系统字体类型。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2330,7 +2263,7 @@ declare namespace text {
     GENERIC = 1 << 1,
 
     /**
-     * Style font type. The style font type is designed for 2-in-1 devices.
+     * 风格字体类型。风格字体类型是专为2in1设备设计的字体类型。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -2340,7 +2273,7 @@ declare namespace text {
     STYLISH = 1 << 2,
 
     /**
-     * Font type that has been installed.
+     * 用户已安装的字体类型。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -2350,7 +2283,7 @@ declare namespace text {
     INSTALLED = 1 << 3,
 
     /**
-     * Custom font type.
+     * 自定义字体类型。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2362,7 +2295,7 @@ declare namespace text {
   }
 
   /**
-   * Represents the font variable axis information.
+   * 字体可变轴信息。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
@@ -2370,7 +2303,7 @@ declare namespace text {
    */
   interface FontVariationAxis {
     /**
-     * Keyword identifier of the font variable axis.
+     * 字体可变轴的关键字标识。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2379,7 +2312,7 @@ declare namespace text {
     key: string;
 
     /**
-     * Minimum value of the font variable axis.
+     * 字体可变轴的最小值。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2388,7 +2321,7 @@ declare namespace text {
     minValue: double;
 
     /**
-     * Maximum value of the font variable axis.
+     * 字体可变轴的最大值。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2397,7 +2330,7 @@ declare namespace text {
     maxValue: double;
 
     /**
-     * Default value of the font variable axis.
+     * 字体可变轴的默认值。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2406,9 +2339,7 @@ declare namespace text {
     defaultValue: double;
 
     /**
-     * Flag of the font variable axis, which is used to indicate whether a variable axis should be hidden from users.
-     * The value can be **0** or **1**. The value **0** indicates that the axis is visible to users, and the value **1**
-     * indicates that the axis should be hidden.
+     * 字体可变轴的标志位，用于标记某个可变轴是否应该对用户隐藏，值为0或1。值为0时表示该轴对用户可见，值为1时表示该轴应隐藏。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2417,7 +2348,7 @@ declare namespace text {
     flags: int;
 
     /**
-     * English name of the font variable axis.
+     * 字体可变轴的英文名称。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2426,7 +2357,7 @@ declare namespace text {
     name: string;
 
     /**
-     * Localized name of the font variable axis, which can be empty.
+     * 字体可变轴的本地化名称，可以为空。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2436,7 +2367,7 @@ declare namespace text {
   }
 
   /**
-   * Font variable instance information, which stores preset variable font style information.
+   * 字体可变实例信息，存放预设的可变字体样式信息。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
@@ -2444,7 +2375,7 @@ declare namespace text {
    */
   interface FontVariationInstance {
     /**
-     * English name of the font variable instance.
+     * 字体可变实例的英文名称。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2453,7 +2384,7 @@ declare namespace text {
     name: string;
 
     /**
-     * Localized name of the font variable instance, which can be empty.
+     * 字体可变实例的本地化名称，可以为空。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2462,7 +2393,7 @@ declare namespace text {
     localName: string;
 
     /**
-     * Array of font variations.
+     * 可变字体属性数组。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2472,7 +2403,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the font descriptor information.
+   * 字体描述符信息。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2482,8 +2413,7 @@ declare namespace text {
    */
   interface FontDescriptor {
     /**
-     * Absolute path of the font. Any string that complies with the system restrictions is acceptable. The default value
-     * is an empty string.
+     * 字体绝对路径，可取遵循系统限制的任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2494,7 +2424,7 @@ declare namespace text {
     path?: string;
 
     /**
-     * Unique name of the font. Any string is acceptable. The default value is an empty string.
+     * 字体唯一标识名称，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2505,7 +2435,7 @@ declare namespace text {
     postScriptName?: string;
 
     /**
-     * Font name. Any string is acceptable. The default value is an empty string.
+     * 字体名称，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2516,7 +2446,7 @@ declare namespace text {
     fullName?: string;
 
     /**
-     * Family name of the font. Any string is acceptable. The default value is an empty string.
+     * 字体家族，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2527,7 +2457,7 @@ declare namespace text {
     fontFamily?: string;
 
     /**
-     * Subfamily name of the font. Any string is acceptable. The default value is an empty string.
+     * 子字体家族，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2538,7 +2468,7 @@ declare namespace text {
     fontSubfamily?: string;
 
     /**
-     * Font weight. The default value is **0**.
+     * 字体字重，默认值为0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2549,7 +2479,7 @@ declare namespace text {
     weight?: FontWeight;
 
     /**
-     * Font width. The value is an integer ranging from 1 to 9. The default value is **0**.
+     * 字体宽度，取值范围1-9整数，默认值为0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2560,8 +2490,7 @@ declare namespace text {
     width?: int;
 
     /**
-     * Whether the font is italic. The value **0** means that the font is not italic, and **1** means the opposite. The
-     * default value is **0**.
+     * 是否是斜体字体，0表示非斜体，1表示斜体，默认值为0。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2572,8 +2501,7 @@ declare namespace text {
     italic?: int;
 
     /**
-     * Whether the font is monospaced. The value **true** means that the font is monospaced, and **false** means the
-     * opposite. The default value is **false**.
+     * 是否是等宽字体，true表示等宽，false表示非等宽，默认值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2584,8 +2512,7 @@ declare namespace text {
     monoSpace?: boolean;
 
     /**
-     * Whether the font is symbolic. The value **true** means that the font is symbolic, and **false** means the
-     * opposite.
+     * 是否支持符号，true表示支持，false表示不支持，默认值为false。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2596,8 +2523,7 @@ declare namespace text {
     symbolic?: boolean;
 
     /**
-     * Extracts the unique font ID based on the system language configuration. If the font file does not contain the
-     * configuration corresponding to the current language, the information corresponding to **en** is used.
+     * 根据系统语言配置提取字体唯一标识，字体文件中若无当前语言对应配置则取“en”对应信息。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2606,8 +2532,7 @@ declare namespace text {
     localPostscriptName?: string;
 
     /**
-     * Extracts the full font name based on the system language configuration. If the font file does not contain the
-     * configuration corresponding to the current language, the information corresponding to **en** is used.
+     * 根据系统语言配置提取字体全名，字体文件中若无当前语言对应配置则取“en”对应信息。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2616,8 +2541,7 @@ declare namespace text {
     localFullName?: string;
 
     /**
-     * Extracts the font family name based on the system language configuration. If the font file does not contain the
-     * configuration corresponding to the current language, the information corresponding to **en** is used.
+     * 根据系统语言配置提取字体家族名称，字体文件中若无当前语言对应配置则取“en”对应信息。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2626,8 +2550,7 @@ declare namespace text {
     localFamilyName?: string;
 
     /**
-     * Extracts the font subfamily name based on the system language configuration. If the font file does not contain
-     * the configuration corresponding to the current language, the information corresponding to **en** is used.
+     * 根据系统语言配置提取子字体家族名称，字体文件中若无当前语言对应配置则取“en”对应信息。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2636,7 +2559,7 @@ declare namespace text {
     localSubFamilyName?: string;
 
     /**
-     * Font version. Any string is acceptable. The default value is an empty string.
+     * 字体版本，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2645,7 +2568,7 @@ declare namespace text {
     version?: string;
 
     /**
-     * Font manufacturer information. Any string is acceptable. The default value is an empty string.
+     * 字体制造商信息，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2654,7 +2577,7 @@ declare namespace text {
     manufacture?: string;
 
     /**
-     * Font copyright information. Any string is acceptable. The default value is an empty string.
+     * 字体版权信息，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2663,7 +2586,7 @@ declare namespace text {
     copyright?: string;
 
     /**
-     * Font trademark information. Any string is acceptable. The default value is an empty string.
+     * 字体商标信息，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2672,7 +2595,7 @@ declare namespace text {
     trademark?: string;
 
     /**
-     * Font license information. Any string is acceptable. The default value is an empty string.
+     * 字体许可证信息，可取任意字符串，默认为空字符串。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2681,8 +2604,7 @@ declare namespace text {
     license?: string;
 
     /**
-     * Font variable axis record array, which is used to describe the variable axis information supported by the font.
-     * For non-variable fonts, this field is **undefined**.
+     * 字体可变轴记录数组，用于描述字体支持的可变轴信息。非可变字体此字段为undefined。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2691,8 +2613,7 @@ declare namespace text {
     variationAxisRecords?: Array<FontVariationAxis>;
 
     /**
-     * Font variable instance record array, which is used to describe the variable instance information supported by the
-     * font. For non-variable fonts, this field is **undefined**.
+     * 字体可变实例记录数组，用于描述字体支持的可变实例信息。非可变字体此字段为undefined。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2701,8 +2622,9 @@ declare namespace text {
     variationInstanceRecords?: Array<FontVariationInstance>;
 
     /**
-     * Font index. This parameter is valid only when the font file is in TTC format. The value is **0** for the TTF
-     * format.
+     * 字体索引，字体文件为ttc类型时有效，ttf类型统一为0。
+     * 
+     * **模型约束：** 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2713,10 +2635,10 @@ declare namespace text {
   }
 
   /**
-   * Implements a carrier that stores the text content and style. You can perform operations such as layout and drawing.
-   *
-   * Before calling any of the following APIs, you must use [build()]{@link text.ParagraphBuilder.build} of the
-   * [ParagraphBuilder]{@link text.ParagraphBuilder} class to create a **Paragraph** object.
+   * 保存文本内容及样式的载体，支持排版与绘制操作。
+   * 
+   * 下列API示例中都需先使用[ParagraphBuilder]{@link text.ParagraphBuilder}类的[build()]{@link text.ParagraphBuilder.build}接口获取到
+   * Paragraph对象实例，再通过此实例调用对应方法。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -2726,10 +2648,10 @@ declare namespace text {
    */
   class Paragraph {
     /**
-     * Performs layout with the given height and width and calculates the positions of all glyphs.
+     * 使用给定的高度和宽度进行排版并计算所有字形的位置。
      *
-     * @param { TextRectSize } size - Constrained height and width, in physical pixels (px).
-     * @returns { TextLayoutResult } Actual size after layout and character range after typesetting.
+     * @param { TextRectSize } size - 约束的高度和宽度，单位为物理像素px。
+     * @returns { TextLayoutResult } 布局后的实际尺寸和排版后容下的字符范围。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -2738,9 +2660,9 @@ declare namespace text {
     layoutWithConstraints(size: TextRectSize): TextLayoutResult;
 
     /**
-     * Performs layout and calculates the positions of all glyphs.
+     * 进行排版并计算所有字形位置。
      *
-     * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
+     * @param { double } width - 单行的最大宽度，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2750,10 +2672,10 @@ declare namespace text {
     layoutSync(width: double): void;
 
     /**
-     * Performs layout and calculates the positions of all glyphs. This API uses a promise to return the result.
+     * 进行排版并计算所有字形位置，使用Promise异步回调。
      *
-     * @param { double } width - Maximum width of a single line, in units of px. The value is a floating point number.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { double } width - 单行的最大宽度，浮点数，单位为物理像素px。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -2765,13 +2687,11 @@ declare namespace text {
     layout(width: double): Promise<void>;
 
     /**
-     * Paints the text on the canvas with the coordinate point (x, y) as the upper left corner.
+     * 在画布上以 (x, y) 为左上角绘制文本。
      *
-     * @param { drawing.Canvas } canvas - Target canvas.
-     * @param { double } x - Horizontal coordinate of the upper left corner, which is a floating-point value, in
-     *     physical pixels (px).
-     * @param { double } y - Vertical coordinate of the upper left corner, which is a floating-point value, in physical
-     *     pixels (px).
+     * @param { drawing.Canvas } canvas - 绘制的目标画布。
+     * @param { double } x - 绘制的左上角位置的横坐标，浮点数，单位为物理像素px。
+     * @param { double } y - 绘制的左上角位置的纵坐标，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2781,14 +2701,12 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
-     * Draws text along a path on the canvas.
+     * 在画布上沿路径绘制文本。
      *
-     * @param { drawing.Canvas } canvas - Target canvas.
-     * @param { drawing.Path } path - Path along which the text is drawn.
-     * @param { double } hOffset - Offset along the path direction. Positive values extend forward from the path start
-     *     point, and negative values extend backward. Unit: physical pixels (px).
-     * @param { double } vOffset - Offset along the vertical direction of the path. Positive values extend to the right
-     *     along the path, and negative values extend to the left. Unit: physical pixels (px).
+     * @param { drawing.Canvas } canvas - 绘制的目标画布。
+     * @param { drawing.Path } path - 确认文字位置的路径。
+     * @param { double } hOffset - 沿路径方向偏置，从路径起点向前为正，向后为负，单位为物理像素px。
+     * @param { double } vOffset - 沿路径垂直方向偏置，沿路径方向左侧为负，右侧为正，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2798,9 +2716,9 @@ declare namespace text {
     paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: double, vOffset: double): void;
 
     /**
-     * Obtains the maximum width of the line in the text.
+     * 获取文本最大行宽。
      *
-     * @returns { double } Maximum line width, in units of px. The value is a floating point number.
+     * @returns { double } 最大的行宽，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2810,9 +2728,9 @@ declare namespace text {
     getMaxWidth(): double;
 
     /**
-     * Obtains the total height of the text.
+     * 获取文本总高度。
      *
-     * @returns { double } Total height, in units of px. The value is a floating point number.
+     * @returns { double } 总高度，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2822,9 +2740,9 @@ declare namespace text {
     getHeight(): double;
 
     /**
-     * Obtains the longest line in the text.
+     * 获取文本最长行宽。
      *
-     * @returns { double } Longest line, in units of px. The value is a floating point number.
+     * @returns { double } 最长一行的宽度，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2834,11 +2752,9 @@ declare namespace text {
     getLongestLine(): double;
 
     /**
-     * Obtains the width of the longest line, including its indentation, in the text. You are advised to round up the
-     * return value. If the text content is empty, **0** is returned.
+     * 获取文本最长一行的宽度（包含缩进），建议向上取整。文本内容为空时返回0。
      *
-     * @returns { double } Width of the longest line, including its indentation. The value is a floating point number,
-     *     in px.
+     * @returns { double } 最长一行的宽度（该宽度包含当前行缩进的宽度），浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2848,9 +2764,9 @@ declare namespace text {
     getLongestLineWithIndent(): double;
 
     /**
-     * Obtains the minimum intrinsic width of the paragraph.
+     * 获取段落最小固有宽度。
      *
-     * @returns { double } Minimum intrinsic width, in units of px. The value is a floating point number.
+     * @returns { double } 该段落所占水平空间的最小固有宽度，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2860,9 +2776,9 @@ declare namespace text {
     getMinIntrinsicWidth(): double;
 
     /**
-     * Obtains the maximum intrinsic width of the paragraph.
+     * 获取段落最大固有宽度。
      *
-     * @returns { double } Maximum intrinsic width, in units of px. The value is a floating point number.
+     * @returns { double } 该段落所占水平空间的最大固有宽度，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2872,9 +2788,9 @@ declare namespace text {
     getMaxIntrinsicWidth(): double;
 
     /**
-     * Obtains the alphabetic baseline.
+     * 获取拉丁字母基线位置。
      *
-     * @returns { double } Alphabetic baseline, in units of px. The value is a floating point number.
+     * @returns { double } 拉丁字母下的基线位置，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2884,9 +2800,9 @@ declare namespace text {
     getAlphabeticBaseline(): double;
 
     /**
-     * Obtains the ideographic baseline.
+     * 获取表意字（如CJK（中文，日文，韩文））下的基线位置。
      *
-     * @returns { double } Ideographic baseline, in units of px. The value is a floating point number.
+     * @returns { double } 获取表意字下的基线位置，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2896,13 +2812,12 @@ declare namespace text {
     getIdeographicBaseline(): double;
 
     /**
-     * Obtains the rectangles occupied by the characters in the range of the text under the given rectangle width and
-     * height.
+     * 获取给定的矩形区域宽度以及矩形区域高度的规格下，文本中该区间范围内的字符所占的矩形区域。
      *
-     * @param { Range } range - Range of the text.
-     * @param { RectWidthStyle } widthStyle - Width of the rectangle.
-     * @param { RectHeightStyle } heightStyle - Height of the rectangle.
-     * @returns { Array<TextBox> } Array holding the rectangles obtained.
+     * @param { Range } range - 需要获取的区域的文本区间。
+     * @param { RectWidthStyle } widthStyle - 返回的矩形区域的宽度的规格。
+     * @param { RectHeightStyle } heightStyle - 返回的矩形区域的高度的规格。
+     * @returns { Array<TextBox> } 矩形区域数组。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2912,9 +2827,9 @@ declare namespace text {
     getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 
     /**
-     * Obtains the rectangles occupied by all placeholders in the text.
+     * 获取文本中所有占位符所占的矩形区域。
      *
-     * @returns { Array<TextBox> } Array holding the rectangles obtained.
+     * @returns { Array<TextBox> } 矩形区域数组。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2924,11 +2839,11 @@ declare namespace text {
     getRectsForPlaceholders(): Array<TextBox>;
 
     /**
-     * Obtains the position of a glyph closest to the given coordinates.
+     * 获取与给定坐标最接近的字形位置信息。
      *
-     * @param { double } x - Horizontal coordinate, which is a floating-point value in physical pixels (px).
-     * @param { double } y - Vertical coordinate, which is a floating-point value in physical pixels (px).
-     * @returns { PositionWithAffinity } Position of the glyph.
+     * @param { double } x - 横坐标，浮点数，单位为物理像素px。
+     * @param { double } y - 纵坐标，浮点数，单位为物理像素px。
+     * @returns { PositionWithAffinity } 字形位置信息。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2938,10 +2853,10 @@ declare namespace text {
     getGlyphPositionAtCoordinate(x: double, y: double): PositionWithAffinity;
 
     /**
-     * Obtains the range of the word where the glyph with a given offset is located.
+     * 返回给定offset的字形所在单词的索引区间。
      *
-     * @param { int } offset - Offset of the glyph. The value is an integer.
-     * @returns { Range } Range of the word.
+     * @param { int } offset - 字形的偏移量，整数。
+     * @returns { Range } 单词的索引区间。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2951,9 +2866,9 @@ declare namespace text {
     getWordBoundary(offset: int): Range;
 
     /**
-     * Obtains the number of text lines.
+     * 返回文本行数。
      *
-     * @returns { int } Number of text lines. The value is an integer.
+     * @returns { int } 文本行数量，整数。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2963,10 +2878,10 @@ declare namespace text {
     getLineCount(): int;
 
     /**
-     * Obtains the height of a given line.
+     * 返回指定行的行高。
      *
-     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
-     * @returns { double } Line height, in physical pixels (px).
+     * @param { int } line - 文本行索引，整数，范围为0~getLineCount()-1。
+     * @returns { double } 行高，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2976,10 +2891,10 @@ declare namespace text {
     getLineHeight(line: int): double;
 
     /**
-     * Obtains the width of a given line.
+     * 返回指定行的行宽。
      *
-     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() – 1.
-     * @returns { double } Line width, in physical pixels (px).
+     * @param { int } line - 文本行索引，整数，范围为0~getLineCount()-1。
+     * @returns { double } 行宽，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -2989,10 +2904,9 @@ declare namespace text {
     getLineWidth(line: int): double;
 
     /**
-     * Checks whether the number of lines in the paragraph exceeds the maximum.
+     * 返回段落是否超过最大行数。
      *
-     * @returns { boolean } Check result. The value **true** means that the number of lines exceeds the maximum, and
-     *     **false** means the opposite.
+     * @returns { boolean } true表示段落超出了最大行限制，false则表示没有超出最大行限制。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3002,9 +2916,9 @@ declare namespace text {
     didExceedMaxLines(): boolean;
 
     /**
-     * Obtains all the text lines.
+     * 返回所有的文本行。
      *
-     * @returns { Array<TextLine> } Array of text lines.
+     * @returns { Array<TextLine> } 文本行载体数组。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3014,15 +2928,12 @@ declare namespace text {
     getTextLines(): Array<TextLine>;
 
     /**
-     * Obtains the actually visible text range in the specified line, excluding any overflow ellipsis.
+     * 获取指定行的实际可见文本范围，不包括溢出的省略号。
      *
-     * @param { int } lineNumber - Line number of the text range, starting from 0. This API can only be used to obtain
-     *     the bounds of existing lines. That is, the line number must start from 0, and the maximum line index is the
-     *     number of text lines – 1. The number of text lines can be obtained via the
-     *     [getLineCount]{@link text.Paragraph.getLineCount} API.
-     * @param { boolean } includeSpaces - Whether spaces are included. The value **true** means that spaces are
-     *     contained, and **false** means the opposite.
-     * @returns { Range } Text range obtained. If the line index is invalid, **start** and **end** are both **0**.
+     * @param { int } lineNumber - 要获取文本范围的行索引，行索引从0开始。该接口只能获取已有行的边界，即输入行索引从0开始。最大行索引为文本行数量-1，文本行数量可通过
+     *     [getLineCount]{@link text.Paragraph.getLineCount}接口获取。
+     * @param { boolean } includeSpaces - 表示是否应包含空白字符。true表示包含空白字符，false表示不包含空白字符。
+     * @returns { Range } 返回对应行数的实际文本范围。如果行索引非法，返回的start和end均为0。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3032,9 +2943,9 @@ declare namespace text {
     getActualTextRange(lineNumber: int, includeSpaces: boolean): Range;
 
     /**
-     * Obtains an array of line measurement information.
+     * 获取文本行的行度量数组。
      *
-     * @returns { Array<LineMetrics> } Array of line measurement information.
+     * @returns { Array<LineMetrics> } 文本行的行度量数组。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3044,9 +2955,9 @@ declare namespace text {
     getLineMetrics(): Array<LineMetrics>;
 
     /**
-     * Obtains the line measurement information of a line.
+     * 获取特定行号的行度量信息。
      *
-     * @param { int } lineNumber - Line number, starting from 0.
+     * @param { int } lineNumber - 要查询度量信息的行的编号，行号从0开始。
      * @returns { LineMetrics | undefined } **LineMetrics** object containing the measurement information if the
      *     specified line number is valid and the measurement information exists. If the line number is invalid or the
      *     measurement information cannot be obtained, **undefined** is returned.
@@ -3059,10 +2970,9 @@ declare namespace text {
     getLineMetrics(lineNumber: int): LineMetrics | undefined;
 
     /**
-     * Updates the color of the entire text span. This API call also updates the decoration color if it hasn't been set
-     * yet.
+     * 更新整个文本段落的颜色。如果当前装饰线未设置颜色，使用该接口也会同时更新装饰线的颜色。
      *
-     * @param { common2D.Color } color - Updated font color.
+     * @param { common2D.Color } color - 更新后的字体色。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3072,9 +2982,9 @@ declare namespace text {
     updateColor(color: common2D.Color): void;
 
     /**
-     * Updates the decoration line of the entire text span.
+     * 更新整个文本段落的装饰线。
      *
-     * @param { Decoration } decoration - Updated decoration line.
+     * @param { Decoration } decoration - 更新后的装饰线。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3084,15 +2994,12 @@ declare namespace text {
     updateDecoration(decoration: Decoration): void;
 
     /**
-     * Obtains the character range corresponding to the specified glyph range.
+     * 获取指定字形范围对应的字符范围。
      *
-     * @param { Range } glyphRange - Glyph range.
-     * @param { drawing.TextEncoding } encoding - Text encoding type. Currently, only UTF-8 and UTF-16 encoding types
-     *     are supported. For UTF-8 encoding, the returned character range indicates the byte range. For UTF-16 encoding
-     *     , the returned character range indicates the UTF-16 encoding unit range.
-     * @returns { Array<Range> } Character range. If the array contains one element, it indicates the character range.
-     *     If the array contains two elements, the first element indicates the character range, and the second element
-     *     indicates the actual glyph range.
+     * @param { Range } glyphRange - 字形范围。
+     * @param { drawing.TextEncoding } encoding - 文本编码类型。目前仅支持UTF-8和UTF-16编码类型。对于UTF-8编码，返回的字符范围表示字节范围。对于UTF-16编码，返回的字符范
+     *     围表示UTF-16编码单元范围。
+     * @returns { Array<Range> } 字符范围。如果数组包含一个元素，它表示字符范围。如果包含两个元素，第一个是字符范围，第二个是实际的字形范围。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -3102,14 +3009,12 @@ declare namespace text {
     getCharacterRangeForGlyphRange(glyphRange: Range, encoding: drawing.TextEncoding): Array<Range>;
 
     /**
-     * Obtains the glyph range corresponding to the specified character range.
+     * 获取指定字符范围对应的字形范围。
      *
-     * @param { Range } characterRange - Character range.
-     * @param { drawing.TextEncoding } encoding - Text encoding type. Currently, only UTF-8 and UTF-16 encoding types
-     *     are supported. For UTF-8 encoding, the returned actual character range indicates the byte range. For UTF-16
-     *     encoding, the returned actual character range indicates the UTF-16 encoding unit range.
-     * @returns { Array<Range> } Glyph range. The array contains two elements. The first element indicates the glyph
-     *     range, and the second element indicates the actual character range.
+     * @param { Range } characterRange - 字符范围。
+     * @param { drawing.TextEncoding } encoding - 文本编码类型。目前仅支持UTF-8和UTF-16编码类型。对于UTF-8编码，返回的实际字符范围表示字节范围。对于UTF-16编码，返回的实
+     *     际字符范围表示UTF-16编码单元范围。
+     * @returns { Array<Range> } 字形范围。数组包含两个元素，第一个是字形范围，第二个是实际的字符范围。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -3119,22 +3024,15 @@ declare namespace text {
     getGlyphRangeForCharacterRange(characterRange: Range, encoding: drawing.TextEncoding): Array<Range>;
 
     /**
-     * Obtains the character position information closest to the given coordinates.
+     * 获取与给定坐标最接近的字符位置信息。
      *
-     * @param { double } x - Horizontal coordinate in the text layout area, in physical pixels (px). X offset relative
-     *     to the top-left corner of the text layout area, with the right direction as positive. Supports floating-point
-     *     values and accepts negative values, which indicate positions to the left of the text layout area. If the
-     *     coordinates are beyond the text layout area, the nearest character position is returned. It can be obtained
-     *     through a touch event or click event.
-     * @param { double } y - Vertical coordinate in the text layout area, in physical pixels (px). Y offset relative to
-     *     the top-left corner of the text layout area, with the downward direction as positive. Supports floating-point
-     *     values and accepts negative values, which indicate positions above the text layout area. If the coordinates
-     *     are beyond the text layout area, the nearest character position is returned. It can be obtained through a
-     *     touch event or click event.
-     * @param { drawing.TextEncoding } encoding - Text encoding type. Currently, only UTF-8 and UTF-16 encoding types
-     *     are supported. For UTF-8 encoding, the returned character position indicates the byte offset. For UTF-16
-     *     encoding, the returned character position indicates the UTF-16 encoding unit offset.
-     * @returns { PositionWithAffinity } Character position.
+     * @param { double } x - 文本排版区域内的水平坐标，单位为物理像素（px）。相对于文本排版区域左上角的x偏移量，向右为正方向。支持浮点数，可取负值（表示在文本区域左侧）。坐标超出文本区域范围时，将返回最近的字
+     *     符位置。可通过触摸事件或点击事件获取。
+     * @param { double } y - 文本排版区域内的垂直坐标，单位为物理像素（px）。相对于文本排版区域左上角的y偏移量，向下为正方向。支持浮点数，可取负值（表示在文本区域上方）。坐标超出文本区域范围时，将返回最近的字
+     *     符位置。可通过触摸事件或点击事件获取。
+     * @param { drawing.TextEncoding } encoding - 文本编码类型。目前仅支持UTF-8和UTF-16编码类型。对于UTF-8编码，返回的字符位置表示字节偏移量。对于UTF-16编码，返回的字符
+     *     位置表示UTF-16编码单元偏移量。
+     * @returns { PositionWithAffinity } 字符位置信息。
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -3144,9 +3042,9 @@ declare namespace text {
     getCharacterPositionAtCoordinate(x: double, y: double, encoding: drawing.TextEncoding): PositionWithAffinity;
 
     /**
-     * Obtains the text processing state of the paragraph.
+     * 获取段落的文本处理状态。
      *
-     * @returns { TextProcessState } Text processing state of the paragraph.
+     * @returns { TextProcessState } 段落的文本处理状态。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3155,9 +3053,9 @@ declare namespace text {
     getProcessState(): TextProcessState;
 
     /**
-     * Obtains the text display state of the paragraph.
+     * 获取段落的文本显示状态。
      *
-     * @returns { TextDisplayState } Text display state of the paragraph.
+     * @returns { TextDisplayState } 段落的文本显示状态。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3166,9 +3064,9 @@ declare namespace text {
     getTextDisplayState(): TextDisplayState;
 
     /**
-     * Obtains the style configuration of the paragraph.
+     * 获取段落的样式配置。
      *
-     * @returns { ParagraphStyle } Style configuration of the paragraph.
+     * @returns { ParagraphStyle } 段落的样式配置。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3177,9 +3075,10 @@ declare namespace text {
     getParagraphStyle(): ParagraphStyle;
 
     /**
-     * Obtains the visible text ranges of the paragraph.
+     * 获取段落中在屏幕上可见的文本范围。不包含因最大行数（[ParagraphStyle]{@link text.ParagraphStyle}的maxLines属性）截断或省略号模式（
+     * [EllipsisMode]{@link text.EllipsisMode}）替换而未显示的文本。
      *
-     * @returns { Array<Range> } The visible text ranges of the paragraph.
+     * @returns { Array<Range> } 段落可见文本范围数组，范围为UTF-16编码单元索引。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3189,12 +3088,10 @@ declare namespace text {
   }
 
   /**
-   * Implements a carrier that stores the text content and style. It can be used to compute layout details for
-   * individual lines of text.
-   *
-   * Before calling any of the following APIs, you must use
-   * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset} in the
-   * [ParagraphBuilder]{@link text.ParagraphBuilder} class to create a **LineTypeset** object.
+   * 保存着文本内容以及样式的载体，可以用于计算单行排版信息。
+   * 
+   * 下列API示例中都需先使用[ParagraphBuilder]{@link text.ParagraphBuilder}类的
+   * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset}接口获取到LineTypeset对象实例，再通过此实例调用对应方法。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3204,12 +3101,11 @@ declare namespace text {
    */
   class LineTypeset {
     /**
-     * Obtains the number of characters that can fit in the layout from the specified position within a limited width.
+     * 计算在限定宽度下，从指定位置开始可以排版的字符数。
      *
-     * @param { int } startIndex - Start position (inclusive) for calculation. The value is an integer in the range
-     *     [0, total number of text characters). If the parameter is out of range, an exception is thrown.
-     * @param { double } width - Layout width. The value is a floating point number greater than 0, in px.
-     * @returns { int } Number of characters.
+     * @param { int } startIndex - 开始计算排版的起始位置（包括起始位置）。取值范围需要为[0,文本字符总数）的整数，当参数超出范围时抛出异常。
+     * @param { double } width - 可用于排版的宽度，大于0的浮点数，单位为物理像素px。
+     * @returns { int } 返回在限定排版宽度下，从指定位置开始可排版的字符总数，取值为整数。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3221,14 +3117,12 @@ declare namespace text {
     getLineBreak(startIndex: int, width: double): int;
 
     /**
-     * Generates a text line object based on the specified layout range.
+     * 根据指定的排版区间生成文本行对象。
      *
-     * @param { int } startIndex - Start position for layout calculation. The value is an integer in the range
-     *     [0, total number of text characters).
-     * @param { int } count - Number of characters from the specified start position. The value is an integer in the
-     *     range
-     *     [0, total number of text characters). The sum of **startIndex** and **count** cannot be greater than the total number of text characters. If **count** is **0**, the layout range is [startIndex, position of the last character in the text]. You can use [getLineBreak]{@link text.LineTypeset.getLineBreak} to obtain the number of characters that can fit in the layout.
-     * @returns { TextLine } **TextLine** object generated based on the characters in the text range.
+     * @param { int } startIndex - 开始计算排版的起始位置，整数，取值范围为[0, 文本字符总数)。
+     * @param { int } count - 从指定起始位置开始进行排版的字符个数，取值为
+     *     [0,文本字符总数)的整数，startIndex和count之和不能大于文本字符总数。当count为0时，表示排版区间为[startIndex, 文本的最后一个字符位置]。可以先使用[getLineBreak]{@link text.LineTypeset.getLineBreak}获取合理的排版字符总数。
+     * @returns { TextLine } 根据文本区间字符生成的TextLine对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3241,7 +3135,7 @@ declare namespace text {
   }
 
   /**
-   * Rectangular area of the text, indicating the rectangular space occupied by the text during layout.
+   * 文本矩形区域，表示文本在布局时所占用的矩形空间。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3251,7 +3145,7 @@ declare namespace text {
    */
   interface TextBox {
     /**
-     * Rectangular area information, in physical pixels (px).
+     * 矩形区域信息，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3262,7 +3156,7 @@ declare namespace text {
     rect: common2D.Rect;
 
     /**
-     * Text direction.
+     * 文本方向。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3274,7 +3168,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the position and affinity of a glyph.
+   * 位置和亲和度。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3284,7 +3178,7 @@ declare namespace text {
    */
   interface PositionWithAffinity {
     /**
-     * Index of the glyph relative to the paragraph. The value is an integer.
+     * 字形相对于段落的索引，整数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3295,7 +3189,7 @@ declare namespace text {
     position: int;
 
     /**
-     * Affinity of the position.
+     * 位置亲和度。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3307,7 +3201,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the rectangle width styles.
+   * 矩形区域宽度规格枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3317,8 +3211,7 @@ declare namespace text {
    */
   enum RectWidthStyle {
     /**
-     * If **letterSpacing** is not set, the rectangle conforms tightly to the text it contains. However, if
-     * **letterSpacing** is set, a gap is introduced between the rectangle and text.
+     * 不设置letterSpacing时，与字形紧贴，否则包含letterSpacing的宽度。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3329,7 +3222,7 @@ declare namespace text {
     TIGHT = 0,
 
     /**
-     * The rectangle's width is extended to align with the widest rectangle across all lines.
+     * 扩展宽度，以匹配所有行上最宽矩形的位置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3341,7 +3234,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the rectangle height styles.
+   * 矩形区域高度规格枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3351,7 +3244,7 @@ declare namespace text {
    */
   enum RectHeightStyle {
     /**
-     * Tight style.
+     * 与字形紧贴。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3362,7 +3255,7 @@ declare namespace text {
     TIGHT = 0,
 
     /**
-     * Extends the height to match the highest rectangle in all lines.
+     * 扩展高度，以匹配所有行上最高矩形的位置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3373,7 +3266,7 @@ declare namespace text {
     MAX = 1,
 
     /**
-     * Includes half of the line spacing to both the top and bottom of the rectangle.
+     * 每个矩形的顶部和底部将覆盖行上方和行下方的一半空间。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3384,7 +3277,7 @@ declare namespace text {
     INCLUDE_LINE_SPACE_MIDDLE = 2,
 
     /**
-     * Includes the line spacing to the top of the rectangle.
+     * 行间距将被添加到矩形的顶部。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3395,7 +3288,7 @@ declare namespace text {
     INCLUDE_LINE_SPACE_TOP = 3,
 
     /**
-     * Includes the line spacing to the bottom of the rectangle.
+     * 行间距将被添加到矩形的底部。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3406,7 +3299,7 @@ declare namespace text {
     INCLUDE_LINE_SPACE_BOTTOM = 4,
 
     /**
-     * Sets the height according to the strut style.
+     * 高度按照文本的样式设置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3418,7 +3311,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the affinity modes.
+   * 位置亲和度枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3428,7 +3321,7 @@ declare namespace text {
    */
   enum Affinity {
     /**
-     * The position has affinity for the upstream side of the text position.
+     * 该位置与文本位置的前一位有关联。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3438,7 +3331,7 @@ declare namespace text {
      */
     UPSTREAM = 0,
     /**
-     * The position has affinity for the downstream side of the text position.
+     * 该位置与文本位置的后一位有关联。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3450,7 +3343,7 @@ declare namespace text {
   }
 
   /**
-   * Implements a paragraph builder.
+   * 段落生成器。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3460,10 +3353,10 @@ declare namespace text {
    */
   class ParagraphBuilder {
     /**
-     * A constructor used to create a **ParagraphBuilder** object.
+     * ParagraphBuilder对象的构造函数。
      *
-     * @param { ParagraphStyle } paragraphStyle - Paragraph style.
-     * @param { FontCollection } fontCollection - Font collection.
+     * @param { ParagraphStyle } paragraphStyle - 段落样式。
+     * @param { FontCollection } fontCollection - 字体集。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3473,15 +3366,13 @@ declare namespace text {
     constructor(paragraphStyle: ParagraphStyle, fontCollection: FontCollection);
 
     /**
-     * Applies a new style to the current text blob.
-     *
-     * > **NOTE**
+     * 更新当前文本块的样式。
+     * 
+     * > **说明：**
      * >
-     * > When you update the style of the current text blob, all text added afterward will use this new style.
+     * > 更新当前文本块的样式，之后添加文字均采用该样式。
      *
-     * @param { TextStyle } textStyle - Text style, which describes various visual attributes of text, such as font,
-     *     font size, color, font weight, word spacing, line spacing, decoration (such as underline and strikethrough),
-     *     and text shadow.
+     * @param { TextStyle } textStyle - 包含了对文本的各种视觉属性的定义，如字体、字号、颜色、字重、字间距、行距、装饰（如下划线、删除线）、文本阴影等。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3491,7 +3382,7 @@ declare namespace text {
     pushStyle(textStyle: TextStyle): void;
 
     /**
-     * Restores the previous text style.
+     * 弹出当前文本样式。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3502,10 +3393,9 @@ declare namespace text {
     popStyle(): void;
 
     /**
-     * Inserts a text string into the paragraph being built.
+     * 向正在构建的文本段落中插入具体的文本字符串。
      *
-     * @param { string } text - Exact text string inserted into the paragraph. If an invalid Unicode character is
-     *     provided, it is displayed as ?.
+     * @param { string } text - 段落中插入的具体文本字符串，传入非法Unicode时会显示?。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3515,10 +3405,9 @@ declare namespace text {
     addText(text: string): void;
 
     /**
-     * Inserts a placeholder into the paragraph being built.
+     * 用于构建文本段落时插入占位符。
      *
-     * @param { PlaceholderSpan } placeholderSpan - Placeholder span, which describes the size, alignment, baseline type
-     *     , and baseline offset of the placeholder.
+     * @param { PlaceholderSpan } placeholderSpan - 定义了占位符的尺寸、对齐方式、基线类型以及基线偏移量。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3528,9 +3417,9 @@ declare namespace text {
     addPlaceholder(placeholderSpan: PlaceholderSpan): void;
 
     /**
-     * Creates a paragraph object that can be used for subsequent layout and rendering.
+     * 用于构建段落，生成可用于后续排版渲染的段落对象。
      *
-     * @returns { Paragraph } **Paragraph** object that can be used for subsequent rendering.
+     * @returns { Paragraph } 可用于后续渲染的 Paragraph 对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3540,9 +3429,9 @@ declare namespace text {
     build(): Paragraph;
 
     /**
-     * Builds a line typesetter.
+     * 构建行排版器。
      *
-     * @returns { LineTypeset } **LineTypeset** object that can be used for subsequent rendering.
+     * @returns { LineTypeset } 可用于后续渲染的LineTypeset对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3552,11 +3441,10 @@ declare namespace text {
     buildLineTypeset(): LineTypeset;
 
     /**
-     * Inserts a symbol into the paragraph being built.
+     * 向正在构建的文本段落中插入具体符号。
      *
-     * @param { int } symbolId - Symbol code to insert. The value is a hexadecimal number in the range 0xF0000-0xF0C97.
-     *     For details about the configurable symbol codes (unicode values in the list view), see
-     *     [HarmonyOS Symbol](https://developer.huawei.com/consumer/en/design/harmonyos-symbol/).
+     * @param { int } symbolId - 要设置的symbol码位，十六进制，当前支持的取值范围为：0xF0000-0xF0C97。可设置的symbol码位（即列表视图下的unicode值）请见
+     *     [主题图标库](https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/)。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3567,28 +3455,25 @@ declare namespace text {
   }
 
   /**
-   * Describes the typographic boundaries of a text line. These boundaries depend on the typographic font and font size,
-   * but not on the characters themselves. For example, for the string " a b " (which has a space before "a" and a space
-   * after "b"), the typographic boundaries include the spaces at the beginning and end of the line. Similarly, the
-   * strings "j" and "E" have identical typographic boundaries, independent of the characters themselves.
-   *
-   * > **NOTE**
+   * 文本行的排版边界。文本行排版边界与排版字体、排版字号有关，与字符本身无关，例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，排版边界就包括行首和末尾空格的边界。例如字符串为"j"或"E"，排版边界相同
+   * ，即与字符本身无关。
+   * 
+   * > **说明：**
    * >
-   * > The following figure shows the layout parameters of a text line: width (width of the text line including the left
-   * > and right spaces), ascent (highest point of the rising height), descent (lowest point of the falling height),
-   * > leading (line spacing), top (highest point of the current line), baseline (character baseline), bottom (lowest
-   * > point of the current line), and next line top (highest point of the next line).
+   * > 示意图展示文本行排版参数：width（包含左右空格的文本行宽度）、ascent（上升高度最高点）、descent（下降高度最低点）、leading（行间距）、top（当前行最高点）、baseline（字符基线）、bottom（
+   * > 当前行最低点）、next line top（下一行最高点）。
    * >
-   * > ![image_Typographic.png](docroot://reference/apis-arkgraphics2d/figures/image_Typographic.png)
+   * > ![zh-ch_image_Typographic.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_Typographic.png)
    * >
-   * > The following figure shows the typographic boundaries of the string " a b ".
-   * >
-   * > ![image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds.png)
-   * >
-   * > The following figure shows the typographic boundaries of the strings "j" and "E".
+   * > 示意图展示了字符串为" a b "的排版边界。
    * >
    * > !
-   * > [image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds_Character.png)
+   * > [zh-ch_image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds.png)
+   * >
+   * > 示意图展示了字符串为"j"或"E"的排版边界。
+   * >
+   * > !
+   * > [zh-ch_image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds_Character.png)
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3598,7 +3483,7 @@ declare namespace text {
    */
   interface TypographicBounds {
     /**
-     * Ascent height of a text line, which is a floating-point value in physical pixels (px).
+     * 文本行的上升高度，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3609,7 +3494,7 @@ declare namespace text {
     ascent: double;
 
     /**
-     * Descent height of a text line, which is a floating-point value in physical pixels (px).
+     * 文本行的下降高度，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3620,7 +3505,7 @@ declare namespace text {
     descent: double;
 
     /**
-     * Leading of a text line, which is a floating-point value in physical pixels (px).
+     * 文本行的行间距，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3631,7 +3516,7 @@ declare namespace text {
     leading: double;
 
     /**
-     * Total width of the layout boundary, which is a floating-point value in physical pixels (px).
+     * 排版边界的总宽度，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3643,8 +3528,7 @@ declare namespace text {
   }
 
   /**
-   * Defines the callback used to receive the offset and index of each character in a text line object as its
-   * parameters.
+   * 将文本行中每个字符的偏移量和索引值作为参数的回调方法。
    *
    * @param { double } offset - Offset of each character in a text line. The value is a floating point number.
    * @param { int } index - Index of each character in a text line. The value is an integer.
@@ -3652,8 +3536,7 @@ declare namespace text {
    *     that the cursor is located at the front of the character, that is, the offset does not contain the character
    *     width. The value false means that the cursor is located at the rear of the character, that is, the offset
    *     contains the character width.
-   * @returns { boolean } Whether to stop calling the callback. The value **true** means to stop calling the callback,
-   *     and **false** means to continue calling the callback.
+   * @returns { boolean } 表示是否停止调用该回调函数，true表示停止调用该回调函数，false表示继续调用该回调函数。
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
    * @atomicservice [since 22]
@@ -3663,11 +3546,11 @@ declare namespace text {
   type CaretOffsetsCallback = (offset: double, index: int, leadingEdge: boolean) => boolean;
 
   /**
-   * Implements a carrier that describes the basic text line structure of a paragraph.
-   *
-   * Before calling any of the following APIs, you must use [getTextLines()]{@link text.Paragraph.getTextLines} of the
-   * [Paragraph]{@link text.ParagraphStyle} class or [createLine()]{@link text.LineTypeset.createLine} of the
-   * [LineTypeset]{@link text.LineTypeset} class to create a **TextLine** object.
+   * 描述段落基础文本行结构的载体。
+   * 
+   * 下列API示例中都需先使用[Paragraph]{@link text.ParagraphStyle}类的[getTextLines()]{@link text.Paragraph.getTextLines}接口或者
+   * [LineTypeset]{@link text.LineTypeset}类的[createLine()]{@link text.LineTypeset.createLine}接口获取到TextLine对象实例，再通过此实例调用对
+   * 应方法。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3677,9 +3560,9 @@ declare namespace text {
    */
   class TextLine {
     /**
-     * Obtains the number of glyphs in this text line.
+     * 获取文本行中字形的数量。
      *
-     * @returns { int } Number of glyphs. The value is an integer.
+     * @returns { int } 该文本行中字形数量，整数。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3689,9 +3572,9 @@ declare namespace text {
     getGlyphCount(): int;
 
     /**
-     * Obtains the range of the text in this text line in the entire paragraph.
+     * 获取该行文本在整个段落文本中的索引区间。
      *
-     * @returns { Range } Range of the text in this text line in the entire paragraph.
+     * @returns { Range } 该行文本在整个段落文本中的索引区间。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3701,9 +3584,9 @@ declare namespace text {
     getTextRange(): Range;
 
     /**
-     * Obtains the array of glyph runs in the text line.
+     * 获取文本行的排版单元数组。
      *
-     * @returns { Array<Run> } Array of the runs obtained.
+     * @returns { Array<Run> } 该文本行中的文本排版单元数组。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3713,13 +3596,11 @@ declare namespace text {
     getGlyphRuns(): Array<Run>;
 
     /**
-     * Paints this text line on the canvas with the coordinate point (x, y) as the upper left corner.
+     * 在画布上以坐标点(x, y)为左上角位置绘制该文本行。
      *
-     * @param { drawing.Canvas } canvas - Target canvas.
-     * @param { double } x - Horizontal coordinate of the upper left corner, which is a floating-point value, in
-     *     physical pixels (px).
-     * @param { double } y - Vertical coordinate of the upper left corner, which is a floating-point value, in physical
-     *     pixels (px).
+     * @param { drawing.Canvas } canvas - 绘制的目标canvas。
+     * @param { double } x - 绘制的左上角位置的横坐标，浮点数，单位为物理像素px。
+     * @param { double } y - 绘制的左上角位置的纵坐标，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3729,12 +3610,12 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
-     * Creates a truncated text line object.
+     * 创建一个截断的文本行对象。
      *
-     * @param { double } width - Line width after truncation, which is a floating-point value in physical pixels (px).
-     * @param { EllipsisMode } ellipsisMode - Ellipsis mode. Currently, only **START** and **END** are supported.
-     * @param { string } ellipsis - String used to mark truncation.
-     * @returns { TextLine } Truncated text line object.
+     * @param { double } width - 截断后的行宽度，浮点数，单位为物理像素px。
+     * @param { EllipsisMode } ellipsisMode - 截断的类型，当前仅支持头部截断START和尾部截断END。
+     * @param { string } ellipsis - 截断的标记字符串。
+     * @returns { TextLine } 截断的文本行对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3743,11 +3624,10 @@ declare namespace text {
     createTruncatedLine(width: double, ellipsisMode: EllipsisMode, ellipsis: string): TextLine;
 
     /**
-     * Creates a truncated text line object.
-     *
-     * @param { double } width - The width of the truncated line.
-     * @param { EllipsisMode } ellipsisMode - Text ellipsis mode, EllipsisMode:MIDDLE is not supported.
-     * @param { string } ellipsis - Text ellipsis.
+     * 创建一个截断的文本行对象
+     * @param { double } width - 截断后的行宽度
+     * @param { EllipsisMode } ellipsisMode - 省略的类型，当前不支持中部省略
+     * @param { string } ellipsis - 用于省略的文字
      * @returns { TextLine | undefined } Truncated text line object.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
@@ -3755,23 +3635,22 @@ declare namespace text {
     createTruncatedLine(width: double, ellipsisMode: EllipsisMode, ellipsis: string): TextLine | undefined;
 
     /**
-     * Obtains the typographic boundaries of the text line. These boundaries depend on the typographic font and font
-     * size, but not on the characters themselves. For example, for the string " a b " (which has a space before "a" and
-     * a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line. Similarly
-     * , the strings "j" and "E" have identical typographic boundaries, independent of the characters themselves.
-     *
-     * > **NOTE**
+     * 获取文本行的排版边界。文本行排版边界与排版字体、排版字号有关，与字符本身无关。例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，排版边界就包括行首和末尾空格的边界。例如字符串为"j"或"E"，排版
+     * 边界相同，即与字符本身无关。
+     * 
+     * > **说明：**
      * >
-     * > The following figure shows the typographic boundaries of the string " a b ".
-     * >
-     * > ![image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds.png)
-     * >
-     * > The following figure shows the typographic boundaries of the strings "j" and "E".
+     * > 示意图展示了字符串为" a b "的排版边界。
      * >
      * > !
-     * > [image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds_Character.png)
+     * > [zh-ch_image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds.png)
+     * >
+     * > 示意图展示了字符串为"j"或"E"的排版边界。
+     * >
+     * > !
+     * > [zh-ch_image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds_Character.png)
      *
-     * @returns { TypographicBounds } Describes the typographic boundaries of a text line.
+     * @returns { TypographicBounds } 文本行的排版边界。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3781,23 +3660,19 @@ declare namespace text {
     getTypographicBounds(): TypographicBounds;
 
     /**
-     * Obtains the image boundaries of this text line. The image boundaries, equivalent to visual boundaries, depend on
-     * the font, font size, and characters. For example, for the string " a b " (which has a space before "a" and a
-     * space after "b"), only "a b" is visible to users, and therefore the image boundaries do not include these spaces
-     * at the beginning and end of the line. For the strings "j" and "E", their image boundaries are different.
-     * Specifically, the width of the boundary for "j" is narrower than that for "E", and the height of the boundary for
-     * "j" is taller than that for "E".
-     *
-     * > **NOTE**
+     * 获取文本行的图像边界。文本行图像边界与排版字体、排版字号、字符本身都有关，相当于视觉边界。例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，用户在界面上只能看到"a b"，图像边界即为不包括带行首
+     * 和末尾空格的边界。例如字符串为"j"或"E"，视觉边界不同，即与字符本身有关，"j"字符串的视觉边界宽度小于"E"字符串的视觉边界宽度，"j"字符串的视觉边界高度大于"E"字符串的视觉边界高度。
+     * 
+     * > **说明：**
      * >
-     * > The following figure shows the image boundaries of the string " a b ".
+     * > 示意图展示了字符串为" a b "的图像边界。
      * >
-     * > ![image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds.png)
+     * > ![zh-ch_image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds.png)
      * >
-     * > The following figure shows the image boundaries of the strings "j" and "E".
+     * > 示意图展示了字符串为"j"或"E"的图像边界。
      * >
      * > !
-     * > [image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds_Character.png)
+     * > [zh-ch_image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds_Character.png)
      *
      * @returns { common2D.Rect } Image boundary of a text line, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
@@ -3809,10 +3684,9 @@ declare namespace text {
     getImageBounds(): common2D.Rect;
 
     /**
-     * Obtains the width of the spaces at the end of this text line.
+     * 获取文本行尾部空白字符的宽度。
      *
-     * @returns { double } Width of trailing whitespace characters in the text line, which is a floating-point value, in
-     *     physical pixels (px).
+     * @returns { double } 文本行尾部空白字符的宽度，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3822,10 +3696,10 @@ declare namespace text {
     getTrailingSpaceWidth(): double;
 
     /**
-     * Obtains the index of a character at the specified position in the original string.
+     * 获取给定位置在原始字符串中的字符索引。
      *
-     * @param { common2D.Point } point - Position of the character.
-     * @returns { int } Index of the character in the text line. The value is an integer.
+     * @param { common2D.Point } point - 要查找索引的位置。
+     * @returns { int } 给定位置在文本行中对应的字符串索引，整数。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3835,10 +3709,10 @@ declare namespace text {
     getStringIndexForPosition(point: common2D.Point): int;
 
     /**
-     * Obtains the offset of a character with the specified index in this text line.
+     * 获取文本行中给定字符串索引处的偏移量。
      *
-     * @param { int } index - Index of the character. The value is an integer.
-     * @returns { double } Offset at the given string index, which is a floating-point value, in physical pixels (px).
+     * @param { int } index - 要获取偏移量的字符串索引，整数。
+     * @returns { double } 给定字符串索引处的偏移量，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3848,10 +3722,9 @@ declare namespace text {
     getOffsetForStringIndex(index: int): double;
 
     /**
-     * Enumerates the offset and index of each character in a text line.
+     * 枚举文本行中每个字符的偏移量和索引值。
      *
-     * @param { CaretOffsetsCallback } callback - Custom function, which contains the offset and index of each character
-     *     in the text line.
+     * @param { CaretOffsetsCallback } callback - 用户自定义函数。回调方法参数包括文本行中每个字符的偏移量和索引值。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3861,18 +3734,12 @@ declare namespace text {
     enumerateCaretOffsets(callback: CaretOffsetsCallback): void;
 
     /**
-     * Obtains the offset of this text line after alignment based on the alignment factor and alignment width.
+     * 获取文本行根据对齐因子和对齐宽度计算的对齐所需偏移量。
      *
-     * @param { double } alignmentFactor - Alignment factor, which determines how text is aligned. The value is a
-     *     floating point number. A value less than or equal to 0.0 means that the text is left-aligned; a value between
-     *     0.0 and 0.5 means that the text is slightly left-aligned; the value 0.5 means that the text is centered; a
-     *     value between 0.5 and 1 means that the text is slightly right-aligned; a value greater than or equal to 1.0
-     *     means that the text is right-aligned.
-     * @param { double } alignmentWidth - Alignment width, namely the width of the text line, which is a floating-point
-     *     value, in physical pixels (px). If the width is less than the actual width of the text line, **0** is
-     *     returned.
-     * @returns { double } Calculated offset required for alignment, which is a floating-point value, in physical pixels
-     *     (px).
+     * @param { double } alignmentFactor - 对齐因子，即对齐的程度，浮点数。小于等于0.0表示左对齐，大于0.0小于0.5表示偏左对齐，0.5表示居中对齐，大于0.5小于1.0表示偏右对齐，大于等于
+     *     1.0表示右对齐。
+     * @param { double } alignmentWidth - 对齐宽度，即文本行的宽度，浮点数，单位为物理像素px。小于文本行的实际宽度时，返回0。
+     * @returns { double } 计算得到的对齐所需偏移量，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3883,10 +3750,10 @@ declare namespace text {
   }
 
   /**
-   * Implements a unit for text layout.
-   *
-   * Before calling any of the following APIs, you must use [getGlyphRuns()]{@link text.TextLine.getGlyphRuns} of the
-   * [TextLine]{@link text.TextLine} class to create a **Run** object.
+   * 文本排版单元。
+   * 
+   * 下列API示例中都需先使用[TextLine]{@link text.TextLine}类的[getGlyphRuns()]{@link text.TextLine.getGlyphRuns}接口获取Run对象实例，再通过此实例调
+   * 用对应方法。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -3896,9 +3763,9 @@ declare namespace text {
    */
   class Run {
     /**
-     * Obtains the number of glyphs in this run.
+     * 获取该排版单元中字形的数量。
      *
-     * @returns { int } Number of glyphs. The value is an integer.
+     * @returns { int } 该排版单元中字形数量，整数。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3908,9 +3775,9 @@ declare namespace text {
     getGlyphCount(): int;
 
     /**
-     * Obtains the index of each glyph in this run.
+     * 获取该排版单元中每个字符的字形序号。
      *
-     * @returns { Array<int> } Array holding the index of each glyph in the run.
+     * @returns { Array<int> } 该排版单元中每个字符对应的字形序号。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3920,13 +3787,11 @@ declare namespace text {
     getGlyphs(): Array<int>;
 
     /**
-     * Obtains the index of each glyph in the specified range of this run.
+     * 获取该排版单元指定范围内每个字符的字形序号。
      *
-     * @param { Range } range - Range of glyph indices to obtain. **range.start** indicates the starting position of the
-     *     range, and **range.end** indicates the length of the range. When **range.end** is **0**, glyphs are fetched
-     *     from **range.start** to the end of the rendered block. If **range.end** or **range.start** is set to a
-     *     negative value, **null**, or **undefined**, **undefined** is returned.
-     * @returns { Array<int> } Array holding the index of each glyph in the run.
+     * @param { Range } range - 要获取的字形序号范围，range.start表示范围开始的位置，range.end表示范围的长度，当range.end为0时表示从range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
+     * @returns { Array<int> } 该排版单元中每个字符对应的字形序号。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -3935,10 +3800,8 @@ declare namespace text {
     getGlyphs(range: Range): Array<int>;
 
     /**
-     * Gets the range glyph identifier for each character.
-     *
-     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
-     *     range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
+     * 获取范围内每个字符的字形标识符
+     * @param { Range } range range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
      * @returns { Array<int> | undefined } Glyph identifier or undefined.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
@@ -3946,7 +3809,7 @@ declare namespace text {
     getGlyphs(range: Range): Array<int> | undefined;
 
     /**
-     * Obtains the position of each glyph relative to the respective line in this run.
+     * 获取该排版单元中每个字形相对于每行的字形位置。
      *
      * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
      *     the run.
@@ -3959,12 +3822,10 @@ declare namespace text {
     getPositions(): Array<common2D.Point>;
 
     /**
-     * Obtains the position array of each glyph relative to the respective line within the specified range of this run.
+     * 获取该排版单元指定范围内每个字形相对于每行的字形位置数组。
      *
-     * @param { Range } range - Range of the glyphs, where **range.start** indicates the start position of the range,
-     *     and **range.end** indicates the length of the range. If the length is **0**, the range is from
-     *     **range.start** to the end of the run. If **range.end** or **range.start** is set to a negative value,
-     *     **null**, or **undefined**, **undefined** is returned.
+     * @param { Range } range - 要获取的字形位置范围，range.start表示范围开始的位置，range.end表示范围的长度，如果长度是0表示从范围range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
      * @returns { Array<common2D.Point> } Array holding the position of each glyph relative to the respective line in
      *     the run.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3975,10 +3836,8 @@ declare namespace text {
     getPositions(range: Range): Array<common2D.Point>;
 
     /**
-     * Gets the range font position offset.
-     *
-     * @param { Range } range of run, range.start is the starting index of the run block, starting from 0.
-     *     range.end is run length, if range.start and range.end are set to 0, then get all of the current run.
+     * 获取指定范围内字体位置信息
+     * @param { Range } range range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
      * @returns { Array<common2D.Point> | undefined } The position of the font in the layout or undefined.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
@@ -3986,7 +3845,7 @@ declare namespace text {
     getPositions(range: Range): Array<common2D.Point> | undefined;
 
     /**
-     * Obtains the offset of each glyph in this run relative to its index.
+     * 获取该排版单元中每个字形的索引偏移量。
      *
      * @returns { Array<common2D.Point> } Array holding the offset of each glyph in the run relative to its index.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3998,7 +3857,7 @@ declare namespace text {
     getOffsets(): Array<common2D.Point>;
 
     /**
-     * Obtains the **Font** object of this run.
+     * 获取排版单元的字体属性对象。
      *
      * @returns { drawing.Font } **Font** object of this run.
      * @syscap SystemCapability.Graphics.Drawing
@@ -4010,13 +3869,11 @@ declare namespace text {
     getFont(): drawing.Font;
 
     /**
-     * Paints this run on the canvas with the coordinate point (x, y) as the upper left corner.
+     * 在画布上以(x, y)为左上角位置绘制排版单元。
      *
-     * @param { drawing.Canvas } canvas - Target canvas.
-     * @param { double } x - Horizontal coordinate of the upper left corner, which is a floating-point value, in
-     *     physical pixels (px).
-     * @param { double } y - Vertical coordinate of the upper left corner, which is a floating-point value, in physical
-     *     pixels (px).
+     * @param { drawing.Canvas } canvas - 绘制的目标 canvas。
+     * @param { double } x - 绘制的左上角位置的横坐标，浮点数，单位为物理像素px。
+     * @param { double } y - 绘制的左上角位置的纵坐标，浮点数，单位为物理像素px。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -4026,15 +3883,11 @@ declare namespace text {
     paint(canvas: drawing.Canvas, x: double, y: double): void;
 
     /**
-     * Obtains an array of character indices for glyphs within a specified range of this run, where the indices are
-     * offsets relative to the entire paragraph.
+     * 获取排版单元指定范围内字形的字符索引，该索引是相对于整个段落的偏移。
      *
-     * @param { Range } [range] - Range of character indices to be obtained. **range.start** indicates the starting
-     *     position of the range, and **range.end** indicates the range length. If the length is 0, characters are
-     *     retrieved from **range.start** to the end of the rendered block. If **range.end** or **range.start** is set
-     *     to a negative value, **null**, or **undefined**, **undefined** is returned. If this parameter is not passed,
-     *     the entire run is obtained.
-     * @returns { Array<int> } Array of character indices.
+     * @param { Range } [range] - 要获取的字符索引范围，range.start表示范围开始的位置，range.end表示范围的长度，如果长度是0表示从范围range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。不传该参数时，默认获取整个渲染块。
+     * @returns { Array<int> } 返回每个字符的索引。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -4043,10 +3896,8 @@ declare namespace text {
     getStringIndices(range?: Range): Array<int>;
 
     /**
-     * Gets the range of run glyph indices, the offset of the indices relative to the entire paragraph.
-     *
-     * @param { Range } [range] range of run, range.start is the starting index of the run block, starting from 0.
-     *     range.end is run length, if range.start range.and end are set to 0, then get all of the current run.
+     * 获取run对象中字形索引的范围，索引为相对于段落起始的偏移
+     * @param { Range } [range] range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
      * @returns { Array<int> | undefined } The glyph indices or undefined.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
@@ -4054,10 +3905,9 @@ declare namespace text {
     getStringIndices(range?: Range): Array<int> | undefined;
 
     /**
-     * Obtains the range of glyphs generated by this run.
+     * 获取排版单元生成字形的字符范围。
      *
-     * @returns { Range } Range of the glyphs, where **start** indicates the start position of the range, which is the
-     *     index relative to the entire paragraph, and **end** indicates the length of the range.
+     * @returns { Range } 排版单元生成字形的字符范围，Range类型中的start表示字符范围的开始位置，该位置是相对于整个段落的索引，Range类型中的end表示字符范围的长度。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -4067,22 +3917,21 @@ declare namespace text {
     getStringRange(): Range;
 
     /**
-     * Obtains the typographic boundaries of the typographic unit. These boundaries are associated with the typographic
-     * font and font size, but not with the characters. For example, for the string " a b " (which has a space before "a
-     * " and a space after "b"), the typographic boundaries include the spaces at the beginning and end of the line.
-     *
-     * > **NOTE**
+     * 获取该排版单元的排版边界，排版边界与排版字体、排版字号有关，与字符本身无关，例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，排版边界就包括行首和末尾空格的边界。
+     * 
+     * > **说明：**
      * >
-     * > The following figure shows the typographic boundaries of the string " a b ".
-     * >
-     * > ![image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds.png)
-     * >
-     * > The following figure shows the typographic boundaries of the strings "j" and "E".
+     * > 示意图展示了字符串为" a b "的排版边界。
      * >
      * > !
-     * > [image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_TypographicBounds_Character.png)
+     * > [zh-ch_image_TypographicBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds.png)
+     * >
+     * > 示意图展示了字符串为"j"或"E"的排版边界。
+     * >
+     * > !
+     * > [zh-ch_image_TypographicBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_TypographicBounds_Character.png)
      *
-     * @returns { TypographicBounds } Typographic boundaries of the run.
+     * @returns { TypographicBounds } 该排版单元的排版边界。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -4092,21 +3941,19 @@ declare namespace text {
     getTypographicBounds(): TypographicBounds;
 
     /**
-     * Obtains the image boundaries of the typographic unit. Equivalent to visual boundaries, these boundaries are
-     * associated with the typographic font, font size, and characters. For example, for the string " a b " (which has a
-     * space before "a" and a space after "b"), only "a b" is visible to users, and therefore the image boundaries do
-     * not include these spaces at the beginning and end of the line.
-     *
-     * > **NOTE**
+     * 获取该排版单元的图像边界，图像边界与排版字体、排版字号、字符本身都有关，相当于视觉边界，例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，用户在界面上只能看到"a b"，图像边界即为不包括带行首和
+     * 末尾空格的边界。
+     * 
+     * > **说明：**
      * >
-     * > The following figure shows the image boundaries of the string " a b ".
+     * > 示意图展示了字符串为" a b "的图像边界。
      * >
-     * > ![image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds.png)
+     * > ![zh-ch_image_ImageBounds.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds.png)
      * >
-     * > The following figure shows the image boundaries of the strings "j" and "E".
+     * > 示意图展示了字符串为"j"或"E"的图像边界。
      * >
      * > !
-     * > [image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/image_ImageBounds_Character.png)
+     * > [zh-ch_image_ImageBounds_Character.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_ImageBounds_Character.png)
      *
      * @returns { common2D.Rect } Image boundary of the layout unit, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
@@ -4118,9 +3965,9 @@ declare namespace text {
     getImageBounds(): common2D.Rect;
 
     /**
-     * Obtains the text direction of the run.
+     * 获取该排版单元的文本方向。
      *
-     * @returns { TextDirection } Obtains the text direction of the run.
+     * @returns { TextDirection } 返回该排版单元的文本方向。
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @atomicservice [since 22]
@@ -4130,12 +3977,10 @@ declare namespace text {
     getTextDirection(): TextDirection;
 
     /**
-     * Obtains the glyph width array of each glyph within the specified range of the run.
+     * 获取该排版单元指定范围内每个字形的字形宽度数组。
      *
-     * @param { Range } range - Range of the glyph position to be obtained. **range.start** indicates the start position
-     *     of the range, and **range.end** indicates the range length. If the length is **0**, the range starts from
-     *     **range.start** and ends at the end of the run. If **range.end** or **range.start** is set to a negative
-     *     value, **null**, or **undefined**, **undefined** is returned.
+     * @param { Range } range - 要获取的字形位置范围。range.start表示范围开始的位置，range.end表示范围的长度。如果长度是0表示从range.start开始获取到渲染块结束。当
+     *     range.end、range.start为负数，或者传入null、undefined时，该方法将返回undefined。
      * @returns { Array<common2D.Point> } Returns the glyph width array of each glyph in the run unit relative to the
      *     horizontal direction. In [common2D.Point]{@link @ohos.graphics.common2D:common2D.Point}, the x value
      *     represents the glyph width of each glyph relative to the horizontal direction, in physical pixels (px). The y
@@ -4148,31 +3993,17 @@ declare namespace text {
     getAdvances(range: Range): Array<common2D.Point>;
 
     /**
-     * Gets the glyph width array within the range.
-     *
-     * @param { Range } range - Range of the glyphs, where range.start indicates the start position of the range, and
-     *     range.end indicates the length of the range. If the length is 0, the range is from range.start to the end of
-     *     the run.
+     * 获取指定范围内的字形宽度数组
+     * @param { Range } range - range获取当前run的字形范围，其中start表示起始位置，end表示范围长度，如果长度为0，则获取从start到末尾的字形
      * @returns { Array<common2D.Point> | undefined } Array holding the advance width and height of each glyph.
      * @syscap SystemCapability.Graphics.Drawing
      * @since 23 static
      */
     getAdvances(range: Range): Array<common2D.Point> | undefined;
-
-    /**
-     * Obtains the text style of this run.
-     *
-     * @returns { TextStyle } Text style of this run.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    getTextStyle(): TextStyle;
   }
 
   /**
-   * Describes the layout information and measurement information of a run of text in a text line.
+   * 描述文本行中连续文本块的布局信息和度量数据。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -4182,7 +4013,7 @@ declare namespace text {
    */
   interface RunMetrics {
     /**
-     * Text style.
+     * 字体的样式信息。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4193,7 +4024,7 @@ declare namespace text {
     textStyle: TextStyle;
 
     /**
-     * Font measurement information.
+     * 字体度量信息。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4205,7 +4036,7 @@ declare namespace text {
   }
 
   /**
-   * Describes the measurement information of a single line of text in the text layout.
+   * 描述文本布局中单行文字的度量信息。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -4215,7 +4046,7 @@ declare namespace text {
    */
   interface LineMetrics {
     /**
-     * Start index of the line in the text buffer.
+     * 文本缓冲区中该行开始的索引位置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4226,7 +4057,7 @@ declare namespace text {
     startIndex: int;
 
     /**
-     * End index of the line in the text buffer.
+     * 文本缓冲区中该行结束的索引位置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4237,8 +4068,7 @@ declare namespace text {
     endIndex: int;
 
     /**
-     * Text ascent height, which refers to the distance from the baseline to the top of characters, in physical pixels (
-     * px).
+     * 文字上升高度，即从基线到字符顶部的距离，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4249,8 +4079,7 @@ declare namespace text {
     ascent: double;
 
     /**
-     * Text descent height, which refers to the distance from the baseline to the bottom of characters, in physical
-     * pixels (px).
+     * 文字下降高度，即从基线到字符底部的距离，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4261,7 +4090,7 @@ declare namespace text {
     descent: double;
 
     /**
-     * Height of the current line, in physical pixels (px). The calculation method is `Math.round(ascent + descent)`.
+     * 当前行的高度，单位为物理像素px，计算方式为 `Math.round(ascent + descent)`
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4272,7 +4101,7 @@ declare namespace text {
     height: double;
 
     /**
-     * Width of a line, in physical pixels (px).
+     * 行的宽度，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4283,8 +4112,7 @@ declare namespace text {
     width: double;
 
     /**
-     * Left edge position of a line, in physical pixels (px). The right edge is the value of **left** plus the value of
-     * **width**.
+     * 行的左边缘位置，单位为物理像素px。右边缘可通过 `left+width` 计算得出。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4295,7 +4123,7 @@ declare namespace text {
     left: double;
 
     /**
-     * Y coordinate of the baseline in the line relative to the top of the paragraph, in physical pixels (px).
+     * 该行基线相对于段落顶部的 Y 坐标位置，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4306,7 +4134,7 @@ declare namespace text {
     baseline: double;
 
     /**
-     * Line number, starting from 0.
+     * 行号，从0开始计数。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4317,7 +4145,7 @@ declare namespace text {
     lineNumber: int;
 
     /**
-     * Height from the top to the current line, in physical pixels (px).
+     * 从顶部到当前行的高度，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4328,7 +4156,7 @@ declare namespace text {
     topHeight: double;
 
     /**
-     * Mapping between the text index range and the associated font measurement information.
+     * 文本索引范围与关联的字体度量信息之间的映射。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4340,10 +4168,10 @@ declare namespace text {
   }
 
   /**
-   * Obtains the full names of all fonts of the specified type. This API uses a promise to return the result.
+   * 根据字体类型返回该类型对应的所有字体的字体名称，使用Promise异步回调。
    *
-   * @param { SystemFontType } fontType - Font type.
-   * @returns { Promise<Array<string>> } Promise used to return the full names of all fonts of the specified type.
+   * @param { SystemFontType } fontType - 指定的字体类型。
+   * @returns { Promise<Array<string>> } Promise对象，返回相应字体类型的所有字体的fullName。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
@@ -4355,10 +4183,10 @@ declare namespace text {
   function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>;
 
   /**
-   * Obtains the paths of all font files of a specified font type.
+   * 获取指定字体类型的所有字体文件路径。
    *
-   * @param { SystemFontType } fontType - Font type.
-   * @returns { Array<string> } List of font file paths.
+   * @param { SystemFontType } fontType - 指定的字体类型。
+   * @returns { Array<string> } 字体文件路径列表。
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
    * @since 23 dynamic&static
@@ -4366,15 +4194,13 @@ declare namespace text {
   function getFontPathsByType(fontType: SystemFontType): Array<string>;
 
   /**
-   * Obtains the font descriptor based on the font name and type. This API uses a promise to return the result.
+   * 根据字体名称和类型获取字体描述符，使用Promise异步回调。
+   * 
+   * 字体描述符是描述字体特征的数据结构，包含字体外观和属性的详细信息。
    *
-   * A font descriptor is a data structure that describes font features. It contains details of the font appearance and
-   * properties.
-   *
-   * @param { string } fullName - Font name. It is obtained with
-   *     [getSystemFontFullNamesByType]{@link text.getSystemFontFullNamesByType} called.
-   * @param { SystemFontType } fontType - Font type.
-   * @returns { Promise<FontDescriptor> } Promise used to return the font descriptor.
+   * @param { string } fullName - 指定的字体名称。可以使用[getSystemFontFullNamesByType]{@link text.getSystemFontFullNamesByType}获取。
+   * @param { SystemFontType } fontType - 指定的字体类型。
+   * @returns { Promise<FontDescriptor> } Promise对象，返回指定的字体描述符。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.Graphics.Drawing
@@ -4386,13 +4212,10 @@ declare namespace text {
   function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>;
 
   /**
-   * Obtains all system font descriptors that match the provided font descriptor. This API uses a promise to return the
-   * result.
+   * 根据指定的字体描述符返回所有符合要求的系统字体描述符，使用Promise异步回调。
    *
-   * @param { FontDescriptor } desc - Font descriptor to match against. If this parameter is left unspecified, all
-   *     system font descriptors are returned. If a specific value is provided, the matching is performed based on the
-   *     value provided. If the matching fails, an empty array is returned.
-   * @returns { Promise<Array<FontDescriptor>> } Promise used to return all matched system font descriptors.
+   * @param { FontDescriptor } desc - 指定需要用来做匹配的字体描述符。如果不指定任何字段，则返回系统的所有字体描述符。如果填写了指定字段，则按照指定字段进行匹配。如果匹配失败，返回空数组。
+   * @returns { Promise<Array<FontDescriptor>> } Promise对象，返回所有匹配到的系统字体描述符。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Graphics.Drawing
@@ -4404,7 +4227,7 @@ declare namespace text {
   function matchFontDescriptors(desc: FontDescriptor): Promise<Array<FontDescriptor>>;
 
   /**
-   * Implements a paragraph-style text tab, which stores the alignment mode and position.
+   * 段落风格的文本制表符，储存了对齐方式和位置。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -4414,9 +4237,7 @@ declare namespace text {
    */
   interface TextTab {
     /**
-     * Text alignment method after the tab character in a paragraph. It supports the LEFT (left alignment), RIGHT (right
-     * alignment), and CENTER (center alignment) alignment methods of [TextAlign]{@link text.TextAlign}. Unlisted enum
-     * values are treated as left alignment, with left alignment as the default.
+     * 段落中制表符之后的文本对齐方式，支持设置[TextAlign]{@link text.TextAlign}的LEFT左对齐、RIGHT右对齐和CENTER居中对齐方式，未列出的枚举值将视为左对齐，默认为左对齐。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4427,8 +4248,7 @@ declare namespace text {
     alignment: TextAlign;
 
     /**
-     * Alignment position of the text following the tab character. The value is a floating point number, in px. The
-     * minimum value is 1.0. When the value is less than 1.0, the tab character is replaced with a space.
+     * 制表符之后的文本对齐位置，浮点数，单位为物理像素px，最小值为1.0，当该值小于1.0时，该制表符会被替换为一个空格。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4440,7 +4260,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the high contrast types for text rendering.
+   * 文字渲染高对比度配置类型枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -4450,7 +4270,7 @@ declare namespace text {
    */
   enum TextHighContrast {
     /**
-     * Follows the high contrast mode for text rendering in the system settings.
+     * 跟随系统设置中的高对比度文字配置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice [since 22]
@@ -4460,8 +4280,7 @@ declare namespace text {
     TEXT_FOLLOW_SYSTEM_HIGH_CONTRAST = 0,
 
     /**
-     * Disables the high contrast mode for text rendering in the application. This mode takes precedence over the one
-     * based on system settings.
+     * 关闭APP的文字渲染高对比度配置，该模式的优先级要高于系统设置中的高对比度文字配置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4472,8 +4291,7 @@ declare namespace text {
     TEXT_APP_DISABLE_HIGH_CONTRAST = 1,
 
     /**
-     * Enables the high contrast mode for text rendering in the application. The priority of this mode is higher than
-     * the mode following the system settings.
+     * 开启APP的文字渲染高对比度配置，该模式的优先级要高于系统设置中的高对比度文字配置。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4485,17 +4303,15 @@ declare namespace text {
   }
 
   /**
-   * Sets the high contrast mode for text rendering.
+   * 用于设置文字渲染高对比度模式。
+   * 
+   * 该接口设置后整个进程都会生效，进程内所有页面共用相同模式。
+   * 
+   * 可调用此接口设置，也可通过系统设置界面中**高对比度文字配置开关**进行开启/关闭。使用此接口设置开启/关闭文字渲染高对比度配置的优先级高于系统开关设置。
+   * 
+   * 该接口针对应用的文字自绘制场景不生效。
    *
-   * The setting of this API takes effect for the entire process, and all pages in the process share the same mode.
-   *
-   * You can call this API to set the high contrast mode, or enable or disable the high contrast mode by toggling the
-   * switch on the system settings screen. This API is used to set the high contrast mode for text rendering. The
-   * setting of this API takes precedence over the one based on system settings.
-   *
-   * This API does not take effect for the text drawing scenario.
-   *
-   * @param { TextHighContrast } action - High contrast mode for text rendering.
+   * @param { TextHighContrast } action - 文字渲染高对比度模式。
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
    * @atomicservice [since 22]
@@ -4505,7 +4321,7 @@ declare namespace text {
   function setTextHighContrast(action : TextHighContrast): void;
 
   /**
-   * Enumerates the modes for displaying undefined text glyphs.
+   * 文本未定义字形时的显示方式枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -4515,7 +4331,7 @@ declare namespace text {
    */
   enum TextUndefinedGlyphDisplay {
     /**
-     * Follows the internal .notdef glyph design of the font, which can be an empty box, space, or custom symbol.
+     * 使用字体的内部.notdef字形。遵循字体的内部.notdef字形设计，可以是空框、空格或自定义符号。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4525,8 +4341,7 @@ declare namespace text {
      */
     USE_DEFAULT = 0,
     /**
-     * Always uses explicit tofu blocks to replace undefined glyphs, overriding the default behavior of fonts. It is
-     * suitable for debugging missing characters or forcing a uniform display of missing symbols.
+     * 总是用显式的豆腐块替换未定义的字形，覆盖字体的默认行为。用于调试缺失字符或强制一致的缺失符号显示。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -4538,7 +4353,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text processing states.
+   * 文本处理状态的枚举。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
@@ -4547,7 +4362,7 @@ declare namespace text {
    */
   enum TextProcessState {
     /**
-     * Initial state, text processing has not started.
+     * 初始状态，文本处理尚未开始。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4556,7 +4371,7 @@ declare namespace text {
      */
     INIT = 0,
     /**
-     * Indexed state, text has been indexed.
+     * 已生成索引状态，文本索引已生成。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4565,7 +4380,7 @@ declare namespace text {
      */
     INDEXED = 1,
     /**
-     * Shaped state, text has been shaped.
+     * 已塑形状态，文本已完成塑形。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4574,7 +4389,7 @@ declare namespace text {
      */
     SHAPED = 2,
     /**
-     * Line-broken state, text has been split into lines.
+     * 已换行状态，文本已换行。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4583,7 +4398,7 @@ declare namespace text {
      */
     LINE_BROKEN = 3,
     /**
-     * Formatted state, text has been formatted.
+     * 已格式化状态，文本已完成格式化。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4592,7 +4407,7 @@ declare namespace text {
      */
     FORMATTED = 4,
     /**
-     * Paint state, text has been painted.
+     * 已绘制状态，文本已完成绘制。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4601,7 +4416,7 @@ declare namespace text {
      */
     PAINT = 5,
     /**
-     * Update attribute state, text attributes have been updated.
+     * 已更新属性状态，文本属性已更新。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4612,7 +4427,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text display states.
+   * 文本显示状态的枚举。表示文本排版后的原生结果，与外部画布裁切、溢出屏幕等外部显示因素无关。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
@@ -4621,7 +4436,7 @@ declare namespace text {
    */
   enum TextDisplayState {
     /**
-     * Unknown display state, the default state.
+     * 未知显示状态，默认状态。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4630,7 +4445,7 @@ declare namespace text {
      */
     UNKNOWN = 0,
     /**
-     * Full display state, all text is displayed normally.
+     * 完整显示状态，文本无截断、无省略，全部内容正常显示。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4639,7 +4454,7 @@ declare namespace text {
      */
     ALL = 1,
     /**
-     * Clipped display state, part of the text is clipped.
+     * 裁剪显示状态，文本超出排版区域的部分被直接裁剪隐藏。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4648,7 +4463,7 @@ declare namespace text {
      */
     CLIP = 2,
     /**
-     * Omitted display state, part of the text is omitted (e.g., replaced with '...').
+     * 省略显示状态，文本超出排版区域后，部分内容以指定字符（如省略号 '...'）替代展示。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4659,8 +4474,7 @@ declare namespace text {
   }
 
   /**
-   * Represents the text rectangle size, which is used to describe the width and height of the text rectangle. It is a
-   * floating-point value in physical pixels (px).
+   * 文本矩形尺寸，用于描述文本的矩形宽高属性。值为浮点数，单位为物理像素px。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
@@ -4669,7 +4483,7 @@ declare namespace text {
    */
   interface TextRectSize {
     /**
-     * Width of the text rectangle, which is a floating-point value in physical pixels (px).
+     * 文本矩形的宽度，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4679,7 +4493,7 @@ declare namespace text {
     width: double;
 
     /**
-     * Height of the text rectangle, which is a floating-point value in physical pixels (px).
+     * 文本矩形的高度，浮点数，单位为物理像素px。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4690,7 +4504,7 @@ declare namespace text {
   }
 
   /**
-   * Represents the text layout result.
+   * 文本布局结果。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
@@ -4699,7 +4513,7 @@ declare namespace text {
    */
   interface TextLayoutResult {
     /**
-     * Array of character ranges that can be completely displayed after text layout calculation.
+     * 文本布局计算完成后能够完整显示的字符范围数组。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4709,7 +4523,7 @@ declare namespace text {
     fitStrRange: Array<Range>;
 
     /**
-     * Rectangle size of the paragraph after layout.
+     * 布局后段落的矩形尺寸。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4720,16 +4534,16 @@ declare namespace text {
   }
 
   /**
-   * Sets the glyph type to be used when characters are mapped to the .notdef (undefined) glyph.
+   * 设置字符映射到.notdef（未定义）字形时要使用的字形类型。
+   * 
+   * 影响此调用后呈现的所有文本。
+   * 
+   * 此配置会影响显示字体中未定义字符的方式：
+   * 
+   * - 默认行为遵循字体的内部.notdef字形设计。
+   * - 开启后将强制使缺失字形的字符以豆腐块形式显示。
    *
-   * This setting affects all text rendered subsequently.
-   *
-   * This setting affects how to display undefined characters in the font:
-   *
-   * - The default behavior follows the .notdef glyph design of the font.
-   * - After this feature is enabled, characters without glyphs are displayed as a tofu block of text.
-   *
-   * @param { TextUndefinedGlyphDisplay } noGlyphShow - Display mode of characters that cannot be shaped.
+   * @param { TextUndefinedGlyphDisplay } noGlyphShow - 无法塑形字符的显示方式。
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
    * @atomicservice [since 22]
@@ -4739,24 +4553,18 @@ declare namespace text {
   function setTextUndefinedGlyphDisplay(noGlyphShow: TextUndefinedGlyphDisplay): void;
 
   /**
-   * Obtains an array of font descriptors by font file path. This API uses a promise to return the result.
-   *
-   * > **NOTE**
+   * 根据字体文件路径获取字体描述符数组。使用Promise异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - An empty array is returned if the font file is not found, the font file path is invalid, the font file does not
-   * > have the required permission, or the file is not in the font format.
+   * > - 如果字体文件未找到、字体文件路径无效、字体文件无权限或者文件非字体格式，返回空数组。
    * >
-   * > - The **weight** field in [FontDescriptor]{@link text.FontDescriptor} does not exactly correspond to the weight
-   * > value in the font file. Instead, the actual weight value in the font file is rounded off and mapped to the
-   * > [FontWeight]{@link text.FontWeight} enum value. For example, the weight value 350 in the font file is mapped to 4
-   * > 00, and the corresponding enum value is W400.
+   * > - [FontDescriptor]{@link text.FontDescriptor}中的weight字段并不精准对应字体文件内部的字重数值，而是将字体文件中的实际字重四舍五入映射到
+   * > [FontWeight]{@link text.FontWeight}枚举值后的结果。例如，字体文件字重350会映射为400，对应枚举为W400。
    *
-   * @param { string | Resource } path - Path of the font file to be queried. The path must be in the format of "
-   *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-   *     **resources/rawfile** directory in the project, which includes the font file name).
-   * @returns { Promise<Array<FontDescriptor>> } Promise used to return all font descriptors. If the font file cannot be
-   *     found, the path is invalid, the font file does not have the required permission, or the file is not a font file
-   *     , an empty array is returned.
+   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 $rawfile("工程中resources/rawfile目录下的文件名称")
+   *     。
+   * @returns { Promise<Array<FontDescriptor>> } Promise对象，返回所有的字体描述符。如果找不到字体文件、路径无效、无权限或非字体文件，则返回空数组。
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
    * @since 22 dynamic
@@ -4765,12 +4573,10 @@ declare namespace text {
   function getFontDescriptorsFromPath(path: string | Resource): Promise<Array<FontDescriptor>>;
 
   /**
-   * Checks whether the system supports the specified font file.
+   * 检查系统是否支持指定的字体文件。
    *
-   * @param { string | Resource } fontURL - Path of the font file to be checked. The path must be in the format of "
-   *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-   *     **resources/rawfile** directory in the project, which includes the font file name).
-   * @returns { boolean } Whether the system supports the specified font file. **true** means yes; **false** otherwise.
+   * @param { string | Resource } fontURL - 需要检查的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 "rawfile/目录or文件名"。
+   * @returns { boolean } 系统是否支持指定的字体文件。返回true表示支持，返回false表示不支持。
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
    * @since 23 dynamic&static
@@ -4778,18 +4584,14 @@ declare namespace text {
   function isFontSupported(fontURL: string | Resource): boolean;
 
   /**
-   * Obtains an array of font Unicode by font file path. This API uses a promise to return the result.
+   * 根据字体文件路径获取字体unicode数组。使用Promise异步回调。
+   * 
+   * 如果字体文件未找到、字体文件路径无效、字体文件无权限或者文件非字体格式，返回空数组。
    *
-   * An empty array is returned if the font file is not found, the font file path is invalid, the font file does not
-   * have the required permission, or the file is not in the font format.
-   *
-   * @param { string | Resource } path - Path of the font file to be queried. The path must be in the format of "
-   *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-   *     **resources/rawfile** directory in the project, which includes the font file name).
-   * @param { int } index - Font index to be loaded when the font file format is TTC or OTC. The index value of a non-
-   *     TTC/OTC file can only be **0**. If this parameter is set to a negative value or exceeds the actual index range
-   *     of the font file, an empty array is returned.
-   * @returns { Promise<Array<int>> } Promise used to return the Unicode array corresponding to the font file.
+   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 $rawfile("工程中resources/rawfile目录下的文件名称")
+   *     。
+   * @param { int } index - 字体文件格式为ttc/otc时，指定加载的字体索引。非ttc/otc格式文件索引值只能指定为0。如果该参数为负数或超出字体文件实际索引范围，将返回空数组。
+   * @returns { Promise<Array<int>> } Promise对象，返回字体文件对应的unicode码数组。
    * @syscap SystemCapability.Graphics.Drawing
    * @atomicservice
    * @since 23 dynamic&static
@@ -4797,15 +4599,13 @@ declare namespace text {
   function getFontUnicodeSet(path: string | Resource, index: int) : Promise<Array<int>>;
 
   /**
-   * Obtains the number of font files contained in a font file based on the font file path.
+   * 根据字体文件路径获取包含的字体文件数。
+   * 
+   * 如果字体文件未找到、字体文件路径无效、字体文件无权限或者文件非字体格式，返回0。
    *
-   * Returns **0** if the font file is not found, the font file path is invalid, the font file does not have the
-   * required permission, or the file is not in the font format.
-   *
-   * @param { string | Resource } path - Path of the font file to be queried. The path must be in the format of "
-   *     **file://** + Absolute path of the font file" or **$rawfile** (a file path relative to the
-   *     **resources/rawfile** directory in the project, which includes the font file name).
-   * @returns { int } Number of fonts.
+   * @param { string | Resource } path - 需要查询的字体文件的路径，应为 "file:// + 字体文件绝对路径" 或 $rawfile("工程中resources/rawfile目录下的文件名称")
+   *     。
+   * @returns { int } 包含字体数量。
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
    * @atomicservice
