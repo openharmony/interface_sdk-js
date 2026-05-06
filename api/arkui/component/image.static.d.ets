@@ -1026,3 +1026,38 @@ export declare function Image(
     src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
     imageAIOptions?: ImageAIOptions
 ): ImageAttribute;
+/**
+ * Defines the Image component.
+ *
+ * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+ * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.\
+ * @param { string } [reloadKey] - Options for image reload.
+ * @returns { ImageAttribute } The attribute of the Image.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function Image(
+    src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
+    imageAIOptions?: ImageAIOptions,
+    reloadKey?: string
+): ImageAttribute;
+
+/**
+ * Defines the Image component.
+ *
+ * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+ * @param { string } [reloadKey] - Options for image reload.
+ * @returns { ImageAttribute } The attribute of the Image.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
+@ComponentBuilder
+export declare function Image(
+    src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
+    reloadKey?: string
+): ImageAttribute;
