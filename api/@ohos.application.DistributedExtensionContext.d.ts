@@ -18,9 +18,9 @@
  * @kit DistributedServiceKit
  */
 
-import { ConnectOptions } from '../ability/connectOptions';
+import { ConnectOptions } from './ability/connectOptions';
 import type ExtensionContext from './application/ExtensionContext';
-import Want from '../@ohos.app.ability.Want';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * Class inherited for the distributed extension function.
