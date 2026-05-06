@@ -13880,9 +13880,10 @@ export declare interface CommonMethod {
     /**
      * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
      *
-     * @param { actions: Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
+     * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
      * @returns { this } return component instance who call method.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     default accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): this;

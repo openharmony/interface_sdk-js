@@ -1718,6 +1718,7 @@ export declare interface AccessibilityActionOptions {
  *
  * @interface AccessibilityCustomAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface AccessibilityCustomAction {
@@ -1727,6 +1728,7 @@ export declare interface AccessibilityCustomAction {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 26.0.0 static
    */
   name: ResourceStr;
@@ -1736,6 +1738,7 @@ export declare interface AccessibilityCustomAction {
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 26.0.0 static
    */
   onAction: VoidCallback;
