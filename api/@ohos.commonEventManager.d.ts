@@ -25,7 +25,7 @@ import { CommonEventSubscribeInfo as _CommonEventSubscribeInfo } from './commonE
 import { CommonEventPublishData as _CommonEventPublishData } from './commonEvent/commonEventPublishData';
 
 /**
- * The **CommonEventManager** module provides common event capabilities to publish, subscribe to, and unsubscribe from
+ * The **CommonEventManager** module provides common event capabilities to publish, subscribe to, and unsubscribe from 
  * common events.
  *
  * @syscap SystemCapability.Notification.CommonEvent
@@ -38,14 +38,13 @@ declare namespace commonEventManager {
   /**
    * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - Name of the common event to publish. For details, see
-   *     [System Common Events]{@link @ohos.commonEventManager:commonEventManager}.
+   * @param { string } event - Name of the common event to publish.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
-   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 12]
    * @atomicservice [since 11]
@@ -57,15 +56,14 @@ declare namespace commonEventManager {
   /**
    * Publishes a common event. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - Name of the common event to publish. For details, see
-   *     [System Common Events]{@link @ohos.commonEventManager:commonEventManager}.
+   * @param { string } event - Name of the common event to publish.
    * @param { CommonEventPublishData } options - Properties of the common event to publish.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
-   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 12]
    * @atomicservice [since 11]
@@ -77,17 +75,16 @@ declare namespace commonEventManager {
   /**
    * Publishes a common event to a specified user. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } event - Name of the common event to publish. For details, see
-   *     [System Common Events]{@link @ohos.commonEventManager:commonEventManager}.
+   * @param { string } event - Name of the common event to publish.
    * @param { int } userId - User ID.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
+   * @throws { BusinessError } 1500006 - Invalid userId. [since 21]
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
-   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
-   * @throws { BusinessError } 1500006 - Invalid userId. [since 21]
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9 dynamic
@@ -96,21 +93,20 @@ declare namespace commonEventManager {
   function publishAsUser(event: string, userId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Publishes a common event to a specified user and specifies the information to be published. This API uses an
+   * Publishes a common event to a specified user and specifies the information to be published. This API uses an 
    * asynchronous callback to return the result.
    *
-   * @param { string } event - Name of the common event to publish. For details, see
-   *     [System Common Events]{@link @ohos.commonEventManager:commonEventManager}.
+   * @param { string } event - Name of the common event to publish.
    * @param { int } userId - User ID.
    * @param { CommonEventPublishData } options - Properties of the common event to publish.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 202 - not system app
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
+   * @throws { BusinessError } 1500006 - Invalid userId. [since 21]
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @throws { BusinessError } 1500009 - Failed to obtain system parameters.
-   * @throws { BusinessError } 1500003 - The common event sending frequency too high. [since 20]
-   * @throws { BusinessError } 1500006 - Invalid userId. [since 21]
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 9 dynamic
@@ -129,8 +125,8 @@ declare namespace commonEventManager {
    * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
    * @param { AsyncCallback<CommonEventSubscriber> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -146,9 +142,9 @@ declare namespace commonEventManager {
    * Creates a subscriber. This API uses a promise to return the result.
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
-   * @returns { Promise<CommonEventSubscriber> } Promise used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @returns { Promise<CommonEventSubscriber> } Promise used to return the created subscriber object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -162,8 +158,8 @@ declare namespace commonEventManager {
    *
    * @param { CommonEventSubscribeInfo } subscribeInfo - Subscriber information.
    * @returns { CommonEventSubscriber } Promise used to return the subscriber object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -190,12 +186,12 @@ declare namespace commonEventManager {
   function subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void;
 
   /**
-   * Subscribes to a common event. This API uses a promise to return the result, indicating subscription success or
+   * Subscribes to a common event. This API uses a promise to return the result, indicating subscription success or 
    * failure.
    *
    * @param { CommonEventSubscriber } subscriber - Subscriber object.
    * @param { Callback<CommonEventData> } callback - Callback to be invoked when a common event is subscribed to.
-   * @returns { Promise<void> } A promise that indicates whether the subscription was successful.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -214,8 +210,8 @@ declare namespace commonEventManager {
    * @param { CommonEventSubscriber } subscriber - Subscriber object.
    * @param { AsyncCallback<void> } [callback] - Callback to unregister. If the operation is successful, **err** is
    *     **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - capability not supported
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -231,14 +227,14 @@ declare namespace commonEventManager {
    * Removes a sticky common event. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
-   * @param { string } event - Sticky common event to remove. For details, see
-   *     [System Common Events]{@link @ohos.commonEventManager:commonEventManager}.
+   * @param { string } event - Sticky common event to remove.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
-   * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -253,13 +249,13 @@ declare namespace commonEventManager {
    * Removes a sticky common event. This API uses a promise to return the result.
    *
    * @permission ohos.permission.COMMONEVENT_STICKY
-   * @param { string } event - Sticky common event to remove. For details, see
-   *     [System Common Events]{@link @ohos.commonEventManager:commonEventManager}.
+   * @param { string } event - Sticky common event to remove.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The application dose not have permission to call the interface
-   * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 1500004 - A third-party application cannot send system common events.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
@@ -271,15 +267,15 @@ declare namespace commonEventManager {
   function removeStickyCommonEvent(event: string): Promise<void>;
 
   /**
-   * Enables or disables static subscription for an application. This API uses an asynchronous callback to return the
+   * Enables or disables static subscription for an application. This API uses an asynchronous callback to return the 
    * result.
    *
    * @param { boolean } enable - Whether static subscription is enabled.<br> **true**: enabled.<br>**false**: disabled.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -295,9 +291,9 @@ declare namespace commonEventManager {
    *
    * @param { boolean } enable - Whether static subscription is enabled.<br> **true**: enabled.<br>**false**: disabled.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -309,15 +305,15 @@ declare namespace commonEventManager {
   function setStaticSubscriberState(enable: boolean): Promise<void>;
 
   /**
-   * Enables or disables the static subscription event for the current application and records the event name. This API
+   * Enables or disables the static subscription event for the current application and records the event name. This API 
    * uses a promise to return the result.
    *
    * @param { boolean } enable - Whether static subscription is enabled.<br> **true**: enabled.<br>**false**: disabled.
    * @param { Array<string> } events - Name of a recorded event.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -328,15 +324,14 @@ declare namespace commonEventManager {
   function setStaticSubscriberState(enable: boolean, events?: Array<string>): Promise<void>;
 
   /**
-   * Enables or disables the static subscription event for the current application and records the event name. This API
-   * uses a promise to return the result.
+   * Set static subscriber state.
    *
-   * @param { boolean } enable - Whether static subscription is enabled.<br> **true**: enabled.<br>**false**: disabled.
-   * @param { Array<string> } events - Name of a recorded event.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - not system app
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @param { boolean } enable - static subscribe event enable/disable state.
+   * @param { Array<string> } events - The events array.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 1500007 - Failed to send the message to the common event service.
    * @throws { BusinessError } 1500008 - Failed to initialize the common event service.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -347,9 +342,8 @@ declare namespace commonEventManager {
   function setStaticSubscriberState(enable: boolean, events: Array<string>): Promise<void>;
 
   /**
-   * System common events refer to events released by system services or system applications. Subscribing to these
-   * common events requires specific permissions and values. For details, see
-   * [System Common Events]{@link @ohos.commonEventManager:commonEventManager}.
+   * System common events are events published by system services or system applications. Subscribing to these common 
+   * events requires specific permissions and values.
    *
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -360,8 +354,11 @@ declare namespace commonEventManager {
     /**
      * Indicates that the boot is complete and the system is loaded.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVER_STARTUP_COMPLETED
-     * permission. (This permission is available only for system applications.)
+     * When the specified user finishes the boot process on the device, the common event service is triggered to publish
+     * this event.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVER_STARTUP_COMPLETED 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -382,6 +379,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the device is being shut down and the final shutdown will proceed.
      *
+     * When the device is being shut down until it is powered off, the event notification service is triggered to 
+     * publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -390,6 +390,11 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the charging state, level, and other information about the battery have changed.
+     *
+     * When any of the following information changes, the event notification service is triggered to publish this event:
+     * battery level, battery temperature, battery health status, type of the charger connected to the device, maximum 
+     * current of the charger, maximum voltage of the charger, battery charging status, number of charging times, total 
+     * battery capacity, remaining battery capacity, battery model, and battery charging type.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -400,6 +405,12 @@ declare namespace commonEventManager {
     /**
      * Indicates that the battery level is low.
      *
+     * When the battery level drops to lower than the low battery level set for the device, the event notification 
+     * service is triggered to publish this event. <!--Del-->For details about how to set the low battery level 
+     * percentage, see 
+     * [Battery Level Customization](https://gitee.com/openharmony/docs/blob/master/en/device-dev/subsystems/subsys-power-battery-level-customization.md)
+     * .<!--DelEnd-->
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -408,6 +419,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the battery level is normal.
+     *
+     * When the battery level changes from the low level to normal level, the event notification service is triggered to
+     * publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -418,6 +432,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the device is connected to an external power supply.
      *
+     * When the device connects to an external charger, the event notification service is triggered to publish this 
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -426,6 +443,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the device is disconnected from the external power supply.
+     *
+     * When the device is disconnected from the external power supply, the event notification service is triggered to 
+     * publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -436,6 +456,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that a device screen-off initiated by the power service is complete.
      *
+     * When the device screen-off initiated by the power service is complete, the event notification service is 
+     * triggered to release this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -444,6 +467,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that a device screen-on initiated by the power service is complete.
+     *
+     * When the device screen-on initiated by the power service is complete, the event notification service is triggered
+     * to release this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -454,6 +480,11 @@ declare namespace commonEventManager {
     /**
      * Indicates that the device's thermal level has changed.
      *
+     * When the device's thermal level changes, the event notification service is triggered to publish this event. <!--
+     * Del-->For details about how to configure the device thermal level, see 
+     * [Thermal Level Customization](https://gitee.com/openharmony/docs/blob/master/en/device-dev/subsystems/subsys-thermal_level.md)
+     * .<!--DelEnd-->
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -462,6 +493,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the device is about to enter the forced sleep mode.
+     *
+     * When the device is about to enter the forced sleep mode, the event notification service is triggered to publish 
+     * this event. This event should be processed within one second.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 12 dynamic
@@ -472,6 +506,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the device exits the forced sleep mode.
      *
+     * When the device exits the forced sleep mode, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 12 dynamic
      * @since 23 static
@@ -481,6 +517,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the device is about to enter the hibernation mode.
      *
+     * When the device is about to enter the hibernation mode, the event notification service is triggered to publish 
+     * this event. This event should be processed within one second.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 15 dynamic
      * @since 23 static
@@ -489,6 +528,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the device exits the hibernation mode.
+     *
+     * When the device exits the hibernation mode, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 15 dynamic
@@ -502,12 +543,15 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamiconly
      * @deprecated since 10
-     * @useinstand commonEventManager.Support#COMMON_EVENT_SCREEN_UNLOCKED
+     * @useinstead commonEventManager.Support#COMMON_EVENT_SCREEN_UNLOCKED
      */
     COMMON_EVENT_USER_PRESENT = 'usual.event.USER_PRESENT',
 
     /**
      * Indicates that the system time has changed.
+     *
+     * When the system time in the unit of minute changes, the event notification service is triggered to publish this 
+     * event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -517,6 +561,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the system time is set.
+     *
+     * When the system time is set, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -536,6 +582,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the system time zone has changed.
      *
+     * When the system time zone changes, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -554,6 +602,13 @@ declare namespace commonEventManager {
     /**
      * Indicates that a new application package has been installed on the device.
      *
+     * When a new application is installed by a specified user on the device, the event notification service is 
+     * triggered to publish this event.
+     *
+     * > **NOTE**
+     * >
+     * > Third-party applications can only listen for the installation event of themselves.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -561,8 +616,8 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_ADDED = 'usual.event.PACKAGE_ADDED',
 
     /**
-     * (Reserved, not supported yet) Indicates the action of a common event that a new version of an installed
-     * application package has replaced the previous one on the device.
+     * (Reserved, not supported yet) Indicates the action of a common event that a new version of an installed 
+     * application package has replaced the previous one on the device. Data contains the name of the package.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -571,8 +626,8 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_REPLACED = 'usual.event.PACKAGE_REPLACED',
 
     /**
-     * (Reserved, not supported yet) Indicates the action of a common event that a new version of an installed
-     * application package has replaced the previous one on the device. This event does not contain additional data and
+     * (Reserved, not supported yet) Indicates the action of a common event that a new version of an installed 
+     * application package has replaced the previous one on the device. This event does not contain additional data and 
      * is sent only to the replaced application.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -609,8 +664,15 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_FULLY_REMOVED = 'usual.event.PACKAGE_FULLY_REMOVED',
 
     /**
-     * Indicates that an application package has been changed (for example, an ability in the package has been enabled
+     * Indicates that an application package has been changed (for example, an ability in the package has been enabled 
      * or disabled).
+     *
+     * When an application package installed on the device is updated or an ability in the package is enabled or 
+     * disabled, the event notification service is triggered to publish this event.
+     *
+     * > **NOTE**
+     * >
+     * > Third-party applications can only listen for the change event of themselves.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -621,6 +683,13 @@ declare namespace commonEventManager {
     /**
      * Indicates that the user has restarted the application package and killed all its processes.
      *
+     * When the specified user restarts the application and kills all its processes, the event notification service is 
+     * triggered to publish this event.
+     *
+     * > **NOTE**
+     * >
+     * > Third-party applications can only listen for the restart event of themselves.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -630,6 +699,13 @@ declare namespace commonEventManager {
     /**
      * Indicates that the user has cleared the application package data.
      *
+     * When the specified user clears the application package data on the device, the event notification service is 
+     * triggered to publish this event.
+     *
+     * > **NOTE**
+     * >
+     * > Third-party applications can only listen for the data clearance event of themselves.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -638,6 +714,13 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the user cleared the application package cache.
+     *
+     * When the cache of an application package installed on the device is cleared, the event notification service is 
+     * triggered to publish this event.
+     *
+     * > **NOTE**
+     * >
+     * > Third-party applications can only listen for the cache clearance event of themselves.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -700,7 +783,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_FIRST_LAUNCH = 'usual.event.PACKAGE_FIRST_LAUNCH',
 
     /**
-     * (Reserved, not supported yet) Indicates that a package is sent by the system verifier when the package needs
+     * (Reserved, not supported yet) Indicates that a package is sent by the system verifier when the package needs 
      * verification.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -710,7 +793,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_NEEDS_VERIFICATION = 'usual.event.PACKAGE_NEEDS_VERIFICATION',
 
     /**
-     * (Reserved, not supported yet) Indicates that a package is sent by the system verifier when the package is
+     * (Reserved, not supported yet) Indicates that a package is sent by the system verifier when the package is 
      * verified.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -720,7 +803,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_VERIFIED = 'usual.event.PACKAGE_VERIFIED',
 
     /**
-     * (Reserved, not supported yet) Indicates that applications installed on the external storage become available for
+     * (Reserved, not supported yet) Indicates that applications installed on the external storage become available for 
      * the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -730,7 +813,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_EXTERNAL_APPLICATIONS_AVAILABLE = 'usual.event.EXTERNAL_APPLICATIONS_AVAILABLE',
 
     /**
-     * (Reserved, not supported yet) Indicates that applications installed on the external storage become unavailable
+     * (Reserved, not supported yet) Indicates that applications installed on the external storage become unavailable 
      * for the system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -750,6 +833,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the system language is set.
+     *
+     * When the system language is set, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -823,10 +908,15 @@ declare namespace commonEventManager {
     /**
      * Indicates that a user switchover is complete.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * permission (before API version 21); or ohos.permission.MANAGE_LOCAL_ACCOUNTS or
-     * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission (since API version 21). (This permission is available
-     * only for system applications.)
+     * When a system account is switched, the common event service is triggered to publish this event carrying the 
+     * system account ID.
+     *
+     * The system API related to this common event is **activateOsAccount**. For details, see 
+     * [@ohos.account.osAccount (System Account Management)](docroot://reference/js-apis-osAccount.md).
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS 
+     * permission (before API version 21); ohos.permission.MANAGE_LOCAL_ACCOUNTS or 
+     * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission (since API version 21).
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -837,8 +927,8 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that the user is going to be started.
      *
-     * To subscribe to this common event, your application must have the
-     * **ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS** permission. (This permission is available only for system
+     * To subscribe to this common event, your application must have the 
+     * **ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS** permission.(This permission is available only for system 
      * applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -848,8 +938,11 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_STARTING = 'usual.event.USER_STARTING',
 
     /**
-     * Indicates that the credential-encrypted storage has been unlocked for the current user after the device is
+     * Indicates that the credential-encrypted storage has been unlocked for the current user after the device is 
      * restarted.
+     *
+     * When the device is unlocked with the lock screen password the first time after user switching, the event 
+     * notification service is triggered to publish this event carrying the system account ID that identifies the user.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -859,6 +952,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that a user is about to be locked.
+     *
+     * Before a user is locked, the common event service is triggered to publish this event carrying the system account 
+     * ID.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -870,6 +966,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that a user is locked.
      *
+     * After a user is locked, the common event service is triggered to publish this event carrying the system account 
+     * ID.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20 dynamic
@@ -880,8 +979,8 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that the user is going to be stopped.
      *
-     * To subscribe to this common event, your application must have the
-     * **ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS** permission. (This permission is available only for system
+     * To subscribe to this common event, your application must have the 
+     * **ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS** permission.(This permission is available only for system 
      * applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -902,6 +1001,15 @@ declare namespace commonEventManager {
     /**
      * Indicates a successful login from a distributed account.
      *
+     * When a distributed account is successfully logged in, the event notification service is triggered to publish this
+     * event carrying the system account ID.
+     *
+     * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
+     * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
+     * For details, see 
+     * [@ohos.account.distributedAccount (Distributed Account Management)](docroot://reference/js-apis-distributed-account.md)
+     * .
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -911,6 +1019,15 @@ declare namespace commonEventManager {
 
     /**
      * Indicates a successful logout from a distributed account.
+     *
+     * When a distributed account is successfully logged out, the event notification service is triggered to publish 
+     * this event carrying the system account ID.
+     *
+     * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
+     * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
+     * For details, see 
+     * [@ohos.account.distributedAccount (Distributed Account Management)](docroot://reference/js-apis-distributed-account.md)
+     * .
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 12]
@@ -922,6 +1039,15 @@ declare namespace commonEventManager {
     /**
      * Indicates that the token of a distributed account is invalid.
      *
+     * When the token of a distributed account is invalid, the event notification service is triggered to publish this 
+     * event carrying the system account ID.
+     *
+     * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
+     * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
+     * For details, see 
+     * [@ohos.account.distributedAccount (Distributed Account Management)](docroot://reference/js-apis-distributed-account.md)
+     * .
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -931,6 +1057,15 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that a distributed account is deregistered.
+     *
+     * When a distributed account is deregistered, the event notification service is triggered to publish this event 
+     * carrying the system account ID.
+     *
+     * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
+     * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
+     * For details, see 
+     * [@ohos.account.distributedAccount (Distributed Account Management)](docroot://reference/js-apis-distributed-account.md)
+     * .
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 12]
@@ -942,6 +1077,12 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Wi-Fi state changes.
      *
+     * When the Wi-Fi state changes (such as enabled or disabled), the event notification service is triggered to 
+     * release the system public event.
+     *
+     * State values: **0** indicates that the Wi-Fi is being disabling; **1** indicates that the Wi-Fi has been disabled
+     * ; **2** indicates that the Wi-Fi is being enabled; **3** indicates that the Wi-Fi has been enabled.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -950,6 +1091,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that a Wi-Fi access point is detected and proven to be available.
+     *
+     * When a Wi-Fi access point is detected and proven to be available, the event notification service is triggered to 
+     * publish this event.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.LOCATION** permission.
      *
@@ -962,6 +1106,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Wi-Fi signal strength (RSSI) has changed.
      *
+     * When the Wi-Fi signal strength (RSSI) changes, the event notification service is triggered to publish this event.
+     *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -973,6 +1119,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Wi-Fi connection state has changed.
      *
+     * When the Wi-Fi connection state changes, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -982,6 +1130,11 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Wi-Fi hotspot state has changed.
      *
+     * When the Wi-Fi hotspot state changes, the event notification service is triggered to publish this event.
+     *
+     * State values: **2** indicates that the AP is being enabled, **3** indicates that the AP has been enabled; **4** 
+     * indicates that the AP is being disabled; **5** indicates that the AP has been disabled.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -990,6 +1143,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the client is disconnected from the Wi-Fi hotspot of the current device.
+     *
+     * When a client is disconnected from the Wi-Fi hotspot of the current device, the event notification service is 
+     * triggered to publish this event.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
@@ -1002,6 +1158,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the client is disconnected from the Wi-Fi hotspot of the current device.
      *
+     * When a client is disconnected from the Wi-Fi hotspot of the current device, the event notification service is 
+     * triggered to publish this event.
+     *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1013,6 +1172,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the state of MPLINK (an enhanced Wi-Fi feature) has changed.
      *
+     * When the state of MPLINK changes, the event notification service is triggered to publish this event (not 
+     * supported yet).
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1022,7 +1184,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Wi-Fi P2P connection state has changed.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** and
+     * When the Wi-Fi P2P connection state changes, the event notification service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** and 
      * **ohos.permission.LOCATION** permissions.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1033,6 +1197,11 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the Wi-Fi P2P state has changed.
+     *
+     * When the Wi-Fi P2P state changes, the event notification service is triggered to publish this event.
+     *
+     * State values: **2** indicates that the P2P is being enabled, **3** indicates that the P2P has been enabled; **4**
+     * indicates that the P2P is being disabled; **5** indicates that the P2P has been disabled.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
@@ -1045,6 +1214,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the state of the Wi-Fi P2P peer device has changed.
      *
+     * When the state of the Wi-Fi P2P peer device changes, the event notification service is triggered to publish this 
+     * event.
+     *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1055,6 +1227,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the Wi-Fi P2P discovery state has changed.
+     *
+     * When the Wi-Fi P2P discovery state changes, the event notification service is triggered to publish this event.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
@@ -1067,6 +1241,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the state of the Wi-Fi P2P local device has changed.
      *
+     * When the state of the Wi-Fi P2P local device changes, the event notification service is triggered to publish this
+     * event.
+     *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1078,6 +1255,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Wi-Fi P2P group information has changed.
      *
+     * When the Wi-Fi P2P group information changes, the event notification service is triggered to publish this event.
+     *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1087,7 +1266,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_WIFI_P2P_GROUP_STATE_CHANGED = 'usual.event.wifi.p2p.GROUP_STATE_CHANGED',
 
     /**
-     * (Reserved, not supported yet) Indicates the common event about the connection state of Bluetooth handsfree
+     * (Reserved, not supported yet) Indicates the common event about the connection state of Bluetooth handsfree 
      * communication.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.USE_BLUETOOTH** permission.
@@ -1190,7 +1369,7 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that a remote Bluetooth device is discovered.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.LOCATION** and
+     * To subscribe to this common event, your application must have the **ohos.permission.LOCATION** and 
      * **ohos.permission.USE_BLUETOOTH** permissions.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1213,7 +1392,7 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.remotedevice.CLASS_VALUE_UPDATE',
 
     /**
-     * (Reserved, not supported yet) Indicates that a low-ACL connection has been established with a remote Bluetooth
+     * (Reserved, not supported yet) Indicates that a low-ACL connection has been established with a remote Bluetooth 
      * device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1225,7 +1404,7 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.remotedevice.ACL_CONNECTED',
 
     /**
-     * (Reserved, not supported yet) Indicates that a low-ACL connection has been disconnected from a remote Bluetooth
+     * (Reserved, not supported yet) Indicates that a low-ACL connection has been disconnected from a remote Bluetooth 
      * device.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.USE_BLUETOOTH** permission.
@@ -1239,10 +1418,10 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.remotedevice.ACL_DISCONNECTED',
 
     /**
-     * (Reserved, not supported yet) Indicates that the friendly name of a remote Bluetooth device is retrieved for the
+     * (Reserved, not supported yet) Indicates that the friendly name of a remote Bluetooth device is retrieved for the 
      * first time or has changed since the last retrieval.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1266,7 +1445,7 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.remotedevice.PAIR_STATE',
 
     /**
-     * (Reserved, not supported yet) Indicates that the battery level of a remote Bluetooth device is retrieved for the
+     * (Reserved, not supported yet) Indicates that the battery level of a remote Bluetooth device is retrieved for the 
      * first time or has changed since the last retrieval.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.USE_BLUETOOTH** permission.
@@ -1291,7 +1470,7 @@ declare namespace commonEventManager {
     /**
      * Indicates the action of a common event about the UUID connection state of a remote Bluetooth device.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1302,10 +1481,10 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.remotedevice.UUID_VALUE',
 
     /**
-     * (Reserved, not supported yet) Indicates the common event about the pairing request from a remote Bluetooth
+     * (Reserved, not supported yet) Indicates the common event about the pairing request from a remote Bluetooth 
      * device.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.DISCOVER_BLUETOOTH**
+     * To subscribe to this common event, your application must have the **ohos.permission.DISCOVER_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1326,7 +1505,7 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.remotedevice.PAIRING_CANCEL',
 
     /**
-     * (Reserved, not supported yet) Indicates the common event about the connection request from a remote Bluetooth
+     * (Reserved, not supported yet) Indicates the common event about the connection request from a remote Bluetooth 
      * device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1337,7 +1516,7 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.remotedevice.CONNECT_REQ',
 
     /**
-     * (Reserved, not supported yet) Indicates the common event about the response to the connection request from a
+     * (Reserved, not supported yet) Indicates the common event about the response to the connection request from a 
      * remote Bluetooth device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1398,7 +1577,7 @@ declare namespace commonEventManager {
         'usual.event.bluetooth.handsfreeunit.AG_CALL_STATE_UPDATE',
 
     /**
-     * Indicates that the state of a Bluetooth adapter has been changed, for example, Bluetooth has been enabled or
+     * Indicates that the state of a Bluetooth adapter has been changed, for example, Bluetooth has been enabled or 
      * disabled.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1457,7 +1636,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth scanning mode changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth scanning mode changes, the event notification service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1469,7 +1650,7 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth scanning has been started on the device.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1482,7 +1663,7 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth scanning is finished on the device.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1495,7 +1676,7 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth adapter name of the device has changed.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1544,6 +1725,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the state of the device NFC adapter has changed.
      *
+     * When the state of the device NFC adapter changes, the event notification service is triggered to publish this 
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1552,6 +1736,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the NFC RF field is on.
+     *
+     * When the NFC RF field becomes available, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1562,6 +1748,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the NFC RF field is off.
      *
+     * When the NFC RF field becomes unavailable, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1570,6 +1758,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the system stops charging the battery.
+     *
+     * When the system stops charging the battery, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1580,6 +1770,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the system starts charging the battery.
      *
+     * When the system starts charging the battery, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1588,6 +1780,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the system charging type has changed.
+     *
+     * When the system charging type changes, the common event service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -1599,6 +1793,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the system idle mode has changed.
      *
+     * When the user does not use the device for the specified period of time and the screen is turned off, the system 
+     * delays the CPU and network access by background applications, and the event notification service is triggered to 
+     * publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1608,6 +1806,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the device enters the charging idle mode.
      *
+     * When the device starts charging in idle mode, and the temperature rise is acceptable, the event notification 
+     * service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
      * @since 23 static
@@ -1616,6 +1817,13 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the exemption list for resource usage restrictions has been updated in idle mode.
+     *
+     * When the exemption list for resource usage restrictions is updated, the common event service is triggered to 
+     * publish this event.
+     *
+     * Resources include application network access, Timer usage, and WorkScheduler task usage.
+     *
+     * System applications can call JavaScript APIs to apply for removing resource usage restrictions.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -1627,6 +1835,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the system power-saving mode has changed.
      *
+     * When the system power saving mode changes, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1636,8 +1846,14 @@ declare namespace commonEventManager {
     /**
      * Indicates that a user has been added to the system.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * When a system account is created, the common event service is triggered to publish this event carrying the system
+     * account ID.
+     *
+     * The system APIs related to this common event are **createOsAccount** and **createOsAccountForDomain**. For 
+     * details, see [@ohos.account.osAccount (System Account Management)](docroot://reference/js-apis-osAccount.md).
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1648,8 +1864,14 @@ declare namespace commonEventManager {
     /**
      * Indicates that a user has been removed from the system.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * permission. (This permission is available only for system applications.)
+     * When a system account is removed, the common event service is triggered to publish this event carrying the system
+     * account ID.
+     *
+     * The system API related to this common event is **removeOsAccount**. For details, see 
+     * [@ohos.account.osAccount (System Account Management)](docroot://reference/js-apis-osAccount.md).
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.MANAGE_LOCAL_ACCOUNTS 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1660,7 +1882,7 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that an ability has been added.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.LISTEN_BUNDLE_CHANGE**
+     * To subscribe to this common event, your application must have the **ohos.permission.LISTEN_BUNDLE_CHANGE** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1672,7 +1894,7 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that an ability has been removed.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.LISTEN_BUNDLE_CHANGE**
+     * To subscribe to this common event, your application must have the **ohos.permission.LISTEN_BUNDLE_CHANGE** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1684,7 +1906,7 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that an ability has been updated.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.LISTEN_BUNDLE_CHANGE**
+     * To subscribe to this common event, your application must have the **ohos.permission.LISTEN_BUNDLE_CHANGE** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1712,7 +1934,7 @@ declare namespace commonEventManager {
     COMMON_EVENT_IVI_SLEEP = 'common.event.IVI_SLEEP',
 
     /**
-     * (Reserved, not supported yet) Indicates that the IVI system of a vehicle has entered sleep mode and the playing
+     * (Reserved, not supported yet) Indicates that the IVI system of a vehicle has entered sleep mode and the playing 
      * application is instructed to stop playback.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1805,6 +2027,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the USB device state has changed.
      *
+     * When a USB device is connected to or disconnected from the device, the event notification service is triggered to
+     * publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1813,6 +2038,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the USB port state of the device has changed.
+     *
+     * When the USB port state changes, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1823,6 +2050,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that a USB device has been attached to the device functioning as a USB host.
      *
+     * When a USB device is attached, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -1831,6 +2060,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that a USB device has been detached from the device functioning as a USB host.
+     *
+     * When a USB device is detached, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -1942,6 +2173,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that an external storage device was removed.
      *
+     * This common event is triggered when an external storage device is removed.
+     *
      * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1952,6 +2185,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that an external storage device was unmounted.
+     *
+     * This common event is triggered when an external storage device is successfully unmounted by calling the 
+     * **unmount** API or by removing the device.
      *
      * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission.
      *
@@ -1964,6 +2200,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that an external storage device was mounted.
      *
+     * This common event is triggered when an external storage device is successfully mounted by calling the **mount** 
+     * API or by inserting the device.
+     *
      * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1974,6 +2213,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that an external storage device was removed without being unmounted.
+     *
+     * This common event is triggered when an external storage device is directly removed without being unmounted.
      *
      * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission.
      *
@@ -1986,6 +2227,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that an external storage device is about to be ejected.
      *
+     * This common event is triggered when the user calls the **unmount** API on a mounted external storage device or 
+     * removes the device.
+     *
      * To subscribe to this common event, your application must have the ohos.permission.STORAGE_MANAGER permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -1997,8 +2241,8 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that the account visibility changed.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.GET_APP_ACCOUNTS**
-     * permission. (This permission is available only for system applications.)
+     * To subscribe to this common event, your application must have the **ohos.permission.GET_APP_ACCOUNTS** 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -2009,8 +2253,8 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that the account was deleted.
      *
-     * To subscribe to this common event, your application must have the
-     * **ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS** permission. (This permission is available only for system
+     * To subscribe to this common event, your application must have the 
+     * **ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS** permission.(This permission is available only for system 
      * applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2022,8 +2266,8 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that the foundation is ready.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.RECEIVER_STARTUP_COMPLETED**
-     * permission. (This permission is available only for system applications.)
+     * To subscribe to this common event, your application must have the **ohos.permission.RECEIVER_STARTUP_COMPLETED** 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
@@ -2032,9 +2276,13 @@ declare namespace commonEventManager {
     COMMON_EVENT_FOUNDATION_READY = 'common.event.FOUNDATION_READY',
 
     /**
-     * Indicates that a common event is published when the application is launched for the first time after installation.
-     * This common event is published when the UIAbility is started for the first time after installation.
-     * This is a protected common event, which can be sent only by the system.
+     * Indicates that when the application is launched for the first time after installation, the common event service 
+     * is triggered to publish this system common event.
+     *
+     * Model constraint: This API can be used only in the stage model.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.INSTALL_BUNDLE permission.(This
+     * permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2046,6 +2294,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the airplane mode state has changed.
      *
+     * When the airplane mode is enabled or disabled, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -2054,6 +2304,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates a screen splitting action.
+     *
+     * When any of the following actions is performed, the event notification service is triggered to publish this event
+     * : accessing the recent tasks screen, creating a split-screen bar, and destroying a split-screen bar.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
@@ -2065,7 +2318,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the notification slot or notification switch settings have changed.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.NOTIFICATION_CONTROLLER**
+     * When the notification slot settings (including the switch) change or the notification feature is enabled or 
+     * disabled, the notification service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.NOTIFICATION_CONTROLLER** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2086,6 +2342,13 @@ declare namespace commonEventManager {
     /**
      * Indicates the result of applying a quick fix to the application.
      *
+     * When the specified user applies a quick fix to the application on the device, the event notification service is 
+     * triggered to publish this event.
+     *
+     * > **NOTE**
+     * >
+     * > Third-party applications can only listen for the quick fix event of themselves.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -2094,6 +2357,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates the result of revoking a quick fix to the application.
+     *
+     * When a quick fix to the application is revoked on the device, the event notification service is triggered to 
+     * publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
@@ -2104,6 +2370,15 @@ declare namespace commonEventManager {
     /**
      * Indicates that the user information has been updated.
      *
+     * When the distributed account information, system account profile picture, or system account name is changed, the 
+     * event notification service is triggered to publish this event carrying the system account ID.
+     *
+     * APIs related to this event: **setOsAccountName**, **setOsAccountProfilePhoto**, and 
+     * **setOsAccountDistributedInfo**. The first two are system APIs, and the last is a public API. For details, see 
+     * [@ohos.account.osAccount (System Account Management)](docroot://reference/js-apis-osAccount.md) and 
+     * [@ohos.account.distributedAccount (Distributed Account Management)](docroot://reference/js-apis-distributed-account.md)
+     * .
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 9 dynamic
      * @since 23 static
@@ -2112,6 +2387,10 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the HTTP proxy configuration has changed.
+     *
+     * When the configuration information of the system global proxy or HTTP proxy on various networks (such as Ethernet
+     * , Wi-Fi, and cellular networks) changes, the event notification service is triggered to release the system common
+     * event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
@@ -2122,6 +2401,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the SIM card status has changed.
      *
+     * When there is a change in the SIM card status of the device, the event notification service is triggered to 
+     * publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
      * @since 23 static
@@ -2131,7 +2413,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that an SMS message is received.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission. (This
+     * When the device receives an SMS message, the common event service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.(This 
      * permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2144,7 +2428,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that an emergency cell broadcast message is received.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission. (This
+     * When the device receives an emergency cell broadcast message, the common event service is triggered to publish 
+     * this event.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.(This 
      * permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2157,7 +2444,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that a cell broadcast message is received.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission. (This
+     * When the device receives a cell broadcast message, the common event service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.(This 
      * permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2170,6 +2459,8 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that an STK command is sent.
      *
+     * When an STK command is sent, the common event service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
@@ -2179,6 +2470,8 @@ declare namespace commonEventManager {
 
     /**
      * (Reserved, not supported yet) Indicates that an STK session has ended.
+     *
+     * When an STK session ends, the common event service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2190,6 +2483,8 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that the STK card state has been updated.
      *
+     * When the STK card state is updated, the common event service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
@@ -2199,6 +2494,8 @@ declare namespace commonEventManager {
 
     /**
      * (Reserved, not supported yet) Indicates that an STK Alpha identifier is sent.
+     *
+     * When an STK Alpha identifier is sent, the common event service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2210,7 +2507,9 @@ declare namespace commonEventManager {
     /**
      * (Reserved, not supported yet) Indicates that a WAP push message is received.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission. (This
+     * When the device receives a WAP push message, the common event service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.(This 
      * permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2223,6 +2522,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the carrier configuration has been updated.
      *
+     * When the carrier configuration of the device is updated, the common event service is triggered to publish this 
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
@@ -2232,6 +2534,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the default primary SIM card for the SMS service has been updated.
+     *
+     * When the default primary SIM card for the SMS service is updated, the common event service is triggered to 
+     * publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2243,6 +2548,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the default primary SIM card for the data service has been updated.
      *
+     * When the default primary SIM card for the data service is updated, the common event service is triggered to 
+     * publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
@@ -2252,6 +2560,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the default primary SIM card of the device has been updated.
+     *
+     * When the default primary SIM card of the device is updated, the common event service is triggered to publish this
+     * event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2263,6 +2574,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the status of the action for setting the primary SIM card changes.
      *
+     * When the status of the action for setting the primary SIM card changes (for example, when the status is updated 
+     * to executing or completed), the common event service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 11 dynamic
@@ -2272,6 +2586,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the roaming status of the default primary SIM card is updated.
+     *
+     * When the roaming status of the default primary SIM card changes, the common event service is triggered to publish
+     * this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2283,6 +2600,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the default primary SIM card for the voice service has been updated.
      *
+     * When the default primary SIM card for the voice service is updated, the common event service is triggered to 
+     * publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
@@ -2293,8 +2613,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the call state has been updated.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.GET_TELEPHONY_STATE**
-     * permission. (This permission is available only for system applications.)
+     * When the call state of the device is updated, the event notification service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.GET_TELEPHONY_STATE** 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
@@ -2304,6 +2626,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the cellular data state has been updated.
+     *
+     * When the cellular data state of the device is updated, the common event service is triggered to publish this 
+     * event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2315,6 +2640,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the network state has been updated.
      *
+     * When the network state of the device is updated, the event notification service is triggered to publish this 
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
      * @since 23 static
@@ -2324,6 +2652,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the signal information has been updated.
      *
+     * When the signal information of the device is updated, the event notification service is triggered to publish this
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 10 dynamic
      * @since 23 static
@@ -2332,6 +2663,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that an incoming call is missed.
+     *
+     * When an incoming call is missed on the device, the common event service is triggered to publish this event.
      *
      * To subscribe to this common event, your application must have the ohos.permission.GET_TELEPHONY_STATE permission.
      * (This permission is available only for system applications.)
@@ -2346,6 +2679,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the radio state of the device modem has changed.
      *
+     * When there is a change in the radio state of the device modem, the common event service is triggered to publish 
+     * this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
@@ -2354,10 +2690,17 @@ declare namespace commonEventManager {
     COMMON_EVENT_RADIO_STATE_CHANGE = 'usual.event.RADIO_STATE_CHANGE',
 
     /**
-     * Indicates that the status of the domain account status changes.
+     * Indicates that domain account status changes.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_LOCAL_ACCOUNTS permission.
-     * (This permission is available only for system applications.)
+     * When a domain user account is authenticated, deleted, or has the token updated, the common event service is 
+     * triggered to publish this event carrying the system account ID, domain name, and account status.
+     *
+     * The system APIs related to this common event are **removeOsAccount**, **DomainAccountManager.auth**, and 
+     * **updateAccountToken**. For details, see 
+     * [@ohos.account.osAccount (System Account Management)](docroot://reference/js-apis-osAccount.md).
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_LOCAL_ACCOUNTS permission.(
+     * This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2369,6 +2712,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the screen has been unlocked.
      *
+     * When the screen is unlocked, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -2378,6 +2723,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the screen has been locked.
+     *
+     * When the screen is locked, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
@@ -2399,6 +2746,11 @@ declare namespace commonEventManager {
     /**
      * Indicates that the network connection state has changed.
      *
+     * When the (Ethernet, Wi-Fi, or cellular) network connection state changes (disconnected, connecting, or connected)
+     * , the event notification service is triggered to publish this event.
+     *
+     * The following table lists the enum values and their corresponding connection status.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -2408,6 +2760,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that a secret code is sent successfully.
+     *
+     * When a secret code is successfully sent on the device, the common event service is triggered to publish this 
+     * event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2419,6 +2774,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the audio quality has changed.
      *
+     * When there is a change in the audio quality of the device, the common event service is triggered to publish this 
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 10 dynamic
@@ -2429,7 +2787,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth HFP AG connection state changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth HFP AG connection state changes, the event notification service is triggered to publish this 
+     * event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2442,6 +2803,9 @@ declare namespace commonEventManager {
     /**
      * Indicates the privacy state has been changed.
      *
+     * When a user clicks **Agree** in a privacy dialog box, the event notification service is triggered to publish this
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 11 dynamic
@@ -2452,6 +2816,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that a package is sent by the system verifier when the package is verified.
      *
+     * When a new application starts to be installed by a specified user on the device, the common event service is 
+     * triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 12 dynamic
@@ -2460,10 +2827,8 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
 
     /**
-     * Indicates a common event that an application's dynamic icon has changed.
-     *
-     * When the dynamic icon of an installed application changes, the event notification service publishes this system
-     * common event.
+     * This common event means an application package enables or disables a dynamic icon.
+     * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2475,6 +2840,8 @@ declare namespace commonEventManager {
     /**
      * Indicates that the minor mode is enabled.
      *
+     * When the minor mode is enabled on the device, the event notification service is triggered to publish this event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
      * @since 12 dynamic
@@ -2484,6 +2851,8 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the minor mode is disabled.
+     *
+     * When the minor mode is disabled on the device, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
@@ -2495,7 +2864,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the bundle management resource data has updated.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.GET_BUNDLE_RESOURCES
+     * This common event is sent when the bundle management resource data is updated in scenarios such as language or 
+     * theme switching.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.GET_BUNDLE_RESOURCES 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2503,10 +2875,12 @@ declare namespace commonEventManager {
      * @since 15 dynamic
      * @since 23 static
      */
-    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = 'usual.event.BUNDLE_RESOURCES_CHANGED',
+    COMMON_EVENT_BUNDLE_RESOURCES_CHANGED = 'usual.event.BUNDLE_RESOURCES_CHANGED',    
 
     /**
      * Indicates that the DataShare service is available.
+     *
+     * After the DataShare service is started, the event notification service is triggered to publish this event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice
@@ -2516,8 +2890,9 @@ declare namespace commonEventManager {
     COMMON_EVENT_DATA_SHARE_READY = 'usual.event.DATA_SHARE_READY',
 
     /**
-     * This common event means that vpn connection status has been changed.
-     * This is a protected common event that can only be sent by system.
+     * Indicates the common event that the VPN connection status has changed.
+     *
+     * This common event is sent when a VPN connection is established or disconnected.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2529,7 +2904,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that an application starts to be restored.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.START_RESTORE_NOTIFICATION
+     * When a data migration application starts the backup and restore framework to perform a restoration task, the 
+     * common event service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.START_RESTORE_NOTIFICATION 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2542,7 +2920,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth A2DP source connection state changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth A2DP source connection state changes, the event notification service is triggered to publish 
+     * this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2555,7 +2936,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth AVRCP connection state changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth AVRCP connection state changes, the event notification service is triggered to publish this 
+     * event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2568,7 +2952,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth media codec changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth media codec changes, the event notification service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2581,7 +2967,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth A2DP playback state changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth A2DP playback state changes, the event notification service is triggered to publish this 
+     * event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2594,7 +2983,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth SCO state changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth SCO state changes, the event notification service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2607,7 +2998,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth ACL connection state changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth ACL connection state changes, the event notification service is triggered to publish this 
+     * event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2620,7 +3014,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the Bluetooth pairing state changes.
      *
-     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH**
+     * When the Bluetooth pairing state changes, the event notification service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the **ohos.permission.ACCESS_BLUETOOTH** 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2633,6 +3029,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the browser hosting policy has been changed.
      *
+     * When the browser hosting policy changes, the event notification service is triggered to publish this system 
+     * common event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 15 dynamic
      * @since 23 static
@@ -2642,7 +3041,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the default application for opening a file has changed.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.CHANGE_DEFAULT_APPLICATION
+     * This common event is sent when the default application for opening a file changes.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.CHANGE_DEFAULT_APPLICATION 
      * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2655,6 +3056,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the application shortcut has changed.
      *
+     * This common event is sent when the shortcut is changed (for example, when 
+     * [shortcutManager.setShortcutVisibleForSelf](docroot://apis-ability-kit/js-apis-shortcutManager.md#shortcutmanagersetshortcutvisibleforself)
+     * of the shortcutManager module is successfully called).
+     *
      * To subscribe to this common event, your application must have the ohos.permission.MANAGE_SHORTCUTS permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2665,7 +3070,8 @@ declare namespace commonEventManager {
     COMMON_EVENT_SHORTCUT_CHANGED = 'usual.event.SHORTCUT_CHANGED',
 
     /**
-     * Indicates that the kiosk mode is enabled.
+     * Indicates that the kiosk mode is enabled. When this mode is on, the common event service is triggered to publish 
+     * this system common event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
@@ -2674,7 +3080,8 @@ declare namespace commonEventManager {
     COMMON_EVENT_KIOSK_MODE_ON = 'usual.event.KIOSK_MODE_ON',
 
     /**
-     * Indicates that the kiosk mode is disabled.
+     * Indicates that the kiosk mode is disabled. When this mode is off, the common event service is triggered to 
+     * publish this system common event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 20 dynamic
@@ -2684,6 +3091,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the configuration directory level and system parameters of a device are updated.
+     *
+     * This common event is sent when the system updates the device configuration directory level and system parameters 
+     * after identifying the home area and roaming area of the device.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2695,6 +3105,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the roaming area of a device is updated.
      *
+     * When the attributes such as network injection, persistent connection, and GPS location of a device change, the 
+     * system identifies the roaming area and updates the parameters if the roaming area changes. After the update is 
+     * complete, this common event is sent.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
      * @since 20 dynamic
@@ -2705,7 +3119,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that a screen sharing event has occurred in the system.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission. (This
+     * This is a protected common event and can be sent only by the system.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.RECEIVE_SMS permission.(This 
      * permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
@@ -2716,13 +3132,12 @@ declare namespace commonEventManager {
     COMMON_EVENT_SCREEN_SHARE = 'usual.event.SCREEN_SHARE',
 
     /**
-     * Indicates a common event that an application has completed restoration.
+     * Represents the common event indicating the restore is complete for an application.
+     * When a data migration application starts the backup and restore framework to perform a restoration task, this 
+     * common event is sent when the restore is complete.
      *
-     * When a data migration-related application invokes the backup and restore framework to perform a restore task,
-     * this event is published after the application finishes restoring.
-     *
-     * To subscribe to this common event, your application must have the ohos.permission.RESTORE_END_NOTIFICATION
-     * permission.
+     * To subscribe to this common event, your application must have the ohos.permission.RESTORE_END_NOTIFICATION 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2733,8 +3148,10 @@ declare namespace commonEventManager {
     /**
      * Indicates that the sync root of the cloud disk has been updated.
      *
-     * To subscribe to this common event, your application must have the ohos.permission.ACCESS_CLOUD_DISK_INFO
-     * permission. (This permission is available only for system applications.)
+     * When the sync root update is complete, the common event service is triggered to publish this event.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.ACCESS_CLOUD_DISK_INFO 
+     * permission.(This permission is available only for system applications.)
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2746,6 +3163,9 @@ declare namespace commonEventManager {
     /**
      * Indicates that the tablet mode of a device (such as a tablet with bracket) has been changed.
      *
+     * When the tablet mode of a device has been changed, the event notification service is triggered to publish this 
+     * event.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 23 dynamic&static
      */
@@ -2753,7 +3173,6 @@ declare namespace commonEventManager {
 
     /**
      * This common event indicates that specific volumes on the device have been decrypted.
-     * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @stagemodelonly
@@ -2763,7 +3182,6 @@ declare namespace commonEventManager {
 
     /**
      * This common event indicates that specific volumes on the device have been encrypted.
-     * This is a protected common event that can only be sent by system.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @stagemodelonly
@@ -2773,9 +3191,9 @@ declare namespace commonEventManager {
 
     /**
      * This common event indicates that specific volumes on the device have had their encryption policy set.
-     * This is a protected common event that can only be sent by system.
-     * To subscribe to this protected common event, your application must have
-     * the ohos.permission.QUERY_VOLUME_ENCRYPTION_STATUS permission.
+     *
+     * To subscribe to this common event, your application must have the ohos.permission.QUERY_VOLUME_ENCRYPTION_STATUS
+     * permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @stagemodelonly
@@ -2813,12 +3231,11 @@ declare namespace commonEventManager {
   export type CommonEventSubscriber = _CommonEventSubscriber;
 
   /**
-   * Describes the information of the subscriber
+   * Describes the information about a subscriber.
    *
-   * @typedef { _CommonEventSubscribeInfo } CommonEventSubscribeInfo
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
-   * @since 11 dynamic
+   * @since 10 dynamic
    * @since 23 static
    */
   export type CommonEventSubscribeInfo = _CommonEventSubscribeInfo;
