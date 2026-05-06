@@ -264,7 +264,7 @@ export interface SubscribeCallbackData {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  voiceContent?: VoiceContent;
+  readonly voiceContent?: VoiceContent;
 }
 
 /**
@@ -511,7 +511,7 @@ export interface VoiceContent {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  textContent?: string;
+  readonly textContent?: string;
 }
 
 /**
