@@ -171,7 +171,7 @@ declare namespace zlib {
 
   /**
    * ParallelStrategy
-  =   *
+   *
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
