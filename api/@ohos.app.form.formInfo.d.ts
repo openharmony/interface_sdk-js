@@ -2912,16 +2912,16 @@ declare namespace formInfo {
   type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
 
   /**
-   * get form want params callback.
+   * Get want parameters callback.
    *
-   * @typedef { function } GetWantParamsCallback
-   * @param { Array<FormInfo> } formInfos - Form info list.
-   * @returns { Array<Record<string, Object>> } Want params list corresponding to the form info list.
+   * @typedef { function }
+   * @param { Array<formInfo.FormInfo> } formInfo - The list of the form information.
+   * @returns { Array<Record<string, Object>> } The want parameters list of the forms.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 26 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
-  type GetWantParamsCallback = (formInfos: Array<FormInfo>) => Array<Record<string, Object>>;
+  type GetWantParamsCallback = (formInfo: Array<formInfo.FormInfo>) => Array<Record<string, Object>>;
 }
 export default formInfo;
