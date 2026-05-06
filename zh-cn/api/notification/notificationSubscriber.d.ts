@@ -14,6 +14,9 @@
  */
 
 /**
+ * 作为订阅通知接口[subscribeNotification]{@link @ohos.notificationSubscribe:notificationSubscribe.subscribeNotification} 的入参，
+ * 提供订阅者接收到新通知、取消通知等的回调方法。
+ * 
  * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
  * @kit NotificationKit
  */
@@ -24,7 +27,7 @@ import type notificationManager from '../@ohos.notificationManager';
 /*** if arkts dynamic */
 import notification from '../@ohos.notification';
 /*** endif */
- 
+
 /**
  * 提供订阅者接收到新通知、取消通知等的回调方法。
  *
@@ -174,7 +177,7 @@ export interface NotificationSubscriber {
   onBadgeEnabledChanged?: BadgeEnabledChangedCallback;
 
   /**
-   * 批量删除的通知信息。
+   * 新接收到的通知信息。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -195,7 +198,7 @@ export interface NotificationSubscriber {
 }
 
 /**
- * 通知回调内容定义。
+ * 返回携带系统属性值的通知信息。
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -252,6 +255,16 @@ export interface SubscribeCallbackData {
    * @since 23 static
    */
   readonly vibrationValues?: Array<long>;
+
+  /**
+   * 通知消息中语音播报内容定义
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  voiceContent?: VoiceContent;
 }
 
 /**
@@ -476,6 +489,26 @@ export interface BadgeEnabledChangedCallback {
    * @since 12 dynamic
    */
   (data: EnabledNotificationCallbackData): void;
+}
+
+/**
+ * 通知消息中语音播报内容定义
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContent {
+  /**
+   * 语音播报内容定义
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  textContent?: string;
 }
 
 /**

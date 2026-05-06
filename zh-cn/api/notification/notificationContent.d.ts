@@ -14,6 +14,8 @@
  */
 
 /**
+ * 描述通知类型。
+ * 
  * @file Some notification types and content
  * @kit NotificationKit
  */
@@ -194,7 +196,6 @@ export enum LiveViewStatus {
   /**
    * 条件触发创建
    * 
-   * 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -204,8 +205,6 @@ export enum LiveViewStatus {
   LIVE_VIEW_PENDING_CREATE = 4,
   /**
    * 条件触发结束
-   * 
-   * 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -385,10 +384,6 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
   /**
    * 点击多行文本中某一行文本消息触发的wantAgent。不同行的文本分别对应于不同的wantAgent。该字段配置的行数不能大于
    * [lines]{@link ./notification/notificationContent:NotificationMultiLineContent}字段配置的行数。默认为空。
-   * 
-   * 此接口为系统接口。
-   * 
-   * ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    *
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
@@ -532,7 +527,9 @@ export interface NotificationCapsule {
   title?: string;
 
   /**
-   * 胶囊图片。
+   * 胶囊图片。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），
+   * 建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -652,7 +649,9 @@ export interface NotificationButton {
   names?: Array<string>;
 
   /**
-   * 按钮图片（最多支持3个）。
+   * 按钮图片（最多支持3个）。图标像素的总字节数不超过192KB图标像素的总字节数通过
+   * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），建议图标像素长宽为128*128。实际显示效果依赖
+   * 于设备能力和通知中心UI样式。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -844,8 +843,6 @@ export interface NotificationContent {
 
   /**
    * 普通实况窗类型通知内容。
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

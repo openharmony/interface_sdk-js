@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationActionButton module provides APIs for describing the button displayed in the notification.
+ * @file Describes an action button displayed in a notification
  * @kit NotificationKit
  */
 
@@ -54,7 +54,7 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * **WantAgent** of the button.
+   * Extra information of the button. Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -62,7 +62,7 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
-   * Extra information of the button.
+   * Extra information of the button. Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static
