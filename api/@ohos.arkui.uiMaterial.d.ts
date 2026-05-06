@@ -301,21 +301,8 @@ declare namespace uiMaterial {
      */
     applyShadow?: boolean,
     /**
-     * It determines whether enable the spatial animation related to the material effect.
-     *
-     * @type { ?boolean }
-     * @default true
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    enableAnimation?: boolean,
-    /**
      * Whether the material supports interactive.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -324,6 +311,42 @@ declare namespace uiMaterial {
      * @since 26.0.0 dynamic
      */
     interactive?: boolean,
+    /**
+     * Light effect interactive feedback configuration. When configured, the material responds
+     * Light feedback effect of gesture changes.
+     * null means to disable the light effect.
+     * undefined means to set light effect by default.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    lightEffect?: LightEffectOptions | null;
+  }
+
+  /**
+   * The configuration of light effect interactive feedback.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  interface LightEffectOptions {
+    /**
+     * The color of light effect interactive feedback.
+     *
+     * @default Color.White
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    color?: ResourceColor,
   }
  	
   /**
