@@ -267,7 +267,7 @@ declare namespace uiMaterial {
      * Whether the material supports interactive.
      *
      * @type { ?boolean }
-     * @default true
+     * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
