@@ -2018,7 +2018,7 @@ declare namespace zlib {
      * @param { MemLevel } memLevel - For details, see [MemLevel]{@link zlib.MemLevel}.
      * @param { CompressStrategy } strategy - For details, see [CompressStrategy]{@link zlib.CompressStrategy}.
      * @returns { Promise<ReturnStatus> } Promise used to return the result status.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
      *     unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
