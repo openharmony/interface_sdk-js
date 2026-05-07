@@ -268,7 +268,7 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 staticonly
+   * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
 }
