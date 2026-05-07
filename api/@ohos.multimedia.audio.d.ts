@@ -8582,18 +8582,6 @@ declare namespace audio {
     isPersonalizedSpatializationSupported(): boolean;
 
     /**
-     * Checks whether personalized spatialization is supported by the specified device.
-     * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device description.
-     * @returns { boolean } Whether personalized spatialization is supported by the specified device.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Spatialization
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    isPersonalizedSpatializationSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
-
-    /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - Spatialization enable state.
