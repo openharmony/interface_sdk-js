@@ -18,16 +18,18 @@
  * @kit ArkUI
  */
 import { Resource } from './../../../api/global/resource';
-import { CommonMethod, AttributeModifier } from "./common";
+import { CommonMethod, ResourceStr, AttributeModifier } from "./common";
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { FontWeightConfigs } from "./textCommon";
 
 /**
  * Provides attribute for SymbolSpan.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -38,6 +40,7 @@ export declare interface SymbolSpanAttribute {
      * @param { double | string | Resource | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontSize(value: double | string | Resource | undefined): this;
@@ -47,6 +50,7 @@ export declare interface SymbolSpanAttribute {
      * @param { Array<ResourceColor> | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontColor(value: Array<ResourceColor> | undefined): this;
@@ -56,15 +60,28 @@ export declare interface SymbolSpanAttribute {
      * @param { int | FontWeight | string | undefined } value
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default fontWeight(value: int | FontWeight | string | undefined): this;
+    /**
+     * Used to set the font weight of SymbolSpan.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - the SymbolSpan font weight.
+     * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     * @returns { SymbolSpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
     /**
      * Called when the SymbolSpan effect is set.
      *
      * @param { SymbolEffectStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default effectStrategy(value: SymbolEffectStrategy | undefined): this;
@@ -74,6 +91,7 @@ export declare interface SymbolSpanAttribute {
      * @param { SymbolRenderingStrategy | undefined } value
      * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default renderingStrategy(value: SymbolRenderingStrategy | undefined): this;
@@ -83,6 +101,7 @@ export declare interface SymbolSpanAttribute {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      * @test
      */
@@ -93,6 +112,7 @@ export declare interface SymbolSpanAttribute {
      * @param { string | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default id(value: string | undefined): this;
@@ -103,6 +123,7 @@ export declare interface SymbolSpanAttribute {
      *     Passing `undefined` will do nothing.
      * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute> | undefined): this;

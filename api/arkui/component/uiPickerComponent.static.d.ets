@@ -219,7 +219,7 @@ export declare interface UIPickerComponentAttribute extends CommonMethod {
    * @since 23 static
    */
   default selectionIndicator(style: PickerIndicatorStyle | undefined): UIPickerComponentAttribute;
-  
+
   /**
    * Set the attribute modifier
    * @param { AttributeModifier<UIPickerComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -229,6 +229,28 @@ export declare interface UIPickerComponentAttribute extends CommonMethod {
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<UIPickerComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+  /**
+   * Sets the height of each item.
+   *
+   * @param { LengthMetrics | undefined } height - Height of each item.
+   * @returns { UIPickerComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default itemHeight(height: LengthMetrics | undefined): this;
+
+  /**
+   * Sets the total number of visible items.
+   *
+   * @param { int | undefined } count - Total number of visible items.
+   * @returns { UIPickerComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default displayedItemCount(count: int | undefined): this;
 }
 
 /**

@@ -645,6 +645,41 @@ declare namespace window {
   }
 
   /**
+   * Describes the type of split ratio preference.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum SplitRatioPreference {
+    /**
+     * Equal split ratio preference of the window.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    EQUAL = 0,
+    /**
+     * Set primary split window to a larger split ratio.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PRIMARY_DOMINANT = 1,
+    /**
+     * Set secondary split window to a larger split ratio.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SECONDARY_DOMINANT = 2
+  }
+
+  /**
    * Describes the mode of window layout
    *
    * @enum { number }
@@ -2274,8 +2309,21 @@ declare namespace window {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     * @deprecated since 26.0.0
+     * @useinstead WindowProperties#windowType
      */
     type: WindowType;
+
+    /**
+     * Window type
+     *
+     * @type { ?WindowType }
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    windowType?: WindowType;
 
     /**
      * Whether the window is displayed in full screen mode. The default value is false.
@@ -5390,6 +5438,91 @@ declare namespace window {
   }
 
   /**
+   * Enum for across-display policy used when maximizing in the half-folded state of a foldable 2-in-1 device.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AcrossDisplayPresentation {
+    /**
+     * Indicates following the current acrossDisplayPresentation.
+     * If the acrossDisplayPresentation has not been set, the default system policy applies:
+     * In the half-folded state of the device, the window enters single-screen maximization
+     * (i.e., when maximized, the window is displayed only on the upper or lower half of the screen).
+     * In the expanded state, the window is maximized and remains across-display mode
+     * (i.e., spanning across both the upper and lower displays) when folded back to the half-folded state.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FOLLOW_ACROSS_DISPLAY_SETTING = 0,
+
+    /**
+     * In the half-folded state of the device, the window could directly enter the across-display mode.
+     * In the expanded state, the window is maximized and remains across-display mode
+     * when folded back to the half-folded state.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ENTER_ACROSS_DISPLAY_MODE = 1,
+
+    /**
+     * In the half-folded state of the device, the window exits across-display mode and enters single-screen maximization
+     * In the expanded state, the window is maximized and will exit across-display mode upon re-entering half-folded.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    EXIT_ACROSS_DISPLAY_MODE = 2,
+  }
+
+  /**
+   * Optional configuration for maximizing.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface MaximizeOptions {
+    /**
+     * Layout when the window is maximized.
+     *
+     * @default MaximizePresentation.ENTER_IMMERSIVE
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maximizePresentation?: MaximizePresentation;
+
+    /**
+     * The parameter controls the across-display mode policy of main windows.
+     * This parameter can be called properly only on 2-in-1 devices with folding capabilities.
+     * If it is called on other device types, it has no effect.
+     *
+     * @default AcrossDisplayPresentation.FOLLOW_ACROSS_DISPLAY_SETTING
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    acrossDisplayPresentation?: AcrossDisplayPresentation;
+
+    /**
+     * The configuration of snapshot animation. If not specified, the system default animation will be used.
+     * When both the duration and delay parameters are set to 0, it means the snapshot animation is canceled.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    snapshotAnimationConfig?: WindowSnapshotAnimationConfig;
+  }
+
+  /**
    * the optional move configuration used in moveWindowToAsync/moveWindowToGlobal
    *
    * @interface MoveConfiguration
@@ -5698,6 +5831,41 @@ declare namespace window {
      * @since 26.0.0 dynamic&static
      */
     isWindowLimitsForcible?: boolean;
+  }
+
+  /**
+   * Configuration for window snapshot animation.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface WindowSnapshotAnimationConfig {
+    /**
+     * The duration of the window snapshot fade-out animation (ms).
+     * If left unspecified, the parameter defaults to a value determined by the system animation context:
+     * 250 for transitions between WindowStatusType.FLOATING and WindowStatusType.FULLSCREEN window status.
+     * 400 for all other screenshot animation scenarios.
+     * The valid range for this parameter is 0-400.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    duration?: long;
+
+    /**
+     * The delay before the window snapshot fade-out animation begins (ms).
+     * If left unspecified, the parameter defaults to a value determined by the system animation context:
+     * 50 for transitions between WindowStatusType.FLOATING and WindowStatusType.FULLSCREEN window status.
+     * 350 for all other screenshot animation scenarios.
+     * The valid range for this parameter is 0-350.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    delay?: long;
   }
 
   /**
@@ -11902,6 +12070,27 @@ declare namespace window {
     maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise<void>;
 
     /**
+     * Maximize the app window.
+     *
+     * @param { MaximizeOptions } [maximizeOptions] - The configuration of maximize.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     1. The window is not created or destroyed;
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     1. Invalid window type. Only main windows and maximizable subwindows are supported;
+     *     2. The acrossDisplay parameter only supports main windows.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maximizeWithOptions(maximizeOptions?: MaximizeOptions): Promise<void>;
+
+    /**
      * Set whether to enable a window to resize by drag.
      *
      * @param { boolean } enable - Disable window to resize by drag if false.
@@ -12136,6 +12325,28 @@ declare namespace window {
      * @since 23 static
      */
     recover(): Promise<void>;
+
+    /**
+     * Restores the main window from full-screen, maximized, or split-screen mode to a floating window,
+     * and resets its size and position to their previous values before full-screen,
+     * maximized, or split-screen mode was entered.
+     *
+     * @param { WindowSnapshotAnimationConfig } snapshotAnimationConfig - The configuration of snapshot animation.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300001 - Repeated operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed;
+     *     2. Internal task error;
+     *     3. The window does not support floating mode.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    recover(snapshotAnimationConfig: WindowSnapshotAnimationConfig): Promise<void>;
 
     /**
      * Restores the main window from minimization to the foreground, returning it to
@@ -12790,6 +13001,31 @@ declare namespace window {
      * @since 23 static
      */
      setWindowMask(windowMask: Array<Array<long>>): Promise<void>;
+
+    /**
+     *  Set the window mask using a per-pixel alpha array
+     *
+     * @param { Uint8Array } windowMask - The windowMask contains only per-pixel alpha transparency values.
+     *     Valid range: 0(full transparent) to 255(full opaque), size must equal (maskWidth * maskHeight).
+     * @param { int } maskWidth - Mask width in pixels. Must equal the target window width.
+     * @param { int } maskHeight - Mask height in pixels. Must equal the target window height.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     *     Possible cause: 1. The window is not created or destroyed;
+     *                     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type. Only subwindows and float windows are supported.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. The maskWidth is not equal to the window width or the maskHeight is not equal to the window height.
+     *     2. The length of windowMask is not equal to maskWidth multiplied by maskHeight.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setWindowMaskWithAlpha(windowMask: Uint8Array, maskWidth: int, maskHeight: int): Promise<void>;
 
     /**
      *  Clear the window mask of window

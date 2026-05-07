@@ -276,6 +276,7 @@ interface RefreshOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -287,6 +288,7 @@ interface RefreshOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -295,6 +297,7 @@ interface RefreshOptions {
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -306,6 +309,7 @@ interface RefreshOptions {
    *
    * @type { ?ComponentContent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -464,6 +468,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { number } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -471,11 +476,25 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   refreshOffset(value: number): RefreshAttribute;
 
   /**
+   * The pull-down offset to trigger refresh.
+   *
+   * @param { number | Resource } value - The pull-down offset to trigger refresh.
+   * @returns { RefreshAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  refreshOffset(value: number | Resource): RefreshAttribute;
+
+  /**
    * Sets whether to trigger refresh when the pull-down distance exceeds the refreshOffset.
    *
    * @param { boolean } value
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -488,6 +507,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { boolean | undefined } enabled - enable pull up to cancel refresh. <br>Default value: true.
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -501,6 +521,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { Callback<number> } callback
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -513,6 +534,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * @param { Optional<number> } ratio - Pull-down follow ratio for Refresh.
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -526,11 +548,26 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * value range is [0, +∞), default value is { undefined }. 
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
   maxPullDownDistance(distance: Optional<number>): RefreshAttribute;
+
+  /**
+   * The max pull down distance for Refresh.
+   *
+   * @param { number | Resource | undefined } distance - The max pull down distance for Refresh,
+   * value range is [0, +∞), default value is { undefined }. 
+   * @returns { RefreshAttribute } The attribute of the Refresh.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maxPullDownDistance(distance: number | Resource | undefined): RefreshAttribute;
 }
 
 /**

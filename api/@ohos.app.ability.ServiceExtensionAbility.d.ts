@@ -24,7 +24,7 @@ import Want from './@ohos.app.ability.Want';
 import { Configuration } from './@ohos.app.ability.Configuration';
 
 /**
- * The ServiceExtensionAbility module provides extended capabilities for background services, including lifecycle 
+ * The ServiceExtensionAbility module provides extended capabilities for background services, including lifecycle
  * callbacks for creating, destroying, connecting, and disconnecting background services.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -70,8 +70,8 @@ declare class ServiceExtensionAbility {
   onDestroy(): void;
 
   /**
-   * Called following **onCreate()** when a ServiceExtensionAbility is started by calling **startAbility()** or 
-   * **startServiceExtensionAbility()**. The value of **startId** is incremented for each ServiceExtensionAbility that 
+   * Called following **onCreate()** when a ServiceExtensionAbility is started by calling **startAbility()** or
+   * **startServiceExtensionAbility()**. The value of **startId** is incremented for each ServiceExtensionAbility that
    * is started.
    *
    * @param { Want } want - Want information related to this ServiceExtensionAbility, including the ability name and
@@ -87,7 +87,7 @@ declare class ServiceExtensionAbility {
   onRequest(want: Want, startId: int): void;
 
   /**
-   * Called following **onCreate()** when a ServiceExtensionAbility is started by calling **connectAbility()**. A 
+   * Called following **onCreate()** when a ServiceExtensionAbility is started by calling **connectAbility()**. A
    * RemoteObject is returned for communication between the server and client.
    *
    * @param { Want } want - Want information related to this ServiceExtensionAbility, including the ability name and
@@ -106,7 +106,7 @@ declare class ServiceExtensionAbility {
    * Called when a client is disconnected from this ServiceExtensionAbility.
    * This API returns the result synchronously or uses a promise to return the result.
    *
-   * @param { Want } want - Want information related to this ServiceExtensionAbility, including the ability name and 
+   * @param { Want } want - Want information related to this ServiceExtensionAbility, including the ability name and
    *     bundle name.
    * @returns { void | Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -120,18 +120,18 @@ declare class ServiceExtensionAbility {
    * Called when a client is disconnected from this ServiceExtensionAbility.
    * This API returns the result synchronously or uses a promise to return the result.
    *
-   * @param { Want } want - Want information related to this ServiceExtensionAbility, including the ability name and 
+   * @param { Want } want - Want information related to this ServiceExtensionAbility, including the ability name and
    *     bundle name.
    * @returns { Promise<void> | undefined } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 23 static
    */
   onDisconnect(want: Want): Promise<void> | undefined;
 
   /**
-   * Called when a new client attempts to connect to this ServiceExtensionAbility after all previous clients are 
+   * Called when a new client attempts to connect to this ServiceExtensionAbility after all previous clients are
    * disconnected. This capability is reserved.
    *
    * @param { Want } want - Want information related to this ServiceExtensionAbility, including the ability name and

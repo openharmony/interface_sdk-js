@@ -30,7 +30,7 @@
  */
 export interface LazyColumnLayoutInterface {
   /**
-   * Construct the lazy column attribute.
+   * Construct the lazy column layout attribute.
    *
    * @returns { LazyColumnLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

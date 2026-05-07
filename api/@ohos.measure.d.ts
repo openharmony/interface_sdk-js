@@ -73,6 +73,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -80,6 +81,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -181,6 +183,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | TextAlign) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -188,6 +191,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | TextAlign) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -199,6 +203,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | TextOverflow) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -206,6 +211,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | TextOverflow) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -217,6 +223,7 @@ export interface MeasureOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -224,6 +231,7 @@ export interface MeasureOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -235,6 +243,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -242,6 +251,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -253,6 +263,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -260,6 +271,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -271,6 +283,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | TextCase) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -278,6 +291,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | TextCase) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -289,6 +303,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -297,6 +312,7 @@ export interface MeasureOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -308,6 +324,7 @@ export interface MeasureOptions {
    *
    * @type { ?WordBreak }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -316,6 +333,7 @@ export interface MeasureOptions {
    *
    * @type { ?WordBreak }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -375,6 +393,7 @@ export default class MeasureText {
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -383,6 +402,7 @@ export default class MeasureText {
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -392,6 +412,7 @@ export default class MeasureText {
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display \
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly

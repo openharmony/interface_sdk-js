@@ -54,6 +54,7 @@ declare namespace backgroundTaskManager {
     requestId: number;
     /**
      * The actual delay duration (ms).
+     * <br>Unit:ms
      *
      * @type { number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -77,7 +78,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Obtains the remaining time before an application enters the suspended state.
-   *
+   *     <br>Unit:ms
    * @param { number } requestId Indicates the identifier of the delay request.
    * @param { AsyncCallback<number> } callback - The callback of the remaining delay time.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -89,7 +90,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Obtains the remaining time before an application enters the suspended state.
-   *
+   *     <br>Unit:ms
    * @param { number } requestId Indicates the identifier of the delay request.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
@@ -113,7 +114,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Service ability uses this method to request start running in background.
-   * system will publish a notification related to the this service.
+   * system will publish a notification related to this service.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context app running context.
@@ -129,7 +130,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Service ability uses this method to request start running in background.
-   * system will publish a notification related to the this service.
+   * system will publish a notification related to this service.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context app running context.

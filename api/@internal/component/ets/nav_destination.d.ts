@@ -1433,6 +1433,27 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 19 dynamic
    */
   enableNavigationIndicator(enabled: Optional<boolean>): NavDestinationAttribute;
+
+  /**
+   * Sets whether the NavDestination should cover the entire navigation container.
+   *
+   * When set to true, in split navigation mode, the page covers both the NavBar
+   * and content area, displaying in full screen overlay mode. This setting applies
+   * to all instances of this NavDestination whenever it is pushed onto the stack, unless
+   * overridden by the fullScreen option in the push operation.
+   *
+   * @param { Optional<boolean> } fullScreenOverlay - Whether to display as full screen overlay.
+   *     <br>**true**: Full screen overlay mode, covers entire navigation container.
+   *     <br>**false**: Normal display mode, follows navigation split rules(Except for DIALOG mode).
+   *     <br>**undefined**: Follow the fullscreen inheritance rules.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fullScreenOverlay(fullScreenOverlay: Optional<boolean>): NavDestinationAttribute;
 }
 
 /**

@@ -1363,8 +1363,10 @@ declare namespace cryptoFramework {
      *
      * @param { string } format - indicates the encoding format.
      * @returns { DataBlob } the binary data of the key object in DER format.
-     * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -1372,6 +1374,25 @@ declare namespace cryptoFramework {
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Encode the public key object to binary data in DER format.
+     * For EC key, the format can be set "X509|UNCOMPRESSED" or "X509|COMPRESSED".
+     * For ML-DSA and ML-KEM key, the format can be set "X509".
+     *
+     * @param { string } format - indicates the encoding format.
+     * @returns { DataBlob } the binary data of the key object in DER format.
+     * @throws { BusinessError } 401 - invalid parameters. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     getEncodedDer(format: string): DataBlob;
 
@@ -8233,6 +8254,66 @@ declare namespace cryptoFramework {
    * @since 26.0.0 dynamic&static
    */
   enum AsyKeyDataItem {
+    /**
+     * Indicates the private seed of the ML-DSA private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_DSA_PRIVATE_SEED = 0,
+
+    /**
+     * Indicates the private raw of the ML-DSA private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_DSA_PRIVATE_RAW = 1,
+
+    /**
+     * Indicates the public raw of the ML-DSA public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_DSA_PUBLIC_RAW = 2,
+
+    /**
+     * Indicates the private seed of the ML-KEM private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_KEM_PRIVATE_SEED = 3,
+
+    /**
+     * Indicates the private raw of the ML-KEM private key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_KEM_PRIVATE_RAW = 4,
+
+    /**
+     * Indicates the public raw of the ML-KEM public key.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_KEM_PUBLIC_RAW = 5,
+
     /**
      * Indicates the K of the EC private key.
      *

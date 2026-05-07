@@ -26,6 +26,7 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @extends CommonMethod
  * @interface FlowItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface FlowItemAttribute extends CommonMethod {
@@ -35,6 +36,7 @@ export declare interface FlowItemAttribute extends CommonMethod {
      * @param { AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -46,6 +48,7 @@ export declare interface FlowItemAttribute extends CommonMethod {
  * @param { CustomBuilder } [content_] - container
  * @returns { FlowItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

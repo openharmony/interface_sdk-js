@@ -23,6 +23,7 @@
  *
  * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -31,6 +32,7 @@
  *
  * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -41,6 +43,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -49,6 +52,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -60,6 +64,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?(Dimension | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -68,6 +73,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?(Dimension | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -80,6 +86,7 @@ declare interface TextBackgroundStyle {
  *
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -88,6 +95,7 @@ declare interface TextBackgroundStyle {
  *
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -99,6 +107,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @param { TextBackgroundStyle } style - The background style of span.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -108,6 +117,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @param { TextBackgroundStyle } style - The background style of span.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -120,6 +130,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @param { LengthMetrics } value - The base line offset of the Span.
    * @returns { T } The attribute of the Span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -236,6 +247,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Font } value - the span font size and weight and family and style.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -244,6 +256,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Font } value - the span font size and weight and family and style.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -638,6 +651,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Length } value - The line height of the span.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -646,6 +660,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Length } value - The line height of the span.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -658,6 +673,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -667,6 +683,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

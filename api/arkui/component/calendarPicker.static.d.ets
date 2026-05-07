@@ -28,24 +28,28 @@ import { AttributeModifier } from "./common";
  * The type of alignment between entry and calendar.
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum CalendarAlign {
     /**
      * The value of calendar align type start.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     START = 0,
     /**
      * The value of calendar align type center.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     CENTER = 1,
     /**
      * The value of calendar align type end.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     END = 2
@@ -54,6 +58,7 @@ export declare enum CalendarAlign {
  * Defines the options of CalendarPicker.
  * @interface CalendarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface CalendarOptions {
@@ -61,6 +66,7 @@ export declare interface CalendarOptions {
      * Specifies the radius of the background of the day in calendar.
      * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     hintRadius?: double | Resource;
@@ -68,6 +74,7 @@ export declare interface CalendarOptions {
      * Specifies the date selector check date.
      * @type { ?Date }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     selected?: Date;
@@ -76,6 +83,7 @@ export declare interface CalendarOptions {
      *
      * @type { ?Date }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     start?: Date;
@@ -84,6 +92,7 @@ export declare interface CalendarOptions {
      *
      * @type { ?Date }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     end?: Date;
@@ -92,6 +101,7 @@ export declare interface CalendarOptions {
      *
      * @type { ?DateRange[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     disabledDateRange?: DateRange[];
@@ -102,6 +112,7 @@ export declare interface CalendarOptions {
  * @extends CommonMethod
  * @interface CalendarPickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -112,6 +123,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @param { Offset } [offset] - The offset between entry and calendar dialog.
      * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default edgeAlign(alignType: CalendarAlign | undefined, offset?: Offset): this;
@@ -120,6 +132,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @param { PickerTextStyle | undefined } value - indicates the text style of entry.
      * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default textStyle(value: PickerTextStyle | undefined): this;
@@ -129,6 +142,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @param { Callback<Date> | undefined } callback - callback for selected date changed.
      * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onChange(callback: Callback<Date> | undefined): this;
@@ -138,6 +152,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @param { boolean | undefined } enabled - whether the calendar picker marks today.
      * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default markToday(enabled: boolean | undefined): this;
@@ -147,6 +162,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
      * @param { AttributeModifier<CalendarPickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { CalendarPickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<CalendarPickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -156,6 +172,7 @@ export declare interface CalendarPickerAttribute extends CommonMethod {
  * @extends CalendarOptions
  * @interface CalendarDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface CalendarDialogOptions extends CalendarOptions {
@@ -164,6 +181,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * Anonymous Object Rectification.
      * @type { ?Callback<Date> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onAccept?: Callback<Date>;
@@ -172,6 +190,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * Anonymous Object Rectification.
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onCancel?: VoidCallback;
@@ -180,6 +199,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * Anonymous Object Rectification.
      * @type { ?Callback<Date> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onChange?: Callback<Date>;
@@ -189,6 +209,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundColor?: ResourceColor;
@@ -198,6 +219,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * @type { ?BlurStyle }
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyle?: BlurStyle;
@@ -206,6 +228,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -214,6 +237,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundEffect?: BackgroundEffectOptions;
@@ -222,6 +246,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?PickerDialogButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     acceptButtonStyle?: PickerDialogButtonStyle;
@@ -230,6 +255,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?PickerDialogButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     cancelButtonStyle?: PickerDialogButtonStyle;
@@ -239,6 +265,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDidAppear?: VoidCallback;
@@ -248,6 +275,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onDidDisappear?: VoidCallback;
@@ -257,6 +285,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onWillAppear?: VoidCallback;
@@ -266,6 +295,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onWillDisappear?: VoidCallback;
@@ -274,6 +304,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     shadow?: ShadowOptions | ShadowStyle;
@@ -283,6 +314,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     enableHoverMode?: boolean;
@@ -292,6 +324,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     hoverModeArea?: HoverModeAreaType;
@@ -301,6 +334,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     markToday?: boolean;
@@ -308,6 +342,7 @@ export declare interface CalendarDialogOptions extends CalendarOptions {
 /**
  * Defines CalendarPickerDialog which uses show method to show CalendarPicker dialog.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class CalendarPickerDialog {
@@ -316,6 +351,7 @@ export declare class CalendarPickerDialog {
      * @param { CalendarDialogOptions } [options] - the option of th calendarPicker.
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     static show(options?: CalendarDialogOptions): void;

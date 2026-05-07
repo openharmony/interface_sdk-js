@@ -54,13 +54,11 @@ export interface CommonEventData {
   bundleName?: string;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the **code** field in
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+   * Common event data received by the subscriber. The value of this field is the same as that of the **code** field in 
+   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses 
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
    * to publish a common event. The default value is **0**.
    *
-   * @type { ?number } [since 7 - 10]
-   * @type { ?int } [since 11]
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
@@ -70,8 +68,8 @@ export interface CommonEventData {
   code?: int;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the **data** field in
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+   * Common event data received by the subscriber. The value of this field is the same as that of the **data** field in 
+   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses 
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
    * to publish a common event.
    *
@@ -84,9 +82,9 @@ export interface CommonEventData {
   data?: string;
 
   /**
-   * Additional information about the common event received by the subscriber. The value of this field is the same as
-   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
-   * when the publisher uses
+   * Additional information about the common event received by the subscriber. The value of this field is the same as 
+   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} 
+   * when the publisher uses 
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
    * to publish a common event.
    *
@@ -97,9 +95,9 @@ export interface CommonEventData {
   parameters?: { [key: string]: any };
 
   /**
-   * Additional information about the common event received by the subscriber. The value of this field is the same as
-   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
-   * when the publisher uses
+   * Additional information about the common event received by the subscriber. The value of this field is the same as 
+   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} 
+   * when the publisher uses 
    * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
    * to publish a common event.
    *

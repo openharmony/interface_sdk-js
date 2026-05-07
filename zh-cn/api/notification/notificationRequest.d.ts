@@ -14,6 +14,8 @@
  */
 
 /**
+ * 描述通知的请求。
+ * 
  * @file Information carried when a notification is sent
  * @kit NotificationKit
  */
@@ -273,8 +275,6 @@ export interface NotificationRequest {
 
   /**
    * 条件对象。默认为空。 
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -297,7 +297,6 @@ export interface NotificationRequest {
   /**
    * 通知优先级类型，默认值为OTHER。设置该参数可使通知置顶，并且在通知中心以突出方式显示。<!--RP2--><!--RP2End-->实际显示效果依赖于设备能力和通知中心UI样式。
    * 
-   * 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -453,8 +452,6 @@ export interface NotificationRequest {
 
   /**
    * 系统应用发布通知时的自定义扩展参数。默认为空。
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -656,9 +653,7 @@ export interface NotificationRequest {
   /**
    * 创建者实例键值。
    * 
-   * 从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。
-   * 
-   * 此接口为系统接口。
+   * 从API version 12开始支持，从API version 15开始废弃，建议使用appInstanceKey替代。。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -687,8 +682,7 @@ export interface NotificationRequest {
 
   /**
    * 通知分类。
-   * 
-   * 此接口为系统接口。预留能力，暂未支持。
+   * 预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -707,12 +701,10 @@ export interface NotificationRequest {
   readonly hashCode?: string;
 
   /**
-   * 通知是否能被移除（点击通知下方删除按钮无法删除，左滑不出现删除按钮）。默认为true。
+   * 通知是否能被移除（点击通知下方删除按钮无法删除，左滑不出现删除按钮）。
    * 
    * - true：是。
    * - false：否。
-   * 
-   * 此接口为系统接口。
    * 
    * ohos.permission.SET_UNREMOVABLE_NOTIFICATION
    *
@@ -728,8 +720,7 @@ export interface NotificationRequest {
 
   /**
    * 通知源。
-   * 
-   * 此接口为系统接口。预留能力，暂未支持。
+   * 预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -758,8 +749,7 @@ export interface NotificationRequest {
 
   /**
    * 通知源的deviceId。
-   * 
-   * 此接口为系统接口。预留能力，暂未支持。
+   * 预留能力，暂未支持。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -774,7 +764,7 @@ export interface NotificationRequest {
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
-   * @FaAndStageModel
+   * @FaAndStageModel [since 23]
    * @since 8 dynamic
    * @since 23 static
    */
@@ -811,8 +801,6 @@ export interface NotificationRequest {
 
   /**
    * 被代理的包信息。默认为空。
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -823,8 +811,6 @@ export interface NotificationRequest {
 
   /**
    * 创建通知的代理包信息。默认为空。 
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -835,8 +821,6 @@ export interface NotificationRequest {
 
   /**
    * 消息智能聚合信息字段。默认为空。 
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -851,8 +835,6 @@ export interface NotificationRequest {
    * 可以通过此接口减少当前通知的提醒方式。与
    * [NotificationControlFlagStatus]{@link @ohos.notificationManager:notificationManager.NotificationControlFlagStatus}的
    * 枚举进行按位或运算得到该参数。
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -862,9 +844,7 @@ export interface NotificationRequest {
   notificationControlFlags?: long;
 
   /**
-   * 应用实例键值。默认为空。 
-   * 
-   * 此接口为系统接口。
+   * 应用实例键值。默认为空。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -874,7 +854,7 @@ export interface NotificationRequest {
   readonly appInstanceKey?: string;
 
   /**
-   * 通知是否强制进行全场景跨设备协同显示，默认为false。
+   * 通知是否强制进行全场景跨设备协同显示。
    * 
    * **说明**:
    * 
@@ -885,8 +865,6 @@ export interface NotificationRequest {
    * - 设置为true时：通知将在所有协同设备上显示。
    * 
    * - 设置为false时：通知将按照协同管控名单显示。
-   * 
-   * 此接口为系统接口。
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification
@@ -897,7 +875,7 @@ export interface NotificationRequest {
   forceDistributed?: boolean;
 
   /**
-   * 通知是否不进行全场景跨设备协同显示，默认为false。
+   * 通知是否不进行全场景跨设备协同显示。
    * 
    * **说明**:
    * 
@@ -906,8 +884,6 @@ export interface NotificationRequest {
    * - 设置为true时：通知仅在本设备上显示。
    * 
    * - 设置为false时：通知将在所有协同设备上显示。
-   * 
-   * 此接口为系统接口。
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification
@@ -920,11 +896,7 @@ export interface NotificationRequest {
   /**
    * 组通知定制信息。默认为空。
    * 
-   * 此接口仅可在Stage模型下使用。
-   * 
    * 26.0.0
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -943,7 +915,7 @@ export interface NotificationRequest {
  */
 export interface DistributedOptions {
   /**
-   * 是否支持跨设备协同通知。默认为true。
+   * 是否支持跨设备协同通知。
    * 
    * - true：支持跨设备协同通知。
    * - false：不支持跨设备协同通知。
@@ -975,8 +947,6 @@ export interface DistributedOptions {
 
   /**
    * 通知的提醒方式。
-   * 
-   * 此接口为系统接口。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

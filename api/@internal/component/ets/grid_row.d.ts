@@ -1032,6 +1032,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @param { ItemAlign } value - element alignment
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
@@ -1042,6 +1043,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    * @param { ItemAlign } value - element alignment
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice

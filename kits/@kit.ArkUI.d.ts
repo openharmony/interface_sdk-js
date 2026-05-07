@@ -110,9 +110,9 @@ import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescript
 import inspector from '@ohos.arkui.inspector';
 import {
   NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot,
-  Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, ColorMetrics, LengthUnit, LengthMetricsUnit,
+  Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, ColorMetrics, BackgroundBlur, ContentBlur, ForegroundBlur, LengthUnit, LengthMetricsUnit,
   LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content, typeNode, NodeAdapter, ShapeMask, ShapeClip, Rect, RoundRect,
-  edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode, UIState, InputEventType
+  edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode, ChildrenCountMode, UIState, InputEventType
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
@@ -252,6 +252,7 @@ import { RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLa
 import { DynamicLayout, DynamicLayoutAttribute } from '@ohos.arkui.components.ArkDynamicLayout';
 import { LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute } from '@ohos.arkui.components.ArkLazyWaterFlowLayout';
 import { LazyColumnLayout, LazyColumnLayoutAttribute } from '@ohos.arkui.components.ArkLazyColumnLayout';
+import { WithEnv, WithEnvAttribute} from '@ohos.arkui.WithEnv';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -283,8 +284,8 @@ export {
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier, Translation, TreeController, TreeListenType, TreeListener,
   ToolBarV2ItemState, ToolBarV2SymbolGlyph, ToolBarV2SymbolGlyphOptions, ToolBarV2ItemText, ToolBarV2ItemTextOptions, ToolBarV2ItemIconType,
   ToolBarV2ItemImage, ToolBarV2ItemImageOptions, ToolBarV2, ToolBarV2Item, ToolBarV2ItemOptions, ToolBarV2Modifier, ToolBarV2ItemAction,
-  TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
-  LengthMetrics, LengthUnit, ColorMetrics, LengthMetricsUnit, LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content,
+  TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, WithEnv, WithEnvAttribute, XComponentNode,
+  LengthMetrics, LengthUnit, ColorMetrics, BackgroundBlur, ContentBlur, ForegroundBlur, LengthMetricsUnit, LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content,
   componentSnapshot, componentUtils, curves, display, dragController, dragInteraction, floatingBall, floatView,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   LevelMode, ImmersiveMode, LevelOrder, AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
@@ -326,7 +327,7 @@ export {
   TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
   AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
-  ExpandMode, Magnifier, TextSelectionClearPolicy,
+  ExpandMode, ChildrenCountMode, Magnifier, TextSelectionClearPolicy,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, 
   GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 

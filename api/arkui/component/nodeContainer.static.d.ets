@@ -29,6 +29,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  * @extends CommonMethod
  * @interface TabsAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NodeContainerAttribute extends CommonMethod {
@@ -39,6 +40,7 @@ export declare interface NodeContainerAttribute extends CommonMethod {
      *     instance of NodeController
      * @return { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     attributeModifier(

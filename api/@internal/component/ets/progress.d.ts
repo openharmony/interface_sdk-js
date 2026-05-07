@@ -374,6 +374,7 @@ declare enum ProgressType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -381,6 +382,7 @@ declare enum ProgressType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -390,12 +392,14 @@ declare enum ProgressStatus {
    * Loading status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Loading status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -406,12 +410,14 @@ declare enum ProgressStatus {
    * Processing status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Processing status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -572,6 +578,7 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
  *
  * @interface CommonProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -579,6 +586,7 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
  *
  * @interface CommonProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -590,6 +598,7 @@ declare interface CommonProgressStyleOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -598,6 +607,7 @@ declare interface CommonProgressStyleOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -610,6 +620,7 @@ declare interface CommonProgressStyleOptions {
  *
  * @interface ScanEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -617,6 +628,7 @@ declare interface CommonProgressStyleOptions {
  *
  * @interface ScanEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -628,6 +640,7 @@ declare interface ScanEffectOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -636,6 +649,7 @@ declare interface ScanEffectOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -649,6 +663,7 @@ declare interface ScanEffectOptions {
  * @extends CommonProgressStyleOptions
  * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -657,6 +672,7 @@ declare interface ScanEffectOptions {
  * @extends CommonProgressStyleOptions
  * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -671,6 +687,7 @@ declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
  * @extends CommonProgressStyleOptions
  * @interface ScaleRingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -679,6 +696,7 @@ declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
  * @extends CommonProgressStyleOptions
  * @interface ScaleRingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -689,6 +707,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -696,6 +715,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -707,6 +727,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -714,6 +735,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -725,6 +747,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -732,6 +755,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -745,6 +769,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
  * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface RingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -753,6 +778,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
  * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface RingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -763,6 +789,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -770,6 +797,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -781,6 +809,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -788,6 +817,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -799,6 +829,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?ProgressStatus }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -806,6 +837,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    *
    * @type { ?ProgressStatus }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -819,6 +851,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
  * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface LinearStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -827,6 +860,7 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
  * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface LinearStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -837,6 +871,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -844,6 +879,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -855,6 +891,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @type { ?(PX | VP | LPX | Resource) }
    * @default strokeWidth / 2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -863,6 +900,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
    * @type { ?(PX | VP | LPX | Resource) }
    * @default strokeWidth / 2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -876,6 +914,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
  * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface CapsuleStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -884,6 +923,7 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
  * @extends ScanEffectOptions, CommonProgressStyleOptions
  * @interface CapsuleStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -894,6 +934,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -901,6 +942,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -912,6 +954,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -919,6 +962,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -930,6 +974,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -937,6 +982,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -946,6 +992,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -957,6 +1004,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -964,6 +1012,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -975,6 +1024,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -982,6 +1032,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -994,6 +1045,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1002,6 +1054,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1014,6 +1067,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
    * @type { ?LengthMetrics }
    * @default height / 2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1222,6 +1276,7 @@ declare enum ProgressStyle {
  *
  * @interface ProgressStyleMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -1229,6 +1284,7 @@ declare enum ProgressStyle {
  *
  * @interface ProgressStyleMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1238,6 +1294,7 @@ declare interface ProgressStyleMap {
    * Defines the map for Linear progress.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1245,6 +1302,7 @@ declare interface ProgressStyleMap {
    *
    * @type { LinearStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1254,6 +1312,7 @@ declare interface ProgressStyleMap {
    * Defines the map for Ring progress.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1261,6 +1320,7 @@ declare interface ProgressStyleMap {
    *
    * @type { RingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1270,6 +1330,7 @@ declare interface ProgressStyleMap {
    * Defines the map for Eclipse progress.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1277,6 +1338,7 @@ declare interface ProgressStyleMap {
    *
    * @type { EclipseStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1286,6 +1348,7 @@ declare interface ProgressStyleMap {
    * Defines the map for ScaleRing progress.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1293,6 +1356,7 @@ declare interface ProgressStyleMap {
    *
    * @type { ScaleRingStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1302,6 +1366,7 @@ declare interface ProgressStyleMap {
    * Defines the map for Capsule progress.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1309,6 +1374,7 @@ declare interface ProgressStyleMap {
    *
    * @type { CapsuleStyleOptions | ProgressStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1554,6 +1620,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1567,6 +1634,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
    * @returns { ProgressAttribute<Type> } the attribute of the progress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1580,6 +1648,7 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @extends CommonConfiguration<ProgressConfiguration>
  * @interface ProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1590,6 +1659,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1601,6 +1671,7 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

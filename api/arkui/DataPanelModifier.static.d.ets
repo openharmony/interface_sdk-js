@@ -26,6 +26,7 @@ import { DataPanelAttribute } from '@ohos.arkui.component';
  *
  * @implements { DataPanelAttribute, AttributeModifier<DataPanelAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class DataPanelModifier implements DataPanelAttribute, AttributeModifier<DataPanelAttribute> {}

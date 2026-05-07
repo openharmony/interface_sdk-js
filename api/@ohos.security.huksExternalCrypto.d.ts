@@ -128,21 +128,21 @@ declare namespace huksExternalCrypto {
    */
   export enum HuksExternalPinAuthState {
     /**
-     * Ukey PIN is not authenticated.
+     * UKey PIN is not authenticated.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_NO_AUTH = 0,
     /**
-     * Ukey PIN is authenticated.
+     * UKey PIN is authenticated.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED = 1,
     /**
-     * Ukey PIN is locked.
+     * UKey PIN is locked.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
@@ -220,7 +220,7 @@ declare namespace huksExternalCrypto {
   function unregisterProvider(providerName: string, params?: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * PIN auth for the specified Ukey resource ID.
+   * PIN auth for the specified UKey resource ID.
    *
    * @param { string } resourceId - resourceId indicates the resource id of the provider.
    * @param { Array<HuksExternalCryptoParam> } params - params indicates the properties of the operation.
@@ -229,16 +229,16 @@ declare namespace huksExternalCrypto {
    *     and is not allowed to use system applications.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
-   * @throws { BusinessError } 12000006 - the Ukey driver operation failed.
+   * @throws { BusinessError } 12000006 - the UKey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist.
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal.
    *     This error may occur if the process function is not found, or due to other issues.
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed.
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked.
-   * @throws { BusinessError } 12000022 - the Ukey PIN is incorrect.
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy.
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked.
+   * @throws { BusinessError } 12000022 - the UKey PIN is incorrect.
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @systemapi this method can be used only by system applications.
    * @since 22
@@ -246,14 +246,14 @@ declare namespace huksExternalCrypto {
   function authUkeyPin(resourceId: string, params: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * Get the PIN auth state of the specified Ukey resource id.
+   * Get the PIN auth state of the specified UKey resource id.
    *
    * @param { string } resourceId - resourceId indicates the resource id of the provider.
    * @param { Array<HuksExternalCryptoParam> } [params] - params indicates the properties of the operation.
    * @returns { Promise<HuksExternalPinAuthState> } the promise returned by the function.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
-   * @throws { BusinessError } 12000006 - the Ukey driver operation failed.
+   * @throws { BusinessError } 12000006 - the UKey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist. This may happen
    *     because the resource ID has not been opened.
    * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
@@ -261,7 +261,7 @@ declare namespace huksExternalCrypto {
    * @throws { BusinessError } 12000014 - memory is insufficient.
    * @throws { BusinessError } 12000018 - the input parameter is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed.
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy.
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -301,8 +301,8 @@ declare namespace huksExternalCrypto {
    * @returns { Promise<Array<HuksExternalCryptoParam>> } The promise returned by the function.
    * @throws { BusinessError } 801 - API is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
-   * @throws { BusinessError } 12000006 - If the Ukey driver operation failed. Possible causes:
-   *     1. Error reported when the provider accesses the SKF interface of Ukey.
+   * @throws { BusinessError } 12000006 - If the UKey driver operation failed. Possible causes:
+   *     1. Error reported when the provider accesses the SKF interface of UKey.
    * @throws { BusinessError } 12000011 - If the cached resource ID is not found.
    * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
    *     This error may occur if the process function is not found, or due to other issues.
@@ -312,9 +312,9 @@ declare namespace huksExternalCrypto {
    *     2. The params contains invalid tags or invalid value types.
    * @throws { BusinessError } 12000020 - If the provider operation failed. Possible causes:
    *     1. The provider experienced an internal processing error.
-   * @throws { BusinessError } 12000021 - The Ukey PIN is locked.
-   * @throws { BusinessError } 12000023 - The Ukey PIN is not authenticated.
-   * @throws { BusinessError } 12000024 - If the provider or Ukey is busy.
+   * @throws { BusinessError } 12000021 - The UKey PIN is locked.
+   * @throws { BusinessError } 12000023 - The UKey PIN is not authenticated.
+   * @throws { BusinessError } 12000024 - If the provider or UKey is busy.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 22

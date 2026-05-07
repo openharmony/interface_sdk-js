@@ -23,6 +23,7 @@ import { BusinessError, Callback } from './@ohos.base';
 import type common2D from './@ohos.graphics.common2D';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { UIContext } from './@ohos.arkui.UIContext';
+import type Want from './@ohos.app.ability.Want';
 
 /**
  * Module for AI-generated images using UI Component.
@@ -882,7 +883,61 @@ declare namespace imageGeneration {
      * @since 26.0.0 dynamic
      */
     customImportIcon?: CustomImportIcon;
+    /**
+ 	   * Information for LiveView in AI image generation.
+ 	   *
+ 	   * @type { ?LiveViewInfo }
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	   * @systemapi
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic
+ 	   */
+ 	  liveViewInfo?: LiveViewInfo;    
   }
+
+  /**
+ 	 * Information for LiveView in AI image generation.
+ 	 *
+ 	 * @interface LiveViewInfo
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @systemapi
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 dynamic
+ 	 */
+ 	interface LiveViewInfo {
+ 	  /**
+ 	   * Get the Want object for LiveView.
+ 	   *
+ 	   * @returns { Want } Returns the Want object.
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	   * @systemapi
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic
+ 	   */
+ 	  getWant(): Want;
+ 	
+ 	  /**
+ 	   * Get the long-term task ID for LiveView.
+ 	   *
+ 	   * @returns { int } Returns the long-term task ID.
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	   * @systemapi
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic
+ 	   */
+ 	  getLongTermTaskId(): int;
+ 	
+ 	  /**
+ 	   * Check whether LiveView is needed.
+ 	   *
+ 	   * @returns { boolean } Returns true if LiveView is needed, false otherwise.
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	   * @systemapi
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic
+ 	   */
+ 	  isLiveViewNeeded(): boolean;
+ 	}
 
   /**
    * Open the AI image generation task popup and perform AI image generation operations.
@@ -980,6 +1035,16 @@ declare namespace imageGeneration {
      * @since 26.0.0 dynamic
      */
     customImportIcon?: CustomImportIcon;
+    /**
+ 	   * Information for LiveView in AI image generation.
+ 	   *
+ 	   * @type { ?LiveViewInfo }
+ 	   * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	   * @systemapi
+ 	   * @stagemodelonly
+ 	   * @since 26.0.0 dynamic
+ 	   */
+ 	  liveViewInfo?: LiveViewInfo;    
   }
 
   /**

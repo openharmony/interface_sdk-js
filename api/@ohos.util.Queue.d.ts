@@ -137,13 +137,14 @@ declare class Queue<T> {
   /**
    * Executes a provided function once for each value in the queue object.
    *
-   * @param { QueueForEachCb } callbackFn - callbackFn
+   * @param { QueueForEachCb<T> } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
    */
-  forEach(callbackfn: QueueForEachCb<T>): void;
+  forEach(callbackFn: QueueForEachCb<T>): void;
 
   /**
    * returns an iterator.Each item of the iterator is a Javascript Object

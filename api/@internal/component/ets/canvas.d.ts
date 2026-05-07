@@ -23,6 +23,7 @@
  *
  * @typedef { import('../api/@ohos.graphics.drawing').default.Canvas } DrawingCanvas
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -454,6 +455,7 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
  *
  * @typedef { import('../api/arkui/FrameNode').FrameNode } FrameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 13 dynamic
@@ -550,6 +552,7 @@ declare class CanvasGradient {
    * @param { string | ColorMetrics } color - Set the gradient color.
    * @throws { BusinessError } 103701 - The color's ColorSpace is not the same as the last color's.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1099,6 +1102,7 @@ declare class CanvasPath {
    * <br> 1. The param radii is a list that has zero or more than four elements.
    * <br> 2. The param radii contains negative value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1231,6 +1235,7 @@ declare class Path2D extends CanvasPath {
    *
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1284,6 +1289,7 @@ declare class Path2D extends CanvasPath {
    * @param { Path2D } path - Path object to be copied
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1337,6 +1343,7 @@ declare class Path2D extends CanvasPath {
    * @param { string } description - Indicates the path string that compiles with the SVG path description specifications.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2286,6 +2293,7 @@ declare class ImageBitmap {
    * @param { string } src - Path of the image object.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2328,6 +2336,7 @@ declare class ImageBitmap {
    * @param { PixelMap } data - PixelMap object
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2571,6 +2580,7 @@ declare class ImageData {
    * @param { Uint8ClampedArray } data - Data of the image. If this parameter is not specified, the default value is a black rectangular image.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2765,6 +2775,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @type { LengthMetrics | string }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -3698,6 +3709,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - The y-axis coordinate of the center of the gradient.
    * @returns { CanvasGradient } A CanvasGradient object that draws a conic gradient around the given coordinates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -3710,6 +3722,7 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y - The y-axis coordinate of the center of the gradient.
    * @returns { CanvasGradient } A CanvasGradient object that draws a conic gradient around the given coordinates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -5734,6 +5747,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Allocate a layer for subsequent drawing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5744,6 +5758,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Remove changes to transform and clip since saveLayer was last called and draw the layer on canvas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5754,6 +5769,7 @@ declare class CanvasRenderer extends CanvasPath {
    * Clear the backing buffer, drawing state stack, any defined paths, and styles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -5908,6 +5924,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @type { FrameNode }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -5975,6 +5992,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
    * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5983,6 +6001,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
   /**
    * Stop image analyzer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -6034,6 +6053,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -6051,6 +6071,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6067,6 +6088,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6083,6 +6105,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6099,6 +6122,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    *     2. Incorrect parameter types;
    *     3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -6310,6 +6334,7 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * @param { RenderingContextSettings } settings - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -6484,6 +6509,7 @@ declare class OffscreenCanvas {
    * @param { RenderingContextSettings } options - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -6495,6 +6521,7 @@ declare class OffscreenCanvas {
    * @param { RenderingContextSettings } options - Drawing attribute. For details, see {@link RenderingContextSettings}.
    * @returns { OffscreenCanvasRenderingContext2D } The rendering context of offscreen canvas, see {@link OffscreenCanvasRenderingContext2D}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -6552,6 +6579,7 @@ declare class OffscreenCanvas {
    * @param { number } height - Height of the off-screen canvas.
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -6565,6 +6593,7 @@ declare class OffscreenCanvas {
  *
  * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -6575,6 +6604,7 @@ declare interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6586,6 +6616,7 @@ declare interface Size {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6597,6 +6628,7 @@ declare interface Size {
  * Defines DrawingRenderingContext.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -6608,6 +6640,7 @@ declare class DrawingRenderingContext {
    *
    * @returns { Size } The size of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6619,6 +6652,7 @@ declare class DrawingRenderingContext {
    *
    * @returns { DrawingCanvas } The canvas of the DrawingRenderingContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6629,6 +6663,7 @@ declare class DrawingRenderingContext {
    * Invalidate the component, which will cause a re-render of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6640,6 +6675,7 @@ declare class DrawingRenderingContext {
    *
    * @param { LengthMetricsUnit } [unit] - the unit mode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -6786,6 +6822,7 @@ interface CanvasInterface {
    * @param { ImageAIOptions } imageAIOptions
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -6925,6 +6962,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * @param { boolean } enable - If enable image analyzer for Canvas. The default value is false.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */

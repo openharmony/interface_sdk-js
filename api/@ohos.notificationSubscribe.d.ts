@@ -28,6 +28,8 @@ import { EnabledSilentReminderCallbackData as _EnabledSilentReminderCallbackData
 import { EnabledSilentReminderChangedCallback as _EnabledSilentReminderChangedCallback } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
+import { VoiceContent as _VoiceContent } from './notification/notificationSubscriber';
+import { VoiceContentOptions as _VoiceContentOptions } from './notification/notificationSubscribeInfo';
 /*** if arkts dynamic */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 /*** endif */
@@ -215,8 +217,9 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscriber } subscriber - The notification subscriber.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     <br>2.Memory operation error. 3.The user does not exist.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -234,8 +237,9 @@ declare namespace notificationSubscribe {
    * @param { NotificationSubscribeInfo } info - The notification subscribe info.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     <br>2.Memory operation error. 3.The user does not exist.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -718,6 +722,25 @@ declare namespace notificationSubscribe {
    * @since 23 static
    */
   export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
+
+  /**
+   * Describes the properties of the voice content options for notification subscription.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContentOptions = _VoiceContentOptions;
+  /**
+   * Describes the properties of the voice content of the received notification.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContent = _VoiceContent;
 }
 
 export default notificationSubscribe;

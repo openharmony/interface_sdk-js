@@ -25,6 +25,7 @@ import base from '@ohos.base';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -34,6 +35,7 @@ export declare enum SplitPolicy {
    * Indicates that the page will be pushed to the stack as home page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -44,6 +46,7 @@ export declare enum SplitPolicy {
    * Indicates that the page will be pushed to the stack as detail page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -54,6 +57,7 @@ export declare enum SplitPolicy {
    * Indicates that the page will be pushed to the stack as full-screen page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -66,6 +70,7 @@ export declare enum SplitPolicy {
  *
  * @struct { MultiNavigation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -77,6 +82,7 @@ export declare struct MultiNavigation {
    *
    * @type { MultiNavPathStack }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -89,6 +95,7 @@ export declare struct MultiNavigation {
    *
    * @type { NavDestinationBuildFunction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -101,6 +108,7 @@ export declare struct MultiNavigation {
    *
    * @type { ?OnNavigationModeChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -112,6 +120,7 @@ export declare struct MultiNavigation {
    *
    * @type { ?OnHomeShowOnTopCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -124,6 +133,7 @@ export declare struct MultiNavigation {
  *
  * @extends NavPathStack
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -133,6 +143,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * Creates an instance of MultiNavPathStack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -149,6 +160,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -163,6 +175,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -180,6 +193,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -198,6 +212,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { SplitPolicy } [policy] - SplitPolicy of the NavDestination which is currently
    *                                   pushed in stack. Default splitPolicy is DETAIL_PAGE.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -214,6 +229,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -227,6 +243,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { NavigationOptions } [options] - Indicates options of stack operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -243,6 +260,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -255,6 +273,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
    * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -267,6 +286,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be removed.
    * @returns { number } Returns the number of removed NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -282,6 +302,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty,
    *                                      otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -299,6 +320,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty,
    *                                      otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -315,6 +337,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -332,6 +355,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -346,6 +370,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -361,6 +386,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -377,6 +403,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -391,6 +418,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -405,6 +433,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -416,6 +445,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @returns { Array<string> } Returns all the NavDestination name in the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -429,6 +459,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination
    *                                  if it exists in the stack, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -441,6 +472,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<Object> } Returns the detailed parameter of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -453,6 +485,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<number> } Returns the index of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -464,6 +497,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @returns { number } Returns the size of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -475,6 +509,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { boolean } disable - Indicates whether to disable the transition animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -488,6 +523,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { boolean } [isFullScreen] - Whether to switch to full screen.
    * @returns { boolean } Returns switch result success(true) or failure(false).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -500,6 +536,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    * @param { number } minPercent - Minimum Home Width Percentage.
    * @param { number } maxPercent - Maximum Home Width Percentage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -511,6 +548,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { boolean } keepBottom - Indicates whether to retain the bottom NavDestination of the stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -522,6 +560,7 @@ export declare class MultiNavPathStack extends NavPathStack {
    *
    * @param { NavPathInfo } info - info of placeHolder NavDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -536,6 +575,7 @@ export declare class MultiNavPathStack extends NavPathStack {
  * @param { string } name - Indicates the name of target NavDestination.
  * @param { object } [param] - Indicates the parameter of route operation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -548,6 +588,7 @@ declare type NavDestinationBuildFunction = (name: string, param?: object) => voi
  * @typedef { function } OnNavigationModeChangeCallback
  * @param { NavigationMode } mode - current NavigationMode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -560,6 +601,7 @@ declare type OnNavigationModeChangeCallback = (mode: NavigationMode) => void;
  * @typedef { function } OnHomeShowOnTopCallback
  * @param { string } name - the name of home NavDestination shown in top.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic

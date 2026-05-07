@@ -965,6 +965,21 @@ declare namespace screen {
     setOrientation(orientation: Orientation): Promise<void>;
 
     /**
+     * Set the orientation of the screen
+     *
+     * @param { Orientation } orientation - Screen orientation. orientation value must from enum Orientation.
+     * @param { OrientationOptions } [orientationOptions] - Options of setting orientation.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setOrientation(orientation: Orientation, orientationOptions?: OrientationOptions): Promise<void>;
+
+    /**
      * Set the active mode of the screen.
      *
      * @param { long } modeIndex Index of the mode to set.
@@ -1088,6 +1103,42 @@ declare namespace screen {
      * @since 23 static
      */
     REVERSE_HORIZONTAL = 4
+  }
+
+  /**
+   * The parameter of setting orientation
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OrientationOptions {  
+    /**
+     * Whether to need animation.
+     * The value true means rotating the screen with animation,
+     *     while false means rotating the screen without animation.
+     *
+     * @default true
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needAnimation?: boolean;
+
+    /**
+     * Whether to ignore rotation lock.
+     * The value true means allowing the screen to rotate even if some system windows lock screen rotation,
+     *     while false means preventing the screen from rotating when any system windows lock it.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ignoreRotationLock?: boolean;
   }
 
   /**

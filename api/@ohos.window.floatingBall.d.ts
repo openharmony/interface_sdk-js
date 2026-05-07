@@ -101,6 +101,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
+     * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
+     *     App has already started float view. [since 26.0.0]
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 23 static
@@ -347,7 +349,37 @@ declare namespace floatingBall {
      * @since 23 static
      */
     content?: string;
+
+    /**
+     * The color of the floating ball title, in hexadecimal format without opacity
+     * (e.g., **'#008EF5'** or **'#FF008EF5'**).
+     * Providing titleColor is not allowed if 'backgroundColor' is not provided.
+     *
+     * @default Set different default values according to the 'backgroundColor'.
+     *     - If 'backgroundColor' is provided, when 'backgroundColor' is light color, default value is '#E5FFFFFF',
+     *       otherwise is '#E5000000'.
+     *     - If 'backgroundColor' is not provided, default value is $r('sys.color.font_primary').
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    titleColor?: string;
     
+    /**
+     * The color of the floating ball content, in hexadecimal format without opacity
+     * (e.g., **'#008EF5'** or **'#FF008EF5'**).
+     * Providing contentColor is not allowed if 'backgroundColor' is not provided.
+     *
+     * @default Set different default values according to the 'backgroundColor'.
+     *     - If 'backgroundColor' is provided, when 'backgroundColor' is light color, default value is '#99FFFFFF',
+     *       otherwise is '#99000000'
+     *     - If 'backgroundColor' is not provided, default value is $r('sys.color.font_secondary')
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    contentColor?: string;
+
     /**
      * The backgroundColor of floating ball.
      *

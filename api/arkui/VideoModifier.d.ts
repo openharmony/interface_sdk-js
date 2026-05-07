@@ -27,6 +27,7 @@
  * @extends VideoAttribute
  * @implements AttributeModifier<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,6 +37,7 @@
  * @extends VideoAttribute
  * @implements AttributeModifier<VideoAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -47,6 +49,7 @@ export declare class VideoModifier extends VideoAttribute implements AttributeMo
    * 
    * @param { VideoAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

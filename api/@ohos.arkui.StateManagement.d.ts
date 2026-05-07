@@ -27,6 +27,7 @@ import collections from '@arkts.collections';
  * @typedef { function } StorageDefaultCreator<T>
  * @returns { T } default creator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -38,6 +39,7 @@ export declare type StorageDefaultCreator<T> = () => T;
  *
  * @interface TypeConstructorWithArgs<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -47,6 +49,7 @@ export interface TypeConstructorWithArgs<T> {
    * @param { any } args the arguments of the constructor.
    * @returns { T } return class instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -57,6 +60,7 @@ export interface TypeConstructorWithArgs<T> {
 /**
  * Define  ConnectOptions class.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 18 dynamic
  */
@@ -64,6 +68,7 @@ export class ConnectOptions<T extends object> {
   /**
    * @type { TypeConstructorWithArgs<T> } type class type of the stored value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -73,6 +78,7 @@ export class ConnectOptions<T extends object> {
    * Defines alias name of the key, or the function generating the default value.
    * @type { ?string } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
   */
@@ -82,6 +88,7 @@ export class ConnectOptions<T extends object> {
    * Define the function generating the default value.
    * @type { ?StorageDefaultCreator<T>} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
   */
@@ -93,6 +100,7 @@ export class ConnectOptions<T extends object> {
    * 
    * @type { ?contextConstant.AreaMode} 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
   */
@@ -104,6 +112,7 @@ export class ConnectOptions<T extends object> {
  * and saves database content only in memory.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -119,6 +128,7 @@ export declare class AppStorageV2 {
    * @param { StorageDefaultCreator<T> } [defaultCreator] the function generating the default value
    * @returns { T | undefined } the value of the existed key or the default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -134,6 +144,7 @@ export declare class AppStorageV2 {
    *
    * @param { string | TypeConstructorWithArgs<T> } keyOrType key or class type removing
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -145,6 +156,7 @@ export declare class AppStorageV2 {
    *
    * @returns { Array<string> } the array of all keys
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -160,6 +172,7 @@ export declare class AppStorageV2 {
  * @param { 'quota' | 'serialization' | 'unknown' } reason reason type when error
  * @param { string } message more message when error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -173,6 +186,7 @@ export declare class AppStorageV2 {
  * @param { string } message - more message when error
  * @param { string } [oldValue] - Returns the value before the persistence failure.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -237,6 +251,7 @@ export class ConnectOptionsCollections<T extends CollectionType<S>, S extends ob
  *
  * @extends AppStorageV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -250,6 +265,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    * @param { ConnectOptions<T> } type Application level storage parameters.
    * @returns { T | undefined } the value of the existed key or the default value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -281,6 +297,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    *
    * @param { string | TypeConstructorWithArgs<T> } keyOrType key or class type need to persist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -292,6 +309,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
    *
    * @param { PersistenceErrorCallback | undefined } callback called when error
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -304,6 +322,7 @@ export declare class PersistenceV2 extends AppStorageV2 {
  *
  * @interface TypeConstructor<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -312,6 +331,7 @@ export interface TypeConstructor<T> {
   /**
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -326,6 +346,7 @@ export interface TypeConstructor<T> {
  * @param { TypeConstructor<T> } type type info
  * @returns { PropertyDecorator } Type decorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -336,6 +357,7 @@ export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDec
  * Define Type PropertyDecorator, adds type information to an object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -346,6 +368,7 @@ export declare const Type: TypeDecorator;
  * UIUtils is a state management tool class for operating the observed data.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -358,6 +381,7 @@ export declare class UIUtils {
    * @param { T } source input source Object data.
    * @returns { T } raw object from the Object wrapped with an ObservedObject.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -371,6 +395,7 @@ export declare class UIUtils {
    * @param { T } source input source object data.
    * @returns { T } V2 proxy object from the source object data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -385,6 +410,7 @@ export declare class UIUtils {
    * @returns { T } V1 proxy object from the source object data.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamiconly
@@ -398,6 +424,7 @@ export declare class UIUtils {
    * @returns { T } The processed object with V2 compatibility enabled.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamiconly
@@ -416,6 +443,7 @@ export declare class UIUtils {
    * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -433,6 +461,7 @@ export declare class UIUtils {
    * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -450,6 +479,7 @@ export declare class UIUtils {
    * @returns { Binding<T> } read-only data binding value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -473,6 +503,7 @@ export declare class UIUtils {
    * @returns { MutableBinding<T> } mutable data binding value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -489,6 +520,7 @@ export declare class UIUtils {
    * @throws { BusinessError } 140001 - The function is not allowed to be called in @Computed
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -503,6 +535,7 @@ export declare class UIUtils {
    * @throws { BusinessError } 140002 - The function is not allowed to be called in @Monitor
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -517,6 +550,7 @@ export declare class UIUtils {
    * @throws { BusinessError } 140002 - The function is not allowed to be called in @Monitor
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -571,6 +605,7 @@ export declare class UIUtils {
  * @typedef { function } TaskCallback
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -583,6 +618,7 @@ declare type TaskCallback = () => T;
  * @typedef { function } MonitorCallback
  * @param { IMonitor} monitorValue monitor instance value when state variable is changed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -594,6 +630,7 @@ export declare type MonitorCallback = (monitorValue: IMonitor) => void;
  *
  * @interface MonitorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -606,6 +643,7 @@ export interface MonitorOptions {
    * @type { ?boolean } isSynchronous parameter
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -634,6 +672,7 @@ export interface MonitorOptions {
  * @typedef { function } GetterCallback
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -646,6 +685,7 @@ export declare type GetterCallback<T> = () => T;
  * @typedef { function } SetterCallback
  * @param { T } newValue - update the value with newValue.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -656,6 +696,7 @@ export declare type SetterCallback<T> = (newValue: T) => void;
  * Represents a read-only data binding.
  * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -665,6 +706,7 @@ export declare class Binding<T> {
    * Get function that can acquire the value.
    * @returns T
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -676,6 +718,7 @@ export declare class Binding<T> {
  * Represents a mutable data binding allowing both read and write operations.
  * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -685,6 +728,7 @@ export declare class MutableBinding<T> {
    * Get function that can acquire the value.
    * @returns T
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -695,6 +739,7 @@ export declare class MutableBinding<T> {
    * Set function that can set the new value.
    * @param { T } newValue - set the value with newValue.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic

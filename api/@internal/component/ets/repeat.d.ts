@@ -19,10 +19,44 @@
  */
 
 /**
+ * Defines a type for memory optimization strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum RepeatMemOptStrategy {
+  /**
+   * No memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * Repeat handles the memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
+}
+
+/**
  * Construct a new type for each item.
  *
  * @interface RepeatItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -34,6 +68,7 @@ interface RepeatItem<T> {
    *
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -45,6 +80,7 @@ interface RepeatItem<T> {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -58,6 +94,7 @@ interface RepeatItem<T> {
  *
  * @interface VirtualScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -68,6 +105,7 @@ interface VirtualScrollOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -79,6 +117,7 @@ interface VirtualScrollOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -90,6 +129,7 @@ interface VirtualScrollOptions {
    *
    * @param { number } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -101,11 +141,24 @@ interface VirtualScrollOptions {
    *
    * @returns { number } Returns the total data count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
   onTotalCount?(): number;
+
+  /**
+   * Memory optimization strategy for Repeat VirtualScroll
+   *
+   * @type {?RepeatMemOptStrategy}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  memoryOptimizationStrategy?: RepeatMemOptStrategy;
 }
 
 /**
@@ -113,6 +166,7 @@ interface VirtualScrollOptions {
  *
  * @interface TemplateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -123,6 +177,7 @@ interface TemplateOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -138,6 +193,7 @@ interface TemplateOptions {
  * @param {number} index - data index number in array.
  * @returns { string } template type.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -150,6 +206,7 @@ declare type TemplateTypedFunc<T> = (item: T, index: number) => string;
  * @typedef { function } RepeatItemBuilder<T>
  * @param { RepeatItem<T> } repeatItem - the repeat item builder function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -160,6 +217,7 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  * Defines the Repeat component attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -170,6 +228,7 @@ declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void;
  *
  * @extends DynamicNode<RepeatAttribute<T>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -182,6 +241,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @param { function } itemGenerator
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -194,6 +254,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @param { function } keyGenerator
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -206,6 +267,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @param { VirtualScrollOptions } virtualScrollOptions that defines the options of repeat virtual scroll to implement reuse and lazy loading.
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -219,6 +281,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @param { TemplateOptions } templateOptions that defines a builder template option parameter.
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -230,6 +293,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
    * @param { TemplateTypedFunc<T> } typedFunc that defines template typed function.
    * @returns { RepeatAttribute<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -242,6 +306,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
  *
  * @typedef { Array<T> | ReadonlyArray<T> | Readonly<Array<T>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -256,6 +321,7 @@ declare type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
  * @param { RepeatArray<T> } arr - The Data Source
  * @returns { RepeatAttribute<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -268,6 +334,7 @@ declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
  *
  * @type { <T>(arr: Array<T>) => RepeatAttribute<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -278,6 +345,7 @@ declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
  *
  * @type { RepeatInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice

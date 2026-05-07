@@ -32,6 +32,7 @@ import { Axis } from '@ohos.arkui.component';
  *
  * @namespace uiObserver
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 declare namespace uiObserver {
@@ -41,6 +42,7 @@ declare namespace uiObserver {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export enum NavDestinationState {
@@ -49,6 +51,7 @@ declare namespace uiObserver {
          * When the NavDestination is displayed.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_SHOWN = 0,
@@ -57,6 +60,7 @@ declare namespace uiObserver {
          * When the NavDestination is hidden.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_HIDDEN = 1,
@@ -64,6 +68,7 @@ declare namespace uiObserver {
          * When the NavDestination appear.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_APPEAR = 2,
@@ -71,6 +76,7 @@ declare namespace uiObserver {
          * When the NavDestination disappear.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_DISAPPEAR = 3,
@@ -78,6 +84,7 @@ declare namespace uiObserver {
          * Before the NavDestination is displayed.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_WILL_SHOW = 4,
@@ -85,6 +92,7 @@ declare namespace uiObserver {
          * Before the NavDestination is hidden.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_WILL_HIDE = 5,
@@ -92,6 +100,7 @@ declare namespace uiObserver {
          * Before the NavDestination is appeared.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_WILL_APPEAR = 6,
@@ -99,6 +108,7 @@ declare namespace uiObserver {
          * Before the NavDestination is disappeared.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_WILL_DISAPPEAR = 7,
@@ -106,6 +116,7 @@ declare namespace uiObserver {
          * When the NavDestination is active.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_ACTIVE = 8,
@@ -113,6 +124,7 @@ declare namespace uiObserver {
          * When the NavDestination is inactive.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_INACTIVE = 9,
@@ -120,6 +132,7 @@ declare namespace uiObserver {
          * When back press event happened in NavDestination.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_BACKPRESS = 100
@@ -130,6 +143,7 @@ declare namespace uiObserver {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export enum RouterPageState {
@@ -138,6 +152,7 @@ declare namespace uiObserver {
          * When the router page create.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ABOUT_TO_APPEAR = 0,
@@ -146,6 +161,7 @@ declare namespace uiObserver {
          * When the router page destroy.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ABOUT_TO_DISAPPEAR = 1,
@@ -154,6 +170,7 @@ declare namespace uiObserver {
          * When the router page show.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_PAGE_SHOW = 2,
@@ -162,6 +179,7 @@ declare namespace uiObserver {
          * When the router page hide.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_PAGE_HIDE = 3,
@@ -170,6 +188,7 @@ declare namespace uiObserver {
          * When back press event happened in the router page.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_BACK_PRESS = 4
@@ -179,6 +198,7 @@ declare namespace uiObserver {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export enum ScrollEventType {
@@ -186,6 +206,7 @@ declare namespace uiObserver {
          * When the ScrollEvent start.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         SCROLL_START = 0,
@@ -193,6 +214,7 @@ declare namespace uiObserver {
          * When the ScrollEvent stop.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         SCROLL_STOP = 1
@@ -202,6 +224,7 @@ declare namespace uiObserver {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export enum TabContentState {
@@ -209,6 +232,7 @@ declare namespace uiObserver {
          * When the TabContent is shown.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_SHOW = 0,
@@ -216,6 +240,7 @@ declare namespace uiObserver {
          * When the TabContent is hidden.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ON_HIDE = 1
@@ -226,6 +251,7 @@ declare namespace uiObserver {
      *
      * @interface NavDestinationInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface NavDestinationInfo {
@@ -235,6 +261,7 @@ declare namespace uiObserver {
          *
          * @type { ResourceStr }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         navigationId: ResourceStr;
@@ -244,6 +271,7 @@ declare namespace uiObserver {
          *
          * @type { ResourceStr }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         name: ResourceStr;
@@ -253,6 +281,7 @@ declare namespace uiObserver {
          *
          * @type { NavDestinationState }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         state: NavDestinationState;
@@ -261,6 +290,7 @@ declare namespace uiObserver {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         index: int;
@@ -269,6 +299,7 @@ declare namespace uiObserver {
          *
          * @type { ?Object }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         param?: Object;
@@ -277,6 +308,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         navDestinationId: string;
@@ -286,6 +318,7 @@ declare namespace uiObserver {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         uniqueId?: int;
@@ -295,6 +328,7 @@ declare namespace uiObserver {
          *
          * @type { NavDestinationMode }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         mode?: NavDestinationMode;
@@ -304,6 +338,7 @@ declare namespace uiObserver {
          *
          * @type { ?Size }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         size?: Size;
@@ -313,6 +348,7 @@ declare namespace uiObserver {
      *
      * @interface NavigationInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface NavigationInfo {
@@ -321,6 +357,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         navigationId: string;
@@ -329,6 +366,7 @@ declare namespace uiObserver {
          *
          * @type { NavPathStack }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         pathStack: NavPathStack;
@@ -337,6 +375,7 @@ declare namespace uiObserver {
         *
         * @type { ?int }
         * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @stagemodelonly
         * @since 23 static
         */
         uniqueId?: int;
@@ -346,6 +385,7 @@ declare namespace uiObserver {
      *
      * @interface ScrollEventInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface ScrollEventInfo {
@@ -354,6 +394,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         id: string;
@@ -362,6 +403,7 @@ declare namespace uiObserver {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         uniqueId: int;
@@ -370,6 +412,7 @@ declare namespace uiObserver {
          *
          * @type { ScrollEventType }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         scrollEvent: ScrollEventType;
@@ -378,6 +421,7 @@ declare namespace uiObserver {
          *
          * @type { number }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         offset: double;
@@ -386,6 +430,7 @@ declare namespace uiObserver {
          *
          * @type { ?Axis }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 24 static
          */
         axis?: Axis;
@@ -395,6 +440,7 @@ declare namespace uiObserver {
      *
      * @typedef TabContentInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface TabContentInfo {
@@ -403,6 +449,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         tabContentId: string;
@@ -411,6 +458,7 @@ declare namespace uiObserver {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         tabContentUniqueId: int;
@@ -419,6 +467,7 @@ declare namespace uiObserver {
          *
          * @type { TabContentState }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         state: TabContentState;
@@ -427,6 +476,7 @@ declare namespace uiObserver {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         index: int;
@@ -435,6 +485,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         id: string;
@@ -443,6 +494,7 @@ declare namespace uiObserver {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         uniqueId: int;
@@ -452,6 +504,7 @@ declare namespace uiObserver {
          *
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         lastIndex?: int;
@@ -461,6 +514,7 @@ declare namespace uiObserver {
    *
    * @interface TextChangeEventInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 24 static
    */
   export interface TextChangeEventInfo {
@@ -469,6 +523,7 @@ declare namespace uiObserver {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     id: string;
@@ -478,6 +533,7 @@ declare namespace uiObserver {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     uniqueId: int;
@@ -487,6 +543,7 @@ declare namespace uiObserver {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 24 static
      */
     content: string;
@@ -496,6 +553,7 @@ declare namespace uiObserver {
      *
      * @interface ObserverOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface ObserverOptions {
@@ -504,6 +562,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         id: string;
@@ -513,6 +572,7 @@ declare namespace uiObserver {
      * Router page info.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export class RouterPageInfo {
@@ -522,6 +582,7 @@ declare namespace uiObserver {
          *
          * @type { UIAbilityContext | UIContext }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         context: UIAbilityContext | UIContext;
@@ -531,6 +592,7 @@ declare namespace uiObserver {
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         index: int;
@@ -540,6 +602,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         name: string;
@@ -549,6 +612,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         path: string;
@@ -558,6 +622,7 @@ declare namespace uiObserver {
          *
          * @type { RouterPageState }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         state: RouterPageState;
@@ -566,6 +631,7 @@ declare namespace uiObserver {
          *
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         pageId: string;
@@ -575,6 +641,7 @@ declare namespace uiObserver {
          *
          * @type { ?Size }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         size?: Size;
@@ -583,6 +650,7 @@ declare namespace uiObserver {
      * Density info.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export class DensityInfo {
@@ -591,6 +659,7 @@ declare namespace uiObserver {
          *
          * @type { UIContext }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         context: UIContext;
@@ -599,6 +668,7 @@ declare namespace uiObserver {
          *
          * @type { double }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         density: double;
@@ -608,6 +678,7 @@ declare namespace uiObserver {
      *
      * @interface NavDestinationSwitchInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface NavDestinationSwitchInfo {
@@ -616,6 +687,7 @@ declare namespace uiObserver {
          *
          * @type { UIAbilityContext | UIContext }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         context: UIAbilityContext | UIContext;
@@ -624,6 +696,7 @@ declare namespace uiObserver {
          *
          * @type { NavDestinationInfo | NavBar }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         from: NavDestinationInfo | NavBar;
@@ -632,6 +705,7 @@ declare namespace uiObserver {
          *
          * @type { NavDestinationInfo | NavBar }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         to: NavDestinationInfo | NavBar;
@@ -640,6 +714,7 @@ declare namespace uiObserver {
          *
          * @type { NavigationOperation }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         operation: NavigationOperation;
@@ -685,6 +760,7 @@ declare namespace uiObserver {
      *
      * @interface NavDestinationSwitchObserverOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export interface NavDestinationSwitchObserverOptions {
@@ -693,6 +769,7 @@ declare namespace uiObserver {
          *
          * @type { ResourceStr }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         navigationId: ResourceStr;
@@ -704,6 +781,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation
      *     destination is updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onNavDestinationUpdate(
@@ -718,6 +796,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationInfo> } callback - The callback function to remove. If not provided,
      *     all callbacks for the given event type and navigation ID will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offNavDestinationUpdate(
@@ -731,6 +810,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationInfo> } callback - The callback function to be called when the navigation
      *     destination is updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onNavDestinationUpdate(callback: Callback<NavDestinationInfo>): void;
@@ -741,6 +821,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all
      *     callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offNavDestinationUpdate(callback?: Callback<NavDestinationInfo>): void;
@@ -751,6 +832,7 @@ declare namespace uiObserver {
      * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event
      *     start or stop.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onScrollEvent(options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
@@ -761,6 +843,7 @@ declare namespace uiObserver {
      * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks
      *     for the given event type and scroll ID will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offScrollEvent(options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
@@ -770,6 +853,7 @@ declare namespace uiObserver {
      * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event
      *     start or stop.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onScrollEvent(callback: Callback<ScrollEventInfo>): void;
@@ -779,6 +863,7 @@ declare namespace uiObserver {
      * @param { Callback<ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
      *     callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offScrollEvent(callback?: Callback<ScrollEventInfo>): void;
@@ -790,6 +875,7 @@ declare namespace uiObserver {
      * @param { Callback<RouterPageInfo> } callback - The callback function to be called when the router page is
      *     updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onRouterPageUpdate(context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>): void;
@@ -801,6 +887,7 @@ declare namespace uiObserver {
      * @param { Callback<RouterPageInfo> } [callback] - The callback function to remove. If not provided, all
      *     callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offRouterPageUpdate(context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
@@ -812,6 +899,7 @@ declare namespace uiObserver {
      * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density
      *     is updated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onDensityUpdate(context: UIContext, callback: Callback<DensityInfo>): void;
@@ -822,6 +910,7 @@ declare namespace uiObserver {
      * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offDensityUpdate(context: UIContext, callback?: Callback<DensityInfo>): void;
@@ -831,6 +920,7 @@ declare namespace uiObserver {
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onWillDraw(context: UIContext, callback: Callback<void>): void;
@@ -841,6 +931,7 @@ declare namespace uiObserver {
      * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offWillDraw(context: UIContext, callback?: Callback<void>): void;
@@ -850,6 +941,7 @@ declare namespace uiObserver {
      * @param { UIContext } context - The context scope of the observer.
      * @param { Callback<void> } callback - The callback function to be called when the layout is done.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onDidLayout(context: UIContext, callback: Callback<void>): void;
@@ -860,6 +952,7 @@ declare namespace uiObserver {
      * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks
      *     for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offDidLayout(context: UIContext, callback?: Callback<void>): void;
@@ -870,6 +963,7 @@ declare namespace uiObserver {
     * @param { Callback<TabContentInfo> } callback - The callback function to be called when when the tabContent is
     *     showed or hidden.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     export function onTabContentUpdate(options: ObserverOptions, callback: Callback<TabContentInfo>): void;
@@ -880,6 +974,7 @@ declare namespace uiObserver {
     * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks for
     *     the given event type and Tabs ID will be removed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     export function offTabContentUpdate(options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
@@ -889,6 +984,7 @@ declare namespace uiObserver {
     * @param { Callback<TabContentInfo> } callback - The callback function to be called when the tabContent is
     *     showed or hidden.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     export function onTabContentUpdate(callback: Callback<TabContentInfo>): void;
@@ -898,6 +994,7 @@ declare namespace uiObserver {
     * @param { Callback<TabContentInfo> } [callback] - The callback function to remove. If not provided, all callbacks
     *     for the given event type will be removed.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     export function offTabContentUpdate(callback?: Callback<TabContentInfo>): void;
@@ -908,6 +1005,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the navigation
      *     switched to a new navDestination.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onNavDestinationSwitch(
@@ -921,6 +1019,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offNavDestinationSwitch(
@@ -935,6 +1034,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationSwitchInfo> } callback - The callback function to be called when the
      *     navigation switched to a new navDestination.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function onNavDestinationSwitch(
@@ -950,6 +1050,7 @@ declare namespace uiObserver {
      * @param { Callback<NavDestinationSwitchInfo> } [callback] - The callback function to remove. If not provided,
      *     all callbacks for the given event type will be removed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export function offNavDestinationSwitch(

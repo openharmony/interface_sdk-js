@@ -19,10 +19,44 @@
  */
 
 /**
+ * Defines a type for memory optimization strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum LazyForEachMemOptStrategy {
+  /**
+   * No memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * LazyForEach handle the memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
+}
+
+/**
  * Enumerates the data operation types.
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -32,6 +66,7 @@ declare enum DataOperationType {
    * Data addition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -42,6 +77,7 @@ declare enum DataOperationType {
    * Data deletion.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -52,6 +88,7 @@ declare enum DataOperationType {
    * Data exchange.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -62,6 +99,7 @@ declare enum DataOperationType {
    * Data movement.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -72,6 +110,7 @@ declare enum DataOperationType {
    * Data change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -82,6 +121,7 @@ declare enum DataOperationType {
    * Data reloading.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -176,6 +216,18 @@ declare enum LazyForEachCustomComponentFreezeMode {
  */
 declare interface LazyForEachOptions {
   /**
+   * Memory optimization strategy for LazyForEach
+   *
+   * @type { ?LazyForEachMemOptStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
+
+  /**
    * Freeze mode for cached custom nodes that have been removed from the
    * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
    *
@@ -205,6 +257,7 @@ declare interface LazyForEachOptions {
  *
  * @interface DataAddOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -215,6 +268,7 @@ interface DataAddOperation {
    *
    * @type { DataOperationType.ADD }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -226,6 +280,7 @@ interface DataAddOperation {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -238,6 +293,7 @@ interface DataAddOperation {
    * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -249,6 +305,7 @@ interface DataAddOperation {
    *
    * @type { ?(string | Array<string>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -261,6 +318,7 @@ interface DataAddOperation {
  *
  * @interface DataDeleteOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -271,6 +329,7 @@ interface DataDeleteOperation {
    *
    * @type { DataOperationType.DELETE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -282,6 +341,7 @@ interface DataDeleteOperation {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -294,6 +354,7 @@ interface DataDeleteOperation {
    * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -306,6 +367,7 @@ interface DataDeleteOperation {
  *
  * @interface DataChangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -316,6 +378,7 @@ interface DataChangeOperation {
    *
    * @type { DataOperationType.CHANGE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -327,6 +390,7 @@ interface DataChangeOperation {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -338,6 +402,7 @@ interface DataChangeOperation {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -350,6 +415,7 @@ interface DataChangeOperation {
  *
  * @interface MoveIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -360,6 +426,7 @@ interface MoveIndex {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -370,6 +437,7 @@ interface MoveIndex {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -382,6 +450,7 @@ interface MoveIndex {
  *
  * @interface ExchangeIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -392,6 +461,7 @@ interface ExchangeIndex {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -402,6 +472,7 @@ interface ExchangeIndex {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -414,6 +485,7 @@ interface ExchangeIndex {
  *
  * @interface ExchangeKey
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -424,6 +496,7 @@ interface ExchangeKey {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -434,6 +507,7 @@ interface ExchangeKey {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -446,6 +520,7 @@ interface ExchangeKey {
  *
  * @interface DataMoveOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -456,6 +531,7 @@ interface DataMoveOperation {
    *
    * @type { DataOperationType.MOVE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -467,6 +543,7 @@ interface DataMoveOperation {
    *
    * @type { MoveIndex }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -478,6 +555,7 @@ interface DataMoveOperation {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -490,6 +568,7 @@ interface DataMoveOperation {
  *
  * @interface DataExchangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -500,6 +579,7 @@ interface DataMoveOperation {
    *
    * @type { DataOperationType.EXCHANGE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -511,6 +591,7 @@ interface DataMoveOperation {
    *
    * @type { ExchangeIndex }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -522,6 +603,7 @@ interface DataMoveOperation {
    *
    * @type { ?ExchangeKey }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -537,6 +619,7 @@ interface DataMoveOperation {
  *
  * @interface DataReloadOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -547,6 +630,7 @@ interface DataReloadOperation {
    *
    * @type { DataOperationType.RELOAD }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -559,6 +643,7 @@ interface DataReloadOperation {
  *
  * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation |DataMoveOperation | DataExchangeOperation | DataReloadOperation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -800,6 +885,7 @@ declare interface DataChangeListener {
    *
    * @param { DataOperation[] } dataOperations
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -960,6 +1046,7 @@ declare interface IDataSource {
  *
  * @extends DynamicNode<LazyForEachAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic

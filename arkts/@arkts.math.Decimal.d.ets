@@ -75,18 +75,10 @@ type Value = string | double | Decimal;
 /**
  * Provides configuration for decimal.
  *
- * @interface DecimalConfig
  * @syscap SystemCapability.Utils.Lang
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * Provides configuration for decimal.
- *
- * @syscap SystemCapability.Utils.Lang
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  * @since 23 static
  */
 export interface DecimalConfig {

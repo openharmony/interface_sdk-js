@@ -2698,10 +2698,12 @@ declare namespace camera {
     CAMERA_FORMAT_DEPTH_32 = 3001,
 
     /**
-     * Image in extreme digital format.
+     * Enhanced DNG image format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 18 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -4022,6 +4024,18 @@ declare namespace camera {
      * @since 23 static
      */
     getWhiteBalanceRange(): Array<int>;
+ 
+    /**
+     * Query the color tint range.
+     *
+     * @returns { Array<int> } The array of color tint range.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getColorTintRange(): Array<number>;
   }
 
   /**
@@ -4103,6 +4117,30 @@ declare namespace camera {
      * @since 23 static
      */
     setWhiteBalance(whiteBalance: int): void;
+ 
+    /**
+     * Sets color tint.
+     *
+     * @param { int } colorTint - Color tint.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setColorTint(colorTint: number): void;
+ 
+    /**
+     * Gets current color tint.
+     *
+     * @returns { int } The current color tint.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getColorTint(): number;
   }
 
   /**

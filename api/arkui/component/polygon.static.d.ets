@@ -26,6 +26,7 @@ import { Length } from './units';
  *
  * @interface PolygonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PolygonOptions {
@@ -34,6 +35,7 @@ export declare interface PolygonOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     width?: Length;
@@ -42,6 +44,7 @@ export declare interface PolygonOptions {
      *
      * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height?: Length;
@@ -53,6 +56,7 @@ export declare interface PolygonOptions {
  * @extends CommonShapeMethod
  * @interface PolygonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PolygonAttribute extends CommonShapeMethod {
@@ -62,6 +66,7 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
      * @param { Array<ShapePoint> | undefined } value
      * @returns { PolygonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default points(value: Array<ShapePoint> | undefined): this;
@@ -71,6 +76,7 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
      * @param { AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PolygonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined): this;

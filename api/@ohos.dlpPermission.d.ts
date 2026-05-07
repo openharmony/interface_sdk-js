@@ -1994,6 +1994,7 @@ declare namespace dlpPermission {
    * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
    * @returns { Promise<Array<string>> } Returns list of URIs of the target DLP files that have been opened.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -2009,6 +2010,7 @@ declare namespace dlpPermission {
    * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention

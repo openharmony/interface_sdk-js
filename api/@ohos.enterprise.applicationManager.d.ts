@@ -78,6 +78,64 @@ declare namespace applicationManager {
   }
 
   /**
+   * The state of the window.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum WindowState {
+    /**
+     * Disconnect state.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISCONNECT = 0,
+    /**
+     * Connect state.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    CONNECT = 1,
+    /**
+     * Foreground state.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    FOREGROUND = 2,
+    /**
+     * Active state.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    ACTIVE = 3,
+    /**
+     * Inactive state.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    INACTIVE = 4,
+    /**
+     * Background state.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    BACKGROUND = 5
+  }
+
+  /**
    * The application information in the Dock.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -111,6 +169,48 @@ declare namespace applicationManager {
      * @since 24
      */
     index: number;
+  }
+
+  /**
+   * Window state information.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  interface WindowStateInfo {
+    /**
+     * The ID of the window.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    windowId: number;
+    /**
+     * The state of the window.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    state: WindowState;
+    /**
+     * Is the application on the dock.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    isOnDock: boolean;
+    /**
+     * The name of the window.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    name: string;
   }
 
   /**
@@ -1471,6 +1571,83 @@ declare namespace applicationManager {
    * @since 26.0.0
    */
   function queryTrafficStats(admin: Want, bundleName: string, appIndex: number, accountId: number, networkInfo: statistics.NetworkInfo): Promise<statistics.NetStatsInfo>;
+
+  /**
+   * Adds applications that hide launcher icons.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleName indicates the bundle name list of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function addHideLauncherIcon(admin: Want, bundleNames: Array<string>): void;
+
+  /**
+   * Removes applications that hide launcher icons.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } bundleNames - bundleName indicates the bundle name list of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeHideLauncherIcon(admin: Want, bundleNames: Array<string>): void;
+
+  /**
+   * Gets applications that hide launcher icons.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   * @returns { Array<string> } the bundle name list of the applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getHideLauncherIcon(admin: Want | null): Array<string>;
+
+  /**
+   * Gets the window states of the application.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } bundleName - bundleName indicates the bundle name of the application.
+   * @param { number } appIndex - appIndex indicates the index of bundle.
+   * <br>The value must be an integer greater than or equal to 0.
+   * @returns { Array<WindowStateInfo> } Returns the window states information of application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getApplicationWindowStates(admin: Want, bundleName: string, appIndex: number): Array<WindowStateInfo>;
 }
 
 export default applicationManager;
