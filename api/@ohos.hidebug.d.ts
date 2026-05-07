@@ -204,6 +204,7 @@ declare namespace hidebug {
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
+   * @since 26.0.0 static
    */
   function dumpJsHeapData(filename: string): void;
 
@@ -219,7 +220,8 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 26.0.0 static
    */
   function dumpJsHeapData(filename: string, needClean: boolean): void;
 
@@ -1133,6 +1135,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 18 dynamic
+   * @since 26.0.0 static
    */
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
 
@@ -1162,6 +1165,7 @@ declare namespace hidebug {
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic&static
+   * @since 26.0.0 static
    */
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise<string>;
 
