@@ -2290,6 +2290,34 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 26.0.0 dynamic
    */
   orphanCharOptimization(enabled: Optional<boolean>): TextAreaAttribute;
+
+  /**
+   * Set the join style of the stroke.
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): TextAreaAttribute;
+ 
+  /**
+   * Set the shader style of the text, such as lineargradient or radialgradient.
+   *
+   * @param { ShaderStyle | undefined } shader - The shader style of the text.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  shaderStyle(shader: ShaderStyle | undefined): TextAreaAttribute;
 }
 
 /**
