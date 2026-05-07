@@ -26,6 +26,7 @@ import { TouchEvent, MouseEvent, AxisEvent } from '@ohos.arkui.component';
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { RecordData } from '@ohos.base';
 import { CompetitionStrategy } from '@ohos.arkui.component';
+import { LocalStorage } from '@ohos.arkui.stateManagement';
 
 /**
  * Render type of the node used for indicating that
@@ -112,6 +113,16 @@ export interface BuildOptions {
    * @since 23 staticonly
    */
   useParallel?: boolean;
+
+  /**
+   * The LocalStorage of the Builder.
+   *
+   * @type { ?LocalStorage } localStorage - The LocalStorage of the Builder.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  localStorage?: LocalStorage;
 }
 
 /**
