@@ -752,7 +752,13 @@ declare namespace utils {
      */
     isEmpty(): boolean;
     /**
-     * Returns a string which repesents all elements in SendableLruCache in the format "key: value".
+     * Return the string representation of the object.
+     * The returned string format is: SendableLruCache[ maxSize = (maxSize), hits = (hitCount),
+     *                                misses = (missCount), hitRate = (hitRate) ].
+     * (maxSize) represents the maximum size of the cache,
+     * (hitCount) indicates the number of successful query matches,
+     * (missCount) denotes the number of failed query matches,
+     * (hitRate) signifies the query match  rate.
      *
      * @returns { string } A new string contains all elements.
      * @syscap SystemCapability.Utils.Lang
