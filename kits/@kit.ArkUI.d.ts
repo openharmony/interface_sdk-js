@@ -41,6 +41,14 @@ import {
   SuffixIconOptions, ChipSymbolGlyphOptions, AccessibilitySelectedType, AccessibilityOptions, CloseOptions,
   ChipSuffixSymbolGlyphOptions
 } from '@ohos.arkui.advanced.Chip';
+import {
+  ChipV2Size, ChipV2AccessibilitySelectedType, ChipV2ImageIconConfig, ChipV2ImageIcon, ChipV2SuffixImageIconConfig,
+  ChipV2SuffixImageIcon, ChipV2Icon, ChipV2PrefixImageIconConfig, ChipV2PrefixImageIcon, ChipV2AccessibilityConfig,
+  ChipV2Accessibility, ChipV2CloseConfig, ChipV2CloseIcon, ChipV2SymbolIconConfig, ChipV2SymbolIcon,
+  ChipV2PrefixSymbolIconConfig, ChipV2PrefixSymbolIcon, ChipV2SuffixSymbolIconConfig, ChipV2SuffixSymbolIcon,
+  ChipV2LabelMarginConfig, ChipV2LocalizedLabelMarginConfig, ChipV2LabelConfig, ChipV2Label, IChipV2OptionsConfig,
+  ChipV2Options, ChipV2
+} from '@ohos.arkui.advanced.ChipV2';
 import { NavPushPathHelper } from '@ohos.atomicservice.NavPushPathHelper';
 import { AtomicServiceMenuBar } from '@ohos.atomicservice.AtomicServiceMenuBar';
 import {
@@ -48,6 +56,11 @@ import {
   ChipGroupSpaceOptions, IconItemOptions, IconGroupSuffix, ChipGroup, SuffixImageIconOptions,
   SymbolItemOptions
 } from '@ohos.arkui.advanced.ChipGroup';
+import {
+  ChipGroupV2ItemConfig, ChipGroupV2Item, ChipGroupV2Items, ChipGroupV2ItemStyleConfig, ChipGroupV2ItemStyle,
+  ChipGroupV2SpaceConfig, ChipGroupV2Space, ChipGroupV2IconItemConfig, ChipGroupV2SymbolItemConfig,
+  ChipGroupV2PaddingConfig, ChipGroupV2Padding, ChipGroupV2IconGroupSuffix, ChipGroupV2
+} from '@ohos.arkui.advanced.ChipGroupV2';
 import {
   ComposeListItem, ContentItem, IconType, OperateButton, OperateCheck, OperateIcon, OperateItem
 } from '@ohos.arkui.advanced.ComposeListItem';
@@ -252,6 +265,15 @@ export {
   BackRouterOptions, BuilderNode, ReactiveBuilderNode, Button, ButtonOptions, CallbackParam,
   ArcButton, ArcButtonOptions, ArcButtonProgressConfig, ArcButtonPosition, ArcButtonStyleMode,
   ArcButtonStatus,
+  ChipV2Size, ChipV2AccessibilitySelectedType, ChipV2ImageIconConfig, ChipV2ImageIcon, ChipV2SuffixImageIconConfig,
+  ChipV2SuffixImageIcon, ChipV2Icon, ChipV2PrefixImageIconConfig, ChipV2PrefixImageIcon, ChipV2AccessibilityConfig,
+  ChipV2Accessibility, ChipV2CloseConfig, ChipV2CloseIcon, ChipV2SymbolIconConfig, ChipV2SymbolIcon,
+  ChipV2PrefixSymbolIconConfig, ChipV2PrefixSymbolIcon, ChipV2SuffixSymbolIconConfig, ChipV2SuffixSymbolIcon,
+  ChipV2LabelMarginConfig, ChipV2LocalizedLabelMarginConfig, ChipV2LabelConfig, ChipV2Label, IChipV2OptionsConfig,
+  ChipV2Options, ChipV2,
+  ChipGroupV2ItemConfig, ChipGroupV2Item, ChipGroupV2Items, ChipGroupV2ItemStyleConfig, ChipGroupV2ItemStyle,
+  ChipGroupV2SpaceConfig, ChipGroupV2Space, ChipGroupV2IconItemConfig, ChipGroupV2SymbolItemConfig,
+  ChipGroupV2PaddingConfig, ChipGroupV2Padding, ChipGroupV2IconGroupSuffix, ChipGroupV2,
   CapsuleSegmentButtonConstructionOptions, CapsuleSegmentButtonOptions, Chip, ChipOptions, ChipSize, CircleShape, ComponentUtils,
   ComposeListItem, ComposeTitleBar, ComposeTitleBarMenuItem, Configuration, ConfirmDialog, ContentItem, ContextMenuController,
   CounterComponent, CounterOptions, CounterType, CursorController, DateData, DisableAlertBeforeBackPageOptions, DragController,
