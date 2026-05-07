@@ -58,10 +58,6 @@ declare namespace json {
    *     The default value is undefined.
    * @returns { Object | null } Return an Object, array, string, number, boolean, or null value corresponding to JSON
    *     text.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -83,10 +79,6 @@ declare namespace json {
    *     represents the indentation characters. If no parameter is provided, there will be no indentation. The default
    *     value is an empty string.
    * @returns { string } Return a JSON text.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -107,10 +99,6 @@ declare namespace json {
    *     be used as indentation. If a string is passed in, the string is inserted before the output JSON string. If null
    *     is passed in, no white space is used. The default value is an empty string.
    * @returns { string } Return a JSON text.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -126,8 +114,6 @@ declare namespace json {
    * @param { object } obj - ArkTS object.
    * @param { string } property - Key to check.
    * @returns { boolean } Return true if the key is in the object, otherwise return false.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2
-   *     .Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -142,8 +128,6 @@ declare namespace json {
    *
    * @param { object } obj - ArkTS object.
    * @param { string } property - Key to remove.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2
-   *     .Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice

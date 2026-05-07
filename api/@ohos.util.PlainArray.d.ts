@@ -82,9 +82,6 @@ declare class PlainArray<T> {
    *     647.
    * @param { T } value - Value of the target element.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -122,9 +119,6 @@ declare class PlainArray<T> {
    * @returns { boolean } Check result. The value **true** is returned if the specified key is contained; otherwise,
    *     **false** is returned.
    * @throws { BusinessError } 10200011 - The has method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -138,9 +132,6 @@ declare class PlainArray<T> {
    * @param { number } key - Target key. The value must be less than or equal to int32_max, that is, 2147483647.
    * @returns { T } Value of the key.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -168,9 +159,6 @@ declare class PlainArray<T> {
    * @param { int } key - Target key. The value must be less than or equal to int32_max, that is, 2147483647.
    * @returns { int } Index of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The getIndexOfKey method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -211,9 +199,6 @@ declare class PlainArray<T> {
    *     that is, 2147483647.
    * @returns { int } Key of the element. If no match is found, **-1** is returned.
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -227,9 +212,6 @@ declare class PlainArray<T> {
    * @param { number } key - Target key. The value must be less than or equal to int32_max, that is, 2147483647.
    * @returns { T } Value in the key-value pair removed.
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -258,9 +240,6 @@ declare class PlainArray<T> {
    *     that is, 2147483647.
    * @returns { T } Element removed.
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -292,9 +271,6 @@ declare class PlainArray<T> {
    * @returns { int } Number of elements removed.
    * @throws { BusinessError } 10200011 - The removeRangeFrom method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -310,9 +286,6 @@ declare class PlainArray<T> {
    * @param { T } value - Value of the target element.
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -340,9 +313,6 @@ declare class PlainArray<T> {
    * @returns { T } Value of the element. If no match is found, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -357,9 +327,6 @@ declare class PlainArray<T> {
    * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
    *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]

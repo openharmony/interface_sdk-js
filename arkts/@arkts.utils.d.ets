@@ -83,7 +83,6 @@ declare namespace utils {
        *
        * @param { string } name - name of the lock.
        * @returns { AsyncLockState } Returns an instance of AsyncLockState.
-       * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform [since 18]
@@ -110,7 +109,6 @@ declare namespace utils {
        *
        * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed.
-       * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform [since 18]
@@ -127,7 +125,6 @@ declare namespace utils {
        * @param { AsyncLockCallback<T> } callback - function to call when the lock gets acquired.
        * @param { AsyncLockMode } mode - mode of the lock operation.
        * @returns { Promise<T> } Promise that will be resolved after the callback gets executed or rejected.
-       * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform [since 18]
@@ -150,7 +147,6 @@ declare namespace utils {
        * @param { AsyncLockOptions<U> } options - lock operation options.
        * @returns { Promise<T | U> } Promise that will be resolved after the callback gets executed or rejected in case
        *     timeout exceeded.
-       * @throws { BusinessError } 401 - The input parameters are invalid.
        * @throws { BusinessError } 10200030 - The lock does not exist.
        * @throws { BusinessError } 10200031 - Timeout exceeded.
        * @syscap SystemCapability.Utils.Lang
@@ -465,7 +461,6 @@ declare namespace utils {
      * @param { Transformer } [reviver] - A function that transforms the results.
      * @param {ParseOptions} [options] - The config of parse.
      * @returns { ISendable | null } Return an ArkTS Value.
-     * @throws { BusinessError } 401 - Parameter error. Invalid JSON string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -479,7 +474,6 @@ declare namespace utils {
      * @param { ISendable | null | undefined } value - The value to stringify. [since 12 - 17]
      * @param { Object | null | undefined } value - The value to stringify. [since 18]
      * @returns { string } The JSON string representation of the value.
-     * @throws { BusinessError } 401 - Parameter error. Invalid ArkTS value.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 18]
      * @atomicservice
@@ -506,7 +500,7 @@ declare namespace utils {
        */
       DEFAULT = 0,
       /**
-       * Parse as BigInt when number less than -(2^53 â€? 1) or greater than (2^53 â€? 1).
+       * Parse as BigInt when number less than -(2^53 ï¿½? 1) or greater than (2^53 ï¿½? 1).
        *
        * @syscap SystemCapability.Utils.Lang
        * @crossplatform [since 18]
@@ -616,9 +610,6 @@ declare namespace utils {
      * Update the capacity of the SendableLruCache.
      *
      * @param { number } newCapacity - The new capacity of the SendableLruCache.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
