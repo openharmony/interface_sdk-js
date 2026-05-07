@@ -2099,7 +2099,7 @@ declare namespace accessibility {
   function isAudioMonoEnabled(): Promise<boolean>;
 
   /**
-   * Check if senior mode is enabled.
+   * Check if system senior mode is enabled.
    *
    * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
    * @throws { BusinessError } 9300000 - System abnormality.
@@ -2110,7 +2110,7 @@ declare namespace accessibility {
   function isSeniorModeEnabled(): Promise<boolean>;
 
   /**
-   * Register an observer for senior mode state changes.
+   * Register an observer for system senior mode state changes.
    *
    * @param { Callback<boolean> } callback - Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2120,15 +2120,59 @@ declare namespace accessibility {
   function onSeniorModeStateChange(callback: Callback<boolean>): void;
 
   /**
-   * Unregister the observer for senior mode state changes.
+   * Unregister the observer for system senior mode state changes.
    *
    * @param { Callback<boolean> } [callback] - Asynchronous callback interface.
-   *     <br>Default behavior: Unregister all callbacks for senior mode state changes.
+   *     <br>Default behavior: Unregister all callbacks for system senior mode state changes.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function offSeniorModeStateChange(callback?: Callback<boolean>): void;
+
+  /**
+   * Register an observer for this application's senior mode state changes.
+   *
+   * @param { Callback<boolean> } callback - Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onSeniorModeStateChangeForSelf(callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the observer for this application's senior mode state changes.
+   *
+   * @param { Callback<boolean> } [callback] - Asynchronous callback interface.
+   *      <br>Default behavior: Unregister all callbacks for app senior mode state changes.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offSeniorModeStateChangeForSelf(callback?: Callback<boolean>): void;
+
+  /**
+   * Check if this application's senior mode is enabled.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
+   * @throws { BusinessError } 9300000 - System abnormality.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getSeniorModeStateForSelf(): Promise<boolean>;
+
+  /**
+   * Set this application's senior mode.
+   *
+   * @param { boolean } state - Indicates whether to enable senior mode for this application.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 9300000 - System abnormality.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setSeniorModeStateForSelf(state: boolean): Promise<void>;
 
   /**
    * Indicates the captions manager.
