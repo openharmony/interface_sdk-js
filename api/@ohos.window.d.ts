@@ -4829,6 +4829,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function offApplicationFocusStateChange(callback?: Callback<boolean>): void;
 
