@@ -14,12 +14,14 @@
  */
 
 /**
- * @file The NotificationCommonDef module provides APIs for describing the BundleOption information, that is, the bundle information of a specified application.
+ * Describes the bundle information of an application.
+ * 
+ * @file Some common definitions
  * @kit NotificationKit
  */
 
 /**
- * Describes the bundle information of an application.
+ * Describes the **BundleOption** information, that is, the bundle information of an application.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 9 dynamic

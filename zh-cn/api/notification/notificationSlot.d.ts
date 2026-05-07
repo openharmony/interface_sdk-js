@@ -183,8 +183,6 @@ export interface NotificationSlot {
   /**
    * 通知提醒模式。
    * 
-   * 此接口为系统接口。 
-   * 
    * - bit0：铃声提示。0表示关闭，1表示开启。 
    * - bit1：锁屏。0表示关闭，1表示开启。 
    * - bit2：横幅。0表示关闭，1表示开启。 
@@ -201,8 +199,6 @@ export interface NotificationSlot {
 
   /**
    * 授权状态。
-   * 
-   * 此接口为系统接口。 
    * 
    * - 0：表示已授权。 
    * - 1：表示待授权。

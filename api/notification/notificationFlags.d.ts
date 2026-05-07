@@ -14,7 +14,9 @@
  */
 
 /**
- * @file The NotificationFlags module implements a NotificationFlags instance.
+ * The **NotificationFlags** module implements a **NotificationFlags** instance.
+ * 
+ * @file Some states and flags for notifications
  * @kit NotificationKit
  */
 
@@ -112,8 +114,6 @@ export interface NotificationFlags {
 
   /**
    * Settings of the input information reminder features.
-   * 
-   * This is a system API.
    * 
    * - Bit 0: sound alert. The value **0** means to enable the feature, and **1** means the opposite.
    * - Bit 1: locking the screen. The value **0** means to enable the feature, and **1** means the opposite.
