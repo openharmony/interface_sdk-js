@@ -2270,6 +2270,34 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 23 dynamic
    */
   textDirection(direction: TextDirection | undefined): SearchAttribute
+
+  /**
+   * Set the join style of the stroke.
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+   *     Passing `undefined` resets it to the default value
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): SearchAttribute;
+
+  /**
+   * Set the shader style of the text, such as lineargradient or radialgradient.
+   *
+   * @param { ShaderStyle | undefined } shader - The shader style of the text.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  shaderStyle(shader: ShaderStyle | undefined): SearchAttribute;
 }
 
 /**

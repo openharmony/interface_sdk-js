@@ -498,6 +498,17 @@ declare class TextStyle {
      * @since 26.0.0 dynamic
      */
     readonly fontVariations?: Array<FontVariation>;
+
+   /**
+    * Get the stroke join style of the StyledString.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
+    readonly strokeJoinStyle?: StrokeJoinStyle;
 }
 
 /**
@@ -620,6 +631,17 @@ declare interface TextStyleInterface {
      * @since 26.0.0 dynamic
      */
     fontVariations?: Array<FontVariation>;
+
+    /**
+     * The stroke join style of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    strokeJoinStyle?: StrokeJoinStyle;
 }
 
 /**
@@ -1139,6 +1161,17 @@ declare class ParagraphStyle {
      * @since 23 dynamic
      */
     readonly textDirection?: TextDirection;
+
+    /**
+     * Get the shader style of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+	readonly shaderStyle?: ShaderStyle;
 }
 
 /**
@@ -1260,6 +1293,17 @@ declare interface ParagraphStyleInterface {
      * @since 23 dynamic
      */
     textDirection?: TextDirection;
+
+    /**
+     * Set the shader style of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+	shaderStyle?: ShaderStyle;
 }
 
 /**
