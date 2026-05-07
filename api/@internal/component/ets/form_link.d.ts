@@ -20,101 +20,83 @@
 /**
  * Defines the FormLink options.
  *
- * @interface FormLinkOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 10
- */
-/**
- * Defines the FormLink options.
- *
- * @interface FormLinkOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface FormLinkOptions {
   /**
-   * Action types: "router" and "message".
+   * Action type.
+   * 
+   * - **"router"**: redirection to the specified UIAbility of the widget provider.
+   * - **"message"**: custom message. If this type of action is triggered, the 
+   * [onFormEvent()](../../apis-form-kit/js-apis-app-form-formExtensionAbility.md#formextensionabilityonformevent) 
+   * lifecycle callback of the provider FormExtensionAbility is called.
+   * - **"call"**: launch of the widget provider in the background. If this type of action is triggered, the specified 
+   * UIAbility (whose launch type must be [singleton](../../../application-models/uiability-launch-type.md#singleton)) 
+   * of the widget provider is started in the background, but not displayed in the foreground. This action type requires
+   *  that the widget provider should have the 
+   * [ohos.permission.KEEP_BACKGROUND_RUNNING](../../../security/AccessToken/permissions-for-all.md#ohospermissionkeep_background_running)
+   *  permission.
+   * 
+   * **NOTE**
+   * 
+   * Whenever possible, avoid using the router event to refresh the widget UI.
+   * 
+   * This API can be used in ArkTS widgets since API version 10.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 10
-   */
-  /**
-   * Action types: "router" and "message".
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   action: string;
 
   /**
-   * Module name of destination UIAbility.
+   * Name of the target module when action is **"router"** or **"call"**.
+   * 
+   * This API can be used in ArkTS widgets since API version 10.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 10
-   */
-  /**
-   * Module name of destination UIAbility.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   moduleName?: string;
 
   /**
-   * Bundle name of destination UIAbility.
+   * Name of the target bundle when action is **"router"** or **"call"**.
+   * 
+   * This API can be used in ArkTS widgets since API version 10.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 10
-   */
-  /**
-   * Bundle name of destination UIAbility.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   bundleName?: string;
 
   /**
-   * Name of destination UIAbility.
+   * Name of the target UIAbility when action is **"router"** or **"call"**.
+   * 
+   * This API can be used in ArkTS widgets since API version 10.
    *
-   * @type { string }
+   * @type { string } [since 10 - 10]
+   * @type { ?string } [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 10
-   */
-  /**
-   * Name of destination UIAbility.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   abilityName?: string;
 
   /**
-   * uri of destination UIAbility.
+   * URI of the target UIAbility when action is **"router"**. If both **uri** and **abilityName** are set, 
+   * **abilityName** takes precedence.
+   * 
+   * This API can be used in ArkTS widgets since API version 11.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @atomicservice
@@ -123,21 +105,19 @@ declare interface FormLinkOptions {
   uri?: string;
 
   /**
-   * The additional parameters, use JSON format key value pairs for content.
+   * Additional parameters carried in the current action. The value is a key-value pair in JSON format. For the **"call"
+   * ** action type, the **method** parameter must be set and its value type must be string.
+   * 
+   * **NOTE**
+   * 
+   * Whenever possible, avoid using **params** to transfer internal state variables of widgets.
+   * 
+   * This API can be used in ArkTS widgets since API version 10.
    *
-   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 10
-   */
-  /**
-   * The additional parameters, use JSON format key value pairs for content.
-   *
-   * @type { ?Object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   params?: Object;
 }
@@ -145,77 +125,56 @@ declare interface FormLinkOptions {
 /**
  * Defines the FormLink interface.
  *
- * @interface FormLinkInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 10
- */
-/**
- * Defines the FormLink interface.
- *
- * @interface FormLinkInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface FormLinkInterface {
   /**
    * Init FormLink component with options.
    *
-   * @param { FormLinkOptions } options
+   * @param { FormLinkOptions } options - Widget information.
    * @returns { FormLinkAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
-   * @since 10
-   */
-  /**
-   * Init FormLink component with options.
-   *
-   * @param { FormLinkOptions } options
-   * @returns { FormLinkAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   (options: FormLinkOptions): FormLinkAttribute;
 }
 
 /**
- * Defines the FormLink attribute.
+ * The [universal attributes]{@link ./@internal/component/ets/common} are supported.
+ * 
+ * The [universal events]{@link ./@internal/component/ets/common} are not supported.
  *
- * @extends CommonMethod<FormLinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 10
- */
-/**
- * Defines the FormLink attribute.
- *
- * @extends CommonMethod<FormLinkAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare class FormLinkAttribute extends CommonMethod<FormLinkAttribute> {
 }
 
 /**
- * Defines FormLink component.
+ * The **FormLink** component is provided for interactions between static widgets and widget providers. It supports 
+ * three types of events: router, message, and call.
+ * 
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 10. Updates will be marked with a superscript to indicate their 
+ * > earliest API version.
+ * >
+ * > - This component can be used only in static widgets.
+ * >
+ * > - This document covers static widget development only. For comprehensive widget development guidance, see the 
+ * > [widget development guide](docroot://form/formkit-overview.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 10
- */
-/**
- * Defines FormLink component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare const FormLink: FormLinkInterface;
 
@@ -224,14 +183,7 @@ declare const FormLink: FormLinkInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
- * @since 10
- */
-/**
- * Defines FormLink component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare const FormLinkInstance: FormLinkAttribute;

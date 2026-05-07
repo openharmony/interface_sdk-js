@@ -22,9 +22,13 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * Interface of formAgent.
+ * The **FormAgent** module provides APIs related to the widget agent. Currently, you can use the APIs to request to 
+ * publish widgets only.
+ * 
+ * > **NOTE**
+ * 
+ * > - The APIs provided by this module are system APIs.
  *
- * @namespace formAgent
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @since 11 dynamic
@@ -33,73 +37,49 @@ import type Want from './@ohos.app.ability.Want';
 declare namespace formAgent {
 
   /**
-   * Request to publish a form to the form host.
+   * Requests to publish a widget to the widget host. This API uses an asynchronous callback to return the result. The 
+   * widget host is usually the home screen.
    *
    * @permission ohos.permission.AGENT_REQUIRE_FORM
-   * @param { Want } want - The want of the form to publish.
-   * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Request to publish a form to the form host.
-   *
-   * @permission ohos.permission.AGENT_REQUIRE_FORM
-   * @param { Want } want - The want of the form to publish.
-   * @param { AsyncCallback<string> } callback - The callback is used to return the form id.
+   * @param { Want } want - Publish request, which must contain the following fields:<br>**bundleName**: bundle name of the 
+   *     target widget.<br>**abilityName**: ability of the target widget.<br>parameters:<br>- 
+   *     **ohos.extra.param.key.form_dimension**: dimension of the target widget.<br>- **ohos.extra.param.key.form_name**: 
+   *     name of the target widget.<br>- **ohos.extra.param.key.module_name**: module name of the target widget.
+   * @param { AsyncCallback<string> } callback - Callback used to return the widget ID.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified;2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function requestPublishForm(want: Want, callback: AsyncCallback<string>): void;
 
   /**
-   * Request to publish a form to the form host.
+   * Requests to publish a widget to the widget host. This API uses a promise to return the result. The widget host is 
+   * usually the home screen.
    *
    * @permission ohos.permission.AGENT_REQUIRE_FORM
-   * @param { Want } want - The want of the form to publish.
-   * @returns { Promise<string> } Returns the form id.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Request to publish a form to the form host.
-   *
-   * @permission ohos.permission.AGENT_REQUIRE_FORM
-   * @param { Want } want - The want of the form to publish.
-   * @returns { Promise<string> } Returns the form id.
+   * @param { Want } want - Publish request, which must contain the following fields:<br>**bundleName**: bundle name of the 
+   *     target widget.<br>**abilityName**: ability of the target widget.<br>parameters:<br>- 
+   *     **ohos.extra.param.key.form_dimension**: dimension of the target widget.<br>- **ohos.extra.param.key.form_name**: 
+   *     name of the target widget.<br>- **ohos.extra.param.key.module_name**: module name of the target widget.
+   * @returns { Promise<string> } Promise used to return the widget ID.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function requestPublishForm(want: Want): Promise<string>;
