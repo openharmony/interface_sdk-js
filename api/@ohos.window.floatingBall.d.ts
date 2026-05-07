@@ -101,6 +101,8 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
      * @throws { BusinessError } 1300025 - The floating ball state does not support this operation.
+     * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
+     *     App has already started float view. [since 26.0.0]
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 23 static

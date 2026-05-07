@@ -1074,25 +1074,18 @@ declare namespace PiPWindow {
   interface PiPController {
 
     /**
-     * Start picture-in-picture
-     * @returns { Promise<void> } - The promise returned by the function
+     * Starts a PiP window. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
      * @throws { BusinessError } 1300013 - Failed to create the PiP window.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
+     * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
+     *     App has already started float view. [since 26.0.0]
      * @syscap SystemCapability.Window.SessionManager
-     * @since 11
-     */
-    /**
-     * Start picture-in-picture
-     * @returns { Promise<void> } - The promise returned by the function
-     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
-     * @throws { BusinessError } 1300013 - Failed to create the PiP window.
-     * @throws { BusinessError } 1300014 - PiP internal error.
-     * @throws { BusinessError } 1300015 - Repeated PiP operation.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 24 static
      */
     startPiP(): Promise<void>;
