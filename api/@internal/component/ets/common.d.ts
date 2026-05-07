@@ -1121,6 +1121,14 @@ declare enum SystemProperties {
    * @stagemodelonly
    * @since 23 dynamic
    */
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   WINDOW_AVOID_AREA = 'system.window.avoidarea',
   /**
    * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
@@ -1128,6 +1136,14 @@ declare enum SystemProperties {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 dynamic
+   */
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
   /**
@@ -1137,6 +1153,14 @@ declare enum SystemProperties {
    * @stagemodelonly
    * @since 23 dynamic
    */
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   WINDOW_SIZE = 'system.window.size',
   /**
    * System environmental windowsize key that is used to obtain the size of the window, measured in px.
@@ -1144,6 +1168,14 @@ declare enum SystemProperties {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 dynamic
+   */
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
   /**
