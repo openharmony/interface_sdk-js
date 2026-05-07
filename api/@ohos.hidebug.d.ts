@@ -1164,7 +1164,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @stagemodelonly
    * @atomicservice
-   * @since 24 dynamic&static
+   * @since 24 dynamic
    * @since 26.0.0 static
    */
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise<string>;
