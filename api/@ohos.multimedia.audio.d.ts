@@ -8452,16 +8452,18 @@ declare namespace audio {
   }
 
   /**
-    * This interface is used to notify the listener of personalized spatialization enable state change of any device.
-    * @interface AudioPersonalizedSpatialEnabledChangeForAnyDevice
+    * This interface is used to notify the listener of personalized spatialization enabled
+    * state change of any device.
+    *
     * @syscap SystemCapability.Multimedia.Audio.Spatialization
     * @systemapi
+    * @stagemodelonly
     * @since 26.0.0 dynamic&static
     */
   interface AudioPersonalizedSpatialEnabledChangeForAnyDevice {
     /**
      * Audio device description.
-     * @type { AudioDeviceDescriptor }
+     *
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -8471,7 +8473,7 @@ declare namespace audio {
 
     /**
       * Personalized spatialization enable state.
-      * @type { boolean }
+      *
       * @syscap SystemCapability.Multimedia.Audio.Spatialization
       * @systemapi
       * @stagemodelonly
@@ -8482,15 +8484,15 @@ declare namespace audio {
 
   /**
     * Anonymous personalzied HRTF file descriptor for cross-process transfer.
-    * @interface AudioHRTFAnonymousDescriptor
+    *
     * @syscap SystemCapability.Multimedia.Audio.Spatialization
     * @systemapi
+    * @stagemodelonly
     * @since 26.0.0 dynamic&static
   */
   interface AudioHRTFAnonymousDescriptor {
     /**
      * The file descriptor of personalzied HRTF.
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -8500,7 +8502,6 @@ declare namespace audio {
 
     /**
      * Total size of personalzied HRTF data in bytes.
-     * @type { long }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @stagemodelonly
@@ -8573,10 +8574,12 @@ declare namespace audio {
 
     /**
      * Checks whether personalized spatialization is supported by system.
+     *
      * @returns { boolean } Whether personalized spatialization is supported by system.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     isPersonalizedSpatializationSupported(): boolean;
