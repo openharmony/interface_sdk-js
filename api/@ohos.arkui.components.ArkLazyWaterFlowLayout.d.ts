@@ -132,6 +132,7 @@ export declare class LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayoutAt
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 26.0.0 dynamic
  */
 export declare const LazyVWaterFlowLayout: LazyVWaterFlowLayoutInterface;
