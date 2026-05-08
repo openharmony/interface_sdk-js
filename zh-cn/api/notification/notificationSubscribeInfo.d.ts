@@ -88,4 +88,34 @@ export interface NotificationSubscribeInfo {
    * @since 23 static
    */
   filterLimit?: long;
+
+  /**
+   * 实况通知图片配置项。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  pictureOptions?: PictureOptions;
+}
+
+/**
+ * 实况通知图片配置项。
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface PictureOptions {
+  /**
+   * 预解析的实况通知图片key数组。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  preparseLiveViewPicList?: string[];
 }

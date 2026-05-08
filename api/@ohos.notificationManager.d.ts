@@ -4236,7 +4236,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
-     * Conversation notification. Not supported currently.
+     * Conversation notification.
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]

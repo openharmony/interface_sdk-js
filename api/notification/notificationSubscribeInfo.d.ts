@@ -104,6 +104,16 @@ export interface NotificationSubscribeInfo {
    * @since 26.0.0 dynamic&static
    */
   voiceContentOptions?: VoiceContentOptions;
+
+  /**
+   * Live notification image configuration item.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  pictureOptions?: PictureOptions;
 }
 
 /**
@@ -124,4 +134,24 @@ export interface VoiceContentOptions {
    * @since 26.0.0 dynamic&static
    */
   enabled?: boolean;
+}
+
+/**
+ * Describes Live notification image configuration item.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface PictureOptions {
+  /**
+   * The key array for pre-parsed live notification images.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  preparseLiveViewPicList?: string[];
 }
