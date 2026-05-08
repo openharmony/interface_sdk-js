@@ -46,7 +46,9 @@ import {
   SINCE_TAG_CHECK_ERROR,
   SINCE_TAG_NAME,
   STAGE_COMPILE_MODE,
-  SYSCAP_TAG_CHECK_NAME
+  SYSCAP_TAG_CHECK_NAME,
+  SYSTEM_API_TAG_CHECK_NAME,
+  TEST_TAG_CHECK_NAME
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
