@@ -3988,6 +3988,36 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     SM2_USER_ID_UINT8ARR = 105,
+
+    /**
+     * Indicates the value for deterministic. It is used in ML DSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_DSA_DETERMINISTIC_BOOL = 106,
+
+    /**
+     * Indicates the value for mu. It is used in ML DSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_DSA_MU_BOOL = 107,
+
+    /**
+     * Indicates the value for context. It is used in ML DSA signing and verifying process.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_DSA_CONTEXT_UINT8ARR = 108
   }
 
   /**
@@ -6118,6 +6148,25 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
     /**
+     * Set the specified parameter to the sign object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 and ML_DSA_DETERMINISTIC/ML_DSA_MU/ML_DSA_CONTEXT in
+     * ML-DSA are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { int | Uint8Array | boolean } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
+
+    /**
      * Get the specified parameter from the sign object.
      * Currently, only PSS parameters in RSA is supported.
      *
@@ -7139,6 +7188,25 @@ declare namespace cryptoFramework {
      * @since 23 static
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
+
+    /**
+     * Set the specified parameter to the verify object.
+     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 and ML_DSA_DETERMINISTIC/ML_DSA_MU/ML_DSA_CONTEXT in
+     *     ML-DSA are supported.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { int | Uint8Array | boolean } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 801 - this operation is not supported.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
 
     /**
      * Get the specified parameter from the verify object.
