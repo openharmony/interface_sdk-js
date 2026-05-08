@@ -286,8 +286,6 @@ export interface NotificationRequest {
    * 通知ID，默认值为0。若已存在相同ID的通知，则更新该通知；若不存在相同ID的通知，则创建新的通知。
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 7 - 11]
-   * @type { ?int } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -374,8 +372,6 @@ export interface NotificationRequest {
    * 单位：ms。
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 7 - 11]
-   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -405,8 +401,6 @@ export interface NotificationRequest {
    * 例如，希望某通知存留3秒（3000ms）后对其进行清除，则对应的清除时间为：new Date().getTime() + 3000。
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 7 - 11]
-   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -764,7 +758,7 @@ export interface NotificationRequest {
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
-   * @FaAndStageModel [since 23]
+   * @FaAndStageModel [dynamiconly]
    * @since 8 dynamic
    * @since 23 static
    */
@@ -791,8 +785,6 @@ export interface NotificationRequest {
    * 例如，应用发布3条通知，`badgeNumber`依次设置为2、0、3，应用将依次展示为2、2、5。
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 9 - 11]
-   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static

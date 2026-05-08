@@ -292,8 +292,6 @@ export interface NotificationRequest {
    * updated. If no notification with the same ID exists, a new notification is created.
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 7 - 11]
-   * @type { ?int } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -388,8 +386,6 @@ export interface NotificationRequest {
    * in milliseconds.
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 7 - 11]
-   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -423,8 +419,6 @@ export interface NotificationRequest {
    * **new Date().getTime() + 3000** to meet this requirement.
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 7 - 11]
-   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
    * @since 23 static
@@ -831,8 +825,6 @@ export interface NotificationRequest {
    * in sequence, the application displays **2**, **2**, and **5** accordingly.
    *
    * @crossplatform [since 12]
-   * @type { ?number } [since 9 - 11]
-   * @type { ?long } [since 12]
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
