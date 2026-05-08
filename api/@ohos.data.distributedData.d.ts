@@ -1389,6 +1389,7 @@ declare namespace distributedData {
      *  in
      * {@code KvStoreObserver} will be invoked.
      *
+     * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates the data change event.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
      * @param { Callback<ChangeNotification> } listener - Indicates the observer of data change events in the
      *     distributed database.
@@ -1402,6 +1403,8 @@ declare namespace distributedData {
     /**
      * Subscribe the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
      *
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates the synchronization complete event.
+     * @param { Callback<Array<[string, number]>> } syncCallback - Indicates the callback used to send the synchronization result to the caller.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1412,6 +1415,7 @@ declare namespace distributedData {
     /**
      * Unsubscribe the {@code KvStore} database based on the specified subscribeType and {@code KvStoreObserver}.
      *
+     * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates the data change event.
      * @param { Callback<ChangeNotification> } listener - Indicates the data change observer registered by {#subscribe(
      *     SubscribeType, KvStoreObserver)}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1424,6 +1428,7 @@ declare namespace distributedData {
     /**
      * UnRegister the {@code KvStore} database synchronization callback.
      *
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates the synchronization complete event.
      * @param { Callback<Array<[string, number]>> } syncCallback - Indicates the callback used to send the synchronization
      *     result to caller.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1855,6 +1860,7 @@ declare namespace distributedData {
      * Register a {@code KvStoreObserver} for the database. When data in the distributed database changes, the callback
      * in the {@code KvStoreObserver} will be invoked.
      *
+     * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates the data change event.
      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
      * @param { Callback<ChangeNotification> } listener -  Indicates the observer of data change events in the distributed
      *     database.
@@ -1872,6 +1878,7 @@ declare namespace distributedData {
      *
      * <p> Sync result is returned through asynchronous callback.
      *
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates the synchronization complete event.
      * @param { Callback<Array<[string, number]>> } syncCallback - Indicates the callback used to send the synchronization
      *     result to the caller.
      * @throws Throws this exception if no {@code SingleKvStore} database is available.
@@ -1885,6 +1892,7 @@ declare namespace distributedData {
     /**
      * Unsubscribe the SingleKvStore database based on the specified subscribeType and {@code KvStoreObserver}.
      *
+     * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates the data change event.
      * @param { Callback<ChangeNotification> } listener - Indicates the data change observer registered by {#subscribe(
      *     SubscribeType, KvStoreObserver)}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -1897,6 +1905,8 @@ declare namespace distributedData {
     /**
      * UnRegister the SingleKvStore database synchronization callback.
      *
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates the synchronization complete event.
+     * @param { Callback<Array<[string, number]>> } syncCallback - Indicates the callback used to send the synchronization result to the caller.
      * @throws Throws this exception if no {@code SingleKvStore} database is available.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
@@ -2288,16 +2298,17 @@ declare namespace distributedData {
 
     /**
      * Register a {@code KvStoreObserver} for the database. When data in the distributed database changes, the
-     * callback in the {@code KvStoreObserver} will be invoked.
-     *
-     * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
-     * @param { Callback<ChangeNotification> } listener - Indicates the observer of data change events in the distributed
-     *     database.
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     * @since 8 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.data.distributedKVStore.DeviceKVStore#on
-     */
+* callback in the {@code KvStoreObserver} will be invoked.
+      *
+      * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates the data change event.
+      * @param { SubscribeType } type - Indicates the subscription type, which is defined in {@code SubscribeType}.
+      * @param { Callback<ChangeNotification> } listener - Indicates the observer of data change events in the distributed
+      *     database.
+      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+      * @since 8 dynamiconly
+      * @deprecated since 9
+      * @useinstead ohos.data.distributedKVStore.DeviceKVStore#on
+      */
     on(event: 'dataChange', type: SubscribeType, listener: Callback<ChangeNotification>): void;
 
 
@@ -2306,6 +2317,7 @@ declare namespace distributedData {
      *
      * <p>Sync result is returned through asynchronous callback.
      *
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates the synchronization complete event.
      * @param { Callback<Array<[string, number]>> } syncCallback - Indicates the callback used to send the synchronization result to the caller.
 
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2392,7 +2404,7 @@ declare namespace distributedData {
      * @param { string } storeId - Identifies the {@code KVStore} database.
      *     The value of this parameter must be unique for the same application,
      *     and different applications can share the same value.
-     * @returns { Promise<T> } Returns a {@code KVStore}, or {@code SingleKVStore}.
+     * @returns { Promise<T>, <T extends KVStore> } Returns a {@code KVStore}, or {@code SingleKVStore}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
