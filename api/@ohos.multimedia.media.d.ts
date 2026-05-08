@@ -12257,6 +12257,7 @@ declare namespace media {
     AUDIO_AMR_WB = 'audio/amr-wb',
   }
 
+  
   /**
    * Enumerates the encoding and container formats used during screen capture.
    *
