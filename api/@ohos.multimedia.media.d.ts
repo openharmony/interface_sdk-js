@@ -3649,7 +3649,7 @@ declare namespace media {
      * is in the prepared, playing, or paused state. This API uses a promise to return the result.
      *
      * @param { MediaType } trackType - specified media Type, see [MediaType]{@link #MediaType}.
-     * @returns { Promise<int> } A Promise instance used to return select track index.
+     * @returns { Promise<int> } A Promise instance used to return selected track index.
      * @throws { BusinessError } 202 - Called from Non-System applications. return by promise.
      * @throws { BusinessError } 5400101 - No memory. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -3683,7 +3683,7 @@ declare namespace media {
      * Specifies whether to forcibly load the video. This API can be called only when the AVPlayer
      * is in the prepared, playing, or paused state. This API uses a promise to return the result.
      *
-     * @param { boolean } force - Specifies whether to forcibly load the video.
+     * @param { boolean } force - Specified whether to forcibly load the video.
      * @returns { Promise<void> } A Promise instance used to return when forceLoadVideo completed.
      * @throws { BusinessError } 202 - Called from Non-System applications. return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -10304,7 +10304,7 @@ declare namespace media {
     videoScaleType?: VideoScaleType;
 
     /**
-     * Audio privacy configuration. For more information, the {@link #audio.AudioPrivacyType}.
+     * Audio privacy configuration. For more information, see {@link #audio.AudioPrivacyType}.
      * Default value: PRIVACY_TYPE_PUBLIC.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -10313,7 +10313,7 @@ declare namespace media {
      * @crossplatform
      * @since 26.0.0 dynamic&static
      */
-    PrivacyType?: audio.AudioPrivacyType;
+    privacyType?: audio.AudioPrivacyType;
 
     /**
      * Whether a slower synchronization policy is used at the start of playback to reduce subjective image jitter caused
