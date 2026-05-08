@@ -340,6 +340,19 @@ declare interface CustomDialogControllerOptions {
   showInSubWindow?: boolean;
 
   /**
+   * Defines the dialog display mode when show in subwindow.
+   *
+   * @type { ?DialogDisplayMode }
+   * @default DialogDisplayMode.SCREEN_BASED
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  displayModeInSubWindow?: DialogDisplayMode;
+
+  /**
    * Background color of dialog.
    *
    * @type { ?ResourceColor }

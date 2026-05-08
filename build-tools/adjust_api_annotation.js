@@ -16,10 +16,10 @@ const path = require("path");
 const fs = require("fs");
 const commander = require("commander");
 const ANNOTATION_REGEX = /\/\*\*[\s\S]*?\*\//g;
-const SINCE_REGEX = /@since\s+(.*)/;
-const PUBLIC_API_REGEX = /@publicapi\s+(.*)/;
+const SINCE_REGEX = /[^\S\n]*\*\s*@since\s+(.*)/;
+const PUBLIC_API_REGEX = /[^\S\n]*\*\s*@publicapi\s+(.*)/;
 const ANNOTATION_SINCE_REGEX = /\[since (.*?)\]/;
-const ANNOTATION_KEYWORD = /@(\w+)/;
+const ANNOTATION_KEYWORD = /[^\S\n]*\*\s*@(\w+)/;
 
 const OPERATE = {
   DELETE: "delete",

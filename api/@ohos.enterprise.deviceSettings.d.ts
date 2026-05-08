@@ -599,7 +599,16 @@ declare namespace deviceSettings {
      * @stagemodelonly
      * @since 26.0.0
      */
-    WIFI = 2
+    WIFI = 2,
+
+    /**
+     * NFC.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    NFC = 3
   }
 
   /**

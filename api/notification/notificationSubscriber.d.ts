@@ -14,6 +14,9 @@
  */
 
 /**
+ * The **NotificationSubscriber** module provides callbacks for receiving or 
+ * removing notifications and serves as the input parameter of [subscribe]{@link @ohos.notificationSubscribe}.
+ * 
  * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
  * @kit NotificationKit
  */
@@ -195,7 +198,7 @@ export interface NotificationSubscriber {
 }
 
 /**
- * Defines the SystemUpdateCallback callback.
+ * Notification information that carries the system property value.
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -264,7 +267,7 @@ export interface SubscribeCallbackData {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  voiceContent?: VoiceContent;
+  readonly voiceContent?: VoiceContent;
 }
 
 /**
@@ -486,7 +489,7 @@ export interface BadgeEnabledChangedCallback {
   /**
    * Callback used to return the listened badge enabling state.
    *
-   * @param { EnabledNotificationCallbackData } data
+   * @param { EnabledNotificationCallbackData } data - Notification information that carries the system property value.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -511,7 +514,7 @@ export interface VoiceContent {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  textContent?: string;
+  readonly textContent?: string;
 }
 
 /**

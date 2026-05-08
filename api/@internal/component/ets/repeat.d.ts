@@ -19,6 +19,39 @@
  */
 
 /**
+ * Defines a type for memory optimization strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum RepeatMemOptStrategy {
+  /**
+   * No memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * Repeat handles the memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
+}
+
+/**
  * Construct a new type for each item.
  *
  * @interface RepeatItem
@@ -114,6 +147,18 @@ interface VirtualScrollOptions {
    * @since 19 dynamic
    */
   onTotalCount?(): number;
+
+  /**
+   * Memory optimization strategy for Repeat VirtualScroll
+   *
+   * @type {?RepeatMemOptStrategy}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  memoryOptimizationStrategy?: RepeatMemOptStrategy;
 }
 
 /**

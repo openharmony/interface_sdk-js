@@ -14,6 +14,8 @@
  */
 
 /**
+ * The NotificationRequest module provides APIs for defining the notification request.
+ * 
  * @file Information carried when a notification is sent
  * @kit NotificationKit
  */
@@ -277,7 +279,7 @@ export interface NotificationRequest {
   content: NotificationContent;
 
   /**
-   * Condition object. This parameter is left empty by default.<br>**System API**: This is a system API.
+   * Condition object. This parameter is left empty by default.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -302,8 +304,6 @@ export interface NotificationRequest {
    * Notification priority type. The default value is **OTHER**. If this parameter is set, the notification is pinned on
    * the top and displayed in a highlighted manner in the notification center. <!--RP2--><!--RP2End-->The actual display
    * effect depends on the device capability and notification center UI style.
-   * 
-   * This API can be used only in the stage model.
    *
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
@@ -476,7 +476,6 @@ export interface NotificationRequest {
   /**
    * Extended parameters customized for the system applications to publish notifications.
    * This parameter is left empty by default.
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -487,7 +486,6 @@ export interface NotificationRequest {
   /**
    * Extended parameters customized for the system applications to publish notifications.
    * This parameter is left empty by default.
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -691,7 +689,6 @@ export interface NotificationRequest {
   /**
    * Creator instance key.
    * This parameter is supported since API version 12 and deprecated since API version 15. You are advised to use **appInstanceKey** instead.
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -726,7 +723,7 @@ export interface NotificationRequest {
 
   /**
    * Notification category.
-   * **System API**: This is a system API. Not supported currently.
+   * Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -745,10 +742,8 @@ export interface NotificationRequest {
   readonly hashCode?: string;
 
   /**
-   * Whether the notification can be removed. If a notification is not removable, it will not be deleted when the user touches the delete button below the notification, and it also cannot be deleted by swiping left on the notification and touching the delete button. The default value is **true**.<br> - **true**: The notification can be removed.
+   * Whether the notification can be removed. If a notification is not removable, it will not be deleted when the user touches the delete button below the notification, and it also cannot be deleted by swiping left on the notification and touching the delete button. <br> - **true**: The notification can be removed.
    * - **false**: The notification cannot be removed.
-   * **System API**: This is a system API.
-   * **Required permissions**: ohos.permission.SET_UNREMOVABLE_NOTIFICATION
    *
    * @permission ohos.permission.SET_UNREMOVABLE_NOTIFICATION [since 11]
    * @default true
@@ -762,7 +757,7 @@ export interface NotificationRequest {
 
   /**
    * Notification source.
-   * **System API**: This is a system API. Not supported currently. 
+   * Not supported currently. 
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -791,7 +786,7 @@ export interface NotificationRequest {
 
   /**
    * Device ID of the notification source.
-   * **System API**: This is a system API. Not supported currently.
+   * Not supported currently.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -806,7 +801,7 @@ export interface NotificationRequest {
    *
    * @readonly [since 8 - 22]
    * @syscap SystemCapability.Notification.Notification
-   * @FaAndStageModel
+   * @FaAndStageModel [since 23]
    * @since 8 dynamic
    * @since 23 static
    */
@@ -846,7 +841,6 @@ export interface NotificationRequest {
 
   /**
    * Information about the proxied bundle. This parameter is left empty by default.
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -857,7 +851,6 @@ export interface NotificationRequest {
 
   /**
    * Information about the agent bundle for creating notifications. This parameter is left empty by default.
-   * This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -868,7 +861,6 @@ export interface NotificationRequest {
 
   /**
    * Intelligent notification unification information. This parameter is left empty by default.
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -880,7 +872,6 @@ export interface NotificationRequest {
   /**
    * Notification mode control. The default value is **0**.
    * This API can be used to reduce the notification modes of the current notification. This parameter is obtained by performing the bitwise OR operation with the enumeration of [NotificationControlFlagStatus](@link @ohos.notificationManager:notificationManager.NotificationControlFlagStatus).
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -891,7 +882,6 @@ export interface NotificationRequest {
 
   /**
    * Application instance key. This parameter is left empty by default.
-   * This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -901,12 +891,11 @@ export interface NotificationRequest {
   readonly appInstanceKey?: string;
 
   /**
-   * Whether notifications are forcibly displayed in all scenario across devices. The default value is **false**.
+   * Whether notifications are forcibly displayed in all scenario across devices.
    * **NOTE**
    * This field takes effect only when the application is in the cross-device collaborative management list and **notDistributed** is set to **false**. Check whether the **collaborationFilter** field in the **notification_config.json** file contains the UID or bundle name of the application. For details about the file configuration path, see the **NOTIFICATION_CONFIG_FILE** property in [notification_config_parse.h](https://gitcode.com/openharmony/notification_distributed_notification_service/blob/master/services/ans/include/notification_config_parse.h). If yes, the application is on the cross-device collaborative management list.
    * - **true**: Notifications are displayed on all collaboration devices.
    * - **false**: Notifications are displayed on the applications that are on the collaborative management list.
-   * **System API**: This is a system API.
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification
@@ -917,12 +906,12 @@ export interface NotificationRequest {
   forceDistributed?: boolean;
 
   /**
-   * Whether notifications are not displayed in all scenarios across devices. The default value is **false**.
+   * Whether notifications are not displayed in all scenarios across devices.
    * **NOTE**
-   * field takes effect.
+   * This field is mutually exclusive with the **forceDistributed** field. 
+   * When both fields are set to **true**, only the **notDistributed** field takes effect.
    * - **true**: Notifications are displayed only on the local device.
    * - **false**: Notifications are displayed on all collaboration devices.
-   * **System API**: This is a system API.
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification
@@ -934,9 +923,6 @@ export interface NotificationRequest {
 
   /**
    * Custom group notification information. This parameter is left empty by default.
-   * **Model restriction**: This API can be used only in the stage model.
-   * **Since**: 26.0.0
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -955,7 +941,7 @@ export interface NotificationRequest {
  */
 export interface DistributedOptions {
   /**
-   * Whether cross-device notifications are supported. The default value is **true**.
+   * Whether cross-device notifications are supported.
    * 
    * - **true**: cross-device notifications are supported.
    * - **false**: cross-device notifications are not supported.
@@ -987,7 +973,6 @@ export interface DistributedOptions {
 
   /**
    * Notification reminder type.
-   * **System API**: This is a system API.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

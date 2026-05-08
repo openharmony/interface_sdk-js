@@ -22,93 +22,64 @@ import UIAbilityContext from './application/UIAbilityContext';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability of app recovery.
- * You can use this capability to save state and restart the application
- * which let end user continue their workflow when app error occurs.
- * This api support restart the app when js crash or app freeze occurs currently.
+ * The appRecovery module provides APIs for recovering faulty applications.
  *
- * @namespace appRecovery
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * This module provides the capability of app recovery.
- * You can use this capability to save state and restart the application
- * which let end user continue their workflow when app error occurs.
- * This api support restart the app when js crash or app freeze occurs currently.
- *
- * @namespace appRecovery
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace appRecovery {
   /**
-   * The flag that determines when to restart you app.
+   * Enumerates the application restart flags. This enum is used as an input parameter of 
+   * [enableAppRecovery]{@link appRecovery.enableAppRecovery}.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * The flag that determines when to restart you app.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum RestartFlag {
     /**
-     * No restart restrictions.
+     * The application is restarted in all cases.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * No restart restrictions.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     ALWAYS_RESTART = 0,
 
     /**
-     * Restart if current app process encounter uncaught js/ts/ets exception.
+     * The application is restarted in the case of JS_CRASH.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Restart if current app process encounter uncaught js/ts/ets exception.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     RESTART_WHEN_JS_CRASH = 0x0001,
 
     /**
-     * Restart if the main thread of current app process block more than 6 seconds.
+     * The application is restarted in the case of APP_FREEZE.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Restart if the main thread of current app process block more than 6 seconds.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     RESTART_WHEN_APP_FREEZE = 0x0002,
 
+    /**
+     * The application is not restarted in any case.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    NO_RESTART = 0xFFFF,
+  
     /**
      * Restart if the current app process encounters a cppcrash
      *
@@ -117,241 +88,152 @@ declare namespace appRecovery {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    RESTART_WHEN_CPP_CRASH = 0x0004,
-
-    /**
-     * Do not restart in any scenario.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Do not restart in any scenario.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 23 static
-     */
-    NO_RESTART = 0xFFFF
+    RESTART_WHEN_CPP_CRASH = 0x0004
   }
 
   /**
-   * The flag that determines when to save ability state.
-   * When start saving ability state, the { ohos.app.ability.UiAbility.onSaveState } will be called and
-   * the page stack of current ability will be saved automatically.
+   * Enumerates the scenarios for saving the application state. This enum is used as an input parameter of 
+   * [enableAppRecovery]{@link appRecovery.enableAppRecovery}.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * The flag that determines when to save ability state.
-   * When start saving ability state, the { ohos.app.ability.UiAbility.onSaveState } will be called and
-   * the page stack of current ability will be saved automatically.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum SaveOccasionFlag {
     /**
-     * Saving ability state when an error occurs.
-     * The error in current situation has the same semantic with { errorManager } defines
-     * which means the state that the application cannot continue to work but allows developer to handle.
+     * Saving the application state when an application fault occurs.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Saving ability state when an error occurs.
-     * The error in current situation has the same semantic with { errorManager } defines
-     * which means the state that the application cannot continue to work but allows developer to handle.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SAVE_WHEN_ERROR = 0x0001,
 
     /**
-     * Saving ability state when ability is in background.
+     * Saving the application state when the application is switched to the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Saving ability state when ability is in background.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SAVE_WHEN_BACKGROUND = 0x0002
   }
 
   /**
-   * The flag that determines how to save the ability state.
+   * Enumerates the application state saving modes. This enum is used as an input parameter of 
+   * [enableAppRecovery]{@link appRecovery.enableAppRecovery}.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * The flag that determines how to save the ability state.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum SaveModeFlag {
     /**
-     * Save state to file immediately.
+     * The application state is saved and written to the local file cache.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Save state to file immediately.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SAVE_WITH_FILE = 0x0001,
 
     /**
-     * Keep state in memory and flush to file when error occurs or { restartApp } is invoked.
+     * The application state is saved in the memory. When the application exits due to a fault, it is written to the 
+     * local file cache.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Keep state in memory and flush to file when error occurs or { restartApp } is invoked.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     SAVE_WITH_SHARED_MEMORY = 0x0002
   }
 
   /**
-   * Enable appRecovery function.
+   * Enables application recovery. After this API is called, the first ability that is displayed when the application is
+   * started from the initiator can be restored.
    *
-   * @param { RestartFlag } [restart] - The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
-   * @param { SaveOccasionFlag } [saveOccasion] - The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
-   * @param { SaveModeFlag } [saveMode] - The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
+   * @param { RestartFlag } [restart] - Whether the application is restarted upon a fault. By default, the application
+   *     is restarted.
+   * @param { SaveOccasionFlag } [saveOccasion] - Scenario for saving the application state. By default, the state is
+   *     saved when a fault occurs.
+   * @param { SaveModeFlag } [saveMode] - Application state saving mode. By default, the application state is written to
+   *     the local file cache.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Enable appRecovery function.
-   *
-   * @param { RestartFlag } [restart] - The flag that determines the restart cases of your app, default value is { ALWAYS_RESTART }.
-   * @param { SaveOccasionFlag } [saveOccasion] - The flag that determines when to save ability state, default value is { SAVE_WHEN_ERROR }.
-   * @param { SaveModeFlag } [saveMode] - The flag that determines how to save the ability state, default value is { SAVE_WITH_FILE }.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
-  function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag): void;
+  function enableAppRecovery(restart?: RestartFlag, saveOccasion?: SaveOccasionFlag, saveMode?: SaveModeFlag) : void;
 
   /**
-   * Restart current process and launch the first ability(the entry ability in most cases) of current process.
-   * The previous saved state will be filled in the { want.wantParams } of { UIAbility.onCreate } interface.
-   * and the { param } of { UIAbility.onCreate } will be set to APP_RECOVERY.
+   * Restarts the current process and starts the first ability that is displayed when the application is started. If the
+   * state of this ability is saved, the saved state data is passed into the **wantParam** property in the **want** 
+   * parameter of the **onCreate** lifecycle callback of the ability.
+   * 
+   * In API version 10, the ability specified by [setRestartWant]{@link appRecovery.setRestartWant} is started. If no 
+   * ability is specified, the following rules are used:
+   * 
+   * If the ability of the current application running in the foreground supports recovery, that ability is started.
+   * 
+   * If multiple abilities that support recovery is running in the foreground, only the last ability is started.
+   * 
+   * If no ability is running in the foreground, none of them is started.
+   * 
+   * This API can be used together with the APIs of [errorManager]{@link @ohos.app.ability.errorManager:errorManager}. 
+   * The interval between two restarts must be greater than one minute. If this API is called repeatedly within one 
+   * minute, the application exits but does not restart. The behavior of automatic restart is the same as that of 
+   * proactive restart.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Restart current process and launch the first ability(the entry ability in most cases) of current process.
-   * The previous saved state will be filled in the { want.wantParams } of { UIAbility.onCreate } interface.
-   * and the { param } of { UIAbility.onCreate } will be set to APP_RECOVERY.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function restartApp(): void;
 
   /**
-   * Set the want that will be used when app restart initiated by appRecovery.
+   * Sets an ability that will be recovered. The ability must be a UIAbility in the current bundle.
    *
-   * @param { Want } want - that defines the ability you want to start
+   * @param { Want } want - Want of the target ability. You can set the **bundleName** and **abilityName** fields in
+   *     **Want** to specify the ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
-   */
-  /**
-   * Set the want that will be used when app restart initiated by appRecovery.
-   *
-   * @param { Want } want - that defines the ability you want to start
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   function setRestartWant(want: Want): void;
 
   /**
-   * Actively save application state.
-   * The ability framework will call { UIAbility.onSaveState } of first launched ability and
-   * persist state as { saveOccasion } flag from { enableAppRecovery } interface.
+   * Saves the application state. This API can be used together with the APIs of 
+   * [errorManager]{@link @ohos.app.ability.errorManager:errorManager}.
    *
-   * @returns { boolean } true if save data successfully, otherwise false.
+   * @returns { boolean } Whether the application state is saved. **true** if saved, **false** otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Actively save application state.
-   * The ability framework will call { UIAbility.onSaveState } of first launched ability and
-   * persist state as { saveOccasion } flag from { enableAppRecovery } interface.
-   *
-   * @returns { boolean } true if save data successfully, otherwise false.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function saveAppState(): boolean;
   /**
-   * Save the ability state according to the context.
+   * Saves the ability state, which will be used for recovery. This API can be used together with the APIs of 
+   * [errorManager]{@link @ohos.app.ability.errorManager:errorManager}.
    *
-   * @param { UIAbilityContext } [context] - context indicates the ability context you want to save state.
-   * If context is not specified, the onSaveState will be invoked on all the recoverable abilities in current process.
-   * @returns { boolean } true if save data successfully, otherwise false.
+   * @param { UIAbilityContext } [context] - Context of the target ability.
+   * @returns { boolean } Whether the application state is saved. **true** if saved, **false** otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @StageModelOnly
-   * @since 10
-   */
-  /**
-   * Save the ability state according to the context.
-   *
-   * @param { UIAbilityContext } [context] - context indicates the ability context you want to save state.
-   * If context is not specified, the onSaveState will be invoked on all the recoverable abilities in current process.
-   * @returns { boolean } true if save data successfully, otherwise false.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   function saveAppState(context?: UIAbilityContext): boolean;

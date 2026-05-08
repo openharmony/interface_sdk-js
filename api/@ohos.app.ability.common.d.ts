@@ -75,6 +75,10 @@ import { AgentHostProxy as _AgentHostProxy } from './application/AgentHostProxy'
 import { AgentProxy as _AgentProxy } from './application/AgentProxy';
 import { AgentExtensionConnectCallback as _AgentExtensionConnectCallback } from './application/AgentExtensionConnectCallback';
 import _AgentExtensionContext from './application/AgentExtensionContext';
+import { ToolInfo as _ToolInfo } from './application/ToolInfo';
+import { ToolSummary as _ToolSummary } from './application/ToolInfo';
+import { CliToolEvent as _CliToolEvent } from './application/CliToolEvent';
+import { ToolEventCallback as _ToolEventCallback } from './application/ToolEventCallback';
 
 /**
  * You can use this module to reference the ability public module class.
@@ -694,6 +698,50 @@ declare namespace common {
    * @since 24 dynamic&static
    */
   export type AgentExtensionContext = _AgentExtensionContext;
+
+  /**
+   * Define basic information about the CLI tool.
+   *
+   * @typedef { _ToolInfo }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type ToolInfo = _ToolInfo;
+
+  /**
+   * Define basic summary information about the CLI tool.
+   *
+   * @typedef { _ToolInfo }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type ToolSummary = _ToolSummary;
+
+  /**
+   * The event data of cli execute.
+   *
+   * @typedef { _CliToolEvent }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type CliToolEvent = _CliToolEvent;
+
+  /**
+   * Define the cli event callback function.
+   *
+   * @typedef { _ToolEventCallback }
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type ToolEventCallback = _ToolEventCallback;
 }
 
 export default common;

@@ -2713,6 +2713,17 @@ declare namespace formInfo {
      * @since 23 static
      */
     disabledDesktopBehaviors?: string;
+
+    /**
+     * The trigger types of the scene animation.
+     *
+     * @type { ?Array<SceneAnimationTriggerType> }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    triggerTypes?: Array<SceneAnimationTriggerType>;
   }
 
   /**
@@ -2910,6 +2921,27 @@ declare namespace formInfo {
    * @since 23 dynamic&static
    */
   type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
+
+  /**
+   * The trigger type of the scene animation.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum SceneAnimationTriggerType {
+    /**
+     * Shake.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SHAKE = 1
+  }
 
   /**
    * Get want parameters callback.

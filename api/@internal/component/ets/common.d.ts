@@ -129,6 +129,59 @@ declare interface ComponentOptions {
 declare type ReusePoolOwnership = 'shared' | 'perInstance';
 
 /**
+ * Defines a type for memory optimization strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum ReusableMemOptStrategy {
+  /**
+   * No memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DEFAULT = 0,
+  /**
+   * CustomComponent handles the memory optimization.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0
+}
+
+/**
+ * Defines the options for Reusable ClassDecorator.
+ *
+ * @interface ReusableOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface ReusableOptions {
+  /**
+   * Memory optimization strategy for CustomComponent reuse
+   *
+   * @type { ?ReusableMemOptStrategy }
+   * @default ReusableMemOptStrategy.DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  memoryOptimizationStrategy?: ReusableMemOptStrategy;
+}
+
+/**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
  *
  * @interface InputCounterOptions
@@ -1068,6 +1121,14 @@ declare enum SystemProperties {
    * @stagemodelonly
    * @since 23 dynamic
    */
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   WINDOW_AVOID_AREA = 'system.window.avoidarea',
   /**
    * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
@@ -1075,6 +1136,14 @@ declare enum SystemProperties {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 dynamic
+   */
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
   /**
@@ -1084,6 +1153,14 @@ declare enum SystemProperties {
    * @stagemodelonly
    * @since 23 dynamic
    */
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   WINDOW_SIZE = 'system.window.size',
   /**
    * System environmental windowsize key that is used to obtain the size of the window, measured in px.
@@ -1091,6 +1168,14 @@ declare enum SystemProperties {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 dynamic
+   */
+  /**
+   * System environmental windowsize key that is used to obtain the size of the window, measured in px.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
   /**
@@ -2019,6 +2104,7 @@ declare function getContext(component?: Object): Context;
  * Defining Reusable ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -2026,21 +2112,47 @@ declare function getContext(component?: Object): Context;
  * Defining Reusable ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
-declare const Reusable: ClassDecorator;
+/**
+ * Defining Reusable ClassDecorator.
+ *
+ * Reusable is a ClassDecorator and it supports ReusableOptions as a parameters.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
  * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
-declare const ReusableV2: ClassDecorator;
+/**
+ * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
+ *
+ * ReusableV2 is a ClassDecorator and it supports ReusableOptions as a parameters.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
  /**
    * ReuseId callback type. It is used to compute reuseId.
@@ -18515,6 +18627,18 @@ declare interface StateStyles {
    * @since 11 dynamic
    */
   selected?: object;
+
+  /**
+   * Defines hovered state styles.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  hovered?: object;
 }
 
 /**
@@ -23188,6 +23312,18 @@ declare interface AttributeModifier<T> {
    * @since 12 dynamic
    */
   applySelectedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the function that updates the hovered attribute.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  applyHoveredAttribute?(instance: T) : void;
 }
 
 /**

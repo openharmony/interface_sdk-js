@@ -14,7 +14,9 @@
  */
 
 /**
- * @file The NotificationContent module provides APIs for defining the notification content.
+ * The **NotificationContent** module provides APIs for defining the notification content.
+ * 
+ * @file Some notification types and content
  * @kit NotificationKit
  */
 
@@ -199,8 +201,6 @@ export enum LiveViewStatus {
   LIVE_VIEW_FULL_UPDATE = 3,
   /**
    * The live view is created by condition.
-   * 
-   * This API can be used only in the stage model.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -210,8 +210,6 @@ export enum LiveViewStatus {
   LIVE_VIEW_PENDING_CREATE = 4,
   /**
    * The live view is terminated by condition.
-   * 
-   * This API can be used only in the stage model.
    *
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -401,10 +399,6 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
    * corresponds to different **wantAgent**s. The maximum number of lines configured for this field is equal to the 
    * value of [lines]{@link ./notification/notificationContent:NotificationMultiLineContent}. This parameter is left 
    * empty by default.
-   * 
-   * This is a system API.
-   * 
-   * ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    *
    * @permission ohos.permission.NOTIFICATION_AGENT_CONTROLLER
    * @syscap SystemCapability.Notification.Notification
@@ -869,8 +863,6 @@ export interface NotificationContent {
   /**
    * Common live view.
    * 
-   * This is a system API.
-   *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic

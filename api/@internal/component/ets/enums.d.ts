@@ -11849,6 +11849,39 @@ declare enum TipsAnchorType {
 }
 
 /**
+ * Dialog display mode.
+ *
+ * @enum { DialogDisplayMode }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum DialogDisplayMode {
+  /**
+   * The dialog displayed based on screen.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  SCREEN_BASED = 0,
+  /**
+   * The dialog displayed based on application window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  WINDOW_BASED = 1
+}
+
+/**
  * Define ColorSpace enumeration.
  *
  * @enum { number }
