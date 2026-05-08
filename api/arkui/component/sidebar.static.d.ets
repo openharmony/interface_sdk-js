@@ -341,6 +341,20 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
   default minContentWidth(value: Dimension | undefined): this;
 
   /**
+   * Specifies whether sideBar can be presented or dismissed by gesture.
+   * 
+   * @param { boolean | undefined } value - Indicates whether sidebar can be presented or dismissed by gesture.
+   *    <br>Default value: **false**.
+   *    **true**: Sidebar can be presented or dismissed by gesture.
+   *    **false**: Sidebar cannot be presented or dismissed by gesture.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default showSideBarWithGesture(value: boolean | undefined): this;
+
+  /**
    * Set the attribute modifier of sidebar.
    *
    * @param { AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
