@@ -1509,7 +1509,7 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @atomicservice
    * @since 12 dynamic
    */
-    alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
+  alignItems(alignment: Optional<GridItemAlignment>): GridAttribute;
 
   /**
      * Set the focus wrap mode of the grid.
@@ -1567,6 +1567,20 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * @since 26.0.0 dynamic
    */
   enableEditMode(enabled: boolean | undefined): GridAttribute;
+
+  /**
+   * Triggered when the editing mode status changes.
+   *
+   * @param { Callback<boolean> | undefined } callback - Callback triggered when editing mode status changes.
+   *     <br>Passing undefined will unregister the callback.
+   * @returns { GridAttribute } The attribute of the grid.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onEditModeChange(callback: Callback<boolean> | undefined): GridAttribute;
 
   /**
    * Called When sliding the grid.

@@ -22,7 +22,7 @@ import { Length, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { BarState, Color, EdgeEffect, FocusWrapMode } from './enums';
 import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
-import { AttributeModifier, Bindable, CommonMethod, UIScrollableCommonEvent } from "./common";
+import { AttributeModifier, Bindable, Callback, CommonMethod, UIScrollableCommonEvent } from "./common";
 
 /**
  * Define start line info used in GridLayoutOptions.
@@ -688,6 +688,17 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @since 26.0.0 static
      */
     default enableEditMode(enabled: boolean | Bindable<boolean> | undefined): this;
+    /**
+     * Triggered when the editing mode status changes.
+     *
+     * @param { Callback<boolean> | undefined } callback - Callback triggered when editing mode status changes.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this } The attribute of the Grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onEditModeChange(callback: Callback<boolean> | undefined): this;
     /**
      * Sets the focus wrap mode of the Gird component.
      *
