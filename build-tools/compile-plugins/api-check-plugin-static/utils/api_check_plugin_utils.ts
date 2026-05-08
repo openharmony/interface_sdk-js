@@ -203,10 +203,9 @@ function getJSDocTag(jsDoc: JSDoc, tagName: string): JSDocTag | undefined {
  * @param { string } tagName
  * @returns { JSDocTag }
  */
-function getPermissionJSDocTag(jsDoc: JSDoc | JSDocTag[], tagName: string): JSDocTag[]  {
-  // 确保 jsDoc 是一个数组
-  const tags = Array.isArray(jsDoc) ? jsDoc : jsDoc.tags || [];
 
+function getPermissionJSDocTag(jsDoc: JSDoc , tagName: string): JSDocTag[]  {
+  const tags =  jsDoc.tags;
   const permissionTags = tags.filter((tag) => tag.tag === tagName);
   return permissionTags;
 }
@@ -937,7 +936,7 @@ export function readFile(dir: string, utFiles: string[]): void {
 export function checkPermissionTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
   const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
   const jsDocTags: JSDocTag []  = getPermissionJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
-  config.tagNameShouldExisted = jsDocTags;
+  config.tagNameShouldExisted = jsDocTags.length > 0;
   if (jsDocTags ===  undefined || jsDocTags.length === 0  ) {
     return false;
   }
