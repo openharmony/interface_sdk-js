@@ -11693,6 +11693,185 @@ declare namespace cryptoFramework {
      */
     static genEccSignature(spec: EccSignatureSpec): Uint8Array;
   }
+
+  /**
+   * Indicates the KEM algorithm name ID.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum KemAlgNameId {
+    /**
+     * Indicates the ML_KEM_512 algorithm name ID.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_KEM_512 = 0,
+
+    /**
+     * Indicates the ML_KEM_768 algorithm name ID.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_KEM_768 = 1,
+
+    /**
+     * Indicates the ML_KEM_1024 algorithm name ID.
+     *
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ML_KEM_1024 = 2
+  }
+
+  /**
+   * Indicates the encapsulation result of the KEM.
+   *
+   * @typedef KemEncapResult
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface KemEncapResult {
+    /**
+     * Indicates the shared secret of the KEM.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    sharedSecret: Uint8Array;
+
+    /**
+     * Indicates the wrapped key of the KEM.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    wrappedKey: Uint8Array;
+  }
+
+  /**
+   * Indicates the KEM type, which is used for encapsulation and decapsulation operations.
+   *
+   * @typedef Kem
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface Kem {
+    /**
+     * Encapsulates a key.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @param { Uint8Array | null } ikme - the ikme used to generate an ephemeral key.
+     * @returns { Promise<KemEncapResult> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    encapsulate(pubKey: PubKey, ikme: Uint8Array | null): Promise<KemEncapResult>;
+
+    /**
+     * Encapsulates a key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link encapsulate}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { PubKey } pubKey - the public key.
+     * @param { Uint8Array | null } ikme - the ikme used to generate an ephemeral key.
+     * @returns { KemEncapResult } the encapsulation result of the KEM.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    encapsulateSync(pubKey: PubKey, ikme: Uint8Array | null): KemEncapResult;
+
+    /**
+     * Decapsulates a wrapped key.
+     *
+     * @param { PriKey } priKey - the private key.
+     * @param { Uint8Array } wrappedKey - the wrapped key of the KEM.
+     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    decapsulate(priKey: PriKey, wrappedKey: Uint8Array): Promise<Uint8Array>;
+
+    /**
+     * Decapsulates a wrapped key.
+     *
+     * <br><br>**NOTE**
+     * <br>It is recommended to prioritize the use of asynchronous API, {@link decapsulate}. Synchronous API may
+     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
+     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     *
+     * @param { PriKey } priKey - the private key of the KEM.
+     * @param { Uint8Array } wrappedKey - the wrapped key of the KEM.
+     * @returns { Uint8Array } the decapsulation result of the KEM.
+     * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17630001 - crypto operation error.
+     * @syscap SystemCapability.Security.CryptoFramework.Cipher
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    decapsulateSync(priKey: PriKey, wrappedKey: Uint8Array): Uint8Array;
+  }
+
+  /**
+   * Creates a kem object for encapsulation and decapsulation operations.
+   *
+   * @param { KemAlgNameId } algNameId - the algorithm name ID of the KEM.
+   * @returns { Kem } the KEM instance.
+   * @throws { BusinessError } 17620001 - memory operation failed.
+   * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+   * @throws { BusinessError } 17620003 - parameter check failed.
+   * @throws { BusinessError } 17630001 - crypto operation error.
+   * @syscap SystemCapability.Security.CryptoFramework.Cipher
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function createKem(algNameId: KemAlgNameId): Kem;
 }
 
 export default cryptoFramework;
