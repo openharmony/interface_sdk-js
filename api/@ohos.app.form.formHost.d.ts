@@ -1614,5 +1614,35 @@ declare namespace formHost {
     * @since 24 dynamic&static
     */
    function getFormIdsByFormLocation(location: formInfo.FormLocation): Promise<Array<string>>;
+
+  /**
+   * Register callback of getting the want parameters of the form.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.GetWantParamsCallback } callback - the callback for getting want parameters of the form.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onGetWantParamsCallback(callback: formInfo.GetWantParamsCallback): void;
+
+  /**
+   * Unregister callback of getting the want parameters of the form.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.GetWantParamsCallback } [callback] - the callback for getting want parameters of the form.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offGetWantParamsCallback(callback?: formInfo.GetWantParamsCallback): void;
 }
 export default formHost;

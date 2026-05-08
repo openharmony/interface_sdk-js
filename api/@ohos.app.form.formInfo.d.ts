@@ -2942,5 +2942,18 @@ declare namespace formInfo {
      */
     SHAKE = 1
   }
+
+  /**
+   * Get want parameters callback.
+   *
+   * @typedef { function }
+   * @param { Array<formInfo.FormInfo> } formInfo - The list of the form information.
+   * @returns { Array<Record<string, Object>> } The want parameters list of the forms.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type GetWantParamsCallback = (formInfo: Array<formInfo.FormInfo>) => Array<Record<string, Object>>;
 }
 export default formInfo;
