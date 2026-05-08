@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
+import { Rectangle, AnimateParam, Callback, ShadowOptions, ShadowStyle, KeyboardAvoidMode, BlurStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions, DistortionMode, EdgeLightMode } from './common';
 import { ExtendableComponent } from './extendableComponent';
 import { DialogAlignment } from './alertDialog';
 import { Offset, ResourceColor, Dimension, BorderRadiuses, EdgeWidths, EdgeColors, EdgeStyles, VoidCallback } from './units';
@@ -411,6 +411,26 @@ export declare interface CustomDialogControllerOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Sets the distortion animation Mode of the dialog.
+     *
+     * @default DistortionMode.DISTORTION_AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    distortionMode?: DistortionMode;
+    /**
+     * Sets the edgeLight animation Mode of the dialog.
+     *
+     * @default EdgeLightMode.EDGELIGHT_DISABLED
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    edgeLightMode?: EdgeLightMode;
 }
 /**
  * Defines the external options of CustomDialogController.
