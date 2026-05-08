@@ -2727,10 +2727,6 @@ declare namespace distributedData {
      *     [MAX_STORE_ID_LENGTH]{@link distributedData.Constants}.
      * @param { KVStore } kvStore - KV store to close.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws Throws this exception if any of the following errors
-     * occurs:{@code INVALID_ARGUMENT}, {@code SERVER_UNAVAILABLE},
-     * {@code STORE_NOT_OPEN}, {@code STORE_NOT_FOUND}, {@code DB_ERROR},
-     * {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2746,10 +2742,6 @@ declare namespace distributedData {
      *     [MAX_STORE_ID_LENGTH]{@link distributedData.Constants}.
      * @param { KVStore } kvStore - KV store to close.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws Throws this exception if any of the following errors
-     * occurs:{@code INVALID_ARGUMENT}, {@code SERVER_UNAVAILABLE},
-     * {@code STORE_NOT_OPEN}, {@code STORE_NOT_FOUND}, {@code DB_ERROR},
-     * {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2764,10 +2756,6 @@ declare namespace distributedData {
      * @param { string } storeId - Unique identifier of the KV store to delete. The length cannot exceed
      *     [MAX_STORE_ID_LENGTH]{@link distributedData.Constants}.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws Throws this exception if any of the following errors
-     * occurs: {@code INVALID_ARGUMENT},
-     * {@code SERVER_UNAVAILABLE}, {@code STORE_NOT_FOUND},
-     * {@code DB_ERROR}, {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2803,9 +2791,6 @@ declare namespace distributedData {
      * @param { string } appId - Bundle name of the app that invokes the KV store.
      * @param { AsyncCallback<string[]> } callback - Callback used to return the IDs of all created KV stores.
      * @returns { void } Returns the storeId of all created {@code KvStore} databases.
-     * @throws Throws this exception if any of the following errors
-     * occurs: {@code SERVER_UNAVAILABLE}, {@code DB_ERROR},
-     * {@code PERMISSION_DENIED}, and {@code IPC_ERROR}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
