@@ -972,9 +972,9 @@ function removeSystemapiDoc(result) {
   result.split;
   return result.replace(/\/\*\*[\s\S]*?\*\//g, (substring, p1) => {
     // 如果systemapi转为publicapi，则需要进行版本变更，否则保持原样处理不变
-    if(!/@systemapi/g.test(substring)){
+    if (!/@systemapi/g.test(substring)) {
       return substring
-    }else{
+    } else {
       return isAbsoluteSystemApi(substring) ? '' : convertSystemApiVersion(substring)
     }
   });
@@ -1153,6 +1153,9 @@ function setDeleteExport(statement, node, needDeleteExport, deleteSystemApiSet) 
         element.propertyName.escapedText.toString() :
         element.name.escapedText.toString();
       if (deleteSystemApiSet.has(exportName)) {
+        needDeleteExport.exportName.add(element.name.escapedText.toString());
+      } else {
+        deleteSystemApiSet.add(exportName);
         needDeleteExport.exportName.add(element.name.escapedText.toString());
       }
     });
@@ -1491,10 +1494,10 @@ function isEmptyFile(node) {
  * 判断systemapi后面是否带区间版本
  * @param {string} notesStr 
  */
-function isAbsoluteSystemApi(notesStr){
-  if(!/@systemapi/g.test(notesStr)){
+function isAbsoluteSystemApi(notesStr) {
+  if (!/@systemapi/g.test(notesStr)) {
     return false
-  }else{
+  } else {
     return getPublicApiVersion(notesStr) === ''
   }
 }
@@ -1503,13 +1506,13 @@ function isAbsoluteSystemApi(notesStr){
  * 变更systemapi为publicapi
  * @param {string} substring 
  */
-function convertSystemApiVersion(substring){
+function convertSystemApiVersion(substring) {
   let sourceString = substring
   let finalVersion
   let publicApiVersion = getPublicApiVersion(substring)
 
   let sinceVersionRes = substring.match(/@since\s*([\d\.\(\)]*)/i)
-  if(sinceVersionRes && sinceVersionRes.length > 1){
+  if (sinceVersionRes && sinceVersionRes.length > 1) {
     finalVersion = getFinalVersion(sinceVersionRes[1], publicApiVersion)
   }
 
@@ -1524,7 +1527,7 @@ function convertSystemApiVersion(substring){
  * @param {string} originalVersion 
  * @param {string} publicVersion 
  */
-function getFinalVersion(originalVersion, publicVersion){
+function getFinalVersion(originalVersion, publicVersion) {
   return compareVersions(originalVersion, publicVersion) > -1 ? originalVersion : publicVersion
 }
 
@@ -1533,11 +1536,11 @@ function getFinalVersion(originalVersion, publicVersion){
  * @param {*} version1 
  * @param {*} version2 
  */
-function compareVersions(version1, version2){
+function compareVersions(version1, version2) {
   // 处理闭源格式：提取x.y.z并计算权重值
   const extractClosedVersion = (str) => {
     const match = str.match(/^(\d+)\.(\d+)\.(\d+)\((\d+)\)$/)
-    if(match){
+    if (match) {
       const x = parseInt(match[1])
       const y = parseInt(match[2])
       const z = parseInt(match[3])
@@ -1550,11 +1553,13 @@ function compareVersions(version1, version2){
   const extractOpenVersion = (str) => {
     // 先尝试提取数字
     const num = parseFloat(str);
-    if(!isNaN(num)) return num * 10000;
+    if (!isNaN(num)) {
+      return num * 10000;
+    }
 
     // 尝试提取x.y.z格式
     const parts = str.split('.').map(Number);
-    if(parts.length === 3){
+    if (parts.length === 3) {
       return parts[0] * 10000 + parts[1] * 100 + parts[2]
     }
     return null;
@@ -1565,7 +1570,7 @@ function compareVersions(version1, version2){
   const v2 = extractClosedVersion(version2) || extractOpenVersion(version2)
 
   // 比较版本号
-  if(v1 === v2){
+  if (v1 === v2) {
     return 0;
   }
   return v1 > v2 ? 1 : -1
@@ -1575,9 +1580,9 @@ function compareVersions(version1, version2){
  * 通过@publicapi获取public版本
  * @param {string} substring 
  */
-function getPublicApiVersion(substring){
+function getPublicApiVersion(substring) {
   let result = substring.match(/@publicapi\s*\[\s*since\s*([^\s]+)\s*\]/)
-  if(result && result[1]){
+  if (result && result[1]) {
     return result[1]
   }
 
