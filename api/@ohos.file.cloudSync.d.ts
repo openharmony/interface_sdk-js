@@ -1209,6 +1209,38 @@ declare namespace cloudSync {
      * @since 26.0.0 dynamic&static
      */
     getUploadList(uris: Array<string>): Promise<Array<UploadProgress>>;
+    /**
+     * Pause the upload of the cloud file.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { string } uri - uri of file.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pauseUpload(uri: string): void;
+    /**
+     * Resume the upload of the cloud file.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { string } uri - uri of file.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 14000002 - Invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    resumeUpload(uri: string): void;
   }
   /**
    * CloudFileCache object.
