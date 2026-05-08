@@ -1455,6 +1455,7 @@ declare namespace distributedData {
      * Inserts key-value pairs into the {@code KvStore} database in batches.
      *
      * @param { Entry[] } entries - Indicates the key-value pairs to be inserted in batches.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Throws this exception if a database error occurs.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
@@ -1480,6 +1481,7 @@ declare namespace distributedData {
      * Deletes key-value pairs in batches from the {@code KvStore} database.
      *
      * @param { string[] } keys - Indicates the key-value pairs to be deleted in batches.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Throws this exception if a database error occurs.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
@@ -1507,6 +1509,7 @@ declare namespace distributedData {
      *
      * <p>After the database transaction is started, you can submit or roll back the operation.
      *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Throws this exception if a database error occurs.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
@@ -1530,7 +1533,7 @@ declare namespace distributedData {
     /**
      * Submits a transaction operation in the {@code KvStore} database.
      *
-     * @param { AsyncCallback<void> } callback - Indicates the callback used to commit the transaction.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Throws this exception if a database error occurs.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
@@ -1554,6 +1557,7 @@ declare namespace distributedData {
     /**
      * Rolls back a transaction operation in the {@code KvStore} database.
      *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 15100005 - Throws this exception if a database error occurs.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
@@ -1580,7 +1584,7 @@ declare namespace distributedData {
      *
      * @param { boolean } enabled - Specifies whether to enable synchronization. The value true means to enable
      * synchronization, and false means the opposite.
-
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1610,7 +1614,7 @@ declare namespace distributedData {
      *
      * @param { string[] } localLabels - Indicates the synchronization labels of the local device.
      * @param { string[] } remoteSupportLabels - Indicates the labels of the devices with which data will be synchronized.
-
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1652,6 +1656,7 @@ declare namespace distributedData {
      * Obtains the {@code String} value of a specified key.
      *
      * @param { string } key - Indicates the key of the boolean value to be queried.
+     * @returns { Promise<Uint8Array | string | boolean | number> } Returns the value matching the specified key.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1701,7 +1706,7 @@ declare namespace distributedData {
      * Obtains the list of key-value pairs matching the specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Entry[] } Returns the list of key-value pairs matching the specified {@code Query} object.
+     * @returns { Promise<Entry[]> } Returns the list of key-value pairs matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1811,7 +1816,7 @@ declare namespace distributedData {
      * Obtains the number of results matching the specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { number } Returns the number of results matching the specified {@code Query} object.
+     * @returns { Promise<number> } Returns the number of results matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1834,6 +1839,8 @@ declare namespace distributedData {
     /**
      * void removeDeviceData​({@link String} deviceId) throws {@link KvStoreException}
      *
+     * @param { string } deviceId - Indicates the device ID.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1933,6 +1940,7 @@ declare namespace distributedData {
      *
      * @param { number } defaultAllowedDelayMs - Indicates the default delay allowed for the database synchronization, in
      *     milliseconds.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1955,7 +1963,7 @@ declare namespace distributedData {
     /**
      * Get the security level of the database.
      *
-     * @returns { SecurityLevel } {@code SecurityLevel} the security level of the database.
+     * @returns { Promise<SecurityLevel> } {@code SecurityLevel} the security level of the database.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2049,7 +2057,7 @@ declare namespace distributedData {
      * Obtains the list of key-value pairs matching the specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Entry[] } Returns the list of key-value pairs matching the specified {@code Query} object.
+     * @returns { Promise<Entry[]> } Returns the list of key-value pairs matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2076,7 +2084,7 @@ declare namespace distributedData {
      *
      * @param { string } deviceId - Indicates the ID of the device to which the key-value pairs belong.
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { Entry[] } Returns the list of key-value pairs matching the specified {@code Query} object.
+     * @returns { Promise<Entry[]> } Returns the list of key-value pairs matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2113,7 +2121,7 @@ declare namespace distributedData {
      *
      * @param { string } deviceId - Identifies the device whose data is to be queried.
      * @param { string } keyPrefix - Indicates the key prefix to match.
-     * @returns { KvStoreResultSet } Returns the {@code KvStoreResultSet} objects.
+     * @returns { Promise<KvStoreResultSet> } Returns the {@code KvStoreResultSet} objects.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2138,7 +2146,7 @@ declare namespace distributedData {
      * Obtains the {@code KvStoreResultSet} object matching the specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { KvStoreResultSet } Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+     * @returns { Promise<KvStoreResultSet> } Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2165,7 +2173,7 @@ declare namespace distributedData {
      *
      * @param { string } deviceId - Indicates the ID of the device to which the {@code KvStoreResultSet} object belongs.
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { KvStoreResultSet } Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
+     * @returns { Promise<KvStoreResultSet> } Returns the {@code KvStoreResultSet} object matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2189,6 +2197,7 @@ declare namespace distributedData {
      * Closes a {@code KvStoreResultSet} object returned by getResultSet.
      *
      * @param { KvStoreResultSet } resultSet - Indicates the {@code KvStoreResultSet} object to close.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2213,7 +2222,7 @@ declare namespace distributedData {
      * Obtains the number of results matching the specified {@code Query} object.
      *
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { number } Returns the number of results matching the specified {@code Query} object.
+     * @returns { Promise<number> } Returns the number of results matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2240,7 +2249,7 @@ declare namespace distributedData {
      *
      * @param { string } deviceId - Indicates the ID of the device to which the results belong.
      * @param { Query } query - Indicates the {@code Query} object.
-     * @returns { number } Returns the number of results matching the specified {@code Query} object.
+     * @returns { Promise<number> } Returns the number of results matching the specified {@code Query} object.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
