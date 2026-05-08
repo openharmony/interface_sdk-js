@@ -18627,6 +18627,18 @@ declare interface StateStyles {
    * @since 11 dynamic
    */
   selected?: object;
+
+  /**
+   * Defines hovered state styles.
+   *
+   * @type { ?object }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  hovered?: object;
 }
 
 /**
@@ -23300,6 +23312,18 @@ declare interface AttributeModifier<T> {
    * @since 12 dynamic
    */
   applySelectedAttribute?(instance: T) : void;
+
+  /**
+   * Defines the function that updates the hovered attribute.
+   *
+   * @param { T } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  applyHoveredAttribute?(instance: T) : void;
 }
 
 /**
