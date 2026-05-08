@@ -55,9 +55,6 @@ declare namespace util {
    * @param { Object[] } args - Data used to replace the placeholders in **format**. If **null** is passed in, the first
    *     argument is returned by default.
    * @returns { string } Formatted string.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -82,9 +79,6 @@ declare namespace util {
    *
    * @param { number } errno - Error code generated.
    * @returns { string } Detailed information about the error code.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -114,9 +108,6 @@ declare namespace util {
    *     the cause of the rejection
    *     (the value is **null** if the promise has been resolved) and the second parameter **value** indicates the
    *     resolved value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -133,9 +124,6 @@ declare namespace util {
    *     resolved value.
    * @returns { function } Return a function that returns promises [since 9 - 11]
    * @returns { Function } Promise function. [since 10]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -167,7 +155,6 @@ declare namespace util {
    * @param { boolean } [entropyCache] - Whether to use a cached UUID. The value **true** means to use a cached UUID,
    *     and **false** means the opposite. The default value is **true**.
    * @returns { string } A string representing the UUID generated.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -182,7 +169,6 @@ declare namespace util {
    * @param { boolean } [entropyCache] - Whether to use a cached UUID. The value **true** means to use a cached UUID,
    *     and **false** means the opposite. The default value is **true**.
    * @returns { Uint8Array } A Uint8Array value representing the UUID generated.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -197,7 +183,6 @@ declare namespace util {
    * @param { string } uuid - A string representing the UUID.
    * @returns { Uint8Array } A Uint8Array value representing the UUID parsed. If the parsing fails, **SyntaxError** is
    *     thrown.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 10200002 - Invalid uuid string. [since 12]
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -214,9 +199,6 @@ declare namespace util {
    *
    * @param { object } [object] - Object whose hash value is to be obtained.
    * @returns { number } Hash value.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -377,7 +359,6 @@ declare namespace util {
      * @param { TextDecoderOptions } [options] - Decoding-related options, which include **fatal** and **ignoreBOM**.
      *     [since 11]
      * @returns { TextDecoder } **TextDecoder** object created.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -405,9 +386,6 @@ declare namespace util {
      * @param { object } options - Decoding-related options. [since 9 - 10]
      * @param { DecodeWithStreamOptions } [options] - Decoding-related options. [since 11]
      * @returns { string } String obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -422,9 +400,6 @@ declare namespace util {
      * @param { Uint8Array } input - Uint8Array object to decode.
      * @param { DecodeToStringOptions } [options] - Decoding-related options. The default value is **undefined**.
      * @returns { string } String obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -501,7 +476,6 @@ declare namespace util {
      * A constructor used to create a **TextEncoder** object.
      *
      * @param { string } [encoding] - Encoding format. The default format is **'utf-8'**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -514,7 +488,6 @@ declare namespace util {
      *
      * @param { string } [encoding] - Encoding format. The default format is **'utf-8'**.
      * @returns { TextEncoder } **TextEncoder** object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -540,7 +513,6 @@ declare namespace util {
      * @param { string } [input] - String to encode. The default value is an empty string. If the input parameter is an
      *     empty string, the return value is undefined.
      * @returns { Uint8Array } Uint8Array object obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -572,9 +544,6 @@ declare namespace util {
      *     represents the number of bytes occupied by the encoded characters. [since 9 - 10]
      * @returns { EncodeIntoUint8ArrayInfo } Object obtained. **read** indicates the number of encoded characters, and
      *     **written** indicates the number of bytes in the encoded characters. [since 11]
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -629,9 +598,6 @@ declare namespace util {
      * @param { number } denominator - Denominator, which is an integer. Value range: -Number.MAX_VALUE <= denominator <
      *     = Number.MAX_VALUE.
      * @returns { RationalNumber } **RationalNumber** object obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -650,7 +616,6 @@ declare namespace util {
      *
      * @param { string } rationalString - String used to create the **RationalNumber** object.
      * @returns { RationalNumber } Returns a RationalNumber object generated based on the given string.
-     * @throws { BusinessError } 401 - The type of rationalString must be string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -675,9 +640,6 @@ declare namespace util {
      *
      * @param { RationalNumber } another - An object of other rational numbers
      * @returns { number } Returns 0 or 1, or -1, depending on the comparison.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -735,9 +697,6 @@ declare namespace util {
      * @param { number } number2 - The second integer used to get the greatest common divisor. Value range: -
      *     Number.MAX_VALUE <= number2 <= Number.MAX_VALUE.
      * @returns { number } Greatest common divisor obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1098,8 +1057,7 @@ declare namespace util {
      * A constructor used to create a **LRUCache** instance. The default capacity of the cache is 64.
      *
      * @param { number } [capacity] - Capacity of the cache to create. The default value is **64**, and the maximum
-     *     value is **2147483647**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types. [since 12]
+     *     value is **2147483647**. [since 12]
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1113,7 +1071,6 @@ declare namespace util {
      * performed.
      *
      * @param { number } newCapacity - New capacity of the cache. The maximum value is **2147483647**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1239,9 +1196,6 @@ declare namespace util {
      * @param { K } key - Key based on which the value is queried.
      * @returns { V | undefined } Value of the key. If no match is found, the value specified in **createDefault** is
      *     returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1256,9 +1210,6 @@ declare namespace util {
      * @param { K } key - Key of the key-value pair to add.
      * @param { V } value - Value of the key-value pair to add.
      * @returns { V } Value of the key-value pair added. If the key or value is empty, an exception is thrown.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1296,9 +1247,6 @@ declare namespace util {
      * @returns { V | undefined } Returns an **Optional** object containing the removed key-value pair if the key exists
      *     in the cache; returns **undefined** if the key does not exist; throws an error if **null** is passed in for
      *     **key**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1325,9 +1273,6 @@ declare namespace util {
      * @param { V } value - Value removed.
      * @param { V } newValue - New value for the key if the **put()** method is called and the key to be added already
      *     exists. In other cases, this parameter is left blank.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1341,9 +1286,6 @@ declare namespace util {
      * @param { K } key - Key to check.
      * @returns { boolean } Check result. The value **true** is returned if the cache contains the specified key;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1357,9 +1299,6 @@ declare namespace util {
      *
      * @param { K } key - Key.
      * @returns { V } Value of the key.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1599,9 +1538,6 @@ declare namespace util {
      *
      * @param { ScopeType } lowerObj - Lower limit of the **Scope** object.
      * @param { ScopeType } upperObj - Upper limit of the **Scope** object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1626,9 +1562,6 @@ declare namespace util {
      *
      * @param { ScopeHelper } range - **Scope** specified.
      * @returns { ScopeHelper } Intersection of this **Scope** and the given **Scope**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1643,9 +1576,6 @@ declare namespace util {
      * @param { ScopeType } lowerObj - Lower limit.
      * @param { ScopeType } upperObj - Upper limit.
      * @returns { ScopeHelper } Intersection of this **Scope** and the given lower and upper limits.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1681,9 +1611,6 @@ declare namespace util {
      * @param { ScopeType } lowerObj - Lower limit.
      * @param { ScopeType } upperObj - Upper limit.
      * @returns { ScopeHelper } Union set of this **Scope** and the given lower and upper limits.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -1695,9 +1622,6 @@ declare namespace util {
      *
      * @param { ScopeHelper } range - **Scope** specified.
      * @returns { ScopeHelper } Union set of this **Scope** and the given **Scope**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1710,9 +1634,6 @@ declare namespace util {
      *
      * @param { ScopeType } value - Value specified.
      * @returns { ScopeHelper } Union set of this **Scope** and the given value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1726,9 +1647,6 @@ declare namespace util {
      * @param { ScopeType } value - Value specified.
      * @returns { boolean } Check result. The value **true** is returned if the value is within this **Scope**;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1742,9 +1660,6 @@ declare namespace util {
      * @param { ScopeHelper } range - **Scope** specified.
      * @returns { boolean } Check result. The value **true** is returned if the range is within this **Scope**;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1759,9 +1674,6 @@ declare namespace util {
      * @returns { ScopeType } Returns **lowerObj** if the specified value is less than the lower limit; returns
      *     **upperObj** if the specified value is greater than the upper limit; returns the specified value if it is
      *     within this **Scope**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1949,9 +1861,6 @@ declare namespace util {
      * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
      *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
      * @returns { Uint8Array } Uint8Array object obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1982,9 +1891,6 @@ declare namespace util {
      *     URL encoding. Each line in the return value contains a maximum of 76 characters and ends with '\r\n'.
      *     [since 12]
      * @returns { string } String obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -2002,9 +1908,6 @@ declare namespace util {
      *     - **util.Type.MIME_URL_SAFE**: Base64 URL decoding. The input parameter **src** contains carriage return
      *     characters and newline characters. [since 10]
      * @returns { Uint8Array } Uint8Array object obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -2019,9 +1922,6 @@ declare namespace util {
      * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
      *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
      * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -2040,9 +1940,6 @@ declare namespace util {
      *     not contain carriage return characters or newline characters.<br>- **util.Type.MIME_URL_SAFE**: Base64URL
      *     encoding. Each line in the return value contains a maximum of 76 characters and ends with '\r\n'. [since 10]
      * @returns { Promise<string> } Promise used to return the string obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -2060,9 +1957,6 @@ declare namespace util {
      *     - **util.Type.MIME_URL_SAFE**: Base64 URL decoding. The input parameter **src** contains carriage return
      *     characters and newline characters. [since 10]
      * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -2607,9 +2501,6 @@ declare namespace util {
      *     **true** or the instance object of the method if **isStatic** is **false**; other parameters are the
      *     parameters carried in the original method. If the function does not carry any parameter, no processing is
      *     performed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice [since 12]
@@ -2630,9 +2521,6 @@ declare namespace util {
      *     return value of the original method (**undefined** if the original method does not have a return value);
      *     other parameters are the parameters carried by the original method. If the function does not carry any
      *     parameter, no processing is performed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice [since 12]
@@ -2652,9 +2540,6 @@ declare namespace util {
      *     **isStatic** is **true** or the instance object of the method if **isStatic** is **false**; other parameters
      *     are the parameters carried in the original method. If the function does not carry any parameter, no
      *     processing is performed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice [since 12]
@@ -2676,9 +2561,6 @@ declare namespace util {
      * Constructor used to create a **StringDecoder** instance.
      *
      * @param { string } [encoding] - Encoding type of the input data. The default value is **utf-8**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -2693,9 +2575,6 @@ declare namespace util {
      *     If the input is of the Uint8Array type, decoding is performed normally. If the input is of the string type,
      *     the parameter is directly returned.
      * @returns { string } String decoded.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -2707,9 +2586,6 @@ declare namespace util {
      *
      * @param { string | Uint8Array } [chunk] - String to decode. The default value is **undefined**.
      * @returns { string } String decoded.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
