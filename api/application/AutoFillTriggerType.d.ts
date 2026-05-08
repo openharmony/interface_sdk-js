@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,9 +22,9 @@
  * This module specifies how the autofill service is triggered, based on different user gestures.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
  * @stagemodelonly
- * @since 23 dynamic&static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export enum AutoFillTriggerType {
     /**
@@ -32,9 +32,9 @@ export enum AutoFillTriggerType {
      * component gains focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     AUTO_REQUEST = 0,
 
@@ -43,9 +43,9 @@ export enum AutoFillTriggerType {
      * selecting autofill.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     MANUAL_REQUEST = 1,
 
@@ -54,9 +54,9 @@ export enum AutoFillTriggerType {
      * secure copy, long-pressing any input component to bring up a secondary menu, and selecting paste.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     PASTE_REQUEST = 2,
 }
