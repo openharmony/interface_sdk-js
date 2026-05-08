@@ -1281,6 +1281,7 @@ declare namespace hidebug {
    * @enum { number }
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
+   * @since 26.0.0 static
    */
   enum JsRawHeapTrimLevel {
     /**
@@ -1288,6 +1289,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
+     * @since 26.0.0 static
      */
     TRIM_LEVEL_1 = 0,
     /**
@@ -1300,6 +1302,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
+     * @since 26.0.0 static
      */
     TRIM_LEVEL_2 = 1,
   }
@@ -1309,6 +1312,7 @@ declare namespace hidebug {
    * @param { JsRawHeapTrimLevel } level - The trimming level of raw heap snapshot.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
+   * @since 26.0.0 static
    */
   function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
 
