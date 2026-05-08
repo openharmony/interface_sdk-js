@@ -2238,8 +2238,6 @@ declare namespace distributedData {
      * @param { AsyncCallback<Entry[]> } callback - Callback used to return the KV pairs that match the specified device ID and
      *     **Query** object.
      * @returns { Entry[] } Returns the list of key-value pairs matching the specified {@code Query} object.
-     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
-     *     {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2263,8 +2261,6 @@ declare namespace distributedData {
      * @param { Query } query - **Query** object to match.
      * @returns { Promise<Entry[]> } Promise used to return the KV pairs that match the specified device ID and **Query**
      *     object.
-     * @throws Throws this exception if any of the following errors occurs: {@code INVALID_ARGUMENT},
-     *     {@code SERVER_UNAVAILABLE}, {@code IPC_ERROR}, {@code DB_ERROR}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
