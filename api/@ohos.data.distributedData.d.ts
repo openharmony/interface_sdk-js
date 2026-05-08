@@ -2550,7 +2550,6 @@ declare namespace distributedData {
      * unRegister DeviceChangeCallback and can not receive notification
      *
      * @param deathCallback device change callback {@code DeviceChangeCallback} which has been registered.
-     * @throws exception maybe occurs.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @since 8 dynamiconly
      * @deprecated since 9
