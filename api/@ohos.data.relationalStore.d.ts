@@ -535,9 +535,9 @@ declare namespace relationalStore {
     isReadOnly?: boolean;
 
     /**
-     * Loads custom dynamic libraries. Multiple dynamic library names can be passed in the array. For details, see 
-     * [Constraints and Examples of pluginLibs](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#constraints-and-examples-of-pluginlibs)
-     * .
+     * Loads custom dynamic libraries. Multiple dynamic library names can be passed in the array. For details, see
+     * [Constraints and Examples of pluginLibs]
+     * (docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#constraints-and-examples-of-pluginlibs).
      * 
      * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
@@ -582,10 +582,9 @@ declare namespace relationalStore {
      * If this parameter is left blank, English tokenization is supported if FTS does not support Chinese or multi-
      * language tokenization.
      * 
-     * If you want to use a custom tokenizer, you can configure it through the **pluginLibs** parameter. For details, 
-     * see 
-     * [Restrictions and Examples of pluginLibs](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#constraints-and-examples-of-pluginlibs)
-     * .
+     * If you want to use a custom tokenizer, you can configure it through the **pluginLibs** parameter. For details,
+     * see [Restrictions and Examples of pluginLibs]
+     * (docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#constraints-and-examples-of-pluginlibs).
      * 
      * SystemCapability.DistributedDataManager.RelationalStore.Core
      *
@@ -1181,9 +1180,9 @@ declare namespace relationalStore {
    */
   interface SqlExecutionInfo {
     /**
-     * SQL statements executed. If the value of 
-     * [batchInsert]{@link @ohos.data.relationalStore:relationalStore.RdbStore.batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<long>)}
-     * is too large, multiple SQL statements may be executed.
+     * SQL statements executed. If the value of [batchInsert]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.batchInsert(table: string)} is too large, multiple
+     * SQL statements may be executed.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform [since 20]
@@ -1305,15 +1304,14 @@ declare namespace relationalStore {
   }
 
   /**
-   * Enumerates the KV store security levels. Use the enum name rather than the enum value. You cannot change the 
+   * Enumerates the KV store security levels. Use the enum name rather than the enum value. You cannot change the
    * security level of an RDB store from a higher level to a lower one.
    * 
    * > **NOTE**
    * >
-   * > To perform data sync operations, the RDB store security level must be lower than or equal to that of the peer 
-   * > device. For details, see 
-   * > [Access Control Mechanism in Cross-Device Sync](docroot://database/sync-app-data-across-devices-overview.md#access-control-mechanism-in-cross-device-sync)
-   * > .
+   * > To perform data sync operations, the RDB store security level must be lower than or equal to that of the peer
+   * > device. For details, see [Access Control Mechanism in Cross-Device Sync]
+   * > (docroot://database/sync-app-data-across-devices-overview.md#access-control-mechanism-in-cross-device-sync).
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -1709,10 +1707,10 @@ declare namespace relationalStore {
    */
   interface DistributedConfig {
     /**
-     * Whether the table supports automatic device-cloud synchronization. If the value is **true**, the system can 
-     * automatically trigger device-cloud sync. If the value is **false**, the system cannot automatically trigger 
-     * device-cloud sync, and the 
-     * [cloudSync]{@link @ohos.data.relationalStore:relationalStore.RdbStore.cloudSync(mode: SyncMode, tables: string[], progress: Callback<ProgressDetails>)}
+     * Whether the table supports automatic device-cloud synchronization. If the value is **true**, the system can
+     * automatically trigger device-cloud sync. If the value is **false**, the system cannot automatically trigger
+     * device-cloud sync, and the [cloudSync]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.cloudSync(mode: SyncMode, tables: string[])}
      * API needs to be called to trigger device-cloud sync.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -2623,17 +2621,16 @@ declare namespace relationalStore {
      */
     constructor(name: string);
 
-    /**
-     * Creates an **RdbPredicates** object to specify the remote devices to connect on the network during distributed 
-     * database sync.
-     * 
-     * > **NOTE**
-     * >
-     * > **devices** can be obtained by using 
-     * > [deviceManager.getAvailableDeviceListSync]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
-     * > .
-     * > When calling **sync()**, you need to call **inDevices** to specify the devices. If **inDevices** is not used, 
-     * > data will be synced to all devices on the network by default.
+/**
+      * Creates an **RdbPredicates** object to specify the remote devices to connect on the network during distributed
+      * database sync.
+      * 
+      * > **NOTE**
+      * >
+      * > **devices** can be obtained by using [deviceManager.getAvailableDeviceListSync]
+      * > {@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}.
+      * > When calling **sync()**, you need to call **inDevices** to specify the devices. If **inDevices** is not used,
+      * > data will be synced to all devices on the network by default.
      *
      * @param { Array<string> } devices - IDs of the remote devices to connect.
      * @returns { RdbPredicates } **RdbPredicates** object created.
@@ -3162,18 +3159,19 @@ declare namespace relationalStore {
 
 
   /**
-   * Provides APIs to access the result set obtained by querying the RDB store. This result set is the collection of 
+   * Provides APIs to access the result set obtained by querying the RDB store. This result set is the collection of
    * results returned with the **query()** method called.
    * 
-   * The **ResultSet** instance is not refreshed in real time. After using the result set, if the data in the database 
-   * is changed (by being added, deleted, or modified), you need to query the result set again to obtain the latest 
+   * The **ResultSet** instance is not refreshed in real time. After using the result set, if the data in the database
+   * is changed (by being added, deleted, or modified), you need to query the result set again to obtain the latest
    * data.
    * 
-   * For the following APIs, you should use either 
-   * [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>)}
-   * , [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount}, 
-   * [remoteQuery]{@link @ohos.data.relationalStore:relationalStore.RdbStore.remoteQuery(device: string, table: string, predicates: RdbPredicates, columns: Array<string>)}
-   * , or [queryLockedRow]{@link @ohos.data.relationalStore:relationalStore.RdbStore.queryLockedRow} to obtain the 
+   * For the following APIs, you should use either [query]
+   * {@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)},
+   * [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount},
+   * [remoteQuery]
+   * {@link @ohos.data.relationalStore:relationalStore.RdbStore.remoteQuery(device: string, table: string)}
+   * , or [queryLockedRow]{@link @ohos.data.relationalStore:relationalStore.RdbStore.queryLockedRow} to obtain the
    * **ResultSet** instance first, and then use this instance to call the corresponding method.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -3708,21 +3706,21 @@ declare namespace relationalStore {
     getString(columnIndex: int): string;
 
     /**
-     * Obtains the value from the specified column in the current row, and returns a value of Long type.
-     * 
-     * If the type of the value in the specified column is INTEGER, DOUBLE, TEXT, or BLOB, a value of Long type will be 
-     * returned. If the column is null/empty, **0** will be returned. If the value is of any other type, 14800000 will 
-     * be returned. If the data type in the specified column is INTEGER and the value is greater than 
-     * **Number.MAX_SAFE_INTEGER** or less than **Number.MIN_SAFE_INTEGER**, you are advised to use the 
-     * [getString]{@link relationalStore.ResultSet.getString} API to obtain the value without losing precision. If the 
-     * data type in the specified column is DOUBLE, you are advised to use the 
-     * [getDouble]{@link relationalStore.ResultSet.getDouble} API to obtain the value without losing precision.
-     *
-     * @param { int } columnIndex - Index of the target column, starting from 0.
-     * @returns { long } Value obtained.
-     *     <br>The value range supported by this API is **Number.MIN_SAFE_INTEGER** to **Number.MAX_SAFE_INTEGER**. If the
-     *     value is out of this range, use [getDouble]{@link relationalStore.ResultSet.getDouble} for DOUBLE values and
-     *     [getString]{@link relationalStore.ResultSet.getString} for INTEGER values.
+      * Obtains the value from the specified column in the current row, and returns a value of Long type.
+      * 
+      * If the type of the value in the specified column is INTEGER, DOUBLE, TEXT, or BLOB, a value of Long type will be
+      * returned. If the column is null/empty, **0** will be returned. If the value is of any other type, 14800000 will
+      * be returned. If the data type in the specified column is INTEGER and the value is greater than
+      * **Number.MAX_SAFE_INTEGER** or less than **Number.MIN_SAFE_INTEGER**, you are advised to use the
+      * [getString]{@link relationalStore.ResultSet.getString} API to obtain the value without losing precision. If the
+      * data type in the specified column is DOUBLE, you are advised to use the
+      * [getDouble]{@link relationalStore.ResultSet.getDouble} API to obtain the value without losing precision.
+      *
+      * @param { int } columnIndex - Index of the target column, starting from 0.
+      * @returns { long } Value obtained.
+      *     <br>The value range supported by this API is **Number.MIN_SAFE_INTEGER** to **Number.MAX_SAFE_INTEGER**. If
+      *     the value is out of this range, use [getDouble]{@link relationalStore.ResultSet.getDouble} for DOUBLE values
+      *     and [getString]{@link relationalStore.ResultSet.getString} for INTEGER values.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4336,26 +4334,23 @@ declare namespace relationalStore {
      */
     getString(columnIndex: int): string;
 
-    /**
-     * Obtains the value in the specified column in the current row as a Long.
-     * 
-     * If the data type of the current column is INTEGER, DOUBLE, or TEXT, the value is converted to the Long type and 
-     * returned. Non-numeric TEXT and BLOB types return **0**. If the column is null/empty, **0** is returned.
-     * 
-     * If the data type of the current column is INTEGER and the value is greater than **Number.MAX_SAFE_INTEGER** or 
-     * less than **Number.MIN_SAFE_INTEGER**, you are advised to use the 
-     * [getString]{@link relationalStore.LiteResultSet.getString} API to obtain the value without precision loss.
-     * 
-     * If the data type of the current column is DOUBLE, you are advised to use the 
-     * [getDouble]{@link relationalStore.LiteResultSet.getDouble} API to obtain the value without precision loss.
-     * 
-     * If the data type of the current column is ASSET, ASSETS, FLOATVECTOR, or BIGINT, 14800041 is returned.
-     *
-     * @param { int } columnIndex - Index of the target column, starting from 0.
-     * @returns { long } Value obtained.
-     *     <br>The value range supported by this API is **Number.MIN_SAFE_INTEGER** to **Number.MAX_SAFE_INTEGER**. If the
-     *     value is out of this range, use [getDouble]{@link relationalStore.LiteResultSet.getDouble} for DOUBLE values
-     *     and [getString]{@link relationalStore.LiteResultSet.getString} for INTEGER values.
+/**
+      * Obtains the value from the specified column in the current row, and returns a value of Long type.
+      * 
+      * If the data type of the current column is INTEGER, DOUBLE, TEXT, or BLOB, a value of Long type is returned. If
+      * the column is null, **0** is returned. If the data type is INTEGER and the value is greater than
+      * **Number.MAX_SAFE_INTEGER** or less than **Number.MIN_SAFE_INTEGER**, you are advised to use the
+      * [getString]{@link relationalStore.LiteResultSet.getString} API to obtain the value without losing precision. If
+      * the data type in the specified column is DOUBLE, you are advised to use the
+      * [getDouble]{@link relationalStore.LiteResultSet.getDouble} API to obtain the value without precision loss.
+      * 
+      * If the data type of the current column is ASSET, ASSETS, FLOATVECTOR, or BIGINT, 14800041 is returned.
+      *
+      * @param { int } columnIndex - Index of the target column, starting from 0.
+      * @returns { long } Value obtained.
+      *     <br>The value range supported by this API is **Number.MIN_SAFE_INTEGER** to **Number.MAX_SAFE_INTEGER**. If
+      *     the value is out of this range, use [getDouble]{@link relationalStore.LiteResultSet.getDouble} for DOUBLE
+      *     values and [getString]{@link relationalStore.LiteResultSet.getString} for INTEGER values.
      * @throws { BusinessError } 14800012 - ResultSet is empty or pointer index is out of bounds.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -6847,7 +6842,8 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path. [since 12]
+     * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
+     *     [since 12]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
@@ -8307,13 +8303,12 @@ declare namespace relationalStore {
     rollback(): Promise<void>;
 
     /**
-     * Inserts a row of data into a table. This API uses a promise to return the result. Due to the limit of the shared 
+     * Inserts a row of data into a table. This API uses a promise to return the result. Due to the limit of the shared
      * memory, the size of a single data record cannot exceed 2 MB. Otherwise, data cannot be obtained using the **get**
-     * methods such as [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and 
+     * methods such as [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
      * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
-     * through the 
-     * [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>)}
-     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of 
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
      * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
      * 
      * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
@@ -8350,13 +8345,12 @@ declare namespace relationalStore {
     insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise<long>;
 
     /**
-     * Inserts a row of data into a table. This API returns the result synchronously. Due to the limit of the shared 
+     * Inserts a row of data into a table. This API returns the result synchronously. Due to the limit of the shared
      * memory, the size of a single data record cannot exceed 2 MB. Otherwise, data cannot be obtained using the **get**
-     * methods such as [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and 
+     * methods such as [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
      * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
-     * through the 
-     * [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>)}
-     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of 
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
      * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
      * 
      * A single string field supports a maximum of 8 MB data. If the data exceeds 8 MB, only the first 8 MB data is 
@@ -8389,7 +8383,8 @@ declare namespace relationalStore {
      * @crossplatform
      * @since 14 dynamiconly
      */
-    insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number;
+    insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket,
+      conflict?: ConflictResolution): number;
 
     /**
      * Inserts a row of data into the target table with sync interface, just use in TaskPool or Worker.
@@ -8548,7 +8543,8 @@ declare namespace relationalStore {
      * @since 18 dynamic
      * @since 23 static
      */
-    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>, conflict: ConflictResolution): long;
+    batchInsertWithConflictResolutionSync(table: string, values: Array<ValuesBucket>,
+      conflict: ConflictResolution): long;
 
     /**
      * Inserts data into a table with conflict resolutions in batches. You can use the **conflict** parameter to specify
@@ -8705,14 +8701,13 @@ declare namespace relationalStore {
       conflict?: ConflictResolution): Result;
 
     /**
-     * Updates data based on the specified **RdbPredicates** object. This API uses a promise to return the result. Due 
+     * Updates data based on the specified **RdbPredicates** object. This API uses a promise to return the result. Due
      * to the limit of the shared memory, the size of a single data record cannot exceed 2 MB. Otherwise, data cannot be
-     * obtained using the **get** methods such as 
-     * [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and 
+     * obtained using the **get** methods such as
+     * [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
      * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
-     * through the 
-     * [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>)}
-     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of 
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
      * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
      *
      * @param { ValuesBucket } values - Rows of data to update in the RDB store. The key-value pair is associated with
@@ -8746,14 +8741,13 @@ declare namespace relationalStore {
     update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): Promise<long>;
 
     /**
-     * Updates data in the RDB store based on the specified **RdbPredicates** object. This API returns the result 
-     * synchronously. Due to the limit of the shared memory, the size of a single data record cannot exceed 2 MB. 
-     * Otherwise, data cannot be obtained using the **get** methods such as 
-     * [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and 
+     * Updates data in the RDB store based on the specified **RdbPredicates** object. This API returns the result
+     * synchronously. Due to the limit of the shared memory, the size of a single data record cannot exceed 2 MB.
+     * Otherwise, data cannot be obtained using the **get** methods such as
+     * [getValue]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getValue} and
      * [getString]{@link @ohos.data.relationalStore:relationalStore.ResultSet.getString} after **ResultSet** is obtained
-     * through the 
-     * [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates, callback: AsyncCallback<ResultSet>)}
-     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of 
+     * through the [query]{@link @ohos.data.relationalStore:relationalStore.RdbStore.query(predicates: RdbPredicates)}
+     * or [querySql]{@link @ohos.data.relationalStore:relationalStore.RdbStore.querySqlWithoutRowCount} API of
      * **RdbStore**. As a result, the operation may fail or an exception may be thrown.
      *
      * @param { ValuesBucket } values - Rows of data to update in the RDB store. The key-value pair is associated with
@@ -9160,19 +9154,16 @@ declare namespace relationalStore {
      */
     querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet;
 
-    /**
-     * Executes an SQL statement that contains specified arguments. The number of relational operators between 
-     * expressions and operators in the statement cannot exceed 1,000. This API uses a promise to return a value of the 
-     * **ValueType** type.
+/**
+     * Executes an SQL statement that contains parameters but does not return data. This API returns the result
+     * synchronously. The SQL statement can be used to create, delete, query, and modify a table. The type of the return
+     * value varies, depending on the execution result.
      * 
-     * This API can be used to add, delete, and modify data, run SQL statements of the PRAGMA syntax, and create, delete
-     * , and modify a table. The type of the return value varies, depending on the execution result.
-     * 
-     * This API does not support query, database attachment, and transaction operations. You can use 
-     * [querySql]{@link relationalStore.Transaction.querySql} or [query]{@link relationalStore.Transaction.query} to 
-     * query data, and use 
-     * [attach]{@link @ohos.data.relationalStore:relationalStore.RdbStore.attach(fullPath: string, attachName: string, waitTime?: int)}
-     * to attach a database.
+     * This API does not support query, database attachment, and transaction operations. You can use
+     * [querySql]{@link relationalStore.Transaction.querySql} or [query]{@link relationalStore.Transaction.query} to
+     * query data, and use [attach]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.attach(fullPath: string, attachName: string)} to
+     * attach a database.
      * 
      * Statements separated by semicolons (\;) are not supported.
      * 
@@ -9212,18 +9203,18 @@ declare namespace relationalStore {
     execute(sql: string, args?: Array<ValueType>): Promise<ValueType>;
 
     /**
-     * Executes an SQL statement that contains specified arguments. The number of relational operators between 
-     * expressions and operators in the statement cannot exceed 1,000. This API returns a value of the **ValueType** 
+     * Executes an SQL statement that contains specified arguments. The number of relational operators between
+     * expressions and operators in the statement cannot exceed 1,000. This API returns a value of the **ValueType**
      * type.
      * 
-     * This API can be used to add, delete, and modify data, run SQL statements of the PRAGMA syntax, and create, delete
-     * , and modify a table. The type of the return value varies, depending on the execution result.
+     * This API can be used to add, delete, and modify data, run SQL statements of the PRAGMA syntax, and create,
+     * delete, and modify a table. The type of the return value varies, depending on the execution result.
      * 
-     * This API does not support query, database attachment, and transaction operations. You can use 
-     * [querySql]{@link relationalStore.Transaction.querySql} or [query]{@link relationalStore.Transaction.query} to 
-     * query data, and use 
-     * [attach]{@link @ohos.data.relationalStore:relationalStore.RdbStore.attach(fullPath: string, attachName: string, waitTime?: int)}
-     * to attach a database.
+     * This API does not support query, database attachment, and transaction operations. You can use
+     * [querySql]{@link relationalStore.Transaction.querySql} or [query]{@link relationalStore.Transaction.query} to
+     * query data, and use [attach]
+     * {@link @ohos.data.relationalStore:relationalStore.RdbStore.attach(fullPath: string, attachName: string)} to
+     * attach a database.
      * 
      * Statements separated by semicolons (\;) are not supported.
      * 
@@ -9382,14 +9373,13 @@ declare namespace relationalStore {
    */
   function getRdbStoreSync(context: Context, config: StoreConfig): RdbStore;
 
-  /**
-   * Deletes an RDB store. This API uses an asynchronous callback to return the result.
+/**
+   * Deletes the RDB store with the specified database file name. This API uses a promise to return the result.
    * 
-   * After the deletion, you are advised to set the database object to null. If a custom path is set in 
-   * [StoreConfig]{@link @ohos.data.relationalStore:relationalStore.StoreConfig} when an RDB store is created, using 
-   * this API cannot delete the RDB store. Use 
-   * [deleteRdbStore]{@link relationalStore.deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>)}
-   * instead.
+   * If **vector** is set to **true** in [StoreConfig]
+   * {@link @ohos.data.relationalStore:relationalStore.StoreConfig} when an RDB store is created, using this API cannot
+   * delete the RDB store. Use [deleteRdbStore]
+   * {@link relationalStore.deleteRdbStore(context: Context, config: StoreConfig)} instead.
    * 
    * Before calling **deleteRdbStore**, ensure that the **RdbStore** and **ResultSet** of the vector store have been 
    * closed.
