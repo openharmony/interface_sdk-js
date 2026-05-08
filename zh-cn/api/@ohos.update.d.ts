@@ -1508,7 +1508,7 @@ declare namespace update {
     errorCode: int;
 
     /**
-     * 错误信息。
+     * 错误描述。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2311,7 +2311,7 @@ declare namespace update {
     EVENT_APPLY_WAIT = 0x0100000d,
 
     /**
-     * 生效中。
+     * 开始生效。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2321,7 +2321,7 @@ declare namespace update {
     EVENT_APPLY_START = 0x0100000e,
 
     /**
-     * 升级成功。
+     * 更新成功。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -2331,7 +2331,7 @@ declare namespace update {
     EVENT_UPGRADE_SUCCESS = 0x0100000f,
 
     /**
-     * 升级失败。
+     * 更新失败。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
