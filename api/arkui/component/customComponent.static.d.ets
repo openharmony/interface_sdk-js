@@ -120,6 +120,42 @@ export @interface Entry {
 }
 
 /**
+ * Enum for reuse pool ownership
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ReusePoolOwnership {
+  /**
+   * Shared ownership.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  SHARED = 'shared',
+  /**
+   * Reuse pool is owned per instance and not shared.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  PER_INSTANCE = 'perInstance',
+  /**
+   * Reuse pool is turned off.
+   * This is the default mode for custom component reuse pool.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  OFF = 'off',
+}
+
+/**
  * Defining Component Annotation
  *
  * Component is an Annotation to define a custom component using state management V1.
@@ -128,7 +164,26 @@ export @interface Entry {
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface Component {}
+export @interface Component {
+  /**
+   * then reuse type of a custom component. Default value is OFF.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
+
+  /**
+   * Collection of custom components to be reused.
+   *
+   * @type { string[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  poolAccepts: string[] = [];
+}
 
 /**
  * Defining ComponentV2 Annotation
@@ -139,7 +194,27 @@ export @interface Component {}
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface ComponentV2 {}
+export @interface ComponentV2 {
+  /**
+   * then reuse type of a custom component. Default value is OFF.
+   *
+   * @type { ReusePoolOwnership }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
+
+  /**
+   * Collection of custom components to be reused.
+   *
+   * @type { string[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  poolAccepts: string[] = [];
+}
 
 /**
  * Defining Reusable Annotation that is used to decorate @Component.
@@ -304,6 +379,18 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      * @since 23 static
      */
     aboutToReuse(params: ReuseObject): void;
+
+  /**
+   * ReInitialize @Consume variable.
+   *
+   * @param { string } alias - @Consume alias.
+   * @param { string } varName - variable name.
+   * @param { T } [defaultValue] - default value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  reInitializeConsume<T>(alias: string, varName: string, defaultValue?: T): void;
 }
 
 /**
