@@ -364,7 +364,7 @@ export interface EnabledPriorityNotificationCallbackData {
   /**
    * 所有通知的优先使能状态。
    * - true：允许设置为优先通知。
-   * - true：允许设置为优先通知。	
+   * - false：禁止设置为优先通知。	
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 23 dynamic&static
