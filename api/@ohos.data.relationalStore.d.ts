@@ -4130,7 +4130,7 @@ declare namespace relationalStore {
     close(): void;
   }
 
-
+  /**
    * Defines APIs to access the result set obtained by querying the RDB store. This result set is the collection of 
    * results returned with the **query()** method called.
    * 
