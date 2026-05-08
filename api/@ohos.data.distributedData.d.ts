@@ -2338,7 +2338,7 @@ declare namespace distributedData {
 
     /**
      * Unsubscribe the DeviceKVStore database based on the specified subscribeType and {@code KvStoreObserver}.
-     *
+     * @param { 'dataChange' } event - Event type. The value is **dataChange**, which indicates the data change event.
      * @param { Callback<ChangeNotification> } listener - Indicates the data change observer registered by {#subscribe(
      *     SubscribeType, KvStoreObserver)}.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
@@ -2350,8 +2350,8 @@ declare namespace distributedData {
 
     /**
      * UnRegister the DeviceKVStore database synchronization callback.
+     * @param { 'syncComplete' } event - Event type. The value is **syncComplete**, which indicates the synchronization complete event.
      * @param { Callback<Array<[string, number]>> } syncCallback - Indicates the callback used to send the synchronization result to caller.
-
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
