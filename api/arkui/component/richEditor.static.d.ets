@@ -2628,6 +2628,17 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default horizontalScrolling(enabled: boolean | undefined): this;
+    /**
+     * Whether to enable punctuation overflow at line ends.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default punctuationOverflow(enabled: boolean | undefined): this;
 }
 /**
  * the callback of cut event.
