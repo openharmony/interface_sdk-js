@@ -443,7 +443,8 @@ declare namespace relationalStore {
      * 
      * For a database with device-cloud synergy, this parameter can be used to set whether to automatically clear the 
      * data deleted from the cloud on the device. You can manually clear the data by calling 
-     * [cleanDirtyData<sup>11+</sup>]{@link @ohos.data.relationalStore:relationalStore.RdbStore.cleanDirtyData(table: string, cursor: long, callback: AsyncCallback<void>)}
+     * [cleanDirtyData<sup>11+</sup>]{@link @ohos.data.relationalStore:relationalStore.RdbStore.
+     *  cleanDirtyData(table: string,cursor: long, callback: AsyncCallback<void>)}
      * .
      * 
      * This parameter is supported since API version 11.
