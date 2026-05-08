@@ -1023,6 +1023,25 @@ declare namespace reminderAgentManager {
      * @since 23 static
      */
     triggerTimeInSeconds: long;
+
+    /**
+     * The repeat interval.
+     * <br> Unit:s
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    repeatInterval?: long;
+
+    /**
+     * The repeat count.
+     *
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    repeatCount?: int;
   }
 
   /**

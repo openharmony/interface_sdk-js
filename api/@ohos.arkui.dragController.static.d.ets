@@ -28,6 +28,7 @@ import type unifiedDataChannel from './@ohos.data.unifiedDataChannel';
  * This module allows developers to trigger a drag event.
  * @namespace dragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 declare namespace dragController {
@@ -38,6 +39,7 @@ declare namespace dragController {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     const enum DragStatus {
@@ -46,6 +48,7 @@ declare namespace dragController {
         /**
          * Drag has started.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         STARTED = 0,
@@ -54,6 +57,7 @@ declare namespace dragController {
         /**
          * Drag has ended.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         ENDED = 1
@@ -65,6 +69,7 @@ declare namespace dragController {
      *
      * @interface DragAndDropInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     interface DragAndDropInfo {
@@ -74,6 +79,7 @@ declare namespace dragController {
          * The drag status.
          * @type { DragStatus }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         status: DragStatus;
@@ -83,6 +89,7 @@ declare namespace dragController {
          * The information containing the drag event.
          * @type { DragEvent }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         event: DragEvent;
@@ -92,6 +99,7 @@ declare namespace dragController {
          * Additional information about the drag info.
          * @type { ?string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         extraParams?: string;
@@ -103,6 +111,7 @@ declare namespace dragController {
      *
      * @interface DragAction
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     interface DragAction {
@@ -113,6 +122,7 @@ declare namespace dragController {
          *     if it's failed for some errors, for example: execution environment broken or excess parameters passed in.
          * @throws { BusinessError } 100001 - Internal handling failed.
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         startDrag(): Promise<void> | null;
@@ -124,6 +134,7 @@ declare namespace dragController {
          *
          * @param { Callback<DragAndDropInfo> } callback with drag event and status information
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         onStatusChange(callback: Callback<DragAndDropInfo>): void;
@@ -135,6 +146,7 @@ declare namespace dragController {
          *
          * @param { Callback<DragAndDropInfo> } [callback] with drag event and status information
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         offStatusChange(callback?: Callback<DragAndDropInfo>): void;
@@ -146,6 +158,7 @@ declare namespace dragController {
      *
      * @interface DragInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     interface DragInfo {
@@ -155,6 +168,7 @@ declare namespace dragController {
          * A unique identifier to identify which touch point.
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         pointerId: int;
@@ -164,6 +178,7 @@ declare namespace dragController {
          * Drag data.
          * @type { ?unifiedDataChannel.UnifiedData }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         data?: unifiedDataChannel.UnifiedData;
@@ -173,6 +188,7 @@ declare namespace dragController {
          * Additional information about the drag info.
          * @type { ?string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         extraParams?: string;
@@ -182,6 +198,7 @@ declare namespace dragController {
          * Touch point coordinates.
          * @type { ?TouchPoint }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         touchPoint?: TouchPoint;
@@ -191,6 +208,7 @@ declare namespace dragController {
          * Drag preview options.
          * @type { ?DragPreviewOptions }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         previewOptions?: DragPreviewOptions;
@@ -227,6 +245,7 @@ declare namespace dragController {
      *
      * @interface AnimationOptions
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     interface AnimationOptions {
@@ -236,6 +255,7 @@ declare namespace dragController {
          * Animation duration, in ms.
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         duration?: int;
@@ -245,6 +265,7 @@ declare namespace dragController {
          * Animation curve.
          * @type { ?(Curve | ICurve) }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         curve?: Curve | ICurve;
@@ -254,6 +275,7 @@ declare namespace dragController {
     /**
      * Provides the functions of setting color or updating animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     export class DragPreview {
@@ -263,6 +285,7 @@ declare namespace dragController {
          * change foreground color of preview
          * @param { ResourceColor } color - color value
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         setForegroundColor(color: ResourceColor): void;
@@ -273,6 +296,7 @@ declare namespace dragController {
          * @param { AnimationOptions } options - animation options
          * @param { function } handler - change style functions
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         animate(options: AnimationOptions, handler: () => void): void;
@@ -283,6 +307,7 @@ declare namespace dragController {
      *
      * @interface DragEventParam
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     interface DragEventParam {
@@ -292,6 +317,7 @@ declare namespace dragController {
          * The information containing the drag event.
          * @type { DragEvent }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         event: DragEvent;
@@ -301,6 +327,7 @@ declare namespace dragController {
          * Additional information about the drag info.
          * @type { string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         extraParams: string;
@@ -310,6 +337,7 @@ declare namespace dragController {
      *
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     const enum DragStartRequestStatus {
@@ -318,6 +346,7 @@ declare namespace dragController {
          * the start of drag, only effective in onDragStart calls.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         WAITING = 0,
@@ -326,6 +355,7 @@ declare namespace dragController {
          * of drag, and will not take effect when the drag is started.
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
          * @since 23 static
          */
         READY = 1

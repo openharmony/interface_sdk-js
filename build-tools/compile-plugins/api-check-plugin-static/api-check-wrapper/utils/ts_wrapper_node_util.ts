@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -170,7 +170,6 @@ export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: a
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ETS_PRIMITIVE_TYPE, handleETSPrimitiveType],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_NEW_EXPRESSION, handleNewExpression],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_TS_PARAMETER_PROPERTY, handleTSParameterProperty],
-  [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ETS_WILDCARD_TYPE, handleETSWildcardType],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_TS_THIS_TYPE, handleTSThisType],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_ARRAY_EXPRESSION, handleArrayExpression],
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_SPREAD_ELEMENT, handleSpreadElement],
@@ -213,9 +212,9 @@ const validNodeTypePathList = [
 // 有效的节点校验路径列表(字符串版本)
 const ValidNodeTypePathStrList = convertToNumberStringArray(validNodeTypePathList);
 /**
- * 
+ *
  * 根节点处理
- * @param { arkts.AstNode } node 
+ * @param { arkts.AstNode } node
  */
 export function traverseProgram(node: arkts.AstNode): void {
   // 处理Identifier
@@ -535,7 +534,7 @@ export function handleContext(node: arkts.AstNode): void { }
 
 /**
  * target重复节点，不遍历
- * @param { arkts.AstNode } node 
+ * @param { arkts.AstNode } node
  */
 export function handleContinueStatement(node: arkts.AstNode): void {
   if (!!node.ident) {
@@ -723,12 +722,6 @@ export function handleETSUndefinedType(node: arkts.AstNode): void { }
 export function handleETSUnionType(node: arkts.AstNode): void {
   if (!!node.types) {
     node.types.forEach((item: arkts.AstNde) => handleAstNode(item));
-  }
-}
-
-export function handleETSWildcardType(node: arkts.AstNode): void {
-  if (!!node.typeReference) {
-    handleAstNode(node.typeReference);
   }
 }
 

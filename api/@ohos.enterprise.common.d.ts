@@ -81,7 +81,7 @@ declare namespace common {
      */
     export enum ManagedPolicy {
       /**
-       * Not managed the feature of the device
+       * No management policy applied to the device feature
        *
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
@@ -99,7 +99,7 @@ declare namespace common {
       DISALLOW = 1,
   
       /**
-       * Force open the feature of the device
+       * Forces the device feature to be enabled
        *
        * @syscap SystemCapability.Customization.EnterpriseDeviceManager
        * @stagemodelonly
@@ -198,6 +198,51 @@ declare namespace common {
        * @since 24
        */
       DEVICE_PROVISION = 2,
+    }
+
+    /**
+     * The policy event.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    export interface PolicyChangedEvent {
+      /**
+       * The bundle name of the application that sets the policy.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      bundleName : string;
+
+      /**
+       * The function name for setting policy.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      functionName : string;
+
+      /**
+       * The JSON string containing policy parameters.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      parameters: string;
+
+      /**
+       * The time when the function for setting policy.
+       *
+       * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+       * @stagemodelonly
+       * @since 26.0.0
+       */
+      time: number;
     }
 
     /**

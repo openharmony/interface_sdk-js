@@ -30,6 +30,7 @@ import { RecordData } from '../@ohos.base';
  * @param { FixedArray<RecordData> } params
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type Initializer<T> = (...params:FixedArray<RecordData>) => T;
@@ -39,6 +40,7 @@ export type Initializer<T> = (...params:FixedArray<RecordData>) => T;
  *
  * @implements AttributeModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -49,6 +51,7 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
    get attribute(): T | undefined;
@@ -58,6 +61,7 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
    initializeModifier(instance: T): void;
@@ -67,6 +71,7 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @type { Initializer<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
    get updateConstructorParams(): Initializer<T>;
@@ -76,6 +81,7 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
    *
    * @param { T } component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
    onComponentChanged(component: T): void;

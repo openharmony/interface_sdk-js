@@ -21,9 +21,11 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Provides methods to establish enhance link.
+ * The **linkEnhance** module delivers highly efficient Bluetooth connectivity and data transmission capabilities,
+ * significantly enhancing the cross-device connection stability. By employing a multi-channel merging algorithm, it not
+ * only increases the number of available cross-device connections but also strengthens cross-device data transmission
+ * capabilities, thereby improving the overall user experience.
  *
- * @namespace linkEnhance
  * @syscap SystemCapability.DistributedSched.AppCollaboration
  * @stagemodelonly
  * @since 20 dynamic
@@ -32,9 +34,8 @@ import { Callback } from './@ohos.base';
 declare namespace linkEnhance {
 
   /**
-   * Describes the result of connect operation.
+   * Represents the connection result, which is returned after the client calls **connect()**.
    *
-   * @typedef ConnectResult
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
@@ -42,9 +43,9 @@ declare namespace linkEnhance {
    */
   interface ConnectResult {
     /**
-     * Indicates the peer device id.
+     * ID of the peer device. If the connection is successful, the device ID of the peer device is returned. If the
+     * connection fails, an empty string is returned.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
      * @since 20 dynamic
@@ -53,9 +54,9 @@ declare namespace linkEnhance {
     deviceId: string;
 
     /**
-     * Indicates success or not, true if success, false if failure.
+     * Connection result. The value **true** indicates that the connection is successful, and the value **false**
+     * indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
      * @since 20 dynamic
@@ -64,13 +65,16 @@ declare namespace linkEnhance {
     success: boolean;
 
     /**
-     * Indicates the reason if failure, it is always 0 if success.
-     * value below:
-     * - 32390200 - Connect timeout.
-     * - 32390201 - Peer server is not started.
-     * - 32390300 - Internal error.
+     * Number indicating the result code. If the connection is successful, **0** is returned. If the connection fails,
+     * an error code is returned:
      *
-     * @type { int }
+     * - 32390200: The client connection times out.
+     * - 32390201: The server service is not started.
+     * - 32390300: Internal error.
+     *
+     * For details about the error codes, see
+     * [Link Enhancement Error Codes](docroot://reference/apis-distributedservice-kit/errorcode-link-enhance.md).
+     *
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
      * @since 20 dynamic
@@ -79,12 +83,10 @@ declare namespace linkEnhance {
     reason: int
   }
 
-
   /**
-   * Manages server.
-   * Before calling any server methods, you must call {@link createServer} first.
+   * Represents a **Server** object, which provides methods for starting, stopping, and closing the server, and
+   * registering or unregistering event callbacks.
    *
-   * @typedef Server
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
@@ -92,7 +94,7 @@ declare namespace linkEnhance {
    */
   interface Server {
     /**
-     * Start server which can be connected by others.
+     * Starts a server so that it can be connected by the client. A maximum of 10 servers are supported.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -106,7 +108,7 @@ declare namespace linkEnhance {
     start(): void;
 
     /**
-     * Stop server which can not be connected ever.
+     * Stops the server. After the server is stopped, you can call `start` to start it again.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -118,7 +120,8 @@ declare namespace linkEnhance {
     stop(): void;
 
     /**
-     * Closes this {@code Server} object and unregisters its callbacks.
+     * Destroys the **Server** object to release related resources. To interact with the peer device again, create a new
+     * **Server** object.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -130,7 +133,8 @@ declare namespace linkEnhance {
     close(): void;
 
     /**
-     * Subscribe server is connected event.
+     * Registers a callback listener for **connectionAccepted** events. This API uses an asynchronous callback to return
+     * the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { 'connectionAccepted' } type - Type of the server is connected event to listen for.
@@ -144,12 +148,15 @@ declare namespace linkEnhance {
     on(type: 'connectionAccepted', callback: Callback<Connection>): void;
 
     /**
-     * Unsubscribe server is connected event.
+     * Unregisters the callback listener for **connectionAccepted** events. This API uses an asynchronous callback to
+     * return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectionAccepted' } type - Type of the server is connected event to listen for.
-     * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
-     * @throws { BusinessError } 201 -  Permission denied.
+     * @param { 'connectionAccepted' } type - Event type, which is **connectionAccepted**. This event is triggered when
+     *     a connection from the peer end is received.
+     * @param { Callback<Connection> } [callback] - Registered callback, which is used to return the
+     *     [Connection]{@link linkEnhance.Connection} object.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -158,7 +165,8 @@ declare namespace linkEnhance {
     off(type: 'connectionAccepted', callback?: Callback<Connection>): void;
 
     /**
-     * Subscribe server is connected event.
+     * Registers a callback listener for **connectionAccepted** events. This API uses an asynchronous callback to return
+     * the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
@@ -171,11 +179,13 @@ declare namespace linkEnhance {
     onConnectionAccepted(callback: Callback<Connection>): void;
 
     /**
-     * Unsubscribe server is connected event.
-     *
+     * Unregisters the callback listener for **connectionAccepted** events. This API uses an asynchronous callback to
+     * return the result.
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<Connection> } [callback] - Callback used to listen for the server is connected event.
-     * @throws { BusinessError } 201 -  Permission denied.
+     * @param { Callback<Connection> } [callback] - Registered callback, which is used to return the
+     * [Connection]{@link linkEnhance.Connection} object.
+     * 
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -184,11 +194,13 @@ declare namespace linkEnhance {
     offConnectionAccepted(callback?: Callback<Connection>): void;
 
     /**
-     * Subscribe server stop event, it should always rebuild the server after being called.
+     * Registers a callback listener for **serverStopped** events. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'serverStopped' } type - Type of the server state change event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the server stop event.
+     * @param { 'serverStopped' } type - Event type, which is **serverStopped**. This event is triggered when the server
+     *     is stopped abnormally.
+     * @param { Callback<number> } callback - Registered callback, where **number** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -198,11 +210,13 @@ declare namespace linkEnhance {
     on(type: 'serverStopped', callback: Callback<number>): void;
 
     /**
-     * Unsubscribe server stop event.
+     * Unregisters the callback listener for **serverStopped** events. This API uses an asynchronous callback to return
+     * the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'serverStopped' } type - Type of the server state change event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the server state change event.
+     * @param { 'serverStopped' } type - Event type, which is **serverStopped**. This event is triggered when the server
+     *     is stopped abnormally.
+     * @param { Callback<number> } [callback] - Registered callback, where **number** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -212,10 +226,11 @@ declare namespace linkEnhance {
     off(type: 'serverStopped', callback?: Callback<number>): void;
 
     /**
-     * Subscribe server stop event, it should always rebuild the server after being called.
+     * Registers a callback listener for **serverStopped** events. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } callback - Callback used to listen for the server stop event.
+     * @param { Callback<int> } callback - Registered callback, where **int** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -225,10 +240,11 @@ declare namespace linkEnhance {
     onServerStopped(callback: Callback<int>): void;
 
     /**
-     * Unsubscribe server stop event.
+     * Unregisters the callback listener for **serverStopped** events. This API uses an asynchronous callback to return
+     * the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } [callback] - Callback used to listen for the server state change event.
+     * @param { Callback<int> } [callback] - Registered callback, where **int** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -240,12 +256,14 @@ declare namespace linkEnhance {
   }
 
   /**
-   * Create a server instance.
+   * Creates a **Server** object. After **start()** is called, the device can be connected to other devices as a server.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } name - Name of the server.
-   * @returns { Server } Returns a server instance {@code Server}.
+   * @param { string } name - **Server** object name. The value is a string of up to 255 bytes. It cannot be empty.
+   * @returns { Server } **Server** object created.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported
+   *     because the linkEnhance function has been trimmed. [since 26.0.0]
    * @throws { BusinessError } 32390206 - Invalid parameter.
    * @throws { BusinessError } 32390203 - Duplicate server name.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -256,11 +274,9 @@ declare namespace linkEnhance {
   function createServer(name: string): Server;
 
   /**
-   * Manages connection.
-   * Before calling any connection methods, you must use {@link createConnection} to create an instance,
-   * or get a connection from {@link acceptConnect} of server.
+   * Represents a **Connection** object, which provides methods for connecting to and disconnecting from a peer device,
+   * obtaining the device's ID, sending data, and registering or unregistering event callbacks.
    *
-   * @typedef Connection
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
@@ -268,8 +284,7 @@ declare namespace linkEnhance {
    */
   interface Connection {
     /**
-     * Connects to the peer server, which must be in connectable advertising state.
-     * <p>The 'ConnectResult' event should be subscribed to get the result of this operation.
+     * Connects to the server on the client. A maximum number of 10 connections are supported.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -283,7 +298,8 @@ declare namespace linkEnhance {
     connect(): void;
 
     /**
-     * Disconnects from or stops an ongoing connection to the peer server.
+     * Disconnects from the peer device. The created **Connection** object remains valid after this API is called. You
+     * can call **connect()** to reconnect to the peer device if necessary.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
@@ -295,23 +311,25 @@ declare namespace linkEnhance {
     disconnect(): void;
 
     /**
-     * Disables connection.
-     * <p> This method unregisters the device and clears all registered callbacks and handles.
+     * Destroys the **Connection** object to release resources. If the device needs to interact with the peer device
+     * again, create a **Connection** object again and call `connect()` to initiate a connection.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly     
+     * @stagemodelonly
      * @since 20 dynamic
      * @since 23 static
      */
     close(): void;
 
     /**
-     * Gets the peer device id of connection
+     * Obtains the device ID of the peer device. This API is called when the connection is established successfully
+     * either by initiating a connection or accepting an incoming connection.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { string } Returns the peer device id, return "" if operation failed.
+     * @returns { string } Device ID of the peer device, that is, the BLE MAC address of the peer device. An empty
+     *     string is returned if no device ID is obtained.
      * @throws { BusinessError } 201 - Permission denied.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
      * @stagemodelonly
@@ -321,27 +339,29 @@ declare namespace linkEnhance {
     getPeerDeviceId(): string;
 
     /**
-     * Send data to the peer.
+     * Sends data to the server after a connection is established successfully. When the server receives the connection
+     * callback, it can also send data to the client.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { ArrayBuffer } data - Indicates data to be sent.
+     * @param { ArrayBuffer } data - Data to send. The maximum length is 1024 bytes.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @throws { BusinessError } 32390205 - Connection is not ready.
      * @throws { BusinessError } 32390300 - Internal error.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly     
+     * @stagemodelonly
      * @since 20 dynamic
      * @since 23 static
      */
     sendData(data: ArrayBuffer): void;
 
     /**
-     * Subscribe connect result event.
+     * Registers a listener for **connectResult** events. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectResult' } type - Type of result event to listen for.
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
+     * @param { 'connectResult' } type - Event type, which is **connectResult**. This event is triggered when `connect()
+     *     ` is called.
+     * @param { Callback<ConnectResult> } callback - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -351,11 +371,12 @@ declare namespace linkEnhance {
     on(type: 'connectResult', callback: Callback<ConnectResult>): void;
 
     /**
-     * Unsubscribe connect result event.
+     * Unregisters the listener for **connectResult** events.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectResult' } type - Type of result event to listen for.
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
+     * @param { 'connectResult' } type - Event type, which is **connectResult**. This event is triggered when `connect()
+     *     ` is called.
+     * @param { Callback<ConnectResult> } [callback] - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -365,10 +386,10 @@ declare namespace linkEnhance {
     off(type: 'connectResult', callback?: Callback<ConnectResult>): void;
 
     /**
-     * Subscribe connect result event.
+     * Registers a listener for **connectResult** events. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ConnectResult> } callback - Callback used to listen for result event.
+     * @param { Callback<ConnectResult> } callback - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -378,10 +399,10 @@ declare namespace linkEnhance {
     onConnectResult(callback: Callback<ConnectResult>): void;
 
     /**
-     * Unsubscribe connect result event.
+     * Unregisters the listener for **connectResult** events.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ConnectResult> } [callback] - Callback used to listen for result event.
+     * @param { Callback<ConnectResult> } [callback] - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -391,11 +412,12 @@ declare namespace linkEnhance {
     offConnectResult(callback?: Callback<ConnectResult>): void;
 
     /**
-     * Subscribe connection disconnected event.
+     * Registers a listener for **disconnected** events. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'disconnected' } type - Type of connection disconnected event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the connection disconnected event.
+     * @param { 'disconnected' } type - Event type, which is **disconnected**. This event is triggered when the
+     *     connection is passively terminated or encounters an exception.
+     * @param { Callback<number> } callback - Registered callback, where **number** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -405,11 +427,13 @@ declare namespace linkEnhance {
     on(type: 'disconnected', callback: Callback<number>): void;
 
     /**
-     * Unsubscribe connection disconnected event.
+     * Unregisters the listener for **disconnected** events. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'disconnected' } type - Type of connection disconnected event to listen for.
-     * @param { Callback<number> } callback - Callback used to listen for the connection disconnected event.
+     * @param { 'disconnected' } type - Event type, which is **disconnected**. This event is triggered when the
+     *     connection is passively terminated or encounters an exception.
+     * @param { Callback<number> } [callback] - Registered callback, where **number** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -419,23 +443,24 @@ declare namespace linkEnhance {
     off(type: 'disconnected', callback?: Callback<number>): void;
 
     /**
-     * Subscribe connection disconnected event.
+     * Registers a listener for **disconnected** events. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } callback - Callback used to listen for the connection disconnected event.
+     * @param { Callback<int> } callback - Registered callback, where **int** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
-     * @stagemodelonly     
+     * @stagemodelonly
      * @since 23 static
      */
     onDisconnected(callback: Callback<int>): void;
 
     /**
-     * Unsubscribe connection disconnected event.
+     * Unregisters the listener for **disconnected** events. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<int> } [callback] - Callback used to listen for the connection disconnected event.
+     * @param { Callback<int> } [callback] - Registered callback, where **int** indicates the returned error code.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -445,11 +470,13 @@ declare namespace linkEnhance {
     offDisconnected(callback?: Callback<int>): void;
 
     /**
-     * Subscribe connection data received event.
+     * Registers a listener for the **dataReceived** events. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'dataReceived' } type - Type of the connection data received event to listen for.
-     * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the connection data received event.
+     * @param { 'dataReceived' } type - Event type, which is **dataReceived**. This event is triggered when data is
+     *     received.
+     * @param { Callback<ArrayBuffer> } callback - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -459,11 +486,12 @@ declare namespace linkEnhance {
     on(type: 'dataReceived', callback: Callback<ArrayBuffer>): void;
 
     /**
-     * Unsubscribe connection data received event.
+     * Unregisters the listener for **dataReceived** events.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'dataReceived' } type - Type of the connection data received event to listen for.
-     * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the connection data received event.
+     * @param { 'dataReceived' } type - Event type, which is **dataReceived**. This event is triggered when data is
+     *     received.
+     * @param { Callback<ArrayBuffer> } [callback] - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -473,10 +501,11 @@ declare namespace linkEnhance {
     off(type: 'dataReceived', callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * Subscribe connection data received event.
+     * Registers a listener for the **dataReceived** events. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the connection data received event.
+     * @param { Callback<ArrayBuffer> } callback - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -486,10 +515,10 @@ declare namespace linkEnhance {
     onDataReceived(callback: Callback<ArrayBuffer>): void;
 
     /**
-     * Unsubscribe connection data received event.
+     * Unregisters the listener for **dataReceived** events.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { Callback<ArrayBuffer> } [callback] - Callback used to listen for the connection data received event.
+     * @param { Callback<ArrayBuffer> } [callback] - Registered callback.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Invalid parameter.
      * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -500,13 +529,19 @@ declare namespace linkEnhance {
   }
 
   /**
-   * Create a connection instance.
+   * Creates a **Connection** object on the device that functions as the client. The device can then initiate connection
+   * requests to the device that functions as the server.
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } deviceId - Indicates device id.
-   * @param { string } name - Indicates server name to be connected.
-   * @returns { Connection } Returns a connection instance {@code Connection}.
+   * @param { string } deviceId - Device ID of the peer device, that is, the BLE MAC address of the peer device. For
+   *     details about how to obtain the BLE MAC address, see
+   *     [BLE Advertising and Scanning](docroot://connectivity/bluetooth/ble-development-guide.md).
+   * @param { string } name - Server name of the device to be connected. The value is a string of up to 255 bytes. It
+   *     cannot be empty.
+   * @returns { Connection } **Connection** object created.
    * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 801 - Capability not supported
+   *     because the linkEnhance function has been trimmed. [since 26.0.0]
    * @throws { BusinessError } 32390206 - Invalid parameter.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly

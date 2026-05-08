@@ -199,6 +199,7 @@ declare namespace distributedAccount {
 
     /**
      * Sets the distributed information of the OS account.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
      * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
@@ -210,7 +211,6 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */
@@ -218,6 +218,7 @@ declare namespace distributedAccount {
 
     /**
      * Sets the distributed information of the OS account.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
      * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
@@ -229,7 +230,6 @@ declare namespace distributedAccount {
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
      * @since 23 static
      */

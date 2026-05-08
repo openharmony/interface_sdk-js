@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -176,6 +176,43 @@ declare namespace huks {
    * @atomicservice
    * @since 23
    */
+  /**
+   * Generates a key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   *     and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     this API does not return the key content because the key is always protected in a TEE. If an exception
+   *     occurs in the generation process, an error is captured.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - The queried entity does not exist. This may happen because
+   *     the key resource ID specified by keyAlias has not been opened in the external crypto scenario.
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
+   */
   function generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
@@ -257,7 +294,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -286,11 +323,48 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Generates a key. This API uses a promise to return the result. Because the key is always
+   * protected in a trusted environment (such as a TEE), the promise does not return the key content.
+   * It returns only the information indicating whether the API is successfully called.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } options - Tags required for generating the key. The algorithm, key purpose,
+   *     and key length are mandatory.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - The queried entity does not exist. This may happen because
+   *     the key resource ID specified by keyAlias has not been opened in the external crypto scenario.
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -353,7 +427,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 20
@@ -829,7 +903,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -856,7 +930,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
@@ -925,7 +999,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 20
@@ -1014,7 +1088,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 20
@@ -1044,11 +1118,47 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Imports a wrapped key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import.
+   *     The algorithm, key purpose, and key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function importWrappedKeyItem(
     keyAlias: string,
@@ -1122,13 +1232,14 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @syscap SystemCapability.Security.Huks.Extension
    * @systemapi this method can be used only by system applications.
    * @since 20
    */
   function importWrappedKeyItemAsUser(
-    userId: number, keyAlias: string,
+    userId: number,
+    keyAlias: string,
     wrappingKeyAlias: string,
     huksOptions: HuksOptions
   ): Promise<void>;
@@ -1212,7 +1323,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 20
@@ -1241,11 +1352,46 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Imports a wrapped key. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   *     purpose, and key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - the key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
    */
   function importWrappedKeyItem(keyAlias: string, wrappingKeyAlias: string, options: HuksOptions): Promise<void>;
 
@@ -1348,6 +1494,34 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Exports a key. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, no err value is returned and outData contains the public key exported. Otherwise,
+   *     an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function exportKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -1456,6 +1630,33 @@ declare namespace huks {
    * @atomicservice
    * @since 23
    */
+  /**
+   * Exports a key. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - options indicates the properties of the key.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful, outData
+   *     in HuksReturnResult is the public key exported.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
+   */
   function exportKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
@@ -1557,6 +1758,32 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Obtains key properties. This API uses an asynchronous callback to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, no err value is returned and properties contains the parameters required for generating the key.
+   *     If the operation fails, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function getKeyItemProperties(
     keyAlias: string,
@@ -1673,6 +1900,31 @@ declare namespace huks {
    * @atomicservice
    * @since 23
    */
+  /**
+   * Obtains key properties. This API uses a promise to return the result.
+   *
+   * @param { string } keyAlias - Key alias, which must be the same as the alias used when the key was generated.
+   * @param { HuksOptions } options - Empty object (leave this parameter empty).
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   *     properties in HuksReturnResult holds the parameters required for generating the key.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
+   */
   function getKeyItemProperties(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
   /**
@@ -1709,7 +1961,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * If the key does not exist, error is the error code.
+   *     If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1732,7 +1984,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * If the key does not exist, error is the error code.
+   *     If the key does not exist, error is the error code.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1805,7 +2057,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * Otherwise, data is false.
+   *     Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1828,7 +2080,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default
    *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the key exists, data is true.
-   * Otherwise, data is false.
+   *     Otherwise, data is false.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1913,7 +2165,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
    *     value HUKS_AUTH_STORAGE_LEVEL_DE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
-   * does not exist, false is returned.
+   *     does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1936,7 +2188,7 @@ declare namespace huks {
    *     specify the security level of the key to check. HuksAuthStorageLevel can be left empty, which means the default 
    *     value HUKS_AUTH_STORAGE_LEVEL_CE is used.
    * @returns { Promise<boolean> } Promise used to return the result. If the key exists, true is returned. If the key
-   * does not exist, false is returned.
+   *     does not exist, false is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -2051,7 +2303,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
@@ -2060,12 +2312,47 @@ declare namespace huks {
    *     1. the aead length is invalid.
    *     2. the group id specified by the access group tag is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
+   */
+  /**
+   * Initializes a session for a key operation. This API uses an asynchronous callback to return the
+   * result. huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @param { AsyncCallback<HuksSessionHandle> } callback - Callback used to return a session handle for subsequent
+   *     operations.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid. Possible causes:
+   *     1. the aead length is invalid.
+   *     2. the group id specified by the access group tag is invalid.
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>): void;
 
@@ -2137,7 +2424,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000010 - the number of sessions has reached limit
    * @throws { BusinessError } 12000011 - queried entity does not exist
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
@@ -2146,12 +2433,46 @@ declare namespace huks {
    *     1. the aead length is invalid.
    *     2. the group id specified by the access group tag is invalid.
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
+   */
+  /**
+   * Initializes a session for a key operation. This API uses a promise to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { string } keyAlias - Alias of the key involved in the initSession operation.
+   * @param { HuksOptions } options - Parameter set used for the initSession operation.
+   * @returns { Promise<HuksSessionHandle> } Promise used to return a session handle for subsequent operations.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid. Possible causes:
+   *     1. the aead length is invalid.
+   *     2. the group id specified by the access group tag is invalid.
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
    */
   function initSession(keyAlias: string, options: HuksOptions): Promise<HuksSessionHandle>;
 
@@ -2290,7 +2611,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2298,9 +2619,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -2322,7 +2643,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2331,12 +2652,46 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function updateSession(handle: long, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -2427,6 +2782,37 @@ declare namespace huks {
    * @atomicservice
    * @since 23
    */
+  /**
+   * Updates the key operation by segment. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
+   */
   function updateSession(
     handle: long,
     options: HuksOptions,
@@ -2512,7 +2898,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2520,9 +2906,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -2546,7 +2932,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
    * @throws { BusinessError } 12000008 - verify auth token failed
    * @throws { BusinessError } 12000009 - auth token is already timeout
@@ -2555,12 +2941,48 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Updates the key operation by segment. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the updateSession operation
+   * @param { HuksOptions } options - Parameter set used for the updateSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   *     refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the updateSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
    */
   function updateSession(handle: long, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -2700,9 +3122,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -2734,12 +3156,47 @@ declare namespace huks {
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
@@ -2860,6 +3317,39 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation
+   *     <br>The value range is all integers.
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the finishSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
    */
   function finishSession(
     handle: number,
@@ -2986,9 +3476,9 @@ declare namespace huks {
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
@@ -3022,12 +3512,49 @@ declare namespace huks {
    * @throws { BusinessError } 12000017 - The key with same alias is already exist
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000021 - the Ukey PIN is locked
-   * @throws { BusinessError } 12000023 - the Ukey PIN not authenticated
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Finishes the key operation. This API uses a promise to return the result. huks.initSession,
+   * huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { long } handle - Handle for the finishSession operation
+   * @param { HuksOptions } options - Parameter set used for the finishSession operation.
+   * @param { Uint8Array } token - Authentication token for refined key access control. If this parameter is left blank,
+   *     refined key access control is not performed.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with same alias is already exist
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
    */
   function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 
@@ -3109,11 +3636,11 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 22
@@ -3131,15 +3658,39 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Core
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Aborts a key operation. This API uses an asynchronous callback to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @param { AsyncCallback<void> } callback - Callback used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
 
@@ -3195,15 +3746,16 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 22
-   *//**
+   */
+  /**
    * Aborts a key operation. This API uses a promise to return the result.
    *
    * @param { long } handle - Handle for the abortSession operation.
@@ -3216,15 +3768,39 @@ declare namespace huks {
    * @throws { BusinessError } 801 - api is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or Ukey driver
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
    * @throws { BusinessError } 12000020 - the provider operation failed
-   * @throws { BusinessError } 12000024 - the provider or Ukey is busy
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice
    * @since 23
+   */
+  /**
+   * Aborts a key operation. This API uses a promise to return the result.
+   *
+   * @param { long } handle - Handle for the abortSession operation.
+   * @param { HuksOptions } options - Parameter set used for the abortSession operation.
+   * @returns { Promise<void> } Promise used to return the abortSession operation result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000020 - the provider operation failed
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
    */
   function abortSession(handle: number, options: HuksOptions): Promise<void>;
 
@@ -3442,6 +4018,34 @@ declare namespace huks {
    * @atomicservice
    * @since 23
    */
+  /**
+   * Obtains the certificate for anonymous attestation. This API uses an asynchronous callback to return
+   * the result. This operation requires Internet access and takes time. If error code 12000012 is returned, the network
+   * is abnormal. If the device is not connected to the network, display a message, indicating that the network is not
+   * connected. If the network is connected, the failure may be caused by network jitter. Try again later.
+   *
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, no err value is returned; otherwise, an error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
+   */
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
@@ -3478,7 +4082,7 @@ declare namespace huks {
    */
   function anonAttestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
-    /**
+  /**
    * Obtains an anonymous attestation certificate offline. This API uses a promise to return the result. This
    * operation does not require network connection each time.
    * It has higher performance than the anonAttestKeyItemAsUser function.
@@ -3601,33 +4205,61 @@ declare namespace huks {
    * @atomicservice
    * @since 23
    */
+  /**
+   * Obtains the certificate for anonymous attestation. This API uses a promise to return the result. This
+   * operation requires Internet access and takes time. If error code 12000012 is returned, the network is abnormal. If
+   * the device is not connected to the network, display a message, indicating that the network is not connected. If the
+   * network is connected, the failure may be caused by network jitter. Try again later.
+   *
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
+   * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
+   *     certChains in HuksReturnResult is the certificate chain obtained.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice
+   * @since 26.0.0
+   */
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions): Promise<HuksReturnResult>;
 
-    /**
+  /**
    * Obtains an anonymous attestation certificate offline. This API uses a promise to return the result.
    * This operation does not require network connection each time. The execution speed is
    * faster than the anonAttestKeyItem function.
    *
-   * @param { string } keyAlias  - Alias of the key. The certificate to be obtained is associated with this key.
-   * @param { HuksParam[] } params  - Key attestation operation parameters.
+   * @param { string } keyAlias - Alias of the key. The certificate to be obtained is associated with this key.
+   * @param { HuksParam[] } params - Key attestation operation parameters.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
    *     certChains in HuksReturnResult contains the obtained certificate chain.
-   * @throws { BusinessError } 801  - The API is not supported.
-   * @throws { BusinessError } 12000001  - The algorithm mode is not supported.
-   * @throws { BusinessError } 12000004  - The file operation failed.
-   * @throws { BusinessError } 12000005  - The IPC communication failed.
-   * @throws { BusinessError } 12000006  - The encryption engine is faulty.
-   * @throws { BusinessError } 12000011  - The queried entity does not exist.
-   * @throws { BusinessError } 12000012  - The device environment or input parameter is abnormal.
-   * @throws { BusinessError } 12000014  - The memory is insufficient.
-   * @throws { BusinessError } 12000018  - The parameter is incorrect. Possible causes:
+   * @throws { BusinessError } 801 - The API is not supported.
+   * @throws { BusinessError } 12000001 - The algorithm mode is not supported.
+   * @throws { BusinessError } 12000004 - The file operation failed.
+   * @throws { BusinessError } 12000005 - The IPC communication failed.
+   * @throws { BusinessError } 12000006 - The encryption engine is faulty.
+   * @throws { BusinessError } 12000011 - The queried entity does not exist.
+   * @throws { BusinessError } 12000012 - The device environment or input parameter is abnormal.
+   * @throws { BusinessError } 12000014 - The memory is insufficient.
+   * @throws { BusinessError } 12000018 - The parameter is incorrect. Possible causes:
    *     1. A mandatory parameter is left empty.
    *     2. The parameter type is incorrect.
    *     3. The parameter verification failed.
    *     4. The group ID specified by the access group tag is invalid.
-   * @throws { BusinessError } 12000024  - The operation times out. This may be caused by network jitter.
+   * @throws { BusinessError } 12000024 - The operation times out. This may be caused by network jitter.
    *     You can try again later.
-   * @throws { BusinessError } 12000027  - The network is unavailable. Check network connections.
+   * @throws { BusinessError } 12000027 - The network is unavailable. Check network connections.
    * @syscap SystemCapability.Security.Huks.Extension
    * @stagemodelonly
    * @atomicservice
@@ -3699,6 +4331,24 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
    */
+  /**
+   * Export the wrapped key protected by a specific key.
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } params - params indicates the export properties.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
+   */
   function wrapKeyItem(keyAlias: string, params: HuksOptions): Promise<HuksReturnResult>;
 
   /**
@@ -3717,6 +4367,25 @@ declare namespace huks {
    * @throws { BusinessError } 12000018 - the input parameter is invalid
    * @syscap SystemCapability.Security.Huks.Core
    * @since 20
+   */
+  /**
+   * Import the wrapped key protected by a specific key
+   *
+   * @param { string } keyAlias - keyAlias indicates the key's name.
+   * @param { HuksOptions } params - params indicates the import properties.
+   * @param { Uint8Array } wrappedKey - indicates the wrapped key.
+   * @returns { Promise<HuksReturnResult> } the promise returned by the function.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000018 - the input parameter is invalid
+   * @throws { BusinessError } 12000026 - the secure element is not available
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice
+   * @since 26.0.0
    */
   function unwrapKeyItem(keyAlias: string, params: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
 
@@ -3752,6 +4421,8 @@ declare namespace huks {
      * @since 8
      */
     /**
+     * Param value
+     *
      * @type { boolean | number | bigint | Uint8Array }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -3814,6 +4485,8 @@ declare namespace huks {
      * @since 9
      */
     /**
+     * Huks handle.
+     *
      * @type { number }
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
@@ -3964,7 +4637,7 @@ declare namespace huks {
     certChains?: Array<string>;
   }
 
-    /**
+  /**
    * Represents an array of key aliases.
    *
    * @typedef HuksListAliasesReturnResult
@@ -4696,7 +5369,7 @@ declare namespace huks {
     HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016,
     /**
      * The key with same alias is already exist.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 20
@@ -4704,7 +5377,7 @@ declare namespace huks {
     HUKS_ERR_CODE_KEY_ALREADY_EXIST = 12000017,
     /**
      * The input parameter is invalid.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 20
@@ -4727,7 +5400,7 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_EXTERNAL_MODULE = 12000020,
     /**
-     * The Ukey PIN is locked.
+     * The UKey PIN is locked.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @atomicservice
@@ -4735,7 +5408,7 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_PIN_LOCKED = 12000021,
     /**
-     * The Ukey PIN is incorrect.
+     * The UKey PIN is incorrect.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @atomicservice
@@ -4743,7 +5416,7 @@ declare namespace huks {
      */
     HUKS_ERR_CODE_PIN_INCORRECT = 12000022,
     /**
-     * The Ukey PIN is not authenticated.
+     * The UKey PIN is not authenticated.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @atomicservice
@@ -4766,7 +5439,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_EXCEED_LIMIT = 12000025,
-     /**
+    /**
      * The secure element is faulty.
      *
      * @syscap SystemCapability.Security.Huks.Core
@@ -5177,7 +5850,7 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_PADDING_ISO_IEC_9797_1 = 7,
+    HUKS_PADDING_ISO_IEC_9797_1 = 7
   }
 
   /**
@@ -5610,6 +6283,33 @@ declare namespace huks {
      * @since 12
      */
     HUKS_3DES_KEY_SIZE_192 = 192,
+    /**
+     * ML-DSA-44 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_DSA_KEY_PARAM_SET_44 = 44,
+    /**
+     * ML-DSA-65 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_DSA_KEY_PARAM_SET_65 = 65,
+    /**
+     * ML-DSA-87 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_DSA_KEY_PARAM_SET_87 = 87
   }
 
   /**
@@ -5619,7 +6319,7 @@ declare namespace huks {
    * @syscap SystemCapability.Security.Huks.Core
    * @since 8
    */
-    /**
+  /**
    * Enumerates the key algorithms.
    *
    * @enum { number }
@@ -5850,7 +6550,16 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_ALG_CMAC = 162
+    HUKS_ALG_CMAC = 162,
+    /**
+     * ML-DSA.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ALG_ML_DSA = 201
   }
 
   /**
@@ -5899,12 +6608,12 @@ declare namespace huks {
     HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2,
     /**
      * Use SM2 and then use SM4-ECB-NoPadding to encrypt the key.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 23
      */
-    HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING = 5,
+    HUKS_UNWRAP_SUITE_SM2_SM4_ECB_NOPADDING = 5
   }
 
   /**
@@ -6282,6 +6991,13 @@ declare namespace huks {
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 20
      */
+    /**
+     * Tui pin auth type.
+     *
+     * @syscap SystemCapability.Security.Huks.Extension
+     * @atomicservice
+     * @since 26.0.0
+     */
     HUKS_USER_AUTH_TYPE_TUI_PIN = 1 << 5
   }
 
@@ -6369,7 +7085,7 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_USER_AUTH_MODE_COAUTH = 1,
+    HUKS_USER_AUTH_MODE_COAUTH = 1
   }
   /**
    * Enumerates the storage security levels of a key.
@@ -6428,7 +7144,7 @@ declare namespace huks {
      * @atomicservice
      * @since 12
      */
-    HUKS_AUTH_STORAGE_LEVEL_ECE = 2,
+    HUKS_AUTH_STORAGE_LEVEL_ECE = 2
   }
 
   /**
@@ -6651,23 +7367,23 @@ declare namespace huks {
     HUKS_SEND_TYPE_SYNC = 1
   }
   /**
-   * Enumerates the class type of key
-   * 
+   * Enumerates the class type of key.
+   *
    * @enum { int }
    * @syscap SystemCapability.Security.Huks.Extension
    * @since 22
    */
   export enum HuksKeyClassType {
     /**
-     * The default type specifics the key is stored in huks.
-     * 
+     * The default type specifies the key is stored in huks.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 22
      */
     HUKS_KEY_CLASS_DEFAULT = 0,
     /**
-     * The key is stored in external crypto provider.
-     * 
+     * The key is stored in an external crypto provider.
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @since 22
      */
@@ -6690,7 +7406,7 @@ declare namespace huks {
      * @atomicservice
      * @since 20
      */
-    HUKS_KEY_WRAP_TYPE_HUK_BASED = 2,
+    HUKS_KEY_WRAP_TYPE_HUK_BASED = 2
   }
 
   /**
@@ -6792,9 +7508,37 @@ declare namespace huks {
      * @atomicservice
      * @since 11
      */
-    HUKS_TAG_TYPE_BYTES = 5 << 28
+    HUKS_TAG_TYPE_BYTES = 5 << 28,
   }
 
+  /**
+   * Enumerates the security levels of the key.
+   *
+   * @syscap SystemCapability.Security.Huks.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  export enum HuksKeySecurityLevel {  
+    /**
+     * Keys are generated and used within the trusted execution environment.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_KEY_SECURITY_LEVEL_TEE = 0,
+    /**
+     * Keys are generated and used within the security elements.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_KEY_SECURITY_LEVEL_SE = 1
+  }
   /**
    * Enumerates the tags used to invoke parameters.
    *
@@ -6820,7 +7564,7 @@ declare namespace huks {
      */
     HUKS_TAG_INVALID = HuksTagType.HUKS_TAG_TYPE_INVALID | 0,
 
-    /* Base algorithm TAG: 1 - 200 */
+    /** Base algorithm TAG: 1 - 200 */
     /**
      * Algorithm.
      *
@@ -7190,9 +7934,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_TAG_RSA_PSS_SALT_LEN_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 30,
-
-    /*
-     * Key authentication related TAG: 201 - 300
+    /* * Key authentication related TAG: 201 - 300
      *
      * Start of validity
      */
@@ -7227,7 +7969,7 @@ declare namespace huks {
      */
     HUKS_TAG_CREATION_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 204,
 
-    /* Other authentication related TAG: 301 - 500 */
+    /** Other authentication related TAG: 301 - 500 */
     /**
      * Reserved.
      *
@@ -7321,7 +8063,7 @@ declare namespace huks {
      */
     HUKS_TAG_AUTH_TOKEN = HuksTagType.HUKS_TAG_TYPE_BYTES | 306,
 
-    /* Key secure access control and user auth TAG */
+    /** Key secure access control and user auth TAG */
     /**
      * Access control type. For details, see HuksAuthAccessType. This parameter must be set together with
      * HuksUserAuthType.
@@ -7416,14 +8158,14 @@ declare namespace huks {
 
     /**
      * User authentication mode, which is a value of HuksUserAuthMode.
-     * 
+     *
      * @syscap SystemCapability.Security.Huks.Extension
      * @atomicservice
      * @since 12
      */
     HUKS_TAG_USER_AUTH_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 319,
 
-    /* Attestation related TAG: 501 - 600 */
+    /** Attestation related TAG: 501 - 600 */
     /**
      * Challenge value used in the attestation.
      *
@@ -7564,10 +8306,11 @@ declare namespace huks {
     HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
     /**
      * The tag indicates the byte length of AEAD for CCM mode.
+     *
      * @syscap SystemCapability.Security.Huks.Core
      * @atomicservice
      * @since 22
-    */
+     */
     HUKS_TAG_AE_TAG_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 521,
     /**
      * The tag indicates the key class type.
@@ -7585,6 +8328,15 @@ declare namespace huks {
      */
     HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
     /**
+     * Security level of a key. For details, see HuksKeySecurityLevel.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_TAG_KEY_SECURITY_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 526,
+    /**
      * The tag indicates the additional authenticated data for GCM or CCM modes.
      *
      * @syscap SystemCapability.Security.Huks.Core
@@ -7593,7 +8345,15 @@ declare namespace huks {
      * @since 24
      */
     HUKS_TAG_AAD = HuksTagType.HUKS_TAG_TYPE_BYTES | 527,
-
+    /**
+     * The tag indicates the context for crypto operations, such as ML-DSA, etc.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_TAG_CONTEXT = HuksTagType.HUKS_TAG_TYPE_BYTES | 528,
     /*
      * Other reserved TAG: 601 - 1000
      *
@@ -7850,13 +8610,11 @@ declare namespace huks {
      */
     HUKS_TAG_OS_PATCHLEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 10102,
 
-    /*
-     * Reserved TAGs: 11000 - 12000
+    /* * Reserved TAGs: 11000 - 12000
      *
      * Other TAGs: 20001 - N
      * TAGs used for paramSetOut
      */
-
     /**
      * Reserved.
      *

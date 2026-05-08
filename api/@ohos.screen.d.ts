@@ -552,8 +552,8 @@ declare namespace screen {
    * Resize virtual screen.
    *
    * @param { long } screenId The id of virtual screen to be resized, Value Range: [1000, 2147483647].
-   * @param { long } width The new width, Value Range: [1, 65536].
-   * @param { long } height The new height, Value Range: [1, 65536].
+   * @param { long } width The new width, measured in px, Value Range: [1, 65536].
+   * @param { long } height The new height, measured in px, Value Range: [1, 65536].
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
@@ -621,7 +621,7 @@ declare namespace screen {
     id: long;
 
     /**
-     * The start coordinate X of the screen origin
+     * The start coordinate X of the screen origin, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -632,7 +632,7 @@ declare namespace screen {
     startX: long;
 
     /**
-     * The start coordinate Y of the screen origin
+     * The start coordinate Y of the screen origin, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -665,7 +665,7 @@ declare namespace screen {
     screenId: long;
 
     /**
-     * The start coordinate X of the screen origin
+     * The start coordinate X of the screen origin, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -676,7 +676,7 @@ declare namespace screen {
     startX: long;
 
     /**
-     * The start coordinate Y of the screen origin
+     * The start coordinate Y of the screen origin, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -709,7 +709,7 @@ declare namespace screen {
     name: string;
 
     /**
-     * Indicates the width of the virtual screen.
+     * Indicates the width of the virtual screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -720,7 +720,7 @@ declare namespace screen {
     width: long;
 
     /**
-     * Indicates the height of the virtual screen.
+     * Indicates the height of the virtual screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -965,6 +965,21 @@ declare namespace screen {
     setOrientation(orientation: Orientation): Promise<void>;
 
     /**
+     * Set the orientation of the screen
+     *
+     * @param { Orientation } orientation - Screen orientation. orientation value must from enum Orientation.
+     * @param { OrientationOptions } [orientationOptions] - Options of setting orientation.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setOrientation(orientation: Orientation, orientationOptions?: OrientationOptions): Promise<void>;
+
+    /**
      * Set the active mode of the screen.
      *
      * @param { long } modeIndex Index of the mode to set.
@@ -1091,6 +1106,42 @@ declare namespace screen {
   }
 
   /**
+   * The parameter of setting orientation
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OrientationOptions {  
+    /**
+     * Whether to need animation.
+     * The value true means rotating the screen with animation,
+     *     while false means rotating the screen without animation.
+     *
+     * @default true
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needAnimation?: boolean;
+
+    /**
+     * Whether to ignore rotation lock.
+     * The value true means allowing the screen to rotate even if some system windows lock screen rotation,
+     *     while false means preventing the screen from rotating when any system windows lock it.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ignoreRotationLock?: boolean;
+  }
+
+  /**
    * The information of the screen mode
    *
    * @interface ScreenModeInfo
@@ -1112,7 +1163,7 @@ declare namespace screen {
     id: long;
 
     /**
-     * Indicates the width of the screen
+     * Indicates the width of the screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1123,7 +1174,7 @@ declare namespace screen {
     width: long;
 
    /**
-     * Indicates the height of the screen
+     * Indicates the height of the screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1134,7 +1185,7 @@ declare namespace screen {
     height: long;
 
     /**
-     * Indicates the refreshRate of the screen
+     * Indicates the refreshRate of the screen, measured in hz.
      *
      * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core

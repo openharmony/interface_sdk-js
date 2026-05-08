@@ -21,25 +21,26 @@
 import type { Callback } from './@ohos.base';
 
 /**
- * Declares a namespace that provides APIs to report the device status.
+ * The **stationary** module provides APIs to report the device status, including absolute still and relative still.
+ * 
+ * > **NOTE**
+ * >
+ * > This module does not support x86 emulators.
  *
- * @namespace stationary
  * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
  * @since 9
  */
 declare namespace stationary {
   /**
-   * Declares a response interface to receive the device status.
+   * Defines the response interface to receive the device status.
    *
-   * @interface ActivityResponse
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   interface ActivityResponse {
     /**
-     * Declares a response interface to receive the device status.
+     * New device status.
      *
-     * @type { ActivityState }
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
      */
@@ -47,10 +48,11 @@ declare namespace stationary {
   }
 
   /**
-   * Declares the device status type.
+   * Enumerates the device status types.
    *
-   * @typedef { 'still' | 'relativeStill' }
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
+   * @unionmember { 'still' } Absolutely still.
+   * @unionmember { 'relativeStill' } Relatively still.
    * @since 9
    */
   type ActivityType = 'still' | 'relativeStill';
@@ -58,7 +60,6 @@ declare namespace stationary {
   /**
    * Enumerates the device status events.
    *
-   * @enum {number}
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
@@ -89,15 +90,14 @@ declare namespace stationary {
   }
 
   /**
-   * Enumerates the device status state.
+   * Enumerates the device statuses.
    *
-   * @enum {number}
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
   enum ActivityState {
     /**
-     * Entering device status.
+     * Event indicating entering device status.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
@@ -105,7 +105,7 @@ declare namespace stationary {
     ENTER = 1,
 
     /**
-     * Exiting device status.
+     * Event indicating exiting device status.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
@@ -113,13 +113,13 @@ declare namespace stationary {
     EXIT = 2
   }
 
-  /**	
+  /**
    * Subscribes to the device status.
    *
-   * @param { ActivityType } activity Indicates the device status type. For details, see {@code type: ActivityType}.
-   * @param { ActivityEvent } event Indicates the device status event.
-   * @param { number } reportLatencyNs Indicates the event reporting period.
-   * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
+   * @param { ActivityType } activity - Device status type.
+   * @param { ActivityEvent } event - Event type.
+   * @param { number } reportLatencyNs - Report delay, in ns. The value ranges from **1000000000** to **3000000000**.
+   * @param { Callback<ActivityResponse> } callback - Callback used to receive reported data.
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
@@ -128,8 +128,8 @@ declare namespace stationary {
   /**
    * Obtains the device status.
    *
-   * @param { ActivityType } activity Indicates the device status type. For details, see {@code type: ActivityType}.
-   * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
+   * @param { ActivityType } activity - Device status type.
+   * @param { Callback<ActivityResponse> } callback - Callback used to receive reported data.
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */
@@ -138,9 +138,10 @@ declare namespace stationary {
   /**
    * Unsubscribes from the device status.
    *
-   * @param { ActivityType } activity Indicates the device status type. For details, see {@code type: ActivityType}.
-   * @param { ActivityEvent } event Indicates the device status event.
-   * @param { Callback<ActivityResponse> } callback Indicates the callback for receiving reported data.
+   * @param { ActivityType } activity - Device status type.
+   * @param { ActivityEvent } event - Event type.
+   * @param { Callback<ActivityResponse> } callback - Callback used to receive reported data. If no value or
+   *     **undefined** is passed, all callbacks associated with the specified event in the process will be unregistered.
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
    */

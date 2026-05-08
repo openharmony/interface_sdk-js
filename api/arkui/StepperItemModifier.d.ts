@@ -24,6 +24,7 @@
  * @extends StepperItemAttribute
  * @implements AttributeModifier<StepperItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -33,6 +34,7 @@
  * @extends StepperItemAttribute
  * @implements AttributeModifier<StepperItemAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamiconly
@@ -46,6 +48,7 @@ export declare class StepperItemModifier extends StepperItemAttribute implements
    * 
    * @param { StepperItemAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly

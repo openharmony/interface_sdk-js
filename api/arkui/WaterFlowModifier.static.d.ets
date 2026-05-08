@@ -28,6 +28,7 @@ import { WaterFlowAttribute } from '@ohos.arkui.component';
  *
  * @implements { WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class WaterFlowModifier implements WaterFlowAttribute, AttributeModifier<WaterFlowAttribute> {}

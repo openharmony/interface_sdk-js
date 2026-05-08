@@ -719,6 +719,22 @@ declare namespace display {
   function isCaptured(): boolean;
 
   /**
+   * Check whether the device is captured, projected, or recorded by any app in the bundle name list.
+   *
+   * @param { Array<string> } bundleNameList - The list of application bundle names that need to be checked.
+   *     The max size of array is 100.
+   * @returns { boolean } true means the device is captured, projected, or recorded by any app in the bundle name list.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause:
+   *     1.The size of bundleNameList is larger than 100.
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function isCaptured(bundleNameList: Array<string>): boolean;
+
+  /**
    * Get the display mode of the foldable device.
    *
    * @returns { FoldDisplayMode } display mode of the foldable device.
@@ -1150,7 +1166,7 @@ declare namespace display {
     name: string;
 
     /**
-     * Indicates the width of the virtual screen.
+     * Indicates the width of the virtual screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
@@ -1160,7 +1176,7 @@ declare namespace display {
     width: long;
 
     /**
-     * Indicates the height of the virtual screen.
+     * Indicates the height of the virtual screen, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
@@ -1835,7 +1851,7 @@ declare namespace display {
     readonly position: Position;
 
     /**
-     * The radius of round corner.
+     * The radius of round corner, measured in px.
      *
      * @type { int }
      * @readonly
@@ -2704,7 +2720,7 @@ declare namespace display {
     sourceMode?: DisplaySourceMode;
  
     /**
-     * The X-axis coordinate of the top-left corner of the display relative to the main display.
+     * The X-axis coordinate of the top-left corner of the display relative to the main display, measured in px.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2715,7 +2731,7 @@ declare namespace display {
     x?: long;
   
     /**
-     * The Y-axis coordinate of the top-left corner of the display relative to the main display.
+     * The Y-axis coordinate of the top-left corner of the display relative to the main display, measured in px.
      *
      * @type { ?long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2726,7 +2742,7 @@ declare namespace display {
     y?: long;
 
     /**
-     * All supported refresh rates.
+     * All supported refresh rates, measured in hz.
      *
      * @type { ?Array<int> }
      * @syscap SystemCapability.Window.SessionManager
@@ -2927,7 +2943,7 @@ declare namespace display {
    */
   interface Position {
     /**
-     * Indicates the x-axis coordinates
+     * Indicates the x-axis coordinates, measured in px.
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager
@@ -2937,7 +2953,7 @@ declare namespace display {
     x: long;
 
     /**
-     * Indicates the y-axis coordinates
+     * Indicates the y-axis coordinates, measured in px.
      * 
      * @type { long }
      * @syscap SystemCapability.Window.SessionManager

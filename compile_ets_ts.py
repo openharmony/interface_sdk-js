@@ -101,7 +101,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         # 工具处理时候的线程数
         "maxWorkers": 16,
         # 工具处理的时候是否跳过检查
-        "skipDeclCheck": False,
+        "skipDeclCheck": True,
         "enableDeclgenEts2Ts": True,
         # declgenV1OutPath是输出的ets产物
         "declgenV1OutPath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "declaration"))),

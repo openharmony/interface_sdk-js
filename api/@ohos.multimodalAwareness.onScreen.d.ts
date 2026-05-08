@@ -21,9 +21,11 @@
 import { BusinessError, Callback } from './@ohos.base';
 
 /**
- * This module provides the capability to use on screen awareness
+ * This module provides the onscreen awareness capability.
+ * 
+ * > **NOTE**
+ * >
  *
- * @namespace onScreen
  * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
  * @since 20 dynamic
  * @since 23 static
@@ -31,16 +33,15 @@ import { BusinessError, Callback } from './@ohos.base';
 
 declare namespace onScreen {
   /**
-   * Enum for page content scenario
+   * Enumerates the scenarios of the onscreen content.
    *
-   * @enum { int } Scenario
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @since 20 dynamic
    * @since 23 static
-  */
+   */
   export enum Scenario {
     /**
-     * Indicates unknown scenario
+     * Unknown scenario.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -49,7 +50,7 @@ declare namespace onScreen {
      */
     UNKNOWN = 0,
     /**
-     * Indicates article scenario
+     * Article scenario.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -60,16 +61,15 @@ declare namespace onScreen {
   }
 
   /**
-   * Enum for control event type
+   * Enumerates the control event types.
    *
-   * @enum { int } EventType
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @since 20 dynamic
    * @since 23 static
-  */
+   */
   export enum EventType {
     /**
-     * Indicates scroll to hook event type
+     * Scrolling to the hook.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -80,8 +80,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for paragraph
-   * @interface Paragraph
+   * Defines the paragraph information.
+   *
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20 dynamic
@@ -89,8 +89,8 @@ declare namespace onScreen {
    */
   export interface Paragraph {
     /**
-     * Indicates paragraph hook id
-     * @type { ?long }
+     * Hook ID of the paragraph, which is the identifier of each main paragraph.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -98,8 +98,8 @@ declare namespace onScreen {
      */
     hookId?: long,
     /**
-     * Indicates paragraph chapter id if paragraph is splited to chapters
-     * @type { ?int }
+     * Chapter ID of the paragraph, which is the identifier of each subchapter.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -107,8 +107,8 @@ declare namespace onScreen {
      */
     chapterId?: int,
     /**
-     * Indicates paragraph title
-     * @type { ?string }
+     * Title of the paragraph.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -116,8 +116,8 @@ declare namespace onScreen {
      */
     title?: string,
     /**
-     * Indicates paragraph text
-     * @type { ?string }
+     * Content of the paragraph.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -127,8 +127,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for content options
-   * @interface ContentOptions
+   * Defines the options for obtaining the onscreen content.
+   *
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20 dynamic
@@ -136,8 +136,9 @@ declare namespace onScreen {
    */
   export interface ContentOptions {
     /**
-     * Indicates the windowId which need to gather, full screen window is specified by default
-     * @type { ?int }
+     * ID of the window whose content needs to be obtained. If this parameter is not set or is set to **undefined**, the
+     * content of the full-screen window is obtained by default.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -145,8 +146,8 @@ declare namespace onScreen {
      */
     windowId?: int,
     /**
-     * Indicates whether content understanding is required, false by default
-     * @type { ?boolean }
+     * Whether content understanding is required. The default value is **False**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -154,8 +155,8 @@ declare namespace onScreen {
      */
     contentUnderstand?: boolean,
     /**
-     * Indicates whether page link is required, false by default
-     * @type { ?boolean }
+     * Whether to obtain the page link. The default value is **False**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -163,8 +164,8 @@ declare namespace onScreen {
      */
     pageLink?: boolean,
     /**
-     * Indicates whether only text needs to be processed to return paragraphs, false by default
-     * @type { ?boolean }
+     * Whether to obtain only the text and divide the text into paragraphs. The default value is **False**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -174,8 +175,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for pageContent
-   * @interface PageContent
+   * Defines the onscreen content.
+   *
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20 dynamic
@@ -183,8 +184,8 @@ declare namespace onScreen {
    */
   export interface PageContent {
     /**
-     * Indicates window id corresponding to the content
-     * @type { int }
+     * Window ID of the onscreen content.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -192,8 +193,8 @@ declare namespace onScreen {
      */
     windowId: int,
     /**
-     * Indicates session id corresponding to the content
-     * @type { long }
+     * Session ID, which identifies the call action.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -201,8 +202,8 @@ declare namespace onScreen {
      */
     sessionId: long,
     /**
-     * Indicates bundle name corresponding to the content
-     * @type { string }
+     * Bundle name of the onscreen content.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -210,8 +211,9 @@ declare namespace onScreen {
      */
     bundleName: string,
     /**
-     * Indicates scenario of the content
-     * @type { ?Scenario }
+     * Scenario of the onscreen content. This parameter is available only when **options.contentUnderstand** is set to 
+     * **True**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -219,8 +221,9 @@ declare namespace onScreen {
      */
     scenario?: Scenario,
     /**
-     * Indicates title if content understand is needed
-     * @type { ?string }
+     * Title of the onscreen content. This parameter is available only when **options.contentUnderstand** is set to 
+     * **True**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -228,8 +231,9 @@ declare namespace onScreen {
      */
     title?: string,
     /**
-     * Indicates content if content understand is needed
-     * @type { ?string }
+     * Body of the onscreen content. This parameter is available only when **options.contentUnderstand** is set to 
+     * **True**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -237,8 +241,8 @@ declare namespace onScreen {
      */
     content?: string,
     /**
-     * Indicates page link if page link is needed
-     * @type { ?string }
+     * Page link of the onscreen content. This parameter is available only when **options.pageLink** is set to **True**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -246,8 +250,9 @@ declare namespace onScreen {
      */
     pageLink?: string,
     /**
-     * Indicates paragraphs if text only is needed
-     * @type { ?Paragraph[] }
+     * Paragraph information of the onscreen content. This parameter is available only when **options.textOnly** is set 
+     * to **True**.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -257,8 +262,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for control event
-   * @interface ControlEvent
+   * Defines a control event.
+   *
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @since 20 dynamic
@@ -266,8 +271,8 @@ declare namespace onScreen {
    */
   export interface ControlEvent {
     /**
-     * Indicates controlled window id
-     * @type { int }
+     * ID of the window to be operated.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -275,8 +280,9 @@ declare namespace onScreen {
      */
     windowId: int,
     /**
-     * Indicates session id 
-     * @type { long }
+     * ID of the session to be operated. The hook ID and the session ID can be obtained from 
+     * [PageContent]{@link onScreen.PageContent} of a session.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -284,8 +290,8 @@ declare namespace onScreen {
      */
     sessionId: long,
     /**
-     * Indicates control event type
-     * @type { EventType }
+     * Control event type.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -293,8 +299,9 @@ declare namespace onScreen {
      */
     eventType: EventType,
     /**
-     * Indicates controlled hookid for specific event type and specific session id
-     * @type { ?long }
+     * Hook ID corresponding to the control event. The hook ID and the session ID can be obtained from 
+     * [PageContent]{@link onScreen.PageContent} of a session.
+     *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @since 20 dynamic
@@ -304,11 +311,12 @@ declare namespace onScreen {
   }
 
   /**
-   * Get page content
-   * 
+   * Obtains the onscreen content when a window is displayed on the screen.
+   *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { ContentOptions } [options] - Indicates options to get page content
-   * @returns { Promise<PageContent> } Indicates the promise which carrys retrieved page content
+   * @param { ContentOptions } [options] - Options for obtaining the onscreen screen content. By default, the window ID
+   *     is not specified, and other options are **False**.
+   * @returns { Promise<PageContent> } Indicates the promise which carries retrieved page content
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -328,10 +336,11 @@ declare namespace onScreen {
   function getPageContent(options?: ContentOptions): Promise<PageContent>;
 
   /**
-   * Send control event
-   * 
+   * If the target window is displayed on the screen, you can use this API to send screen control events based on the 
+   * paragraph information obtained via [onScreen.getPageContent]{@link onScreen.getPageContent}.
+   *
    * @permission ohos.permission.SIMULATE_USER_INPUT
-   * @param { ControlEvent } event - Indicates the control event sent to the screen
+   * @param { ControlEvent } event - Onscreen control event.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.SIMULATE_USER_INPUT.
@@ -348,10 +357,8 @@ declare namespace onScreen {
   function sendControlEvent(event: ControlEvent): Promise<void>;
 
   /**
-   * Interface for onscreen awareness capabilities,
-   * includes page content, page links, and text selection event subscribe.
+   * Defines onscreen awareness capabilities (including but not limited to awareness in a reading scenario and OCR).
    *
-   * @interface OnscreenAwarenessCap
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @stagemodelonly
@@ -359,9 +366,8 @@ declare namespace onScreen {
    */
   export interface OnscreenAwarenessCap {
     /**
-     * Indicates a set of related capabilities.
+     * Capability list, including the capabilities for obtaining page content, page link, and text selection.
      *
-     * @type { ?string[] }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -369,9 +375,7 @@ declare namespace onScreen {
      */
     capList?: string[];
     /**
-     * Indicates a set of abilities, categorized by group.
-     *
-     * @type { ?string }
+     * Service group ID.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -381,10 +385,9 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface for scenario-specific screen information,
-   * provides parameters to access screen content and links by window ID.
+   * Defines the list of onscreen awareness parameters, which is used to obtain onscreen information in specific 
+   * scenarios. For example, a window ID is provided to collect application UI content and links.
    *
-   * @interface OnscreenAwarenessOptions
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @stagemodelonly
@@ -392,9 +395,7 @@ declare namespace onScreen {
    */
   export interface OnscreenAwarenessOptions {  
     /**
-     * Awareness parameters in custom key-value pairs format.
-     *
-     * @type { ?Record<string, Object> }
+     * List of awareness parameters. The parameter result is a key-value data object.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -404,9 +405,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Enum indicates page information collection strategy.
+   * Defines a page information collection policy.
    *
-   * @enum { int } CollectStrategy
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @stagemodelonly
@@ -414,7 +414,7 @@ declare namespace onScreen {
    */
   export enum CollectStrategy {  
     /**
-     * Indicates that collection is allowed.
+     * Collection is supported.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -423,7 +423,7 @@ declare namespace onScreen {
      */
     ALLOW = 1 << 0,
     /**
-     * Indicates split-screen window display.
+     * Collection policy of the split-screen window on the application.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -432,7 +432,7 @@ declare namespace onScreen {
      */
     SPLIT_SCREEN = 1 << 1,
     /**
-     * Indicates that auto collection is not supported.
+     * Automatic collection is not supported.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -441,7 +441,7 @@ declare namespace onScreen {
      */
     UNSUPPORTED_APP = 1 << 2,
     /**
-     * Indicates private window mode.
+     * Privacy window of the application.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -450,7 +450,7 @@ declare namespace onScreen {
      */
     PRIVATE_WINDOW = 1 << 3,
     /**
-     * Indicates ANCO app.
+     * VM application, which is a non-HarmonyOS application.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -459,7 +459,7 @@ declare namespace onScreen {
      */
     ANCO_APP = 1 << 4,
     /**
-     * Indicates whether the data collection policy is configurable for the app.
+     * Collection policies can be configured.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -468,7 +468,7 @@ declare namespace onScreen {
      */
     ALLOW_USER_CHANGE = 1 << 5,
     /**
-     * Indicates whether data collection is allowed for allowlisted apps.
+     * Application data can be collected.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -477,7 +477,7 @@ declare namespace onScreen {
      */
     BUSINESS_APP = 1 << 6,
     /**
-     * Indicates a floating window display.
+     * Floating window.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -486,7 +486,7 @@ declare namespace onScreen {
      */
     FLOAT_SCREEN = 1 << 7,
     /**
-     * Indicates a picture-in-picture (PiP) window display.
+     * Picture-in-picture mode.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -495,7 +495,7 @@ declare namespace onScreen {
      */
     PIP_SCREEN = 1 << 8,
     /**
-     * Indicates that the current page is the launcher.
+     * Desktop application.
      *
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
@@ -506,10 +506,12 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface provides comprehensive page information,
-   * covering content, links, images, and other data attributes.
+   * Provides page information, which includes:
+   * 
+   * * Basic page information, such as page content, links, and screenshots.
+   * * Page entity information, such as the title and body of a page article.
+   * * Page interaction information, such as clicks and scrolling.
    *
-   * @interface AwarenessItem
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @stagemodelonly
@@ -517,9 +519,9 @@ declare namespace onScreen {
    */
   export interface AwarenessItem {  
     /**
-     * Indicates data content details with attributes like title, body, and links.
+     * Entity information of the awareness result, including the content, links, screenshots, and other entity 
+     * information.
      *
-     * @type { Record<string, Object> }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -529,10 +531,8 @@ declare namespace onScreen {
   }
 
   /**
-   * Interface provides detailed entity information for a page,
-   * including content, links, image and other entities.
+   * Provides entity information perceived, including content, links, images, and other types of entities.
    *
-   * @interface EntityInfo
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @stagemodelonly
@@ -540,9 +540,7 @@ declare namespace onScreen {
    */
   export interface EntityInfo {  
     /**
-     * Indicates the entity name.
-     *
-     * @type { string }
+     * Name of the perceived entity, which is fixed.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -550,9 +548,8 @@ declare namespace onScreen {
      */
     entityName: string;
     /**
-     * Indicates entity content details with attributes like title, body, links.
+     * Entity information of the awareness result, including the content, links, images, and other entity information.
      *
-     * @type { Record<string, Object> }
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -562,9 +559,8 @@ declare namespace onScreen {
   }
   
   /**
-   * Interface for onscreen awareness response info.
+   * Returns the list of onscreen awareness information.
    *
-   * @interface OnscreenAwarenessInfo
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @stagemodelonly
@@ -572,9 +568,7 @@ declare namespace onScreen {
    */
   export interface OnscreenAwarenessInfo {  
     /**
-     * Indicates the error code.
-     *
-     * @type { int }
+     * Return code. The default value **0** indicates success.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -582,9 +576,7 @@ declare namespace onScreen {
      */
     resultCode: int;
     /**
-     * Indicates timestamp of entering a specific page.
-     *
-     * @type { long }
+     * Timestamp for accessing a specified page.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -592,9 +584,7 @@ declare namespace onScreen {
      */
     timestamp: long;
     /**
-     * Indicates the UID of an application.
-     *
-     * @type { ?string }
+     * Application UID.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -602,9 +592,7 @@ declare namespace onScreen {
      */
     uid?: string;
     /**
-     * Indicates the bundle name of the target application.
-     *
-     * @type { ?string }
+     * Application bundle name.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -612,9 +600,7 @@ declare namespace onScreen {
      */
     bundleName?: string;
     /**
-     * Indicates the application name.
-     *
-     * @type { ?string }
+     * Application name.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -622,9 +608,7 @@ declare namespace onScreen {
      */
     appName?: string;
     /**
-     * Indicates the mini program ID.
-     *
-     * @type { ?string }
+     * Applet ID, for example, the ID of WeChat or Alipay.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -632,9 +616,7 @@ declare namespace onScreen {
      */
     miniProgramId?: string;
     /**
-     * Indicates the mini program name.
-     *
-     * @type { ?string }
+     * Name of a third-party mini program.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -642,9 +624,7 @@ declare namespace onScreen {
      */
     miniProgramName?: string;
     /**
-     * Indicates the app index of the target application.
-     *
-     * @type { ?int }
+     * Application index.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -652,9 +632,7 @@ declare namespace onScreen {
      */
     appIndex?: int;
     /**
-     * Indicates the page id.
-     *
-     * @type { ?string }
+     * Application page ID.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -662,9 +640,7 @@ declare namespace onScreen {
      */
     pageId?: string;
     /**
-     * Indicates the sample id for a specific page.
-     *
-     * @type { ?string }
+     * Collection record ID.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -672,9 +648,8 @@ declare namespace onScreen {
      */
     sampleId?: string;
     /**
-     * Indicates the collection strategy, a bitwise OR combination of {@link CollectStrategy}.
-     *
-     * @type { ?int }
+     * Page collection policy, which is the bitwise OR operation combination of
+     *    <br> [CollectStrategy]{@link onScreen. CollectStrategy}.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -682,9 +657,7 @@ declare namespace onScreen {
      */
     collectStrategy?: int;
     /**
-     * Indicates the display id of the screen, the default displayId is specified by default.
-     *
-     * @type { ?long }
+     * Display ID.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -692,9 +665,7 @@ declare namespace onScreen {
      */
     displayId?: long;
     /**
-     * Indicates the windowId which need to gather, full screen window is specified by default.
-     *
-     * @type { ?int }
+     * Window ID.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -702,9 +673,7 @@ declare namespace onScreen {
      */
     windowId?: int;
     /**
-     * Indicates the language of the text on the page.
-     *
-     * @type { ?string }
+     * Page language information.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -712,9 +681,7 @@ declare namespace onScreen {
      */
     languageInfo?: string;
     /**
-     * Indicates the tag collection for the functional classification of page entities.
-     *
-     * @type { ?string[] }
+     * Page tag information.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -722,9 +689,7 @@ declare namespace onScreen {
      */
     pageTags?: string[];
     /**
-     * Interface for onscreen awareness data items list information.
-     *
-     * @type { ?AwarenessItem[] }
+     * Data item information.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -732,9 +697,7 @@ declare namespace onScreen {
      */
     items?: AwarenessItem[];
     /**
-     * Interface for onscreen awareness entity info array.
-     *
-     * @type { ?EntityInfo[] }
+     * Entity information.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -744,13 +707,14 @@ declare namespace onScreen {
   }
 
   /**
-   * Enable active onscreen awareness, and subscribes to screen awareness results.
+   * Enables proactive awareness on screen content and subscribes to a screen awareness result.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
-   * @param { Callback<OnscreenAwarenessInfo[]> } callback - Indicates the callback for obtaining
-   *     <br> corresponding capability data.
-   * @param { OnscreenAwarenessOptions } [options] - Indicates options to get page content.
+   * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
+   * @param { Callback<OnscreenAwarenessInfo[]> } callback - Callback function, which returns the onscreen
+   *     <br> awareness result. The returned onscreen awareness information list **OnscreenAwarenessInfo[]**
+   *     <br> contains a maximum of twoawareness information items.
+   * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -768,12 +732,13 @@ declare namespace onScreen {
                      options?: OnscreenAwarenessOptions): void;
 
   /**
-   * Disable active onscreen awareness, and unsubscribes to screen awareness results.
+   * Disables proactive awareness on screen content and unsubscribes from a screen awareness result.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
-   * @param { Callback<OnscreenAwarenessInfo[]> } [callback] - Indicates the callback
-   *     <br> for obtaining corresponding capability data.
+   * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
+   * @param { Callback<OnscreenAwarenessInfo[]> } [callback] - Callback to unregister. The returned onscreen
+   *     <br> awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
+   *     <br> information items.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -788,12 +753,12 @@ declare namespace onScreen {
   function unsubscribe(capability: OnscreenAwarenessCap, callback?: Callback<OnscreenAwarenessInfo[]>): void;
 
   /**
-   * Single trigger to acquire page content and get onscreen awareness result.
+   * Proactively triggers screen content awareness and obtains the current screen awareness result.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
-   * @param { OnscreenAwarenessOptions } [options] - Indicates options to get page content.
-   * @returns { Promise<OnscreenAwarenessInfo> } Indicates the promise which carries retrieved page content.
+   * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
+   * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
+   * @returns { Promise<OnscreenAwarenessInfo> } Promise used to return the onscreen awareness result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -810,12 +775,15 @@ declare namespace onScreen {
                    options?: OnscreenAwarenessOptions): Promise<OnscreenAwarenessInfo>;
 
   /**
-   * Single capture to acquire on-screen information and page content.
+   * Proactively triggers screen content awareness to obtain page information.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
-   * @param { OnscreenAwarenessOptions } [options] - Indicates options to get page content.
-   * @returns { Promise<OnscreenAwarenessInfo[]> } Indicates the promise which carries retrieved page content.
+   * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list. For details, see
+   *     <br> the followingsupported capability list.
+   * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
+   * @returns { Promise<OnscreenAwarenessInfo[]> } Promise used to return the onscreen awareness result.
+   *     <br>The returned onscreen awareness information list **OnscreenAwarenessInfo[]** contains a
+   *     <br> maximum of two awareness information items.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -830,13 +798,19 @@ declare namespace onScreen {
    */
   function capture(capability: OnscreenAwarenessCap, 
                    options?: OnscreenAwarenessOptions): Promise<OnscreenAwarenessInfo[]>;
+  
   /**
-   * Single-trigger screen interaction.
+   * Proactively triggers screen behavior interaction to identify screen behaviors and return behavior receipts. For
+   *     <br> for example, after a link is clicked, the system accurately jumps to the specified paragraph and
+   *     <br> highlights the text based on the receipt information.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
-   * @param { OnscreenAwarenessOptions } [options] - Indicates options to get page content.
-   * @returns { Promise<OnscreenAwarenessInfo[]> } Indicates the promise which carries retrieved page content.
+   * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list. For details, see the following
+   *     <br> supported capability list.
+   * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
+   * @returns { Promise<OnscreenAwarenessInfo[]> } Promise used to return the onscreen awareness result. The returned
+   *     <br> onscreen awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
+   *     <br> information items.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -853,12 +827,15 @@ declare namespace onScreen {
                    options?: OnscreenAwarenessOptions): Promise<OnscreenAwarenessInfo[]>;
 
    /**
-    * Single-trigger screen analysis and data extraction.
+    * Proactively triggers screen content awareness to obtain the screen content for snapshot analysis.
     *
     * @permission ohos.permission.GET_SCREEN_CONTENT
-    * @param { OnscreenAwarenessCap } capability - Indicates the capability set or specific capability.
-    * @param { OnscreenAwarenessOptions } [options] - Indicates options to get page content.
-    * @returns { Promise<OnscreenAwarenessInfo[]> } Indicates the promise which carries retrieved page content.
+    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list. For details, see the following
+    *     <br> supported capability list.
+    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
+    * @returns { Promise<OnscreenAwarenessInfo[]> } Promise used to return the onscreen awareness result. The returned
+    *     <br> onscreen awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
+    *     <br> information items.
     * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
     *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
     * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -875,9 +852,8 @@ declare namespace onScreen {
                    options?: OnscreenAwarenessOptions): Promise<OnscreenAwarenessInfo[]>;
 
   /**
-   * Interface indicates whether reading information from the current screen is permitted.
+   * Returns the status of the permission for reading screen information.
    *
-   * @interface ReadingScreenPermissionStatus
    * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
    * @systemapi
    * @stagemodelonly
@@ -885,9 +861,7 @@ declare namespace onScreen {
    */
   export interface ReadingScreenPermissionStatus {  
     /**
-     * Indicates whether the screen is readable.
-     *
-     * @type { int }
+     * Whether screen reading is allowed. **0**: no**1**: yes.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -895,10 +869,7 @@ declare namespace onScreen {
      */
     readingState: int;
     /**
-     * Reasons for the screen being unreadable.
-     * If the screen cannot be read, the corresponding status code will be returned.
-     *
-     * @type { ?int}
+     * If the screen information cannot be read, the corresponding status code will be returned.
      * @syscap SystemCapability.MultimodalAwareness.OnScreenAwareness
      * @systemapi
      * @stagemodelonly
@@ -908,11 +879,11 @@ declare namespace onScreen {
   }
   
   /**
-   * Register screen-reading permission listener.
+   * Enables the screen content access permission monitoring and returns the permission status in real time.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { Callback<ReadingScreenPermissionStatus> } callback - Indicates the callback
-   *     <br> for obtaining corresponding capability data.
+   * @param { Callback<ReadingScreenPermissionStatus> } callback - Callback used to return the status of the permission
+   *     <br> for reading screen information.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
@@ -927,11 +898,11 @@ declare namespace onScreen {
   function onReadingScreenPermissionListener(callback: Callback<ReadingScreenPermissionStatus>): void;
 
   /**
-   * Unregister screen-read permission listener.
+   * Disables the screen content access permission monitoring.
    *
    * @permission ohos.permission.GET_SCREEN_CONTENT
-   * @param { Callback<ReadingScreenPermissionStatus> } [callback] - Indicates the callback
-   *     <br> for obtaining corresponding capability data.
+   * @param { Callback<ReadingScreenPermissionStatus> } [callback] - Callback to unregister. If this parameter
+   *     <br> is not passed, all callbacks of the event are unregistered.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A nonsystem application uses the system API.

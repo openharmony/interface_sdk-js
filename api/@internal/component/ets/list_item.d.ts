@@ -129,20 +129,20 @@ declare enum EditMode {
  */
 declare enum SwipeEdgeEffect {
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * Elastic physical action. When sliding to the edge, the item can continue sliding for a distance based on the initial speed or touch event, and springs back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * Elastic physical action. When sliding to the edge, the item can continue sliding for a distance based on the initial speed or touch event, and springs back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
+   * Elastic physical action. When sliding to the edge, the item can continue sliding for a distance based on the initial speed or touch event, and springs back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -182,6 +182,7 @@ declare enum SwipeEdgeEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -190,6 +191,7 @@ declare enum SwipeEdgeEffect {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -199,12 +201,14 @@ declare enum SwipeActionState {
    * Collapsed type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * Collapsed type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -215,12 +219,14 @@ declare enum SwipeActionState {
    * EXPANDED type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * EXPANDED type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -231,12 +237,14 @@ declare enum SwipeActionState {
    * Action type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
    * Action type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -249,6 +257,7 @@ declare enum SwipeActionState {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 21 dynamic
@@ -259,6 +268,7 @@ declare enum ListItemSwipeActionDirection {
    * When the List direction is horizontal, it indicates the top.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -269,6 +279,7 @@ declare enum ListItemSwipeActionDirection {
    * When the List direction is horizontal, it indicates the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -280,6 +291,7 @@ declare enum ListItemSwipeActionDirection {
  * The swipe action manager.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 21 dynamic
@@ -294,6 +306,7 @@ declare class ListItemSwipeActionManager {
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -308,6 +321,7 @@ declare class ListItemSwipeActionManager {
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -320,6 +334,7 @@ declare class ListItemSwipeActionManager {
  *
  * @interface SwipeActionItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -327,6 +342,7 @@ declare class ListItemSwipeActionManager {
  *
  * @interface SwipeActionItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -334,18 +350,20 @@ declare class ListItemSwipeActionManager {
 declare interface SwipeActionItem {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * slides down (when list direction is Horizontal).
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * slides down (when list direction is Horizontal).
    *
    * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -354,10 +372,11 @@ declare interface SwipeActionItem {
 
   /**
     * An action item that appears when a list item slides right (when list direction is Vertical) or
-    * slides down (when list direction Horizontal).
+    * slides down (when list direction is Horizontal).
     *
     * @type { ?ComponentContent }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 18 dynamic
@@ -370,6 +389,7 @@ declare interface SwipeActionItem {
    * @type { ?Length }
    * @default 56vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -378,6 +398,7 @@ declare interface SwipeActionItem {
    * @type { ?Length }
    * @default 56vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -385,17 +406,19 @@ declare interface SwipeActionItem {
   actionAreaDistance?: Length;
 
   /**
-   * Called when ListItem need to be deleted.
+   * Called when the list item needs to be deleted.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
-   * Called when ListItem need to be deleted.
+   * Called when the list item needs to be deleted.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -403,17 +426,19 @@ declare interface SwipeActionItem {
   onAction?: () => void;
 
   /**
-   * Called when swipe entry delete area.
+   * Called when the list item being swiped enters the delete area.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
-   * Called when swipe entry delete area.
+   * Called when the list item being swiped enters the delete area.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -421,17 +446,19 @@ declare interface SwipeActionItem {
   onEnterActionArea?: () => void;
 
   /**
-   * Called when swipe exit delete area.
+   * Called when the list item being swiped exits the delete area.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
-   * Called when swipe exit delete area.
+   * Called when the list item being swiped exits the delete area.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -439,18 +466,20 @@ declare interface SwipeActionItem {
   onExitActionArea?: () => void;
 
   /**
-   * Called when component swipe action state changed.
+   * Called when the swipe action state of the list item changes.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
   /**
-   * Called when component swipe action state changed.
+   * Called when the swipe action state of the list item changes.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -486,7 +515,7 @@ declare interface SwipeActionItem {
 declare interface SwipeActionOptions {
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * slides down (when list direction is Horizontal).
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -494,7 +523,7 @@ declare interface SwipeActionOptions {
    */
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * slides down (when list direction is Horizontal).
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -503,7 +532,7 @@ declare interface SwipeActionOptions {
    */
   /**
    * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * slides down (when list direction is Horizontal).
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -516,7 +545,7 @@ declare interface SwipeActionOptions {
 
   /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
-   * slides up (when list direction Horizontal).
+   * slides up (when list direction is Horizontal).
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -524,7 +553,7 @@ declare interface SwipeActionOptions {
    */
   /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
-   * slides up (when list direction Horizontal).
+   * slides up (when list direction is Horizontal).
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -533,7 +562,7 @@ declare interface SwipeActionOptions {
    */
   /**
    * An action item that appears when a list item slides left (when list direction is Vertical) or
-   * slides up (when list direction Horizontal).
+   * slides up (when list direction is Horizontal).
    *
    * @type { ?(CustomBuilder | SwipeActionItem) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -572,18 +601,20 @@ declare interface SwipeActionOptions {
   edgeEffect?: SwipeEdgeEffect;
 
   /**
-   * Called when swipe action offset changed.
+   * Called when the swipe offset of the list item changes.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
   /**
-   * Called when swipe action offset changed.
+   * Called when the swipe offset of the list item changes.
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -596,6 +627,7 @@ declare interface SwipeActionOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -603,6 +635,7 @@ declare interface SwipeActionOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -612,12 +645,14 @@ declare enum ListItemStyle {
    * Show custom style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Show custom style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -628,12 +663,14 @@ declare enum ListItemStyle {
    * Show default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Show default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -646,6 +683,7 @@ declare enum ListItemStyle {
  *
  * @interface ListItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -653,6 +691,7 @@ declare enum ListItemStyle {
  *
  * @interface ListItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -663,6 +702,7 @@ declare interface ListItemOptions {
    *
    * @type { ?ListItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -670,6 +710,7 @@ declare interface ListItemOptions {
    *
    * @type { ?ListItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -720,6 +761,7 @@ interface ListItemInterface {
    * @param { ListItemOptions } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
@@ -730,6 +772,7 @@ interface ListItemInterface {
    * @param { ListItemOptions } value
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -815,7 +858,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   editable(value: boolean | EditMode): ListItemAttribute;
 
   /**
-   * Called when judging whether it is selectable.
+   * Sets whether the list item is selectable.
    *
    * @param { boolean } value
    * @returns { ListItemAttribute }
@@ -823,7 +866,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 8
    */
   /**
-   * Called when judging whether it is selectable.
+   * Sets whether the list item is selectable.
    *
    * @param { boolean } value
    * @returns { ListItemAttribute }
@@ -832,7 +875,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 9
    */
   /**
-   * Called when judging whether it is selectable.
+   * Sets whether the list item is selectable.
    *
    * @param { boolean } value
    * @returns { ListItemAttribute }
@@ -842,7 +885,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 10
    */
   /**
-   * Called when judging whether it is selectable.
+   * Sets whether the list item is selectable.
    *
    * @param { boolean } value
    * @returns { ListItemAttribute }
@@ -856,23 +899,25 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   selectable(value: boolean): ListItemAttribute;
 
   /**
-   * Called when judging whether it is selected.
+   * Sets whether the list item is selected.
    * This parameter supports $$ for two-way binding of variables.
    *
-   * @param { boolean } value - if the listItem is selected.
+   * @param { boolean } value - Whether the ListItem is selected.
    * @returns { ListItemAttribute } the attribute of the listItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
    */
   /**
-   * Called when judging whether it is selected.
+   * Sets whether the list item is selected.
    * This parameter supports $$ for two-way binding of variables.
    *
-   * @param { boolean } value - if the listItem is selected.
+   * @param { boolean } value - Whether the ListItem is selected.
    * @returns { ListItemAttribute } the attribute of the listItem.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -911,7 +956,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   swipeAction(value: SwipeActionOptions): ListItemAttribute;
 
   /**
-   * Called when the listItem is selected.
+   * Called when the list item is selected.
    *
    * @param { function } event
    * @returns { ListItemAttribute }
@@ -919,7 +964,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 8
    */
   /**
-   * Called when the listItem is selected.
+   * Called when the list item is selected.
    *
    * @param { function } event
    * @returns { ListItemAttribute }
@@ -928,7 +973,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 9
    */
   /**
-   * Called when the listItem is selected.
+   * Called when the list item is selected.
    *
    * @param { function } event
    * @returns { ListItemAttribute }
@@ -938,7 +983,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
    * @since 10
    */
   /**
-   * Called when the listItem is selected.
+   * Called when the list item is selected.
    *
    * @param { function } event
    * @returns { ListItemAttribute }

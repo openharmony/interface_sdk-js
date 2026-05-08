@@ -291,6 +291,32 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    * @since 22 dynamic
    */
   selectionIndicator(style: Optional<PickerIndicatorStyle>): UIPickerComponentAttribute;
+
+  /**
+   * Sets the height of each item.
+   *
+   * @param { Optional<LengthMetrics> } height - Height of each item.
+   * @returns { UIPickerComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  itemHeight(height: Optional<LengthMetrics>): UIPickerComponentAttribute;
+
+  /**
+   * Sets the total number of visible items.
+   *
+   * @param { Optional<int> } count - Total number of visible items.
+   * @returns { UIPickerComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  displayedItemCount(count: Optional<int>): UIPickerComponentAttribute;
 }
 
 /**

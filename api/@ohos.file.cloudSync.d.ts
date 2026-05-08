@@ -169,7 +169,24 @@ declare namespace cloudSync {
      * @since 23 static
      */
     REMOTE_SERVER_ABNORMAL = 8,
-    
+    /**
+     * upload aborted due to cloud response time out.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RESPONSE_TIME_OUT = 9,
+    /**
+     * upload aborted due to unknown error.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_ERROR  = 10
   }
 
   /**
@@ -418,6 +435,71 @@ declare namespace cloudSync {
   }
 
   /**
+   * Describes the State type of file upload.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum UploadState {
+    /**
+     * Indicates that the upload task in waiting now.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WAITING = 0,
+    /**
+     * Indicates that the upload task in process now.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RUNNING = 1,
+    /**
+     * Indicates that the upload task finished.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMPLETED = 2,
+    /**
+     * Indicates that the upload task failed.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FAILED = 3,
+    /**
+     * Indicates that the upload task stopped.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STOPPED = 4,
+    /**
+     * Indicates that the upload task paused.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PAUSED = 5
+  }
+
+  /**
    * Describes the download Error type.
    *
    * @enum { int }
@@ -497,6 +579,8 @@ declare namespace cloudSync {
     /**
      * The processed data size for current file.
      *
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
@@ -506,6 +590,8 @@ declare namespace cloudSync {
     /**
      * The size of current file.
      *
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 11 dynamic
@@ -530,6 +616,62 @@ declare namespace cloudSync {
      * @since 23 static
      */
     error: DownloadErrorType;
+  }
+
+  /**
+   * The UploadProgress data structure.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface UploadProgress {
+    /**
+     * The current upload state.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    state: UploadState;
+    /**
+     * the processed data size for current file.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    processed: long;
+    /**
+     * The size of current file.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    size: long;
+    /**
+     * The uri of current file.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uri: string;
+    /**
+     * The error type of upload.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    error: ErrorType;
   }
 
   /**
@@ -614,6 +756,9 @@ declare namespace cloudSync {
     taskId: long;
     /**
      * The number of files that downloaded successfully
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -622,6 +767,9 @@ declare namespace cloudSync {
     successfulCount: int;
     /**
      * The number of files that fail to be downloaded.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -638,6 +786,8 @@ declare namespace cloudSync {
     totalCount: int;
     /**
      * Total size of downloaded files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -646,6 +796,8 @@ declare namespace cloudSync {
     downloadedSize: long;
     /**
      * Total size of the batch files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1009,6 +1161,54 @@ declare namespace cloudSync {
      * @since 23 static
      */
     getLastSyncTime(callback: AsyncCallback<long>): void;
+    /**
+     * Registers to cloud file upload progress change. This method uses a callback to get upload progress changes.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Callback<UploadProgress> } callback - Callback function.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified; 
+     *     <br>2.The number of instances registered at the same time exceeds the upper limit.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    registerUploadProgress(callback: Callback<UploadProgress>): void;
+    /**
+     * Unregisters to cloud file upload progress change.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    unregisterUploadProgress(): void;
+    /**
+     * Query the upload state of the cloud file list.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Array<string> } uris - uris of queryed files.
+     * @returns { Promise<Array<UploadProgress>> } - Return Promise
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified. 2.The number of instances registered at the same time exceeds the upper limit.
+     *     <br>3.The input parameter contains an invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getUploadList(uris: Array<string>): Promise<Array<UploadProgress>>;
   }
   /**
    * CloudFileCache object.
@@ -1279,6 +1479,24 @@ declare namespace cloudSync {
      * @since 23 static
      */
      cleanFileCache(uri: string): void;
+     /**
+     * Query the download state of the cloud file list.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC
+     * @param { Array<string> } uris - uris of queryed files.
+     * @returns { Promise<Array<DownloadProgress>> } - Return Promise
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified. 2.The number of instances registered at the same time exceeds the upper limit.
+     *     <br>3.The input parameter contains an invalid uri.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDownloadList(uris: Array<string>): Promise<Array<DownloadProgress>>;
   }
 
   /**
@@ -1725,6 +1943,9 @@ declare namespace cloudSync {
 
     /**
      * The percentage of clearing files.
+     * The value should be an interger.
+     * <br>Unit:Pcs.
+     * 
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1746,7 +1967,9 @@ declare namespace cloudSync {
   interface OptimizeSpaceParam {
 
     /**
-     * The total size(Unit:byte) of clean space.
+     * The total size of clean space.
+     * <br>Unit:Byte.
+     * 
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1757,7 +1980,10 @@ declare namespace cloudSync {
     totalSize: long;
 
     /**
-     * Clean files that are not accessed agingDays(unit:day) ago.
+     * Clean files that are not accessed agingDays ago.
+     * The value should be an interger.
+     * <br>Unit:day.
+     * 
      * @permission ohos.permission.CLOUDFILE_SYNC
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1778,6 +2004,8 @@ declare namespace cloudSync {
   interface HistoryVersion {
     /**
      * The time when the content of this version file is edited.
+     * <br>Unit:Timestamp.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1786,6 +2014,8 @@ declare namespace cloudSync {
     editedTime: long;
     /**
      * The size of this history version file.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1844,6 +2074,9 @@ declare namespace cloudSync {
     state: State;
     /**
      * The percentage of downloaded files.
+     * The value should be an interger.
+     * <br>Unit:Percent.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @since 20 dynamic
@@ -1880,9 +2113,16 @@ declare namespace cloudSync {
     constructor();
     /**
      * Get the specified number of most recent historical versions of the file specified by the URI.
+     * where:
+     * - the prefix is exactly "file://"；
+     * - <bundleName> is the name of the bundle (alphanumeric and underscores);
+     * - <path_of_file> is the absolute path inside the cloud storage, may contain '/' separators.
+     * The URI conforms to the regular expression: ^file:\/\/[^\/]+\/data\/storage\/el2\/cloud\/.*$
      *
-     * @param { string } uri - uri of file.
+     * @param { string } uri - uri of file, must follow a valid URI scheme (e.g., "file://<bundleName>/data/storage/el2/cloud/<path_of_file>").
      * @param { int } versionNumLimit - Maximum number of historical versions you want to obtained.
+     *     The value should be an integer.
+     *     <br>Unit:Pcs.
      * @returns { Promise<Array<HistoryVersion>> } - Return the most recent history version list of the specified file.
      * @throws { BusinessError } 13600001 - IPC error. Possible causes:
      *     <br>1.IPC failed or timed out. 2.Failed to load the service.

@@ -24,6 +24,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -31,6 +32,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -40,12 +42,14 @@ declare enum ListItemGroupStyle {
    * Show custom style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Show custom style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -56,17 +60,52 @@ declare enum ListItemGroupStyle {
    * Show default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Show default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   CARD = 1,
+}
+
+/**
+ * Defines the list item group header/footer style.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum ListItemGroupHeaderFooterStyle {
+  /**
+   * Show none style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  NONE = 0,
+
+  /**
+   * Show floating style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  FLOATING = 1
 }
 
 /**
@@ -127,6 +166,7 @@ declare interface ListItemGroupOptions {
     *
     * @type { ?ComponentContent }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 13 dynamic
@@ -165,6 +205,7 @@ declare interface ListItemGroupOptions {
     *
     * @type { ?ComponentContent }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 13 dynamic
@@ -199,10 +240,33 @@ declare interface ListItemGroupOptions {
   space?: number | string;
 
   /**
+   * Spacing between list items along the main axis.
+   * 
+   * <p><strong>NOTE</strong>
+   * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list
+   * content area, the default value is used.
+   * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider
+   * is used as the spacing.
+   * <br> Child components of <em>ListItemGroup</em> whose <em>visibility</em> attribute is set to <em>None</em>
+   * are not displayed, but the spacing above and below them still takes effect.
+   * <br> If both spaceWidth and space are set, spaceWidth will take precedence.
+   * </p>
+   *
+   * @type { ?Dimension }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  spaceWidth?: Dimension;
+
+  /**
    * Describes the ListItemGroup style.
    *
    * @type { ?ListItemGroupStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -210,11 +274,34 @@ declare interface ListItemGroupOptions {
    *
    * @type { ?ListItemGroupStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   style?: ListItemGroupStyle;
+
+  /**
+   * Describes the ListItemGroup header style.
+   * @default ListItemGroupAttribute.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  headerStyle?: ListItemGroupHeaderFooterStyle;
+
+  /**
+   * Describes the ListItemGroup footer style.
+   * @default ListItemGroupAttribute.NONE
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  footerStyle?: ListItemGroupHeaderFooterStyle;
 }
 
 /**
@@ -366,6 +453,7 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    * @param { ChildrenMainSize } value - children main size for ListItemGroup
    * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

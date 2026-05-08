@@ -24,6 +24,7 @@
  * @extends ParticleAttribute
  * @implements AttributeModifier<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -33,6 +34,7 @@
  * @extends ParticleAttribute
  * @implements AttributeModifier<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 23 dynamic
@@ -44,6 +46,7 @@ export declare class ParticleModifier extends ParticleAttribute implements Attri
    * 
    * @param { ParticleAttribute } particleAttribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

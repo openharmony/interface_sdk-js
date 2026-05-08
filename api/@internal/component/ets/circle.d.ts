@@ -326,7 +326,38 @@ interface CircleInterface {
  * @atomicservice
  * @since 11 dynamic
  */
-declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {}
+declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
+  /**
+  * Sets the stroke color.
+  * If this attribute is not set, the component does not have any stroke.
+  * If the value is invalid, no stroke will be drawn.
+  *
+  * @param { ResourceColor | ColorMetrics } value - Stroke color.
+  * @returns { T }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @FaAndStageModel
+  * @form
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+  stroke(value: ResourceColor | ColorMetrics): T;
+  
+  /**
+   * Sets the color of the fill area.
+   * An invalid value is handled as the default value.
+   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
+   *
+   * @param { ResourceColor | ColorMetrics } value - Color of the fill area
+   *     <br>Default value : Color.Black.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fill(value: ResourceColor | ColorMetrics): T;
+}
 
 /**
  * Defines Circle Component.

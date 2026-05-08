@@ -19,9 +19,8 @@
  */
 
 /**
- * Auto fill service trigger type.
+ * This module specifies how the autofill service is triggered, based on different user gestures.
  *
- * @enum { int }
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
@@ -29,7 +28,8 @@
  */
 export enum AutoFillTriggerType {
     /**
-     * Indicates that the autofill service was triggered by the autofill component.
+     * Automatically triggers the autofill service when a [TextInput]{@link @internal/component/ets/text_input} 
+     * component gains focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
@@ -39,7 +39,8 @@ export enum AutoFillTriggerType {
     AUTO_REQUEST = 0,
 
     /**
-     * Indicates that the autofill service was triggered by manual user interaction.
+     * Manually triggers the autofill service by long-pressing any input component to bring up a secondary menu and 
+     * selecting autofill.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi
@@ -49,7 +50,8 @@ export enum AutoFillTriggerType {
     MANUAL_REQUEST = 1,
 
     /**
-     * Indicates that the autofill service was triggered by a paste action.
+     * Triggers the autofill service via paste by long-pressing a username or password in the password vault to select 
+     * secure copy, long-pressing any input component to bring up a secondary menu, and selecting paste.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi

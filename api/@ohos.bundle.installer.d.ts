@@ -2010,6 +2010,24 @@ declare namespace installer {
      * @since 23 static
      */
     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
+
+    /**
+     * Uninstall new preinstalled applications.
+     * Only supports uninstalling pre installed applications added during device OTA upgrade. Asynchronous execution of
+     * application uninstallation tasks, the interface return value only indicates successful interface invocation
+     * and does not return uninstallation results.
+     *
+     * @permission ohos.permission.UNINSTALL_BUNDLE
+     * @param { Array<string> } bundleNames - Indicates the bundle name list to be uninstalled.
+     * @returns { Promise<void> } the promise returned by the function.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    uninstallNewPreinstalledApps(bundleNames: Array<string>): Promise<void>;
   }
 
   /**

@@ -148,6 +148,7 @@
     "SystemCapability.HiviewDFX.HiDumper",
     "SystemCapability.HiviewDFX.HiAppEvent",
     "SystemCapability.HiviewDFX.HiSysEvent",
+    "SystemCapability.HiviewDFX.HiRetrieval",
     "SystemCapability.HiviewDFX.HiEventLite",
     "SystemCapability.HiviewDFX.HiProfiler.HiDebug",
     "SystemCapability.Update.UpdateService",

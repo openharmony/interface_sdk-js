@@ -1052,4 +1052,14 @@ export interface PreinstalledApplicationInfo {
    * @since 23 static
    */
   readonly labelId: long;
+
+  /**
+   * Indicates the description id of the application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  readonly descriptionId?: long;
 }

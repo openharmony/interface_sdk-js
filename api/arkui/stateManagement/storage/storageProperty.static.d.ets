@@ -25,6 +25,7 @@
  * @param { string } propertyName - property name
  * @param { T } newValue - the new value of state variable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
@@ -39,6 +40,7 @@ export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
  *
  * @interface AbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface AbstractProperty<T> {
@@ -47,6 +49,7 @@ export declare interface AbstractProperty<T> {
    *
    * @returns { string } name of the referenced property
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default info(): string;
@@ -56,6 +59,7 @@ export declare interface AbstractProperty<T> {
    *
    * @returns { T } value of the referenced AppStorage/LocalStorage property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   get(): T;
@@ -65,6 +69,7 @@ export declare interface AbstractProperty<T> {
    *
    * @param {T} newValue - a new value of the referenced property
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default set(newValue: T): void;
@@ -74,6 +79,7 @@ export declare interface AbstractProperty<T> {
    *
    * @param {OnChangeType<T> | undefined} onChangeFunc - register callback function
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default onChange(onChangeFunc: OnChangeType<T> | undefined): void;
@@ -94,6 +100,7 @@ export declare interface AbstractProperty<T> {
  * @extends AbstractProperty<T>
  * @interface SubscribedAbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
@@ -104,6 +111,7 @@ export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<
    * and related functions create.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   default aboutToBeDeleted(): void;

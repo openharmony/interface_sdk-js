@@ -2406,6 +2406,42 @@ declare namespace geoLocationManager {
     wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<boolean>;
 
   /**
+   * Check whether the GNSS service is supported.
+   *
+   * @returns { boolean } Returns {@code true} if GNSS service is available, returns {@code false} otherwise.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function isGnssServiceSupported(): boolean;
+
+  /**
+   * Check whether the GNSS fence service is supported.
+   *
+   * @returns { boolean } Returns {@code true} if GNSS fence service is available, returns {@code false} otherwise.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function isGnssFenceServiceSupported(): boolean;
+
+  /**
+   * Check whether the cached GNSS service is supported.
+   *
+   * @returns { boolean } Returns {@code true} if cached service is available, returns {@code false} otherwise.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @syscap SystemCapability.Location.Location.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function isCachedGnssServiceSupported(): boolean;
+
+  /**
    * Get all active fences.
    *
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
@@ -2420,6 +2456,30 @@ declare namespace geoLocationManager {
    * @since 23 dynamic&static
    */
   function getActiveGeoFences(): Promise<Map<int, Geofence>>;
+
+  /**
+   * Check whether the WLAN scan results match the WLAN BSSID list,
+   * return information about the WLAN device that is successfully matched.
+   *
+   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+   * @param { Array<string> } wlanBssidArray - Indicates the list of WLAN BSSIDs that need to be matched.
+   * @param { int } rssiThreshold - Indicates the WLAN RSSI threshold, only matches WLAN BSSIDs with
+   *     RSSI greater than this threshold.
+   * @param { boolean } needStartScan - Indicates whether a WLAN scan needs to be initiated.
+   * @returns { Promise<Array<MatchingWlanInfo>> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.findMatchingWlan} due to limited device capabilities.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301800 - Failed to start WLAN scanning.
+   * @syscap SystemCapability.Location.Location.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function findMatchingWlan(
+      wlanBssidArray: Array<string>, rssiThreshold: int, needStartScan: boolean): Promise<Array<MatchingWlanInfo>>;
 
   /**
    * Configuration parameters for simulating reverse geocoding.
@@ -5209,6 +5269,15 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     address: string;
+
+    /**
+     * Additional information about the POI.
+     * @syscap SystemCapability.Location.Location.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    additionalInfo?: string;
   }
 
 
@@ -5371,6 +5440,36 @@ declare namespace geoLocationManager {
      * @since 20 dynamic
      */
     fenceExtensionAbilityName?: string;
+  }
+
+  /**
+   * Matching WLAN information structure.
+   *
+   * @syscap SystemCapability.Location.Location.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export interface MatchingWlanInfo {
+    /**
+     * Indicates the index of the matched WLAN in the wlanBssidArray.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    index: int;
+
+    /**
+     * WLAN SSID.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    ssid: string;
   }
 
   /**

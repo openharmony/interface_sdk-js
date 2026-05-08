@@ -280,7 +280,7 @@ declare namespace screenshot {
    */
   interface Rect {
     /**
-     * The X-axis coordinate of the upper left vertex of the rectangle.
+     * The X-axis coordinate of the upper left vertex of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -291,7 +291,7 @@ declare namespace screenshot {
     left: long;
 
     /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     * The Y-axis coordinate of the upper left vertex of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -302,7 +302,7 @@ declare namespace screenshot {
     top: long;
 
     /**
-     * Width of the rectangle.
+     * Width of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -313,7 +313,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the rectangle.
+     * Height of the rectangle, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -335,7 +335,7 @@ declare namespace screenshot {
    */
   interface Size {
     /**
-     * Defines the width property.
+     * Defines the width property, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -346,7 +346,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Defines the height property.
+     * Defines the height property, measured in px.
      *
      * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -505,6 +505,50 @@ declare namespace screenshot {
      * @since 23 static
      */
     isCaptureFullOfScreen?: boolean;
+    /**
+     * screenshot display intent type.
+     *
+     * @type { ?DisplayIntentType }
+     * @default DisplayIntentType.CANONICAL
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    displayIntent?: DisplayIntentType;
+  }
+  
+  /**
+   * Enumerates the screenshot display intent type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  enum DisplayIntentType {  
+    /**
+     * Specifies that the screenshot renders with canonical display attributes optimizing output for
+     * presentation on the HDR display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    CANONICAL = 0,
+
+    /**
+     * Specifies that the screenshot renders with local display attributes optimizing output for
+     * presentation on the capture display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    LOCAL = 1
   }
 }
 

@@ -30,6 +30,7 @@ import { ScrollAttribute } from '@ohos.arkui.component';
  *
  * @implements { ScrollAttribute,AttributeModifier<ScrollAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class ScrollModifier implements ScrollAttribute, AttributeModifier<ScrollAttribute> {}

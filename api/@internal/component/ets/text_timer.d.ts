@@ -27,6 +27,7 @@
  * Provides a way to control the process.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 10
@@ -35,6 +36,7 @@
  * Provides a way to control the process.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -149,6 +151,7 @@ declare class TextTimerController {
  * @extends CommonConfiguration<TextTimerConfiguration>
  * @interface TextTimerConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -167,6 +170,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { number }
    * @default 60000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -181,6 +185,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -192,6 +197,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -203,6 +209,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -437,6 +444,7 @@ interface TextTimerInterface {
  *
  * @extends CommonMethod<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 10
@@ -446,6 +454,7 @@ interface TextTimerInterface {
  *
  * @extends CommonMethod<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -704,6 +713,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -715,6 +725,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -727,6 +738,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @param { ContentModifier<TextTimerConfiguration> } modifier - The content modifier of texttimer.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

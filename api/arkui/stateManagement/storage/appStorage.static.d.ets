@@ -26,6 +26,7 @@ import { LocalStorage } from './localStorage';
  *
  * @type { LocalStorage }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare const AppStorage: LocalStorage;

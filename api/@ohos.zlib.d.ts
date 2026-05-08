@@ -24,29 +24,18 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * @namespace zlib
+ * The **Zip** module provides APIs for file compression and decompression.
+ *
  * @syscap SystemCapability.BundleManager.Zlib
- * @since 7
- */
-/**
- * @namespace zlib
- * @syscap SystemCapability.BundleManager.Zlib
- * @atomicservice
- * @since 11
- */
-/**
- * @namespace zlib
- * @syscap SystemCapability.BundleManager.Zlib
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  * @since 23 static
  */
 declare namespace zlib {
   /**
    * ErrorCode
    *
-   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -69,82 +58,50 @@ declare namespace zlib {
   /**
    * CompressLevel
    *
-   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 7
-   */
-  /**
-   * CompressLevel
-   *
-   * @enum { int }
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   export enum CompressLevel {
     /**
-     * Indicates the no compression mode.
+     * Compress level 0 that indicates uncompressed.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the no compression mode.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_LEVEL_NO_COMPRESSION = 0,
     /**
-     * Indicates the best speed mode.
+     * Compression level 1 that gives the best speed.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the best speed mode.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_LEVEL_BEST_SPEED = 1,
     /**
-     * Indicates the best compression mode.
+     * Compression level 9 that gives the best compression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the best compression mode.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_LEVEL_BEST_COMPRESSION = 9,
     /**
-     * Indicates the default compression mode.
+     * Default compression level.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the default compression mode.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_LEVEL_DEFAULT_COMPRESSION = -1
@@ -153,98 +110,60 @@ declare namespace zlib {
   /**
    * CompressStrategy
    *
-   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 7
-   */
-  /**
-   * CompressStrategy
-   *
-   * @enum { int }
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   export enum CompressStrategy {
     /**
-     * Indicates the default strategy.
+     * Default compression strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the default strategy.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_STRATEGY_DEFAULT_STRATEGY = 0,
     /**
-     * Indicates the filtered strategy.
+     * Filtered compression strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the filtered strategy.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_STRATEGY_FILTERED = 1,
     /**
-     * Indicates the huffman-only strategy.
+     * Huffman coding compression strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the huffman-only strategy.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_STRATEGY_HUFFMAN_ONLY = 2,
     /**
-     * Indicates the RLE strategy.
+     * RLE compression strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the RLE strategy.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_STRATEGY_RLE = 3,
     /**
-     * Indicates the fixed strategy.
+     * Fixed compression strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the fixed strategy.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     COMPRESS_STRATEGY_FIXED = 4
@@ -253,7 +172,6 @@ declare namespace zlib {
   /**
    * ParallelStrategy
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.Zlib
    * @crossplatform
    * @atomicservice
@@ -262,7 +180,7 @@ declare namespace zlib {
    */
   export enum ParallelStrategy {
     /**
-     * Indicates the sequential strategy, compress and decompress sequentially.
+     * Serial compression/decompression strategy (default).
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
@@ -272,7 +190,7 @@ declare namespace zlib {
      */
     PARALLEL_STRATEGY_SEQUENTIAL = 0,
     /**
-     * Indicates the parallel decompression strategy.
+     * Parallel decompression strategy.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
@@ -282,11 +200,11 @@ declare namespace zlib {
      */
     PARALLEL_STRATEGY_PARALLEL_DECOMPRESSION = 1
   }
-  
+
   /**
-   * PathSeparatorStrategy
+   * Defines **PathSeparatorStrategy**, a property of [Options]{@link zlib.Options}, used to specify the separator
+   * strategy for the file path in the compressed package specified for decompression.
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 21 dynamic
@@ -294,7 +212,7 @@ declare namespace zlib {
    */
   export enum PathSeparatorStrategy {
     /**
-     * Default strategy that no processing of path separators.
+     * Default value, indicating that separators in the file path of the compressed package are not processed.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -303,8 +221,7 @@ declare namespace zlib {
      */
     PATH_SEPARATOR_STRATEGY_DEFAULT = 0,
     /**
-     * Strategy to that replaces backslash '\' with slash '/' during file decompression.
-     * This ensures path consistency across platforms (e.g., converting Windows-style paths to Unix-style paths).
+     * Backslashes () in the file path of the package are replaced with slashes (/).
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -317,66 +234,40 @@ declare namespace zlib {
   /**
    * MemLevel
    *
-   * @enum { number }
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 7
-   */
-  /**
-   * MemLevel
-   *
-   * @enum { int }
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   export enum MemLevel {
     /**
-     * Uses the least amount of memory.
+     * Minimum memory used by the **zlib** API during compression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Uses the least amount of memory.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     MEM_LEVEL_MIN = 1,
     /**
-     * Uses the maximum amount of memory.
+     * Maximum memory used by the **zlib** API during compression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Uses the maximum amount of memory.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     MEM_LEVEL_MAX = 9,
     /**
-     * Uses the default amount of memory.
+     * Default memory used by the **zlib** API during compression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Uses the default amount of memory.
-     *
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     MEM_LEVEL_DEFAULT = 8
@@ -385,7 +276,6 @@ declare namespace zlib {
   /**
    * CompressFlushMode
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -393,7 +283,7 @@ declare namespace zlib {
    */
   export enum CompressFlushMode {
     /**
-     * Default value, indicating normal operation.
+     * Default value, indicating a normal operation.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -402,7 +292,7 @@ declare namespace zlib {
      */
     NO_FLUSH = 0,
     /**
-     * Generate partial refresh points in compressed streams.
+     * Generates some refresh points in the stream.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -411,7 +301,7 @@ declare namespace zlib {
      */
     PARTIAL_FLUSH = 1,
     /**
-     * Force output of all compressed data while maintaining the compressed stream state.
+     * Forcibly outputs all compressed data while maintaining the compression stream state.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -420,7 +310,7 @@ declare namespace zlib {
      */
     SYNC_FLUSH = 2,
     /**
-     * the compression state is reset.
+     * Resets the compression state.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -429,7 +319,7 @@ declare namespace zlib {
      */
     FULL_FLUSH = 3,
     /**
-     * The compression or decompression process ends.
+     * Ends the compression or decompression process.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -438,7 +328,7 @@ declare namespace zlib {
      */
     FINISH = 4,
     /**
-     * Allow for finer grained control.
+     * Allows more precise control.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -447,7 +337,7 @@ declare namespace zlib {
      */
     BLOCK = 5,
     /**
-     * There are special purposes in implementation.
+     * Implements special purposes.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -460,7 +350,6 @@ declare namespace zlib {
   /**
    * Return codes for the compression/decompression functions.
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -468,7 +357,7 @@ declare namespace zlib {
    */
   export enum ReturnStatus {
     /**
-     * Indicates success.
+     * The API is successfully called. This API is supported for use in atomic services.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -477,7 +366,7 @@ declare namespace zlib {
      */
     OK = 0,
     /**
-     * Indicates that the entire data has been processed.
+     * The API is successfully called, indicating that the entire data has been processed.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -486,7 +375,7 @@ declare namespace zlib {
      */
     STREAM_END = 1,
     /**
-     * Indicates preset dictionary is required to continue decompression.
+     * The API is successfully called, indicating that a preset dictionary is required to continue decompression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -495,7 +384,7 @@ declare namespace zlib {
      */
     NEED_DICT = 2,
     /**
-     * Indicates system error.
+     * The API fails to be called, indicating that the file operation is incorrect.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -503,8 +392,7 @@ declare namespace zlib {
      */
     ERRNO = -1,
     /**
-     * Indicates compression or decompression stream error,
-     * which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * The API fails to be called, indicating that the compression or decompression stream is incorrect.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -512,8 +400,7 @@ declare namespace zlib {
      */
     STREAM_ERROR = -2,
     /**
-     * Indicates the input data is incorrect. For example, the data does not conform to the zlib compression format,
-     * the compressed data is corrupted, or the data is not compressed.
+     * The API fails to be called, indicating that the input data is incorrect.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -521,7 +408,7 @@ declare namespace zlib {
      */
     DATA_ERROR = -3,
     /**
-     * Indicates memory allocation failed.
+     * The API fails to be called, indicating that the memory allocation fails.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -529,20 +416,18 @@ declare namespace zlib {
      */
     MEM_ERROR = -4,
     /**
-     * Indicates the input buffer is incorrect,
-     * and the output buffer is too small to accommodate the compressed or decompressed data.
+     * The API fails to be called, indicating that the input buffer is incorrect.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 23 dynamic&static
      */
-    BUF_ERROR = -5,
+    BUF_ERROR = -5
   }
 
   /**
    * The deflate compression method (the only one supported in this version).
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -557,13 +442,12 @@ declare namespace zlib {
      * @since 12 dynamic
      * @since 23 static
      */
-    DEFLATED = 8,
+    DEFLATED = 8
   }
 
   /**
-   * Define the reference point for offset.
+   * Defines the reference point for the offset.
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -571,7 +455,7 @@ declare namespace zlib {
    */
   export enum OffsetReferencePoint {
     /**
-     * Seek from beginning of file.
+     * Searches from the beginning of a file.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -581,89 +465,59 @@ declare namespace zlib {
     SEEK_SET = 0,
 
     /**
-     * Seek from current position.
+     * Searches from the current location.
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    SEEK_CUR = 1,
+    SEEK_CUR = 1
   }
 
   /**
-   * Defines compress or decompress options.
+   * Defines options used to compress or decompress a ZIP file.
    *
-   * @typedef Options
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 7
-   */
-  /**
-   * Defines compress or decompress options.
-   *
-   * @typedef Options
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   interface Options {
     /**
-     * Indicates the compress level.
+     * Compression level specified for compression or decompression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the compress level.
-     *
-     * @type { ?CompressLevel }
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     level?: CompressLevel;
     /**
-     * Indicates the memory level.
+     * Memory level specified for compression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the memory level.
-     *
-     * @type { ?MemLevel }
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     memLevel?: MemLevel;
     /**
-     * Indicates the compress strategy.
+     * Compression strategy specified for compression.
      *
      * @syscap SystemCapability.BundleManager.Zlib
-     * @since 7
-     */
-    /**
-     * Indicates the compress strategy.
-     *
-     * @type { ?CompressStrategy }
-     * @syscap SystemCapability.BundleManager.Zlib
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     strategy?: CompressStrategy;
     /**
-     * Indicates the parallel strategy.
+     * Serial or parallel strategy specified for compression or decompression.
      *
-     * @type { ?ParallelStrategy }
      * @syscap SystemCapability.BundleManager.Zlib
      * @crossplatform
      * @atomicservice
@@ -672,9 +526,8 @@ declare namespace zlib {
      */
     parallel?: ParallelStrategy;
     /**
-     * Indicates the path separator strategy.
+     * Separator strategy for the file path in the compressed package specified for decompression.
      *
-     * @type { ?PathSeparatorStrategy }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 21 dynamic
@@ -686,7 +539,6 @@ declare namespace zlib {
   /**
    * Process all the information required for compression and decompression.
    *
-   * @typedef ZStream
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -694,9 +546,8 @@ declare namespace zlib {
    */
   interface ZStream {
     /**
-     * Next input byte.
+     * Input bytes to be compressed.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -705,9 +556,8 @@ declare namespace zlib {
     nextIn?: ArrayBuffer;
 
     /**
-     * Number of bytes available at nextIn.
+     * Number of bytes available for **nextIn**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -718,7 +568,6 @@ declare namespace zlib {
     /**
      * Total number of input bytes read so far.
      *
-     * @type { ?long }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -727,9 +576,8 @@ declare namespace zlib {
     totalIn?: long;
 
     /**
-     * Next output byte will go here.
+     * Output bytes after compression.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -738,9 +586,8 @@ declare namespace zlib {
     nextOut?: ArrayBuffer;
 
     /**
-     * Remaining free space at nextOut.
+     * Number of remaining bytes available for **nextOut**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -749,9 +596,8 @@ declare namespace zlib {
     availableOut?: int;
 
     /**
-     * Total number of bytes output so far.
+     * Total number of output bytes.
      *
-     * @type { ?long }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -760,9 +606,8 @@ declare namespace zlib {
     totalOut?: long;
 
     /**
-     * Best guess about the data type.
+     * Binary or text of **deflate**, or decoding state of **inflate**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -771,9 +616,8 @@ declare namespace zlib {
     dataType?: int;
 
     /**
-     * Adler-32 or CRC-32 value of the uncompressed data.
+     * Adler-32 or CRC-32 value of uncompressed data.
      *
-     * @type { ?long }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -785,7 +629,6 @@ declare namespace zlib {
   /**
    * Gzip header information passed to and from zlib routines.
    *
-   * @typedef GzHeader
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -793,9 +636,8 @@ declare namespace zlib {
    */
   interface GzHeader {
     /**
-     * True if compressed data believed to be text.
+     * Returns **True** if the compressed data is considered text.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -806,7 +648,6 @@ declare namespace zlib {
     /**
      * Operating system.
      *
-     * @type { ?int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -817,7 +658,6 @@ declare namespace zlib {
     /**
      * Modification time.
      *
-     * @type { ?long }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -826,9 +666,8 @@ declare namespace zlib {
     time?: long;
 
     /**
-     * Extra flags.
+     * Extra flag.
      *
-     * @type { ?int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -839,7 +678,6 @@ declare namespace zlib {
     /**
      * Extra field.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -848,9 +686,8 @@ declare namespace zlib {
     extra?: ArrayBuffer;
 
     /**
-     * Extra field length.
+     * Length of the extra field.
      *
-     * @type { ?int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -859,9 +696,8 @@ declare namespace zlib {
     extraLen?: int;
 
     /**
-     * Zero-terminated file name.
+     * File name.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -870,9 +706,8 @@ declare namespace zlib {
     name?: ArrayBuffer;
 
     /**
-     * Zero-terminated comment.
+     * Comment.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -881,9 +716,8 @@ declare namespace zlib {
     comment?: ArrayBuffer;
 
     /**
-     * True if there was or will be a header crc
+     * Returns **True** if the **crc** header exists.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -892,9 +726,8 @@ declare namespace zlib {
     hcrc?: boolean;
 
     /**
-     * True when done reading gzip header.
+     * Returns **True** after reading the gzip file header.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -906,7 +739,6 @@ declare namespace zlib {
   /**
    * Compression and decompression return value information.
    *
-   * @typedef ZipOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -914,32 +746,29 @@ declare namespace zlib {
    */
   interface ZipOutputInfo {
     /**
-     * ReturnStatus the specific meaning is defined as enum.
+     * For details, see [ReturnStatus]{@link zlib.ReturnStatus}.
      *
-     * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    status: ReturnStatus
+    status: ReturnStatus;
 
     /**
-     * Total sizeof the destination buffer.
+     * Total length of the destination buffer.
      *
-     * @type { long }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    destLen: long
+    destLen: long;
   }
 
   /**
    * InflateGetDictionary and deflateGetDictionary return value information.
    *
-   * @typedef DictionaryOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -947,32 +776,29 @@ declare namespace zlib {
    */
   interface DictionaryOutputInfo {
     /**
-     * ReturnStatus the specific meaning is defined as enum.
+     * For details, see [ReturnStatus]{@link zlib.ReturnStatus}.
      *
-     * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    status: ReturnStatus
+    status: ReturnStatus;
 
     /**
-     * Return dictionary length.
+     * Length of a dictionary.
      *
-     * @type { int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    dictionaryLength: int
+    dictionaryLength: int;
   }
 
   /**
    * Uncompress2 return value information.
    *
-   * @typedef DecompressionOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -980,43 +806,39 @@ declare namespace zlib {
    */
   interface DecompressionOutputInfo {
     /**
-     * ReturnStatus the specific meaning is defined as enum.
+     * For details, see [ReturnStatus]{@link zlib.ReturnStatus}.
      *
-     * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    status: ReturnStatus
+    status: ReturnStatus;
 
     /**
-     * Total sizeof the destination buffer.
+     * Total length of the destination buffer.
      *
-     * @type { long }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    destLength: long
+    destLength: long;
 
     /**
-     * Total sizeof the sourceLen.
+     * Length of the source buffer.
      *
-     * @type { long }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    sourceLength: long
+    sourceLength: long;
   }
 
   /**
    * DeflatePending return value information.
    *
-   * @typedef DeflatePendingOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1024,43 +846,39 @@ declare namespace zlib {
    */
   interface DeflatePendingOutputInfo {
     /**
-     * ReturnStatus the specific meaning is defined as enum.
+     * For details, see [ReturnStatus]{@link zlib.ReturnStatus}.
      *
-     * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    status: ReturnStatus
+    status: ReturnStatus;
 
     /**
-     * The number of bytes of output that have been generated.
+     * Number of output bytes that have been generated.
      *
-     * @type { int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    pending: int
+    pending: int;
 
     /**
-     * The number of bits of output that have been generated.
+     * Number of output bits that have been generated.
      *
-     * @type { int }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    bits: int
+    bits: int;
   }
 
   /**
    * GzError return value information.
    *
-   * @typedef GzErrorOutputInfo
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1070,33 +888,32 @@ declare namespace zlib {
     /**
      * Return Zlib status ReturnStatus the specific meaning is defined as enum.
      *
-     * @type { ReturnStatus }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    status: ReturnStatus
+    status: ReturnStatus;
 
     /**
-     * The status message for the last status which occurred on file.
+     * The last status message reported on the zlib file.
      *
-     * @type { string }
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    statusMsg: string
+    statusMsg: string;
   }
 
   /**
-   * A callback function for reading input data provided by a user. When the decompression process requires more input data,
-   * zlib will call this function. This function should read data from the data source to the buffer.
+   * A callback function for reading input data provided by a user. When the decompression process requires more
+   * input data, zlib will call this function. This function should read data from the data source to the buffer.
    *
    * @typedef { function }
    * @param { object } inDesc - A universal user-defined data object.
-   * The specific type and content depend on the actual application scenario, which can include configuration data, file handles, etc.
+   * The specific type and content depend on the actual application scenario, which can include configuration data,
+   * file handles, etc.
    * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
@@ -1105,12 +922,13 @@ declare namespace zlib {
   type InflateBackInputCallback = (inDesc: object) => ArrayBuffer;
 
   /**
-   * A callback function for reading input data provided by a user. When the decompression process requires more input data,
-   * zlib will call this function. This function should read data from the data source to the buffer.
+   * A callback function for reading input data provided by a user. When the decompression process requires
+   * more input data, zlib will call this function. This function should read data from the data source to the buffer.
    *
    * @typedef { function }
    * @param { RecordData } inDesc - A universal user-defined data object.
-   * The specific type and content depend on the actual application scenario, which can include configuration data, file handles, etc.
+   *     The specific type and content depend on the actual application scenario, which can include configuration data,
+   *     file handles, etc.
    * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
@@ -1119,8 +937,8 @@ declare namespace zlib {
   type InflateBackInputCallback = (inDesc: RecordData) => ArrayBuffer;
 
   /**
-   * The output data provided by the user is written into the callback function. Whenever decompressed data is ready for output,
-   * zlib calls this function to write the data from the buffer to the target location.
+   * The output data provided by the user is written into the callback function. Whenever decompressed data is
+   * ready for output, zlib calls this function to write the data from the buffer to the target location.
    *
    * @typedef { function }
    * @param { object } outDesc - Object passed to output function. Object dependency requirement implementation.
@@ -1134,8 +952,8 @@ declare namespace zlib {
   type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: int) => int;
 
   /**
-   * The output data provided by the user is written into the callback function. Whenever decompressed data is ready for output,
-   * zlib calls this function to write the data from the buffer to the target location.
+   * The output data provided by the user is written into the callback function. Whenever decompressed data is
+   * ready for output, zlib calls this function to write the data from the buffer to the target location.
    *
    * @typedef { function }
    * @param { RecordData } outDesc - Object passed to output function. Object dependency requirement implementation.
@@ -1149,103 +967,121 @@ declare namespace zlib {
   type InflateBackOutputCallback = (outDesc: RecordData, buf: ArrayBuffer, length: int) => int;
 
   /**
-   * Compress the specified file.
+   * Zips a file. The execution result is returned after the compression is complete. This API uses a promise to return
+   * the result.
    *
-   * @param { string } inFile Indicates the path of the file to be compressed.
-   * @param { string } outFile Indicates the path of the output compressed file.
-   * @param { Options } options
-   * @returns { Promise<void> }
+   * @param { string } inFile - Path of the folder or file to zip. The path must be an application sandbox path, which
+   *     can be obtained from the context. For details about the context, see [FA Model]{@link ./app/context} and
+   *     [Stage Model]{@link ./app/context}.
+   * @param { string } outFile - Path of the zipped file. The file name extension is .zip.
+   * @param { Options } options - Optional parameters for the zip operation.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.zlib#compressFile
+   * @useinstead zlib.compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>)
    */
   function zipFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
   /**
-   * Decompress the specified file.
+   * Unzips a file. The execution result is returned after the decompression is complete. This API uses a promise to
+   * return the result.
    *
-   * @param { string } inFile Indicates the path of the file to be decompressed.
-   * @param { string } outFile Indicates the path of the decompressed file.
-   * @param { Options } options
-   * @returns { Promise<void> }
+   * > **NOTE**
+   * >
+   * > The name of the zipped file or zipped folder cannot contain two consecutive periods and a slash (../). Otherwise,
+   * > the error code -1 is returned.
+   *
+   * @param { string } inFile - Path of the file to unzip. The path must be an application sandbox path, which can be
+   *     obtained from the context. For details about the context, see [FA Model]{@link ./app/context} and
+   *     [Stage Model]{@link ./app/context}. If the.zip file to be unzipped contains Chinese file names or folder names,
+   *     use UTF-8 to encode them. Otherwise, garbled characters may be displayed after unzipping.
+   * @param { string } outFile - Path of the unzipped file.
+   * @param { Options } options - Optional parameters for the unzip operation.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.BundleManager.Zlib
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.zlib#decompressFile
+   * @useinstead zlib.decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>)
    */
   function unzipFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
   /**
-   * Compress the specified file.
+   * Compresses a file. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } inFile - Indicates the path of the file to be compressed.
-   * @param { string } outFile - Indicates the path of the output compressed file.
-   * @param { Options } options - Indicates the options of compressing file.
-   * @param { AsyncCallback<void> } callback - The callback of compressing file result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * > **NOTE**
+   * >
+   * > To avoid path traversal, the input parameters of **inFile** and **outFile** cannot contain two consecutive
+   * > periods and a slash (../) since API version 13. Otherwise, error codes 900001 and 900002 are returned.
+   *
+   * @param { string } inFile - Path of the folder or file to compress. The path must be an application sandbox path,
+   *     which can be obtained from the context. For details about the context, see [FA Model]{@link ./app/context} and
+   *     [Stage Model]{@link ./app/context}. The folder to compress cannot be empty. Otherwise, an error will be
+   *     reported when
+   *     [decompressFile]{@link zlib.decompressFile(inFile: string, outFile: string, options: Options,
+   *     callback: AsyncCallback<void>)} is used to decompress the folder.
+   * @param { string } outFile - Path of the compressed file. When multiple threads compress files at the same time, the
+   *     values of **outFile** must be different.
+   * @param { Options } options - Compression parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **null** is returned; otherwise, a specific error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 9
-   */
-  /**
-   * Compress the specified file.
-   *
-   * @param { string } inFile - Indicates the path of the file to be compressed.
-   * @param { string } outFile - Indicates the path of the output compressed file.
-   * @param { Options } options - Indicates the options of compressing file.
-   * @param { AsyncCallback<void> } callback - The callback of compressing file result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 900001 - The input source file is invalid.
-   * @throws { BusinessError } 900002 - The input destination file is invalid.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function compressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
   /**
-   * Compress the specified file.
+   * Compresses a file. This API uses a promise to return the result.
    *
-   * @param { string } inFile - Indicates the path of the file to be compressed.
-   * @param { string } outFile - Indicates the path of the output compressed file.
-   * @param { Options } options - Indicates the options of compressing file.
-   * @returns { Promise<void> } Returns the result of compressFile file.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * > **NOTE**
+   * >
+   * > To avoid path traversal, the input parameters of **inFile** and **outFile** cannot contain two consecutive
+   * > periods and a slash (../) since API version 13. Otherwise, error codes 900001 and 900002 are returned.
+   *
+   * @param { string } inFile - Path of the folder or file to compress. The path must be an application sandbox path,
+   *     which can be obtained from the context. For details about the context, see [FA Model]{@link ./app/context} and
+   *     [Stage Model]{@link ./app/context}. The folder to compress cannot be empty. Otherwise, an error will be
+   *     reported when
+   *     [decompressFile]{@link zlib.decompressFile(inFile: string, outFile: string, options: Options,
+   *     callback: AsyncCallback<void>)} is used to decompress the folder.
+   * @param { string } outFile - Path of the compressed file. When multiple threads compress files at the same time, the
+   *     values of **outFile** must be different.
+   * @param { Options } options - Compression parameters.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 9
-   */
-  /**
-   * Compress the specified file.
-   *
-   * @param { string } inFile - Indicates the path of the file to be compressed.
-   * @param { string } outFile - Indicates the path of the output compressed file.
-   * @param { Options } options - Indicates the options of compressing file.
-   * @returns { Promise<void> } Returns the result of compressFile file.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 900001 - The input source file is invalid.
-   * @throws { BusinessError } 900002 - The input destination file is invalid.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function compressFile(inFile: string, outFile: string, options: Options): Promise<void>;
 
   /**
-   * Compress the specified multiple files.
+   * Compresses multiple specified files. This API uses a promise to return the result.
    *
-   * @param { Array<string> } inFiles - Indicates the files to be compressed.
-   * @param { string } outFile - Indicates the path of the output compressed file.
-   * @param { Options } options - Indicates the options of compressing file.
-   * @returns { Promise<void> } Returns the result of compressFile file.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { Array<string> } inFiles - Path of the folder or file to compress. The path must be an application sandbox
+   *     path, which can be obtained from the context. For details about the context, see
+   *     [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}. The folder to compress cannot be empty.
+   *     Otherwise, an error will be reported when
+   *     [decompressFile]{@link zlib.decompressFile(inFile: string, outFile: string, options: Options,
+   *     callback: AsyncCallback<void>)} is used to decompress the folder.
+   * @param { string } outFile - Path of the compressed file. When multiple threads compress files at the same time, the
+   *     values of **outFile** must be different.
+   * @param { Options } options - Compression parameters.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -1256,134 +1092,123 @@ declare namespace zlib {
   function compressFiles(inFiles: Array<string>, outFile: string, options: Options): Promise<void>;
 
   /**
-   * Decompress the specified file.
+   * Decompresses a file. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressed file.
-   * @param { Options } options - Indicates the options of decompressing file.
-   * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * > **NOTE**
+   * >
+   * > To avoid path traversal, the input parameters of **inFile** and **outFile** cannot contain two consecutive
+   * > periods and a slash (../) since API version 13. Otherwise, error codes 900001 and 900002 are returned.
+   * >
+   * > The name of the zipped file or zipped folder cannot contain two consecutive periods and a slash (../). Otherwise,
+   * > the error code 900003 is returned.
+   *
+   * @param { string } inFile - Path of the file to decompress. The file name extension must be .zip. The path must be
+   *     an application sandbox path, which can be obtained from the context. For details about the context, see
+   *     [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}. If the.zip file to be unzipped contains
+   *     Chinese file names or folder names, use UTF-8 to encode them. Otherwise, garbled characters may be displayed
+   *     after unzipping.
+   * @param { string } outFile - Path of the decompressed file. The path must exist in the system. Otherwise, the
+   *     decompression fails. The path must be an application sandbox path, which can be obtained from the context. For
+   *     details about the context, see [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}. If a
+   *     file or folder with the same name already exists in the path, they will be overwritten. When multiple threads
+   *     decompress files at the same time, the values of **outFile** must be different.
+   * @param { Options } options - Decompression parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **null** is returned; otherwise, a specific error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
+   * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged. [since 10]
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 9
-   */
-  /**
-   * Decompress the specified file.
-   *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressed file.
-   * @param { Options } options - Indicates the options of decompressing file.
-   * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 900001 - The input source file is invalid.
-   * @throws { BusinessError } 900002 - The input destination file is invalid.
-   * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @since 10
-   */
-  /**
-   * Decompress the specified file.
-   *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressed file.
-   * @param { Options } options - Indicates the options of decompressing file.
-   * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 900001 - The input source file is invalid.
-   * @throws { BusinessError } 900002 - The input destination file is invalid.
-   * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function decompressFile(inFile: string, outFile: string, options: Options, callback: AsyncCallback<void>): void;
 
   /**
-   * Decompress the specified file.
+   * Decompresses a file. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressed file.
-   * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * > **NOTE**
+   * >
+   * > To avoid path traversal, the input parameters of **inFile** and **outFile** cannot contain two consecutive
+   * > periods and a slash (../) since API version 13. Otherwise, error codes 900001 and 900002 are returned.
+   * >
+   * > The name of the zipped file or zipped folder cannot contain two consecutive periods and a slash (../). Otherwise,
+   * > the error code 900003 is returned.
+   *
+   * @param { string } inFile - Path of the file to decompress. The file name extension must be .zip. The path must be
+   *     an application sandbox path, which can be obtained from the context. For details about the context, see
+   *     [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}. If the.zip file to be unzipped contains
+   *     Chinese file names or folder names, use UTF-8 to encode them. Otherwise, garbled characters may be displayed
+   *     after unzipping.
+   * @param { string } outFile - Path of the decompressed file. The path must exist in the system. Otherwise, the
+   *     decompression fails. The path must be an application sandbox path, which can be obtained from the context. For
+   *     details about the context, see [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}. If a
+   *     file or folder with the same name already exists in the path, they will be overwritten. When multiple threads
+   *     decompress files at the same time, the values of **outFile** must be different.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **null** is returned; otherwise, a specific error code is returned.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 10
-   */
-  /**
-   * Decompress the specified file.
-   *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressed file.
-   * @param { AsyncCallback<void> } callback - The callback of decompressing file result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 900001 - The input source file is invalid.
-   * @throws { BusinessError } 900002 - The input destination file is invalid.
-   * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   function decompressFile(inFile: string, outFile: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Decompress the specified file.
+   * Decompresses a file. This API uses a promise to return the result.
    *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressing file.
-   * @param { Options } options - Indicates the options of decompressing file.
-   * @returns { Promise<void> } Returns the result of decompressing file.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * > **NOTE**
+   * >
+   * > To avoid path traversal, the input parameters of **inFile** and **outFile** cannot contain two consecutive
+   * > periods and a slash (../) since API version 13. Otherwise, error codes 900001 and 900002 are returned.
+   * >
+   * > The name of the zipped file or zipped folder cannot contain two consecutive periods and a slash (../). Otherwise,
+   * > the error code 900003 is returned.
+   *
+   * @param { string } inFile - Path of the file to decompress. The file name extension must be .zip. The path must be
+   *     an application sandbox path, which can be obtained from the context. For details about the context, see
+   *     [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}. If the.zip file to be unzipped contains
+   *     Chinese file names or folder names, use UTF-8 to encode them. Otherwise, garbled characters may be displayed
+   *     after unzipping.
+   * @param { string } outFile - Path of the decompressed file. The path must exist in the system. Otherwise, the
+   *     decompression fails. The path must be an application sandbox path, which can be obtained from the context. For
+   *     details about the context, see [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}. If a
+   *     file or folder with the same name already exists in the path, they will be overwritten. When multiple threads
+   *     decompress files at the same time, the values of **outFile** must be different.
+   * @param { Options } options - Decompression parameters.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900002 - The input destination file is invalid.
+   * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged. [since 10]
    * @syscap SystemCapability.BundleManager.Zlib
-   * @since 9
-   */
-  /**
-   * Decompress the specified file.
-   *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressing file.
-   * @param { Options } options - Indicates the options of decompressing file.
-   * @returns { Promise<void> } Returns the result of decompressing file.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 900001 - The input source file is invalid.
-   * @throws { BusinessError } 900002 - The input destination file is invalid.
-   * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @since 10
-   */
-  /**
-   * Decompress the specified file.
-   *
-   * @param { string } inFile - Indicates the path of the file to be decompressed.
-   * @param { string } outFile - Indicates the path of the output decompressing file.
-   * @param { Options } options - Indicates the options of decompressing file.
-   * @returns { Promise<void> } Returns the result of decompressing file.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 900001 - The input source file is invalid.
-   * @throws { BusinessError } 900002 - The input destination file is invalid.
-   * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
-   * @syscap SystemCapability.BundleManager.Zlib
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   function decompressFile(inFile: string, outFile: string, options?: Options): Promise<void>;
 
   /**
-   * Get the original size of the compressed zip file, the size is the meta data stored in zip file.
+   * Obtains the original size of a compressed file. This API uses a promise to return the result.
    *
-   * @param { string } compressedFile - Indicates the path of the compressed file.
-   * @returns { Promise<long> } Returns the original size of the compressed file.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } compressedFile - Specifies the path of the compressed file. Only .zip files are supported. The
+   *     path must be an application sandbox path, which can be obtained from the context. For details about the context
+   *     , see [FA Model]{@link ./app/context} and [Stage Model]{@link ./app/context}.
+   * @returns { Promise<long> } Promise object, which returns the original size of the compressed file, in bytes.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+   *     unspecified; 2. Incorrect parameter types.
    * @throws { BusinessError } 900001 - The input source file is invalid.
    * @throws { BusinessError } 900003 - The input source file is not in ZIP format or is damaged.
    * @syscap SystemCapability.BundleManager.Zlib
@@ -1395,9 +1220,9 @@ declare namespace zlib {
   function getOriginalSize(compressedFile: string): Promise<long>;
 
   /**
-   * Asynchronous creation of verification objects.
+   * Creates this checksum object. This API uses a promise to return the result.
    *
-   * @returns { Promise<Checksum> } Returns verification objects.
+   * @returns { Promise<Checksum> } Promise used to return the created checksum object.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1406,9 +1231,9 @@ declare namespace zlib {
   function createChecksum(): Promise<Checksum>;
 
   /**
-   * Synchronize creation of verification objects.
+   * Creates this checksum object. A checksum instance is returned upon a success.
    *
-   * @returns { Checksum } Returns verification objects.
+   * @returns { Checksum } Checksum object instance.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1417,9 +1242,9 @@ declare namespace zlib {
   function createChecksumSync(): Checksum;
 
   /**
-   * Asynchronous creation of zip objects.
+   * Creates this **Zip** instance. This API uses a promise to return the result.
    *
-   * @returns { Promise<Zip> } Returns zip objects.
+   * @returns { Promise<Zip> } Promise used to return the **Zip** instance created.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1428,9 +1253,9 @@ declare namespace zlib {
   function createZip(): Promise<Zip>;
 
   /**
-   * Synchronize creation of zip objects.
+   * Creates this **Zip** instance. A **Zip** instance is returned upon a success.
    *
-   * @returns { Zip } Returns zip objects.
+   * @returns { Zip } The **Zip** instance created.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1439,9 +1264,9 @@ declare namespace zlib {
   function createZipSync(): Zip;
 
   /**
-   * Synchronize creation of gzip objects.
+   * Creates this **GZip** object. This API uses a promise to return the result.
    *
-   * @returns { Promise<GZip> } Returns zip objects.
+   * @returns { Promise<GZip> } Promise used to return the **GZip** object created.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1450,9 +1275,9 @@ declare namespace zlib {
   function createGZip(): Promise<GZip>;
 
   /**
-   * Synchronize creation of gzip objects.
+   * Creates this **GZip** object. A **GZip** instance is returned upon a success.
    *
-   * @returns { GZip } Returns zip objects.
+   * @returns { GZip } gzip object instance.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1461,9 +1286,8 @@ declare namespace zlib {
   function createGZipSync(): GZip;
 
   /**
-   * Calculate Adler-32 and CRC-32 checksum.
+   * Checksum object.
    *
-   * @typedef Checksum
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1471,13 +1295,13 @@ declare namespace zlib {
    */
   interface Checksum {
     /**
-     * Update a running Adler-32 checksum with the bytes buf.
+     * Calculates the Adler-32 checksum. This API uses a promise to return the result.
      *
-     * @param { long } adler - Initial value of Adler32 checksum.
-     * @param { ArrayBuffer } buf - Calculate checksum data buffer.
-     * @returns { Promise<long> } Return the updated checksum.
+     * @param { long } adler - Initial value of the Adler-32 checksum.
+     * @param { ArrayBuffer } buf - Data buffer for calculating the checksum.
+     * @returns { Promise<long> } Promise used to return the calculated Adler-32 checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1486,14 +1310,14 @@ declare namespace zlib {
     adler32(adler: long, buf: ArrayBuffer): Promise<long>;
 
     /**
-     * Combine two Adler-32 checksum into one.
+     * Combines two Adler-32 checksums. This API uses a promise to return the result.
      *
-     * @param { long } adler1 - The first Adler32 checksum.
-     * @param { long } adler2 - The second Adler32 checksum.
-     * @param { long } len2 - The length of the data block associated with the second Adler32 checksum.
-     * @returns { Promise<long> } Returns the Adler-32 checksum.
+     * @param { long } adler1 - The first Adler-32 checksum to be combined.
+     * @param { long } adler2 - The second Adler-32 checksum to be combined.
+     * @param { long } len2 - Length of the data block of the second Adler-32 checksum.
+     * @returns { Promise<long> } Promise used to return the combined Adler-32 checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1502,13 +1326,13 @@ declare namespace zlib {
     adler32Combine(adler1: long, adler2: long, len2: long): Promise<long>;
 
     /**
-     * Update a running CRC-32 with the bytes buf.
+     * Updates a CRC-32 checksum. This API uses a promise to return the result.
      *
-     * @param { long } crc - Initial value of CRC-32 checksum.
-     * @param { ArrayBuffer } buf - Calculate checksum data buffer.
-     * @returns { Promise<long> } Return the updated CRC-32.
+     * @param { long } crc - Initial value of the CRC-32 checksum.
+     * @param { ArrayBuffer } buf - Data buffer for calculating the checksum.
+     * @returns { Promise<long> } Promise used to return the updated CRC-32 checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1517,14 +1341,14 @@ declare namespace zlib {
     crc32(crc: long, buf: ArrayBuffer): Promise<long>;
 
     /**
-     * Combine two CRC-32 check values into one.
+     * Combines two CRC-32 checksums. This API uses a promise to return the result.
      *
-     * @param { long } crc1 - The first CRC-32 checksum.
-     * @param { long } crc2 - The second CRC-32 checksum.
-     * @param { long } len2 - The length of the data block associated with the second CRC-32 checksum.
-     * @returns { Promise<long> } Returns the CRC-32 check value.
+     * @param { long } crc1 - The first CRC-32 checksum to be combined.
+     * @param { long } crc2 - The second CRC-32 checksum to be combined.
+     * @param { long } len2 - Indicates the length of the second data block checked by CRC-32
+     * @returns { Promise<long> } Promise used to return the combined CRC-32 checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1533,13 +1357,13 @@ declare namespace zlib {
     crc32Combine(crc1: long, crc2: long, len2: long): Promise<long>;
 
     /**
-     * Update a running CRC-64 with the bytes buf.
+     * Updates a CRC-64 checksum. This API uses a promise to return the result.
      *
-     * @param { long } crc - Initial value of CRC-64 checksum.
-     * @param { ArrayBuffer } buf - Calculate checksum data buffer.
-     * @returns { Promise<long> } Return the updated CRC-64.
+     * @param { long } crc - Initial value of the CRC-64 checksum.
+     * @param { ArrayBuffer } buf - Data buffer for calculating the checksum.
+     * @returns { Promise<long> } Promise used to return the updated CRC-64 checksum.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1548,9 +1372,9 @@ declare namespace zlib {
     crc64(crc: long, buf: ArrayBuffer): Promise<long>;
 
     /**
-     * Get CRC-32 table.
+     * Obtains this CRC-32 checksum table. This API uses a promise to return the result.
      *
-     * @returns { Promise<Array<long>> } Return a array to the CRC-32 table.
+     * @returns { Promise<Array<long>> } Promise used to return the CRC-32 checksum table.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1559,9 +1383,9 @@ declare namespace zlib {
     getCrcTable(): Promise<Array<long>>;
 
     /**
-     * Get CRC-64 table.
+     * Obtains this CRC-64 checksum table. This API uses a promise to return the result.
      *
-     * @returns { Promise<Array<long>> } Return a array to the CRC-64 table.
+     * @returns { Promise<Array<long>> } Promise used to return the CRC-64 checksum table.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1569,11 +1393,57 @@ declare namespace zlib {
      */
     getCrc64Table(): Promise<Array<long>>;
   }
-
   /**
-   * Deflate and inflate interface.
+   * # InflateBackInputCallback<sup>12+</sup>
    *
-   * @typedef Zip
+   * type InflateBackInputCallback = (inDesc: object) => ArrayBuffer
+   *
+   * Inputs data.
+   *
+   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   *
+   * **System capability**: SystemCapability.BundleManager.Zlib
+   *
+   * **Parameters**
+   *
+   * | Name| Type  | Mandatory| Description              |
+   * | ------ | ------ | ---- | ------------------ |
+   * | inDesc | object | Yes  | User-defined data object.|
+   *
+   * **Return value**
+   *
+   * | Type                                          | Description                       |
+   * | ---------------------------------------------- | --------------------------- |
+   * | ArrayBuffer | Content buffer that is successfully read from the input data source.|
+   */
+  /**
+   * # InflateBackOutputCallback<sup>12+</sup>
+   *
+   * type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: number) => number
+   *
+   * Outputs data.
+   *
+   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   *
+   * **System capability**: SystemCapability.BundleManager.Zlib
+   *
+   * **Parameters**
+   *
+   * | Name | Type       | Mandatory| Description                  |
+   * | ------- | ----------- | ---- | ---------------------- |
+   * | outDesc | object      | Yes  | User-defined data object.    |
+   * | buf     | ArrayBuffer | Yes  | Stores the data to be written.|
+   * | length  | number      | Yes  | Length of the data written to the output buffer.|
+   *
+   * **Return value**
+   *
+   * | Type                                          | Description                       |
+   * | ---------------------------------------------- | --------------------------- |
+   * | number | Number of bytes in the output buffer.|
+   */
+  /**
+   * Defines the **Zip** instance. It provides APIs to zip or unzip data in Zlib, Deflate, or Gzip format.
+   *
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -1581,9 +1451,9 @@ declare namespace zlib {
    */
   interface Zip {
     /**
-     * Get ZStream.
+     * Obtains this stream. This API uses a promise to return the result.
      *
-     * @returns { Promise<ZStream> } Return the required ZStream for compression or decompression.
+     * @returns { Promise<ZStream> } Promise used to return the **ZStream** object.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1601,9 +1471,9 @@ declare namespace zlib {
     getZStream(): Promise<ZStream | undefined>;
 
     /**
-     * Get the version information of the current linked zlib library.
+     * Obtains the version information of this zlib library connected. This API uses a promise to return the result.
      *
-     * @returns { Promise<string> } Returns a specific version number string constant containing the zlib library.
+     * @returns { Promise<string> } Promise used to return the version of the current zlib library.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1612,37 +1482,9 @@ declare namespace zlib {
     zlibVersion(): Promise<string>;
 
     /**
-     * Return flags indicating compile-time options.
+     * Returns the flags indicating compile-time options. This API uses a promise to return the result.
      *
-     * @returns { Promise<int> } Return flags indicating compile-time options.
-     * Type sizes, two bits each, 00 = 16 bits, 01 = 32, 10 = 64, 11 = other:
-     * 1.0: size of uInt.
-     * 3.2: size of uLong.
-     * 5.4: size of voidpf (pointer).
-     * 7.6: size of z_off_t.
-     * Compiler, assembler, and debug options:
-     * 8: ZLIB_DEBUG.
-     * 9: ASMV or ASMINF -- use ASM code.
-     * 10: ZLIB_WINAPI -- exported functions use the WINAPI calling convention.
-     * 11: 0 (reserved).
-     * One-time table building (smaller code, but not thread-safe if true):
-     * 12: BUILDFIXED -- build static block decoding tables when needed.
-     * 13: DYNAMIC_CRC_TABLE -- build CRC calculation tables when needed.
-     * 14,15: 0 (reserved).
-     * Library content (indicates missing functionality):
-     * 16: NO_GZCOMPRESS -- gz* functions cannot compress (to avoid linking deflate code when not needed).
-     * 17: NO_GZIP -- deflate can't write gzip streams, and inflate can't detect and decode gzip streams (to avoid linking crc code).
-     * 18-19: 0 (reserved).
-     * Operation variations (changes in library functionality):
-     * 20: PKZIP_BUG_WORKAROUND -- slightly more permissive inflate.
-     * 21: FASTEST -- deflate algorithm with only one, lowest compression level.
-     * 22,23: 0 (reserved).
-     * The sprintf variant used by gzprintf (zero is best):
-     * 24: 0 = vs*, 1 = s* -- 1 means limited to 20 arguments after the format.
-     * 25: 0 = *nprintf, 1 = *printf -- 1 means gzprintf() not secure.
-     * 26: 0 = returns value, 1 = void -- 1 means inferred string length returned.
-     * Remainder:
-     * 27-31: 0 (reserved).
+     * @returns { Promise<int> } Promise used to return the flags indicating compile-time options.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1651,15 +1493,18 @@ declare namespace zlib {
     zlibCompileFlags(): Promise<int>;
 
     /**
-     * Compresses the source buffer into the destination buffer.
+     * Compresses the source buffer into the destination buffer. This API uses a promise to return the result.
      *
      * @param { ArrayBuffer } dest - Destination buffer.
-     * @param { ArrayBuffer } source - Source data buffer.
-     * @param { long } sourceLen - Source data length.
-     * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
+     * @param { ArrayBuffer } source - Source buffer.
+     * @param { long } sourceLen - Length of the source data. The default value is **0**.
+     * @returns { Promise<ZipOutputInfo> } Promise used to return the result status and the total size of the
+     *     destination buffer.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to
+     *     accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1668,17 +1513,21 @@ declare namespace zlib {
     compress(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<ZipOutputInfo>;
 
     /**
-     * Compresses the source buffer into the destination buffer.
+     * Compresses the source buffer into the destination buffer. This API uses a promise to return the result.
      *
      * @param { ArrayBuffer } dest - Destination buffer.
-     * @param { ArrayBuffer } source - Source data buffer.
-     * @param { CompressLevel } level - Compression level.
-     * @param { long } sourceLen - Source data length.
-     * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
-     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
+     * @param { ArrayBuffer } source - Source buffer.
+     * @param { CompressLevel } level - For details, see [CompressLevel]{@link zlib.CompressLevel}.
+     * @param { long } sourceLen - Length of the source data. The default value is **0**.
+     * @returns { Promise<ZipOutputInfo> } Promise used to return the result status and the total size of the
+     *     destination buffer.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to
+     *     accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1687,12 +1536,13 @@ declare namespace zlib {
     compress2(dest: ArrayBuffer, source: ArrayBuffer, level: CompressLevel, sourceLen?: long,): Promise<ZipOutputInfo>;
 
     /**
-     * Calculate the upper limit of the return compression size.
+     * Calculates the maximum size of the compressed data to be returned. This API uses a promise to return the result.
      *
-     * @param { int } sourceLen - The length of the source data.
-     * @returns { Promise<int> } Returns an upper bound on the compressed size after.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { int } sourceLen - Length of the source data.
+     * @returns { Promise<int> } Promise used to return the maximum size of the compressed data.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1701,16 +1551,20 @@ declare namespace zlib {
     compressBound(sourceLen: int): Promise<int>;
 
     /**
-     * Decompress the compressed data into its original uncompressed form.
+     * Decompresses the compressed data into the raw data. This API uses a promise to return the result.
      *
      * @param { ArrayBuffer } dest - Destination buffer.
-     * @param { ArrayBuffer } source - Source data buffer.
-     * @param { long } sourceLen - Source data length.
-     * @returns { Promise<ZipOutputInfo> } Return ReturnStatus and total sizeof the destination buffer.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
-     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
+     * @param { ArrayBuffer } source - Source buffer.
+     * @param { long } sourceLen - Length of the source data. The default value is **0**.
+     * @returns { Promise<ZipOutputInfo> } Promise used to return the result status and the total size of the
+     *     destination buffer.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the
+     *     zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to
+     *     accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1719,16 +1573,20 @@ declare namespace zlib {
     uncompress(dest:ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<ZipOutputInfo>;
 
     /**
-     * Decompress the compressed data into its original uncompressed form.
+     * Decompresses the compressed data into the raw data. This API uses a promise to return the result.
      *
      * @param { ArrayBuffer } dest - Destination buffer.
-     * @param { ArrayBuffer } source - Source data buffer.
-     * @param { long } sourceLen - Source data length.
-     * @returns { Promise<DecompressionOutputInfo> } Return ReturnStatus and total sizeof the destination buffer and total sizeof the sourceLen.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
-     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
+     * @param { ArrayBuffer } source - Source buffer.
+     * @param { long } sourceLen - Length of the source data. The default value is **0**.
+     * @returns { Promise<DecompressionOutputInfo> } Promise used to return the result status, total size of the
+     *     destination buffer, and the length of the source data.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the
+     *     zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to
+     *     accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1737,14 +1595,16 @@ declare namespace zlib {
     uncompress2(dest: ArrayBuffer, source: ArrayBuffer, sourceLen?: long): Promise<DecompressionOutputInfo>;
 
     /**
-     * Verify the checksum inside the structure of compressed stream z_stream.
+     * Validates the checksum inside the compression stream. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
      * @param { int } check - Expected checksum.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1753,13 +1613,15 @@ declare namespace zlib {
     inflateValidate(strm: ZStream, check: int): Promise<ReturnStatus>;
 
     /**
-     * Find a synchronization point for the current decompressed stream.
+     * Finds the synchronization point of a decompression stream. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1768,15 +1630,20 @@ declare namespace zlib {
     inflateSyncPoint(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Skips invalid compressed data until a possible full flush point can be found.
+     * Skips invalid compressed data until a possible complete refresh point is found. This API uses a promise to return
+     * the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
-     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
-     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the
+     *     zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to
+     *     accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1785,15 +1652,19 @@ declare namespace zlib {
     inflateSync(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Initializes the decompression dictionary from the given uncompressed byte sequence.
+     * Initializes the dictionary content of a decompression stream based on the given dictionary data. This API uses a
+     * promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
      * @param { ArrayBuffer } dictionary - Dictionary data.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
-     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the
+     *     zlib compression format, the compressed data is corrupted, or the data is not compressed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1802,13 +1673,16 @@ declare namespace zlib {
     inflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<ReturnStatus>;
 
     /**
-     * Reset the state of the decompressed stream to retain the allocated Huffman decoding tree and preset dictionary.
+     * Resets the state of the decompression stream to retain the allocated Huffman tree and preset dictionary. This API
+     * uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1817,14 +1691,18 @@ declare namespace zlib {
     inflateResetKeep(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * This function is equivalent to inflateEnd followed by inflateInit, but does not free and reallocate the internal decompression state.
+     * Resets the status of the specified decompression stream and updates the window size to start a new decompression
+     * operation. The internal buffer is not released or reallocated. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } windowBits - Parameter is interpreted the same as it is for inflateInit2.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { int } windowBits - Memory window size. The value is restricted in certain range based on the data
+     *     formats. The options are as follows:<br>Zlib: [1, 15]<br>Gzip: (15, +∞)<br>Raw Deflate: [-15, -1]
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1833,13 +1711,16 @@ declare namespace zlib {
     inflateReset2(strm: ZStream, windowBits: int): Promise<ReturnStatus>;
 
     /**
-     * This function is equivalent to inflateEnd followed by inflateInit, but does not free and reallocate the internal decompression state.
+     * Resets the status of the specified decompression stream to the initial state to start a new decompression
+     * operation. The internal buffer is not released or reallocated. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1848,15 +1729,19 @@ declare namespace zlib {
     inflateReset(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * This function inserts bits in the inflate input stream.
+     * Sets the initial number of bits and bit value in the specified decompression stream to pre-fill the bit buffer at
+     * the beginning of the decompression stream to correctly process the data. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } bits - The provided bits.
-     * @param { int } value - The provided value.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { int } bits - Number of bits to be written to the bit buffer.
+     * @param { int } value - Bit value used to fill the bit buffer.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1865,12 +1750,13 @@ declare namespace zlib {
     inflatePrime(strm: ZStream, bits: int, value: int): Promise<ReturnStatus>;
 
     /**
-     * Is used to mark locations in the input data for random access.
+     * Marks the location of the input data for random access. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<int> } Return the internal marker position of the current decompressed stream.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<int> } Promise used to return the current location.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1879,31 +1765,18 @@ declare namespace zlib {
     inflateMark(strm: ZStream): Promise<int>;
 
     /**
-     * Initializes the internal stream state for decompression.
+     * Initializes a decompression stream with the specified **windowBits**. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } windowBits - Is the base two logarithm of the maximum window size.
-     * It should be in the range 8..15 for this version of the library. The default value is 15 if inflateInit is used instead.
-     * windowBits must be greater than or equal to the windowBits value provided to deflateInit2() while compressing,
-     * or it must be equal to 15 if deflateInit2() was not used. If a compressed stream with a larger window size is given as input,
-     * inflate() will return with the error code Z_DATA_ERROR instead of trying to allocate a larger window.
-     * WindowBits can also be zero to request that inflate use the window size in the zlib header of the compressed stream.
-     * WindowBits can also be -8..-15 for raw inflate. In this case, -windowBits determines the window size.
-     * inflate() will then process raw deflate data, not looking for a zlib or gzip header,
-     * not generating a check value, and not looking for any check values for comparison at the end of the stream.
-     * This is for use with other formats that use the deflate compressed data format such as zip. Those formats provide their own check values.
-     * If a custom format is developed using the raw deflate format for compressed data, it is recommended that a check value such as an Adler-32 or
-     * a CRC-32 be applied to the uncompressed data as is done in the zlib, gzip, and zip formats. For most applications,
-     * the zlib format should be used as is. Note that comments above on the use in deflateInit2() applies to the magnitude of windowBits.WindowBits
-     * can also be greater than 15 for optional gzip decoding. Add 32 to windowBits to enable zlib and gzip decoding with automatic header detection,
-     * or add 16 to decode only the gzip format. If a gzip stream is being decoded, strm->adler is a CRC-32 instead of an Adler-32.
-     * Unlike the gunzip utility and gzread(), inflate() will *not* automatically decode concatenated gzip members. Inflate() will return
-     * Z_STREAM_END at the end of the gzip member. The state would need to be reset to continue decoding a subsequent gzip member.
-     * This *must* be done if there is more data after a gzip member, in order for the decompression to be compliant with the gzip standard.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { int } windowBits - Memory window size. The value is restricted in certain range based on the data
+     *     formats. The options are as follows:<br>Zlib: [1, 15]<br>Gzip: (15, +∞)<br>Raw Deflate: [-15, -1]
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1912,12 +1785,13 @@ declare namespace zlib {
     inflateInit2(strm: ZStream, windowBits: int): Promise<ReturnStatus>;
 
     /**
-     * Initializes the internal stream state for decompression.
+     * Initializes a decompression stream. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1926,14 +1800,17 @@ declare namespace zlib {
     inflateInit(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Requests that gzip header information be stored in the provided gz_header structure.
+     * Obtains the header information of a gzip file before decompressing data. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { GzHeader } header - Receive gzip header information extracted from compressed data stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { GzHeader } header - Header information of a gzip file extracted from the compressed data stream.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1942,14 +1819,17 @@ declare namespace zlib {
     inflateGetHeader(strm: ZStream, header: GzHeader): Promise<ReturnStatus>;
 
     /**
-     * Obtain the current dictionary content of the decompressed stream.
+     * Obtains the content and length of the decompression dictionary used in a decompression stream. This API uses a
+     * promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { ArrayBuffer } dictionary - The sliding dictionary being maintained by inflate.
-     * @returns { Promise<DictionaryOutputInfo> } Return ReturnStatus and dictionary length.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { ArrayBuffer } dictionary - Receives the actual contents of the decompression dictionary.
+     * @returns { Promise<DictionaryOutputInfo> } Promise used to return the result status and length of the dictionary.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1958,13 +1838,16 @@ declare namespace zlib {
     inflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<DictionaryOutputInfo>;
 
     /**
-     * All dynamically allocated data structures for this stream are freed.
+     * Releases all dynamically allocated data structs of a decompression stream. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1973,13 +1856,15 @@ declare namespace zlib {
     inflateEnd(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Sets the destination stream as a complete copy of the source stream.
+     * Copies a decompression stream. This API uses a promise to return the result.
      *
-     * @param { Zip } source - The status information of the current decompression process.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { Zip } source - For details, see [Zip<sup>12+</sup>]{@link zlib.Zip}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -1988,12 +1873,14 @@ declare namespace zlib {
     inflateCopy(source: Zip): Promise<ReturnStatus>;
 
     /**
-     * Obtain the number of Huffman encoding trees that have been used in the current decompression stream during the inflate process.
+     * Describes the number of Huffman trees used in a decompression stream. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<long> } Return the number of used Huffman encoding trees.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<long> } Promise used to return the number of Huffman trees that have been used.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2002,15 +1889,19 @@ declare namespace zlib {
     inflateCodesUsed(strm: ZStream): Promise<long>;
 
     /**
-     * Initialize the internal stream state for decompression using inflateBack() calls.
+     * Initializes the internal stream state for decompression before using the **inflateBack()** function. This API
+     * uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { long } windowBits - Parameter is interpreted the same as it is for inflateInit2. The value range is between 8~15.
-     * @param { ArrayBuffer } window - The preset sliding window buffer.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { long } windowBits - Memory window size. The value is restricted in certain range based on the data
+     *     formats. The options are as follows:<br>Zlib: [1, 15]<br>Gzip: (15, +∞)<br>Raw Deflate: [-15, -1]
+     * @param { ArrayBuffer } window - Preset window buffer.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2019,13 +1910,16 @@ declare namespace zlib {
     inflateBackInit(strm: ZStream, windowBits: long, window: ArrayBuffer): Promise<ReturnStatus>;
 
     /**
-     * All memory allocated by inflateBackInit() is freed.
+     * Releases all memory allocated by the **inflateBackInit()** function. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2034,17 +1928,21 @@ declare namespace zlib {
     inflateBackEnd(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Does a raw inflate with a single call using a call-back interface for input and output.
+     * Implements decompression and uses callbacks to process input and output data. This API uses a promise to return
+     * the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { InflateBackInputCallback } backIn - A function that decompresses data from the end to read the raw compressed data from the input source.
-     * @param { object } inDesc - Universal object.
-     * @param { InflateBackOutputCallback } backOut - Write the decompressed data to the target output.
-     * @param { object } outDesc - Universal object.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { InflateBackInputCallback } backIn - A function used to decompress data from the end of the array to read
+     *     the original compressed data from the input source.
+     * @param { object } inDesc - Common object.
+     * @param { InflateBackOutputCallback } backOut - Writes the decompressed data to the destination buffer.
+     * @param { object } outDesc - Common object.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2070,15 +1968,18 @@ declare namespace zlib {
     inflateBack(strm: ZStream, backIn: InflateBackInputCallback, inDesc: RecordData, backOut: InflateBackOutputCallback, outDesc: RecordData): Promise<ReturnStatus>;
 
     /**
-     * Decompresses as much data as possible, and stops when the input buffer becomes empty or the output buffer becomes full.
+     * Inflates data. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { CompressFlushMode } flush - The behavior pattern of compression operation.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
-     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the zlib compression format, the compressed data is corrupted, or the data is not compressed.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { CompressFlushMode } flush - For details, see [CompressFlushMode]{@link zlib.CompressFlushMode}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800005 - The input data is incorrect. For example, the data does not conform to the
+     *     zlib compression format, the compressed data is corrupted, or the data is not compressed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2087,14 +1988,17 @@ declare namespace zlib {
     inflate(strm: ZStream, flush: CompressFlushMode): Promise<ReturnStatus>;
 
     /**
-     * Initializes the internal stream state for compression.
+     * Initializes a compression stream with a specified compression level. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { CompressLevel } level - Compression level.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { CompressLevel } level - For details, see [CompressLevel]{@link zlib.CompressLevel}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2103,18 +2007,22 @@ declare namespace zlib {
     deflateInit(strm: ZStream, level: CompressLevel): Promise<ReturnStatus>;
 
     /**
-     * Initializes the internal stream state for compression.
+     * Initializes a compression stream with the specified compression level, compression method, window size, memory
+     * level, and compression strategy. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { CompressLevel } level - Compression level.
-     * @param { CompressMethod } method - The compression method.
-     * @param { int } windowBits - Parameter is interpreted the same as it is for inflateInit2.
-     * @param { MemLevel } memLevel - The memory usage level.
-     * @param { CompressStrategy } strategy - The compression strategy.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { CompressLevel } level - For details, see [CompressLevel]{@link zlib.CompressLevel}.
+     * @param { CompressMethod } method - For details, see [CompressMethod]{@link zlib.CompressMethod}.
+     * @param { int } windowBits - Memory window size. The value is restricted in certain range based on the data
+     *     formats. The options are as follows:<br>Zlib: [1, 15]<br>Gzip: (15, +∞)<br>Raw Deflate: [-15, -1]
+     * @param { MemLevel } memLevel - For details, see [MemLevel]{@link zlib.MemLevel}.
+     * @param { CompressStrategy } strategy - For details, see [CompressStrategy]{@link zlib.CompressStrategy}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2124,15 +2032,18 @@ declare namespace zlib {
         memLevel: MemLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
     /**
-     * Compresses as much data as possible, and stops when the input buffer becomes empty or the output buffer becomes full.
+     * Deflates data. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { CompressFlushMode } flush - The behavior pattern of compression operation.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
-     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to accommodate the compressed or decompressed data.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { CompressFlushMode } flush - For details, see [CompressFlushMode]{@link zlib.CompressFlushMode}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 17800007 - The input buffer is incorrect, and the output buffer is too small to
+     *     accommodate the compressed or decompressed data.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2141,13 +2052,16 @@ declare namespace zlib {
     deflate(strm: ZStream, flush: CompressFlushMode): Promise<ReturnStatus>;
 
     /**
-     * All dynamically allocated data structures for this stream are freed.
+     * Releases all dynamically allocated data structs of a decompression stream. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2156,13 +2070,14 @@ declare namespace zlib {
     deflateEnd(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Calculate an upper bound on the compressed size.
+     * Calculates the maximum size of the compressed data. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { long } sourceLength - The length of uncompressed data.
-     * @returns { Promise<int> } Return an upper bound on the compressed size.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { long } sourceLength - Length of the source data.
+     * @returns { Promise<int> } Promise used to return the maximum size of the compressed data.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2171,14 +2086,17 @@ declare namespace zlib {
     deflateBound(strm: ZStream, sourceLength: long): Promise<int>;
 
     /**
-     * Provides gzip header information for when a gzip stream is requested by deflateInit2().
+     * Provides the header information of a gzip file when **deflateInit2()** requests a gzip stream. This API uses a
+     * promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { GzHeader } head - Object a to gz_headerp that already has gzip header information.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { GzHeader } head - Header information of a gzip file extracted from the compressed data stream.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2187,13 +2105,15 @@ declare namespace zlib {
     deflateSetHeader(strm: ZStream, head: GzHeader): Promise<ReturnStatus>;
 
     /**
-     * Sets the destination stream as a complete copy of the source stream.
+     * Copies a compression stream. This API uses a promise to return the result.
      *
-     * @param { Zip } source - Object to source z_stream structure.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { Zip } source - For details, see [Zip<sup>12+</sup>]{@link zlib.Zip}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2202,14 +2122,17 @@ declare namespace zlib {
     deflateCopy(source: Zip): Promise<ReturnStatus>;
 
     /**
-     * Initializes the compression dictionary from the given byte sequence without producing any compressed output.
+     * Initializes the compression dictionary from a given sequence of bytes. This API uses a promise to return the
+     * result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { ArrayBuffer } dictionary - Object a to gz_headerp that already has gzip header information.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { ArrayBuffer } dictionary - Dictionary data.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2218,14 +2141,17 @@ declare namespace zlib {
     deflateSetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<ReturnStatus>;
 
     /**
-     * Returns the sliding dictionary being maintained by deflate.
+     * Obtains the content and length of the decompression dictionary used in a compression stream. This API uses a
+     * promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { ArrayBuffer } dictionary - The sliding dictionary being maintained by deflate.
-     * @returns { Promise<DictionaryOutputInfo> } Return ReturnStatus and dictionary length
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { ArrayBuffer } dictionary - Buffer that receives the actual contents of the decompression dictionary.
+     * @returns { Promise<DictionaryOutputInfo> } Promise used to return the result status and length of the dictionary.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2234,17 +2160,23 @@ declare namespace zlib {
     deflateGetDictionary(strm: ZStream, dictionary: ArrayBuffer): Promise<DictionaryOutputInfo>;
 
     /**
-     * Fine tune deflate's internal compression parameters.
+     * Fine-tunes the internal compression parameters of **deflate**. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } goodLength - Good matching length threshold.
-     * @param { int } maxLazy - Maximum lazy matching times.
-     * @param { int } niceLength - Good Lazy Length Threshold.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { int } goodLength - Matched length threshold.
+     * @param { int } maxLazy - Delay matching strategy used when the compression algorithm builds a Huffman tree. The
+     *     value is an integer ranging from 0 to 4. **1**–**4**: A larger value indicates a lazier algorithm, which
+     *     performs a slower matching process but generates a better compression result. **0**: Lazy matching is
+     *     disabled. The algorithm builds a Huffman tree as soon as possible. The compression speed is fast, but the
+     *     compression ratio is low.
+     * @param { int } niceLength - Appropriate delay length threshold.
      * @param { int } maxChain - Maximum chain length.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2253,13 +2185,16 @@ declare namespace zlib {
     deflateTune(strm: ZStream, goodLength: int, maxLazy: int, niceLength: int, maxChain: int): Promise<ReturnStatus>;
 
     /**
-     * This function is equivalent to deflateEnd followed by deflateInit, but does not free and reallocate the internal compression state.
+     * Equivalent to call the **deflateEnd** API and then the **deflateInit** API. However, this API does not release or
+     * reallocate the internal decompression state. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2268,13 +2203,16 @@ declare namespace zlib {
     deflateReset(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Reset the initialized deflate compressed stream, but retain its set compression parameters and dictionary.
+     * Resets the initialized compression stream, but retains the compression parameters and dictionaries set by it.
+     * This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2283,13 +2221,17 @@ declare namespace zlib {
     deflateResetKeep(strm: ZStream): Promise<ReturnStatus>;
 
     /**
-     * Returns the number of bytes and bits of output that have been generated, but not yet provided in the available output.
+     * Returns the number of bytes and bits of output that has been generated but not yet provided in the available
+     * output. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @returns { Promise<DeflatePendingOutputInfo> } Return ReturnStatus along with the number of bytes and bits generated.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @returns { Promise<DeflatePendingOutputInfo> } Promise used to return the result status, and number of bits and
+     *     bytes for output.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2298,15 +2240,17 @@ declare namespace zlib {
     deflatePending(strm: ZStream): Promise<DeflatePendingOutputInfo>;
 
     /**
-     * Dynamically update the compression level and compression strategy.
+     * Dynamically updates the compression level and compression strategy. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { CompressLevel } level - New compression level.
-     * @param { CompressStrategy } strategy - New compression strategy.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { CompressLevel } level - For details, see [CompressLevel]{@link zlib.CompressLevel}.
+     * @param { CompressStrategy } strategy - For details, see [CompressStrategy]{@link zlib.CompressStrategy}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2315,15 +2259,17 @@ declare namespace zlib {
     deflateParams(strm: ZStream, level: CompressLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
     /**
-     * Inserts bits in the deflate output stream.
+     * Inserts bits and values into the compression stream. This API uses a promise to return the result.
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { int } bits - The number of bits to be inserted. The value range is between 0~16.
-     * @param { int } value - The bit value corresponding to the number of bits.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { ZStream } strm - For details, see [ZStream<sup>12+</sup>]{@link zlib.ZStream}.
+     * @param { int } bits - Number of bits to be inserted. The value ranges from 0 to 16.
+     * @param { int } value - Bit value corresponding to the number of bits.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result status.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2333,9 +2279,8 @@ declare namespace zlib {
   }
 
   /**
-   * Gzip related interfaces.
+   * Describes gzip-related APIs.
    *
-   * @typedef GZip
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -2344,13 +2289,17 @@ declare namespace zlib {
   interface GZip {
 
     /**
-     * Associate a gzFile with the file descriptor fd.
+     * Associates gzip file with the file descriptor (fd) and opens the file for reading and decompressing, or
+     * compressing and writing. This API uses a promise to return the result.
      *
-     * @param { int } fd - The file descriptor. Usually this is obtained through system calls to 'open' or other methods.
-     * @param { string } mode - Used to specify access mode.
-     * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { int } fd - File descriptor. Generally, the value is obtained by calling the **open** method or other
+     *     methods.
+     * @param { string } mode - Specifies the access mode. For details, see the description of
+     *     [gzopen]{@link zlib.GZip.gzopen}.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2360,12 +2309,13 @@ declare namespace zlib {
     gzdopen(fd: int, mode: string): Promise<void>;
 
     /**
-     * Set the internal buffer size used by this library's functions for file to size.
+     * Sets the internal buffer size for the current library function. This API uses a promise to return the result.
      *
-     * @param { long } size - The internal buffer size to be set.
-     * @returns { Promise<int> } Returns 0 on success.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { long } size - Size of the internal buffer to be set.
+     * @returns { Promise<int> } Promise used to return the result. If the operation is successful, **0** is returned.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2375,13 +2325,34 @@ declare namespace zlib {
     gzbuffer(size: long): Promise<int>;
 
     /**
-     * Open the gzip (.gz) file at path for reading and decompressing, or compressing and writing.
+     * Opens the .gz file in the specified path for reading and decompressing, or compressing and writing. This API uses
+     * a promise to return the result.
      *
-     * @param { string } path - The file path to be opened.
-     * @param { string } mode - Specify the file opening method.
-     * @returns { Promise<void> }
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { string } path - Path of the file to be opened.
+     * @param { string } mode - Specifies a mode for opening a file.<br>Basic modes (one of the following must be
+     *     selected):<br>- **"r"** or **"rb"**: read mode. The system automatically detects and decompresses the gzip
+     *     file. If the file is not in gzip format, the original data is directly read.<br>- **"w"** or **"wb"**: write
+     *     mode. The system creates a new file and compresses data.<br>- **"a"** or **"ab"**: append mode. The system
+     *     appends a new gzip stream to the end of the existing file without verifying the format of the original file.<
+     *     br>Optional function parameters (can be used together):<br>- Compression level: **0** (no compression) to
+     *     **9** (maximum compression). The default compression level is **6**. This parameter must be used together
+     *     with the write or append mode.<br>- Compression strategy: **"f"** (filtering strategy), **"h"** (Huffman
+     *     coding strategy), **"R"** (RLE compression strategy), or **"F"** (fixed encoding strategy). You can only
+     *     select one of the strategies.<br>- Transparent mode: **"T"**. In this mode, data is not compressed and no
+     *     gzip header is generated during writing (a common file is generated). This parameter is mutually exclusive
+     *     with the compression strategy parameter.<br>- Exclusive creation: **"x"**. The file fails to be opened if it
+     *     already exists. This parameter must be used together with the write or append mode.<br>- Close-on-exec flag:
+     *     **"e"**. This parameter is used to set the **FD_CLOEXEC** property of the file descriptor (system-dependent).
+     *     <br>Examples:<br>- **"r"**: read mode. Data is read in binary format.<br>- **"rb"**: read mode. Data is read
+     *     in binary format.<br>- **"wb6"**: write mode. Data is written in binary format with the compression level of
+     *     6.<br>- **"wb9f"**: write mode. Data is written in binary format with the maximum compression level and
+     *     filtering strategy.<br>- **"wbT"**: write mode. Data is not compressed and a common file is generated.<br>-
+     *     **"wbx"**: write mode. Data is written to the exclusively created file in binary format.<br>- **"abx"**:
+     *     append mode. Data is appended and written to the exclusively created file in binary format.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800002 - No such file or access mode error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2391,9 +2362,11 @@ declare namespace zlib {
     gzopen(path: string, mode: string): Promise<void>;
 
     /**
-     * Check if the reading position of the gzip compressed file has reached the end of the file.
+     * Checks whether the position from which data is read has reached the end of the gzip file. This API uses a promise
+     * to return the result.
      *
-     * @returns { Promise<int> } Return 1 (true) if the end-of-file indicator for file has been set while reading.
+     * @returns { Promise<int> } Promise used to return the result. If the end-of-file indicator is set while reading,
+     *     **1** is returned.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2402,9 +2375,11 @@ declare namespace zlib {
     gzeof(): Promise<int>;
 
     /**
-     * Check if the specified gzip file handle file directly accesses the original uncompressed data.
+     * Checks whether the specified gzip file handle directly accesses the original uncompressed data and reallocates
+     * the buffer. This API uses a promise to return the result.
      *
-     * @returns { Promise<int> } returns 1 (true) if transparent writing was requested.
+     * @returns { Promise<int> } Promise used to return the result. If the original uncompressed data is directly
+     *     accessed, **1** is returned.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2413,10 +2388,12 @@ declare namespace zlib {
     gzdirect(): Promise<int>;
 
     /**
-     * Flush all pending output for file, if necessary, close file and deallocate the (de)compression state.
+     * Clears all pending output of the file. Closes the file and releases the decompression or compression state if
+     * necessary. This API uses a promise to return the result.
      *
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2426,9 +2403,9 @@ declare namespace zlib {
     gzclose(): Promise<ReturnStatus>;
 
     /**
-     * Clear the error and end-of-file flags for file.
+     * Clears the errors and end-of-file flags of a file. This API uses a promise to return the result.
      *
-     * @returns { Promise<void> }
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2437,10 +2414,11 @@ declare namespace zlib {
     gzclearerr(): Promise<void>;
 
     /**
-     * The error message for the last error which occurred on file.
+     * Describes the last error message that reported for the file. This API uses a promise to return the result.
      *
-     * @returns { Promise<GzErrorOutputInfo> } Return the status message for the last status which occurred on file and ReturnStatus.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @returns { Promise<GzErrorOutputInfo> } Promise used to return the result.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2449,9 +2427,9 @@ declare namespace zlib {
     gzerror(): Promise<GzErrorOutputInfo>;
 
     /**
-     * Read and decompress one byte from file.
+     * Reads and decompresses a byte from a file. This API uses a promise to return the result.
      *
-     * @returns { Promise<int> } Return the ASCII code of a character.
+     * @returns { Promise<int> } Promise used to return the result.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2461,13 +2439,16 @@ declare namespace zlib {
     gzgetc(): Promise<int>;
 
     /**
-     * Flush all pending output to file.
+     * Flushes all pending output into a compressed file. This API uses a promise to return the result.
      *
-     * @param { CompressFlushMode } flush - Control the behavior of refresh operations.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { CompressFlushMode } flush - Controls the flushing mode. For details, see
+     *     [CompressFlushMode]{@link zlib.CompressFlushMode}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2476,14 +2457,16 @@ declare namespace zlib {
     gzflush(flush: CompressFlushMode): Promise<ReturnStatus>;
 
     /**
-     * Compress and write nitems items of size size from buf to file.
+     * Compresses data blocks that are declared with size and nitems from the buffer and writes the data blocks to a
+     * file. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } buf - The buffer to write data to.
-     * @param { long } size - The number of bytes in a single data block.
+     * @param { ArrayBuffer } buf - Buffer to which data is to be written.
+     * @param { long } size - Number of bytes in a single data block.
      * @param { long } nitems - Number of data blocks to be written.
-     * @returns { Promise<long> } Return the number of full items written of size size.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Promise<long> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2493,14 +2476,15 @@ declare namespace zlib {
     gzfwrite(buf: ArrayBuffer, size: long, nitems: long): Promise<long>;
 
     /**
-     * Read and decompress data from gzip compressed files.
+     * Decompresses and reads data from a gzip file. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } buf - Target buffer for storing read results.
-     * @param { long } size - The number of bytes in a single data block.
-     * @param { long } nitems - Number of data blocks to be read.
-     * @returns { Promise<long> } Return the number of full items read of size size.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ArrayBuffer } buf - Destination buffer for storing read results.
+     * @param { long } size - Number of bytes in a single data block.
+     * @param { long } nitems - Number of data blocks to be written.
+     * @returns { Promise<long> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2510,10 +2494,12 @@ declare namespace zlib {
     gzfread(buf: ArrayBuffer, size: long, nitems: long): Promise<long>;
 
     /**
-     * Same as gzclose(), gzclosew() only for use when writing or appending.
+     * Implements the same functions as that of **gzclose()** for writing or appending. This API uses a promise to
+     * return the result.
      *
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @throws { BusinessError } 17800006 - Memory allocation failed.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2523,10 +2509,12 @@ declare namespace zlib {
     gzclosew(): Promise<ReturnStatus>;
 
     /**
-     * Same as gzclose(), gzcloser() is only for use when reading.
+     * Implements the same functions as that of **gzclose()** for reading only. This API uses a promise to return the
+     * result.
      *
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2535,13 +2523,15 @@ declare namespace zlib {
     gzcloser(): Promise<ReturnStatus>;
 
     /**
-     * Compress and write the len uncompressed bytes at buf to file.
+     * Compresses the uncompressed bytes of the declared length in the buffer and writes them to the file. This API uses
+     * a promise to return the result.
      *
-     * @param { ArrayBuffer } buf - Object to the data buffer to be written.
-     * @param { long } len - The len uncompressed bytes.
-     * @returns { Promise<long> } Return the number of uncompressed bytes written.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ArrayBuffer } buf - Data buffer pointed by an object to be written.
+     * @param { long } len - Length of uncompressed bytes.
+     * @returns { Promise<long> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2551,12 +2541,14 @@ declare namespace zlib {
     gzwrite(buf: ArrayBuffer, len: long): Promise<long>;
 
     /**
-     * Push c back onto the stream for file to be read as the first character on the next read.
+     * Pushes **c** back into the input stream so that it will be read as the first character the next time the file is
+     * read. This API uses a promise to return the result.
      *
-     * @param { int } c - To fall back to the character before the input stream.
-     * @returns { Promise<int> } Return the character pushed.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { int } c - Characters before being pushed into the input stream.
+     * @returns { Promise<int> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2566,9 +2558,10 @@ declare namespace zlib {
     gzungetc(c: int): Promise<int>;
 
     /**
-     * Return the starting position for the next gzread or gzwrite on file.
+     * Returns the start position of the next **gzread** or **gzwrite** in the file. This API uses a promise to return
+     * the result.
      *
-     * @returns { Promise<long> } Return the starting position for the next gzread or gzwrite on file.
+     * @returns { Promise<long> } Promise used to return the result.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2578,14 +2571,18 @@ declare namespace zlib {
     gztell(): Promise<long>;
 
     /**
-     * Dynamically update the compression level and strategy for file.
+     * Dynamically updates the compression level and compression strategy of a file. This API uses a promise to return
+     * the result.
      *
-     * @param { CompressLevel } level - Compression level.
-     * @param { CompressStrategy } strategy - Compression strategy.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @param { CompressLevel } level - Compression level. For details, see [CompressLevel]{@link zlib.CompressLevel}.
+     * @param { CompressStrategy } strategy - Compression strategy. For details, see
+     *     [CompressStrategy]{@link zlib.CompressStrategy}.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 12 dynamic
@@ -2594,13 +2591,15 @@ declare namespace zlib {
     gzsetparams(level: CompressLevel, strategy: CompressStrategy): Promise<ReturnStatus>;
 
     /**
-     * Set the starting position to offset relative to whence for the next gzread or gzwrite on file.
+     * Sets the start position to the offset position relative to the next **gzread** or **gzwrite** in the file.
      *
-     * @param { long } offset - Specify the new offset to move to.
-     * @param { OffsetReferencePoint } whence - Define the reference point for offset.
-     * @returns { Promise<long> } Return the resulting offset location as measured in bytes from the beginning of the uncompressed stream.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { long } offset - Target offset position.
+     * @param { OffsetReferencePoint } whence - Defines the reference point for the offset. For details, see
+     *     [OffsetReferencePoint]{@link zlib.OffsetReferencePoint}.
+     * @returns { Promise<long> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2610,9 +2609,10 @@ declare namespace zlib {
     gzseek(offset: long, whence: OffsetReferencePoint): Promise<long>;
 
     /**
-     * Rewind file. This function is supported only for reading.
+     * Repositions the file pointer to the beginning of the file. This feature is applied only for reading. This API
+     * uses a promise to return the result.
      *
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
+     * @returns { Promise<ReturnStatus> } Promise used to return the result.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2622,12 +2622,14 @@ declare namespace zlib {
     gzrewind(): Promise<ReturnStatus>;
 
     /**
-     * Read and decompress up to len uncompressed bytes from file into buf.
+     * Reads a maximum of **len** uncompressed bytes from a file and decompresses them into the buffer. This API uses a
+     * promise to return the result.
      *
-     * @param { ArrayBuffer } buf - User provided buffer address.
-     * @returns { Promise<long> } Return the number of uncompressed bytes actually read, less than len for end of file.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ArrayBuffer } buf - Target offset position.
+     * @returns { Promise<long> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2637,12 +2639,14 @@ declare namespace zlib {
     gzread(buf: ArrayBuffer): Promise<long>;
 
     /**
-     * Compress and write the given null-terminated string s to file, excluding the terminating null character.
+     * Compresses the given null-terminated strings and writes them to the file, excluding the null operator. This API
+     * uses a promise to return the result.
      *
      * @param { string } str - Format descriptors and plain text.
-     * @returns { Promise<int> } Return the number of characters written.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Promise<int> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2652,12 +2656,14 @@ declare namespace zlib {
     gzputs(str: string): Promise<int>;
 
     /**
-     * Compress and write c, converted to an unsigned char, into file.
+     * Compresses **char** converted to an unsigned character and writes it to a file. This API uses a promise to return
+     * the result.
      *
-     * @param { int } ch - Write ASCII values for characters.
-     * @returns { Promise<int> } Return the value that was written.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { int } ch - Write character ASCII.
+     * @returns { Promise<int> } Promise used to return the result.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2667,14 +2673,17 @@ declare namespace zlib {
     gzputc(ch: int): Promise<int>;
 
     /**
-     * Convert, format, compress, and write the arguments to file under control of the string format, as in fprintf.
+     * Converts and formats the parameters under the control of the string format and then compresses and writes them
+     * into a file, as shown in the **fprintf()**. This API uses a promise to return the result.
      *
      * @param { string } format - Format descriptors and plain text.
      * @param { Array<string | double> } args - Variable argument lists.
      * @returns { Promise<int> } Return the number of uncompressed bytes actually written.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an initialization error in the zlib stream structure or a modified structure.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by an
+     *     initialization error in the zlib stream structure or a modified structure.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2684,9 +2693,9 @@ declare namespace zlib {
     gzprintf(format: string, ...args: Array<string | double>): Promise<int>;
 
     /**
-     * Return the current compressed (actual) read or write offset of file.
+     * Returns the current compressed read or write offset of the file. This API uses a promise to return the result.
      *
-     * @returns { Promise<long> } Return the current compressed (actual) read or write offset of file.
+     * @returns { Promise<long> } Promise used to return the result.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2696,13 +2705,14 @@ declare namespace zlib {
     gzoffset(): Promise<long>;
 
     /**
-     * Read and decompress bytes from file into buf, until len-1 characters are read, or until a newline character is read and transferred to buf,
-     * or an end-of-file condition is encountered.
+     * Reads bytes from a compressed file until len-1 characters are read, a newline character is read and transferred
+     * to a buffer, or an end-of-file condition is encountered. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } buf - Store the read row data.
-     * @returns { Promise<string> } Return buf which is a null-terminated string.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified;
-     * 2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { ArrayBuffer } buf - Stores the read row data.
+     * @returns { Promise<string> } Promise used to return a string ended with **null**.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800009 - Internal structure error.
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -2712,4 +2722,5 @@ declare namespace zlib {
     gzgets(buf: ArrayBuffer): Promise<string>;
   }
 }
+
 export default zlib;

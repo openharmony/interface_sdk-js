@@ -73,6 +73,9 @@ import { GridObjectSortComponentType, GridObjectSortComponentItem, GridObjectSor
 import {
   Popup, PopupButtonOptions, PopupIconOptions, PopupOptions, PopupTextOptions
 } from '@ohos.arkui.advanced.Popup';
+import {
+  PopupV2, PopupV2InitInfo, PopupV2Button
+} from '@ohos.arkui.advanced.PopupV2';
 import { ProgressButton } from '@ohos.arkui.advanced.ProgressButton';
 import { ProgressButtonV2, ProgressButtonV2Color, ProgressButtonV2ColorOptions } from '@ohos.arkui.advanced.ProgressButtonV2';
 import {
@@ -107,21 +110,23 @@ import { DrawableDescriptor, LayeredDrawableDescriptor, PixelMapDrawableDescript
 import inspector from '@ohos.arkui.inspector';
 import {
   NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, BuildOptions, NodeController, FrameNode, DrawContext, Size, Offset, Position, Pivot,
-  Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, ColorMetrics, LengthUnit, LengthMetricsUnit,
+  Scale, Translation, Matrix4, Rotation, Frame, RenderNode, XComponentNode, LengthMetrics, ColorMetrics, BackgroundBlur, ContentBlur, ForegroundBlur, LengthUnit, LengthMetricsUnit,
   LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content, typeNode, NodeAdapter, ShapeMask, ShapeClip, Rect, RoundRect,
-  edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode, UIState, InputEventType
+  edgeColors, edgeWidths, borderStyles, borderRadiuses, ExpandMode, ChildrenCountMode, UIState, InputEventType
 } from '@ohos.arkui.node';
 import uiObserver from '@ohos.arkui.observer';
 import performanceMonitor from '@ohos.arkui.performanceMonitor';
 import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, MutableBinding, CustomComponentLifecycle, CustomComponentLifecycleObserver, 
 CustomComponentLifecycleState, ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, 
-ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections } from '@ohos.arkui.StateManagement';
+ComponentActive, ComponentInactive,
+ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections,
+CustomComponentContext, IReusePool, IReusableInfo } from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
   PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene,
   MarqueeDynamicSyncSceneType, MeasureUtils, FrameCallback, OverlayManagerOptions, TargetInfo, TextMenuController,
-  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext
+  NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext, TextSelectionClearPolicy
 } from '@ohos.arkui.UIContext';
 import curves from '@ohos.curves';
 import {
@@ -136,6 +141,7 @@ import MeasureText, { MeasureOptions } from '@ohos.measure';
 import mediaquery from '@ohos.mediaquery';
 import PiPWindow from '@ohos.PiPWindow';
 import floatingBall from '@ohos.window.floatingBall';
+import floatView from '@ohos.window.floatView';
 import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
 import promptAction, { LevelMode, ImmersiveMode, LevelOrder } from '@ohos.promptAction';
@@ -244,6 +250,9 @@ import imageGeneration from '@ohos.arkui.intelligence.imageGeneration';
 import uiMaterial from '@ohos.arkui.uiMaterial';
 import { RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm } from '@ohos.arkui.layoutAlgorithm';
 import { DynamicLayout, DynamicLayoutAttribute } from '@ohos.arkui.components.ArkDynamicLayout';
+import { ContainerReader, ContainerReaderAttribute, BreakpointOptions } from '@ohos.arkui.components.ContainerReader';
+import { LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute } from '@ohos.arkui.components.ArkLazyWaterFlowLayout';
+import { WithEnv, WithEnvAttribute} from '@ohos.arkui.WithEnv';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -275,9 +284,9 @@ export {
   TipsDialog, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier, Translation, TreeController, TreeListenType, TreeListener,
   ToolBarV2ItemState, ToolBarV2SymbolGlyph, ToolBarV2SymbolGlyphOptions, ToolBarV2ItemText, ToolBarV2ItemTextOptions, ToolBarV2ItemIconType,
   ToolBarV2ItemImage, ToolBarV2ItemImageOptions, ToolBarV2, ToolBarV2Item, ToolBarV2ItemOptions, ToolBarV2Modifier, ToolBarV2ItemAction,
-  TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, XComponentNode,
-  LengthMetrics, LengthUnit, ColorMetrics, LengthMetricsUnit, LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content,
-  componentSnapshot, componentUtils, curves, display, dragController, dragInteraction, floatingBall,
+  TreeListenerManager, TreeView, UIContext, UIInspector, UIObserver, PageInfo, WindowExtensionAbility, WindowExtensionContext, WithEnv, WithEnvAttribute, XComponentNode,
+  LengthMetrics, LengthUnit, ColorMetrics, BackgroundBlur, ContentBlur, ForegroundBlur, LengthMetricsUnit, LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content,
+  componentSnapshot, componentUtils, curves, display, dragController, dragInteraction, floatingBall, floatView,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
   LevelMode, ImmersiveMode, LevelOrder, AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
   AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
@@ -318,12 +327,15 @@ export {
   TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2,
   AlertDialogV2, AdvancedDialogV2Button, AdvancedDialogV2ButtonOptions, AdvancedDialogV2ButtonAction, AdvancedDialogV2OnCheckedChange,
   ConfirmDialogV2, LoadingDialogV2, SelectDialogV2, TipsDialogV2, CustomContentDialogV2, PopoverDialogV2, PopoverDialogV2OnVisibleChange, PopoverDialogV2Options,
-  ExpandMode, Magnifier,
+  ExpandMode, ChildrenCountMode, Magnifier, TextSelectionClearPolicy,
   HalfScreenLaunchComponent, ArcSliderPosition, ArcSwiper, ArcSwiperAttribute, ArcDotIndicator, ArcDirection, ArcSwiperController, TargetInfo, UIState,
   StepperModifier, TextMenuController, InputEventType, GestureListenerType, GestureActionPhase, GestureTriggerInfo, GestureObserverConfigs, 
   GestureListenerCallback, NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, UIPickerComponentModifier, SwiperContentInfo, SwiperItemInfo, 
   ResolvedUIContext, imageGeneration, CustomComponentLifecycle, CustomComponentLifecycleObserver, CustomComponentLifecycleState, 
   ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, ComponentRecycle, ComponentDisappear,
+  ComponentActive, ComponentInactive,
   CollectionType, ConnectOptionsCollections, uiMaterial,
-  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute
+  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute,
+  LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute, CustomComponentContext, IReusePool, IReusableInfo, PopupV2, PopupV2InitInfo, PopupV2Button,
+  ContainerReader, ContainerReaderAttribute, BreakpointOptions
 };

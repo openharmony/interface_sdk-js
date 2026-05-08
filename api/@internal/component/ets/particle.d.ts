@@ -23,6 +23,7 @@
  *
  * @typedef { [T1, T2] } ParticleTuple
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -34,6 +35,7 @@ declare type ParticleTuple<T1, T2> = [T1, T2];
  *
  * @typedef VelocityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -43,6 +45,7 @@ declare interface VelocityOptions {
    * Particle speed.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -50,6 +53,7 @@ declare interface VelocityOptions {
    * Particle speed.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -60,6 +64,7 @@ declare interface VelocityOptions {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -70,6 +75,7 @@ declare interface VelocityOptions {
    * Angle of particle's direction.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -77,6 +83,7 @@ declare interface VelocityOptions {
    * Angle of particle's direction.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -87,6 +94,7 @@ declare interface VelocityOptions {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -99,6 +107,7 @@ declare interface VelocityOptions {
  *
  * @typedef AccelerationOptions<ACC_SPEED_UPDATER extends ParticleUpdater, ACC_ANGLE_UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -111,6 +120,7 @@ declare interface AccelerationOptions<
    * Speed property options.
    * @type { ?ParticlePropertyOptions<number, ACC_SPEED_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -118,6 +128,7 @@ declare interface AccelerationOptions<
    * Speed property options.
    * @type { ?ParticlePropertyOptions<number, ACC_SPEED_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -128,6 +139,7 @@ declare interface AccelerationOptions<
    * Anonymous Object Rectification.
    * @type { ?ParticlePropertyOptions<number, ACC_SPEED_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -138,6 +150,7 @@ declare interface AccelerationOptions<
    * Angle property options.
    * @type { ?ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -145,6 +158,7 @@ declare interface AccelerationOptions<
    * Angle property options.
    * @type { ?ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -155,6 +169,7 @@ declare interface AccelerationOptions<
    * Anonymous Object Rectification.
    * @type { ?ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -166,6 +181,7 @@ declare interface AccelerationOptions<
  * Defines the ParticleOptions Interface.
  * @interface ParticleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -173,6 +189,7 @@ declare interface AccelerationOptions<
  * Defines the ParticleOptions Interface.
  * @interface ParticleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -190,6 +207,7 @@ interface ParticleOptions<
    * Particle emitter.
    * @type { EmitterOptions<PARTICLE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -197,6 +215,7 @@ interface ParticleOptions<
    * Particle emitter.
    * @type { EmitterOptions<PARTICLE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -208,6 +227,7 @@ interface ParticleOptions<
    * @type { ?ParticleColorPropertyOptions<COLOR_UPDATER> }
    * @default {range:['#FFFFFF','#FFFFFF']}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -216,6 +236,7 @@ interface ParticleOptions<
    * @type { ?ParticleColorPropertyOptions<COLOR_UPDATER> }
    * @default {range:['#FFFFFF','#FFFFFF']}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -227,6 +248,7 @@ interface ParticleOptions<
    * @type { ?ParticlePropertyOptions<number, OPACITY_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -235,6 +257,7 @@ interface ParticleOptions<
    * @type { ?ParticlePropertyOptions<number, OPACITY_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -246,6 +269,7 @@ interface ParticleOptions<
    * @type { ?ParticlePropertyOptions<number, SCALE_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -254,6 +278,7 @@ interface ParticleOptions<
    * @type { ?ParticlePropertyOptions<number, SCALE_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -265,6 +290,7 @@ interface ParticleOptions<
    * @type { ?object }
    * @default {speed:[0,0];angle:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -273,6 +299,7 @@ interface ParticleOptions<
    * @type { ?object }
    * @default {speed:[0,0];angle:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -284,6 +311,7 @@ interface ParticleOptions<
    * @type { ?VelocityOptions }
    * @default {speed:[0,0];angle:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -295,6 +323,7 @@ interface ParticleOptions<
    * @type { ?object }
    * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -303,6 +332,7 @@ interface ParticleOptions<
    * @type { ?object }
    * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -314,6 +344,7 @@ interface ParticleOptions<
    * @type { ?AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER> }
    * @default {speed:{range:[0,0]};angle:{range:[0,0]}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -325,6 +356,7 @@ interface ParticleOptions<
    * @type { ?ParticlePropertyOptions<number, SPIN_UPDATER> }
    * @default {range:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -333,6 +365,7 @@ interface ParticleOptions<
    * @type { ?ParticlePropertyOptions<number, SPIN_UPDATER> }
    * @default {range:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -344,6 +377,7 @@ interface ParticleOptions<
  * Defines the parameters for a point-like particle.
  * @interface PointParticleParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -351,6 +385,7 @@ interface ParticleOptions<
  * Defines the parameters for a point-like particle.
  * @interface PointParticleParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -360,6 +395,7 @@ interface PointParticleParameters {
    * Particle radius.
    * @type { VP }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -367,6 +403,7 @@ interface PointParticleParameters {
    * Particle radius.
    * @type { VP }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -378,6 +415,7 @@ interface PointParticleParameters {
  * Defines the parameters for an image-like particle.
  * @interface ImageParticleParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -385,6 +423,7 @@ interface PointParticleParameters {
  * Defines the parameters for an image-like particle.
  * @interface ImageParticleParameters
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -394,6 +433,7 @@ interface ImageParticleParameters {
    * Particle image pixelMap.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -401,6 +441,7 @@ interface ImageParticleParameters {
    * Particle image pixelMap.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -411,6 +452,7 @@ interface ImageParticleParameters {
    * Particle image size.
    * @type { [Dimension, Dimension] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -418,6 +460,7 @@ interface ImageParticleParameters {
    * Particle image size.
    * @type { [Dimension, Dimension] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -428,6 +471,7 @@ interface ImageParticleParameters {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<Dimension, Dimension> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -439,6 +483,7 @@ interface ImageParticleParameters {
    * @type { ?ImageFit }
    * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -447,6 +492,7 @@ interface ImageParticleParameters {
    * @type { ?ImageFit }
    * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -458,6 +504,7 @@ interface ImageParticleParameters {
  * Defines the particle configs.
  * @interface ParticleConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -465,6 +512,7 @@ interface ImageParticleParameters {
  * Defines the particle configs.
  * @interface ParticleConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -474,6 +522,7 @@ interface ParticleConfigs {
    * Point-like Particle.
    * @type { PointParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -481,6 +530,7 @@ interface ParticleConfigs {
    * Point-like Particle.
    * @type { PointParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -491,6 +541,7 @@ interface ParticleConfigs {
    * Image-like Particle.
    * @type { ImageParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -498,6 +549,7 @@ interface ParticleConfigs {
    * Image-like Particle.
    * @type { ImageParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -510,6 +562,7 @@ interface ParticleConfigs {
  *
  * @interface EmitterProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -521,6 +574,7 @@ interface EmitterProperty {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -532,6 +586,7 @@ interface EmitterProperty {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -543,6 +598,7 @@ interface EmitterProperty {
    *
    * @type { ?PositionT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -554,6 +610,7 @@ interface EmitterProperty {
    *
    * @type { ?SizeT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -565,6 +622,7 @@ interface EmitterProperty {
    *
    * @type { ?ParticleAnnulusRegion }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -577,6 +635,7 @@ interface EmitterProperty {
  *
  * @typedef EmitterParticleOptions<PARTICLE extends ParticleType>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -586,6 +645,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Particle type.
    * @type { PARTICLE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -593,6 +653,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Particle type.
    * @type { PARTICLE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -603,6 +664,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Anonymous Object Rectification.
    * @type { PARTICLE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -612,6 +674,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Particle config.
    * @type { ParticleConfigs[PARTICLE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -619,6 +682,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Particle config.
    * @type { ParticleConfigs[PARTICLE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -629,6 +693,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Anonymous Object Rectification.
    * @type { ParticleConfigs[PARTICLE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -639,6 +704,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Particle count.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -646,6 +712,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Particle count.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -656,6 +723,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * Anonymous Object Rectification.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -667,6 +735,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @type { ?number }
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -675,6 +744,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @type { ?number }
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -686,6 +756,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @type { ?number }
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -698,6 +769,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -710,6 +782,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -721,6 +794,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
  * Defines the emitter Options.
  * @interface EmitterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -728,6 +802,7 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
  * Defines the emitter Options.
  * @interface EmitterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -737,6 +812,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * Set particle config.
    * @type { object } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -744,6 +820,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * Set particle config.
    * @type { object } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -754,6 +831,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * Anonymous Object Rectification.
    * @type { EmitterParticleOptions<PARTICLE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -765,6 +843,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?number }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -773,6 +852,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?number }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -784,6 +864,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?ParticleEmitterShape }
    * @default ParticleEmitterShape.RECTANGLE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -792,6 +873,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?ParticleEmitterShape }
    * @default ParticleEmitterShape.RECTANGLE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -805,6 +887,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?[Dimension, Dimension] }
    * @default [0,0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -815,6 +898,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?[Dimension, Dimension] }
    * @default [0,0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -828,6 +912,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?ParticleTuple<Dimension, Dimension> }
    * @default [0,0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -841,6 +926,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?[Dimension, Dimension] }
    * @default ['100%','100%']
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -851,6 +937,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?[Dimension, Dimension] }
    * @default ['100%','100%']
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -864,6 +951,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?ParticleTuple<Dimension, Dimension> }
    * @default ['100%','100%']
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -876,6 +964,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
    * @type { ?ParticleAnnulusRegion }
    * @default {innerRadius:LengthMetrics.vp(0),outerRadius:LengthMetrics.vp(0)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -887,6 +976,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  * Defines the particle property updater configs.
  * @interface ParticlePropertyUpdaterConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -894,6 +984,7 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  * Defines the particle property updater configs.
  * @interface ParticlePropertyUpdaterConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -904,6 +995,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    *
    * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -912,6 +1004,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    *
    * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -922,6 +1015,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * Random effect of particle updater.
    * @type { [T, T] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -929,6 +1023,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * Random effect of particle updater.
    * @type { [T, T] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -939,6 +1034,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<T, T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -949,6 +1045,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * Curve effect of particle updater.
    * @type { Array<ParticlePropertyAnimation<T>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -956,6 +1053,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * Curve effect of particle updater.
    * @type { Array<ParticlePropertyAnimation<T>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -968,6 +1066,7 @@ interface ParticlePropertyUpdaterConfigs<T> {
  *
  * @typedef ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -977,6 +1076,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Particle updater type.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -984,6 +1084,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Particle updater type.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -994,6 +1095,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Anonymous Object Rectification.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1004,6 +1106,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Particle updater configuration.
    * @type { ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1011,6 +1114,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Particle updater configuration.
    * @type { ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1021,6 +1125,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Anonymous Object Rectification.
    * @type { ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1033,6 +1138,7 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
  *
  * @typedef ParticleColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1042,6 +1148,7 @@ interface ParticleColorOptions {
    * Red component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1049,6 +1156,7 @@ interface ParticleColorOptions {
    * Red component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1059,6 +1167,7 @@ interface ParticleColorOptions {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1069,6 +1178,7 @@ interface ParticleColorOptions {
    * Green component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1076,6 +1186,7 @@ interface ParticleColorOptions {
    * Green component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1086,6 +1197,7 @@ interface ParticleColorOptions {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1096,6 +1208,7 @@ interface ParticleColorOptions {
    * Blue component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1103,6 +1216,7 @@ interface ParticleColorOptions {
    * Blue component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1113,6 +1227,7 @@ interface ParticleColorOptions {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1123,6 +1238,7 @@ interface ParticleColorOptions {
    * Opacity component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1130,6 +1246,7 @@ interface ParticleColorOptions {
    * Opacity component of particle color.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1140,6 +1257,7 @@ interface ParticleColorOptions {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1152,6 +1270,7 @@ interface ParticleColorOptions {
  *
  * @typedef ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1161,6 +1280,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * Color updater.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1168,6 +1288,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * Color updater.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1178,6 +1299,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * Anonymous Object Rectification.
    * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1188,6 +1310,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * Color updater configuration.
    * @type { ParticleColorPropertyUpdaterConfigs[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1195,6 +1318,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * Color updater configuration.
    * @type { ParticleColorPropertyUpdaterConfigs[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1205,6 +1329,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
    * Anonymous Object Rectification.
    * @type { ParticleColorPropertyUpdaterConfigs[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1216,6 +1341,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
  * Defines the particle property Options.
  * @interface ParticlePropertyOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1223,6 +1349,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
  * Defines the particle property Options.
  * @interface ParticlePropertyOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1232,6 +1359,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Initial range, within which the initial value are randomly generated.
    * @type { [TYPE, TYPE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1239,6 +1367,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Initial range, within which the initial value are randomly generated.
    * @type { [TYPE, TYPE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1249,6 +1378,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<TYPE, TYPE> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1260,6 +1390,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @type { ?object }
    * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdaterConfigs<UPDATER.NONE>[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1268,6 +1399,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @type { ?object }
    * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdaterConfigs<UPDATER.NONE>[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1279,6 +1411,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
    * @type { ?ParticleUpdaterOptions<TYPE, UPDATER> }
    * @default  {type:UPDATER.NONE;config:ParticlePropertyUpdaterConfigs<UPDATER.NONE>[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1290,6 +1423,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
  * Defines the particle color property updater configs.
  * @interface ParticleColorPropertyUpdaterConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1297,6 +1431,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
  * Defines the particle color property updater configs.
  * @interface ParticleColorPropertyUpdaterConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1307,6 +1442,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    *
    * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1315,6 +1451,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    *
    * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1325,6 +1462,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * Random effect of particle color property updater.
    * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1332,6 +1470,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * Random effect of particle color property updater.
    * @type { object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1342,6 +1481,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * Anonymous Object Rectification.
    * @type { ParticleColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1353,6 +1493,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * 
    * @type { Array<ParticlePropertyAnimation<ResourceColor>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1361,6 +1502,7 @@ interface ParticleColorPropertyUpdaterConfigs {
    * 
    * @type { Array<ParticlePropertyAnimation<ResourceColor>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1372,6 +1514,7 @@ interface ParticleColorPropertyUpdaterConfigs {
  * Defines the particle color property updater configs which can support generics.
  * @interface ParticleColorPropertyOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1379,6 +1522,7 @@ interface ParticleColorPropertyUpdaterConfigs {
  * Defines the particle color property updater configs which can support generics.
  * @interface ParticleColorPropertyOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1388,6 +1532,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * Initial color range, within which the initial color is randomly generated.
    * @type { [ResourceColor, ResourceColor] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1395,6 +1540,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * Initial color range, within which the initial color is randomly generated.
    * @type { [ResourceColor, ResourceColor] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1405,6 +1551,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * Anonymous Object Rectification.
    * @type { ParticleTuple<ResourceColor, ResourceColor> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1416,6 +1563,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @type { ?DistributionType }
    * @default DistributionType.UNIFORM
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1427,6 +1575,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @type { ?object }
    * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1435,6 +1584,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @type { ?object }
    * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1446,6 +1596,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
    * @type { ?ParticleColorUpdaterOptions<UPDATER> }
    * @default {type:UPDATER.NONE;config:ParticleColorPropertyUpdaterConfigs[UPDATER.NONE]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1457,6 +1608,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
  * Defines the particle property lifecycle.
  * @interface ParticlePropertyAnimation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1464,6 +1616,7 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
  * Defines the particle property lifecycle.
  * @interface ParticlePropertyAnimation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1473,6 +1626,7 @@ interface ParticlePropertyAnimation<T> {
    * Start position of the particle animation. 
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1480,6 +1634,7 @@ interface ParticlePropertyAnimation<T> {
    * Start position of the particle animation. 
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1490,6 +1645,7 @@ interface ParticlePropertyAnimation<T> {
    * End position of the particle animation.
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1497,6 +1653,7 @@ interface ParticlePropertyAnimation<T> {
    * End position of the particle animation.
    * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1507,6 +1664,7 @@ interface ParticlePropertyAnimation<T> {
    * Start millis of the particle animation.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1514,6 +1672,7 @@ interface ParticlePropertyAnimation<T> {
    * Start millis of the particle animation.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1524,6 +1683,7 @@ interface ParticlePropertyAnimation<T> {
    * End millis of the particle animation. 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1531,6 +1691,7 @@ interface ParticlePropertyAnimation<T> {
    * End millis of the particle animation. 
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1542,6 +1703,7 @@ interface ParticlePropertyAnimation<T> {
    * @type { ?(Curve | ICurve) }
    * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1550,6 +1712,7 @@ interface ParticlePropertyAnimation<T> {
    * @type { ?(Curve | ICurve) }
    * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1562,6 +1725,7 @@ interface ParticlePropertyAnimation<T> {
  *
  * @typedef Particles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1579,6 +1743,7 @@ interface Particles<
    * Array of particles.
    * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1586,6 +1751,7 @@ interface Particles<
    * Array of particles.
    * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1596,6 +1762,7 @@ interface Particles<
    * Anonymous Object Rectification.
    * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1617,6 +1784,7 @@ interface Particles<
  * Defines the particle Interface.
  * @interface ParticleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1624,6 +1792,7 @@ interface Particles<
  * Defines the particle Interface.
  * @interface ParticleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1636,6 +1805,7 @@ interface ParticleInterface {
    * particles - list of ParticleOptions.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1645,6 +1815,7 @@ interface ParticleInterface {
    * particles - list of ParticleOptions.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1657,6 +1828,7 @@ interface ParticleInterface {
    *          SPIN_UPDATER> } particles - Array of particles.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1684,6 +1856,7 @@ interface ParticleInterface {
  * Enumerates the particle types.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1691,6 +1864,7 @@ interface ParticleInterface {
  * Enumerates the particle types.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1699,12 +1873,14 @@ declare enum ParticleType {
   /**
    * Point-like particle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Point-like particle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1714,12 +1890,14 @@ declare enum ParticleType {
   /**
    * Image-like particle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Image-like particle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1731,6 +1909,7 @@ declare enum ParticleType {
  * Enumerates the emitter shapes of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1738,6 +1917,7 @@ declare enum ParticleType {
  * Enumerates the emitter shapes of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1746,12 +1926,14 @@ declare enum ParticleEmitterShape {
   /**
    * Rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1761,12 +1943,14 @@ declare enum ParticleEmitterShape {
   /**
    * Circle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Circle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1776,12 +1960,14 @@ declare enum ParticleEmitterShape {
   /**
    * Ellipse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Ellipse.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1791,6 +1977,7 @@ declare enum ParticleEmitterShape {
   /**
    * Annulus.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1803,6 +1990,7 @@ declare enum ParticleEmitterShape {
  * 
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1812,6 +2000,7 @@ declare enum DistributionType {
    * Uniform distribution.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1822,6 +2011,7 @@ declare enum DistributionType {
    * Gaussian distribution.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1833,6 +2023,7 @@ declare enum DistributionType {
  * Enumerates the updater types of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1840,6 +2031,7 @@ declare enum DistributionType {
  * Enumerates the updater types of a particle.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1848,12 +2040,14 @@ declare enum ParticleUpdater {
   /**
    * No updater is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * No updater is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1863,12 +2057,14 @@ declare enum ParticleUpdater {
   /**
    * Random updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Random updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1878,12 +2074,14 @@ declare enum ParticleUpdater {
   /**
    * Curve updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Curve updater.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1896,6 +2094,7 @@ declare enum ParticleUpdater {
  *
  * @typedef { import('../api/arkui/Graphics').SizeT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1907,6 +2106,7 @@ declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
  *
  * @typedef { import('../api/arkui/Graphics').PositionT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1918,6 +2118,7 @@ declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
  *
  * @typedef { import('../api/arkui/Graphics').Vector2T<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -1928,6 +2129,7 @@ declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
  * Defines the Particle component attribute functions.
  * @extends CommonMethod<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -1935,6 +2137,7 @@ declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
  * Defines the Particle component attribute functions.
  * @extends CommonMethod<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1947,6 +2150,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @param { Array<DisturbanceFieldOptions> } fields - particle disturbance Field params.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1959,6 +2163,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @param { Array<EmitterProperty> } value - The emitter property.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1972,6 +2177,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @param { Array<RippleFieldOptions> | undefined } fields - The infomation of ripple fields.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -1985,6 +2191,7 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
    * @param { Array<VelocityFieldOptions> | undefined } fields - The infomation of velocity fields.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -1995,12 +2202,14 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
 /**
  * Defines Particle Component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
 /**
  * Defines Particle Component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -2012,6 +2221,7 @@ declare const Particle: ParticleInterface;
  * Defines particle disturbance Field params.
  * @interface DisturbanceFieldOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -2026,6 +2236,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2038,6 +2249,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?DisturbanceFieldShape }
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2050,6 +2262,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?SizeT<number> }
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2062,6 +2275,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2078,6 +2292,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2090,6 +2305,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2102,6 +2318,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2114,6 +2331,7 @@ declare interface DisturbanceFieldOptions {
    * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2126,6 +2344,7 @@ declare interface DisturbanceFieldOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -2136,6 +2355,7 @@ declare enum DisturbanceFieldShape {
    * Shape rect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2146,6 +2366,7 @@ declare enum DisturbanceFieldShape {
    * Shape circle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2156,6 +2377,7 @@ declare enum DisturbanceFieldShape {
    * Shape eclipse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

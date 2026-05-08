@@ -28,6 +28,7 @@ import { SwiperAttribute } from '@ohos.arkui.component';
  *
  * @implements { SwiperAttribute, AttributeModifier<SwiperAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class SwiperModifier implements SwiperAttribute, AttributeModifier<SwiperAttribute> {
@@ -36,6 +37,7 @@ export declare class SwiperModifier implements SwiperAttribute, AttributeModifie
    * 
    * @param { SwiperAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   applyNormalAttribute(instance: SwiperAttribute): void;

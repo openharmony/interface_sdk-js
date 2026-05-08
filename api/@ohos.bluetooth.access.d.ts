@@ -291,6 +291,17 @@ declare namespace access {
   function getLocalAddress(): string;
 
   /**
+ 	  * Check whether Bluetooth is available.
+ 	  *
+ 	  * @returns { boolean } Returns {@code true} if Bluetooth is available, returns {@code false} otherwise.
+ 	  * @throws { BusinessError } 2900099 - Operation failed.
+ 	  * @syscap SystemCapability.Communication.Bluetooth.Core
+ 	  * @stagemodelonly
+ 	  * @since 26.0.0 dynamic&static
+ 	  */
+  function isBluetoothSupported(): boolean;
+
+  /**
    * Subscribe the event reported when the Bluetooth state changes.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH

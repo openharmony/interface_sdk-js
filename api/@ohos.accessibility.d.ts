@@ -240,9 +240,28 @@ export enum AccessibilityAction {
    * @since 20 dynamic
    * @since 23 static
    */
-  SPAN_CLICK = 20
-}
+  SPAN_CLICK = 20,
 
+  /**
+   * Inject action on an accessibility focus element.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  INJECT_ACTION = 21,
+
+  /**
+   * Execute custom action on a component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  EXECUTE_CUSTOM_ACTION = 22
+}
 
 /**
  * AccessibilityEvent type
@@ -956,7 +975,37 @@ export enum AccessibilityEventType {
    * @systemapi
    * @since 23 dynamic&static
    */
-  TYPE_PAGE_ACTIVE = 69
+  TYPE_PAGE_ACTIVE = 69,
+
+  /**
+   * notification update type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_NOTIFICATION_UPDATE = 70,
+
+  /**
+   * accessibility focus element is invisible type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_FOCUS_INVISIBLE = 71,
+
+  /**
+   * one finger double tap type
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  TYPE_ONE_FINGER_DOUBLE_TAP = 72
 }
 
 /**
@@ -1050,19 +1099,33 @@ declare namespace accessibility {
    * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' }
    *
    * @typedef {'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
-  *     'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' |
-  *     'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' |
-  *     'notificationCenter' | 'controlCenter' | 'common'}
-  * @syscap SystemCapability.BarrierFree.Accessibility.Core
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 23 dynamic&static
-  */
+   *     'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' | 'scrollForward' |
+   *     'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' | 'back' | 'recentTask' |
+   *     'notificationCenter' | 'controlCenter' | 'common'}
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  /**
+   * The action that the ability can execute.
+   * value range: { 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
+   * 'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
+   * 'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
+   * 'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' | 'injectAction' |
+   * 'executeCustomAction' }
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
   'click' | 'longClick' | 'cut' | 'copy' | 'paste' | 'select' | 'setText' | 'delete' |
   'scrollForward' | 'scrollBackward' | 'setSelection' | 'setCursorPosition' | 'home' |
-  'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common';
+  'back' | 'recentTask' | 'notificationCenter' | 'controlCenter' | 'common' | 'injectAction' | 'executeCustomAction';
 
   /**
    * The type of the accessibility event.
@@ -1119,11 +1182,26 @@ declare namespace accessibility {
   * @atomicservice
   * @since 23 dynamic&static
   */
+  /**
+   * The type of the accessibility event.
+   * windowsChange/windowContentChange/windowStateChange/announcement/notificationChange/textTraversedAtMove
+   * value range: { 'accessibilityFocus' | 'accessibilityFocusClear' |
+   * 'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
+   * 'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
+   * 'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
+   * 'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate' | 'focusInvisible'}
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
   'click' | 'longClick' | 'focus' | 'select' | 'hoverEnter' | 'hoverExit' |
   'textUpdate' | 'textSelectionUpdate' | 'scroll' | 'requestFocusForAccessibility' |
   'announceForAccessibility' | 'requestFocusForAccessibilityNotInterrupt' |
-  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive';
+  'announceForAccessibilityNotInterrupt' | 'scrolling' | 'pageActive' | 'notificationUpdate' | 'focusInvisible';
 
   /**
    * The change type of the windowsChange event.
@@ -1895,8 +1973,7 @@ declare namespace accessibility {
    *
    * @returns { CaptionsManager } Returns the captions manager.
    * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
-   * @since 8 dynamic
-   * @since 23 static
+   * @since 8 dynamiconly
    * @deprecated since 12
    */
   function getCaptionsManager(): CaptionsManager;
@@ -2022,7 +2099,7 @@ declare namespace accessibility {
   function isAudioMonoEnabled(): Promise<boolean>;
 
   /**
-   * Check if senior mode is enabled.
+   * Check if system senior mode is enabled.
    *
    * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
    * @throws { BusinessError } 9300000 - System abnormality.
@@ -2033,7 +2110,7 @@ declare namespace accessibility {
   function isSeniorModeEnabled(): Promise<boolean>;
 
   /**
-   * Register an observer for senior mode state changes.
+   * Register an observer for system senior mode state changes.
    *
    * @param { Callback<boolean> } callback - Asynchronous callback interface.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -2043,15 +2120,59 @@ declare namespace accessibility {
   function onSeniorModeStateChange(callback: Callback<boolean>): void;
 
   /**
-   * Unregister the observer for senior mode state changes.
+   * Unregister the observer for system senior mode state changes.
    *
    * @param { Callback<boolean> } [callback] - Asynchronous callback interface.
-   *     <br>Default behavior: Unregister all callbacks for senior mode state changes.
+   *     <br>Default behavior: Unregister all callbacks for system senior mode state changes.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function offSeniorModeStateChange(callback?: Callback<boolean>): void;
+
+  /**
+   * Register an observer for this application's senior mode state changes.
+   *
+   * @param { Callback<boolean> } callback - Asynchronous callback interface.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onSeniorModeStateChangeForSelf(callback: Callback<boolean>): void;
+
+  /**
+   * Unregister the observer for this application's senior mode state changes.
+   *
+   * @param { Callback<boolean> } [callback] - Asynchronous callback interface.
+   *      <br>Default behavior: Unregister all callbacks for app senior mode state changes.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offSeniorModeStateChangeForSelf(callback?: Callback<boolean>): void;
+
+  /**
+   * Check if this application's senior mode is enabled.
+   *
+   * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
+   * @throws { BusinessError } 9300000 - System abnormality.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getSeniorModeStateForSelf(): Promise<boolean>;
+
+  /**
+   * Set this application's senior mode.
+   *
+   * @param { boolean } state - Indicates whether to enable senior mode for this application.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 9300000 - System abnormality.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setSeniorModeStateForSelf(state: boolean): Promise<void>;
 
   /**
    * Indicates the captions manager.
@@ -3005,4 +3126,80 @@ export enum FocusMoveResultCode {
    * @since 23 dynamic&static
    */
   SEARCH_FAILURE_IN_SCROLL = 8
+}
+
+/**
+ * The action inject on accessibility focus element.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum InjectActionType {
+  /**
+   * Click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  CLICK = 1,
+  /**
+   * Double click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DOUBLE_CLICK = 2,
+  /**
+   * Long click type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  LONG_CLICK = 3
+}
+
+/**
+ * Enumeration of scenes of accessibility focus.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum AccessibilityFocusScene {
+  /**
+   * Hover to move the accessibility focus.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  HOVER_FOCUS = 1,
+  /**
+   * Swipe finger to move the accessibility focus.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  SWIPE_FOCUS = 2,
+  /**
+   * Move the accessibility focus after scrolling the component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  SCROLL_FOCUS = 3
 }

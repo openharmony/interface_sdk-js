@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -357,6 +357,16 @@ declare namespace backgroundTaskManager {
      * @since 23 static
      */
     id: int;
+
+    /**
+     * The detailed cancel reason of a continuous task.
+     *
+     * @type { int }
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    detailedReason?: ContinuousTaskDetailedCancelReason;
   }
 
   /**
@@ -601,6 +611,42 @@ declare namespace backgroundTaskManager {
      * @since 23 static
      */
     suspendReason: ContinuousTaskSuspendReason;
+
+    /**
+     * The suspend message of continuous task.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    suspendMessage?:SuspendMessage;
+  }
+
+  /**
+   * The continuous task suspend message.
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SuspendMessage {
+    /**
+     * The detailed suspend message of continuous task.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    message: string;
+
+    /**
+     * The detailed suspend reason of continuous task.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    reason: ContinuousTaskSuspendReason;
   }
 
   /**
@@ -843,7 +889,7 @@ declare namespace backgroundTaskManager {
 
   /**
    * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to the this service. </p>
+   * <p> System will publish a notification related to this service. </p>
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
@@ -866,7 +912,7 @@ declare namespace backgroundTaskManager {
    */
   /**
    * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to the this service. </p>
+   * <p> System will publish a notification related to this service. </p>
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
@@ -951,7 +997,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - App running context.
    * @param { string[] } bgModes - Indicates which background mode to request.
    * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @returns { Promise<ContinuousTaskNotification> } The The continuous task notification.
+   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
@@ -1017,7 +1063,7 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
   /**
-   * UIAbility uses this method to update background mode, support update acording to continuous task id.
+   * UIAbility uses this method to update background mode, support update according to continuous task id.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Context } context - App running context.
@@ -1148,10 +1194,10 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context): Promise<void>;
 
   /**
-   * UI ability uses this method to request stop running in background acording to continuous task id.
+   * UI ability uses this method to request stop running in background according to continuous task id.
    *
    * @param { Context } context - App running context.
-   * @param { number } continuousTaskId - continuousTaskId.
+   * @param { int } continuousTaskId - continuousTaskId.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1162,7 +1208,7 @@ declare namespace backgroundTaskManager {
    * @since 21 dynamic
    * @since 24 static
    */
-  function stopBackgroundRunning(context: Context, continuousTaskId: number): Promise<void>;
+  function stopBackgroundRunning(context: Context, continuousTaskId: int): Promise<void>;
 
   /**
    * Obtains all the continuous tasks before an application enters the suspended state,
@@ -1484,7 +1530,7 @@ declare namespace backgroundTaskManager {
   function off(type: 'continuousTaskActive', callback?: Callback<ContinuousTaskActiveInfo>): void;
 
   /**
-   * Unregister continuous task suspend callback.
+   * Unregister continuous task active callback.
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.
@@ -2116,7 +2162,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
 
     /**
-     *  Not use avsession when request audio playback mode.
+     * Not use avsession when request audio playback mode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2177,6 +2223,124 @@ declare namespace backgroundTaskManager {
      * @since 23 static
      */
     SYSTEM_CANCEL_USE_ILLEGALLY = 11,
+  }
+
+  /**
+   * The type of continuous task detailed cancel reason.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum ContinuousTaskDetailedCancelReason {
+    /**
+     * User remove notification.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    USER_CANCEL_REMOVE_NOTIFICATION = 3,
+
+    /**
+     * Low network speed when request data transfer mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
+
+    /**
+     *  Not use avsession when request audio playback mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
+
+    /**
+     * Audio is not running when request audio playback mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
+
+    /**
+     * Audio is not running when request audio recording mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
+
+    /**
+     * Not use location when request location mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
+
+    /**
+     * Not use bluetooth when request bluetooth interaction mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
+
+    /**
+     * Not use multi device when request multi-device connection mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
+
+    /**
+     * Use some undeclared mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_USE_ILLEGALLY = 11,
+
+    /**
+     * Data transfer task was not updated within the specified time.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_DATA_TRANSFER_NOT_UPDATE = 12,
+
+    /**
+     * VOIP is not running when request VOIP mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_VOIP_NOT_RUNNING = 13,
+
+    /**
+     * User not authorized when request MODE_SPECIAL_SCENARIO_PROCESSING.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14
   }
 
   /**
@@ -2306,12 +2470,75 @@ declare namespace backgroundTaskManager {
      * @since 23 static
      */
     SYSTEM_SUSPEND_SYSTEM_LOAD_WARNING = 12,
+
+    /**
+     * Not use VOIP when request VOIP mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_VOIP_NOT_USED = 13,
+
+    /**
+     * No bluetooth data for a period of time when request bluetooth interaction mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_BLUETOOTH_DATA_NOT_EXIST = 14,
+
+    /**
+     * The location has not moved for a period of time when request location mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_POSITION_NOT_MOVED = 15,
+
+    /**
+     * The system muted for a period of time when request audio playback mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_AUDIO_PLAYBACK_MUTE = 16,
+
+    /**
+     * No nearlink connection for a period of time when request nearlink mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_NEARLINK_NOT_USED = 17,
+
+    /**
+     * No nearlink data for a period of time when request nearlink mode.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_NEARLINK_DATA_NOT_EXIST = 18,
+
+    /**
+     * User not authorized when request MODE_SPECIAL_SCENARIO_PROCESSING.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_USER_UNAUTHORIZED = 19,
   }
 
   /**
    * Type of user authorization status.
    *
-   * @enum { number }
+   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22 dynamic
    * @since 24 static

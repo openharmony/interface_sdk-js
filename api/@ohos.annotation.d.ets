@@ -77,7 +77,18 @@ export const enum SuppressWarningsType {
    * @atomicservice
    * @since 23 dynamic
    */
-  SYSCAP = 'syscap'
+  SYSCAP = 'syscap',
+  /**
+   * Support for suppressing generated permission warnings.
+   * 
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  PERMISSION = 'permission'
 }
 
 /**

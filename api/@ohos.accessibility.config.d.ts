@@ -490,6 +490,84 @@ declare namespace config {
   function setMagnificationState(state: boolean): void;
 
   /**
+   * Set the senior mode state for app.
+   *
+   * @permission ohos.permission.WRITE_ACCESSIBILITY_CONFIG
+   * @param { Array<AppSeniorModeInfo> } appSeniorModeInfos - Indicates the list of
+   *     app package names and statuses for which the advanced mode needs to be set.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed.
+   *     <br>A non-system application calls a system API.
+   * @throws { BusinessError } 9300000 - System abnormality.
+   * @throws { BusinessError } 9300008 - The appIndex is invalid. Possible causes:
+   *     <br>1.The appIndex is out of the valid range.
+   *     <br>2.The application corresponding to the appIndex does not exist.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setSeniorModeStateForApp(appSeniorModeInfos: Array<AppSeniorModeInfo>): Promise<void>;
+
+  /**
+   * Get the senior mode state for app.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { string } bundleName - Indicates the bundle name of the application to be queried
+   *     <br>The bundle name must follow the reverse domain naming convention (e.g., "com.example.app").
+   * @param { int } [appIndex] - Indicates the index of clone app.
+   *     <br>The value must be an integer greater than or equal to 0. Default value: 0.
+   * @returns { Promise<boolean> } Returns {@code true} if senior mode is enabled; returns {@code false} otherwise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed.
+   *     <br>A non-system application calls a system API.
+   * @throws { BusinessError } 9300000 - System abnormality.
+   * @throws { BusinessError } 9300008 - The appIndex is invalid. Possible causes:
+   *     <br>1.The appIndex is out of the valid range.
+   *     <br>2.The application corresponding to the appIndex does not exist.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getSeniorModeStateForApp(bundleName: string, appIndex?: int): Promise<boolean>;
+
+  /**
+   * Register an observer for anyone application's senior mode state changes.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<AppSeniorModeInfo> } callback - Asynchronous callback interface.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed.
+   *     <br>A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onSeniorModeStateChangeForApp(callback: Callback<AppSeniorModeInfo>): void;
+
+  /**
+   * Unregister the observer for application's senior mode state changes.
+   *
+   * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
+   * @param { Callback<AppSeniorModeInfo> } [callback] - Asynchronous callback interface.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     <br>The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed.
+   *     <br>A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offSeniorModeStateChangeForApp(callback?: Callback<AppSeniorModeInfo>): void;
+
+  /**
    * Indicates setting, getting, and listening to changes in configuration.
    *
    * @typedef Config<T>
@@ -621,6 +699,43 @@ declare namespace config {
      * @since 23 dynamic&static
      */
     onDisconnect: OnDisconnectCallback;
+  }
+
+  /**
+   * Indicates the senior mode information of an application.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AppSeniorModeInfo {
+    /**
+     * The bundle name of application.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bundleName: string;
+    /**
+     * Indicates the index of clone app.
+     * The value must be an integer greater than or equal to 0. Default value: 0.
+     *
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appIndex?: int;
+    /**
+     * The state of senior mode for application.
+     * @syscap SystemCapability.BarrierFree.Accessibility.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    seniorModeState: boolean;
   }
 
   /**

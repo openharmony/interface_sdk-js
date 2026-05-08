@@ -22,8 +22,7 @@
 /**
  * Provides internationalization related APIs.
  *
- * @namespace intl
- * @syscap SystemCapability.Global.I18n
+ * @syscap SystemCapability.Global.I18n [since 23]
  * @since 23 static
  */
 declare namespace intl {
@@ -31,7 +30,6 @@ declare namespace intl {
    * Defines the options for a DateTimeOptions object. Since API version 9, the DateTimeOptions attribute is changed
    * from mandatory to optional.
    *
-   * @interface DateTimeOptions
    * @syscap SystemCapability.Global.I18n
    * @since 23 static
    */
@@ -39,7 +37,6 @@ declare namespace intl {
     /**
      * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -48,7 +45,6 @@ declare namespace intl {
     /**
      * Date display format. The value can be: "long", "short", "medium", "full", or "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -57,7 +53,6 @@ declare namespace intl {
     /**
      * Time display format. The value can be: "long", "short", "medium", "full", or "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -66,7 +61,6 @@ declare namespace intl {
     /**
      * Hour cycle. The value can be: "h11", "h12", "h23", or "h24".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -75,7 +69,6 @@ declare namespace intl {
     /**
      * Time zone in use. The value is a valid IANA time zone ID.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -89,7 +82,6 @@ declare namespace intl {
      * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
      * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -100,7 +92,6 @@ declare namespace intl {
      * opposite. If both hour12 and hourCycle are set, hourCycle does not take effect. If hour12 and hourCycle are not
      * set and the 24-hour clock is turned on, the default value of hour12 is false.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -109,7 +100,6 @@ declare namespace intl {
     /**
      * Week display format. The value can be: "long", "short", "narrow", or "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -118,7 +108,6 @@ declare namespace intl {
     /**
      * Epoch display format. The value can be: "long", "short", "narrow", or "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -127,7 +116,6 @@ declare namespace intl {
     /**
      * Year display format. The value can be: "numeric" or "2-digit".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -136,7 +124,6 @@ declare namespace intl {
     /**
      * Month display format. The value can be: "numeric", "2-digit", "long", "short", "narrow", or "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -145,7 +132,6 @@ declare namespace intl {
     /**
      * Day display format. The value can be: "numeric" or "2-digit".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -154,7 +140,6 @@ declare namespace intl {
     /**
      * Hour display format. The value can be: "numeric" or "2-digit".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -163,7 +148,6 @@ declare namespace intl {
     /**
      * Minute display format. The value can be: "numeric" or "2-digit".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -172,7 +156,6 @@ declare namespace intl {
     /**
      * Second display format. The value can be: "numeric" or "2-digit".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -181,7 +164,6 @@ declare namespace intl {
     /**
      * Localized representation of a time zone name. The value can be: "long", "short", or "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -190,7 +172,6 @@ declare namespace intl {
     /**
      * Time period display format. The value can be: "long", "short", "narrow", or "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -201,7 +182,6 @@ declare namespace intl {
      * "lookup": exact match.
      * "best fit": best match.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -212,7 +192,6 @@ declare namespace intl {
      * "basic": exact match.
      * "best fit": best match.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -282,7 +261,6 @@ declare namespace intl {
    * Options for creating the NumberFormat object. Since API version 9, the NumberOptions attribute is changed from
    * mandatory to optional.
    *
-   * @interface NumberOptions
    * @syscap SystemCapability.Global.I18n
    * @since 23 static
    */
@@ -290,7 +268,6 @@ declare namespace intl {
     /**
      * Valid locale ID, for example, "zh-Hans-CN". The default value is the current system locale.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -301,7 +278,6 @@ declare namespace intl {
      * for example, "EUR", "CNY", and "USD". From API version 12, a three-digit number is supported, for example, "978",
      * "156", or "840".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -310,7 +286,6 @@ declare namespace intl {
     /**
      * urrency unit symbol. The value can be "standard" or "accounting". The default value is "standard".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -320,7 +295,6 @@ declare namespace intl {
      * Currency display mode. The value can be "symbol", "narrowSymbol", "code", or "name".
      * The default value is "symbol".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -332,7 +306,6 @@ declare namespace intl {
      * "jump-rope-per-minute", "meter-per-hour", "milliliter-per-minute-per-kilogram", "rotation-per-minute",
      * "step-per-minute", and "stroke-per-minute".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -341,7 +314,6 @@ declare namespace intl {
     /**
      * Display format of units. The value can be "long", "short", or "narrow". The default value is "short".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -355,7 +327,6 @@ declare namespace intl {
      * "speed-road-travel", "speed-wind", "temperature-person", "temperature-weather", "volume-vehicle-fuel",
      * "elapsed-time-second", "size-file-byte", or "size-shortfile-byte". The default value is "default".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -369,7 +340,6 @@ declare namespace intl {
      * "exceptZero": displays the plus or minus sign for all values except 0.
      * Default value: "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -378,7 +348,6 @@ declare namespace intl {
     /**
      * Compact display format. The value can be "long" or "short". The default value is "short".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -388,7 +357,6 @@ declare namespace intl {
      * Number notation. The value can be: "standard", "scientific", "engineering", or "compact".
      * The default value is "standard".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -397,7 +365,6 @@ declare namespace intl {
     /**
      * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -407,7 +374,6 @@ declare namespace intl {
      * Number display format. The value can be "decimal", "currency", "percent", or "unit".
      * The default value is "decimal".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -421,7 +387,6 @@ declare namespace intl {
      * "newa", "nkoo", "olck", "orya", "osma", "rohg", "saur", "segment", "shrd", "sind", "sinh", "sora", "sund",
      * "takr", "talu", "tamldec", "telu", "thai", "tibt", "tirh", "vaii", "wara", or "wcho".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -431,7 +396,6 @@ declare namespace intl {
      * Whether to enable grouping for display. The value "true" means to enable grouping for display, and the value
      * "false" means the opposite. The default value is "true".
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -441,7 +405,6 @@ declare namespace intl {
      * Minimum number of digits allowed in the integer part of a number. The value ranges from 1 to 21.
      * The default value is 1.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -451,7 +414,6 @@ declare namespace intl {
      * Minimum number of digits in the fraction part of a number. The value ranges from 0 to 20.
      * The default value is 0.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -461,7 +423,6 @@ declare namespace intl {
      * Maximum number of digits in the fraction part of a number. The value ranges from 1 to 21.
      * The default value is 3.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -470,7 +431,6 @@ declare namespace intl {
     /**
      * Minimum number of the least significant digits. The value ranges from 1 to 21. The default value is 1.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -479,7 +439,6 @@ declare namespace intl {
     /**
      * Maximum number of the least significant digits. The value ranges from 1 to 21. The default value is 21.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -491,7 +450,6 @@ declare namespace intl {
      * the maximum number of fraction digits is used. The value "lessPrecision" indicates that the maximum number of
      * valid digits is used. The default value is "auto".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -501,7 +459,6 @@ declare namespace intl {
      * Rounding increment. The value can be: 1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 2500, or 5000.
      * The default value is 1.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -527,7 +484,6 @@ declare namespace intl {
      *             the increment.
      * The default value is "halfExpand".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -594,7 +550,6 @@ declare namespace intl {
   /**
    * Defines the options for creating a Collator object.
    *
-   * @interface CollatorOptions
    * @syscap SystemCapability.Global.I18n
    * @since 23 static
    */
@@ -602,7 +557,6 @@ declare namespace intl {
     /**
      * Locale matching algorithm. The value can be "lookup" or "best fit". The default value is "best fit".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -612,7 +566,6 @@ declare namespace intl {
      * Whether the comparison is for sorting or for searching. The value can be "sort" or "search".
      * The default value is "sort".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -622,7 +575,6 @@ declare namespace intl {
      * Differences in the strings that lead to non-zero return values. The value can be "base", "accent", "case", or
      * "letiant". The default value is "variant".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -632,7 +584,6 @@ declare namespace intl {
      * Whether to ignore punctuation. The value "true" means to ignore punctuation, and the value "false" means the
      * opposite. The default value is "false".
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -643,7 +594,6 @@ declare namespace intl {
      * "gb2312", "phonebk", "phonetic", "pinyin", "reformed", "searchjl", "stroke", "trad", "unihan", or "zhuyin".
      * The default value is "default".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -653,7 +603,6 @@ declare namespace intl {
      * Whether to use numeric collation. The value "true" means to use numeric collation, and the value "false" means
      * the opposite. The default value is "false".
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */
@@ -663,7 +612,6 @@ declare namespace intl {
      * Whether upper case or lower case is sorted first. The value can be "upper", "lower", or "false".
      * The default value is "false".
      *
-     * @type { ?string }
      * @syscap SystemCapability.Global.I18n
      * @since 23 static
      */

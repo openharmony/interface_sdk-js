@@ -404,7 +404,7 @@ export declare class ArcButtonOptions {
      */
     position: ArcButtonPosition;
     /**
-     * Describes the controller for scrollable container.
+     * Describes the arc button style mode.
      *
      * @type { ArcButtonStyleMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle

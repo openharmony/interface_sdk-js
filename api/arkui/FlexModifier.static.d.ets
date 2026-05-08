@@ -26,6 +26,7 @@ import { FlexAttribute } from '@ohos.arkui.component';
  *
  * @implements FlexAttribute, AttributeModifier<FlexAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
 */
 export declare class FlexModifier implements FlexAttribute, AttributeModifier<FlexAttribute> {}

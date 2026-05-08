@@ -109,6 +109,43 @@ declare namespace bluetoothManager {
   }
 
   /**
+   * The transfer policy.
+   *
+   * @enum { number }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  export enum TransferPolicy {
+    /**
+     * Disallow sending.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SEND_ONLY = 0,
+
+    /**
+     * Disallow receiving.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    RECEIVE_ONLY = 1,
+
+    /**
+     * Disallow both sending and receiving.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    RECEIVE_SEND = 2,
+  }
+
+  /**
    * Gets bluetooth information.
    * This function can be called by a super administrator.
    *
@@ -369,7 +406,66 @@ declare namespace bluetoothManager {
    * @stagemodelonly
    * @since 20
    */
-    function getDisallowedBluetoothProtocols(admin: Want, accountId: number): Array<Protocol>;
+  function getDisallowedBluetoothProtocols(admin: Want, accountId: number): Array<Protocol>;
+
+  /**
+   * Adds protocols to the list of bluetooth server that are disallowed to use.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   *   <br>The value must be an integer greater than or equal to 0.
+   * @param { Array<Protocol> } protocols - protocol of the bluetooth to be added to the list.
+   *   <br>The maximum length is 10000 and cannot be empty.
+   * @param { TransferPolicy } policy - policy indicates the policy of transfer.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>, policy: TransferPolicy): void;
+
+  /**
+   * Removes protocol from the list of bluetooth server that are disallowed to use.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   *   <br>The value must be an integer greater than or equal to 0.
+   * @param { Array<Protocol> } protocols - protocol of the bluetooth to be removed from the list.
+   *   <br>The maximum length is 10000 and cannot be empty.
+   * @param { TransferPolicy } policy - policy indicates the policy of transfer.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array<Protocol>, policy: TransferPolicy): void;
+
+  /**
+   * Gets protocols to the list of bluetooth server that are disallowed to use.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   *   <br>Value: range:[0, +∞]
+   * @param { TransferPolicy } policy - policy indicates the policy of transfer.
+   * @returns { Array<Protocol> } protocol of the bluetooth list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedBluetoothProtocols(admin: Want | null, accountId: number, policy: TransferPolicy): Array<Protocol>;
 }
 
 export default bluetoothManager;

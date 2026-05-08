@@ -408,8 +408,100 @@ declare namespace cloudSyncManager {
      * @since 20 dynamic
      * @since 23 static
      */
+    STOPPED = 2,
+
+    /**
+     * Indicates that the download task is missing.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MISSING = 3
+  }
+
+  /**
+   * Describes the state type of transfer task.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum TransferState {
+
+    /**
+     * Indicates that the transfer task is running.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RUNNING = 0,
+
+    /**
+     * Indicates that the transfer task has been finished.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMPLETED = 1,
+
+    /**
+     * Indicates that the transfer task has been stopped.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     STOPPED = 2
   }
+
+  /**
+   * Describes the state type of transfer stop reason.
+   *
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+enum TransferStopReason {
+
+    /**
+     * Indicates that the transfer task stopped by switch off.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SWITCH_OFF = 0,
+
+    /**
+     * Indicates that the transfer task stopped by account logout.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ACCOUNT_LOGOUT = 1,
+
+    /**
+     * Indicates that the transfer task stopped by other reason.
+     *
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    OTHER_REASON = 2
+}
 
   /**
    * Defines the CloudFileInfo data structure.
@@ -422,6 +514,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located in the cloud.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -431,6 +526,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -440,6 +537,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located locally.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -449,6 +549,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located locally, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -458,6 +560,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of files located both locally and in the cloud.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -467,6 +572,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of files located both locally and in the cloud, in units of bytes.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -494,6 +601,9 @@ declare namespace cloudSyncManager {
 
     /**
      * The number of files that downloaded successfully
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -503,6 +613,9 @@ declare namespace cloudSyncManager {
 
     /**
      * The number of files that fail to be downloaded.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -512,6 +625,9 @@ declare namespace cloudSyncManager {
 
     /**
      * Total number of all files to be downloaded.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
      * @type { int }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -521,6 +637,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of downloaded files.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -530,6 +648,8 @@ declare namespace cloudSyncManager {
 
     /**
      * Total size of all files to be downloaded.
+     * <br>Unit:Byte.
+     * 
      * @type { long }
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -545,6 +665,95 @@ declare namespace cloudSyncManager {
      * @since 23 static
      */
     stopReason: DownloadStopReason;
+  }
+
+  /**
+   * Defines the TransferProgress data structure.
+   * 
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+    */
+  interface TransferProgress {
+
+    /**
+     * Describes the state type of transfer task.
+     * 
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    state: TransferState;
+
+    /**
+     * successful count in TransferProgress.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    successfulCount: int;
+
+    /**
+     * failed count in TransferProgress.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    failedCount: int;
+
+    /**
+     * total count in TransferProgress.
+     * The value should be an integer.
+     * <br>Unit:Pcs.
+     * 
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    totalCount: int;
+
+    /**
+     * transferred size in TransferProgress.
+     * <br>Unit:Byte.
+     * 
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    transferredSize: long;
+
+    /**
+     * Total size in TransferProgress.
+     * <br>Unit:Byte.
+     * 
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    totalSize: long;
+
+    /**
+     * Describes the state type of transfer stop reason.
+     * 
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    stopReason: TransferStopReason;
   }
 
   /**
@@ -638,7 +847,51 @@ declare namespace cloudSyncManager {
      * @since 23 static
      */
     stopDownload(): Promise<void>;
+
+    /**
+     * Start to migrate the downloaded full data to the specified public directory of file management.
+     *
+     * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+     * @param { string } targetUri - Transfer target Uri.
+     * @param { Callback<TransferProgress> } callback - Callback function.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 13900001 - Operation not permitted. Possible causes:
+     *     <br>1.The DowngradeDownload task is running.
+     *     <br>2.The full data synchronization task is running.
+     * @throws { BusinessError } 13900002 - No such file or directory.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+     *     <br>1.Mandatory parameters are left unspecified.
+     *     <br>2.The length of the input uri does not meet the value range requirement.
+     *     <br>3.The input uri does not belong to a File Manager public directory.
+     * @throws { BusinessError } 22400006 - The same task is already in progress.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    startTransfer(targetUri: string, callback: Callback<TransferProgress>): void;
   }
+
+/**
+   * Supports querying the execution status of full data download tasks for integrated cloud drive applications.
+   *
+   * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
+   * @param { Array<string> } bundleNames - array of bundleName.
+   * @returns { Promise<Array<DownloadProgress>> } - Return Promise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13900010 - Try again.
+   * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
+   *     <br>1.Mandatory parameter are left unspecified. 2.The length of the input parameter exceeds the upper limit.
+   *     <br>3.The input parameter contains an invalid bundleName.
+   * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getDowngradeDownloadTaskState(bundleNames: Array<string>): Promise<Array<DownloadProgress>>;
 
   /**
    * The existence status of files

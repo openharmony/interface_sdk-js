@@ -19,84 +19,64 @@
  */
 
 /**
- * Contains resource descriptor information.
+ * Provides resource information, such as the application bundle name, application module name, and resource ID.
  *
- * @interface Resource
  * @syscap SystemCapability.Global.ResourceManager
- * @since 9
- */
-/**
- * Contains resource descriptor information.
- *
- * @interface Resource
- * @syscap SystemCapability.Global.ResourceManager
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 export interface Resource {
   /**
-   * bundle name in hap
+   * Bundle name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 9
-   */
-  /**
-   * bundle name in hap
-   *
-   * @type { string }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   bundleName: string;
 
   /**
-   * module name in hap
+   * Module name of the application.
    *
-   * @type { string }
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 9
-   */
-  /**
-   * module name in hap
-   *
-   * @type { string }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   moduleName: string;
 
   /**
-   * resource id in hap
+   * Resource ID. The value can be:
+   * <br>- Application resource range: [0x01000000, 0x06FFFFFF] and [0x08000000, 0xFFFFFFFF]
+   * <br>- System resource range: [0x07000000, 0x07FFFFFF]
    *
-   * @type { number }
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 9
-   */
-  /**
-   * resource id in hap
-   *
-   * @type { long }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   id: long;
 
   /**
+   * Other resource parameters, including the resource name, substitution value for the formatting API, and quantifier 
+   * for the singular-plural formatting API.
+   *
+   * @syscap SystemCapability.Global.ResourceManager
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   */
+  params?: any[];
+
+  /**
    * Set params.
    *
-   * @type { ?Array<string | int | long | double | Resource> }
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
    * @atomicservice
@@ -105,39 +85,24 @@ export interface Resource {
   params?: Array<string | int | long | double | Resource>;
 
   /**
-   * Set params.
+   * Resource type. The options are as follows:
+   * <br>- 10001: color
+   * <br>- 10002: float
+   * <br>- 10003: string
+   * <br>- 10004: plural
+   * <br>- 10005: boolean
+   * <br>- 10006: intarray
+   * <br>- 10007: integer
+   * <br>- 10008: pattern
+   * <br>- 10009: strarray
+   * <br>- 20000: media
+   * <br>- 30000: rawfile
+   * <br>- 40000: symbol
    *
-   * @type { ?any[] }
    * @syscap SystemCapability.Global.ResourceManager
-   * @since 9
-   */
-
-  /**
-   * Set params.
-   *
-   * @type { ?any[] }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  params?: any[];
-
-  /**
-   * Set type.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @since 9
-   */
-  /**
-   * Set type.
-   *
-   * @type { ?int }
-   * @syscap SystemCapability.Global.ResourceManager
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   type?: int;

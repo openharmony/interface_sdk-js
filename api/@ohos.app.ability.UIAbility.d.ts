@@ -14,10 +14,58 @@
  */
 
 /**
+ * UIAbility is an application component that has the UI. It inherits from 
+ * [Ability]{@link ./@ohos.app.ability.Ability:Ability} and provides 
+ * [lifecycle](docroot://reference/apis-ability-kit/js-apis-app-ability-uiAbility.md#uiability-lifecycle-states) 
+ * callbacks such as component creation, destruction, and foreground/background switching. It also provides the 
+ * [background communication capability](docroot://reference/apis-ability-kit/js-apis-app-ability-uiAbility.md#background-communication-capability)
+ * .
+ * 
+ * > **NOTE**
+ * >
+ * > For details about the inheritance relationship of each ability, see 
+ * > [Inheritance Relationship](docroot://reference/apis-ability-kit/js-apis-app-ability-ability.md#ability-inheritance-relationship)
+ * > .
+ *
  * @file
  * @kit AbilityKit
  */
 
+/**
+ * # UIAbility Lifecycle States
+ * 
+ * **Figure 1** UIAbility lifecycle states
+ * 
+ * ![Ability lifecycle](docroot://application-models/figures/Ability-Life-Cycle.png)
+ * 
+ * - **Create**: A UIAbility instance has been created. The system triggers the [onCreate]{@link UIAbility.onCreate} 
+ * callback in this state, where you can perform initialization operations.
+ * - **Foreground**: The UIAbility has been brought to the foreground. The system triggers the 
+ * [onForeground]{@link UIAbility.onForeground} callback in this state, where you can request resources required by the 
+ * application.
+ * - **Background**: The UIAbility has been moved to the background. The system triggers the 
+ * [onBackground]{@link UIAbility.onBackground} callback in this state, where you can release some application 
+ * resources.
+ * - **Destroy**: The UIAbility instance is about to be destroyed. The system triggers the 
+ * [onDestroy]{@link UIAbility.onDestroy} callback in this state, where you can save data.
+ */
+/**
+ * # Background Communication Capability
+ * 
+ * **Call** invocations can be used for background communication with the target UIAbility. The following figure shows 
+ * the Call invocation.
+ * 
+ * **Figure 2** Diagram of Call invocation
+ * 
+ * ![call](docroot://application-models/figures/call.png)
+ * 
+ * - The Caller UIAbility uses 
+ * [startAbilityByCall()]{@link ./application/UIAbilityContext:UIAbilityContext.startAbilityByCall} to obtain a 
+ * [Caller]{@link Caller} object and then uses the [call]{@link Caller} API of the Caller object to send data to the 
+ * Callee UIAbility.
+ * - The Callee UIAbility holds a [Callee]{@link Callee} object and uses the [on]{@link UIAbility.onCreate} API of the 
+ * Callee object to register a callback function for receiving data sent by the Caller object.
+ */
 import Ability from './@ohos.app.ability.Ability';
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import Want from './@ohos.app.ability.Want';
@@ -29,10 +77,8 @@ import { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * The prototype of the listener function interface registered by the Caller.
- * Called when the stub on the target UIAbility is disconnected.
+ * Defines the callback that is invoked when the stub on the target UIAbility is disconnected.
  *
- * @typedef OnReleaseCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
@@ -41,7 +87,7 @@ export interface OnReleaseCallback {
   /**
    * Defines the callback of OnRelease.
    *
-   * @param { string } msg - The notification event string listened to by the OnRelease.
+   * @param { string } msg - Message used for disconnection.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
@@ -50,12 +96,9 @@ export interface OnReleaseCallback {
 }
 
 /**
- * The prototype of the listener function interface registered by the Caller.
- * Defines the callback of OnRelease.
- * Called when the stub on the target UIAbility is disconnected.
+ * Defines the callback that is invoked when the stub on the target UIAbility is disconnected.
  *
- * @typedef { function } OnReleaseCallback
- * @param { string } msg - The notification event string listened to by the OnRelease.
+ * @param { string } msg - Message used for disconnection.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 23 static
@@ -63,10 +106,8 @@ export interface OnReleaseCallback {
 export type OnReleaseCallback = (msg: string) => void;
 
 /**
- * The prototype of the listener function interface registered by the Caller.
- * Called when the remote UIAbility state changes in the collaboration scenario.
+ * Defines the callback that is invoked when the remote UIAbility state changes in the collaboration scenario.
  *
- * @typedef OnRemoteStateChangeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 10 dynamic
@@ -75,7 +116,7 @@ export interface OnRemoteStateChangeCallback {
   /**
    * Defines the callback of OnRemoteStateChange.
    *
-   * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
+   * @param { string } msg - Message used for disconnection.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 10 dynamic
@@ -84,12 +125,9 @@ export interface OnRemoteStateChangeCallback {
 }
 
 /**
- * The prototype of the listener function interface registered by the Caller.
- * Defines the callback of OnRemoteStateChange.
- * Called when the remote UIAbility state changes in the collaboration scenario.
+ * Defines the callback that is invoked when the remote UIAbility state changes in the collaboration scenario.
  *
- * @typedef { function } OnRemoteStateChangeCallback
- * @param { string } msg - The notification event string listened to by the OnRemoteStateChange.
+ * @param { string } msg - Message used for disconnection.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 23 static
@@ -97,9 +135,8 @@ export interface OnRemoteStateChangeCallback {
 export type OnRemoteStateChangeCallback = (msg: string) => void;
 
 /**
- * The prototype of the message listener function interface registered by the Callee.
+ * Defines the callback of the registration message notification of the UIAbility.
  *
- * @typedef CalleeCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
@@ -108,8 +145,8 @@ export interface CalleeCallback {
   /**
    * Defines the callback of Callee.
    *
-   * @param { rpc.MessageSequence } indata - Notification indata to the callee.
-   * @returns { rpc.Parcelable } Returns the callee's notification result indata.
+   * @param { rpc.MessageSequence } indata - Data to be transferred.
+   * @returns { rpc.Parcelable } Returned data object.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
@@ -118,12 +155,10 @@ export interface CalleeCallback {
 }
 
 /**
- * The prototype of the message listener function interface registered by the Callee.
- * Defines the callback of Callee.
+ * Defines the callback of the registration message notification of the UIAbility.
  *
- * @typedef { function } CalleeCallback
- * @param { rpc.MessageSequence } indata - Notification indata to the callee.
- * @returns { rpc.Parcelable } Returns the callee's notification result indata.
+ * @param { rpc.MessageSequence } indata - Data to be transferred.
+ * @returns { rpc.Parcelable } Returned data object.
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 23 static
@@ -131,9 +166,11 @@ export interface CalleeCallback {
 export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
 
 /**
- * Implements sending of parcelable data to the target UIAbility when the CallerAbility invokes the target UIAbility (CalleeAbility).
+ * A Caller UIAbility can use the 
+ * [startAbilityByCall]{@link ./application/UIAbilityContext:UIAbilityContext.startAbilityByCall} API to start the 
+ * target Callee UIAbility. After the target UIAbility is started successfully, a Caller object is returned to the 
+ * caller for communication.
  *
- * @interface Caller
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
@@ -141,14 +178,16 @@ export type CalleeCallback = (indata: rpc.MessageSequence) => rpc.Parcelable;
  */
 export interface Caller {
   /**
-   * Sends parcelable data to the target UIAbility. This API uses a promise to return the result.
+   * Used by a Caller UIAbility to send serialized data, as agreed upon by both parties, to the Callee UIAbility. This 
+   * API uses a promise to return the result.
    *
-   * @param { string } method - Notification message string negotiated between the two UIAbilities. The message is used
-   * to instruct the callee to register a function to receive the parcelable data.
-   * @param { rpc.Parcelable } data - Parcelable data. You need to customize the data.
+   * @param { string } method - Method name agreed upon by the Caller UIAbility and Callee UIAbility, used by the Callee
+   *     UIAbility to identify the type of message.
+   * @param { rpc.Parcelable } data - Message content sent from the Caller UIAbility to the Callee UIAbility, which is
+   *     in serialized form.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -160,15 +199,16 @@ export interface Caller {
   call(method: string, data: rpc.Parcelable): Promise<void>;
 
   /**
-   * Sends parcelable data to the target UIAbility and obtains the parcelable data returned by the target UIAbility.
-   * This API uses a promise to return the result.
+   * Used by a Caller UIAbility to send serialized data to a Callee UIAbility and return the result after the Callee 
+   * UIAbility processes the message. This API uses a promise to return the result.
    *
-   * @param { string } method - Notification message string negotiated between the two UIAbilities. The message is used
-   * to instruct the callee to register a function to receive the parcelable data.
-   * @param { rpc.Parcelable } data - Parcelable data. You need to customize the data.
-   * @returns { Promise<rpc.MessageSequence> } Promise used to return the parcelable data from the target UIAbility.
+   * @param { string } method - Method name agreed upon by the Caller UIAbility and Callee UIAbility, used by the Callee
+   *     UIAbility to identify the type of message.
+   * @param { rpc.Parcelable } data - Message content sent from the Caller UIAbility to the Callee UIAbility, which is
+   *     in serialized form.
+   * @returns { Promise<rpc.MessageSequence> } Promise used to return the response data from the Callee UIAbility.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16200002 - The callee does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -180,7 +220,9 @@ export interface Caller {
   callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>;
 
   /**
-   * Releases the caller interface of the target UIAbility.
+   * Used by a Caller UIAbility to proactively release the connection with the Callee UIAbility. After this API is 
+   * called, the Caller UIAbility can no longer use **call** or **callWithResult** to send messages to the Callee 
+   * UIAbility.
    *
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @throws { BusinessError } 16200002 - The callee does not exist.
@@ -192,12 +234,11 @@ export interface Caller {
   release(): void;
 
   /**
-   * Called when the stub on the target UIAbility is disconnected.
-   * This API uses an asynchronous callback to return the result.
+   * Used by the Caller UIAbility to register a listener for disconnection notifications from the Callee UIAbility.
    *
    * @param { OnReleaseCallback } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -207,12 +248,12 @@ export interface Caller {
   onRelease(callback: OnReleaseCallback): void;
 
   /**
-   * Called when the remote UIAbility state changes in the collaboration scenario.
-   * This API uses an asynchronous callback to return the result.
+   * Called when the remote UIAbility state changes in the collaboration scenario. This API uses an asynchronous 
+   * callback to return the result.
    *
    * @param { OnRemoteStateChangeCallback } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -222,13 +263,12 @@ export interface Caller {
   onRemoteStateChange(callback: OnRemoteStateChangeCallback): void;
 
   /**
-   * Called when the stub on the target UIAbility is disconnected.
-   * This API uses an asynchronous callback to return the result.
+   * Used by the Caller UIAbility to register a listener for disconnection notifications from the Callee UIAbility.
    *
-   * @param { 'release' } type - Event type. The value is fixed at '**release**'.
+   * @param { 'release' } type - Event type. The value is fixed at **'release'**.
    * @param { OnReleaseCallback } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200001 - The caller has been released.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -237,13 +277,13 @@ export interface Caller {
   on(type: 'release', callback: OnReleaseCallback): void;
 
   /**
-   * Unregisters a callback that is invoked when the stub on the target UIAbility is disconnected.
-   * This capability is reserved. This API uses an asynchronous callback to return the result.
+   * Unregisters the listener for disconnection notifications from the Callee UIAbility. This is the reverse operation 
+   * of [on('release')]{@link Caller.on}. It is currently not supported.
    *
-   * @param { 'release' } type - Event type. The value is fixed at '**release**'.
+   * @param { 'release' } type - Event type. The value is fixed at **'release'**.
    * @param { OnReleaseCallback } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
@@ -251,7 +291,8 @@ export interface Caller {
   off(type: 'release', callback: OnReleaseCallback): void;
 
   /**
-   * Unregisters all death listener notification callback.
+   * Unregisters the listener for disconnection notifications from the Callee UIAbility. This is the reverse operation 
+   * of [Caller.onRelease]{@link Caller.onRelease}.
    *
    * @param { OnReleaseCallback } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -261,12 +302,12 @@ export interface Caller {
   offRelease(callback: OnReleaseCallback): void;
 
   /**
-   * Unregisters a callback that is invoked when the stub on the target UIAbility is disconnected.
-   * This capability is reserved.
+   * Unregisters the listener for disconnection notifications from the Callee UIAbility. This is the reverse operation 
+   * of [Caller.on('release')]{@link Caller.on}. It is currently not supported.
    *
-   * @param { 'release' } type - Event type. The value is fixed at '**release**'.
+   * @param { 'release' } type - Event type. The value is fixed at **'release'**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
@@ -274,8 +315,9 @@ export interface Caller {
   off(type: 'release'): void;
 
   /**
-   * Unregisters all death listener notification callback.
-   * 
+   * Unregisters the listener for disconnection notifications from the Callee UIAbility. This is the reverse operation 
+   * of [Caller.onRelease]{@link Caller.onRelease}.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -284,9 +326,9 @@ export interface Caller {
 }
 
 /**
- * Implements callbacks for caller notification registration and deregistration.
+ * Background communication object created by the system for the UIAbility, known as the Callee UIAbility (Callee), 
+ * which is capable of receiving data sent from the Caller object.
  *
- * @interface Callee
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
  * @since 9 dynamic
@@ -296,11 +338,13 @@ export interface Callee {
   /**
    * Registers a caller notification callback, which is invoked when the target UIAbility registers a function.
    *
-   * @param { string } method - Notification message string negotiated between the two UIAbilities.
-   * @param { CalleeCallback } callback - JS notification synchronization callback of the rpc.MessageSequence type. The
-   * callback must return at least one empty rpc.Parcelable object. Otherwise, the function execution fails.
+   * @param { string } method - Method name agreed upon by the Caller UIAbility and Callee UIAbility, used by the Callee
+   *     UIAbility to identify the type of message.
+   * @param { CalleeCallback } callback - JS notification synchronization callback of the
+   *     [rpc.MessageSequence]{@link ./@ohos.rpc:rpc.MessageSequence} type. The callback must return at least one empty
+   *     [rpc.Parcelable]{@link ./@ohos.rpc:rpc.Parcelable} object. Otherwise, the function execution fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200004 - The method has been registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -315,7 +359,7 @@ export interface Callee {
    *
    * @param { string } method - Registered notification message string.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16200005 - The method has not been registered.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -327,114 +371,60 @@ export interface Callee {
 }
 
 /**
- * The class of a UI ability.
+ * Application component that has the UI. It provides lifecycle callbacks such as component creation, destruction, and 
+ * foreground/background switching, and supports background communication.
  *
- * @extends Ability
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 9
- */
-/**
- * The class of a UI ability.
- *
- * @extends Ability
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * UIAbility is an application component that has the UI.
- * The UIAbility module, inherited from Ability, provides lifecycle callbacks such as component creation, destruction,
- * and foreground/background switching. It also provides the following capabilities related to component collaboration:
- * <br>Caller: an object returned by startAbilityByCall. The CallerAbility (caller) uses this object to communicate
- * with the CalleeAbility (callee).
- * <br>Callee: an internal object of UIAbility. The CalleeAbility (callee) uses this object to communicate with the
- * CallerAbility (caller).
- *
- * @extends Ability
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare class UIAbility extends Ability {
   /**
-   * Indicates configuration information about an ability context.
-   *
-   * @type { UIAbilityContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Indicates configuration information about an ability context.
-   *
-   * @type { UIAbilityContext }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Context of the UIAbility.
    *
-   * @type { UIAbilityContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   context: UIAbilityContext;
 
   /**
-   * Indicates ability launch want.
+   * Want in the request used to 
+   * [cold start](docroot://application-models/uiability-intra-device-interaction.md#cold-starting-uiability) the 
+   * UIAbility. The value is the Want received in [onCreate]{@link UIAbility.onCreate}.
    *
-   * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Parameters for starting the UIAbility.
-   *
-   * @type { Want }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   launchWant: Want;
 
   /**
-   * Indicates ability last request want.
+   * Want in the most recent request to launch the UIAbility.
+   * 
+   * - On the first launch of a UIAbility, it is the Want parameter received in [onCreate]{@link UIAbility.onCreate}.
+   * - On subsequent launches, it is the most recent Want received in [onNewWant]{@link UIAbility.onNewWant}.
    *
-   * @type { Want }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Latest Want received through onCreate or onNewWant when the UIAbility is started for multiple times.
-   *
-   * @type { Want }
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   lastRequestWant: Want;
 
   /**
-   * Object that invokes the stub service.
+   * Background communication object created by the system for the UIAbility, known as the Callee UIAbility (Callee), 
+   * which is capable of receiving data sent from the Caller object.
    *
-   * @type { Callee }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 9 dynamic
@@ -443,8 +433,9 @@ declare class UIAbility extends Ability {
   callee: Callee;
 
   /**
-   * Get the string returned by `AbilityStage.onAcceptWant(want: Want)` for the current specified UIAbility.
-   * @type { ?string }
+   * Custom UIAbility ID. This parameter is available only when the UIAbility launch mode is set to
+   * [specified](docroot://application-models/uiability-launch-type.md#specified).
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -452,75 +443,44 @@ declare class UIAbility extends Ability {
   specifiedId?: string;
 
   /**
-   * Called back when an ability is started for initialization.
+   * Called when a UIAbility instance is created. You can execute initialization logic (such as defining variables and 
+   * loading resources) in this callback. This callback is invoked during a 
+   * [cold start](docroot://application-models/uiability-intra-device-interaction.md#cold-starting-uiability) of the 
+   * UIAbility.
+   * 
+   * This API returns the result synchronously and does not support asynchronous callback.
    *
-   * @param { Want } want - Indicates the want info of the created ability.
-   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
+   * @param { Want } want - Data passed by the caller when launching the UIAbility.
+   * @param { AbilityConstant.LaunchParam } launchParam - Parameters for application launch, including the reason for
+   *     application launch and the reason for the last application exit.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called back when an ability is started for initialization.
-   *
-   * @param { Want } want - Indicates the want info of the created ability.
-   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch param.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called to initialize the service logic when a UIAbility instance in the completely closed state is created.
-   * In other words, a UIAbility instance enters this lifecycle callback from a cold start. This API returns the
-   * result synchronously and does not support asynchronous callback.
-   *
-   * @param { Want } want - Want information, including the ability name and bundle name.
-   * @param { AbilityConstant.LaunchParam } launchParam - Parameters for starting the UIAbility, and the reason for
-   * the last abnormal exit.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
   /**
-   * Called back when an ability window stage is created.
+   * Called when a [WindowStage]{@link ./@ohos.window} instance is created. You can load a page through the WindowStage 
+   * instance in this callback.
    *
-   * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
+   * @param { window.WindowStage } windowStage - WindowStage instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called back when an ability window stage is created.
-   *
-   * @param { window.WindowStage } windowStage - Indicates the created WindowStage.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when a WindowStage is created for this UIAbility.
-   *
-   * @param { window.WindowStage } windowStage - WindowStage information.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageCreate(windowStage: window.WindowStage): void;
 
   /**
-   * Called when the WindowStage is about to be destroyed.
+   * Called when the WindowStage instance is about to be destroyed. You can cancel the listening of WindowStage events 
+   * in this lifecycle.
    *
-   * @param { window.WindowStage } windowStage - WindowStage information.
+   * @param { window.WindowStage } windowStage - WindowStage instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -530,97 +490,83 @@ declare class UIAbility extends Ability {
   onWindowStageWillDestroy(windowStage: window.WindowStage): void;
 
   /**
-   * Called back when an ability window stage is destroyed.
+   * Called when the WindowStage instance has been destroyed. It informs applications that the WindowStage instance is 
+   * no longer available for use.
+   * 
+   * The callback is invoked only when the UIAbility exits gracefully. It is not invoked in cases of abnormal exits (for
+   * example, process termination due to low memory conditions).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called back when an ability window stage is destroyed.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the WindowStage is destroyed for this UIAbility.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageDestroy(): void;
 
   /**
-   * Called back when an ability window stage is restored.
+   * Called when the page stack is restored for the target UIAbility during cross-device migration.
+   * 
+   * > **NOTE**
+   * >
+   * > When an application is launched as a result of a migration, the **onWindowStageRestore()** lifecycle callback 
+   * > function, rather than **onWindowStageCreate()**, is triggered following [onCreate()]{@link UIAbility.onCreate} or
+   * > [onNewWant()]{@link UIAbility.onNewWant}. This sequence occurs for both 
+   * > [cold start](docroot://application-models/uiability-intra-device-interaction.md#cold-starting-uiability) and 
+   * > [hot start](docroot://application-models/uiability-intra-device-interaction.md#hot-starting-uiability).
    *
-   * @param { window.WindowStage } windowStage - window stage to restore
+   * @param { window.WindowStage } windowStage - WindowStage instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called when the WindowStage is restored during the migration of this UIAbility, which is a multi-instance ability.
-   *
-   * @param { window.WindowStage } windowStage - WindowStage information.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onWindowStageRestore(windowStage: window.WindowStage): void;
 
   /**
-   * Called back before an ability is destroyed.
-   *
-   * @returns { void | Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called back before an ability is destroyed.
-   *
-   * @returns { void | Promise<void> } the promise returned by the function.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called to clear resources when this UIAbility is destroyed.
+   * Called when the UIAbility is destroyed (for example, when the UIAbility is terminated using the 
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelf(callback: AsyncCallback<void>)}
+   * API). You can clear resources and save data during this lifecycle.
+   * 
    * This API returns the result synchronously or uses a promise to return the result.
    * 
-   * <p>**NOTE**:
-   * <br>After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
-   * the asynchronous function (for example, asynchronously writing data to the database) in onDestroy() may fail to be
-   * executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle continues only after the
-   * asynchronous function in onDestroy() finishes the execution.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - Once the **onDestroy** lifecycle callback completes, the application may exit. This can interrupt any pending 
+   * > asynchronous operations (such as asynchronously writing data to a database), preventing them from finishing 
+   * > successfully. In this case, you are advised to use a promise to return the result.
+   * >
+   * > - The callback is invoked only when the UIAbility exits gracefully. It is not invoked in cases of abnormal exits 
+   * > (for example, process termination due to low memory conditions).
    *
-   * @returns { void | Promise<void> } the promise returned by the function.
+   * @returns { void | Promise<void> } No return value or a Promise object that returns no result.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onDestroy(): void | Promise<void>;
 
   /**
-   * Called back before an ability is destroyed.
-   * After the onDestroy() lifecycle callback is executed, the application may exit. Consequently,
-   * the asynchronous function (for example, asynchronously writing data to the database) in synchronous onDestroy()
-   * may fail to be executed. You can use the asynchronous lifecycle to ensure that the subsequent lifecycle
-   * continues only after the asynchronous function in onDestroy() finishes the execution.
+   * Called when the UIAbility is destroyed (for example, when the UIAbility is terminated using the 
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelf(callback: AsyncCallback<void>)}
+   * API). You can clear resources and save data during this lifecycle.
+   * 
+   * This API returns the result synchronously or uses a promise to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > - Once the **onDestroy** lifecycle callback completes, the application may exit. This can interrupt any pending 
+   * > asynchronous operations (such as asynchronously writing data to a database), preventing them from finishing 
+   * > successfully. In this case, you are advised to use a promise to return the result.
+   * >
+   * > - The callback is invoked only when the UIAbility exits gracefully. It is not invoked in cases of abnormal exits 
+   * > (for example, process termination due to low memory conditions).
    *
-   * @returns { Promise<void> | undefined } the promise returned by the function.
+   * @returns { Promise<void> | undefined } No return value or a Promise object that returns no result.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -628,41 +574,29 @@ declare class UIAbility extends Ability {
   onDestroy(): Promise<void> | undefined;
 
   /**
-   * Called back when the state of an ability changes to foreground.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called back when the state of an ability changes to foreground.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the application transitions from the background to the foreground.
-   * It is called between onWillForeground and onDidForeground.
-   * It can be used to request system resources required, for example, requesting location services when the
-   * application transitions to the foreground.
+   * Called when the application is initially launched into the foreground or transitions from the background to the 
+   * foreground. You can request necessary system resources, for example, requesting location services when the 
+   * application transitions to the foreground, within this callback.
    * 
-   * <p>**NOTE**:
-   * <br>This API returns the result synchronously and does not support asynchronous callback.
-   * </p>
+   * This API returns the result synchronously and does not support asynchronous callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onForeground(): void;
 
   /**
-   * Called back when the state of an ability will changes to foreground.
+   * Called just before the application transitions to the foreground. It is called before 
+   * [onForeground]{@link UIAbility.onForeground}. It can be used to capture the moment when the application starts to 
+   * transition to the foreground. When paired with [onDidForeground]{@link UIAbility.onDidForeground}, it can also 
+   * measure the duration from the application's initial foreground entry to its full transition into the foreground 
+   * state.
+   * 
+   * This API returns the result synchronously and does not support asynchronous callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -673,7 +607,13 @@ declare class UIAbility extends Ability {
   onWillForeground(): void;
 
   /**
-   * Called back when the state of an ability changed to foreground.
+   * Called after the application has transitioned to the foreground. It is called after 
+   * [onForeground]{@link UIAbility.onForeground}. It can be used to capture the moment when the application fully 
+   * transitions to the foreground. When paired with [onWillForeground]{@link UIAbility.onWillForeground}, it can also 
+   * measure the duration from the application's initial foreground entry to its full transition into the foreground 
+   * state.
+   * 
+   * This API returns the result synchronously and does not support asynchronous callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -684,36 +624,26 @@ declare class UIAbility extends Ability {
   onDidForeground(): void;
 
   /**
-   * Called back when the state of an ability changes to background.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called back when the state of an ability changes to background.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the application transitions from the foreground to the background.
-   * It is called between onWillBackground and onDidBackground.
-   * It can be used to release resources when the UI is no longer visible, for example, stopping location services. 
+   * Called when the application transitions from the foreground to the background. You can release resources when the 
+   * UI is no longer visible, for example, stopping location services, within this callback.
    * 
+   * This API returns the result synchronously and does not support asynchronous callback.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onBackground(): void;
 
   /**
-   * Called back when the state of an ability will changes to background.
+   * Called just when the application transitions to the background. It is called before 
+   * [onBackground]{@link UIAbility.onBackground}. It can be used to log various types of data, such as faults, 
+   * statistics, security information, and user behavior that occur during application running.
+   * 
+   * This API returns the result synchronously and does not support asynchronous callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -724,7 +654,11 @@ declare class UIAbility extends Ability {
   onWillBackground(): void;
 
   /**
-   * Called back when the state of an ability changed to background.
+   * Called after the application has transitioned to the background. It is called after 
+   * [onBackground]{@link UIAbility.onBackground}. It can be used to release resources after the application has entered
+   * the background, for example, stopping audio playback.
+   * 
+   * This API returns the result synchronously and does not support asynchronous callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -735,146 +669,113 @@ declare class UIAbility extends Ability {
   onDidBackground(): void;
 
   /**
-   * Called back when an ability prepares to continue.
+   * Called when a UIAbility is to be migrated across devices. You can save service data to be migrated.
+   * 
+   * > **NOTE**
+   * >
+   * > For versions prior to API version 18, only synchronous calls are supported. Starting from API version 18, 
+   * > asynchronous calls are also supported.
    *
-   * @param { object } wantParam - Indicates the want parameter.
-   * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
+   * @param { object } wantParam - Data to be migrated. [since 9 - 11]
+   * @param { Record<string, Object> } wantParam - Data to be migrated. [since 11]
+   * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue. [since 9 - 11]
+   * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Whether the migration is
+   *     accepted. The options are as follows:
+   *     <br>- **AGREE**: The migration is allowed.
+   *     <br>- **REJECT**: The migration is rejected, for example, when an application is abnormal in **onContinue()**.
+   *     <br>- **MISMATCH**: The application versions of the source and target devices do not match. The application on the
+   *     source device can obtain the version of the target application from **onContinue**. If the ability continuation
+   *     cannot be performed due to version mismatch, this result is returned.
+   *     <br> This callback comes in pairs with **onWindowStageRestore**. In ability continuation scenarios, the source
+   *     UIAbility triggers **onContinue** to save custom data, and the target UIAbility triggers
+   *     **onWindowStageRestore** to restore the custom data. [since 12]
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called back when an ability prepares to continue.
-   *
-   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
-   * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called back when an ability prepares to continue.
-   *
-   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
-   * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Return the result of onContinue, support promise.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onContinue(wantParam: Record<string, Object>):
     AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult>;
 
   /**
-   * Called when the launch mode of an ability is set to singleton.
-   * This happens when you re-launch an ability that has been at the top of the ability stack.
+   * Called when a started UIAbility instance is brought up again. If there are specific scenarios where you do not want
+   * this lifecycle callback to be triggered, you can use 
+   * [setOnNewWantSkipScenarios]{@link ./application/UIAbilityContext:UIAbilityContext.setOnNewWantSkipScenarios} to set
+   * those [scenarios]{@link ./@ohos.app.ability.contextConstant:contextConstant.Scenarios}.
+   * 
+   * This API returns the result synchronously and does not support asynchronous callback.
    *
-   * @param { Want } want - Indicates the want info of ability.
-   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
+   * @param { Want } want - Data passed by the caller when re-launching the UIAbility.
+   * @param { AbilityConstant.LaunchParam } launchParam - UIAbility launch parameters, including the launch reason.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called when the launch mode of an ability is set to singleton.
-   * This happens when you re-launch an ability that has been at the top of the ability stack.
-   *
-   * @param { Want } want - Indicates the want info of ability.
-   * @param { AbilityConstant.LaunchParam } launchParam - Indicates the launch parameters.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when a UIAbility instance that has undergone the following states is started again:
-   * started in the foreground, running in the foreground, and switched to the background.
-   *
-   * The triggering of the onNewWant lifecycle of a UIAbility instance indicates that this launch is a hot launch.
-   * Note that a hot launch does not necessarily trigger the onNewWant lifecycle.
-   *
-   * If you need to prevent the onNewWant lifecycle from being triggered in specific scenarios,
-   * you must call the {@link UIAbilityContext.setOnNewWantSkipScenarios} interface to suppress its callback.
-   *
-   * @param { Want } want - Want information, such as the ability name and bundle name.
-   * @param { AbilityConstant.LaunchParam } launchParam - Reason for the UIAbility startup and the last abnormal exit.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
   /**
-   * Called when dump client information is required.
-   * It is recommended that developers don't DUMP sensitive information.
+   * Called when UIAbility data is dumped by running the dump command during application debugging. You can return non-
+   * sensitive information to be dumped by the UIAbility in this callback.
    *
-   * @param { Array<string> } params - Indicates the params from command.
-   * @returns { Array<string> } Return the dump info array.
+   * @param { Array<string> } params - Parameters for the dump command.
+   * @returns { Array<string> } Information returned by the dump operation.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called when dump client information is required.
-   * This API can be used to dump non-sensitive information.
-   *
-   * @param { Array<string> } params - Parameters in the form of a command.
-   * @returns { Array<string> } Dumped information array.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   onDump(params: Array<string>): Array<string>;
 
   /**
-   * Called back when an ability prepares to save.
-   *
-   * @param { AbilityConstant.StateType } reason - state type when save.
-   * @param { object } wantParam - Indicates the want parameter.
-   * @returns { AbilityConstant.OnSaveResult } agree with the current UIAbility status or not.return 0 if ability
-   *                                           agrees to save data successfully, otherwise errcode.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Called when the framework automatically saves the UIAbility state in the case of an application fault.
-   * When an application is faulty, the framework calls onSaveState to save the status of the UIAbility if
-   * auto-save is enabled.
-   *
-   * <p>**NOTE**:
-   * <br>This API is used together with appRecovery.
-   * </p>
+   * This API must be used with [appRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery}. When the application has
+   * enabled the fault recovery feature (with the **saveOccasion** parameter in 
+   * [enableAppRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery.enableAppRecovery} set to **SAVE_WHEN_ERROR**),
+   * this callback is invoked to save the UIAbility data in the case of an application fault.
    * 
-   * @param { AbilityConstant.StateType } reason - Reason for triggering the callback to save the UIAbility state.
-   * @param { Record<string, Object> } wantParam - want parameter.
-   * @returns { AbilityConstant.OnSaveResult } Whether the UIAbility state is saved.
+   * > **NOTE**
+   * >
+   * > Starting from API version 20, this callback is not executed when 
+   * > [onSaveStateAsync]{@link UIAbility.onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>)}
+   * > is implemented.
+   *
+   * @param { AbilityConstant.StateType } reason - Reason for triggering the application to save its state. Currently,
+   *     only **APP_RECOVERY** (fault recovery scenario) is supported.
+   * @param { object } wantParam - Custom application state data, which is stored in **Want.parameters** in
+   *     [onCreate]{@link UIAbility.onCreate} when the application restarts. [since 9 - 10]
+   * @param { Record<string, Object> } wantParam - Custom application state data, which is stored in **Want.parameters**
+   *     in [onCreate]{@link UIAbility.onCreate} when the application restarts. [since 11]
+   * @returns { AbilityConstant.OnSaveResult } An object indicating the data-saving policy (for example, all denied, all
+   *     allowed, or only allowed in fault recovery scenarios).
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult;
 
   /**
-   * Called when the framework automatically saves the UIAbility state in the case of an application fault.
-   * When an application is faulty, the framework calls onSaveState to save the status of the UIAbility if
-   * auto-save is enabled.
-   *
-   * <p>**NOTE**:
-   * <br>This API is used together with appRecovery.
-   * </p>
+   * This API must be used with [appRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery}. When the application 
+   * has enabled the fault recovery feature (with the **saveOccasion** parameter in 
+   * [enableAppRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery.enableAppRecovery} set to 
+   * **SAVE_WHEN_ERROR**), this callback is invoked to save the UIAbility data in the case of an application fault.
    * 
-   * @param { AbilityConstant.StateType } reason - Reason for triggering the callback to save the UIAbility state.
-   * @param { Record<string, RecordData> } wantParam - want parameter.
-   * @returns { AbilityConstant.OnSaveResult } Whether the UIAbility state is saved.
+   * > **NOTE**
+   * >
+   * > Starting from API version 20, this callback is not executed when 
+   * > [onSaveStateAsync]{@link UIAbility.onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>)}
+   * > is implemented.
+   *
+   * @param { AbilityConstant.StateType } reason - Reason for triggering the application to save its state. Currently,
+   *     only **APP_RECOVERY** (fault recovery scenario) is supported.
+   * @param { Record<string, RecordData> } wantParam - Custom application state data, which is stored in 
+   *     **Want.parameters** in [onCreate]{@link UIAbility.onCreate} when the application restarts.
+   * @returns { AbilityConstant.OnSaveResult } An object indicating the data-saving policy (for example, all denied, all
+   *     allowed, or only allowed in fault recovery scenarios).
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
@@ -882,43 +783,49 @@ declare class UIAbility extends Ability {
   onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, RecordData>): AbilityConstant.OnSaveResult;
 
   /**
-  * Called back asynchronously when an ability prepares to save.
-  *
-  * @param { AbilityConstant.StateType } stateType - state type when save.
-  * @param { Record<string, Object> } wantParam - Indicates the want parameter.
-  * @returns { Promise<AbilityConstant.OnSaveResult> } agree with the current UIAbility status or not.return 0 if ability
-  *                                           agrees to save data successfully, otherwise errcode.
-  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-  * @stagemodelonly
-  * @atomicservice
-  * @since 20 dynamic
-  */
+   * This API must be used with [appRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery}. When the application has
+   * enabled the fault recovery feature (with the **saveOccasion** parameter in 
+   * [enableAppRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery.enableAppRecovery} set to **SAVE_WHEN_ERROR**),
+   * this callback is invoked to save the UIAbility data in the case of an application fault. This API uses a promise to
+   * return the result.
+   *
+   * @param { AbilityConstant.StateType } stateType - Reason for triggering the application to save its state. Currently
+   *     , only **APP_RECOVERY** (fault recovery scenario) is supported.
+   * @param { Record<string, Object> } wantParam - Custom application state data, which is stored in **Want.parameters**
+   *     in [onCreate]{@link UIAbility.onCreate} when the application restarts.
+   * @returns { Promise<AbilityConstant.OnSaveResult> } Promise used to return the result. An object indicating the data
+   *     -saving policy (for example, all denied, all allowed, or only allowed in fault recovery scenarios).
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 20 dynamic
+   */
   onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>): Promise<AbilityConstant.OnSaveResult>;
 
- /**
-  * Called back asynchronously when an ability prepares to save.
-  *
-  * @param { AbilityConstant.StateType } stateType - state type when save.
-  * @param { Record<string, RecordData> } wantParam - Indicates the want parameter.
-  * @returns { Promise<AbilityConstant.OnSaveResult> } agree with the current UIAbility status or not.return 0 if ability
-  *                                           agrees to save data successfully, otherwise errcode.
-  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-  * @stagemodelonly
-  * @since 23 static
-  */
+  /**
+   * This API must be used with [appRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery}. When the application 
+   * has enabled the fault recovery feature (with the **saveOccasion** parameter in 
+   * [enableAppRecovery]{@link ./@ohos.app.ability.appRecovery:appRecovery.enableAppRecovery} set to 
+   * **SAVE_WHEN_ERROR**), this callback is invoked to save the UIAbility data in the case of an application fault. 
+   * This API uses a promise to return the result.
+   *
+   * @param { AbilityConstant.StateType } stateType - Reason for triggering the application to save its state. Currently
+   *     , only **APP_RECOVERY** (fault recovery scenario) is supported.
+   * @param { Record<string, RecordData> } wantParam - Custom application state data, which is stored in 
+   *     **Want.parameters** in [onCreate]{@link UIAbility.onCreate} when the application restarts.
+   * @returns { Promise<AbilityConstant.OnSaveResult> } Promise used to return the result. An object indicating the data
+   *     -saving policy (for example, all denied, all allowed, or only allowed in fault recovery scenarios).
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 23 static
+   */
   onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, RecordData>): Promise<AbilityConstant.OnSaveResult>;
 
   /**
-   * Called back when an ability shares data.
+   * Called when an atomic service is shared across devices. You can set the title, abstract, and URL of the atomic 
+   * service to be shared in this callback.
    *
-   * @param { object } wantParam - Indicates the want parameter.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Called by this UIAbility to set data to share in the cross-device sharing scenario.
-   *
+   * @param { object } wantParam - Data to share. [since 10 - 10]
    * @param { Record<string, Object> } wantParam - Data to share.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
@@ -928,7 +835,8 @@ declare class UIAbility extends Ability {
   onShare(wantParam: Record<string, Object>): void;
 
   /**
-   * Called by this UIAbility to set data to share in the cross-device sharing scenario.
+   * Called when an atomic service is shared across devices. You can set the title, abstract, and URL of the atomic 
+   * service to be shared in this callback.
    *
    * @param { Record<string, RecordData> } wantParam - Data to share.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -938,59 +846,74 @@ declare class UIAbility extends Ability {
   onShare(wantParam: Record<string, RecordData>): void;
 
   /**
-   * Called back when an ability prepare to terminate.
+   * Triggered by the system just before the UIAbility is about to close (for example, when the user clicks the close 
+   * button in the top-right corner of the application window or exits from the dock or system tray), allowing for 
+   * additional operations to be performed before the UIAbility is officially shut down. You can return **true** to 
+   * block the current closure attempt and then manually call 
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}
+   * at an appropriate time to close it. For example, you might ask the user to confirm whether they want to close the 
+   * UIAbility and then proceed with the closure manually.
+   * This API executes the callback normally only on 2-in-1 devices and tablets. It does not execute the callback on 
+   * other devices.
+   * 
+   * > **NOTE**
+   * >
+   * > - Starting from API version 15, this callback is not executed when
+   * > [UIAbility.onPrepareToTerminateAsync]{@link UIAbility.onPrepareToTerminateAsync} is implemented. When 
+   * > [AbilityStage.onPrepareTerminationAsync]{@link ./@ohos.app.ability.AbilityStage:AbilityStage.onPrepareTerminationAsync}
+   * > or [AbilityStage.onPrepareTermination]{@link ./@ohos.app.ability.AbilityStage:AbilityStage.onPrepareTermination} is
+   * > implemented, this callback is not executed if the user right-clicks the dock bar or system tray to close the 
+   * > UIAbility.
+   * >
+   * > - Additionally, if the application or a third-party framework registers a listener for 
+   * > [window.WindowStage.on('windowStageClose')](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#onwindowstageclose14)
+   * > , this callback function is not executed.
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
-   * @returns { boolean } Returns {@code true} if the ability need to top terminating; returns {@code false} if the
-   *          ability need to terminate.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Called when this UIAbility is about to terminate. It allows for additional actions to be performed before the
-   * UIAbility is officially terminated.
-   * For example, you can prompt the user to confirm whether they want to terminate the UIAbility. If the user
-   * confirms, you can call terminateSelf to terminate it.
-   * 
-   * <p>**NOTE**:
-   * <br>Currently, this API takes effect only on 2-in-1 devices.
-   * <br>Since API version 15, this callback is not executed when UIAbility.onPrepareToTerminateAsync is implemented.
-   * <br>When AbilityStage.onPrepareTerminationAsync or AbilityStage.onPrepareTermination is implemented, this callback
-   * is not executed if the user right-clicks the dock bar or system tray to close the UIAbility.
-   * </p>
-   * 
-   * @permission ohos.permission.PREPARE_APP_TERMINATE
    * @returns { boolean } Whether to terminate the UIAbility.
-   * <br>The value <code>true</code> means that the termination process is canceled.
-   * <br>The value <code>false</code> means to continue terminating the UIAbility.
+   *     <br>The value <code>true</code> means that the termination process is canceled.
+   *     <br>The value <code>false</code> means to continue terminating the UIAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   onPrepareToTerminate(): boolean;
 
   /**
-   * Called when this UIAbility is about to terminate. It allows for additional actions to be performed before the
-   * UIAbility is officially terminated.
-   * This API uses a promise to return the result. 
-   * For example, you can prompt the user to confirm whether they want to terminate the UIAbility. If the user
-   * confirms, you can call terminateSelf to terminate it.
+   * Triggered by the system just before the UIAbility is close (for example, when the user clicks the close button in 
+   * the top-right corner of the application window or exits from the dock or system tray), allowing for additional 
+   * operations to be performed before the UIAbility is officially shut down.
    * 
-   * <p>**NOTE**:
-   * <br>Currently, this API takes effect only on 2-in-1 devices.
-   * <br>When AbilityStage.onPrepareTerminationAsync or AbilityStage.onPrepareTermination is implemented, this callback
-   * is not executed if the user right-clicks the dock bar or system tray to close the UIAbility.
-   * <br>If an asynchronous callback crashes, it will be handled as a timeout. If the UIAbility does not respond within
-   * 10 seconds, it will be terminated forcibly.
-   * </P>
+   * You can return **true** to block the current closure attempt and then manually call 
+   * [terminateSelf]{@link ./application/UIAbilityContext:UIAbilityContext.terminateSelf(callback: AsyncCallback<void>)}
+   * at an appropriate time to close it. For example, you might ask the user to confirm whether they want to close the 
+   * UIAbility and then proceed with the closure manually.
+   * Starting from API version 15, this API executes the callback normally only on 2-in-1 devices. It does not execute 
+   * the callback on other devices.
+   * Starting from API version 19, this API executes the callback normally only on 2-in-1 devices and tablets. It does 
+   * not execute the callback on other devices.
+   * 
+   * > **NOTE**
+   * >
+   * > - When 
+   * > [AbilityStage.onPrepareTerminationAsync]{@link ./@ohos.app.ability.AbilityStage:AbilityStage.onPrepareTerminationAsync}
+   * > or [AbilityStage.onPrepareTermination]{@link ./@ohos.app.ability.AbilityStage:AbilityStage.onPrepareTermination} is
+   * > implemented, this callback is not executed if the user right-clicks the dock bar or system tray to close the 
+   * > UIAbility.
+   * >
+   * > - Additionally, if the application or a third-party framework registers a listener for 
+   * > [window.WindowStage.on('windowStageClose')](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#onwindowstageclose14)
+   * > , this callback function is not executed.
+   * >
+   * > - If an asynchronous callback crashes, it will be handled as a timeout. If the UIAbility does not respond within 
+   * > 10 seconds, it will be terminated forcibly.
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE
    * @returns { Promise<boolean> } Promise used to return the result.
-   * <br>The value <code>true</code> means that the termination process is canceled.
-   * <br>The value <code>false</code> means to continue terminating the UIAbility.
+   *     <br>The value <code>true</code> means that the termination process is canceled.
+   *     <br>The value <code>false</code> means to continue terminating the UIAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -1000,40 +923,48 @@ declare class UIAbility extends Ability {
   onPrepareToTerminateAsync(): Promise<boolean>;
 
   /**
-   * Called back when back press is dispatched.
-   *
-   * @returns { boolean } Returns {@code true} means the ability will move to background when back is pressed;
-   *          Returns {@code false} means the ability will be destroyed when back is pressed.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Called when an operation of going back to the previous page is triggered on this UIAbility. The return value
+   * Called when an operation of going back to the previous page is triggered on this UIAbility. The return value 
    * determines whether to destroy the UIAbility instance.
    * 
-   * <p>**NOTE**:
-   * <br>When the target SDK version is earlier than 12, the default return value is false, indicating that the
+   * - When the target SDK version is earlier than 12, the default return value is **false**, indicating that the 
    * UIAbility will be destroyed.
-   * <br>When the target SDK version is 12 or later, the default return value is true, indicating that the UIAbility
+   * - When the target SDK version is 12 or later, the default return value is **true**, indicating that the UIAbility 
    * will be moved to the background and will not be destroyed.
-   * </p>
    *
    * @returns { boolean } The value <code>true</code> means that the UIAbility instance will be moved to the background
-   * and will not be destroyed, and <code>false</code> means that the UIAbility instance will be destroyed.
+   *     and will not be destroyed, and <code>false</code> means that the UIAbility instance will be destroyed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   onBackPressed(): boolean;
 
   /**
-   * Called back when another device start to collaborate.
+   * Callback invoked to return the collaboration result in multi-device collaboration scenarios.
    * 
-   * @param { Record<string, Object> } wantParam - Indicates the want parameter.
-   * @returns { AbilityConstant.CollaborateResult } Return the result of onCollaborate.
+   * > **NOTE**
+   * >
+   * > - This callback does not support ability launch in 
+   * > [specified mode](docroot://application-models/uiability-launch-type.md#specified).
+   * >
+   * > - When you use methods such as 
+   * > [startAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startAbility(want: Want, callback: AsyncCallback<void>)}
+   * > to start an application, you must include **FLAG_ABILITY_ON_COLLABORATE** in 
+   * > [Flags]{@link ./@ohos.app.ability.wantConstant:wantConstant.Flags} in the Want object.
+   * >
+   * > - During a 
+   * > [cold start](docroot://application-models/uiability-intra-device-interaction.md#cold-starting-uiability), this 
+   * > callback must be invoked before [onForeground]{@link UIAbility.onForeground} or after 
+   * > [onBackground]{@link UIAbility.onBackground}. During a 
+   * > [hot start](docroot://application-models/uiability-intra-device-interaction.md#hot-starting-uiability), this 
+   * > callback must be invoked before [onNewWant]{@link UIAbility.onNewWant}.
+   *
+   * @param { Record<string, Object> } wantParam - Want parameter, which supports only the key
+   *     **"ohos.extra.param.key.supportCollaborateIndex"**. The key can be used to obtain the data passed by the caller
+   *     and perform corresponding processing.
+   * @returns { AbilityConstant.CollaborateResult } Whether the coordinator accepts the collaboration result.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 18 dynamic
@@ -1043,19 +974,27 @@ declare class UIAbility extends Ability {
   /**
    * Callback invoked to return the collaboration result in multi-device collaboration scenarios.
    * 
-   * <p>**NOTE**:
-   * <br>This callback does not support ability launch in specified mode.
-   * <br>When you use methods such as startAbility() to start an application, you must include
-   * FLAG_ABILITY_ON_COLLABORATE in Flags in the Want object.
-   * <br>During a cold start, this callback must be invoked before onForeground or after onBackground. During a hot
-   * start, this callback must be invoked before onNewWant.
-   * </p>
-   * 
+   * > **NOTE**
+   * >
+   * > - This callback does not support ability launch in 
+   * > [specified mode](docroot://application-models/uiability-launch-type.md#specified).
+   * >
+   * > - When you use methods such as 
+   * > [startAbility]{@link ./application/UIAbilityContext:UIAbilityContext.startAbility(want: Want, callback: AsyncCallback<void>)}
+   * > to start an application, you must include **FLAG_ABILITY_ON_COLLABORATE** in 
+   * > [Flags]{@link ./@ohos.app.ability.wantConstant:wantConstant.Flags} in the Want object.
+   * >
+   * > - During a 
+   * > [cold start](docroot://application-models/uiability-intra-device-interaction.md#cold-starting-uiability), this 
+   * > callback must be invoked before [onForeground]{@link UIAbility.onForeground} or after 
+   * > [onBackground]{@link UIAbility.onBackground}. During a 
+   * > [hot start](docroot://application-models/uiability-intra-device-interaction.md#hot-starting-uiability), this 
+   * > callback must be invoked before [onNewWant]{@link UIAbility.onNewWant}.
+   *
    * @param { Record<string, RecordData> } wantParam - Want parameter, which supports only the key
-   *     "ohos.extra.param.key.supportCollaborateIndex". The key can be used to obtain the data passed by the caller and
-   *     perform corresponding processing.
-   * @returns { AbilityConstant.CollaborateResult } Collaborator result, that is, whether the target application
-   *     accepts the collaboration request.	
+   *     **"ohos.extra.param.key.supportCollaborateIndex"**. The key can be used to obtain the data passed by the caller
+   *     and perform corresponding processing.
+   * @returns { AbilityConstant.CollaborateResult } Whether the coordinator accepts the collaboration result.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @since 23 static
