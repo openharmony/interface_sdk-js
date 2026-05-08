@@ -16337,6 +16337,80 @@ export declare enum HoverModeAreaType {
     BOTTOM_SCREEN = 1
 }
 /**
+ * Enum for distortion animation mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum DistortionMode {
+    /**
+     * Adaptive implementation of distortion animation
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISTORTION_AUTO = 0,
+    /**
+     * Distortion animation is enabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISTORTION_ENABLED = 1,
+    /**
+     * Distortion animation is disabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DISTORTION_DISABLED = 2
+}
+/**
+ * Enum for edgeLight animation mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum EdgeLightMode {
+    /**
+     * Adaptive implementation of edgeLight animation
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    EDGELIGHT_AUTO = 0,
+    /**
+     * EdgeLight animation is enabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    EDGELIGHT_ENABLED = 1,
+    /**
+     * EdgeLight animation is disabled.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    EDGELIGHT_DISABLED = 2
+}
+/**
  * Defines a range of dates.
  *
  * @interface DateRange
