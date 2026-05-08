@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * The **volumeManager** module provides APIs for querying and managing volumes and disks, including querying volume
@@ -131,7 +132,47 @@ declare namespace volumeManager {
      * @since 23 static
      */
     fsType: string;
+
+    /**
+    * Extra information of the volume.
+    *
+    * @syscap SystemCapability.FileManagement.StorageService.Volume
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    extraInfo?: string;
   }
+
+  /**
+  * Enumerates the verify type for burn data.
+  *
+  * @syscap SystemCapability.FileManagement.StorageService.Volume
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  export enum VerifyType {
+    /**
+      * Key data verification type.
+      *
+      * @syscap SystemCapability.FileManagement.StorageService.Volume
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+      KEY_DATA = 0,
+    /**
+      * Full data verification type.
+      *
+      * @syscap SystemCapability.FileManagement.StorageService.Volume
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+      FULL_DATA = 1
+  }
+
   /**
    * Obtains information about all volumes of this external storage device. This API uses an asynchronous callback to
    * return the result.
@@ -499,6 +540,133 @@ declare namespace volumeManager {
    * @since 23 static
    */
   function partition(diskId: string, type: int): Promise<void>;
+
+  /**
+   * Erases a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600023 - Disc not erasable.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function erase(volumeId: string): Promise<void>;
+
+  /**
+   * Ejects a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function eject(volumeId: string): Promise<void>;
+
+  /**
+   * Creates an ISO image from a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @param { string } filePath - File path for the ISO image.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600024 - Empty disc.
+   * @throws { BusinessError } 13600025 - Failed to write the ISO file.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createIsoImage(volumeId: string, filePath: string): Promise<void>;
+
+  /**
+   * Burns data to a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @param { Want } want - Burn options. The Want parameter currently includes the following fields:
+   *     <br>diskName: string - Disk name for the burn operation.
+   *     <br>burnPath: string - Source path of data to be burned.
+   *     <br>isIsoImage: boolean - Whether to burn as ISO image. true indicates ISO image burn mode,
+   *         false indicates normal data burn mode.
+   *     <br>burnSpeed: int - Burn speed in KB/s. 0 indicates maximum speed.
+   *     <br>fsType: string - File system type for the burned disk (e.g., 'ISO9660' or 'UDF').
+   *     <br>isIncBurnSupport: boolean - Whether incremental burn is supported.
+   *     <br>Note: The content of Want may be dynamically extended by file management in the future.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600026 - Insufficient disc space.
+   * @throws { BusinessError } 13600027 - Source data not found.
+   * @throws { BusinessError } 13600028 - Burn operation failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function burn(volumeId: string, want: Want): Promise<void>;
+
+  /**
+   * Gets the operation progress of a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @returns { Promise<int> } Promise used to return the operation progress.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600029 - No ongoing operation.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getOpProcess(volumeId: string): Promise<int>;
+
+  /**
+   * Verifies burn data of a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @param { VerifyType } verType - Verify type.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600030 - Verification failed.
+   * @throws { BusinessError } 13600031 - Data mismatch.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function verifyBurnData(volumeId: string, verType: VerifyType): Promise<void>;
 }
 
 export default volumeManager;
