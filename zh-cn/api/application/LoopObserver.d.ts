@@ -33,6 +33,7 @@ export interface LoopObserver {
      * 将在js运行时应用主线程处理事件超时的回调。
      *
      * @param { int } timeout - 返回应用主线程消息实际执行时间。
+     * 阈值必须大于0。 单位为毫秒（ms）。
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 19]
      * @atomicservice
