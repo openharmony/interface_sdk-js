@@ -4390,6 +4390,76 @@ declare namespace huks {
   function unwrapKeyItem(keyAlias: string, params: HuksOptions, wrappedKey: Uint8Array): Promise<HuksReturnResult>;
 
   /**
+   * Post-Quantum Cryptography key encapsulation operation, supporting key management by HUKS
+   *     or by the application itself. If the application chooses to manage the key,
+   *     the symmetric key is carried in the outData field of HuksReturnResult.
+   *
+   * @param { string } keyAlias - indicates the name of the key for the Post-Quantum Cryptography algorithm.
+   * @param { HuksParam[] } params - indicates the encapsulation properties.
+   * @param { string } [sharedKeyAlias] - indicates the key alias of the encapsulated key.
+   *     If HUKS is used for key management, this parameter must be specified.
+   *     If the application manages the key itself, this parameter is ignored.
+   * @param { HuksParam[] } [sharedKeyParams] - indicates the properties of the encapsulated key.
+   *     If HUKS is used for key management, this parameter must be specified.
+   *     If the application manages the key itself, this parameter is ignored.
+   * @returns { Promise<HuksReturnResult> } The promise returned by the function.
+   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 12000002 - Algorithm parameters are missing, please check the algorithm parameters.
+   * @throws { BusinessError } 12000003 - The algorithm parameters are invalid, please check the algorithm parameters.
+   * @throws { BusinessError } 12000004 - File operation failed.
+   * @throws { BusinessError } 12000005 - IPC communication failed.
+   * @throws { BusinessError } 12000006 - The algorithm engine reported an error, please check the input parameters.
+   * @throws { BusinessError } 12000011 - The queried key does not exist, please check the key-related parameters.
+   * @throws { BusinessError } 12000012 - Device environment or input parameters are abnormal.
+   * @throws { BusinessError } 12000014 - Memory is insufficient.
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM.
+   * @throws { BusinessError } 12000016 - The screen lock password is not set.
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists.
+   * @throws { BusinessError } 12000018 - The input parameter is invalid.
+   * @syscap SystemCapability.Security.Huks.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+
+  function encapsulate(keyAlias: string, params: HuksParam[],
+      sharedKeyAlias?: string, sharedKeyParams?: HuksParam[]): Promise<HuksReturnResult>;
+  /**
+   * Decapsulates a post-quantum cryptography key. This operation can be managed by HUKS
+   * or the app itself. If the app chooses to manage the key,
+   * the symmetric key is contained in the outData field of HuksReturnResult.
+   *
+   * @param { string } keyAlias  - Alias of the post-quantum cryptography key.
+   * @param { HuksParam[] } params  - Decapsulation properties.
+   * @param { Uint8Array } encapData  - Encapsulated shared key.
+   * @param { string } [sharedKeyAlias]  - Alias of the key used for decapsulation.
+   *     This parameter must be specified if HUKS is used for key management.
+   *     If the app manages the key by itself, ignore this parameter.
+   * @param { HuksParam[] } [sharedKeyParams]  - Properties of the decapsulated key.
+   *     This parameter must be specified if HUKS is used for key management.
+   *     If the app manages the key by itself, ignore this parameter.
+   * @returns { Promise<HuksReturnResult> } Promise used to return the result.
+   * @throws { BusinessError } 801  - API is not supported.
+   * @throws { BusinessError } 12000002  - The algorithm parameter is missing. Check the algorithm parameter.
+   * @throws { BusinessError } 12000003  - The algorithm parameter is invalid. Check the algorithm parameter.
+   * @throws { BusinessError } 12000004  - The file operation failed.
+   * @throws { BusinessError } 12000005  - IPC communication failed.
+   * @throws { BusinessError } 12000006  - The algorithm engine reports an error. Check the input parameters.
+   * @throws { BusinessError } 12000011  - The queried key does not exist. Check the key-related parameters.
+   * @throws { BusinessError } 12000012  - The device environment or input parameter is abnormal.
+   * @throws { BusinessError } 12000014  - Insufficient memory.
+   * @throws { BusinessError } 12000015  - Failed to obtain the security information using UserIAM.
+   * @throws { BusinessError } 12000016  - The lock screen password is not set.
+   * @throws { BusinessError } 12000017  - A key with the same alias already exists.
+   * @throws { BusinessError } 12000018  - Invalid input parameter.
+   * @syscap SystemCapability.Security.Huks.Core
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function decapsulate(keyAlias: string, params: HuksParam[], encapData: Uint8Array,
+      sharedKeyAlias?: string, sharedKeyParams?:  HuksParam[]): Promise<HuksReturnResult>;
+
+  /**
    * Defines the param field in the properties array of options used in the APIs.
    *
    * @typedef HuksParam
@@ -4635,6 +4705,16 @@ declare namespace huks {
      * @since 12
      */
     certChains?: Array<string>;
+    /**
+     * Defines the shared secret.
+     *
+     * @type { ?Uint8Array }
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    sharedSecret?: Uint8Array;
   }
 
   /**
@@ -6309,7 +6389,25 @@ declare namespace huks {
      * @atomicservice
      * @since 26.0.0
      */
-    HUKS_ML_DSA_KEY_PARAM_SET_87 = 87
+    HUKS_ML_DSA_KEY_PARAM_SET_87 = 87,
+    /**
+     * ML-KEM-768 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_KEM_KEY_PARAM_SET_768 = 768,
+    /**
+     * ML-KEM-1024 parameter set.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ML_KEM_KEY_PARAM_SET_1024 = 1024
   }
 
   /**
@@ -6551,6 +6649,15 @@ declare namespace huks {
      * @since 12
      */
     HUKS_ALG_CMAC = 162,
+    /**
+     * ML-KEM.
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    HUKS_ALG_ML_KEM = 200,
     /**
      * ML-DSA.
      *
