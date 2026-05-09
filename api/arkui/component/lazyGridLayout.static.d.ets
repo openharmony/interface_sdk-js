@@ -17,10 +17,9 @@
  * @file
  * @kit ArkUI
  */
-import { CommonMethod } from './common';
+import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from './common';
 import { LengthMetrics } from '../Graphics';
-import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback } from "./common";
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * The LazyGridLayoutAttribute.
@@ -87,6 +86,15 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
      */
     default columnsTemplate(value: string | undefined): this;
     /**
+     * Set LazyVGrid options.
+     *
+     * @returns { LazyVGridLayoutAttribute } Returns the instance of the LazyVGridLayoutAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setLazyVGridLayoutOptions(): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -110,4 +118,21 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
 @ComponentBuilder
 export declare function LazyVGridLayout(
     content_?: CustomBuilder,
-): LazyVGridLayoutAttribute
+): LazyVGridLayoutAttribute;
+
+/**
+ * Defines LazyVGridLayout Component.
+ *
+ * @param { CustomBuilderT<LazyVGridLayoutAttribute> } style_ - The style to create a LazyVGridLayout.
+ * @param { CustomBuilder } [content_]
+ * @returns { LazyVGridLayoutAttribute } The attribute of the LazyVGridLayout.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function LazyVGridLayout(
+    style_: CustomBuilderT<LazyVGridLayoutAttribute>,
+    content_?: CustomBuilder
+): LazyVGridLayoutAttribute;

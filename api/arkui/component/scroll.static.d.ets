@@ -21,7 +21,7 @@ import { BarState, Edge, Color, EdgeEffect, ScrollSource, Curve } from './enums'
 import { ICurve, RectResult, ScrollableCommonMethod, EdgeEffectOptions, NestedScrollOptions, CommonMethod } from './common';
 import { Dimension, Length, VoidCallback, Resource, LengthMetrics } from './units';
 import { ScrollSnapAlign, ScrollState } from "./list";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod, UIScrollableCommonEvent, SizeResult, Bindable } from "./common";
 import { FrameNode } from 'arkui.FrameNode';
 /**
@@ -1023,6 +1023,16 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
      */
     default initialOffset(value: OffsetOptions | undefined): this;
     /**
+     * Set Scroll options.
+     *
+     * @param { Scroller } [scroller] - scroller
+     * @returns { ScrollAttribute } Returns the instance of the ScrollAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setScrollOptions(scroller?: Scroller): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ScrollAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -1092,6 +1102,23 @@ export type ScrollOnDidZoomCallback = (scale: double) => void;
  */
 @ComponentBuilder
 export declare function Scroll(
-    scroller?: Scroller, 
+    scroller?: Scroller,
     content_?: CustomBuilder,
-): ScrollAttribute
+): ScrollAttribute;
+
+/**
+ * Defines Scroll Component.
+ *
+ * @param { CustomBuilderT<ScrollAttribute> } style_ - The style to create a Scroll.
+ * @param { CustomBuilder } [content_]
+ * @returns { ScrollAttribute } The attribute of the Scroll.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Scroll(
+    style_: CustomBuilderT<ScrollAttribute>,
+    content_?: CustomBuilder
+): ScrollAttribute;

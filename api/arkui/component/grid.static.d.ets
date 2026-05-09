@@ -755,6 +755,17 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      */
     default onDidScroll(handler: OnScrollCallback | undefined): this;
     /**
+     * Set Grid options.
+     *
+     * @param { Scroller } [scroller] - Controller bound to the grid
+     * @param { GridLayoutOptions } [layoutOptions] - The options to help grid layout
+     * @returns { GridAttribute } Returns the instance of the GridAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setGridOptions(scroller?: Scroller, layoutOptions?: GridLayoutOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<GridAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -779,7 +790,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
  */
 @ComponentBuilder
 export declare function Grid(
-    scroller?: Scroller, layoutOptions?: GridLayoutOptions, 
+    scroller?: Scroller, layoutOptions?: GridLayoutOptions,
     content_?: CustomBuilder,
 ): GridAttribute
 
@@ -844,3 +855,20 @@ export declare abstract class ExtendableGrid implements GridAttribute {
         layoutOptions?: GridLayoutOptions
     ): this;
 }
+
+/**
+ * Grid is returned when the parameter is transferred.
+ *
+ * @param { CustomBuilderT<GridAttribute> } style_ - The style to create a Grid.
+ * @param { CustomBuilder } [content_]
+ * @returns { GridAttribute } The attribute of the Grid.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Grid(
+    style_: CustomBuilderT<GridAttribute>,
+    content_?: CustomBuilder
+): GridAttribute;
