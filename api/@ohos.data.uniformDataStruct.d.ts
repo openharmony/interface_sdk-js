@@ -15,7 +15,7 @@
 
 /**
  * @file
- * @kit ArkData
+ * @kit ArkData  aa
  */
 
 import image from './@ohos.multimedia.image';
