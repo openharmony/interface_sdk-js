@@ -196,7 +196,15 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
    * @stagemodelonly
    * @since 23 static
    */
-  constructor(src?: image.PixelMap);
+  /**
+   * Creates a new PixelMapDrawableDescriptor.
+   *
+   * @param { image.PixelMap | ResourceStr } [src] - Pixelmap or ResourceStr to create PixelMapDrawableDescriptor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(src?: image.PixelMap | ResourceStr);
 }
 
 /**
