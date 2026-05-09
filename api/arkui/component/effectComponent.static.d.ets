@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { CustomBuilder } from '@ohos.arkui.component';
 
@@ -121,6 +121,17 @@ export declare interface EffectComponentAttribute extends CommonMethod {
      */
     default attributeModifier(modifier: AttributeModifier<EffectComponentAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set EffectComponent options.
+     *
+     * @param { EffectComponentOptions } [options] - The options to create an EffectComponent.
+     * @returns { EffectComponentAttribute } Returns instance of  EffectComponentAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setEffectComponentOptions(options?: EffectComponentOptions): this;
 }
 
 /**
@@ -138,5 +149,23 @@ export declare interface EffectComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function EffectComponent(
     options?: EffectComponentOptions,
+    content_?: CustomBuilder,
+): EffectComponentAttribute;
+
+/**
+ * Defines EffectComponent
+ *
+ * @param { CustomBuilderT<EffectComponentAttribute> } style_ - EffectComponent attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { EffectComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function EffectComponent(
+    style_: CustomBuilderT<EffectComponentAttribute>,
     content_?: CustomBuilder,
 ): EffectComponentAttribute;

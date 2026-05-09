@@ -23,7 +23,7 @@ import { LengthMetrics, SizeT, PositionT, Vector2T } from '../../arkui/Graphics'
 import { VP, ResourceStr, Dimension, ResourceColor } from "./units";
 import { ImageFit, Curve } from "./enums";
 import { ICurve, CommonMethod } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 
 /**
@@ -829,6 +829,16 @@ export declare enum ParticleUpdater {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ParticleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set Particle options.
+     *
+     * @param { Particles } particles - The options to create an Particle.
+     * @returns { ParticleAttribute } Returns instance of  ParticleAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setParticleOptions(particles: Particles): this;
     /**
      * Set ripple fields of particles. The ripple field applies a force that varies in a wave-like pattern to particles
      * within its influence range, creating an effect similar to the spreading of ripples.
