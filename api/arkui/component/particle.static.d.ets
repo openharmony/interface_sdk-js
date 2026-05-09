@@ -1234,5 +1234,4 @@ export declare function Particle(
 @Builder
 export declare function Particle(
   style_: CustomBuilderT<ParticleAttribute>,
-  content_?: CustomBuilder,
 ): ParticleAttribute;
