@@ -4369,6 +4369,30 @@ declare namespace media {
     videoScaleType?: VideoScaleType;
 
     /**
+     * Audio privacy configuration. For more information, see {@link #audio.AudioPrivacyType}.
+     * Default value: PRIVACY_TYPE_PUBLIC.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    privacyType?: audio.AudioPrivacyType;
+
+    /**
+     * Whether a slower synchronization policy is used at the start of playback to reduce subjective image jitter caused
+     * by insufficient frame rate. Default value: false, means that the slower synchronization policy will not be used.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    enableStartFrameRateOpt?: boolean;
+
+    /**
      * Set payback speed.
      * @param { PlaybackSpeed } speed - playback speed, see @PlaybackSpeed .
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -10302,30 +10326,6 @@ declare namespace media {
      * @useinstead ohos.multimedia.media/media.AVPlayer#videoScaleType
      */
     videoScaleType?: VideoScaleType;
-
-    /**
-     * Audio privacy configuration. For more information, see {@link #audio.AudioPrivacyType}.
-     * Default value: PRIVACY_TYPE_PUBLIC.
-     *
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    privacyType?: audio.AudioPrivacyType;
-
-    /**
-     * Whether a slower synchronization policy is used at the start of playback to reduce subjective image jitter caused
-     * by insufficient frame rate. Default value: false, means that the slower synchronization policy will not be used.
-     *
-     * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    enableStartFrameRateOpt?: boolean;
 
     /**
      * set payback speed.
