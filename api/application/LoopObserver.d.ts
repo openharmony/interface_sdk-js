@@ -33,6 +33,8 @@ export interface LoopObserver {
    * Called when a timeout occurs for the main thread to process an event in the JS runtime.
    *
    * @param { int } timeout - Actual execution time of the main thread.
+   * The value must be greater than **0**. The unit is milliseconds (ms).
+   * The value should be an integer.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 19]
    * @atomicservice

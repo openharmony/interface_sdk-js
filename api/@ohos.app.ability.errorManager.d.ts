@@ -48,6 +48,8 @@ declare namespace errorManager {
    * @param { ErrorObserver } observer - Error observer instance.
    * @returns { number } Unique index of the observer, which corresponds one-to-one with the observer. This value can be
    *     used as the **observerId** parameter in the **errorManager.off** function.
+   * There is no specific unit.
+   * the returned result is observerId.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
@@ -66,6 +68,7 @@ declare namespace errorManager {
    *
    * @param { 'error' } type - Event type. It is fixed at **'error'**.
    * @param { number } observerId - Index of the observer returned by **on()**.
+   * There is no specific unit.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -85,6 +88,7 @@ declare namespace errorManager {
    *
    * @param { 'error' } type - Event type. It is fixed at **'error'**.
    * @param { number } observerId - Index of the observer returned by **on()**.
+   * There is no specific unit.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -105,7 +109,8 @@ declare namespace errorManager {
    *
    * @param { 'loopObserver' } type - Event type. It is fixed at **'loopObserver'**, indicating an observer for the
    *     message processing duration of the main thread.
-   * @param { number } timeout - Event execution threshold, in milliseconds. The value must be greater than **0**.
+   * @param { number } timeout - Event execution threshold, in milliseconds.
+   * The value must be greater than **0**.The unit is milliseconds(ms).
    * @param { LoopObserver } observer - Observer to register.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -644,7 +649,14 @@ declare namespace errorManager {
    *
    * @param { ResourceType } resourceType - The type of resource.
    * @param { long } resourceSize - The amount of resources occupied.
+   * The value must be greater than **0**.
+   * <br>Unit: KB.
    * @param { Record<string, long> } [detailInfo] - Key-value pair of the resource type and its size.
+   * <br>This parameter is available only when resourceType is set to PSS_MEMORY.
+   * If resourceType is set to other types or default values, this parameter is left blank.
+   * The key is the lowercase memory type, and the value is the resource size of the corresponding subdivision item.
+   * The keys of subdivision items include arkts, native, ion, gpu, ashmem, and other.
+   * The second value must be greater than * * 0 * *, in KB.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

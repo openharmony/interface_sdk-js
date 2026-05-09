@@ -43,6 +43,7 @@ declare namespace errorManager {
    * @param { 'error' } type - 填写'error'，表示错误观测器。
    * @param { ErrorObserver } observer - 错误观测器。
    * @returns { number } 观测器的索引值，与观测器一一对应。可用于`errorManager.off`函数中的`observerId`参数。
+   * 没有具体的单位。结果返回值是observerId。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
    * @throws { BusinessError } 16000003 - 指定的ID不存在。
@@ -59,7 +60,7 @@ declare namespace errorManager {
    * 仅在主线程中使用。使用线程出错时，将抛出错误码，因此建议使用try-catch逻辑进行处理。
    *
    * @param { 'error' } type - 填写'error'，表示错误观测器。
-   * @param { number } observerId - 由on方法返回的观测器的index值。
+   * @param { number } observerId - 由on方法返回的观测器的index值。没有具体的单位。
    * @param { AsyncCallback<void> } callback - 表示指定的回调方法。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
@@ -77,7 +78,7 @@ declare namespace errorManager {
    * 仅在主线程中使用。使用线程出错时，将抛出错误码，因此建议使用try-catch逻辑进行处理。
    *
    * @param { 'error' } type - 填写'error'，表示错误观测器。
-   * @param { number } observerId - 由on方法返回的观测器的index值。
+   * @param { number } observerId - 由on方法返回的观测器的index值。没有具体的单位。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
@@ -95,7 +96,7 @@ declare namespace errorManager {
    * 仅在主线程中使用。使用线程出错时，将抛出错误码，因此建议使用try-catch逻辑进行处理。
    *
    * @param { 'loopObserver' } type - 填写'loopObserver'，表示注册主线程消息处理耗时监听器。
-   * @param { number } timeout - 表示事件执行阈值（单位：毫秒）。 阈值必须大于0。
+   * @param { number } timeout - 表示事件执行阈值（单位：毫秒）。 阈值必须大于0。 单位为毫秒（ms）。
    * @param { LoopObserver } observer - 注册主线程消息处理耗时监听器。
    * @throws { BusinessError } 401 - 参数错误。可能的原因：1. 必填参数未填写；
    *     2. 参数类型不正确；3. 参数校验失败。
@@ -601,6 +602,7 @@ declare namespace errorManager {
    * @param { long } resourceSize - 表示应用资源超基线的资源使用量。
    * @param { Record<string, long> } [detailInfo] - 表示应用资源超基线资源使用量的细分项字典。<br>**说明**：仅在resourceType为PSS_MEMORY时存在，为其他类型或缺
    *     省时为空；<br>key为小写内存类型，value为对应细分项资源大小；<br>细分项的key包含arkts、native、ion、gpu、ashmem和other。
+   *     第二个值必须大于**0**。单位：KB。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
