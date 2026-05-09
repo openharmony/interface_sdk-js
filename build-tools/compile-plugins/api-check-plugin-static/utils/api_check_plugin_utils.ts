@@ -122,7 +122,6 @@ export function isCardFile(file: string): boolean {
 }
 
 /**
- * 校验since标签，当前api版本是否小于等于compatibleSdkVersion。
  * 
  * @param { JSDoc[] } jsDocs 当前api的JSDoc
  * @param { JsDocNodeCheckConfigItem } config 当前的since标签校验规则
