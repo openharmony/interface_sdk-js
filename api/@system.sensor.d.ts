@@ -16,8 +16,6 @@
 /**
  * The **Sensor** module provides APIs for querying the sensor list, subscribing to or unsubscribing from sensor data, 
  * and executing control commands.
- * The **Sensor** module provides APIs for querying the sensor list, subscribing to or unsubscribing from sensor data, 
- * and executing control commands.
  * 
  * The sensors are classified into the following categories based on their functions: motion, environment, orientation, 
  * light, body, and other categories (such as Hall effect sensors). Each category includes different sensor types. A 
@@ -29,7 +27,7 @@
  * > >     - For lite wearables, this module is constantly maintained and available.
  * > >     - For other device types, this module is no longer maintained since API version 8, and You are advised to use
  * > the new [@ohos.sensor]{@link @ohos.sensor:sensor} module.
- * >
+ * > - The initial APIs of this module are supported since API version 3. Newly added APIs will be marked with a superscript to indicate their earliest API version.
  * > - This module requires hardware support and can only be debugged on real devices.
  *
  * @file
