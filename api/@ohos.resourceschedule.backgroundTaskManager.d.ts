@@ -32,16 +32,9 @@ import type notificationManager from './@ohos.notificationManager';
  * Manages background tasks.
  *
  * @namespace backgroundTaskManager
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.Core
- * @since 9
- */
-/**
- * Manages background tasks.
- *
- * @namespace backgroundTaskManager
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.Core
- * @atomicservice
- * @since 12 dynamic
+ * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace backgroundTaskManager {
