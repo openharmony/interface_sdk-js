@@ -593,3 +593,59 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    */
   getAnimationController(id?: string): AnimationController | undefined;
 }
+
+/**
+ * Options for HDR composition configuration.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface HdrCompositionConfig {
+/**
+ * Rectangle area for HDR composition.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+rect: Rectangle;
+}
+
+/**
+ * Use the PictureDrawableDescriptor class to get the resource of picture or resource descriptor information.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export class PictureDrawableDescriptor extends DrawableDescriptor {
+  /**
+  * Creates a new PictureDrawableDescriptor.
+  *
+  * @param { image.Picture } src - Indicates the resource to create PictureDrawableDescriptor.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+  constructor(src: image.Picture);
+
+  /**
+  * Set HDR composition config.
+  *
+  * @param { HdrCompositionConfig } config - Indicates the HDR composition config.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+  setHdrComposition(config: HdrCompositionConfig): void;
+}
