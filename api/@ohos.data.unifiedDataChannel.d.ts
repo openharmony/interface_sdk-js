@@ -757,7 +757,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
-     * @since 10 dynamic
      * @since 23 static
      */
     get description(): string | undefined;
@@ -770,7 +769,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
-     * @since 10 dynamic
      * @since 23 static
      */
     set description(value: string | undefined);
@@ -830,7 +828,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
-     * @since 10 dynamic
      * @since 23 static
      */
     get plainContent(): string | undefined;
@@ -843,7 +840,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
-     * @since 10 dynamic
      * @since 23 static
      */
     set plainContent(value: string | undefined);
@@ -902,7 +898,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
-     * @since 10 dynamic
      * @since 23 static
      */
     get details(): Record<string, string> | undefined;
@@ -916,7 +911,6 @@ declare namespace unifiedDataChannel {
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
-     * @since 10 dynamic
      * @since 23 static
      */
     set details(value: Record<string, string> | undefined);
