@@ -109,7 +109,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * 在执行完onDestroy生命周期回调后，应用可能会退出，从而可能导致onDestroy中的异步函数未能正确执行，比如异步写入数据库。推荐使用Promise异步回调，避免因应用退出导致onDestroy中的异步函数（比如异步写入数
    * 据库）未能正确执行。
    *
-   * @returns { void | Promise<void> } No return value or a Promise object that returns no value.
+   * @returns { void | Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 10 dynamic
@@ -120,7 +120,7 @@ declare class UIExtensionAbility extends ExtensionAbility {
    * UIExtensionAbility生命周期回调，在销毁时回调，执行资源清理等操作。
    * 在执行完onDestroy生命周期回调后，应用可能会退出，从而可能导致onDestroy中的异步函数未能正确执行，比如异步写入数据库。可以使用异步生命周期，以确保异步onDestroy完成后再继续后续的生命周期。
    *
-   * @returns { Promise<void> | undefined } the promise returned by the function.
+   * @returns { Promise<void> | undefined } 以Promise形式返回或返回未定义。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 23 static

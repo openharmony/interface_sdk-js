@@ -829,8 +829,8 @@ declare class UIAbility extends Ability {
    * @param { Record<string, Object> } wantParam - Data to share.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onShare(wantParam: Record<string, Object>): void;
 
