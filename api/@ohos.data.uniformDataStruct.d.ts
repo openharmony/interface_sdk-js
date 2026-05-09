@@ -15,43 +15,43 @@
 
 /**
  * @file
- * @kit ArkData  aa
+ * @kit ArkData
  */
 
 import image from './@ohos.multimedia.image';
 
 /**
- * Provide uniform data struct definition.
+ * As a part of the Unified Data Management Framework (UDMF), the **uniformDataStruct** module provides data structs 
+ * corresponding to certain 
+ * [UniformDataTypes]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType} for service 
+ * scenarios of many-to-many data sharing across applications. It helps simplify data interaction and reduce the data 
+ * type adaptation workload.
  *
- * @namespace uniformDataStruct
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @since 12 dynamic
  * @since 23 static
  */
 declare namespace uniformDataStruct {
   /**
-   * Describe the plain text uniform data struct.
+   * Represents data of the plain text type.
    *
-   * @interface PlainText
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
    * @since 23 static
    */
   interface PlainText {
     /**
-     * Indicates the uniform data type of this data struct.
+     * Uniform data type, which has a fixed value of **general.plain-text**. For details, see 
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
-     * @type { 'general.plain-text' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     readonly uniformDataType: 'general.plain-text';
     /**
-     * Indicates the content of the PlainText.
+     * Plaintext content.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -59,8 +59,8 @@ declare namespace uniformDataStruct {
     textContent: string;
 
     /**
-     * Indicates the abstract of the PlainText.
-     * @type { ?string }
+     * Text abstract. It is an empty string by default.
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      */
@@ -68,23 +68,27 @@ declare namespace uniformDataStruct {
 
     /**
      * Indicates the abstract of the PlainText.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 23 static
      */
     textAbstract?: string;
     
     /**
-     * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the
-     * object are of the string type. For example, the following is a details object used to describe the properties of
-     * a file:
+     * Object of the dictionary type used to describe the attributes of the text content. Both the key and value of the 
+     * object are of the string type. For example, the following is a **details** object used to describe the properties
+     * of a file:
+     * 
      * {
+     * 
      * "title":"Title of the file",
+     * 
      * "content":"Content of the file"
+     * 
      * }
+     * 
      * By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -93,52 +97,53 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Describe the hyperlink uniform data struct.
+   * Represents data of the hyperlink type.
    *
-   * @interface Hyperlink
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
    * @since 23 static
    */
   interface Hyperlink {
     /**
-     * Indicates the uniform data type of this data struct.
+     * Uniform data type, which has a fixed value of **general.hyperlink**. For details, see 
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
-     * @type { 'general.hyperlink' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     readonly uniformDataType: 'general.hyperlink';
     /**
-     * Indicates the url of the Hyperlink.
+     * URL.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     url: string;
     /**
-     * Indicates the description of the Hyperlink.
-     * @type { ?string }
+     * Description of the linked content. This parameter is optional. By default, it is an empty string.
+     *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     description?: string;
     /**
-     * Object of the dictionary type used to describe the attributes of the hyperlink. Both the key and value of the
-     * object are of the string type. For example, the following is a details object used to describe the properties of
-     * a file:
+     * Object of the dictionary type used to describe the attributes of the hyperlink. Both the key and value of the 
+     * object are of the string type. For example, the following is a **details** object used to describe the properties
+     * of a file:
+     * 
      * {
-     * "title":"Title of the hyperlink",
-     * "content":"Content"
+     * 
+     * "title":"Title of the file",
+     * 
+     * "content":"Content of the file"
+     * 
      * }
+     * 
      * By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -147,19 +152,17 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Describe the html uniform data struct.
+   * Represents data of the HTML type.
    *
-   * @interface HTML
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
    * @since 23 static
    */
   interface HTML {
     /**
-     * Indicates the uniform data type of this data struct.
+     * Uniform data type, which has a fixed value of **general.html**. For details, see 
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
-     * @type { 'general.html' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -167,34 +170,36 @@ declare namespace uniformDataStruct {
     readonly uniformDataType: 'general.html';
 
     /**
-     * Indicates the content of html, with html tags.
+     * Content in HTML format.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     htmlContent: string;
     /**
-     * Indicates the plain content of html.
+     * Plaintext without HTML tags. This parameter is optional. By default, it is an empty string.
      *
-     * @type { ?string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     plainContent?: string;
     /**
-     * Object of the dictionary type used to describe the attributes of the HTML content. Both the key and value of the
-     * object are of the string type. For example, the following is a details object used to describe the properties of
-     * a file:
+     * Object of the dictionary type used to describe the attributes of the HTML content. Both the key and value of the 
+     * object are of the string type. For example, the following is a **details** object used to describe the properties
+     * of a file:
+     * 
      * {
-     * "title":"Title of the HTML content",
-     * "content":"Content"
+     * 
+     * "title":"Title of the file",
+     * 
+     * "content":"Content of the file"
+     * 
      * }
+     * 
      * By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, string> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -204,7 +209,6 @@ declare namespace uniformDataStruct {
     /**
      * Defines URI authorization policies for drag intention.
      *
-     * @type { ?Array<int> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -213,83 +217,74 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Describe system defined app item uniform data struct(this kind of struct is provided and bound to OpenHarmony).
+   * Represents data of the home screen icon type defined by the system.
    *
-   * @interface OpenHarmonyAppItem
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 12 dynamic
    * @since 23 static
    */
   interface OpenHarmonyAppItem {
     /**
-     * Uniform data type, which has a fixed value of openharmony.app-item. For details, see UniformDataType.
+     * Uniform data type, which has a fixed value of **openharmony.app-item**. For details, see 
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
-     * @type { 'openharmony.app-item' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     readonly uniformDataType: 'openharmony.app-item';
     /**
-     * Indicates the app id.
+     * ID of the application, for which the icon is used.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     appId: string;
     /**
-     * Indicates the app name.
+     * Name of the application, for which the icon is used.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     appName: string;
     /**
-     * Indicates the id of app icon.
+     * Image ID of the icon.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     appIconId: string;
     /**
-     * Indicates the id of app label.
+     * Label ID corresponding to the icon name.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     appLabelId: string;
     /**
-     * Indicates the bundle name of app.
+     * Bundle name corresponding to the icon.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     bundleName: string;
     /**
-     * Indicates the ability name of app.
+     * Application ability name corresponding to the icon.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
      */
     abilityName: string;
     /**
-     * Object of the dictionary type used to describe the icon. The key is of the string type, and the value can be a
+     * Object of the dictionary type used to describe the icon. The key is of the string type, and the value can be a 
      * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 12 dynamic
      * @since 23 static
@@ -298,19 +293,16 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Uniform data type, which has a fixed value of general.content-form.
+   * Represents data of the content widget type.
    *
-   * @interface ContentForm
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 14 dynamic
    * @since 23 static
    */
   interface ContentForm {
     /**
-     * Indicates the uniform data type of this data struct.
+     * Uniform data type, which has a fixed value of **general.content-form**.
      *
-     * @type { 'general.content-form' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -318,9 +310,8 @@ declare namespace uniformDataStruct {
     readonly uniformDataType: 'general.content-form';
 
     /**
-     * Indicates the thumb data of content form.
+     * Image data in the content widget.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -328,9 +319,8 @@ declare namespace uniformDataStruct {
     thumbData?: Uint8Array;
 
     /**
-     * Indicates the description of content form.
+     * Description of the content widget.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -338,9 +328,8 @@ declare namespace uniformDataStruct {
     description?: string;
 
     /**
-     * Indicates the title of content form.
+     * Title of the content widget.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -348,9 +337,8 @@ declare namespace uniformDataStruct {
     title: string;
 
     /**
-     * Indicates the app icon of content form.
+     * Application icon data in the content widget.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -358,9 +346,8 @@ declare namespace uniformDataStruct {
     appIcon?: Uint8Array;
 
     /**
-     * Indicates the app name of content form.
+     * Application name in the content widget.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -368,9 +355,8 @@ declare namespace uniformDataStruct {
     appName?: string;
 
     /**
-     * Indicates the link url of content form.
+     * Hyperlink in the content widget.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 14 dynamic
      * @since 23 static
@@ -379,19 +365,17 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Describe form uniform data struct.
+   * Represents data of the widget type defined by the system.
    *
-   * @interface Form
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
    * @since 23 static
    */
   interface Form {
     /**
-     * Uniform data type, which has a fixed value of openharmony.form. For details, see UniformDataType.
+     * Uniform data type, which has a fixed value of **openharmony.form**. For details, see 
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
-     * @type { 'openharmony.form' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -399,9 +383,8 @@ declare namespace uniformDataStruct {
     readonly uniformDataType: 'openharmony.form';
 
     /**
-     * Indicates the form id of form.
+     * Widget ID.
      *
-     * @type { int }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -409,9 +392,8 @@ declare namespace uniformDataStruct {
     formId: int;
 
     /**
-     * Indicates the form name of form.
+     * Widget name.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -419,9 +401,8 @@ declare namespace uniformDataStruct {
     formName: string;
 
     /**
-     * Indicates the bundle name of form.
+     * Bundle to which the widget belongs.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -429,9 +410,8 @@ declare namespace uniformDataStruct {
     bundleName: string;
 
     /**
-     * Indicates the ability name of form.
+     * Ability name corresponding to the widget.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -439,9 +419,8 @@ declare namespace uniformDataStruct {
     abilityName: string;
 
     /**
-     * Indicates the module of form.
+     * Module to which the widget belongs.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -449,9 +428,9 @@ declare namespace uniformDataStruct {
     module: string;
 
     /**
-     * Indicates the details of form.
+     * Object of the dictionary type used to describe the icon. The key is of the string type, and the value can be a 
+     * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -460,19 +439,17 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Describe the file uri uniform data struct.
+   * Represents data of the file URI type.
    *
-   * @interface FileUri
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
    * @since 23 static
    */
   interface FileUri {
     /**
-     * Uniform data type, which has a fixed value of general.file-uri. For details, see UniformDataType.
+     * Uniform data type, which has a fixed value of **general.file-uri**. For details, see 
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
-     * @type { 'general.file-uri' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -480,9 +457,8 @@ declare namespace uniformDataStruct {
     readonly uniformDataType: 'general.file-uri';
 
     /**
-     * Indicates the oriUri of fileUri.
+     * File path.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -490,9 +466,9 @@ declare namespace uniformDataStruct {
     oriUri: string;
 
     /**
-     * Indicates the file type of fileUri.
+     * File type, which must be UTD. For details, see [Prebuilt UTDs](docroot://database/uniform-data-type-list.md). The
+     * maximum length of the value is 1024 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -500,9 +476,9 @@ declare namespace uniformDataStruct {
     fileType: string;
 
     /**
-     * Indicates the details of fileUri.
+     * Object of the dictionary type used to describe the icon. The key is of the string type, and the value can be a 
+     * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -512,7 +488,6 @@ declare namespace uniformDataStruct {
     /**
      * Defines URI authorization policies for drag intention.
      *
-     * @type { ?Array<int> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -521,19 +496,17 @@ declare namespace uniformDataStruct {
   }
 
   /**
-   * Describe the pixelMap uniform data struct.
+   * Represents data of the pixel map type defined by the system.
    *
-   * @interface PixelMap
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @since 15 dynamic
    * @since 23 static
    */
   interface PixelMap {
     /**
-     * 	Uniform data type, which has a fixed value of openharmony.pixel-map. For details, see UniformDataType.
+     * Uniform data type, which has a fixed value of **openharmony.pixel-map**. For details, see 
+     * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
-     * @type { 'openharmony.pixel-map' }
-     * @readonly
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -541,9 +514,8 @@ declare namespace uniformDataStruct {
     readonly uniformDataType: 'openharmony.pixel-map';
 
     /**
-     * Indicates the pixelMap value of pixelMap.
+     * Binary data of the pixel map.
      *
-     * @type { image.PixelMap }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
@@ -551,9 +523,9 @@ declare namespace uniformDataStruct {
     pixelMap: image.PixelMap;
 
     /**
-     * Indicates the details of pixelMap.
+     * Object of the dictionary type used to describe the icon. The key is of the string type, and the value can be a 
+     * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
-     * @type { ?Record<string, int | long | double | string | Uint8Array> }
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @since 15 dynamic
      * @since 23 static
