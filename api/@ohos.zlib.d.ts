@@ -910,10 +910,9 @@ declare namespace zlib {
    * A callback function for reading input data provided by a user. When the decompression process requires more
    * input data, zlib will call this function. This function should read data from the data source to the buffer.
    *
-   * @typedef { function }
    * @param { object } inDesc - A universal user-defined data object.
-   * The specific type and content depend on the actual application scenario, which can include configuration data,
-   * file handles, etc.
+   *     The specific type and content depend on the actual application scenario, which can include configuration data,
+   *     file handles, etc.
    * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
@@ -925,7 +924,6 @@ declare namespace zlib {
    * A callback function for reading input data provided by a user. When the decompression process requires
    * more input data, zlib will call this function. This function should read data from the data source to the buffer.
    *
-   * @typedef { function }
    * @param { RecordData } inDesc - A universal user-defined data object.
    *     The specific type and content depend on the actual application scenario, which can include configuration data,
    *     file handles, etc.
@@ -940,7 +938,6 @@ declare namespace zlib {
    * The output data provided by the user is written into the callback function. Whenever decompressed data is
    * ready for output, zlib calls this function to write the data from the buffer to the target location.
    *
-   * @typedef { function }
    * @param { object } outDesc - Object passed to output function. Object dependency requirement implementation.
    * @param { ArrayBuffer } buf - Used to store data to be written.
    * @param { int } length - Write the length of the output buffer.
@@ -955,7 +952,6 @@ declare namespace zlib {
    * The output data provided by the user is written into the callback function. Whenever decompressed data is
    * ready for output, zlib calls this function to write the data from the buffer to the target location.
    *
-   * @typedef { function }
    * @param { RecordData } outDesc - Object passed to output function. Object dependency requirement implementation.
    * @param { ArrayBuffer } buf - Used to store data to be written.
    * @param { int } length - Write the length of the output buffer.
@@ -1393,54 +1389,7 @@ declare namespace zlib {
      */
     getCrc64Table(): Promise<Array<long>>;
   }
-  /**
-   * # InflateBackInputCallback<sup>12+</sup>
-   *
-   * type InflateBackInputCallback = (inDesc: object) => ArrayBuffer
-   *
-   * Inputs data.
-   *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.BundleManager.Zlib
-   *
-   * **Parameters**
-   *
-   * | Name| Type  | Mandatory| Description              |
-   * | ------ | ------ | ---- | ------------------ |
-   * | inDesc | object | Yes  | User-defined data object.|
-   *
-   * **Return value**
-   *
-   * | Type                                          | Description                       |
-   * | ---------------------------------------------- | --------------------------- |
-   * | ArrayBuffer | Content buffer that is successfully read from the input data source.|
-   */
-  /**
-   * # InflateBackOutputCallback<sup>12+</sup>
-   *
-   * type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: number) => number
-   *
-   * Outputs data.
-   *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.BundleManager.Zlib
-   *
-   * **Parameters**
-   *
-   * | Name | Type       | Mandatory| Description                  |
-   * | ------- | ----------- | ---- | ---------------------- |
-   * | outDesc | object      | Yes  | User-defined data object.    |
-   * | buf     | ArrayBuffer | Yes  | Stores the data to be written.|
-   * | length  | number      | Yes  | Length of the data written to the output buffer.|
-   *
-   * **Return value**
-   *
-   * | Type                                          | Description                       |
-   * | ---------------------------------------------- | --------------------------- |
-   * | number | Number of bytes in the output buffer.|
-   */
+
   /**
    * Defines the **Zip** instance. It provides APIs to zip or unzip data in Zlib, Deflate, or Gzip format.
    *
