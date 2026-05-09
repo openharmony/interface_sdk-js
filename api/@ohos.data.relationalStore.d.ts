@@ -7298,10 +7298,10 @@ declare namespace relationalStore {
      * @param { Callback<ProgressDetails> } progress -
      *     Callback used to return the {@link ProgressDetails} result.
      * @param { AsyncCallback<void> } callback - The callback of cloudSync.
-     * @throws { BusinessError } 401 - Parameter error.
-     *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
-     *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
-     *     5. The progress must be a callback type. 6. The callback must be a function.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameter types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
@@ -8357,7 +8357,7 @@ declare namespace relationalStore {
      * retained. For data storage requirements exceeding 8 MB, the Blob type is recommended.
      *
      * @param { string } table - Name of the target table.
-     * @param { ValuesBucket } values - Row of data to insert.
+     * @param { ValuesBucket | sendableRelationalStore.ValuesBucket } values - Row of data to insert.
      * @param { ConflictResolution } [conflict] - Resolution used to resolve the conflict. <br>Default value:
      *     **relationalStore.ConflictResolution.ON_CONFLICT_NONE**.
      * @returns { number } If the operation is successful, the row ID will be returned. Otherwise, **-1** will be
