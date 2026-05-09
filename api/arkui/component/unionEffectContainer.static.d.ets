@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 import { LengthMetrics } from '../Graphics';
 

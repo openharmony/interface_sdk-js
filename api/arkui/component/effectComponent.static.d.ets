@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { CustomBuilder } from '@ohos.arkui.component';
 

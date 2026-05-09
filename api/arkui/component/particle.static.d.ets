@@ -23,7 +23,7 @@ import { LengthMetrics, SizeT, PositionT, Vector2T } from '../../arkui/Graphics'
 import { VP, ResourceStr, Dimension, ResourceColor } from "./units";
 import { ImageFit, Curve } from "./enums";
 import { ICurve, CommonMethod } from './common';
-import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 
 /**
@@ -1226,7 +1226,6 @@ export declare function Particle(
  * Defines Particle
  *
  * @param { CustomBuilderT<ParticleAttribute> } style_ - Particle attribute instance
- * @param { CustomBuilder } [content_] - container
  * @returns { ParticleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
