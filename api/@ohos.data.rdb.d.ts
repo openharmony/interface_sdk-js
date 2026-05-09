@@ -34,25 +34,20 @@ import Context from './application/BaseContext';
  * properties, characteristics, or relationships between data entities in an RDB store and are used to define data 
  * operation conditions.
  * - [RdbStore]{@link rdb.RdbStore}: provides APIs for managing data in an RDB store.
- * 
- * > **NOTE**
- * 
- * > - The APIs of this module are no longer maintained since API version 9. You are advised to use 
- * > [@ohos.data.relationalStore]{@link @ohos.data.relationalStore:relationalStore}.
  *
  * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.data.relationalStore
+ * @useinstead @ohos.data.relationalStore:relationalStore
  */
 declare namespace rdb {
   /**
    * Obtains an RDB store. This API uses an asynchronous callback to return the result. You can set parameters for the 
    * RDB store based on service requirements and call APIs to perform data operations.
    *
-   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./app/context}.
+   * @param { Context } context - Application context.
+   *     <br>For details about the application context of the FA model, see [Context]{@link ./app/context}.
+   *     <br>For details about the application context of the stage model, see [Context]{@link ./app/context}.
    * @param { StoreConfig } config - Configuration of the RDB store.
    * @param { number } version - RDB store version.<br>Currently, automatic RDB upgrades and downgrades performed based
    *     on **version** is not supported.
@@ -60,7 +55,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.getRdbStore
+   * @useinstead @ohos.data.relationalStore:relationalStore.getRdbStore
    */
   function getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void;
 
@@ -69,8 +64,8 @@ declare namespace rdb {
    * on service requirements and call APIs to perform data operations.
    *
    * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
    *     [Context]{@link ./app/context}.
+   *     <br>For details about the application context of the stage model, see [Context]{@link ./app/context}.
    * @param { StoreConfig } config - Configuration of the RDB store.
    * @param { number } version - RDB store version.<br>Currently, automatic RDB upgrades and downgrades performed based
    *     on **version** is not supported.
@@ -78,7 +73,6 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.getRdbStore
    */
   function getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>;
 
@@ -86,28 +80,28 @@ declare namespace rdb {
    * Deletes an RDB store. This API uses an asynchronous callback to return the result.
    *
    * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
    *     [Context]{@link ./app/context}.
+   *     <br>For details about the application context of the stage model, see [Context]{@link ./app/context}.
    * @param { string } name - Name of the RDB store to delete.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.deleteRdbStore
+   * @useinstead @ohos.data.relationalStore:relationalStore.deleteRdbStore
    */
   function deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void;
   /**
    * Deletes an RDB store. This API uses a promise to return the result.
    *
    * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
    *     [Context]{@link ./app/context}.
+   *     <br>For details about the application context of the stage model, see [Context]{@link ./app/context}.
    * @param { string } name - Name of the RDB store to delete.
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.deleteRdbStore
+   * @useinstead @ohos.data.relationalStore:relationalStore.deleteRdbStore
    */
   function deleteRdbStore(context: Context, name: string): Promise<void>;
 
@@ -117,7 +111,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.SyncMode
+   * @useinstead @ohos.data.relationalStore:relationalStore.SyncMode
    */
   enum SyncMode {
     /**
@@ -126,7 +120,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PUSH
+     * @useinstead @ohos.data.relationalStore:relationalStore.SyncMode.SYNC_MODE_PUSH
      */
     SYNC_MODE_PUSH = 0,
 
@@ -136,7 +130,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.SyncMode.SYNC_MODE_PULL
+     * @useinstead @ohos.data.relationalStore:relationalStore.SyncMode.SYNC_MODE_PULL
      */
     SYNC_MODE_PULL = 1
   }
@@ -148,7 +142,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.SubscribeType
+   * @useinstead @ohos.data.relationalStore:relationalStore.SubscribeType
    */
   enum SubscribeType {
     /**
@@ -158,7 +152,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
+     * @useinstead @ohos.data.relationalStore:relationalStore.SubscribeType.SUBSCRIBE_TYPE_REMOTE
      */
     SUBSCRIBE_TYPE_REMOTE = 0
   }
@@ -173,7 +167,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.RdbStore
+   * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore
    */
   interface RdbStore {
     /**
@@ -186,7 +180,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.insert
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.insert
      */
     insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>): void;
 
@@ -200,7 +194,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.insert
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.insert
      */
     insert(table: string, values: ValuesBucket): Promise<number>;
 
@@ -214,7 +208,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.batchInsert
      */
     batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>): void;
 
@@ -228,7 +222,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.batchInsert
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.batchInsert
      */
     batchInsert(table: string, values: Array<ValuesBucket>): Promise<number>;
 
@@ -243,7 +237,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.update
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.update
      */
     update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
@@ -257,7 +251,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.update
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.update
      */
     update(values: ValuesBucket, predicates: RdbPredicates): Promise<number>;
 
@@ -270,7 +264,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.delete
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.delete
      */
     delete(predicates: RdbPredicates, callback: AsyncCallback<number>): void;
 
@@ -283,7 +277,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.delete
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.delete
      */
     delete(predicates: RdbPredicates): Promise<number>;
 
@@ -299,7 +293,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.query
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.query
      */
     query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
 
@@ -314,7 +308,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.query
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.query
      */
     query(predicates: RdbPredicates, columns?: Array<string>): Promise<ResultSet>;
 
@@ -330,7 +324,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.querySql
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.querySql
      */
     querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>): void;
 
@@ -345,7 +339,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.querySql
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.querySql
      */
     querySql(sql: string, bindArgs?: Array<ValueType>): Promise<ResultSet>;
 
@@ -361,7 +355,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.executeSql
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.executeSql
      */
     executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>): void;
 
@@ -376,7 +370,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.executeSql
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.executeSql
      */
     executeSql(sql: string, bindArgs?: Array<ValueType>): Promise<void>;
 
@@ -386,7 +380,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.beginTransaction
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.beginTransaction
      */
     beginTransaction(): void;
 
@@ -396,7 +390,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.commit
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.commit
      */
     commit(): void;
 
@@ -406,7 +400,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.rollBack
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.rollBack
      */
     rollBack(): void;
 
@@ -419,7 +413,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.setDistributedTables
      */
     setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -432,7 +426,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.setDistributedTables
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.setDistributedTables
      */
     setDistributedTables(tables: Array<string>): Promise<void>;
 
@@ -456,7 +450,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.obtainDistributedTableName
      */
     obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void;
 
@@ -480,7 +474,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.obtainDistributedTableName
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.obtainDistributedTableName
      */
     obtainDistributedTableName(device: string, table: string): Promise<string>;
 
@@ -497,7 +491,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.sync
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.sync
      */
     sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void;
 
@@ -515,7 +509,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.sync
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.sync
      */
     sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>;
 
@@ -531,7 +525,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.on
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.on
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
 
@@ -547,7 +541,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbStore.off
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbStore.off
      */
     off(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void;
   }
@@ -561,7 +555,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.ValueType
+   * @useinstead @ohos.data.relationalStore:relationalStore.ValueType
    */
   type ValueType = number | string | boolean;
 
@@ -571,7 +565,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.ValuesBucket
+   * @useinstead @ohos.data.relationalStore:relationalStore.ValuesBucket
    */
   type ValuesBucket = { [key: string]: ValueType | Uint8Array | null };
 
@@ -581,7 +575,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.StoreConfig
+   * @useinstead @ohos.data.relationalStore:relationalStore.StoreConfig
    */
   interface StoreConfig {
     /**
@@ -590,7 +584,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.StoreConfig
+     * @useinstead @ohos.data.relationalStore:relationalStore.StoreConfig.name
      */
     name: string;
   }
@@ -602,7 +596,7 @@ declare namespace rdb {
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.data.relationalStore.RdbPredicates
+   * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates
    */
   class RdbPredicates {
     /**
@@ -612,7 +606,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.constructor
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates
      */
     constructor(name: string);
 
@@ -632,7 +626,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.inDevices
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.inDevices
      */
     inDevices(devices: Array<string>): RdbPredicates;
 
@@ -644,7 +638,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.inAllDevices
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.inAllDevices
      */
     inAllDevices(): RdbPredicates;
 
@@ -658,7 +652,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.equalTo
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.equalTo
      */
     equalTo(field: string, value: ValueType): RdbPredicates;
 
@@ -672,7 +666,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.notEqualTo
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.notEqualTo
      */
     notEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -683,7 +677,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.beginWrap
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.beginWrap
      */
     beginWrap(): RdbPredicates;
 
@@ -694,7 +688,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.endWrap
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.endWrap
      */
     endWrap(): RdbPredicates;
 
@@ -705,7 +699,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.or
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.or
      */
     or(): RdbPredicates;
 
@@ -716,7 +710,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.and
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.and
      */
     and(): RdbPredicates;
 
@@ -730,7 +724,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.contains
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.contains
      */
     contains(field: string, value: string): RdbPredicates;
 
@@ -744,7 +738,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.beginsWith
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.beginsWith
      */
     beginsWith(field: string, value: string): RdbPredicates;
 
@@ -758,7 +752,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.endsWith
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.endsWith
      */
     endsWith(field: string, value: string): RdbPredicates;
 
@@ -770,7 +764,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.isNull
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.isNull
      */
     isNull(field: string): RdbPredicates;
 
@@ -784,7 +778,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.isNotNull
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.isNotNull
      */
     isNotNull(field: string): RdbPredicates;
 
@@ -798,7 +792,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.like
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.like
      */
     like(field: string, value: string): RdbPredicates;
 
@@ -813,7 +807,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.glob
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.glob
      */
     glob(field: string, value: string): RdbPredicates;
 
@@ -828,7 +822,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.between
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.between
      */
     between(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
@@ -843,7 +837,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.notBetween
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.notBetween
      */
     notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates;
 
@@ -857,7 +851,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThan
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.greaterThan
      */
     greaterThan(field: string, value: ValueType): RdbPredicates;
 
@@ -871,7 +865,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.lessThan
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.lessThan
      */
     lessThan(field: string, value: ValueType): RdbPredicates;
 
@@ -885,7 +879,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.greaterThanOrEqualTo
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.greaterThanOrEqualTo
      */
     greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -899,7 +893,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.lessThanOrEqualTo
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.lessThanOrEqualTo
      */
     lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates;
 
@@ -911,7 +905,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.orderByAsc
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.orderByAsc
      */
     orderByAsc(field: string): RdbPredicates;
 
@@ -923,7 +917,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.orderByDesc
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.orderByDesc
      */
     orderByDesc(field: string): RdbPredicates;
 
@@ -934,7 +928,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.distinct
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.distinct
      */
     distinct(): RdbPredicates;
 
@@ -946,7 +940,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.limitAs
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.limitAs
      */
     limitAs(value: number): RdbPredicates;
 
@@ -960,7 +954,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.offsetAs
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.offsetAs
      */
     offsetAs(rowOffset: number): RdbPredicates;
 
@@ -972,7 +966,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.groupBy
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.groupBy
      */
     groupBy(fields: Array<string>): RdbPredicates;
 
@@ -984,7 +978,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.indexedBy
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.indexedBy
      */
     indexedBy(field: string): RdbPredicates;
 
@@ -998,7 +992,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.in
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.in
      */
     in(field: string, value: Array<ValueType>): RdbPredicates;
 
@@ -1012,7 +1006,7 @@ declare namespace rdb {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.data.relationalStore.RdbPredicates.notIn
+     * @useinstead @ohos.data.relationalStore:relationalStore.RdbPredicates.notIn
      */
     notIn(field: string, value: Array<ValueType>): RdbPredicates;
   }
