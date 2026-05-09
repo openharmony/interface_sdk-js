@@ -84,7 +84,7 @@ export declare class LazyColumnLayoutAttribute extends CommonMethod<LazyColumnLa
   /**
    * Triggered when the index of child components in the visible area changes.
    *
-   * @param { onVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
    *     when the index of child components in the visible area changes.
    *     <br>Passing undefined will unregister the callback.
    * @returns { LazyColumnLayoutAttribute }
@@ -94,7 +94,7 @@ export declare class LazyColumnLayoutAttribute extends CommonMethod<LazyColumnLa
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  onVisibleIndexesChange(callback: onVisibleIndexesChangeCallback | undefined): LazyColumnLayoutAttribute;
+  onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): LazyColumnLayoutAttribute;
 }
 
 /**
