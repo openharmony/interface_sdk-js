@@ -2145,3 +2145,30 @@ export declare interface FontWeightConfigs {
      */
     enableDeviceFontWeightCategory?: boolean;
 }
+
+/**
+ * Defines incremental update policies for text rendering.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum IncrementalUpdatePolicy {
+    /**
+     * Disable incremental updates. Full layout rendering is used.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    NONE = 0,
+    /**
+     * Enable incremental updates with paragraph-level cache.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    PARAGRAPH_CACHE = 1
+}

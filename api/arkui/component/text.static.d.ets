@@ -21,7 +21,7 @@ import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOpti
 import { CustomBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation } from "./textCommon";
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation, IncrementalUpdatePolicy } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
 import { ComponentBuilder } from './builder';
@@ -968,6 +968,21 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default fontVariations(fontVariations: Array<FontVariation> | undefined): this;
+    
+    /**
+     * Sets the incremental update policy for text rendering.
+     *
+     * This API takes effect only when Text content contains a StyledString.
+     * Default value is IncrementalUpdatePolicy.NONE.
+     *
+     * @param { IncrementalUpdatePolicy | undefined } policy - Indicates the incremental update policy.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default incrementalUpdatePolicy(policy: IncrementalUpdatePolicy | undefined): this;
 }
 /**
  * Defines span type.
