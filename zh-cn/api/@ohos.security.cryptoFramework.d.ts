@@ -20,8 +20,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **cryptoFramework** module provides APIs for cryptographic operations, shielding the underlying hardware and
- * algorithm library.
+ * 提供统一的密码算法库加解密接口，以屏蔽底层硬件和算法库。
  *
  * @syscap SystemCapability.Security.CryptoFramework
  * @crossplatform [since 11]
@@ -31,7 +30,7 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace cryptoFramework {
   /**
-   * Enumerates the operation results.
+   * 表示执行结果的枚举。
    *
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform [since 11]
@@ -41,7 +40,7 @@ declare namespace cryptoFramework {
    */
   enum Result {
     /**
-     * Invalid parameter.
+     * 非法入参。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform [since 11]
@@ -52,7 +51,7 @@ declare namespace cryptoFramework {
     INVALID_PARAMS = 401,
 
     /**
-     * Unsupported operation.
+     * 操作不支持。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform [since 11]
@@ -63,7 +62,7 @@ declare namespace cryptoFramework {
     NOT_SUPPORT = 801,
 
     /**
-     * The memory operation failed.
+     * 内存操作失败。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform [since 11]
@@ -74,7 +73,7 @@ declare namespace cryptoFramework {
     ERR_OUT_OF_MEMORY = 17620001,
 
     /**
-     * The parameter conversion between ArkTS and C failed.
+     * 表示在ArkTS和C之间转换参数失败。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform [since 11]
@@ -85,7 +84,7 @@ declare namespace cryptoFramework {
     ERR_RUNTIME_ERROR = 17620002,
 
     /**
-     * The parameter check failed.
+     * 表示参数检查失败。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform
@@ -96,9 +95,11 @@ declare namespace cryptoFramework {
     ERR_PARAMETER_CHECK_FAILED = 17620003,
 
     /**
-     * Invalid function call.
+     * 表示无效的函数调用。
      *
      * 26.0.0
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @stagemodelonly
@@ -108,7 +109,7 @@ declare namespace cryptoFramework {
     ERR_INVALID_CALL = 17620004,
 
     /**
-     * Cryptographic operation error.
+     * 调用三方算法库API出错。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform [since 11]
@@ -120,11 +121,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates binary data. The core field **data** is of the Uint8Array type.
+   * 二进制数据的封装接口，核心字段data为Uint8Array类型。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > The Uint8Array typed array represents an array of 8-bit unsigned integers.
+   * > Uint8Array类型数据表示8位无符号整数的数组。
    *
    * @syscap SystemCapability.Security.CryptoFramework
    * @crossplatform [since 11]
@@ -134,7 +135,7 @@ declare namespace cryptoFramework {
    */
   interface DataBlob {
     /**
-     * Binary data array.
+     * 数据。
      *
      * @syscap SystemCapability.Security.CryptoFramework
      * @crossplatform [since 11]
@@ -146,28 +147,21 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters used for encryption or decryption. You need to construct its child class object and
-   * pass it to [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for
-   * symmetric encryption or decryption.
+   * 加解密参数，在进行对称加解密时需要构造其子类对象，并将子类对象传入
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法。
    *
-   * It applies to the symmetric block cipher modes that require parameters such as the initialization vector (IV). If
-   * the IV is not required (for example, the ECB mode), pass in **null** to
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}.
+   * 适用于需要iv等参数的对称加解密模式（对于无iv等参数的模式如ECB模式，无需构造，在
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}中传入null即可）。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > An initialization vector (IV) is a byte sequence used to introduce randomness or uniqueness in symmetric
-   * > encryption modes (such as CBC, CTR, OFB, CFB, GCM, CCM, and Poly1305). It ensures that different ciphertexts are
-   * > generated for the same plaintext under the same key.
+   * > iv（Initialization Vector，初始化向量）是用于对称加密模式（如 CBC/CTR/OFB/CFB/GCM/CCM/Poly1305）中引入随机性或唯一性的字节序列，保证相同明文在相同密钥下产生不同密文。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > The **params** parameter in
-   * > [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} is of the
-   * > **ParamsSpec** type (parent class). However, a child class object (such as
-   * > [IvParamsSpec]{@link cryptoFramework.IvParamsSpec}) needs to be passed in. When constructing the child class
-   * > object, you must set **algName** for its parent class **ParamsSpec** to specify the child class object to be
-   * > passed to **init()**.
+   * > 由于[init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}的params参数是
+   * > ParamsSpec类型（父类），而实际需要传入具体的子类对象（如[IvParamsSpec]{@link cryptoFramework.IvParamsSpec}），因此在构造子类对象时应设置其父类ParamsSpec的
+   * > algName参数，使算法库在init()时知道传入的是哪种子类对象。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -178,11 +172,11 @@ declare namespace cryptoFramework {
    */
   interface ParamsSpec {
     /**
-     * Algorithm for symmetric encryption or decryption. The value can be:
+     * 指明对称加解密参数的算法模式。可选值如下：
      *
-     * - **IvParamsSpec**: applicable to the CBC, CTR, OFB, and CFB modes.
-     * - **GcmParamsSpec**: applicable to the GCM mode.
-     * - **CcmParamsSpec**: applicable to the CCM mode.
+     * - "IvParamsSpec"：适用于CBC|CTR|OFB|CFB模式。
+     * - "GcmParamsSpec"：适用于GCM模式。
+     * - "CcmParamsSpec"：适用于CCM模式。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -195,18 +189,15 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters for encryption or decryption using a block cipher mode that requires an IV. It is a
-   * child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
-   * encryption or decryption.
+   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
-   * This class is applicable to block cipher modes that require an IV, such as CBC, CTR, OFB, and CFB.
+   * 适用于CBC、CTR、OFB、CFB这些需要iv作为参数的加解密模式。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Before passing a value to
-   * > [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}, specify
-   * > **algName** for its parent class [ParamsSpec]{@link cryptoFramework.ParamsSpec}.
+   * > 传入[init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法前需要指定其
+   * > algName属性（来源于父类[ParamsSpec]{@link cryptoFramework.ParamsSpec}）。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -217,11 +208,11 @@ declare namespace cryptoFramework {
    */
   interface IvParamsSpec extends ParamsSpec {
     /**
-     * IV for encryption or decryption. Options:
+     * 指明加解密参数iv。常见取值如下：
      *
-     * - In the CBC, CTR, OFB, or CFB mode of AES: The IV length is 16 bytes.
-     * - In the CBC, OFB, or CFB mode of 3DES: The IV length is 8 bytes.
-     * - In the CBC, CTR, OFB, or CFB mode of SM4<sup>10+</sup>: The IV length is 16 bytes.
+     * - AES的CBC|CTR|OFB|CFB模式：iv长度为16字节。
+     * - 3DES的CBC|OFB|CFB模式：iv长度为8字节。
+     * - SM4<sup>10+</sup>的CBC|CTR|OFB|CFB模式：iv长度为16字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -234,22 +225,14 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters for encryption or decryption using a block cipher mode that requires an IV. It is a
-   * child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
-   * encryption or decryption.
+   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
-   * applies to the GCM mode.
+   * 适用于GCM模式。
    *
-   * > **NOTE**
-   * >
-   * > 1. Before passing a value to
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}, specify
-   * **algName** for its parent class [ParamsSpec](#paramsspec).
-   * > 2. The Crypto framework imposes no additional restrictions on the IV of 1 to 16 bytes. However, the operation
-   * result depends on the underlying OpenSSL support.
-   * > 3. If **aad** is not required or the **aad** length is 0, you can set its **data** attribute to an empty
-   * Uint8Array in the **aad: { data: new Uint8Array() }** format when constructing **GcmParamsSpec**.
+   * > **说明**
+   * > > **说明：**
+   * > >。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -260,7 +243,7 @@ declare namespace cryptoFramework {
    */
   interface GcmParamsSpec extends ParamsSpec {
     /**
-     * IV, which is of 1 to 16 bytes. A 12-byte IV is commonly used.
+     * 指明加解密参数iv，长度为1~16字节，常用为12字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -272,7 +255,7 @@ declare namespace cryptoFramework {
     iv: DataBlob;
 
     /**
-     * Additional authentication data (AAD), which is of 0 to INT_MAX bytes. A 16-byte AAD is commonly used.
+     * 指明加解密参数aad，长度为0~INT_MAX字节，常用为16字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -284,15 +267,14 @@ declare namespace cryptoFramework {
     aad: DataBlob;
 
     /**
-     * Authentication tag, which is of 16 bytes.
+     * 指明加解密参数authTag，长度为16字节。
      *
-     * When GCM mode is used for encryption, you need to extract the last 16 bytes from the
-     * [DataBlob]{@link cryptoFramework.DataBlob} returned by
-     * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)} or
-     * [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)} and use them as **authTag** in
-     * **GcmParamsSpec** for
-     * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} or
-     * [initSync()]{@link cryptoFramework.Cipher.initSync}.
+     * 采用GCM模式加密时，需从
+     * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)}或
+     * [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)}输出的
+     * [DataBlob]{@link cryptoFramework.DataBlob}中提取末尾16字节，作为
+     * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}或
+     * [initSync()]{@link cryptoFramework.Cipher.initSync}方法中GcmParamsSpec的authTag。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -305,18 +287,15 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters for encryption or decryption using a block cipher mode that requires an IV. It is a
-   * child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
-   * encryption or decryption.
+   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
-   * applies to the CCM mode.
+   * 适用于CCM模式。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Before passing a value to
-   * > [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}, specify
-   * > **algName** for its parent class [ParamsSpec]{@link cryptoFramework.ParamsSpec}.
+   * > 传入[init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法前需要指定其
+   * > algName属性（来源于父类[ParamsSpec]{@link cryptoFramework.ParamsSpec}）。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -327,8 +306,7 @@ declare namespace cryptoFramework {
    */
   interface CcmParamsSpec extends ParamsSpec {
     /**
-     * IV for encryption and decryption. Only 7 bytes are supported. If the length of the input **iv** parameter exceeds
-     * 7 bytes, the excess part will be truncated.
+     * 指明加解密参数iv，仅支持7字节。若传入iv长度超过7字节，超出范围将被截断。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -340,7 +318,7 @@ declare namespace cryptoFramework {
     iv: DataBlob;
 
     /**
-     * AAD for encryption and decryption. The AAD value contains 1 to 2,048 bytes.
+     * 指明加解密参数aad。aad最小长度为1字节，最大为2048字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -352,15 +330,14 @@ declare namespace cryptoFramework {
     aad: DataBlob;
 
     /**
-     * Authentication tag, which is of 16 bytes.
+     * 指明加解密参数authTag，长度为16字节。
      *
-     * When GCM mode is used for encryption, you need to extract the last 16 bytes from the
-     * [DataBlob]{@link cryptoFramework.DataBlob} returned by
-     * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)} or
-     * [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)} and use them as **authTag** in
-     * **GcmParamsSpec** for
-     * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} or
-     * [initSync()]{@link cryptoFramework.Cipher.initSync}.
+     * 采用GCM模式加密时，需从
+     * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)}或
+     * [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)}输出的
+     * [DataBlob]{@link cryptoFramework.DataBlob}中提取末尾16字节，作为
+     * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}或
+     * [initSync()]{@link cryptoFramework.Cipher.initSync}方法中GcmParamsSpec的authTag。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -373,27 +350,23 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Encapsulates the parameters for encryption or decryption using a block cipher mode that requires an IV. It is a
-   * child class of [ParamsSpec]{@link cryptoFramework.ParamsSpec} and used as a parameter in
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
-   * encryption or decryption.
+   * 加解密参数[ParamsSpec]{@link cryptoFramework.ParamsSpec}的子类，用于在对称加解密时作为
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法的参数。
    *
-   * Applicable to the Poly1305 mode of
-   * [ChaCha20](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20).
+   * 适用于[ChaCha20算法](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20)Poly1305模式。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Before passing a value to
-   * > [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}, specify
-   * > **algName** for its parent class [ParamsSpec]{@link cryptoFramework.ParamsSpec}.
+   * > 传入[init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法前需要指定其
+   * > algName属性（来源于父类[ParamsSpec]{@link cryptoFramework.ParamsSpec}）。
    * >
-   * > When the Poly1305 mode is used for encryption, you need to extract the last 16 bytes from the
-   * > [DataBlob]{@link cryptoFramework.DataBlob} returned by
-   * > [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)} or
-   * > [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)} and use them as **authTag** in
-   * > [Poly1305ParamsSpec]{@link cryptoFramework.Poly1305ParamsSpec} for
-   * > [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} or
-   * > [initSync()]{@link cryptoFramework.Cipher.initSync} during decryption.
+   * > 在Poly1305模式加密时，需从
+   * > [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)}或
+   * > [doFinalSync()]{@link cryptoFramework.Cipher.doFinalSync(data: DataBlob | null)}输出的
+   * > [DataBlob]{@link cryptoFramework.DataBlob}末尾提取16字节，作为解密时
+   * > [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}或
+   * > [initSync()]{@link cryptoFramework.Cipher.initSync}方法的参数
+   * > [Poly1305ParamsSpec]{@link cryptoFramework.Poly1305ParamsSpec}中的authTag。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
@@ -403,7 +376,7 @@ declare namespace cryptoFramework {
    */
   interface Poly1305ParamsSpec extends ParamsSpec {
     /**
-     * IV, which is of 12 bytes.
+     * 指明加解密参数iv，长度为12字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -414,7 +387,7 @@ declare namespace cryptoFramework {
     iv: DataBlob;
 
     /**
-     * AAD, which is of any bytes.
+     * 指明加解密参数aad，长度为任意字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -425,7 +398,7 @@ declare namespace cryptoFramework {
     aad: DataBlob;
 
     /**
-     * Authentication tag, which is of 16 bytes.
+     * 指定加解密参数authTag，长度为16字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -437,26 +410,19 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Describes parameters in
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} for symmetric
-   * encryption and decryption using authenticated encryption with association data (AEAD). It Inherits from
-   * [ParamsSpec]{@link cryptoFramework.ParamsSpec}.
+   * 用于AEAD（带关联数据的认证加密）对称加解密的
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法参数，继承自
+   * [ParamsSpec]{@link cryptoFramework.ParamsSpec}。
    *
-   * It is applicable to the CCM, GCM mode of
-   * [AES](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#aes).
-   * It is applicable to the GCM mode of
-   * [SM4](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#sm4).
-   * It is applicable to the Poly1305 mode of
-   * [ChaCha20](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#chacha20).
+   * 适用于[AES算法](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#aes)的CCM和GCM分组模式。
+   * 适用于[SM4算法](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#sm4)的GCM分组模式。
+   * 适用于[ChaCha20算法](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md#aes)的chacha20分组模式。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > When **AeadParamsSpec** is used for encryption in AES-CCM mode:
-   * > - If the tag length is specified during encryption, the same length must be passed during decryption.
+   * > 在AES-CCM模式下使用AeadParamsSpec加密时：
    * >
-   * > - Only one of [update]{@link cryptoFramework.Cipher.update} and
-   * > [doFinal]{@link cryptoFramework.Cipher.doFinal} can be called for encryption or decryption in CCM mode. Each
-   * > method can be called only once.
+   * > - 当前使用AeadParamsSpec参数，CCM模式下update(#update)与doFinal(#dofinal)只能调用其中一个进行加密或者解密。且每个方法只能调用一次。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -465,11 +431,12 @@ declare namespace cryptoFramework {
    */
   interface AeadParamsSpec extends ParamsSpec {
     /**
-     * Number used once.
-     * <br>For AES-CCM, the nonce length ranges from 7 to 13 bytes.
-     * For AES-GCM, the nonce length ranges from 1 to 128 bytes, 12 bytes are recommended.
-     * For SM4-GCM, the nonce length ranges from 1 to 128 bytes, 12 bytes are recommended.
-     * For ChaCha20-Poly1305, the nonce length must be 12 bytes.
+     * 指明加解密参数nonce。
+     * 长度必须为12字节。
+     * <br>对于AES-CCM,nonce长度的取值范围为7~13字节。
+     * 对于AES-GCM,nonce长度范围为1~128字节，推荐使用12字节。
+     * 对于SM4-GCM,nonce长度范围为1~128字节，推荐使用12字节。
+     * 对于ChaCha20-Poly1305,nonce长度必须为12字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -479,7 +446,7 @@ declare namespace cryptoFramework {
     nonce: Uint8Array;
 
     /**
-     * Additional authenticated data, which is of any bytes.
+     * 指明加解密参数aad，长度为任意字节。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -489,14 +456,14 @@ declare namespace cryptoFramework {
     authenticatedData?: Uint8Array;
 
     /**
-     * Authentication tag length.
-     * For encryption, the tag will be added to the end of the ciphertext.
-     * For decryption, the tag should be at the end of the ciphertext.
-     * The value should be an integer.
-     * <br>For AES-CCM, the default value is 12. The supported values are 4, 6, 8, 10, 12, 14, and 16.
-     * For AES-GCM, the default value is 16. The supported values are 4, 8, 12, 13, 14, 15, and 16.
-     * For SM4-GCM, the default value is 16. The supported values are 4, 8, 12, 13, 14, 15, and 16.
-     * For ChaCha20-Poly1305, the default value is 16. The supported values is 16.
+     * 指定加解密参数authTag长度。
+     * 对于加密操作，tag将被添加到密文的末尾。
+     * 对于解密操作，tag应位于密文的末尾。
+     * 取值限定为整数。
+     * <br>对于 AES-CCM，其默认值为12。支持的范围为4、6、8、10、12、14 和 16。
+     * 对于 AES-GCM，其默认值为16。支持的范围为4、8、12、13、14、15 和 16。
+     * 对于 SM4-GCM，其默认值为16。支持的范围为4、8、12、13、14、15 和 16。
+     * 对于 ChaCha20-Poly1305，其默认值为16。支持的范围为16。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -507,10 +474,10 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Enumerates the cryptographic operations.
+   * 表示加解密操作的枚举。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Cipher** since API version 12.
+   * API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为
+   * SystemCapability.Security.CryptoFramework.Cipher。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -521,7 +488,7 @@ declare namespace cryptoFramework {
    */
   enum CryptoMode {
     /**
-     * Encryption.
+     * 表示进行加密操作。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -533,7 +500,7 @@ declare namespace cryptoFramework {
     ENCRYPT_MODE = 0,
 
     /**
-     * Decryption.
+     * 表示进行解密操作。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -546,15 +513,13 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Represents the RSA private key encoding parameters. You can use it to generate an encoded private key string with
-   * the specified algorithm and password.
+   * RSA私钥编码参数，使用获取私钥字符串时，可以添加此参数，生成指定算法、密码的编码后的私钥字符串。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - **password** specifies the password used for encoding the private key. It is mandatory.
+   * > - password是必选参数，表示编码用到的密码。
    * >
-   * > - **cipherName** specifies the algorithm used for encoding. It is mandatory. Currently, only **AES-128-CBC**,
-   * > **AES-192-CBC**, **AES-256-CBC**, and **DES-EDE3-CBC** are supported.
+   * > - cipherName是必选参数，指定编码用到的算法。当前仅支持AES-128-CBC、AES-192-CBC、AES-256-CBC、DES-EDE3-CBC。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @crossplatform
@@ -564,7 +529,7 @@ declare namespace cryptoFramework {
    */
   interface KeyEncodingConfig {
     /**
-     * Password used for encoding the private key.
+     * 密码。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -575,7 +540,7 @@ declare namespace cryptoFramework {
     password: string;
 
     /**
-     * Algorithm to use.
+     * 算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @crossplatform
@@ -586,30 +551,14 @@ declare namespace cryptoFramework {
     cipherName: string;
   }
   /**
-   * # Attributes
+   * 密钥（父类），在运行密码算法（如加解密）时需要提前生成其子类对象，并传入[Cipher]{@link cryptoFramework.CipherSpecItem}实例的
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   * 密钥通过子类密钥生成器来生成，详见子类描述。具体子类有：[SymKey]{@link cryptoFramework.SymKey}、[PubKey]{@link cryptoFramework.PubKey}、
+   * [PriKey]{@link cryptoFramework.PriKey}。
    *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Key
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Key** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                        |
-   * | ------- | ------ | ---- | ---- | ---------------------------- |
-   * | format  | string | Yes  | No  | Format of the key.                |
-   * | algName | string | Yes  | No  | Algorithm to use. This parameter contains the key length if the key is a
-   * symmetric key.|
    */
   /**
-   * Provides APIs for key operations. Before performing cryptographic operations (such as encryption and decryption),
-   * you need to construct a child class object of **Key** and pass it to
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} of the
-   * [Cipher]{@link cryptoFramework.Cipher} instance.
-   *
-   * Keys can be generated by a child class key generator. For details, see the child class description. The child
-   * classes include [SymKey]{@link cryptoFramework.SymKey}, [PubKey]{@link cryptoFramework.PubKey}, and
-   * [PriKey]{@link cryptoFramework.PriKey}.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key [since 12]
@@ -620,16 +569,13 @@ declare namespace cryptoFramework {
    */
   interface Key {
     /**
-     * Obtains the byte stream of the key data. This API returns the result synchronously. The key can be a symmetric
-     * key, public key, or private key. The public key must comply with the ASN.1 syntax, X.509 specifications, and DER
-     * encoding. The private key must comply with the ASN.1 syntax, PKCS #8 specifications, and DER encoding.
+     * 同步方法，获取密钥数据的字节流。密钥可以是对称密钥、公钥或私钥。公钥格式需符合ASN.1语法、X.509规范和DER编码；私钥格式需符合ASN.1语法、PKCS#8规范和DER编码。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > When the RSA algorithm generates a private key using key parameters, **getEncoded** is available for the
-     * > private key object.
+     * > RSA算法使用密钥参数生成私钥时，私钥对象支持getEncoded。
      *
-     * @returns { DataBlob } Key obtained.
+     * @returns { DataBlob } 用于查看密钥的具体内容。
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -643,9 +589,9 @@ declare namespace cryptoFramework {
     getEncoded(): DataBlob;
 
     /**
-     * Obtains the bit length of a key synchronously. The key can be a symmetric key, public key, or private key.
+     * 以同步方式获取密钥的比特长度。密钥可以是对称密钥、公钥或私钥。
      *
-     * @returns { int } Bit length of the key.
+     * @returns { int } 获取密钥的比特长度。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -657,7 +603,7 @@ declare namespace cryptoFramework {
     getKeySize(): int;
 
     /**
-     * Indicates the format of the key object.
+     * 密钥的格式。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key [since 12]
@@ -669,8 +615,7 @@ declare namespace cryptoFramework {
     readonly format: string;
 
     /**
-     * Indicates the algorithm name of the key object. This parameter contains the key length if the key is a symmetric
-     * key.
+     * 密钥对应的算法名（如果是对称密钥，则含密钥长度，否则不含密钥长度）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key [since 12]
@@ -683,12 +628,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides APIs for symmetric key operations. It is a child class of [Key]{@link cryptoFramework.KeyEncodingConfig}.
-   * Its objects need to be passed to
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)} of the
-   * [Cipher]{@link cryptoFramework.Cipher} instance in symmetric encryption and decryption.
+   * 对称密钥，是[Key]{@link cryptoFramework.KeyEncodingConfig}的子类，在对称加解密时需要将其对象传入
+   * [Cipher]{@link cryptoFramework.CipherSpecItem}实例的
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}方法使用。
    *
-   * Symmetric keys can be generated by a [SymKeyGenerator]{@link cryptoFramework.SymKeyGenerator}.
+   * 对称密钥通过对称密钥生成器[SymKeyGenerator]{@link cryptoFramework.SymKeyGenerator}来生成。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
@@ -699,8 +643,7 @@ declare namespace cryptoFramework {
    */
   interface SymKey extends Key {
     /**
-     * Clears the keys in memory. This API returns the result synchronously. Call this API when the symmetric key
-     * instance is no longer required.
+     * 同步方法，将系统底层内存中的密钥内容清零。建议在不再使用对称密钥实例时调用此函数，避免密钥数据在内存中存留过久。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
@@ -713,13 +656,10 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides APIs for private key operations. **PriKey** is a child class of
-   * [Key]{@link cryptoFramework.KeyEncodingConfig}. It needs to be passed in during asymmetric encryption and
-   * decryption, signing, and key agreement.
+   * 私钥，是[Key]{@link cryptoFramework.KeyEncodingConfig}的子类，在非对称加解密、签名、密钥协商时需要将其作为输入使用。
    *
-   * The private key can be generated by using the asymmetric key generator
-   * [AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator} or
-   * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}.
+   * 私钥可以通过非对称密钥生成器[AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator}、
+   * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}来生成。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -730,7 +670,7 @@ declare namespace cryptoFramework {
    */
   interface PriKey extends Key {
     /**
-     * Clear the keys in memory. This API returns the result synchronously.
+     * 同步方法，清零系统底层内存中的密钥内容。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -742,9 +682,9 @@ declare namespace cryptoFramework {
     clearMem(): void;
 
     /**
-     * Obtains a key parameter. This API returns the result synchronously.
+     * 同步方法，获取密钥参数。
      *
-     * @param { AsyKeySpecItem } itemType - Key parameter type to obtain.
+     * @param { AsyKeySpecItem } itemType - 指定的密钥参数类型。
      * @returns { bigint | string | int } Content of the key parameter obtained.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -764,25 +704,19 @@ declare namespace cryptoFramework {
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
     /**
-     * Obtains the private key data that complies with the ASN.1 syntax and DER encoding based on the specified format (
-     * such as the key specifications).
+     * 支持根据指定的密钥格式（如采用哪个规范），获取满足ASN.1语法、DER编码的私钥数据。
      *
-     * In API versions 12 to 24, only the ECC private key data in PKCS #8 format can be obtained.
+     * 在API版本12-24，仅支持获取PKCS8格式的ECC私钥数据。
      *
-     * Since API version 26.0.0, the RSA private key data in PKCS #1 and PKCS #8 formats can be obtained.
+     * 从API版本26.0.0开始，增加支持获取PKCS1和PKCS8格式的RSA私钥数据。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The difference between [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded} and this API is as follows:
-     * > 1. You can specify the format of the key data to be obtained in this API. Currently, the ECC private key data
-     * > in PKCS #8 format is supported.
-     * > 2. The format of the key data to be obtained cannot be specified in
-     * > [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}.
+     * > 本接口和[Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}的区别是：
      *
      *
-     * @param { string } format - Format of the key.<br>In API versions 12 to 24, only PKCS #8 format is supported.<br>
-     *     Since API version 26.0.0, the RSA private key can be in PKCS #1 or PKCS #8 format.
-     * @returns { DataBlob } ECC private key data obtained.
+     * @param { string } format - 用于指定当前密钥格式。<br>在API版本12-24，取值仅支持"PKCS8"。<br>从API版本26.0.0开始，RSA私钥格式支持"PKCS1"和"PKCS8"。
+     * @returns { DataBlob } 返回满足ASN.1语法和DER编码的指定密钥格式的ECC私钥数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -799,12 +733,10 @@ declare namespace cryptoFramework {
     getEncodedDer(format: string): DataBlob;
 
     /**
-     * Obtains the key data. This API returns the result synchronously.
+     * 同步方法，获取密钥数据的字符串。
      *
-     * @param { string } format - Encoding format of the key data to obtain. RSA key is supported, the format can be
-     *     **'PKCS8'** or **'PKCS1'**. Since API version 26.0.0, EC key is supported, the format can be **'PKCS8'**
-     *     or **'EC'**.
-     * @returns { string } Key data obtained.
+     * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，格式可以是'PKCS8'或'PKCS1'。自API版本26.0.0起，支持EC密钥，格式可'PKCS8'或'EC'。
+     * @returns { string } 用于获取指定密钥格式的具体内容。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -821,13 +753,11 @@ declare namespace cryptoFramework {
     getEncodedPem(format: string): string;
 
     /**
-     * Obtains the key data. This API returns the result synchronously. Currently, only RSA key are supported.
+     * 同步方法，获取密钥数据的字符串。目前仅支持RSA密钥。
      *
-     * @param { string } format - Encoding format of the key data to obtain. For RSA key, the format can be **'PKCS8'**
-     *     or **'PKCS1'**.
-     * @param { KeyEncodingConfig } config - Options (including the password and algorithm) for encoding the private
-     *     key.
-     * @returns { string } Key data obtained. If **config** is specified, the key obtained is encoded.
+     * @param { string } format - 指定的获取密钥字符串的编码格式。对于RSA密钥，格式可以是'PKCS8'或'PKCS1'。
+     * @param { KeyEncodingConfig } config - 指定编码的算法跟口令，对私钥进行编码操作。
+     * @returns { string } 用于获取指定密钥格式的具体内容。如果填了config参数，则获取编码后的内容。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -843,9 +773,9 @@ declare namespace cryptoFramework {
     getEncodedPem(format: string, config: KeyEncodingConfig): string;
 
     /**
-     * Obtains a public key from a private key. This API uses a promise to return the result.
+     * 从私钥对象中获取公钥对象。使用Promise异步回调。
      *
-     * @returns { Promise<PubKey> } Promise used to return the public key.
+     * @returns { Promise<PubKey> } Promise对象，返回公钥对象PubKey。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -857,14 +787,9 @@ declare namespace cryptoFramework {
     getPubKey(): Promise<PubKey>;
 
     /**
-     * Obtains a public key from a private key in synchronous mode.
+     * 以同步方式，从私钥对象中获取公钥对象。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link getPubKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { PubKey } Public key object.
+     * @returns { PubKey } 公钥对象。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -876,11 +801,10 @@ declare namespace cryptoFramework {
     getPubKeySync(): PubKey;
 
     /**
-     * Defines the key data type, which is used to obtain public key data of the corresponding type. This API uses a
-     * promise to return the result.
+     * 指定密钥数据项类型，获取对应类型的公钥数据。使用Promise异步回调。
      *
-     * @param { AsyKeyDataItem } itemType - Key data type.
-     * @returns { Promise<Uint8Array> } Promise used to return the private key data of the specified key data type.
+     * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
+     * @returns { Promise<Uint8Array> } Promise对象，返回指定密钥数据项类型的私钥数据。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
@@ -893,16 +817,10 @@ declare namespace cryptoFramework {
     getKeyData(itemType: AsyKeyDataItem): Promise<Uint8Array>;
 
     /**
-     * Defines the key data type, which is used to obtain private key data of the corresponding type. This API returns
-     * the result synchronously.
+     * 同步方法，指定密钥数据项类型，获取对应类型的私钥数据。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { AsyKeyDataItem } itemType - Key data type.
-     * @returns { Uint8Array } Private key data of the specified key data type.
+     * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
+     * @returns { Uint8Array } 返回指定密钥数据项类型的私钥数据。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
@@ -916,13 +834,10 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides APIs for public key operations. **PubKey** is a child class of
-   * [Key]{@link cryptoFramework.KeyEncodingConfig}. It needs to be passed in during asymmetric encryption and
-   * decryption, signature verification, and key agreement.
+   * 公钥，是[Key]{@link cryptoFramework.KeyEncodingConfig}的子类，在非对称加解密、验签、密钥协商时需要将其对象作为输入使用。
    *
-   * The public key can be generated by using the asymmetric key generator
-   * [AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator} or
-   * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}.
+   * 公钥可以通过非对称密钥生成器[AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator}、
+   * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}来生成。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -933,9 +848,9 @@ declare namespace cryptoFramework {
    */
   interface PubKey extends Key {
     /**
-     * Obtains a key parameter. This API returns the result synchronously.
+     * 同步方法，获取密钥参数。
      *
-     * @param { AsyKeySpecItem } itemType - Key parameter to obtain.
+     * @param { AsyKeySpecItem } itemType - 指定的密钥参数。
      * @returns { bigint | string | int } Content of the key parameter obtained.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -955,20 +870,16 @@ declare namespace cryptoFramework {
     getAsyKeySpec(itemType: AsyKeySpecItem): bigint | string | int;
 
     /**
-     * Obtains the public key data that complies with the ASN.1 syntax and DER encoding format based on the specified
-     * key format (such as the specifications and compression status). Currently, only the ECC compressed and
-     * uncompressed public key data is supported.
+     * 支持根据指定的密钥格式（如规范、压缩状态等），获取符合ASN.1语法和DER编码的公钥数据。目前仅支持ECC压缩和非压缩格式的公钥数据。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The difference between [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded} and this API is as follows:
-     * > 1. You can specify the format of the data to be obtained in this API.
-     * > 2. The format of the key to be obtained cannot be specified in
-     * [Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}. It must match that of the original data, which is the
-     * format of the key object generated by [convertKey]{@link cryptoFramework.AsyKeyGenerator.convertKey}.
+     * > 本接口和[Key.getEncoded()]{@link cryptoFramework.Key.getEncoded}的区别是：
+     * >
      *
-     * @param { string } format - Format of the key.<br>In API versions 12 to 24, the value can only be **X509
-     * @returns { DataBlob } Public key data obtained.
+     * @param { string } format - 用于指定当前密钥格式。<br>在API版本12-24，取值仅支持"X509|COMPRESSED"和"X509|UNCOMPRESSED"。<br>从API版本26.0.0
+     *     开始，RSA公钥格式取值支持"PKCS1"和"X509"。
+     * @returns { DataBlob } 返回满足ASN.1语法和DER编码的指定密钥格式的公钥数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -985,11 +896,10 @@ declare namespace cryptoFramework {
     getEncodedDer(format: string): DataBlob;
 
     /**
-     * Obtains the key data. This API returns the result synchronously.
+     * 同步方法，获取密钥数据的字符串。
      *
-     * @param { string } format - Encoding format of the key data to obtain. RSA key is supported, the format can be
-     *     **'X509'** or **'PKCS1'**. Since API version 26.0.0, EC key is supported, the format can be **'X509'**.
-     * @returns { string } Key data obtained.
+     * @param { string } format - 指定的获取密钥字符串的编码格式。支持RSA密钥，格式可以是'X509'或'PKCS1'。自API版本26.0.0起，支持EC密钥，格式可以是'X509'。
+     * @returns { string } 用于获取指定密钥格式的具体内容。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1006,11 +916,10 @@ declare namespace cryptoFramework {
     getEncodedPem(format: string): string;
 
     /**
-     * Defines the key data type, which is used to obtain public key data of the corresponding type. This API uses a
-     * promise to return the result.
+     * 指定密钥数据项类型，获取对应类型的公钥数据。使用Promise异步回调。
      *
-     * @param { AsyKeyDataItem } itemType - Key data type.
-     * @returns { Promise<Uint8Array> } Promise used to return the public key data of the specified key data type.
+     * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
+     * @returns { Promise<Uint8Array> } Promise对象，返回指定密钥数据项类型的公钥数据。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
@@ -1023,16 +932,10 @@ declare namespace cryptoFramework {
     getKeyData(itemType: AsyKeyDataItem): Promise<Uint8Array>;
 
     /**
-     * Defines the key data type, which is used to obtain public key data of the corresponding type. This API returns
-     * the result synchronously.
+     * 同步方法，指定密钥数据项类型，获取对应类型的公钥数据。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link getKeyData}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { AsyKeyDataItem } itemType - Key data type.
-     * @returns { Uint8Array } Public key data of the specified key data type.
+     * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
+     * @returns { Uint8Array } 返回指定密钥数据项类型的公钥数据。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
@@ -1045,33 +948,19 @@ declare namespace cryptoFramework {
     getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array;
   }
   /**
-   * # Attributes
+   * 非对称密钥对包含公钥和私钥。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   * 可以通过非对称密钥生成器[AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator}、
+   * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}来生成。
    *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Key.AsymKey
+   * > **说明：**
+   * >
+   * > KeyPair对象中的pubKey对象和priKey对象是KeyPair对象的成员。当KeyPair对象超出作用域时，其内部的pubKey对象和priKey对象将被析构。
+   * >
+   * > 业务方使用时应持有KeyPair对象的引用，而非内部pubKey或priKey对象的引用。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Key.AsymKey** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description          |
-   * | ------- | ------ | ---- | ---- | ------------ |
-   * | priKey  | [PriKey]{@link cryptoFramework.PriKey} | Yes  | No  | Private key.     |
-   * | pubKey | [PubKey]{@link cryptoFramework.PubKey} | Yes  | No  | Public key.      |
    */
   /**
-   * Defines an asymmetric key pair, which includes a public key and a private key.
-   *
-   * The asymmetric key pair can be generated by using the asymmetric key generator
-   * [AsyKeyGenerator]{@link cryptoFramework.AsyKeyGenerator} or
-   * [AsyKeyGeneratorBySpec]{@link cryptoFramework.AsyKeyGeneratorBySpec}.
-   *
-   * > **NOTE**
-   * >
-   * > The **pubKey** and **priKey** objects are members of the **KeyPair** object. When the **KeyPair** object is out
-   * > of the scope, its **pubKey** and **priKey** objects will be destructed.
-   * >
-   * > The service must reference the **KeyPair** object instead of the internal **pubKey** or **priKey** object.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -1082,7 +971,7 @@ declare namespace cryptoFramework {
    */
   interface KeyPair {
     /**
-     * KeyPair's private key.
+     * 私钥。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -1094,7 +983,7 @@ declare namespace cryptoFramework {
     readonly priKey: PriKey;
 
     /**
-     * KeyPair's public key.
+     * 公钥。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -1106,23 +995,10 @@ declare namespace cryptoFramework {
     readonly pubKey: PubKey;
   }
   /**
-   * # Attributes
+   * Random类，调用Random方法生成随机数。调用前，需要通过[createRandom]{@link cryptoFramework.createRandom}构造Random实例。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 11.
-   *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Rand
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Rand** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                |
-   * | ------- | ------ | ---- | ---- | -------------------- |
-   * | algName<sup>10+</sup> | string | Yes  | No  | Algorithm used to generate the random number. Currently, only
-   * **CTR_DRBG** is supported.|
    */
   /**
-   * Provides APIs for random number operations. Before using any API of the **Random** class, you must create a
-   * **Random** instance by using [createRandom]{@link cryptoFramework.createRandom}.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
@@ -1133,12 +1009,10 @@ declare namespace cryptoFramework {
    */
   interface Random {
     /**
-     * Generates a random number of the specified length. This API uses an asynchronous callback to return the result.
+     * 生成指定长度的随机数。使用callback异步回调。
      *
-     * @param { int } len - Length of the random number to generate, in bytes. The value range is [1, INT_MAX].
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return the random number generated. If the
-     *     operation is successful, **err** is **undefined** and **data** is the random number generated. Otherwise,
-     *     **err** is an error object.
+     * @param { int } len - 表示生成随机数的长度，单位为bytes，范围在[1, INT_MAX]。
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数，用于获取生成的随机数。当生成随机数成功，err为undefined，data为获取到的随机数；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1154,10 +1028,10 @@ declare namespace cryptoFramework {
     generateRandom(len: int, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Generates a random number of the specified length. This API uses a promise to return the result.
+     * 生成指定长度的随机数。使用promise异步回调。
      *
-     * @param { int } len - Length of the random number to generate, in bytes. The value range is [1, INT_MAX].
-     * @returns { Promise<DataBlob> } Promise used to return the random number generated.
+     * @param { int } len - 表示生成随机数的长度，单位为bytes，范围在[1, INT_MAX]。
+     * @returns { Promise<DataBlob> } Promise对象，返回生成的随机数。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1173,15 +1047,10 @@ declare namespace cryptoFramework {
     generateRandom(len: int): Promise<DataBlob>;
 
     /**
-     * Generates a random number of the specified length. This API returns the result synchronously.
+     * 同步生成指定长度的随机数。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateRandom}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { int } len - Length of the random number to generate, in bytes. The value range is [1, INT_MAX].
-     * @returns { DataBlob } Returns the generated random number.
+     * @param { int } len - 表示生成随机数的长度，单位为bytes，范围在[1, INT_MAX]。
+     * @returns { DataBlob } 表示生成的随机数。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1197,9 +1066,9 @@ declare namespace cryptoFramework {
     generateRandomSync(len: int): DataBlob;
 
     /**
-     * Sets a seed.
+     * 设置指定的种子。
      *
-     * @param { DataBlob } seed - Seed to set.
+     * @param { DataBlob } seed - 设置的种子。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
@@ -1211,7 +1080,7 @@ declare namespace cryptoFramework {
     setSeed(seed: DataBlob): void;
 
     /**
-     * Enables the hardware entropy source.
+     * 开启硬件熵源。
      *
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
@@ -1225,7 +1094,7 @@ declare namespace cryptoFramework {
     enableHardwareEntropy(): void;
 
     /**
-     * Indicates the random generation algorithm name. Currently, only CTR_DRBG is supported.
+     * 代表当前使用的随机数生成算法，目前只支持"CTR_DRBG"。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
@@ -1238,12 +1107,10 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates a **Random** instance for generating random numbers and setting seeds.
+   * 生成Random实例，用于进行随机数的计算与设置种子。
    *
-   * @returns { Random } Returns the [Random]{@link cryptoFramework.Random} instance created.
-   *     <br>For details about the supported specifications, see
-   *     [Supported Algorithms and Specifications](docroot://security/CryptoArchitectureKit/crypto-generate-random-number.md#supported-algorithms-and-specifications)
-   *     .
+   * @returns { Random } 返回由输入算法指定生成的[Random]{@link cryptoFramework.Random}对象。
+   *     <br>支持的规格详见框架概述[随机数算法规格](docroot://security/CryptoArchitectureKit/crypto-generate-random-number.md#支持的算法与规格)。
    * @throws { BusinessError } 17620001 - memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
@@ -1254,23 +1121,11 @@ declare namespace cryptoFramework {
    */
   function createRandom(): Random;
   /**
-   * # Attributes
+   * 非对称密钥生成器。在使用该类的方法前，需要先使用[createAsyKeyGenerator]{@link cryptoFramework.createAsyKeyGenerator}方法构建一个AsyKeyGenerator实例
+   * 。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Key.AsymKey
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Key.AsymKey** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                            |
-   * | ------- | ------ | ---- | ---- | -------------------------------- |
-   * | algName | string | Yes  | No  | Algorithm used by the **AsKeyGenerator**.|
    */
   /**
-   * Provides APIs for using the **AsKeyGenerator**. Before using any API of the **AsKeyGenerator** class, you must
-   * create an **AsyKeyGenerator** instance by using
-   * [createAsyKeyGenerator]{@link cryptoFramework.createAsyKeyGenerator}.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -1281,11 +1136,9 @@ declare namespace cryptoFramework {
    */
   interface AsyKeyGenerator {
     /**
-     * Generates a random key pair using this asymmetric key generator. This API uses an asynchronous callback to return
-     * the result.
+     * 获取非对称密钥生成器随机生成的密钥。使用callback异步回调。
      *
-     * @param { AsyncCallback<KeyPair> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the key pair generated. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<KeyPair> } callback - 回调函数。当获取非对称密钥成功，err为undefined，data为获取到的KeyPair；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -1299,9 +1152,9 @@ declare namespace cryptoFramework {
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
     /**
-     * Generates a random key pair using this asymmetric key generator. This API uses a promise to return the result.
+     * 获取非对称密钥生成器随机生成的密钥。使用Promise异步回调。
      *
-     * @returns { Promise<KeyPair> } Promise used to return the asymmetric key pair.
+     * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1317,14 +1170,9 @@ declare namespace cryptoFramework {
     generateKeyPair(): Promise<KeyPair>;
 
     /**
-     * Generates a random key pair using this asymmetric key generator. This API returns the result synchronously.
+     * 同步获取非对称密钥生成器随机生成的密钥。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateKeyPair}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { KeyPair } Asymmetric key pair.
+     * @returns { KeyPair } 非对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1360,17 +1208,11 @@ declare namespace cryptoFramework {
     convertKey(pubKey: DataBlob, priKey: DataBlob, callback: AsyncCallback<KeyPair>): void;
 
     /**
-     * Converts data into an asymmetric key pair. This API uses an asynchronous callback to return the result. For
-     * details, see **Key Conversion**.
+     * 获取指定数据生成非对称密钥。使用callback异步回调。
      *
-     * @param { DataBlob | null } pubKey - Public key material to convert. If no public key needs to be converted, set
-     *     this parameter to **null**. In versions earlier than API version 10, only **DataBlob** is supported. Since
-     *     API version 10, **null** is also supported.
-     * @param { DataBlob | null } priKey - Private key material to convert. If no private key needs to be converted, set
-     *     this parameter to **null**. In versions earlier than API version 10, only **DataBlob** is supported. Since
-     *     API version 10, **null** is also supported.
-     * @param { AsyncCallback<KeyPair> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the key pair generated. Otherwise, **err** is an error object.
+     * @param { DataBlob | null } pubKey - 指定的公钥材料。如果公钥不需要转换，请传入null。API 10之前只支持DataBlob， API 10之后增加支持null。
+     * @param { DataBlob | null } priKey - 指定的私钥材料。如果私钥不需要转换，请传入null。API 10之前只支持DataBlob， API 10之后增加支持null。
+     * @param { AsyncCallback<KeyPair> } callback - 回调函数。当获取非对称密钥成功，err为undefined，data为获取到的KeyPair；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1409,16 +1251,11 @@ declare namespace cryptoFramework {
     convertKey(pubKey: DataBlob, priKey: DataBlob): Promise<KeyPair>;
 
     /**
-     * Converts data into an asymmetric key pair. This API uses a promise to return the result. For details, see
-     * **Key Conversion**.
+     * 获取指定数据生成非对称密钥。使用Promise异步回调。
      *
-     * @param { DataBlob | null } pubKey - Public key material to convert. If no public key needs to be converted, set
-     *     this parameter to **null**. In versions earlier than API version 10, only **DataBlob** is supported. Since
-     *     API version 10, **null** is also supported.
-     * @param { DataBlob | null } priKey - Private key material to convert. If no private key needs to be converted, set
-     *     this parameter to **null**. In versions earlier than API version 10, only **DataBlob** is supported. Since
-     *     API version 10, **null** is also supported.
-     * @returns { Promise<KeyPair> } Promise used to return the asymmetric key pair.
+     * @param { DataBlob | null } pubKey - 指定的公钥材料。如果公钥不需要转换，请传入null。API 10之前只支持DataBlob， API 10之后增加支持null。
+     * @param { DataBlob | null } priKey - 指定的私钥材料。如果私钥不需要转换，请传入null。API 10之前只支持DataBlob， API 10之后增加支持null。
+     * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1436,21 +1273,11 @@ declare namespace cryptoFramework {
     convertKey(pubKey: DataBlob | null, priKey: DataBlob | null): Promise<KeyPair>;
 
     /**
-     * Converts data into an asymmetric key pair. This API returns the result synchronously. For details, see
-     * **Key Conversion**.
+     * 同步获取指定数据生成非对称密钥。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob | null } pubKey - Public key material. If no public key needs to be converted, set this
-     *     parameter to **null**. Before API version 10, only **DataBlob** is supported. Since API version 10s, **null**
-     *     can be passed in.
-     * @param { DataBlob | null } priKey - Private key material. If no private key needs to be converted, set this
-     *     parameter to **null**. Before API version 10, only **DataBlob** is supported. Since API version 10s, **null**
-     *     can be passed in.
-     * @returns { KeyPair } Asymmetric key pair.
+     * @param { DataBlob | null } pubKey - 指定公钥材料。如果公钥无需转换，请传入null。API 10前仅支持DataBlob，API 10起支持传入null。
+     * @param { DataBlob | null } priKey - 指定私钥材料。如果私钥无需转换，请传入null。API 10前仅支持DataBlob，API 10起支持传入null。
+     * @returns { KeyPair } 非对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1467,26 +1294,14 @@ declare namespace cryptoFramework {
     convertKeySync(pubKey: DataBlob | null, priKey: DataBlob | null): KeyPair;
 
     /**
-     * Converts data into an asymmetric key pair. This API uses a promise to return the result.
+     * 获取指定数据生成非对称密钥。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > 1. When **convertPemKey()** is used to convert an external string into an asymmetric key object defined by
-     * > the Crypto framework, the public key must comply with the ASN.1 syntax, X.509 specifications, and PEM
-     * > encoding format, and the private key must comply with the ASN.1 syntax, PKCS #8 specifications, and PEM
-     * > encoding format.
-     * > 2. In **convertPemKey()**, you can pass in either **pubKey** or **priKey**, or both of them. If one of them is
-     * > passed in, the returned **KeyPair** instance contains only the key converted from the data you passed in.
-     * > 3. When **convertPemKey** is used to convert an external string into an asymmetric key object defined by the
-     * > Crypto framework, the system does not verify whether the specifications of the generated key object are the
-     * > same as the key specifications specified for the asymmetric key generator.
      *
-     * @param { string | null } pubKey - Public key material to convert. If no public key needs to be converted, set
-     *     this parameter to **null**.
-     * @param { string | null } priKey - Private key material to convert. If no private key needs to be converted, set
-     *     this parameter to **null**.<br>Note: The public key and private key materials cannot be both null or empty
-     *     strings.
-     * @returns { Promise<KeyPair> } Promise used to return the asymmetric key pair.
+     * @param { string | null } pubKey - 指定的公钥材料。如果公钥不需要转换，请传入null。
+     * @param { string | null } priKey - 指定的私钥材料。如果私钥不需要转换，请传入null。<br>**说明**：公钥和私钥材料不能同时为null或空字符串。
+     * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1503,29 +1318,15 @@ declare namespace cryptoFramework {
     convertPemKey(pubKey: string | null, priKey: string | null): Promise<KeyPair>;
 
     /**
-     * Converts data into an asymmetric key pair. Encrypted private keys are supported. The private key password is
-     * synchronously passed to decrypt the private key. This API uses a promise to return the result.
+     * 获取指定数据生成非对称密钥。支持加密的私钥，同步传入私钥口令解密私钥。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > 1. When **convertPemKey()** is used to convert an external string into an asymmetric key object defined by
-     * > the Crypto framework, the public key must comply with the ASN.1 syntax, X.509 specifications, and PEM
-     * > encoding format, and the private key must comply with the ASN.1 syntax, PKCS #8 specifications, and PEM
-     * > encoding format.
-     * > 2. In **convertPemKey()**, you can pass in either **pubKey** or **priKey**, or both of them. If one of them is
-     * > passed in, the returned **KeyPair** instance contains only the key converted from the data you passed in.
-     * > 3. When **convertPemKey** is used to convert an external string into an asymmetric key object defined by the
-     * > Crypto framework, the system does not verify whether the specifications of the generated key object are the
-     * > same as the key specifications specified for the asymmetric key generator.
-     * > 4. If **password** is passed in, it can be used to decrypt the encrypted private key.
      *
-     * @param { string | null } pubKey - Public key material to convert. If no public key needs to be converted, set
-     *     this parameter to **null**.
-     * @param { string | null } priKey - Private key material to convert. If no private key needs to be converted, set
-     *     this parameter to **null**.<br>Note: The public key and private key materials cannot be both null or empty
-     *     strings.
-     * @param { string } password - Password used to decrypt the private key.
-     * @returns { Promise<KeyPair> } Promise used to return the asymmetric key pair.
+     * @param { string | null } pubKey - 指定的公钥材料。如果公钥不需要转换，请传入null。
+     * @param { string | null } priKey - 指定的私钥材料。如果私钥不需要转换，请传入null。<br>**说明**：公钥和私钥材料不能同时为null或空字符串。
+     * @param { string } password - 指定口令，用于解密私钥。
+     * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1540,25 +1341,16 @@ declare namespace cryptoFramework {
     convertPemKey(pubKey: string | null, priKey: string | null, password: string): Promise<KeyPair>;
 
     /**
-     * Converts data into an asymmetric key pair. This API returns the result synchronously.
+     * 同步获取指定数据，生成非对称密钥。
      *
-     * > **NOTE**
-     * > The precautions for using **convertPemKeySync** are the same as those for **convertPemKey**. For details, see
-     * > the description of
+     * > **说明：**
+     * > > convertPemKeySync接口与convertPemKey接口注意事项相同，见
      * > [convertPemKey]{@link cryptoFramework.AsyKeyGenerator.convertPemKey(pubKey: string | null, priKey: string | null)}
-     * > .
+     * > 接口说明。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertPemKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { string | null } pubKey - Public key material to convert. If no public key needs to be converted, set
-     *     this parameter to **null**.
-     * @param { string | null } priKey - Private key material. If no private key needs to be converted, set this
-     *     parameter to **null**.<br>Note: The public key and private key materials cannot be both null or empty
-     *     strings.
-     * @returns { KeyPair } Asymmetric key pair.
+     * @param { string | null } pubKey - 指定的公钥材料。如果公钥不需要转换，请传入null。
+     * @param { string | null } priKey - 指定私钥材料。私钥无需转换时，请传入null。<br>**说明**：公钥和私钥材料不能同时为null或空字符串。
+     * @returns { KeyPair } 非对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1575,25 +1367,17 @@ declare namespace cryptoFramework {
     convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair;
 
     /**
-     * Converts data into an asymmetric key pair. Encrypted private keys are supported. The private key password is
-     * synchronously passed to decrypt the private key. This API is synchronous.
+     * 获取指定数据生成非对称密钥。支持加密的私钥，同步传入私钥口令解密私钥。使用同步方法。
      *
-     * > **NOTE**
-     * > The precautions for using **convertPemKeySync** are the same as those for
+     * > **说明：**
+     * > > convertPemKeySync接口与convertPemKey接口注意事项相同，见
      * > [convertPemKey]{@link cryptoFramework.AsyKeyGenerator.convertPemKey(pubKey: string | null, priKey: string | null, password: string)}
-     * > .
+     * > 接口说明。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertPemKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { string | null } pubKey - Public key material to convert. If no public key needs to be converted, set
-     *     this parameter to **null**.
-     * @param { string | null } priKey - Private key material. If no private key needs to be converted, set this
-     *     parameter to **null**. <br>Note: **pubKey** and **priKey** cannot be **null** at the same time.
-     * @param { string } password - Password used to decrypt the private key.
-     * @returns { KeyPair } Asymmetric key pair.
+     * @param { string | null } pubKey - 指定的公钥材料。如果公钥不需要转换，请传入null。
+     * @param { string | null } priKey - 指定私钥材料。若无需转换，请传入 null。注意：公钥与私钥材料不可同时为 null。
+     * @param { string } password - 指定口令，用于解密私钥。
+     * @returns { KeyPair } 非对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1608,7 +1392,7 @@ declare namespace cryptoFramework {
     convertPemKeySync(pubKey: string | null, priKey: string | null, password: string): KeyPair;
 
     /**
-     * The algName of the AsyKeyGenerator.
+     * 非对称密钥生成器指定的算法名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -1620,24 +1404,12 @@ declare namespace cryptoFramework {
     readonly algName: string;
   }
   /**
-   * # Attributes
+   * 对称密钥生成器。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   * 在使用该类的方法前，先使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}构建SymKeyGenerator实例。
    *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Key.SymKey
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Key.SymKey** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                          |
-   * | ------- | ------ | ---- | ---- | ------------------------------ |
-   * | algName | string | Yes  | No  | Algorithm used by the **symKeyGenerator**.|
    */
   /**
-   * Provides APIs for using the **symKeyGenerator**.
-   *
-   * Before using the APIs of this class, use [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator} to
-   * create a **SymKeyGenerator** instance.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
@@ -1648,24 +1420,20 @@ declare namespace cryptoFramework {
    */
   interface SymKeyGenerator {
     /**
-     * Generates a random key using this symmetric key generator. This API uses an asynchronous callback to return the
-     * result.
+     * 获取对称密钥生成器随机生成的密钥。使用callback异步回调。
      *
-     * This API can be used only after a **symKeyGenerator** instance is created by using
-     * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
+     * 必须在使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器后，才能使用本函数。
      *
-     * RAND_priv_bytes() of OpenSSL can be used to generate random keys.
+     * 目前支持使用OpenSSL的RAND_priv_bytes()作为底层能力生成随机密钥。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For symmetric keys used in the HMAC algorithm, if a hash algorithm (for example, **HMAC|SHA256**) is specified
-     * > when the symmetric key generator is created, a binary key matching the hash length (for example, a 256-bit key)
-     * > will be randomly generated. If no hash algorithm is specified, for example, only **HMAC** is specified, random
-     * > symmetric key generation is not supported. You can generate symmetric key data using
-     * > [convertKey]{@link cryptoFramework.SymKeyGenerator.convertKey(key: DataBlob, callback: AsyncCallback<SymKey>)}.
+     * > 对于HMAC算法的对称密钥，如果在创建对称密钥生成器时指定了具体哈希算法（如"HMAC|SHA256"），则会随机生成与哈希长度一致的二进制密钥数据（如256位的密钥数据）。如果未指定具体哈希算法，如仅指定"HMAC"，则
+     * > 不支持随机生成对称密钥数据，可通过
+     * > [convertKey]{@link cryptoFramework.SymKeyGenerator.convertKey(key: DataBlob, callback: AsyncCallback<SymKey>)}方
+     * > 式生成对称密钥数据。
      *
-     * @param { AsyncCallback<SymKey> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the symmetric key generated. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<SymKey> } callback - 回调函数。当生成对称密钥成功，err为undefined，data为获取到的SymKey；否则为错误对象。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620004 - invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1678,14 +1446,13 @@ declare namespace cryptoFramework {
     generateSymKey(callback: AsyncCallback<SymKey>): void;
 
     /**
-     * Generates a random key using this symmetric key generator. This API uses a promise to return the result.
+     * 获取该对称密钥生成器随机生成的密钥。使用Promise异步回调。
      *
-     * This API can be used only after a **symKeyGenerator** instance is created by using
-     * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
+     * 必须在使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器后，才能使用本函数。
      *
-     * RAND_priv_bytes() of OpenSSL can be used to generate random keys.
+     * 目前支持使用OpenSSL的RAND_priv_bytes()作为底层能力生成随机密钥。
      *
-     * @returns { Promise<SymKey> } Promise used to return the symmetric key generated.
+     * @returns { Promise<SymKey> } Promise对象，返回对称密钥SymKey。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620004 - invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1698,29 +1465,20 @@ declare namespace cryptoFramework {
     generateSymKey(): Promise<SymKey>;
 
     /**
-     * Generates a random key using this symmetric key generator. This API returns the result synchronously.
+     * 同步获取对称密钥生成器随机生成的密钥。
      *
-     * This API can be used only after a **symKeyGenerator** instance is created by using
-     * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
+     * 必须在使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器后，才能使用本函数。
      *
-     * RAND_priv_bytes() of OpenSSL can be used to generate random keys.
+     * 目前支持使用OpenSSL的RAND_priv_bytes()作为底层能力生成随机密钥。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For symmetric keys used in the HMAC algorithm, if a hash algorithm (for example, **HMAC|SHA256**) is specified
-     * > when the symmetric key generator is created, a binary key matching the hash length (for example, a 256-bit key)
-     * > will be randomly generated.
+     * > 对于HMAC算法的对称密钥，如果已经在创建对称密钥生成器时指定了具体哈希算法（如指定"HMAC|SHA256"），则会随机生成与哈希长度一致的二进制密钥数据（如指定"HMAC|SHA256"会随机生成256位的密钥数据）。
      *
-     * If no hash algorithm is specified, for example, only **HMAC** is specified, random symmetric key generation is
-     * not supported. You can generate symmetric key data using
-     * [convertKeySync]{@link cryptoFramework.SymKeyGenerator.convertKeySync}.
+     * 如果在创建对称密钥生成器时没有指定具体哈希算法，如仅指定"HMAC"，则不支持随机生成对称密钥数据，可通过
+     * [convertKeySync]{@link cryptoFramework.SymKeyGenerator.convertKeySync}方式生成对称密钥数据。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSymKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { SymKey } Symmetric key generated.
+     * @returns { SymKey } 返回对称密钥SymKey。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620004 - invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
@@ -1732,23 +1490,18 @@ declare namespace cryptoFramework {
     generateSymKeySync(): SymKey;
 
     /**
-     * Generates a symmetric key based on specified data. This API uses an asynchronous callback to return the result.
+     * 根据指定数据生成对称密钥。使用callback异步回调。
      *
-     * This API can be used only after a **symKeyGenerator** instance is created by using
-     * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
+     * 必须在使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For symmetric keys used in the HMAC algorithm, if a hash algorithm (for example, **HMAC|SHA256**) is specified
-     * > when the symmetric key generator is created, the binary key data passed in must match the hash length (for
-     * > example, a 256-bit key for SHA256).
+     * > 对于HMAC算法的对称密钥，如果已经在创建对称密钥生成器时指定了具体哈希算法（如指定"HMAC|SHA256"），则需要传入与哈希长度一致的二进制密钥数据（如传入SHA256对应256位的密钥数据）。
      *
-     * If no hash algorithm is specified when the symmetric key generator is created (for example, only **HMAC** is
-     * specified), any binary key data with a length of 1 to 4,096 bytes is supported.
+     * 如果在创建对称密钥生成器时没有指定具体哈希算法，如仅指定"HMAC"，则支持传入长度在[1,4096]范围内（单位为bytes）的任意二进制密钥数据。
      *
-     * @param { DataBlob } key - Data to convert.
-     * @param { AsyncCallback<SymKey> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the symmetric key generated. Otherwise, **err** is an error object.
+     * @param { DataBlob } key - 指定的对称密钥材料。
+     * @param { AsyncCallback<SymKey> } callback - 回调函数。当生成对称密钥成功，err为undefined，data为获取到的SymKey；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1765,13 +1518,12 @@ declare namespace cryptoFramework {
     convertKey(key: DataBlob, callback: AsyncCallback<SymKey>): void;
 
     /**
-     * Generates a symmetric key based on specified data. This API uses a promise to return the result.
+     * 根据指定数据生成对称密钥。使用Promise异步回调。
      *
-     * Before using this API, create a symmetric key generator by using
-     * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
+     * 在使用本函数前，需先通过[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器。
      *
-     * @param { DataBlob } key - Data to convert.
-     * @returns { Promise<SymKey> } Promise used to return the symmetric key generated.
+     * @param { DataBlob } key - 指定的密钥材料数据。
+     * @returns { Promise<SymKey> } Promise对象，返回对称密钥SymKey。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1788,26 +1540,17 @@ declare namespace cryptoFramework {
     convertKey(key: DataBlob): Promise<SymKey>;
 
     /**
-     * Generates a symmetric key based on specified data.
+     * 根据指定数据生成对称密钥。
      *
-     * This API can be used only after a **symKeyGenerator** instance is created by using
-     * [createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}.
+     * 必须在使用[createSymKeyGenerator]{@link cryptoFramework.createSymKeyGenerator}创建对称密钥生成器后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For symmetric keys used in the HMAC algorithm, if a hash algorithm (for example, **HMAC|SHA256**) is specified
-     * > when the symmetric key generator is created, the binary key data passed in must match the hash length (for
-     * > example, a 256-bit key for SHA256). If no hash algorithm is specified when the symmetric key generator is
-     * > created (for example, only **HMAC** is specified), any binary key data with a length of 1 to 4,096 bytes is
-     * > supported.
+     * > 对于HMAC算法的对称密钥，如果在创建对称密钥生成器时指定了具体哈希算法（如"HMAC|SHA256"），则需要传入与哈希长度一致的二进制密钥数据（如SHA256对应的256位密钥数据）。如果在创建对称密钥生成器时未指定具
+     * > 体哈希算法，如仅指定"HMAC"，则支持传入长度在1到4096字节范围内的任意二进制密钥数据。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link convertKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob } key - Data to convert.
-     * @returns { SymKey } Symmetric key obtained.
+     * @param { DataBlob } key - 指定的对称密钥材料。
+     * @returns { SymKey } 对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1823,7 +1566,7 @@ declare namespace cryptoFramework {
     convertKeySync(key: DataBlob): SymKey;
 
     /**
-     * Indicates the algorithm name of the SymKeyGenerator object.
+     * 对称密钥生成器指定的算法名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey [since 12]
@@ -1836,16 +1579,13 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates an **AsyKeyGenerator** instance based on the specified algorithm.
+   * 通过指定算法名称的字符串，获取相应的非对称密钥生成器实例。
    *
-   * For details about the supported specifications, see
-   * [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
-   * .
+   * 支持的规格详见[非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)。
    *
-   * @param { string } algName - Algorithm used by the asymmetric keys. For details, see the string parameters in
-   *     [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
-   *     .
-   * @returns { AsyKeyGenerator } **AsyKeyGenerator** instance created.
+   * @param { string } algName - 非对称密钥生成支持的算法名。详见
+   *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)中的字符串参数。
+   * @returns { AsyKeyGenerator } 返回非对称密钥生成器。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -1860,17 +1600,14 @@ declare namespace cryptoFramework {
   function createAsyKeyGenerator(algName: string): AsyKeyGenerator;
 
   /**
-   * Creates a symmetric key generator instance with the specified algorithm.
+   * 通过指定算法名称获取相应的对称密钥生成器实例。
    *
-   * For details about the supported specifications, see
-   * [Symmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)
-   * .
+   * 支持的规格详见[对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)。
    *
-   * @param { string } algName - Algorithm to be used by the **symKeyGenerator** instance.<br>For details, see
-   *     **String Parameter** in
-   *     [Symmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)
-   *     .
-   * @returns { SymKeyGenerator } **symKeyGenerator** instance created.
+   * @param { string } algName - 待生成对称密钥生成器的算法名称。<br/>具体取值详见
+   *     [对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-sym-key-generation-conversion-spec.md)一节中的“字符串参数”
+   *     。
+   * @returns { SymKeyGenerator } 返回对称密钥生成器的对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -1884,12 +1621,11 @@ declare namespace cryptoFramework {
   function createSymKeyGenerator(algName: string): SymKeyGenerator;
 
   /**
-   * Represents the message authentication code (MAC) parameters. You need to construct a child class object and use it
-   * as a parameter when generating an HMAC or a CMAC.
+   * 消息认证码参数，计算HMAC、CMAC消息认证码时，需要构建子类对象并作为输入参数。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **algName** specifies the MAC algorithm to use. It is mandatory.
+   * > algName是必选参数，表示消息验证码算法。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -1899,7 +1635,7 @@ declare namespace cryptoFramework {
    */
   interface MacSpec {
     /**
-     * Algorithm to use.
+     * 消息验证码算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -1911,12 +1647,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Represents the child class of [MacSpec]{@link cryptoFramework.MacSpec}. It is used as an input parameter for HMAC
-   * generation.
+   * 密钥派生函数参数[MacSpec]{@link cryptoFramework.MacSpec}的子类，作为HMAC消息验证码计算的输入。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **mdName** specifies the HMAC digest algorithm. It is mandatory.
+   * > mdName是必选参数，表示HMAC摘要算法。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -1926,7 +1661,7 @@ declare namespace cryptoFramework {
    */
   interface HmacSpec extends MacSpec {
     /**
-     * MD algorithm to use.
+     * 摘要算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -1938,12 +1673,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Represents the child class of [MacSpec]{@link cryptoFramework.MacSpec}. It is used as an input parameter for CMAC
-   * generation.
+   * 密钥派生函数参数[MacSpec]{@link cryptoFramework.MacSpec}的子类，作为CMAC消息验证码计算的输入。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **cipherName** specifies the CMAC symmetric encryption algorithm. It is mandatory.
+   * > cipherName是必选参数，表示CMAC对称加密算法。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Mac
    * @crossplatform
@@ -1953,7 +1687,7 @@ declare namespace cryptoFramework {
    */
   interface CmacSpec extends MacSpec {
     /**
-     * Symmetric encryption algorithm to use.
+     * 对称加密算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Mac
      * @crossplatform
@@ -1964,22 +1698,11 @@ declare namespace cryptoFramework {
     cipherName: string;
   }
   /**
-   * # Attributes
+   * Mac类，调用Mac方法进行消息认证码（Message Authentication Code）计算。调用前，需要通过
+   * [createMac]{@link cryptoFramework.createMac(algName: string)}构造Mac实例。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Mac
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Mac** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                  |
-   * | ------- | ------ | ---- | ---- | ---------------------- |
-   * | algName | string | Yes  | No  | Digest algorithm.|
    */
   /**
-   * Provides APIs for message authentication code (MAC) operations. Before using any API of the **Mac** class, you must
-   * create a **Mac** instance by using [createMac]{@link cryptoFramework.createMac(algName: string)}.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
@@ -1990,13 +1713,10 @@ declare namespace cryptoFramework {
    */
   interface Mac {
     /**
-     * Initializes the MAC computation using a symmetric key. This API uses an asynchronous callback to return the
-     * result. **init**, **update**, and **doFinal** must be used together. **init** and **doFinal** are mandatory, and
-     * **update** is optional.
+     * 使用对称密钥初始化Mac计算。使用callback异步回调。init、update、doFinal为三段式接口，需要成组使用。其中init和doFinal必选，update可选。
      *
-     * @param { SymKey } key - Symmetric key obtained.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { SymKey } key - 对称密钥。
+     * @param { AsyncCallback<void> } callback - 回调函数。当HMAC初始化成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2012,12 +1732,10 @@ declare namespace cryptoFramework {
     init(key: SymKey, callback: AsyncCallback<void>): void;
 
     /**
-     * Initializes the MAC computation using a symmetric key. This API uses a promise to return the result. **init**,
-     * **update**, and **doFinal** must be used together. **init** and **doFinal** are mandatory, and **update** is
-     * optional.
+     * 使用对称密钥初始化Mac计算。使用Promise异步回调。init、update、doFinal为三段式接口，需要成组使用。其中init和doFinal必选，update可选。
      *
-     * @param { SymKey } key - Symmetric key obtained.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { SymKey } key - 对称密钥。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2033,16 +1751,9 @@ declare namespace cryptoFramework {
     init(key: SymKey): Promise<void>;
 
     /**
-     * Initializes the MAC computation using a symmetric key. This API returns the result synchronously. **initSync**,
-     * **updateSync**, and **doFinalSync** must be used together. **initSync** and **doFinalSync** are mandatory, and
-     * **updateSync** is optional.
+     * 使用对称密钥初始化Mac计算，通过同步方式获取结果。initSync、updateSync、doFinalSync为三段式接口，需要成组使用。其中initSync和doFinalSync必选，updateSync可选。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { SymKey } key - Symmetric key obtained.
+     * @param { SymKey } key - 对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2057,17 +1768,14 @@ declare namespace cryptoFramework {
     initSync(key: SymKey): void;
 
     /**
-     * Updates the MAC status. This API uses an asynchronous callback to return the result.
+     * 传入消息进行Mac更新消息认证码状态。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about the sample code for calling **update** multiple times in an HMAC operation, see
-     * > [Generating an HMAC by Passing In Data by Segment](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#generating-an-hmac-by-passing-in-data-by-segment)
-     * > .
+     * > HMAC算法多次调用update更新的代码示例详见[消息认证码计算](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#分段hmac)。
      *
-     * @param { DataBlob } input - Data to pass in.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { DataBlob } input - 传入的消息。
+     * @param { AsyncCallback<void> } callback - 回调函数。当HMAC更新成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2083,16 +1791,14 @@ declare namespace cryptoFramework {
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates the MAC status. This API uses a promise to return the result.
+     * 传入消息进行Mac更新消息认证码状态。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about the sample code for calling **update** multiple times in an HMAC operation, see
-     * > [Generating an HMAC by Passing In Data by Segment](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#generating-an-hmac-by-passing-in-data-by-segment)
-     * > .
+     * > HMAC算法多次调用update更新的代码示例详见[消息认证码计算](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#分段hmac)。
      *
-     * @param { DataBlob } input - Data to pass in.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DataBlob } input - 传入的消息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2108,20 +1814,13 @@ declare namespace cryptoFramework {
     update(input: DataBlob): Promise<void>;
 
     /**
-     * Updates the MAC status. This API returns the result synchronously.
+     * 传入消息进行Mac更新消息认证码状态，通过同步方式获取结果。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about the sample code for calling **updateSync** multiple times in an HMAC operation, see
-     * > [Generating an HMAC by Passing In Data by Segment](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#generating-an-hmac-by-passing-in-data-by-segment)
-     * > .
+     * > HMAC算法多次调用updateSync更新的代码示例详见[消息认证码计算](docroot://security/CryptoArchitectureKit/crypto-compute-hmac.md#分段hmac)。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob } input - Data to pass in.
+     * @param { DataBlob } input - 传入的消息。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2136,11 +1835,9 @@ declare namespace cryptoFramework {
     updateSync(input: DataBlob): void;
 
     /**
-     * MAC computation result. This API uses an asynchronous callback to return the result.
+     * 返回Mac的计算结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return the MAC computation result. If the
-     *     operation is successful, **err** is **undefined**, and **data** is the MAC computation result. Otherwise,
-     *     **err** is an error object.
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数，用于获取Mac的计算结果。当Mac计算成功，err为undefined，data为获取到的Mac计算结果；否则为错误对象。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -2153,9 +1850,9 @@ declare namespace cryptoFramework {
     doFinal(callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * MAC computation result. This API uses a promise to return the result.
+     * 返回Mac的计算结果。使用Promise异步回调。
      *
-     * @returns { Promise<DataBlob> } Promise used to return the MAC computation result.
+     * @returns { Promise<DataBlob> } Promise对象，返回Mac的计算结果。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -2168,14 +1865,9 @@ declare namespace cryptoFramework {
     doFinal(): Promise<DataBlob>;
 
     /**
-     * Finishes the MAC computation. This API returns the result synchronously.
+     * 通过同步方式返回Mac的计算结果。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { DataBlob } MAC computation result.
+     * @returns { DataBlob } 返回Mac的计算结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2191,9 +1883,9 @@ declare namespace cryptoFramework {
     doFinalSync(): DataBlob;
 
     /**
-     * Obtains the MAC length, in bytes.
+     * 获取Mac消息认证码的长度（字节数）。
      *
-     * @returns { int } MAC length obtained.
+     * @returns { int } 返回Mac计算结果的字节长度。
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
@@ -2205,7 +1897,7 @@ declare namespace cryptoFramework {
     getMacLength(): int;
 
     /**
-     * Indicates the algorithm name.
+     * 代表指定的摘要算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
@@ -2218,16 +1910,13 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates a **Mac** instance for MAC operations.
+   * 生成Mac实例，用于消息认证码的计算与操作。
    *
-   * For details about the supported specifications, see
-   * [MAC Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)
-   * .
+   * 支持的规格详见[HMAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
    *
-   * @param { string } algName - Specifies the digest algorithm. For details about the supported algorithms, see
-   *     [MAC Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)
-   *     .
-   * @returns { Mac } Returns the [Mac]{@link cryptoFramework.MacSpec} instance created.
+   * @param { string } algName - 指定摘要算法，支持算法请参考
+   *     [HMAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
+   * @returns { Mac } 返回由输入算法指定生成的[Mac]{@link cryptoFramework.MacSpec}对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17620001 - memory operation failed.
@@ -2241,17 +1930,13 @@ declare namespace cryptoFramework {
   function createMac(algName: string): Mac;
 
   /**
-   * Creates a **Mac** instance for message authentication code (MAC) operations.
+   * 生成Mac实例，用于进行消息认证码的计算与操作。
    *
-   * For details about the supported specifications, see
-   * [MAC Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)
-   * .
+   * 支持的规格详见[MAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
    *
-   * @param { MacSpec } macSpec - Specifies the input parameter struct based on the MAC algorithm. For details about the
-   *     supported algorithms, see
-   *     [MAC Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)
-   *     .
-   * @returns { Mac } [Mac]{@link cryptoFramework.MacSpec} instance created.
+   * @param { MacSpec } macSpec - 根据消息验证码的不同算法，指定入参结构体，支持算法请参考
+   *     [MAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
+   * @returns { Mac } 返回由指定入参结构体生成的[Mac]{@link cryptoFramework.MacSpec}对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17620001 - memory operation failed.
@@ -2265,22 +1950,10 @@ declare namespace cryptoFramework {
    */
   function createMac(macSpec: MacSpec): Mac;
   /**
-   * # Attributes
+   * Md类，调用Md方法进行消息摘要（Message Digest）计算。调用前，需要通过[createMd]{@link cryptoFramework.createMd}构造Md实例。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.Security.CryptoFramework.MessageDigest
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.MessageDigest** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                  |
-   * | ------- | ------ | ---- | ---- | ---------------------- |
-   * | algName | string | Yes  | No  | Digest algorithm.|
    */
   /**
-   * Provides APIs for message digest (MD) operations. Before using any API of the **Md** class, you must create an
-   * **Md** instance by using [createMd]{@link cryptoFramework.createMd}.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
@@ -2291,18 +1964,15 @@ declare namespace cryptoFramework {
    */
   interface Md {
     /**
-     * Updates the MD status. This API uses an asynchronous callback to return the result. **update** must be used with
-     * **digest** together. **digest** is mandatory, and **update** is optional.
+     * 传入消息进行Md更新摘要状态。使用callback异步回调。update和digest为两段式接口，需要成组使用。其中digest必选，update可选。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about the code for calling **update** multiple times in an MD operation, see
-     * > [Generating an MD by Passing In Data by Segment](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest.md#generating-an-md-by-passing-in-data-by-segment)
-     * > .
+     * > Md算法多次调用update更新的代码示例详见开发指导
+     * > [分段摘要算法](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest.md#分段摘要算法)。
      *
-     * @param { DataBlob } input - Data to pass in.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { DataBlob } input - 传入的消息。
+     * @param { AsyncCallback<void> } callback - 回调函数。当摘要更新成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2318,17 +1988,15 @@ declare namespace cryptoFramework {
     update(input: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates the MD status. This API uses a promise to return the result. **update** must be used with **digest**
-     * together. **digest** is mandatory, and **update** is optional.
+     * 传入消息进行Md更新摘要状态。使用Promise异步回调。update和digest为两段式接口，需要成组使用。其中digest必选，update可选。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about the code for calling **update** multiple times in an MD operation, see
-     * > [Generating an MD by Passing In Data by Segment](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest.md#generating-an-md-by-passing-in-data-by-segment)
-     * > .
+     * > Md算法多次调用update更新的代码示例详见开发指导
+     * > [分段摘要算法](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest.md#分段摘要算法)。
      *
-     * @param { DataBlob } input - Data to pass in.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DataBlob } input - 传入的消息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2344,21 +2012,14 @@ declare namespace cryptoFramework {
     update(input: DataBlob): Promise<void>;
 
     /**
-     * Updates the MD digest status. This API returns the result synchronously. **updateSync** must be used with
-     * **digestSync** together. **digestSync** is mandatory, and **updateSync** is optional.
+     * 传入消息进行Md更新摘要状态，通过同步方式更新。updateSync和digestSync为两段式接口，需要成组使用。其中digestSync必选，updateSync可选。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about the code for calling **updateSync** multiple times in an MD operation, see
-     * > [Generating an MD by Passing In Data by Segment](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest.md#generating-an-md-by-passing-in-data-by-segment)
-     * > .
+     * > Md算法多次调用updateSync更新的代码示例详见开发指导
+     * > [分段摘要算法](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest.md#分段摘要算法)。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob } input - Data to pass in.
+     * @param { DataBlob } input - 传入的消息。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2373,10 +2034,9 @@ declare namespace cryptoFramework {
     updateSync(input: DataBlob): void;
 
     /**
-     * Generates a message digest (MD). This API uses an asynchronous callback to return the result.
+     * 返回Md的计算结果。使用callback异步回调。
      *
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return the MD generated. If the operation is
-     *     successful, **err** is **undefined**, and **data** is the MD obtained. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数，用于获取摘要的计算结果。当摘要计算成功，err为undefined，data为获取到的摘要结果；否则为错误对象。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -2389,9 +2049,9 @@ declare namespace cryptoFramework {
     digest(callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Generates an MD. This API uses a promise to return the result.
+     * 返回Md的计算结果。使用Promise异步回调。
      *
-     * @returns { Promise<DataBlob> } Promise used to return the MD generated.
+     * @returns { Promise<DataBlob> } Promise对象，返回摘要计算结果。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -2404,14 +2064,9 @@ declare namespace cryptoFramework {
     digest(): Promise<DataBlob>;
 
     /**
-     * Generates an MD. This API returns the result synchronously.
+     * 通过同步方式返回Md的计算结果。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link digest}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { DataBlob } MD generated.
+     * @returns { DataBlob } 表示生成的Md计算结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2427,9 +2082,9 @@ declare namespace cryptoFramework {
     digestSync(): DataBlob;
 
     /**
-     * Obtains the MD length, in bytes.
+     * 获取Md消息摘要的字节长度。
      *
-     * @returns { int } MD length obtained.
+     * @returns { int } 返回md计算结果的字节长度。
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
@@ -2441,7 +2096,7 @@ declare namespace cryptoFramework {
     getMdLength(): int;
 
     /**
-     * Indicates the algorithm name.
+     * 代表指定的摘要算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
@@ -2454,16 +2109,13 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates an **Md** instance for MD operations.
+   * 生成Md实例，用于进行消息摘要的计算与操作。
    *
-   * For details about the supported specifications, see
-   * [Supported Algorithms and Specifications](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest-overview.md#supported-algorithms-and-specifications)
-   * .
+   * 支持的规格详见[MD消息摘要算法规格](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest-overview.md#支持的算法与规格)。
    *
-   * @param { string } algName - MD algorithm to use. For details about the supported algorithms, see
-   *     [Supported Algorithms and Specifications](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest-overview.md#supported-algorithms-and-specifications)
-   *     .
-   * @returns { Md } Returns the [Md]{@link cryptoFramework.Md} instance created.
+   * @param { string } algName - 指定摘要算法，支持算法请参考
+   *     [MD消息摘要算法规格](docroot://security/CryptoArchitectureKit/crypto-generate-message-digest-overview.md#支持的算法与规格)。
+   * @returns { Md } 返回由输入算法指定生成的[Md]{@link cryptoFramework.Md}对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17620001 - memory operation failed.
@@ -2477,17 +2129,14 @@ declare namespace cryptoFramework {
   function createMd(algName: string): Md;
 
   /**
-   * Enumerates encryption and decryption parameters, which can be set by using
-   * [setCipherSpec]{@link cryptoFramework.Cipher.setCipherSpec} and obtained by using
-   * [getCipherSpec]{@link cryptoFramework.Cipher.getCipherSpec}.
+   * 表示加解密参数的枚举。这些参数支持通过[setCipherSpec]{@link cryptoFramework.Cipher.setCipherSpec}接口设置，通过
+   * [getCipherSpec]{@link cryptoFramework.Cipher.getCipherSpec}接口获取。
    *
-   * Currently, only RSA and SM2 are supported. Since API version 11, the **SM2_MD_NAME_STR** parameter is supported.
-   * For details, see
-   * [Asymmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)
-   * .
+   * 当前只支持RSA算法和SM2算法，从API version 11开始，增加对SM2_MD_NAME_STR参数的支持，详细规格请参考
+   * [加解密规格](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 10 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Cipher** since API version 12.
+   * API version 10-11 系统能力为 SystemCapability.Security.CryptoFramework；从 API version 12 开始为
+   * SystemCapability.Security.CryptoFramework.Cipher
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2498,7 +2147,7 @@ declare namespace cryptoFramework {
    */
   enum CipherSpecItem {
     /**
-     * Message digest (MD) algorithm used with the PKCS1_OAEP padding mode in RSA.
+     * 表示RSA算法中，使用PKCS1_OAEP模式时，消息摘要功能的算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2510,7 +2159,7 @@ declare namespace cryptoFramework {
     OAEP_MD_NAME_STR = 100,
 
     /**
-     * Mask generation algorithm used with the PKCS1_OAEP padding mode in RSA. Currently, only MGF1 is supported.
+     * 表示RSA算法中，使用PKCS1_OAEP模式时，掩码生成算法（目前仅支持MGF1）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2522,7 +2171,7 @@ declare namespace cryptoFramework {
     OAEP_MGF_NAME_STR = 101,
 
     /**
-     * MD algorithm for the MGF1 mask generation used with the PKCS1_OAEP padding mode in RSA.
+     * 表示RSA算法中，使用PKCS1_OAEP模式时，MGF1掩码生成功能的消息摘要算法。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2534,7 +2183,7 @@ declare namespace cryptoFramework {
     OAEP_MGF1_MD_STR = 102,
 
     /**
-     * **pSource** byte stream used with the PKCS1_OAEP padding mode in RSA.
+     * 表示RSA算法中，使用PKCS1_OAEP模式时，pSource的字节流。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2546,7 +2195,7 @@ declare namespace cryptoFramework {
     OAEP_MGF1_PSRC_UINT8ARR = 103,
 
     /**
-     * MD algorithm used in SM2.
+     * 表示SM2算法中，使用的摘要算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2559,19 +2208,16 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Enumerates the signing and signature verification parameters, which can be set by using
-   * [setSignSpec]{@link cryptoFramework.Sign.setSignSpec(itemType: SignSpecItem, itemValue: int)} and
-   * [setVerifySpec]{@link cryptoFramework.Verify.setVerifySpec(itemType: SignSpecItem, itemValue: int)}, and obtained
-   * by using [getSignSpec]{@link cryptoFramework.Sign.getSignSpec} and
-   * [getVerifySpec]{@link cryptoFramework.Verify.getVerifySpec}.
+   * 表示签名验签参数的枚举。这些参数支持通过[setSignSpec]{@link cryptoFramework.Sign.setSignSpec(itemType: SignSpecItem, itemValue: int)}、
+   * [setVerifySpec]{@link cryptoFramework.Verify.setVerifySpec(itemType: SignSpecItem, itemValue: int)}接口设置，通过
+   * [getSignSpec]{@link cryptoFramework.Sign.getSignSpec}、[getVerifySpec]{@link cryptoFramework.Verify.getVerifySpec}接口
+   * 获取。
    *
-   * Currently, only RSA and SM2 are supported. Since API version 11, the **SM2_USER_ID_UINT8ARR** parameter is
-   * supported. For details, see
-   * [Signing and Signature Verification Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)
-   * .
+   * 当前只支持RSA算法和SM2算法，从API version 11开始，增加对SM2_USER_ID_UINT8ARR参数的支持，详细规格请参考
+   * [签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 10 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Signature** since API version 12.
+   * API version 10-11 系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为
+   * SystemCapability.Security.CryptoFramework.Signature。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2582,7 +2228,7 @@ declare namespace cryptoFramework {
    */
   enum SignSpecItem {
     /**
-     * MD algorithm used with the PSS padding mode in RSA.
+     * 表示RSA算法中，使用PSS模式时，消息摘要功能的算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2594,7 +2240,7 @@ declare namespace cryptoFramework {
     PSS_MD_NAME_STR = 100,
 
     /**
-     * Mask generation algorithm used with the PSS padding mode in RSA. Currently, only MGF1 is supported.
+     * 表示RSA算法中，使用PSS模式时，掩码生成算法（目前仅支持MGF1）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2606,7 +2252,7 @@ declare namespace cryptoFramework {
     PSS_MGF_NAME_STR = 101,
 
     /**
-     * MD parameters for the MGF1 mask generation used with the PSS padding mode in RSA.
+     * 表示RSA算法中，使用PSS模式时，MGF1掩码生成功能的消息摘要参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2618,20 +2264,19 @@ declare namespace cryptoFramework {
     PSS_MGF1_MD_STR = 102,
 
     /**
-     * Length of the salt in bytes used with the PSS padding mode in RSA.
+     * 表示RSA算法中，使用PSS模式时，盐值的长度，长度以字节为单位。
      *
-     * According to the FIPS 186-4 standard, sLen should be greater than or equal to 0 and less than or equal to the
-     * hash length.
+     * 根据 FIPS 186-4 标准，sLen 应大于等于 0 且小于等于哈希长度。
      *
-     * default:
-     * For sign, automatically calculate the maximum salt length.
-     * For verify, automatically calculate the salt length.
+     * 默认值：
+     * 对于签名操作，自动计算最大盐值长度。
+     * 对于验证操作，自动计算盐值长度。
      *
-     * Special:
-     * For sign, you can also set the value to -1 to use the digest length as the salt length, and -2 or -3 to
-     * automatically calculate the maximum salt length. The recommended value is -1.
-     * For verify, you can also set the value to -1 to use the digest length as the salt length, -2 to automatically
-     * calculate the salt length, or -3 to use the maximum salt length. The recommended value is -2.
+     * 特殊值：
+     * 对于签名操作，您也可以将值设置为 -1，以使用摘要长度作为盐值长度；或设置为 -2 或 -3，以
+     * 自动计算最大盐值长度。推荐使用 -1。
+     * 对于验证操作，您也可以将值设置为 -1，以使用摘要长度作为盐值长度；设置为 -2，以自动
+     * 计算盐值长度；或设置为 -3，以使用最大盐值长度。推荐使用 -2。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2643,7 +2288,7 @@ declare namespace cryptoFramework {
     PSS_SALT_LEN_NUM = 103,
 
     /**
-     * Trailer field used in the encoding operation when PSS padding mode is used in RSA.
+     * 表示RSA算法中，使用PSS模式时，用于编码操作的整数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2655,7 +2300,7 @@ declare namespace cryptoFramework {
     PSS_TRAILER_FIELD_NUM = 104,
 
     /**
-     * User ID field in SM2.
+     * 表示SM2算法中，用户身份标识字段。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -2667,7 +2312,7 @@ declare namespace cryptoFramework {
     SM2_USER_ID_UINT8ARR = 105,
 
     /**
-     * Indicates the value for deterministic. It is used in ML DSA signing and verifying process.
+     * 确定性值。用于ML DSA签名和验证过程。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2677,7 +2322,7 @@ declare namespace cryptoFramework {
     ML_DSA_DETERMINISTIC_BOOL = 106,
 
     /**
-     * Indicates the value for mu. It is used in ML DSA signing and verifying process.
+     * mu的值。用于ML DSA签名和验证过程。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2687,7 +2332,7 @@ declare namespace cryptoFramework {
     ML_DSA_MU_BOOL = 107,
 
     /**
-     * Indicates the value for context. It is used in ML DSA signing and verifying process.
+     * 表示上下文的值。用于ML DSA签名和验证过程。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
@@ -2697,41 +2342,21 @@ declare namespace cryptoFramework {
     ML_DSA_CONTEXT_UINT8ARR = 108
   }
   /**
-   * # Attributes
+   * 提供加解密的算法操作功能，按序调用本类中的
+   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}、
+   * [update()]{@link cryptoFramework.Cipher.update(data: DataBlob, callback: AsyncCallback<DataBlob>)}、
+   * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)}方法，可以实现对
+   * 称加密/对称解密/非对称加密/非对称解密。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   * 完整的加解密流程示例可参考[开发指南](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption-overview.md)。
    *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Cipher
+   * 一次完整的加/解密流程在对称加密和非对称加密中略有不同：
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Cipher** since API version 12.
+   * - 对称加解密：init为必选，update为可选（且允许多次update加/解密大数据），doFinal为必选；doFinal结束后可以重新init开始新一轮加/解密流程。
+   * - RSA、SM2非对称加解密：init为必选，不支持update操作，doFinal为必选（允许连续多次doFinal加/解密大数据）；RSA不支持重复init，切换加解密模式或填充方式时，需要重新创建Cipher对象。
    *
-   * | Name   | Type  | Read-Only| Optional| Description                        |
-   * | ------- | ------ | ---- | ---- | ---------------------------- |
-   * | algName | string | Yes  | No  | Algorithm.|
    */
   /**
-   * Provides APIs for cipher operations. The
-   * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)},
-   * [update()]{@link cryptoFramework.Cipher.update(data: DataBlob, callback: AsyncCallback<DataBlob>)}, and
-   * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)} APIs in
-   * this class are called in sequence to implement symmetric encryption or decryption and asymmetric encryption or
-   * decryption.
-   *
-   * For details about the complete encryption and decryption process, see
-   * [Encryption and Decryption Overview](docroot://security/CryptoArchitectureKit/crypto-encryption-decryption-overview.md)
-   * .
-   *
-   * A complete symmetric encryption/decryption process is slightly different from the asymmetric encryption/decryption
-   * process.
-   *
-   * - Symmetric encryption and decryption: **init()** and **doFinal()** are mandatory. **update()** is optional and can
-   * be called multiple times to encrypt or decrypt big data. After **doFinal()** is called to complete an encryption or
-   * decryption operation, **init()** can be called to start a new encryption or decryption operation.
-   * - RSA or SM2 asymmetric encryption and decryption: **init()** and **doFinal()** are mandatory, and **update()** is
-   * not supported. **doFinal()** can be called multiple times to encrypt or decrypt big data. **init()** cannot be
-   * called repeatedly. If the encryption/decryption mode or padding mode is changed, a new **Cipher** object must be
-   * created.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -2742,13 +2367,13 @@ declare namespace cryptoFramework {
    */
   interface Cipher {
     /**
-     * Init the crypto operation with the given crypto mode, key and parameters.
-     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     * 使用给定的加密模式、密钥和参数初始化加密操作。
+     * init、update和doFinal必须配合使用，其中init和doFinal是必选的，update是可选的。
      *
-     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
-     * @param { Key } key - indicates the symmetric key or the asymmetric key.
-     * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
-     * @param { AsyncCallback<void> } callback - the callback of the init function.
+     * @param { CryptoMode } opMode - 表示加密模式为加密或解密
+     * @param { Key } key - 表示对称密钥或非对称密钥
+     * @param { ParamsSpec } params - IV等算法参数
+     * @param { AsyncCallback<void> } callback - init函数的回调
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2769,20 +2394,16 @@ declare namespace cryptoFramework {
     init(opMode: CryptoMode, key: Key, params: ParamsSpec, callback: AsyncCallback<void>): void;
 
     /**
-     * Initializes the [cipher]{@link cryptoFramework.Cipher} object for encryption and decryption. This API
-     * uses an asynchronous callback to return the result. **init**, **update**, and **doFinal** must be used together.
-     * **init** and **doFinal** are mandatory, and **update** is optional.
+     * 初始化加解密的[cipher]{@link cryptoFramework.CipherSpecItem}对象，使用callback异步回调获取结果。init、update、doFinal为三段式接口，需要成组使用。其中
+     * init和doFinal必选，update可选。
      *
-     * This API can be used only after a [Cipher]{@link cryptoFramework.Cipher} instance is created by using
-     * [createCipher]{@link cryptoFramework.createCipher}.
+     * 必须在使用[createCipher]{@link cryptoFramework.createCipher}创建[Cipher]{@link cryptoFramework.CipherSpecItem}实例后，才能使用本函
+     * 数。
      *
-     * @param { CryptoMode } opMode - Operation (encryption or decryption) to perform.
-     * @param { Key } key - Key for encryption or decryption.
-     * @param { ParamsSpec | null } params - Parameters for encryption or decryption. For algorithm modes without
-     *     parameters (such as ECB), set this parameter to **null**. In versions earlier than API version 10, only
-     *     **ParamsSpec** is supported. Since API version 10, **null** is also supported.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { CryptoMode } opMode - 加密或者解密模式。
+     * @param { Key } key - 指定加密或解密的密钥。
+     * @param { ParamsSpec | null } params - 指定加密或解密的参数，对于ECB等没有参数的算法模式，请传入null。API 10之前只支持ParamsSpec， API 10之后增加支持null。
+     * @param { AsyncCallback<void> } callback - 回调函数。当加解密初始化成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2804,13 +2425,13 @@ declare namespace cryptoFramework {
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null, callback: AsyncCallback<void>): void;
 
     /**
-     * Init the crypto operation with the given crypto mode, key and parameters.
-     * init, update, and doFinal must be used together. init and doFinal are mandatory, and update is optional.
+     * 使用给定的加密模式、密钥和参数初始化加密操作。
+     * init、update和doFinal必须配合使用，其中init和doFinal是必选的，update是可选的。
      *
-     * @param { CryptoMode } opMode - indicates the crypto mode is encryption or decryption.
-     * @param { Key } key - indicates the symmetric key or the asymmetric key.
-     * @param { ParamsSpec } params - indicates the algorithm parameters such as IV.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { CryptoMode } opMode - 表示加密模式为加密或解密
+     * @param { Key } key - 表示对称密钥或非对称密钥
+     * @param { ParamsSpec } params - IV等算法参数
+     * @returns { Promise<void> } 函数返回的promise。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2831,19 +2452,16 @@ declare namespace cryptoFramework {
     init(opMode: CryptoMode, key: Key, params: ParamsSpec): Promise<void>;
 
     /**
-     * Initializes the cipher object for encryption and decryption. This API uses a promise to return the result.
-     * **init**, **update**, and **doFinal** must be used together. **init** and **doFinal** are mandatory, and
-     * **update** is optional.
+     * 初始化加解密的cipher对象。使用Promise异步回调。init、update、doFinal为三段式接口，需要成组使用。其中init和doFinal必选，update可选。
      *
-     * This API can be used only after a [Cipher]{@link cryptoFramework.Cipher} instance is created by using
-     * [createCipher]{@link cryptoFramework.createCipher}.
+     * 必须在使用[createCipher]{@link cryptoFramework.createCipher}创建[Cipher]{@link cryptoFramework.CipherSpecItem}实例后，才能使用本函
+     * 数。
      *
-     * @param { CryptoMode } opMode - Operation (encryption or decryption) to perform.
-     * @param { Key } key - Key for encryption or decryption.
-     * @param { ParamsSpec | null } params - Parameters for encryption or decryption. For algorithm modes without
-     *     parameters (such as ECB), set this parameter to **null**. Before API version 10, only **ParamsSpec** is
-     *     supported. Since API version 10, **null** is also supported.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { CryptoMode } opMode - 加密或者解密模式。
+     * @param { Key } key - 指定加密或解密的密钥。
+     * @param { ParamsSpec | null } params - 指定加密或解密的参数，对于ECB等没有参数的算法模式，请传入null。API 10之前仅支持ParamsSpec，从API 10开始增加对null的支
+     *     持。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2865,22 +2483,15 @@ declare namespace cryptoFramework {
     init(opMode: CryptoMode, key: Key, params: ParamsSpec | null): Promise<void>;
 
     /**
-     * Initializes a [cipher]{@link cryptoFramework.Cipher} instance. This API returns the result synchronously.
-     * **initSync**, **updateSync**, and **doFinalSync** must be used together. **initSync** and **doFinalSync** are
-     * mandatory, and **updateSync** is optional.
+     * 初始化加解密的[cipher]{@link cryptoFramework.CipherSpecItem}对象，通过注册回调函数获取结果。initSync、updateSync、doFinalSync为三段式接口，需要成组使用
+     * 。其中initSync和doFinalSync必选，updateSync可选。
      *
-     * This API can be used only after a [Cipher]{@link cryptoFramework.Cipher} instance is created by using
-     * [createCipher]{@link cryptoFramework.createCipher}.
+     * 必须在使用[createCipher]{@link cryptoFramework.createCipher}创建[Cipher]{@link cryptoFramework.CipherSpecItem}实例后，才能使用本函
+     * 数。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { CryptoMode } opMode - Operation (encryption or decryption) to perform.
-     * @param { Key } key - Key for encryption or decryption.
-     * @param { ParamsSpec | null } params - Parameters for encryption or decryption. For algorithm modes without
-     *     parameters (such as ECB), set this parameter to **null**.
+     * @param { CryptoMode } opMode - 加密或者解密模式。
+     * @param { Key } key - 指定加密或解密的密钥。
+     * @param { ParamsSpec | null } params - 指定加密或解密的参数，对于ECB等没有参数的算法模式，请传入null。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2901,45 +2512,45 @@ declare namespace cryptoFramework {
     initSync(opMode: CryptoMode, key: Key, params: ParamsSpec | null): void;
 
     /**
-     * Updates the data to encrypt or decrypt by segment. This API uses an asynchronous callback to return the result.
+     * 更新要分段加密或解密的数据。该接口使用异步回调返回结果。
      *
-     * This API can be called only after the [Cipher]{@link cryptoFramework.Cipher} instance is initialized by
-     * using [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}.
+     * 必须在对[Cipher]{@link cryptoFramework.CipherSpecItem}实例使用
+     * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}初始化后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明**
+     * > >
+     * > 1.**update()**和**doFinal()***的结果可能因使用的阻塞模式而不同。如果你不熟悉
+     * > 对于阻塞模式，建议检查每个**update()**和*doFinal()**的结果，以确保
+     * > 结果不为**null**。当返回一个有效的结果时，将这些数据提取并拼接起来，形成一个完整的
+     * > 密文或明文。
+     * > 例如，在ECB和CBC模式下，加密和解密都是以块为单位进行的，不管
+     * > **update()**输入的数据是块大小的整数倍，**update()**返回新的
+     * > 处理后的块数据。
+     * > 也就是说，只要**update()**传入的数据达到块的大小，就会返回数据。否则，
+     * > **null**返回，数据将被保留，直到下一次**update()**或
+     * > **doFinal()**。
+     * > 在最后的**doFinal()**操作中，剩余的未处理数据按照中设置的填充方式进行填充。
+     * > [createCipher]{@链接CryptFramework.createCipher}到块大小的整数倍以产生
+     * > 最终加密或解密的数据。
+     * > 对于可以转换为流模式的分组密码模式，密文长度可以与
+     * > 明文长度。
+     * > 2.您可以多次调用**update()**，也可以跳过调用**update()**（调用**doFinal(）**
+     * > **init()**，根据数据量大小而定。
+     * > **update()**（一次性或累计）传入的数据量没有限制。如果有一个
+     * > 数据量大，建议在多个**update()**调用中传递数据，而不是全部处理
+     * > 立刻
+     * > 有关在多个**update()**调用中传递数据的示例代码的详细信息，请参见。
      * >
-     * > 1. The results of **update()** and **doFinal()** may vary with the block mode used. If you are not familiar
-     * > with the block modes, you are advised to check each **update()** and **doFinal()** result to ensure that the
-     * > results are not **null**. When a valid result is returned, extract and concatenate the data to form a complete
-     * > ciphertext or plaintext.
-     * > For example, in ECB and CBC modes, encryption and decryption are performed by block regardless of whether the
-     * > data input by **update()** is an integer multiple of the block size, and **update()** returns the newly
-     * > processed block data.
-     * > That is, data is returned as long as the data passed in by **update()** reaches the size of a block. Otherwise,
-     * > **null** is returned and the data will be retained until a block is formed in the next **update()** or
-     * > **doFinal()**.
-     * > In the final **doFinal()** operation, the remaining unprocessed data is padded based on the padding mode set in
-     * > [createCipher]{@link cryptoFramework.createCipher} to the integer multiple of the block size to produce the
-     * > final encrypted or decrypted data.
-     * > For block cipher modes that can be converted to stream mode, the ciphertext length may be the same as the
-     * > plaintext length.
-     * > 2. You can call **update()** multiple times or skip calling **update()** (call **doFinal()** directly after
-     * > **init()**), depending on the data volume.
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
-     * > at once.
-     * > For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
-     * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
-     * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
-     * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
-     * >  or use **doFinal()** without using **update()**. In the decryption process, you can either use **update()** or
-     * > **doFinal()** once to decrypt data and verify the tag.
+     * 【使用AES对称密钥分段加密和解密（GCM模式）】（docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.
+     * md）。
+     * > 3. RSA或SM2非对称加解密不支持**update()**。
+     * > 4.对称加解密使用CCM时，**update()**只能被调用一次。在。
+     * > 加密过程中，可以使用**update()**来加密数据，也可以使用**doFinal()**来获取**authTag**
+     * > 或者使用**doFinal()**而不使用**update()**。在解密过程中，您可以使用**update()**或。
+     * > **doFinal()**一次，解密数据并验证标签。
      *
-     * @param { DataBlob } data - Data to be encrypted or decrypted. It cannot be null.
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return the result. If the data is updated
-     *     successfully, **err** is **undefined**, and **data** is the encryption or decryption result **DataBlob**.
-     *     Otherwise, **err** is an error object.
+     * @param { DataBlob } data - 需要进行加密或解密的数据。data不能为null。
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数。更新加/解密数据成功时，err为undefined，data为加/解密结果DataBlob；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2958,41 +2569,43 @@ declare namespace cryptoFramework {
     update(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
-     * this time. RSA is not supported in this function.
+     * 用输入数据更新加密操作，并反馈加密或解密后的数据
+     * 这一次。此功能不支持RSA。
      *
-     * > **NOTE**
+     * > **说明**
+     * > >
+     * > 1.**update()**和**doFinal()***的结果可能因使用的阻塞模式而不同。如果你不熟悉
+     * > 对于阻塞模式，建议检查每个**update()**和*doFinal()**的结果，以确保
+     * > 结果不为**null**。当返回一个有效的结果时，将这些数据提取并拼接起来，形成一个完整的
+     * > 密文或明文。
+     * > 例如，在ECB和CBC模式下，加密和解密都是以块为单位进行的，不管
+     * > **update()**输入的数据是块大小的整数倍，**update()**返回新的
+     * > 处理后的块数据。
+     * > 也就是说，只要**update()**传入的数据达到块的大小，就会返回数据。否则，
+     * > **null**返回，数据将被保留，直到下一次**update()**或
+     * > **doFinal()**。
+     * > 在最后的**doFinal()**操作中，剩余的未处理数据按照中设置的填充方式进行填充。
+     * > [createCipher]{@链接CryptFramework.createCipher}到块大小的整数倍以产生
+     * > 最终加密或解密的数据。
+     * > 对于可以转换为流模式的分组密码模式，密文长度可以与
+     * > 明文长度。
+     * > 2.您可以多次调用**update()**，也可以跳过调用**update()**（调用**doFinal(）**
+     * > **init()**，根据数据量大小而定。
+     * > **update()**（一次性或累计）传入的数据量没有限制。如果有一个
+     * > 数据量大，建议在多个**update()**调用中传递数据，而不是全部处理
+     * > 立刻
+     * > 有关在多个**update()**调用中传递数据的示例代码的详细信息，请参见。
      * >
-     * > 1. The results of **update()** and **doFinal()** may vary with the block mode used. If you are not familiar
-     * > with the block modes, you are advised to check each **update()** and **doFinal()** result to ensure that the
-     * > results are not **null**. When a valid result is returned, extract and concatenate the data to form a complete
-     * > ciphertext or plaintext.
-     * > For example, in ECB and CBC modes, encryption and decryption are performed by block regardless of whether the
-     * > data input by **update()** is an integer multiple of the block size, and **update()** returns the newly
-     * > processed block data.
-     * > That is, data is returned as long as the data passed in by **update()** reaches the size of a block. Otherwise,
-     * > **null** is returned and the data will be retained until a block is formed in the next **update()** or
-     * > **doFinal()**.
-     * > In the final **doFinal()** operation, the remaining unprocessed data is padded based on the padding mode set in
-     * > [createCipher]{@link cryptoFramework.createCipher} to the integer multiple of the block size to produce the
-     * > final encrypted or decrypted data.
-     * > For block cipher modes that can be converted to stream mode, the ciphertext length may be the same as the
-     * > plaintext length.
-     * > 2. You can call **update()** multiple times or skip calling **update()** (call **doFinal()** directly after
-     * > **init()**), depending on the data volume.
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
-     * > at once.
-     * > For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
-     * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
-     * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
-     * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
-     * >  or use **doFinal()** without using **update()**. In the decryption process, you can either use **update()** or
-     * > **doFinal()** once to decrypt data and verify the tag.
+     * 【使用AES对称密钥分段加密和解密（GCM模式）】（docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.
+     * md）。
+     * > 3. RSA或SM2非对称加解密不支持**update()**。
+     * > 4.对称加解密使用CCM时，**update()**只能被调用一次。在。
+     * > 加密过程中，可以使用**update()**来加密数据，也可以使用**doFinal()**来获取**authTag**
+     * > 或者使用**doFinal()**而不使用**update()**。在解密过程中，您可以使用**update()**或。
+     * > **doFinal()**一次，解密数据并验证标签。
      *
-     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
-     * @param { AsyncCallback<DataBlob | null> } callback - the callback of the update function.
+     * @param { DataBlob } data - 表示要加密或解密的数据。
+     * @param { AsyncCallback<DataBlob | null> } callback - update函数的回调
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3010,44 +2623,34 @@ declare namespace cryptoFramework {
     update(data: DataBlob, callback: AsyncCallback<DataBlob | null>): void;
 
     /**
-     * Updates the data to encrypt or decrypt by segment. This API uses a promise to return the result.
+     * 分段更新加密或者解密数据操作。使用Promise异步回调。
      *
-     * This API can be called only after the [Cipher]{@link cryptoFramework.Cipher} instance is initialized by
-     * using [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}.
+     * 必须在对[Cipher]{@link cryptoFramework.CipherSpecItem}实例使用
+     * [init()]{@link cryptoFramework.Cipher.init(opMode: CryptoMode, key: Key, params: ParamsSpec | null)}初始化后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > 1. The results of **update()** and **doFinal()** may vary with the block mode used. If you are not familiar
-     * > with the block modes, you are advised to check each **update()** and **doFinal()** result to ensure that the
-     * > results are not **null**. When a valid result is returned, extract and concatenate the data to form a complete
-     * > ciphertext or plaintext.
-     * > For example, in ECB and CBC modes, encryption and decryption are performed by block regardless of whether the
-     * > data input by **update()** is an integer multiple of the block size, and **update()** returns the newly
-     * > processed block data.
-     * > That is, data is returned as long as the data passed in by **update()** reaches the size of a block. Otherwise,
-     * > **null** is returned and the data will be retained until a block is formed in the next **update()** or
-     * > **doFinal()**.
-     * > In the final **doFinal()** operation, the remaining unprocessed data is padded based on the padding mode set in
-     * > [createCipher]{@link cryptoFramework.createCipher} to the integer multiple of the block size to produce the
-     * > final encrypted or decrypted data.
-     * > For block cipher modes that can be converted to stream mode, the ciphertext length may be the same as the
-     * > plaintext length.
-     * > 2. You can call **update()** multiple times or skip calling **update()** (call **doFinal()** directly after
-     * > **init()**), depending on the data volume.
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
-     * > at once.
-     * > For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
-     * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
-     * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
-     * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
-     * >  or use **doFinal()** without using **update()**. In the decryption process, you can either use **update()** or
-     * > **doFinal()** once to decrypt data and verify the tag.
      *
-     * @param { DataBlob } data - Data to encrypt or decrypt. It cannot be null.
-     * @returns { Promise<DataBlob> } Promise used to return the **DataBlob** (containing the encrypted or decrypted
-     *     data).
+     * （例如对于ECB和CBC模式，不论update传入的数据是否为分组长度的整数倍，都会以分组作为基本单位进行加/解密，并输出本次update新产生的加/解密分组结果。
+     *
+     * 可以理解为，update只要凑满一个新的分组就会有输出，如果没有凑满则此次update输出为null，把当前还没被加/解密的数据留着，等下一次update/doFinal传入数据的时候，拼接起来继续凑分组。
+     *
+     * 最后doFinal的时候，会把剩下的还没加/解密的数据，根据[createCipher]{@link cryptoFramework.createCipher}时设置的padding模式进行填充，补齐到分组的整数倍长度，再输出
+     * 剩余加解密结果。
+     *
+     * 而对于可以将分组密码转化为流模式实现的模式，还可能出现密文长度和明文长度相同的情况等。）
+     *
+     *
+     * > 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的对称加解密，可以采用多次update的方式传入数据。
+     *
+     * > AES使用多次update操作的示例代码详见
+     * > [使用AES对称密钥分段加解密](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md)。
+     * > > 3. RSA、SM2非对称加解密不支持update操作。
+     * > > 4. 对于CCM模式的对称加解密算法，加密时只能调用1次update接口加密数据并调用doFinal接口获取tag，或直接调用doFinal接口加密数据并获取tag，解密时只能调用1次update接口或调用1次
+     * > doFinal接口解密数据并验证tag。
+     *
+     * @param { DataBlob } data - 加密或者解密的数据。data不能为null。
+     * @returns { Promise<DataBlob> } Promise对象，返回此次更新的加/解密结果DataBlob。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3066,40 +2669,42 @@ declare namespace cryptoFramework {
     update(data: DataBlob): Promise<DataBlob>;
 
     /**
-     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
-     * this time. RSA is not supported in this function.
+     * 用输入数据更新加密操作，并反馈加密或解密后的数据
+     * 这一次。此功能不支持RSA。
      *
-     * > **NOTE**
+     * > **说明**
+     * > >
+     * > 1.**update()**和**doFinal()***的结果可能因使用的阻塞模式而不同。如果你不熟悉
+     * > 对于阻塞模式，建议检查每个**update()**和*doFinal()**的结果，以确保
+     * > 结果不为**null**。当返回一个有效的结果时，将这些数据提取并拼接起来，形成一个完整的
+     * > 密文或明文。
+     * > 例如，在ECB和CBC模式下，加密和解密都是以块为单位进行的，不管
+     * > **update()**输入的数据是块大小的整数倍，**update()**返回新的
+     * > 处理后的块数据。
+     * > 也就是说，只要**update()**传入的数据达到块的大小，就会返回数据。否则，
+     * > **null**返回，数据将被保留，直到下一次**update()**或
+     * > **doFinal()**。
+     * > 在最后的**doFinal()**操作中，剩余的未处理数据按照中设置的填充方式进行填充。
+     * > [createCipher]{@链接CryptFramework.createCipher}到块大小的整数倍以产生
+     * > 最终加密或解密的数据。
+     * > 对于可以转换为流模式的分组密码模式，密文长度可以与
+     * > 明文长度。
+     * > 2.您可以多次调用**update()**，也可以跳过调用**update()**（调用**doFinal(）**
+     * > **init()**，根据数据量大小而定。
+     * > **update()**（一次性或累计）传入的数据量没有限制。如果有一个
+     * > 数据量大，建议在多个**update()**调用中传递数据，而不是全部处理
+     * > 立刻
+     * > 有关在多个**update()**调用中传递数据的示例代码的详细信息，请参见。
      * >
-     * > 1. The results of **update()** and **doFinal()** may vary with the block mode used. If you are not familiar
-     * > with the block modes, you are advised to check each **update()** and **doFinal()** result to ensure that the
-     * > results are not **null**. When a valid result is returned, extract and concatenate the data to form a complete
-     * > ciphertext or plaintext.
-     * > For example, in ECB and CBC modes, encryption and decryption are performed by block regardless of whether the
-     * > data input by **update()** is an integer multiple of the block size, and **update()** returns the newly
-     * > processed block data.
-     * > That is, data is returned as long as the data passed in by **update()** reaches the size of a block. Otherwise,
-     * > **null** is returned and the data will be retained until a block is formed in the next **update()** or
-     * > **doFinal()**.
-     * > In the final **doFinal()** operation, the remaining unprocessed data is padded based on the padding mode set in
-     * > [createCipher]{@link cryptoFramework.createCipher} to the integer multiple of the block size to produce the
-     * > final encrypted or decrypted data.
-     * > For block cipher modes that can be converted to stream mode, the ciphertext length may be the same as the
-     * > plaintext length.
-     * > 2. You can call **update()** multiple times or skip calling **update()** (call **doFinal()** directly after
-     * > **init()**), depending on the data volume.
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to pass data in multiple **update()** calls rather than processing it all
-     * > at once.
-     * > For details about the sample code for passing data in multiple **update()** calls, see
-     * > [Encryption and Decryption by Segment with an AES Symmetric Key (GCM Mode)](docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.md).
-     * > 3. RSA or SM2 asymmetric encryption and decryption do not support **update()**.
-     * > 4. If CCM is used in symmetric encryption or decryption, **update()** can be called only once. In the
-     * > encryption process, you can either use **update()** to encrypt data and use **doFinal()** to obtain **authTag**
-     * >  or use **doFinal()** without using **update()**. In the decryption process, you can either use **update()** or
-     * > **doFinal()** once to decrypt data and verify the tag.
+     * 【使用AES对称密钥分段加密和解密（GCM模式）】（docroot://security/CryptoArchitectureKit/crypto-aes-sym-encrypt-decrypt-gcm-by-segment.
+     * md）。
+     * > 3. RSA或SM2非对称加解密不支持**update()**。
+     * > 4.对称加解密使用CCM时，**update()**只能被调用一次。在。
+     * > 加密过程中，可以使用**update()**来加密数据，也可以使用**doFinal()**来获取**authTag**
+     * > 或者使用**doFinal()**而不使用**update()**。在解密过程中，您可以使用**update()**或。
+     * > **doFinal()**一次，解密数据并验证标签。
      *
-     * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
+     * @param { DataBlob } data - 表示要加密或解密的数据。
      * @returns { Promise<DataBlob | null> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -3118,21 +2723,15 @@ declare namespace cryptoFramework {
     update(data: DataBlob): Promise<DataBlob | null>;
 
     /**
-     * Updates the data to encrypt or decrypt by segment. This API uses an asynchronous callback to return the encrypted
-     * or decrypted data.
+     * 分段更新加密或者解密数据操作，通过注册回调函数获取加/解密数据。
      *
-     * This API can be called only after the [Cipher]{@link cryptoFramework.Cipher} instance is initialized by
-     * using [initSync()]{@link cryptoFramework.Cipher.initSync}.
+     * 必须在对[Cipher]{@link cryptoFramework.CipherSpecItem}实例使用[initSync()]{@link cryptoFramework.Cipher.initSync}初始化后，才能使
+     * 用本函数。
      *
-     * See **NOTE** in **update()** for other precautions.
+     * 其他注意事项同上异步接口说明。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob } data - Data to encrypt or decrypt. It cannot be null.
-     * @returns { DataBlob } Encryption/decryption result.
+     * @param { DataBlob } data - 加密或者解密的数据。data不能为null。
+     * @returns { DataBlob } 返回此次更新的加/解密结果DataBlob。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3150,13 +2749,13 @@ declare namespace cryptoFramework {
     updateSync(data: DataBlob): DataBlob;
 
     /**
-     * Update the crypto operation with the input data, and feed back the encrypted or decrypted data
-     * this time. RSA is not supported in this function.
+     * 用输入数据更新加密操作，并反馈加密或解密后的数据
+     * 这一次。此功能不支持RSA。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     * <br><br>**注意**
+     * <br>建议优先使用异步API, {@链接更新}。同步API可以
+     * 由于系统繁忙、高负载等原因，耗时较长，阻塞主线程。因此，
+     * 建议在子线程内调用同步API，避免阻塞主线程。
      *
      * @param { DataBlob } data - indicates the data to be encrypted or decrypted.
      * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
@@ -3177,11 +2776,11 @@ declare namespace cryptoFramework {
     updateSync(data: DataBlob): DataBlob | null;
 
     /**
-     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-     * Data cannot be updated after the crypto operation is finished.
+     * 完成加密操作，对输入数据进行加密或解密，然后反馈输出数据。
+     * 加密操作完成后，数据无法更新。
      *
-     * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
-     * @param { AsyncCallback<DataBlob> } callback - the callback of the doFinal function.
+     * @param { DataBlob } data - 表示最终要加密或解密的数据。
+     * @param { AsyncCallback<DataBlob> } callback - doFinal函数的回调
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3200,55 +2799,53 @@ declare namespace cryptoFramework {
     doFinal(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * (1) Processes the remaining data and the data passed in this time, and completes the encryption or decryption
-     * operation for symmetric encryption and decryption. This API uses an asynchronous callback to return the encrypted
-     * or decrypted data. If a small amount of data needs to be encrypted or decrypted, you can use **doFinal()** to
-     * pass in all the data without using **update()**. If all the data has been passed in by
-     * [update()]{@link cryptoFramework.Cipher.update(data: DataBlob, callback: AsyncCallback<DataBlob>)}, you can pass
-     * in **null** in **data** of **doFinal()**. The output of **doFinal()** varies with the symmetric block cipher mode
-     * in use.
+     * （1）处理剩余的数据和本次传入的数据，完成加密或解密
+     * 对称加密和解密的操作。该接口使用异步回调返回加密后的
+     * 或解密后的数据。如果需要对少量数据进行加解密，可以使用**doFinal()**
+     * 在不使用**update()**的情况下传入所有数据。如果所有的数据都是通过
+     * [update()]{@链接CryptFramework.Cipher.update（数据：DataBlob，回调：AsyncCallback<DataBlob>）}，您可以通过
+     * in**null*in**data**的**doFinal()***。**doFinal()**的输出随对称分组密码模式而变化
+     * 正在使用中。
      *
-     * - In a single encryption process with GCM or CCM mode, concatenating the results of each **update()** and
-     * **doFinal()** procedures the ciphertext and **authTag**. In GCM mode, **authTag** is the last 16 bytes. In CCM
-     * mode, **authTag** is the last 12 bytes. The rest part is the ciphertext. If **data** passed to **doFinal()** is
-     * **null**, the **doFinal()** result is only the **authTag**. During decryption, **authTag** must be set in
-     * [GcmParamsSpec]{@link cryptoFramework.GcmParamsSpec} or [CcmParamsSpec]{@link cryptoFramework.CcmParamsSpec}, and
-     * the ciphertext must be set in **data**.
-     * - For other symmetric encryption and decryption modes and GCM and CCM decryption modes, concatenating the results
-     * of **update()** and **doFinal()** throughout the process will yield the complete plaintext or ciphertext.
+     * -在使用GCM或CCM模式的单个加密过程中，连接每个**更新()**和
+     * **doFinal()**处理密文和**authTag**。GCM模式下，**authTag**为后16个字节。在CCM中
+     * 模式，**authTag**是最后12个字节。剩下的部分就是密文。如果**数据**传递给**doFinal()**是
+     * **null**，则**doFinal()**结果只有**authTag**。解密时，**authTag**必须在
+     * [GcmParamsSpec]{@linkcryptionFramework.GcmParamsSpec}或[CcmParamsSpec]{@linkcryptionFramework.CcmParamsSpec}。
+     * 密文必须在**data**中设置。
+     * -对于其他对称加解密模式和GCM和CCM解密模式，拼接结果
+     * 的**update()**和**doFinal()**整个过程将生成完整的明文或密文。
      *
-     * (2) Encrypts or decrypts the data passed in this time in RSA and SM2 asymmetric encryption or decryption. This
-     * API uses an asynchronous callback to return the encrypted or decrypted data. If a large amount of data needs to
-     * be encrypted/decrypted, call **doFinal()** multiple times and concatenate the result of each **doFinal()** to
-     * obtain the complete plaintext/ciphertext.
+     * （2）使用RSA和SM2非对称加密算法对本次传入的数据进行加密或解密。该接口采用异步回调方式返回加密或解密后的数据。
+     * 若需对大量数据进行加解密，可多次调用**doFinal()**接口，并将每次调用结果拼接以获取完整的明文/密文。
      *
-     * > **NOTE**
+     * > **说明**
+     * > >
+     * > 1.对称加解密中，调用**doFinal**后，加解密过程
+     * > 完成，并清除[Cipher]{@link encryptFramework.Cipher}实例。当一个新的加密和
+     * > 解密进程启动时，**init()**必须调用完整的参数列表进行初始化。
+     * > 即使使用相同的对称密钥对相同的**Cipher**实例进行加密和解密，**params**
+     * > 在解密过程中调用**init**时必须设置参数。
+     * > 2.如果解密失败，请检查待加解密的数据是否与
+     * > **init()**。对于GCM模式，检查加密后的**authTag**是否从
+     * > **GcmParamsSpec**用于解密。
+     * > 3.**doFinal()**的结果可能是**null**。为了避免异常，判断结果是否为**null**
+     * > 在使用**.data**字段访问**doFinal()**结果之前。
+     * > 对于CFB、OFB、CTR方式的加密，如果**doFinal()**传入**null**，则返回结果为**null**。
+     * > 对于GCM、CCM、CFB、OFB、CTR方式的解密，如果**doFinal()*传入**null*，则返回结果为
+     * > **null**.对于其他方式的解密，如果调用**update**会传入所有的明文，就是
+     * > 加密块大小的整数倍，而**doFinal()**被调用传入**null**，返回的
+     * > 结果为**null**。
+     * > 4.非对称加密中多次调用**doFinal**的示例代码
      * >
-     * > 1. In symmetric encryption and decryption, after **doFinal** is called, the encryption and decryption process
-     * > is complete and the [Cipher]{@link cryptoFramework.Cipher} instance is cleared. When a new encryption and
-     * > decryption process is started, **init()** must be called with a complete parameter list for initialization.
-     * > Even if the same symmetric key is used to encrypt and decrypt the same **Cipher** instance, the **params**
-     * > parameter must be set when **init** is called during decryption.
-     * > 2. If a decryption fails, check whether the data to be encrypted and decrypted matches the parameters in
-     * > **init()**. For the GCM mode, check whether the **authTag** obtained after encryption is obtained from the
-     * > **GcmParamsSpec** for decryption.
-     * > 3. The result of **doFinal()** may be **null**. To avoid exceptions, determine whether the result is **null**
-     * > before using the **.data** field to access the **doFinal()** result.
-     * > For encryption in CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is **null**.
-     * > For decryption in GCM, CCM, CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is
-     * > **null**. For decryption in other modes, if **update** is called to pass in all the plaintext, which is an
-     * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
-     * > result is **null**.
-     * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
-     * > The operations are similar for SM2 and RSA.
+     * 解密，请参阅[使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md
+     * )。
+     * > SM2和RSA的操作类似。
      *
-     * @param { DataBlob | null } data - Data to encrypt or decrypt. In symmetric encryption and decryption, this
-     *     parameter can be **null**, but **{data: Uint8Array (empty)}** cannot be passed in. Before API version 10,
-     *     only **DataBlob** is supported. Since API version 10, **null** is also supported.
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return the result. If the encryption or decryption
-     *     is successful, **err** is **undefined**, and **data** is the encryption or decryption result **DataBlob**.
-     *     Otherwise, **err** is an error object.
+     * @param { DataBlob | null } data - 要加密或解密的数据。在对称加解密中，这个
+     *     参数可以是**null**，但是**{data: Uint8Array（空）}**不能传入。在API版本10之前，
+     *     仅支持**DataBlob**。从API版本10开始，还支持**null**
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数。最终加/解密成功时，err为undefined，data为加/解密结果DataBlob；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3267,32 +2864,34 @@ declare namespace cryptoFramework {
     doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-     * Data cannot be updated after the crypto operation is finished.
+     * 完成加密操作，对输入数据进行加密或解密，然后反馈输出数据。
+     * 加密操作完成后，数据无法再更新。
      *
-     * > **NOTE**
+     * > **说明**
+     * > >
+     * > 1.对称加解密中，调用**doFinal**后，加解密过程
+     * > 完成，并清除[Cipher]{@link encryptFramework.Cipher}实例。当一个新的加密和
+     * > 解密进程启动时，**init()**必须调用完整的参数列表进行初始化。
+     * > 即使使用相同的对称密钥对相同的**Cipher**实例进行加密和解密，**params**
+     * > 在解密过程中调用**init**时必须设置参数。
+     * > 2.如果解密失败，请检查待加解密的数据是否与
+     * > **init()**。对于GCM模式，检查加密后的**authTag**是否从
+     * > **GcmParamsSpec**用于解密。
+     * > 3.**doFinal()**的结果可能是**null**。为了避免异常，判断结果是否为**null**
+     * > 在使用**.data**字段访问**doFinal()**结果之前。
+     * > 对于CFB、OFB、CTR方式的加密，如果**doFinal()**传入**null**，则返回结果为**null**。
+     * > 对于GCM、CCM、CFB、OFB、CTR方式的解密，如果**doFinal()*传入**null*，则返回结果为
+     * > **null**.对于其他方式的解密，如果调用**update**会传入所有的明文，就是
+     * > 加密块大小的整数倍，而**doFinal()**被调用传入**null**，返回的
+     * > 结果为**null**。
+     * > 4.非对称加密中多次调用**doFinal**的示例代码
      * >
-     * > 1. In symmetric encryption and decryption, after **doFinal** is called, the encryption and decryption process
-     * > is complete and the [Cipher]{@link cryptoFramework.Cipher} instance is cleared. When a new encryption and
-     * > decryption process is started, **init()** must be called with a complete parameter list for initialization.
-     * > Even if the same symmetric key is used to encrypt and decrypt the same **Cipher** instance, the **params**
-     * > parameter must be set when **init** is called during decryption.
-     * > 2. If a decryption fails, check whether the data to be encrypted and decrypted matches the parameters in
-     * > **init()**. For the GCM mode, check whether the **authTag** obtained after encryption is obtained from the
-     * > **GcmParamsSpec** for decryption.
-     * > 3. The result of **doFinal()** may be **null**. To avoid exceptions, determine whether the result is **null**
-     * > before using the **.data** field to access the **doFinal()** result.
-     * > For encryption in CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is **null**.
-     * > For decryption in GCM, CCM, CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is
-     * > **null**. For decryption in other modes, if **update** is called to pass in all the plaintext, which is an
-     * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
-     * > result is **null**.
-     * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
-     * > The operations are similar for SM2 and RSA.
+     * 解密，请参阅[使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md
+     * )。
+     * > SM2和RSA的操作类似。
      *
-     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
-     * @param { AsyncCallback<DataBlob | null> } callback - the callback of the doFinal function.
+     * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
+     * @param { AsyncCallback<DataBlob | null> } callback - doFinal函数的回调
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3310,11 +2909,11 @@ declare namespace cryptoFramework {
     doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob | null>): void;
 
     /**
-     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-     * Data cannot be updated after the crypto operation is finished.
+     * 完成加密操作，对输入数据进行加密或解密，然后反馈输出数据。
+     * 加密操作完成后，数据无法更新。
      *
-     * @param { DataBlob } data - indicates the data to be finally encrypted or decrypted.
-     * @returns { Promise<DataBlob> } the promise returned by the function.
+     * @param { DataBlob } data - 表示最终要加密或解密的数据。
+     * @returns { Promise<DataBlob> } 函数返回的promise。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3333,56 +2932,40 @@ declare namespace cryptoFramework {
     doFinal(data: DataBlob): Promise<DataBlob>;
 
     /**
-     * (1) Encrypts or decrypts the remaining data (generated by the block cipher mode) and the data passed in this time
-     * to finalize the symmetric encryption or decryption. This API uses a promise to return the encrypted or decrypted
-     * data.
+     * （1）在对称加解密中，doFinal加/解密（分组模式产生的）剩余数据和本次传入的数据，最后结束加密或者解密数据操作，使用Promise异步回调获取加密或者解密数据。
      *
-     * If a small amount of data needs to be encrypted or decrypted, you can use **doFinal()** to pass in data without
-     * using **update()**. If all the data has been passed in by **update()**, you can pass in **null** in **data** of
-     * **doFinal()**.
+     * 如果数据量较小，可以在doFinal中一次性传入数据，而不使用update；如果在本次加解密流程中，已经使用update传入过数据，可以在doFinal的data参数处传入null。
      *
-     * The output of **doFinal()** varies with the symmetric encryption/decryption mode in use.
+     * （2）使用RSA和SM2非对称加密算法对本次传入的数据进行加密或解密。该接口采用异步回调方式返回加密或解密后的数据。
+     * 若需对大量数据进行加解密，可多次调用**doFinal()**接口，并将每次调用结果拼接以获取完整的明文/密文。
      *
-     * - Symmetric encryption in GCM and CCM mode: The result consists of the ciphertext and **authTag** (the last 16
-     * bytes for GCM and the last 12 bytes for CCM). If **data** in **doFinal** is null, the result of **doFinal** is
-     * **authTag**.
-     *
-     * During decryption, **authTag** must be set in [GcmParamsSpec]{@link cryptoFramework.GcmParamsSpec} or
-     * [CcmParamsSpec]{@link cryptoFramework.CcmParamsSpec}, and the ciphertext must be set in **data**.
-     *
-     * - For other symmetric encryption and decryption modes and GCM and CCM decryption modes, concatenating the results
-     * of **update()** and **doFinal()** throughout the process will yield the complete plaintext or ciphertext.
-     *
-     * (2) Encrypts or decrypts the data passed in RSA and SM2 asymmetric encryption or decryption. This API uses a
-     * promise to return the encrypted or decrypted data. If a large amount of data is to be processed, call
-     * **doFinal()** multiple times and concatenate the results to obtain the complete plaintext or ciphertext.
-     *
-     * > **NOTE**
+     * > **说明**
+     * > >
+     * > 1.对称加解密中，调用**doFinal**后，加解密过程
+     * > 完成，并清除[Cipher]{@link encryptFramework.Cipher}实例。当一个新的加密和
+     * > 解密进程启动时，**init()**必须调用完整的参数列表进行初始化。
+     * > 即使使用相同的对称密钥对相同的**Cipher**实例进行加密和解密，**params**
+     * > 在解密过程中调用**init**时必须设置参数。
+     * > 2.如果解密失败，请检查待加解密的数据是否与
+     * > **init()**。对于GCM模式，检查加密后的**authTag**是否从
+     * > **GcmParamsSpec**用于解密。
+     * > 3.**doFinal()**的结果可能是**null**。为了避免异常，判断结果是否为**null**
+     * > 在使用**.data**字段访问**doFinal()**结果之前。
+     * > 对于CFB、OFB、CTR方式的加密，如果**doFinal()**传入**null**，则返回结果为**null**。
+     * > 对于GCM、CCM、CFB、OFB、CTR方式的解密，如果**doFinal()*传入**null*，则返回结果为
+     * > **null**.对于其他方式的解密，如果调用**update**会传入所有的明文，就是
+     * > 加密块大小的整数倍，而**doFinal()**被调用传入**null**，返回的
+     * > 结果为**null**。
+     * > 4.非对称加密中多次调用**doFinal**的示例代码
      * >
-     * > 1. In symmetric encryption and decryption, after **doFinal** is called, the encryption and decryption process
-     * > is complete and the [Cipher]{@link cryptoFramework.Cipher} instance is cleared. When a new encryption and
-     * > decryption process is started, **init()** must be called with a complete parameter list for initialization.
-     * > Even if the same symmetric key is used to encrypt and decrypt the same **Cipher** instance, the **params**
-     * > parameter must be set when **init** is called during decryption.
-     * > 2. If a decryption fails, check whether the data to be encrypted and decrypted matches the parameters in
-     * > **init()**. For the GCM mode, check whether the **authTag** obtained after encryption is obtained from the
-     * > **GcmParamsSpec** for decryption.
-     * > 3. The result of **doFinal()** may be **null**. To avoid exceptions, determine whether the result is **null**
-     * > before using the **.data** field to access the **doFinal()** result.
-     * > For encryption in CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is **null**.
-     * > For decryption in GCM, CCM, CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is
-     * > **null**. For decryption in other modes, if **update** is called to pass in all the plaintext, which is an
-     * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
-     * > result is **null**.
-     * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
-     * > The operations are similar for SM2 and RSA.
+     * 解密，请参阅[使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md
+     * )。
+     * > SM2和RSA的操作类似。
      *
-     * @param { DataBlob | null } data - Data to encrypt or decrypt. It can be **null**, but cannot be {data:Uint8Array(
-     *     empty)}. In versions earlier than API version 10, only **DataBlob** is supported. Since API version 10,
-     *     **null** is also supported.
-     * @returns { Promise<DataBlob> } Promise used to return the **DataBlob**, which is the encryption or decryption
-     *     result of the remaining data.
+     * @param { DataBlob | null } data - 要加密或解密的数据。可以为**null**，但不能为{data:Uint8Array(
+     *     空)}。在API版本10之前的版本中，仅支持**DataBlob**。从API版本10开始，
+     *     也支持**null**
+     * @returns { Promise<DataBlob> } Promise对象，返回剩余数据的加/解密结果DataBlob。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3401,31 +2984,33 @@ declare namespace cryptoFramework {
     doFinal(data: DataBlob | null): Promise<DataBlob>;
 
     /**
-     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-     * Data cannot be updated after the crypto operation is finished.
+     * 完成加密操作，对输入数据进行加密或解密，然后反馈输出数据。
+     * 加密操作完成后，数据无法更新。
      *
-     * > **NOTE**
+     * > **说明**
+     * > >
+     * > 1.对称加解密中，调用**doFinal**后，加解密过程
+     * > 完成，并清除[Cipher]{@link encryptFramework.Cipher}实例。当一个新的加密和
+     * > 解密进程启动时，**init()**必须调用完整的参数列表进行初始化。
+     * > 即使使用相同的对称密钥对相同的**Cipher**实例进行加密和解密，**params**
+     * > 在解密过程中调用**init**时必须设置参数。
+     * > 2.如果解密失败，请检查待加解密的数据是否与
+     * > **init()**。对于GCM模式，检查加密后的**authTag**是否从
+     * > **GcmParamsSpec**用于解密。
+     * > 3.**doFinal()**的结果可能是**null**。为了避免异常，判断结果是否为**null**
+     * > 在使用**.data**字段访问**doFinal()**结果之前。
+     * > 对于CFB、OFB、CTR方式的加密，如果**doFinal()**传入**null**，则返回结果为**null**。
+     * > 对于GCM、CCM、CFB、OFB、CTR方式的解密，如果**doFinal()*传入**null*，则返回结果为
+     * > **null**.对于其他方式的解密，如果调用**update**会传入所有的明文，就是
+     * > 加密块大小的整数倍，而**doFinal()**被调用传入**null**，返回的
+     * > 结果为**null**。
+     * > 4.非对称加密中多次调用**doFinal**的示例代码
      * >
-     * > 1. In symmetric encryption and decryption, after **doFinal** is called, the encryption and decryption process
-     * > is complete and the [Cipher]{@link cryptoFramework.Cipher} instance is cleared. When a new encryption and
-     * > decryption process is started, **init()** must be called with a complete parameter list for initialization.
-     * > Even if the same symmetric key is used to encrypt and decrypt the same **Cipher** instance, the **params**
-     * > parameter must be set when **init** is called during decryption.
-     * > 2. If a decryption fails, check whether the data to be encrypted and decrypted matches the parameters in
-     * > **init()**. For the GCM mode, check whether the **authTag** obtained after encryption is obtained from the
-     * > **GcmParamsSpec** for decryption.
-     * > 3. The result of **doFinal()** may be **null**. To avoid exceptions, determine whether the result is **null**
-     * > before using the **.data** field to access the **doFinal()** result.
-     * > For encryption in CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is **null**.
-     * > For decryption in GCM, CCM, CFB, OFB, or CTR mode, if **doFinal()** passes in **null**, the returned result is
-     * > **null**. For decryption in other modes, if **update** is called to pass in all the plaintext, which is an
-     * > integer multiple of the encryption block size, and **doFinal()** is called to pass in **null**, the returned
-     * > result is **null**.
-     * > 4. For details about the sample code for calling **doFinal** multiple times in asymmetric encryption and
-     * > decryption, see [Encryption and Decryption by Segment with an RSA Asymmetric Key Pair](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md).
-     * > The operations are similar for SM2 and RSA.
+     * 解密，请参阅[使用RSA非对称密钥对按段加密和解密](docroot://security/CryptoArchitectureKit/crypto-rsa-asym-encrypt-decrypt-by-segment.md
+     * )。
+     * > SM2和RSA的操作类似。
      *
-     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
      * @returns { Promise<DataBlob | null> } the promise returned by the function.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -3444,42 +3029,34 @@ declare namespace cryptoFramework {
     doFinal(data: DataBlob | null): Promise<DataBlob | null>;
 
     /**
-     * (1) Processes the remaining data and the data passed in this time, and completes the encryption or decryption
-     * operation for symmetric encryption and decryption. This API returns the encrypted or decrypted data
-     * synchronously.
+     * （1）在对称加解密中，doFinalSync用于处理剩余数据和本次传入的数据，并结束加密或解密操作，通过注册回调函数获取加密或解密结果。
      *
-     * If a small amount of data is to be processed, you can pass in all the data at a time in **doFinalSync()** without
-     * using **updateSync()**. If data has been passed in by using
-     * [updateSync]{@link cryptoFramework.Cipher.updateSync(data: DataBlob)} in the current encryption and decryption
-     * process, you can pass in **null** to the **data** parameter of **doFinalSync()**.
+     * 如果数据量较小，可以在doFinalSync中一次性传入数据，而不使用updateSync。如果在本次加解密流程中已经使用
+     * [updateSync]{@link cryptoFramework.Cipher.updateSync(data: DataBlob)}传入过数据，可以在doFinalSync的data参数处传入null。
      *
-     * The output of **doFinalSync()** varies with the symmetric block cipher mode in use.
+     * > **说明**
+     * > **doFinalSync()**的输出因使用的对称分组密码模式而异。
+     * > -在使用GCM或CCM模式的单个加密过程中，将每个**updateSync()**和
+     * > **doFinalSync()**处理密文和**authTag**。在GCM模式下，**authTag**为后16个字节。
+     * > CCM模式，**authTag**为最后12个字节。剩下的部分就是密文。如果**数据**in*doFinalSync()**
+     * > **null**,**doFinalSync()**的结果为**authTag**。
+     * > 解密时，必须在[GcmParamsSpec]{@link cryptoFramework.GcmParamsSpec}中设置**authTag**或
+     * > [CcmParamsSpec]{@link encryptFramework.CcmParamsSpec}，且密文必须在**data**中设置。
+     * > -对于其他对称加解密模式和GCM和CCM解密模式，拼接结果
+     * > **updateSync()**和**doFinalSync()***在整个过程中都会生成完整的明文或密文。
+     * > （2）对输入数据进行加密或解密，用于RSA或SM2非对称加解密。该接口返回的是
+     * > 同步加密或解密数据。如果需要处理大量数据，则调用**doFinalSync()**
+     * > 多次，并对结果进行拼接，得到完整的明文或密文。
+     * > 请参见中的**注**
+     * > [doFinal()]{@链接CryptFramework.Cipher.doFinal（数据：DataBlob | null，回调：AsyncCallback<DataBlob>）}
+     * > 其他注意事项。
+     * > <br><br>**注意**
+     * > <br>建议优先使用异步API{@link doFinal}。同步API可以
+     * > 由于系统繁忙、高负载等原因，耗时较长，阻塞主线程。因此，
+     * > 建议在子线程中调用同步API，避免阻塞主线程。
      *
-     * - In a single encryption process with GCM or CCM mode, concatenating the results of each **updateSync()** and
-     * **doFinalSync()** procedures the ciphertext and **authTag**. In GCM mode, **authTag** is the last 16 bytes. In
-     * CCM mode, **authTag** is the last 12 bytes. The rest part is the ciphertext. If **data** in **doFinalSync()** is
-     * **null**, the result of **doFinalSync()** is **authTag**.
-     *  During decryption, **authTag** must be set in [GcmParamsSpec]{@link cryptoFramework.GcmParamsSpec} or
-     * [CcmParamsSpec]{@link cryptoFramework.CcmParamsSpec}, and the ciphertext must be set in **data**.
-     * - For other symmetric encryption and decryption modes and GCM and CCM decryption modes, concatenating the results
-     * of **updateSync()** and **doFinalSync()** throughout the process will yield the complete plaintext or ciphertext.
-     *
-     * (2) Encrypts or decrypts the input data for RSA or SM2 asymmetric encryption/decryption. This API returns the
-     * encrypted or decrypted data synchronously. If a large amount of data is to be processed, call **doFinalSync()**
-     * multiple times and concatenate the results to obtain the complete plaintext or ciphertext.
-     *
-     * See **NOTE** in
-     * [doFinal()]{@link cryptoFramework.Cipher.doFinal(data: DataBlob | null, callback: AsyncCallback<DataBlob>)} for
-     * other precautions.
-     *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob | null } data - Data to encrypt or decrypt. It can be **null** in symmetric encryption or
-     *     decryption, but cannot be {data:Uint8Array(empty)}.
-     * @returns { DataBlob } Encrypted or decrypted data.
+     * @param { DataBlob | null } data - 加密或者解密的数据。在对称加解密中允许为null，但不允许传入{data: Uint8Array(空) }。
+     * @returns { DataBlob } 返回剩余数据的加/解密结果DataBlob。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3497,15 +3074,15 @@ declare namespace cryptoFramework {
     doFinalSync(data: DataBlob | null): DataBlob;
 
     /**
-     * Finish the crypto operation, encrypt or decrypt the input data, and then feed back the output data.
-     * Data cannot be updated after the crypto operation is finished.
+     * 完成加密操作，对输入数据进行加密或解密，然后反馈输出数据。
+     * 加密操作完成后，数据无法更新。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link doFinal}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     * <br><br>**注意**
+     * <br>建议优先使用异步API{@link doFinal}。同步API可以
+     * 由于系统繁忙、高负载等原因，耗时较长，阻塞主线程。因此，
+     * 建议在子线程内调用同步API，避免阻塞主线程。
      *
-     * @param { DataBlob | null } data - indicates the data to be finally encrypted or decrypted.
+     * @param { DataBlob | null } data - 表示最终要加密或解密的数据。
      * @returns { DataBlob | null } cipherText when encrypted or plainText when decrypted.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -3524,11 +3101,10 @@ declare namespace cryptoFramework {
     doFinalSync(data: DataBlob | null): DataBlob | null;
 
     /**
-     * Sets cipher specifications. You can use this API to set cipher specifications that cannot be set by
-     * [createCipher]{@link cryptoFramework.createCipher}. Currently, only RSA is supported.
+     * 设置加解密参数。常用的加解密参数直接通过[createCipher]{@link cryptoFramework.createCipher} 来指定，剩余参数通过本接口指定。当前只支持RSA算法。
      *
-     * @param { CipherSpecItem } itemType - Cipher parameter to set.
-     * @param { Uint8Array } itemValue - Value of the parameter to set.
+     * @param { CipherSpecItem } itemType - 用于指定需要设置的加解密参数。
+     * @param { Uint8Array } itemValue - 用于指定加解密参数的具体值。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3548,9 +3124,9 @@ declare namespace cryptoFramework {
     setCipherSpec(itemType: CipherSpecItem, itemValue: Uint8Array): void;
 
     /**
-     * Obtains cipher specifications. Currently, only RSA and SM2 (available since API version 11) are supported.
+     * 获取加解密参数。当前只支持RSA算法和SM2算法，从API version 11开始，支持SM2算法获取加解密参数。
      *
-     * @param { CipherSpecItem } itemType - Cipher parameter to obtain.
+     * @param { CipherSpecItem } itemType - 用于指定需要获取的加解密参数。
      * @returns { string | Uint8Array } Returns the value of the cipher parameter obtained.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -3571,7 +3147,7 @@ declare namespace cryptoFramework {
     getCipherSpec(itemType: CipherSpecItem): string | Uint8Array;
 
     /**
-     * Indicates the algorithm name of the cipher object.
+     * 加解密生成器指定的算法名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
@@ -3584,30 +3160,12 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates a [Cipher]{@link cryptoFramework.Cipher} instance based on the specified algorithm.
+   * 通过指定算法名称，获取相应的[Cipher]{@link cryptoFramework.CipherSpecItem}实例。
    *
-   * > **NOTE**
-   * >
-   * > 1. In symmetric encryption and decryption, PKCS #5 and PKCS #7 share the same implementation, with padding
-   * > length and block size remaining consistent. In 3DES, padding is applied in 8-byte blocks; in AES, padding
-   * > is applied in 16-byte blocks. **NoPadding** means no padding is applied.
-   * > You need to understand the differences between different block cipher modes and use the correct parameter
-   * > specifications. For example, padding is required for ECB and CBC. Otherwise, ensure that the plaintext
-   * > length is an integer multiple of the block size. No padding is recommended for other modes. In this case,
-   * > the ciphertext length is the same as the plaintext length.
-   * > 2. When RSA or SM2 is used for asymmetric encryption and decryption, two **Cipher** objects must be created
-   * > to perform encryption and decryption separately. This is not required for symmetric encryption and
-   * > decryption. If the algorithm specifications are the same, the same **Cipher** object can be used for
-   * > encryption and decryption.
-   *
-   * @param { string } transformation - Combination of the algorithm name (including the key length), encryption mode,
-   *     and padding algorithm of the **Cipher** instance to create.<br>For details about the supported specifications,
-   *     see
-   *     [Symmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md)
-   *     and
-   *     [Asymmetric Key Encryption and Decryption Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)
-   *     .
-   * @returns { Cipher } [Cipher]{@link cryptoFramework.Cipher} instance created.
+   * @param { string } transformation - 待生成Cipher的算法名称（含密钥长度）、加密模式以及填充方法的组合。<br>支持的规格详见
+   *     [对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-sym-encrypt-decrypt-spec.md)和
+   *     [非对称密钥加解密算法规格](docroot://security/CryptoArchitectureKit/crypto-asym-encrypt-decrypt-spec.md)。
+   * @returns { Cipher } 返回加解密生成器的对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -3621,43 +3179,24 @@ declare namespace cryptoFramework {
    */
   function createCipher(transformation: string): Cipher;
   /**
-   * # Attributes
+   * Sign类，使用Sign方法之前需要创建该类的实例进行操作，通过[createSign(algName: string): Sign]{@link cryptoFramework.createSign}方法构造此实例。按序调用本类
+   * 中的init、update、sign方法完成签名操作。签名操作的示例代码详见
+   * [签名验签开发指导](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   * Sign类不支持重复初始化，当业务方需要使用新密钥签名时，需要重新创建新Sign对象并调用init初始化。
    *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Signature
+   * 业务方使用时，调用createSign接口确定签名的模式，调用init接口设置密钥。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Signature** since API version 12.
+   * 当待签名数据长度较短时，可在初始化后直接调用sign接口传入数据进行签名，无需调用update。
    *
-   * | Name   | Type  | Read-Only| Optional| Description                        |
-   * | ------- | ------ | ---- | ---- | ---------------------------- |
-   * | algName | string | Yes  | No  | Algorithm to use.|
+   * 当待签名数据较长时，可通过update接口分段传入切分后的原文数据，最后调用sign接口对整体原文数据进行签名。
+   *
+   * 当使用update分段传入原文时，sign接口API 10之前只支持传入DataBlob， API 10之后增加支持null。业务方可在循环中调用update接口，循环结束后调用sign进行签名。
+   *
+   * 使用DSA算法签名时，如果摘要算法设置为NoHash，则不支持update操作，调用update接口将返回错误码ERR_CRYPTO_OPERATION。
+   *
    */
   /**
-   * Provides APIs for signing. Before using any API of the **Sign** class, you must create a **Sign** instance by using
-   * [createSign(algName: string): Sign]{@link cryptoFramework.createSign}. Invoke **init()**, **update()**, and
-   * **sign()** in this class in sequence to complete the signing operation. For details about the sample code, see
-   * [Signing and Signature Verification with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)
-   * .
-   *
-   * The **Sign** class does not support repeated initialization. When a new key is used for signing, you must create a
-   * new **Sign** instance and call **init()** for initialization.
-   *
-   * The signing mode is determined by **createSign()**, and the key is set by **init()**.
-   *
-   * If a small amount of data is to be signed, you can directly call **sign()** to pass in the data for signing after
-   * **ini()**.
-   *
-   * If a large amount of data is to be signed, you can use **update()** to pass in the data by segment, and then use
-   * **sign()** to sign the entire data.
-   *
-   * When **update()** is used, the **sign()** API supports only **DataBlob** in versions earlier than API version 10
-   * and starts to support **null** since API version 10. After all the data is passed in by using **update()**, call
-   * **sign()** to sign the data.
-   *
-   * If the DSA algorithm is used for signing and the digest algorithm is **NoHash**, the **update()** operation is not
-   * supported. If **update()** is called in this case, the error code **ERR_CRYPTO_OPERATION** will be returned.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -3668,15 +3207,12 @@ declare namespace cryptoFramework {
    */
   interface Sign {
     /**
-     * Initializes the **Sign** object using a private key. This API uses an asynchronous callback to return the result.
-     * **init**, **update**, and **sign** must be used together. **init** and **sign** are mandatory, and **update** is
-     * optional.
+     * 使用私钥初始化Sign对象。使用callback异步回调。init、update、sign为三段式接口，需要成组使用。其中init和sign必选，update可选。
      *
-     * The **Sign** class does not support repeated use of **ini**.
+     * Sign类不支持重复初始化。
      *
-     * @param { PriKey } priKey - Private key used for the initialization.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { PriKey } priKey - 用于Sign的初始化。
+     * @param { AsyncCallback<void> } callback - 回调函数。当签名初始化成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3696,13 +3232,12 @@ declare namespace cryptoFramework {
     init(priKey: PriKey, callback: AsyncCallback<void>): void;
 
     /**
-     * Initializes the **Sign** object using a private key. This API uses a promise to return the result. **init**,
-     * **update**, and **sign** must be used together. **init** and **sign** are mandatory, and **update** is optional.
+     * 使用私钥初始化Sign对象。使用Promise异步回调。init、update、sign为三段式接口，需要成组使用。其中init和sign必选，update可选。
      *
-     * The **Sign** class does not support repeated use of **ini**.
+     * Sign类不支持重复初始化。
      *
-     * @param { PriKey } priKey - Private key used for the initialization.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { PriKey } priKey - 用于Sign的初始化。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3722,18 +3257,11 @@ declare namespace cryptoFramework {
     init(priKey: PriKey): Promise<void>;
 
     /**
-     * Initializes the **Sign** instance with a private key. This API returns the result synchronously. **initSync**,
-     * **updateSync**, and **signSync** must be used together. **initSync** and **signSync** are mandatory, and
-     * **updateSync** is optional.
+     * 使用私钥初始化Sign对象，通过同步方式获取结果。initSync、updateSync、signSync为三段式接口，需要成组使用。其中initSync和signSync必选，updateSync可选。
      *
-     * The **Sign** class does not support repeated use of **initSync**.
+     * Sign类不支持重复调用initSync。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { PriKey } priKey - Private key used for the initialization.
+     * @param { PriKey } priKey - 用于Sign的初始化。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3752,32 +3280,27 @@ declare namespace cryptoFramework {
     initSync(priKey: PriKey): void;
 
     /**
-     * Updates data to be signed. This API uses an asynchronous callback to return the result.
+     * 追加待签名数据，使用callback异步回调完成更新。
      *
-     * This API can be called only after the [Sign]{@link cryptoFramework.SignSpecItem} instance is initialized by using
-     * [init()]{@link cryptoFramework.Cipher.initSync}.
+     * 必须在对[Sign]{@link cryptoFramework.SignSpecItem}实例使用[init()]{@link cryptoFramework.Cipher.initSync}初始化后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > You can call **update** multiple times or do not use **update** (call [sign]{@link cryptoFramework.Sign} after
-     * > [init]{@link cryptoFramework.Cipher.initSync}), depending on the data volume.
+     * > 根据数据量，可以不调用update（即[init]{@link cryptoFramework.Cipher.initSync}完成后直接调用[sign]{@link cryptoFramework.Sign}）或多次调用
+     * > update。
      *
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to call **update()** multiple times to pass in the data by segment. This
-     * > prevents too much memory from being requested at a time.
+     * > 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的签名操作，采用多次update的方式传入数据，避免一次性申请过大内存。
      *
-     * > For details about the sample code for calling **update()** multiple times in signing, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
-     * > . The operations of other algorithms are similar.
+     * > 签名使用多次update操作的示例代码详见
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，其余算法操
+     * > 作类似。
      *
-     * > **OnlySign** cannot be used with **update()**. If **OnlySign** is specified, use **sign()** to pass in data.
+     * > OnlySign模式下，不支持update操作，需要直接使用sign传入数据。
      *
-     * > If the DSA algorithm is used for signing and the digest algorithm is **NoHash**, **update()** is not supported.
-     * > If **update()** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
+     * > 当使用DSA算法进行签名，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
      *
-     * @param { DataBlob } data - Data to pass in.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { DataBlob } data - 传入的消息。
+     * @param { AsyncCallback<void> } callback - 回调函数。当签名更新成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3796,32 +3319,28 @@ declare namespace cryptoFramework {
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates data to be signed. This API uses a promise to return the result.
+     * 追加待签名数据，使用Promise异步回调方式完成更新。
      *
-     * Before using this API, you must use [Sign]{@link cryptoFramework.SignSpecItem} to initialize the
-     * [init()](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-3) instance.
+     * 在使用本函数前，必须先使用[Sign]{@link cryptoFramework.SignSpecItem}方法对
+     * [init()](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-3)实例进行初始化。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > You can call **update** multiple times or do not use **update** (call
-     * > [sign]{@link cryptoFramework.Sign.sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>)} after
-     * > [init](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-3)), depending on the
-     * > data volume.
+     * > 根据数据量，可以不调用update（即[init](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-3)完成
+     * > 后直接调用[sign]{@link cryptoFramework.Sign.sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>)}）或多次调用
+     * > update。
      *
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to call **update()** multiple times to pass in the data by segment. This
-     * > prevents too much memory from being requested at a time.
-     * > For details about the sample code for calling **update()** multiple times in signing, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
-     * > . The operations of other algorithms are similar.
+     * > 算法库不对单次或累计的update数据量设置大小限制。建议在处理大数据量的签名操作时，采用多次update方式传入数据，以避免一次性申请过多内存。
+     * > > 签名使用多次update操作的示例代码详见
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，其余算法操
+     * > 作类似。
      *
-     * > **OnlySign** cannot be used with **update()**. If **OnlySign** is specified, use **sign()** to pass in data.
+     * > OnlySign模式下，不支持update操作，需要直接使用sign传入数据。
      *
-     * > If the DSA algorithm is used for signing and the digest algorithm is **NoHash**, **update()** is not supported.
-     * > If **update()** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
+     * > 当使用DSA算法进行签名，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
      *
-     * @param { DataBlob } data - Data to pass in.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DataBlob } data - 传入的消息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3840,37 +3359,27 @@ declare namespace cryptoFramework {
     update(data: DataBlob): Promise<void>;
 
     /**
-     * Updates data to be signed. This API returns the result synchronously.
+     * 追加待签名数据，通过同步方式完成更新。
      *
-     * This API can be called only after the [Sign]{@link cryptoFramework.SignSpecItem} instance is initialized by using
-     * [initSync()]{@link cryptoFramework.Cipher.initSync}.
+     * 必须在对[Sign]{@link cryptoFramework.SignSpecItem}实例使用[initSync()]{@link cryptoFramework.Cipher.initSync}初始化后，才能使用本函数
+     * 。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > You can call **updateSync** multiple times or do not use **updateSync** (call
-     * > [signSync]{@link cryptoFramework.Sign.signSync} after [initSync]{@link cryptoFramework.Cipher.initSync}),
-     * > depending on the data volume.
+     * > 根据数据量，可以不调用updateSync（即[initSync]{@link cryptoFramework.Cipher.initSync}完成后直接调用
+     * > [signSync]{@link cryptoFramework.Sign.signSync}）或多次调用updateSync。
      *
-     * > The amount of the data to be passed in by **updateSync** (one-time or accumulative) is not limited. If there is
-     * > a large amount of data, you are advised to call **updateSync** multiple times to pass in the data by segment.
-     * > This prevents too much memory from being requested at a time.
+     * > 算法库目前没有对updateSync（单次或累计）的数据量设置大小限制，建议对于大数据量的签名操作，采用多次updateSync的方式传入数据，避免一次性申请过大内存。
      *
-     * > For details about the sample code for calling **updateSync** multiple times in signing, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
-     * > . The operations of other algorithms are similar.
+     * > 签名使用多次updateSync操作的示例代码详见
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，其余算法操
+     * > 作类似。
      *
-     * > **OnlySign** cannot be used with **updateSync**. If **OnlySign** is specified, use **signSync** to pass in
-     * > data.
+     * > OnlySign模式下，不支持updateSync操作，需要直接使用signSync传入数据。
      *
-     * > If the DSA algorithm is used for signing and the digest algorithm is **NoHash**, **updateSync** is not
-     * > supported. If **updateSync** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
+     * > 当使用DSA算法进行签名，并设置了摘要算法为NoHash时，则不支持updateSync操作，updateSync接口会返回错误码ERR_CRYPTO_OPERATION。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob } data - Data to pass in.
+     * @param { DataBlob } data - 传入的消息。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3888,7 +3397,7 @@ declare namespace cryptoFramework {
     updateSync(data: DataBlob): void;
 
     /**
-     * Used to sign the data, also including data added via the update interface.
+     * Used to sign message, include the update data.
      *
      * @param { DataBlob } data - the data to be signed.
      * @param { AsyncCallback<DataBlob> } callback - returns the signature.
@@ -3909,13 +3418,10 @@ declare namespace cryptoFramework {
     sign(data: DataBlob, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Signs data. This API uses an asynchronous callback to return the result.
+     * 对数据进行签名。使用callback异步回调。
      *
-     * @param { DataBlob | null } data - Data to pass in. In versions earlier than API version 10, only **DataBlob** is
-     *     supported. Since API version 10, **null** is also supported.
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return **DataBlob**, which is the signing result.
-     *     If the operation is successful, **err** is **undefined**, and **data** is the signing result obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { DataBlob | null } data - 传入的消息。API 10之前只支持DataBlob， API 10之后增加支持null。
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数，用于获取签名结果DataBlob数据。当签名成功，err为undefined，data为获取到的签名结果；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3934,7 +3440,7 @@ declare namespace cryptoFramework {
     sign(data: DataBlob | null, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Used to sign the data, also including data added via the update interface.
+     * Used to append the message need to be signed.
      *
      * @param { DataBlob } data - the data to be signed.
      * @returns { Promise<DataBlob> } returns the signature.
@@ -3955,10 +3461,10 @@ declare namespace cryptoFramework {
     sign(data: DataBlob): Promise<DataBlob>;
 
     /**
-     * Signs data. This API uses a promise to return the result.
+     * 对数据进行签名。使用Promise异步回调。
      *
-     * @param { DataBlob | null } data - Data to pass in.
-     * @returns { Promise<DataBlob> } Promise used to return the signing result.
+     * @param { DataBlob | null } data - 传入的消息。
+     * @returns { Promise<DataBlob> } Promise对象，返回签名结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -3977,15 +3483,10 @@ declare namespace cryptoFramework {
     sign(data: DataBlob | null): Promise<DataBlob>;
 
     /**
-     * Signs the data. This API returns the result synchronously.
+     * 对数据进行签名，通过同步方式返回签名结果。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link sign}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob | null } data - Data to pass in.
-     * @returns { DataBlob } Signature.
+     * @param { DataBlob | null } data - 传入的消息。
+     * @returns { DataBlob } 返回签名结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4005,13 +3506,12 @@ declare namespace cryptoFramework {
     /**
      * setSignSpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void
      *
-     * Sets signing specifications. You can use this API to set signing parameters that cannot be set by
-     * [createSign]{@link cryptoFramework.createSign}.
+     * 设置签名参数。常用签名参数可通过 [createSign]{@link cryptoFramework.createSign} 指定，其他参数则通过本接口设置。
      *
-     * Currently, only RSA and SM2 are supported. Since API version 11, SM2 signing parameters can be set.
+     * 只支持RSA算法、SM2算法，从API version11开始，支持SM2算法设置签名参数。
      *
-     * @param { SignSpecItem } itemType - Signing parameter to set.
-     * @param { int } itemValue - Value of the signing parameter to set.
+     * @param { SignSpecItem } itemType - 用于指定需要设置的签名参数。
+     * @param { int } itemValue - 用于指定签名参数的具体值。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4029,8 +3529,6 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int): void;
 
     /**
-     * Set the specified parameter to the sign object.
-     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int | Uint8Array } itemValue - the value of the specified parameter.
@@ -4070,9 +3568,9 @@ declare namespace cryptoFramework {
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
 
     /**
-     * Obtains signing specifications. Currently, only RSA is supported.
+     * 获取签名参数。当前仅支持RSA算法。
      *
-     * @param { SignSpecItem } itemType - Signing parameter to obtain.
+     * @param { SignSpecItem } itemType - 用于指定需要获取的签名参数。
      * @returns { string | int } Returns the value of the signing parameter obtained.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -4092,7 +3590,7 @@ declare namespace cryptoFramework {
     getSignSpec(itemType: SignSpecItem): string | int;
 
     /**
-     * Indicates the algorithm name of the sign object.
+     * 签名指定的算法名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -4104,43 +3602,23 @@ declare namespace cryptoFramework {
     readonly algName: string;
   }
   /**
-   * # Attributes
+   * Verify类，使用Verify方法之前需要创建该类的实例进行操作，通过[createVerify(algName: string): Verify]{@link cryptoFramework.createVerify}方法构造
+   * 此实例。按序调用本类中的init、update、verify方法完成签名操作。验签操作的示例代码详见
+   * [签名验签开发指导](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
+   * Verify类不支持重复初始化，当业务方需要使用新密钥验签时，需要重新创建新Verify对象并调用init初始化。
    *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Signature
+   * 业务方使用时，在createVerify时确定验签的模式，调用init接口设置密钥。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Signature** since API version 12.
+   * 当被签名的消息较短时，可在init初始化后，（无需update）直接调用verify接口传入被签名的消息和签名(signatureData)进行验签。
    *
-   * | Name   | Type  | Read-Only| Optional| Description                        |
-   * | ------- | ------ | ---- | ---- | ---------------------------- |
-   * | algName | string | Yes  | No  | Algorithm to be used for signature verification.|
+   * 当被签名的消息较长时，可通过update接口分段传入被签名的消息，最后调用verify接口对消息全文进行验签。verify接口的data入参在API 10之前只支持DataBlob， API 10之后增加支持null。业务方可在循
+   * 环中调用update接口，循环结束后调用verify传入签名(signatureData)进行验签。
+   *
+   * 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
+   *
    */
   /**
-   * Provides APIs for signature verification. Before using any API of the **Verify** class, you must create a
-   * **Verify** instance by using [createVerify(algName: string): Verify]{@link cryptoFramework.createVerify}. Invoke
-   * **init()**, **update()**, and **verify()** in this class in sequence to complete the signature verification. For
-   * details about the sample code, see
-   * [Signing and Signature Verification with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1.md)
-   * .
-   *
-   * The **Verify** class does not support repeated initialization. When a new key is used for signature verification,
-   * you must create a new **Verify** instance and call **init()** for initialization.
-   *
-   * The signature verification mode is determined in **createVerify()**, and the key is set by **init()**.
-   *
-   * If the signed message is short, you can call **verify()** to pass in the signed message and signature (
-   * **signatureData**) for signature verification after **init()**. That is, you do not need to use **update()**.
-   *
-   * If the signed message is too long, you can call **update()** multiple times to pass in the signed message by
-   * segment, and then call **verify()** to verify the full text of the message. In versions earlier than API version 10
-   * , the input parameter **data** of **verify()** supports only **DataBlob**. Since API version 10, **data** also
-   * supports **null**. After all the data is passed in by using **update()**, **verify()** can be called to verify the
-   * signature data.
-   *
-   * If the DSA algorithm is used for signature verification and the digest algorithm is **NoHash**, **update()** is not
-   * supported. If **update()** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -4151,13 +3629,10 @@ declare namespace cryptoFramework {
    */
   interface Verify {
     /**
-     * Initializes the **Verify** object using a public key. This API uses an asynchronous callback to return the
-     * result. **init**, **update**, and **verify** must be used together. **init** and **verify** are mandatory, and
-     * **update** is optional.
+     * 传入公钥初始化Verify对象。使用callback异步回调。init、update、verify为三段式接口，需要成组使用。其中init和verify必选，update可选。
      *
-     * @param { PubKey } pubKey - Public key used to initialize the **Verify** instance.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { PubKey } pubKey - 公钥对象，用于Verify的初始化。
+     * @param { AsyncCallback<void> } callback - 回调函数。当验签初始化成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4177,12 +3652,10 @@ declare namespace cryptoFramework {
     init(pubKey: PubKey, callback: AsyncCallback<void>): void;
 
     /**
-     * Initializes the **Verify** object using a public key. This API uses a promise to return the result. **init**,
-     * **update**, and **verify** must be used together. **init** and **verify** are mandatory, and **update** is
-     * optional.
+     * 传入公钥初始化Verify对象。使用Promise异步回调。init、update、verify为三段式接口，需要成组使用。其中init和verify必选，update可选。
      *
-     * @param { PubKey } pubKey - Public key used to initialize the **Verify** instance.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { PubKey } pubKey - 公钥对象，用于Verify的初始化。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4202,16 +3675,9 @@ declare namespace cryptoFramework {
     init(pubKey: PubKey): Promise<void>;
 
     /**
-     * Initializes the **Verify** instance with a public key. This API returns the result synchronously. **initSync**,
-     * **updateSync**, and **verifySync** must be used together. **initSync** and **verifySync** are mandatory, and
-     * **updateSync** is optional.
+     * 传入公钥初始化Verify对象，通过同步方式获取结果。initSync、updateSync、verifySync为三段式接口，需要成组使用。其中initSync和verifySync必选，updateSync可选。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link init}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { PubKey } pubKey - Public key used to initialize the **Verify** instance.
+     * @param { PubKey } pubKey - 公钥对象，用于Verify的初始化。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4230,35 +3696,30 @@ declare namespace cryptoFramework {
     initSync(pubKey: PubKey): void;
 
     /**
-     * Updates the data for signature verifications. This API uses an asynchronous callback to return the result.
+     * 追加待验签数据，使用callback异步回调完成更新。
      *
-     * This API can be called only after the [Verify]{@link cryptoFramework.Verify} instance is initialized using
-     * [init](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-4).
+     * 必须在对[Verify]{@link cryptoFramework.Verify}实例使用
+     * [init](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-4)初始化后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > You can call **update** multiple times or do not use **update** (call
+     * > 根据数据量，可以不调用update（即[init](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-4)完成
+     * > 后直接调用
      * > [verify]{@link cryptoFramework.Verify.verify(data: DataBlob | null, signatureData: DataBlob, callback: AsyncCallback<boolean>)}
-     * > after [init](docroot://reference/apis-crypto-architecture-kit/js-apis-cryptoFramework.md#init-4)), depending on
-     * > the data volume.
+     * > ）或多次调用update。
      *
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to call **update()** multiple times to pass in the data by segment. This
-     * > prevents too much memory from being requested at a time.
+     * > 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次update的方式传入数据，避免一次性申请过大内存。
      *
-     * > For details about the sample code for calling **update()** multiple times in signature verification, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
-     * > . The operations of other algorithms are similar.
+     * > 验签使用多次update操作的示例代码详见
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，其余算法操
+     * > 作类似。
      *
-     * > **OnlyVerify** cannot be used with **update()**. If **OnlyVerify** is specified, use **verify()** to pass in
-     * > data.
+     * > OnlyVerify模式下，不支持update操作，直接使用verify传入数据即可。
      *
-     * > If the DSA algorithm is used for signature verification and the digest algorithm is **NoHash**, **update()** is
-     * > not supported. If **update()** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
+     * > 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
      *
-     * @param { DataBlob } data - Data to pass in.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { DataBlob } data - 传入的消息。
+     * @param { AsyncCallback<void> } callback - 回调函数。当验签更新成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4277,33 +3738,27 @@ declare namespace cryptoFramework {
     update(data: DataBlob, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates the data for signature verifications. This API uses a promise to return the result.
+     * 追加待验签数据，使用Promise异步回调完成更新。
      *
-     * This API can be called only after the [Verify]{@link cryptoFramework.Verify} instance is initialized using
-     * [init()]{@link cryptoFramework.Cipher.initSync}.
+     * 必须在对[Verify]{@link cryptoFramework.Verify}实例使用[init()]{@link cryptoFramework.Cipher.initSync}初始化后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > You can call **update** multiple times or do not use **update** (call
-     * > [verify]{@link cryptoFramework.Verify.verify(data: DataBlob | null, signatureData: DataBlob)} after
-     * > [init]{@link cryptoFramework.Cipher.initSync}), depending on the data volume.
+     * > 根据数据量，可以不调用update（即[init]{@link cryptoFramework.Cipher.initSync}完成后直接调用
+     * > [verify]{@link cryptoFramework.Verify.verify(data: DataBlob | null, signatureData: DataBlob)}）或多次调用update。
      *
-     * > The amount of the data to be passed in by **update()** (one-time or accumulative) is not limited. If there is a
-     * > large amount of data, you are advised to call **update()** multiple times to pass in the data by segment. This
-     * > prevents too much memory from being requested at a time.
+     * > 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次update的方式传入数据，避免一次性申请过大内存。
      *
-     * > For details about the sample code for calling **update()** multiple times in signature verification, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
-     * > . The operations of other algorithms are similar.
+     * > 验签使用多次update操作的示例代码详见
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，其余算法操
+     * > 作类似。
      *
-     * > **OnlyVerify** cannot be used with **update()**. If **OnlyVerify** is specified, use **verify()** to pass in
-     * > data.
+     * > OnlyVerify模式下，不支持update操作，直接使用verify传入数据即可。
      *
-     * > If the DSA algorithm is used for signature verification and the digest algorithm is **NoHash**, **update()** is
-     * > not supported. If **update()** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
+     * > 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
      *
-     * @param { DataBlob } data - Data to pass in.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DataBlob } data - 传入的消息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4322,36 +3777,26 @@ declare namespace cryptoFramework {
     update(data: DataBlob): Promise<void>;
 
     /**
-     * Updates the data for signature verifications. This API returns the result synchronously.
+     * 追加待验签数据，通过同步方式完成更新。
      *
-     * This API can be called only after the [Verify]{@link cryptoFramework.Verify} instance is initialized by using
-     * [initSync()]{@link cryptoFramework.Cipher.initSync}.
+     * 必须在对[Verify]{@link cryptoFramework.Verify}实例使用[initSync()]{@link cryptoFramework.Cipher.initSync}初始化后，才能使用本函数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > You can call **updateSync** multiple times or do not use **updateSync** (call
-     * > [verifySync]{@link cryptoFramework.Verify.verifySync} after [initSync]{@link cryptoFramework.Cipher.initSync}),
-     * > depending on the data volume.
+     * > 根据数据量，可以不调用updateSync（即[initSync]{@link cryptoFramework.Cipher.initSync}完成后直接调用
+     * > [verifySync]{@link cryptoFramework.Verify.verifySync}）或多次调用updateSync。
      *
-     * > The amount of the data to be passed in by **updateSync** (one-time or accumulative) is not limited. If there is
-     * > a large amount of data, you are advised to call **updateSync** multiple times to pass in the data by segment.
-     * > This prevents too much memory from being requested at a time.
+     * > 算法库目前没有对updateSync（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次updateSync的方式传入数据，避免一次性申请过大内存。
      *
-     * > For details about the sample code for calling **updateSync** multiple times in signature verification, see
-     * > [Signing and Signature Verification by Segment with an RSA Key Pair (PKCS1 Mode)](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)
-     * > . The operations of other algorithms are similar.
+     * > 验签使用多次updateSync操作的示例代码详见
+     * > [使用RSA密钥对分段签名验签](docroot://security/CryptoArchitectureKit/crypto-rsa-sign-sig-verify-pkcs1-by-segment.md)，其余算法操
+     * > 作类似。
      *
-     * > **OnlyVerify** cannot be used with **update()**. If **OnlyVerify** is specified, use **verifySync()** to pass
-     * > in data.
+     * > OnlyVerify模式下，不支持update操作，需要直接使用verifySync传入数据。
      *
-     * > If the DSA algorithm is used for signature verification and the digest algorithm is **NoHash**, **updateSync**
-     * > is not supported. If **updateSync** is called in this case, **ERR_CRYPTO_OPERATION** will be returned.
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link update}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     * > 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持updateSync操作，updateSync接口会返回错误码ERR_CRYPTO_OPERATION。
      *
-     * @param { DataBlob } data - Data to pass in.
+     * @param { DataBlob } data - 传入的消息。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4391,13 +3836,11 @@ declare namespace cryptoFramework {
     verify(data: DataBlob, signatureData: DataBlob, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Verifies the signature of the data. This API uses an asynchronous callback to return the result.
+     * 对数据进行验签。使用callback异步回调。
      *
-     * @param { DataBlob | null } data - Data to pass in. In versions earlier than API version 10, only **DataBlob** is
-     *     supported. Since API version 10, **null** is also supported.
-     * @param { DataBlob } signatureData - Signature data.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the signature verification result. **true**
-     *     means that the signature verification is successful; **false** otherwise.
+     * @param { DataBlob | null } data - 传入的消息。API 10之前只支持DataBlob， API 10之后增加支持null。
+     * @param { DataBlob } signatureData - 签名数据。
+     * @param { AsyncCallback<boolean> } callback - 回调函数，用于获取以boolean值表示的验签结果。返回true表示验签通过；返回false表示验签不通过。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4438,13 +3881,11 @@ declare namespace cryptoFramework {
     verify(data: DataBlob, signatureData: DataBlob): Promise<boolean>;
 
     /**
-     * Verifies the signature of the data. This API uses a promise to return the result.
+     * 对数据进行验签。使用Promise异步回调。
      *
-     * @param { DataBlob | null } data - Data to pass in. In versions earlier than API version 10, only **DataBlob** is
-     *     supported. Since API version 10, **null** is also supported.
-     * @param { DataBlob } signatureData - Signature data.
-     * @returns { Promise<boolean> } Promise used to return the signature verification result. The value **true**
-     *     indicates that the signature verification is successful, and **false** indicates the opposite.
+     * @param { DataBlob | null } data - 传入的消息。API 10之前只支持DataBlob， API 10之后增加支持null。
+     * @param { DataBlob } signatureData - 签名数据。
+     * @returns { Promise<boolean> } Promise对象，表示验签结果。返回true表示验签成功，返回false表示验签失败。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4463,16 +3904,11 @@ declare namespace cryptoFramework {
     verify(data: DataBlob | null, signatureData: DataBlob): Promise<boolean>;
 
     /**
-     * Verifies the signature. This API returns the verification result synchronously.
+     * 对数据进行验签，通过同步方式返回验签结果。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link verify}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { DataBlob | null } data - Data to pass in.
-     * @param { DataBlob } signatureData - Signature data.
-     * @returns { boolean } Signature verification result. **true**: passed; **false**: failed.
+     * @param { DataBlob | null } data - 传入的消息。
+     * @param { DataBlob } signatureData - 签名数据。
+     * @returns { boolean } 同步返回值，表示验签是否通过。true为通过，false为不通过。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4490,14 +3926,13 @@ declare namespace cryptoFramework {
     verifySync(data: DataBlob | null, signatureData: DataBlob): boolean;
 
     /**
-     * Recovers the original data from a signature. This API returns the result synchronously. This API uses a promise
-     * to return the result.
+     * 对数据进行签名恢复原始数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - Currently, only RSA is supported.
+     * > - 目前仅RSA支持。
      *
-     * @param { DataBlob } signatureData - Signature data.
+     * @param { DataBlob } signatureData - 签名数据。
      * @returns { Promise<DataBlob | null> } Promise used to return the raw data recovered from the signature.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -4516,17 +3951,13 @@ declare namespace cryptoFramework {
     recover(signatureData: DataBlob): Promise<DataBlob | null>;
 
     /**
-     * Recovers the original data from a signature. This API returns the result synchronously.
+     * 对数据进行签名恢复原始数据。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > - Currently, only RSA is supported.
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link recover}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     * > - 目前仅RSA支持。
      *
-     * @param { DataBlob } signatureData - Signature data.
+     * @param { DataBlob } signatureData - 签名数据。
      * @returns { DataBlob | null } Data restored.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -4547,15 +3978,14 @@ declare namespace cryptoFramework {
     /**
      * setVerifySpec(itemType: SignSpecItem, itemValue: number \| Uint8Array): void
      *
-     * Sets signature verification specifications. You can use this API to set signature verification parameters that
-     * cannot be set by [createVerify]{@link cryptoFramework.createVerify}.
+     * 设置验签参数。常用的签名参数直接通过[createVerify]{@link cryptoFramework.createVerify} 来指定，剩余参数通过本接口指定。
      *
-     * Currently, only RSA and SM2 are supported. Since API version 11, SM2 signing parameters can be set.
+     * 支持RSA算法和SM2算法，从API version 11开始，支持SM2算法设置验签参数。
      *
-     * The parameters for signature verification must be the same as those for signing.
+     * 验签的参数应当与签名的参数保持一致。
      *
-     * @param { SignSpecItem } itemType - Signature verification parameter to set.
-     * @param { int } itemValue - Value of the signature verification parameter to set.
+     * @param { SignSpecItem } itemType - 用于指定需要设置的验签参数。
+     * @param { int } itemValue - 用于指定验签参数的具体值。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -4573,8 +4003,6 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int): void;
 
     /**
-     * Set the specified parameter to the verify object.
-     * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 are supported.
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int | Uint8Array } itemValue - the value of the specified parameter.
@@ -4595,6 +4023,7 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array): void;
 
     /**
+     *
      * Set the specified parameter to the verify object.
      * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 and ML_DSA_DETERMINISTIC/ML_DSA_MU/ML_DSA_CONTEXT in
      *     ML-DSA are supported.
@@ -4614,11 +4043,11 @@ declare namespace cryptoFramework {
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
 
     /**
-     * Obtains signature verification specifications. Currently, only RSA is supported.
+     * 获取验签参数。当前只支持RSA算法。
      *
-     * The parameters for signature verification must be the same as those for signing.
+     * 验签的参数应当与签名的参数保持一致。
      *
-     * @param { SignSpecItem } itemType - Signature verification parameter to obtain.
+     * @param { SignSpecItem } itemType - 用于指定需要获取的验签参数。
      * @returns { string | int } Returns the value of the parameter obtained.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -4638,7 +4067,7 @@ declare namespace cryptoFramework {
     getVerifySpec(itemType: SignSpecItem): string | int;
 
     /**
-     * Indicates the algorithm name of the verify object.
+     * 验签指定的算法名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -4651,15 +4080,12 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates a **Sign** instance.
+   * 生成Sign实例。
    *
-   * @param { string } algName - Signing algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup> and Ed25519<sup>1
-   *     1+</sup> are supported. If RSA PKCS1 is used, you must set the digest. If RSA PSS is used, you must set the
-   *     digest and mask digest. For signing, you can set **OnlySign** to enable the data digest to be used for signing
-   *     only.<br>For details about the supported specifications, see
-   *     [Signing and Signature Verification Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)
-   *     .
-   * @returns { Sign } Returns the **Sign** instance created.
+   * @param { string } algName - 指定签名算法：RSA、ECC、DSA、SM2<sup>10+</sup>或Ed25519<sup>11+</sup>。使用RSA PKCS1模式时需设置摘要；使用RSA
+   *     PSS模式时需设置摘要和掩码摘要。签名时，通过设置OnlySign参数可传入数据摘要仅作签名。<br>支持的规格详见
+   *     [签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
+   * @returns { Sign } 返回由输入算法指定生成的Sign对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -4674,15 +4100,12 @@ declare namespace cryptoFramework {
   function createSign(algName: string): Sign;
 
   /**
-   * Creates a **Verify** instance.
+   * 生成Verify实例。
    *
-   * @param { string } algName - Signing algorithm to use. Currently, RSA, ECC, DSA, SM2<sup>10+</sup> and Ed25519<sup>1
-   *     1+</sup> are supported. If RSA PKCS1 is used, you must set the digest. If RSA PSS is used, you must set the
-   *     digest and mask digest. When the RSA algorithm is used for signature verification, you can use **Recover** to
-   *     verify and recover the signed data.<br>For details about the supported specifications, see
-   *     [Signing and Signature Verification Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)
-   *     .
-   * @returns { Verify } Returns the **Verify** instance created.
+   * @param { string } algName - 指定签名算法：RSA、ECC、DSA、SM2<sup>10+</sup>或Ed25519<sup>11+</sup>。使用RSA PKCS1模式时需设置摘要；使用RSA
+   *     PSS模式时需设置摘要和掩码摘要。使用RSA算法验签时，设置Recover参数可支持验签恢复。<br>支持的规格详见
+   *     [签名验签规格](docroot://security/CryptoArchitectureKit/crypto-sign-sig-verify-overview.md)。
+   * @returns { Verify } 返回由输入算法指定生成的Verify对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -4696,23 +4119,11 @@ declare namespace cryptoFramework {
    */
   function createVerify(algName: string): Verify;
   /**
-   * # Attributes
+   * KeyAgreement类，使用密钥协商方法之前需要创建该类的实例进行操作，通过
+   * [createKeyAgreement(algName: string): KeyAgreement]{@link cryptoFramework.createKeyAgreement}方法构造此实例。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.Security.CryptoFramework.KeyAgreement
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 9 to 11, and
-   * **SystemCapability.Security.CryptoFramework.KeyAgreement** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                        |
-   * | ------- | ------ | ---- | ---- | ---------------------------- |
-   * | algName | string | Yes  | No  | Algorithm used for key agreement.|
    */
   /**
-   * Provides APIs for key agreement operations. Before using any API of the **KeyAgreement** class, you must create a
-   * **KeyAgreement** instance by using
-   * [createKeyAgreement(algName: string): KeyAgreement]{@link cryptoFramework.createKeyAgreement}.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement [since 12]
@@ -4723,14 +4134,11 @@ declare namespace cryptoFramework {
    */
   interface KeyAgreement {
     /**
-     * Generates a shared secret based on the given private key and public key. This API uses an asynchronous callback
-     * to return the result.
+     * 基于传入的私钥与公钥进行密钥协商。使用callback异步回调。
      *
-     * @param { PriKey } priKey - Private key used for key agreement.
-     * @param { PubKey } pubKey - Public key used for key agreement.
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return the key agreement result. If key agreement
-     *     is successful, **err** is **undefined** and **data** is the shared key. Otherwise, **err** is an error
-     *     object.
+     * @param { PriKey } priKey - 设置密钥协商的私钥输入。
+     * @param { PubKey } pubKey - 设置密钥协商的公钥输入。
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数，用于密钥协商。当密钥协商成功，err为undefined，data为协商的共享密钥；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4747,12 +4155,11 @@ declare namespace cryptoFramework {
     generateSecret(priKey: PriKey, pubKey: PubKey, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Generates a shared secret based on the given private key and public key. This API uses a promise to return the
-     * result.
+     * 基于传入的私钥与公钥进行密钥协商。使用Promise异步回调。
      *
-     * @param { PriKey } priKey - Private key used for key agreement.
-     * @param { PubKey } pubKey - Public key used for key agreement.
-     * @returns { Promise<DataBlob> } Promise used to return the shared key of key agreement.
+     * @param { PriKey } priKey - 设置密钥协商的私钥输入。
+     * @param { PubKey } pubKey - 设置密钥协商的公钥输入。
+     * @returns { Promise<DataBlob> } Promise对象，返回密钥协商的共享密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4769,17 +4176,11 @@ declare namespace cryptoFramework {
     generateSecret(priKey: PriKey, pubKey: PubKey): Promise<DataBlob>;
 
     /**
-     * Generates a shared secret based on the given private key and public key. This API returns the shared secret
-     * generated synchronously.
+     * 基于传入的私钥与公钥进行密钥协商，通过同步返回共享密钥。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSecret}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { PriKey } priKey - Private key used for key agreement.
-     * @param { PubKey } pubKey - Public key used for key agreement.
-     * @returns { DataBlob } Promise used to return the shared secret generated.
+     * @param { PriKey } priKey - 设置密钥协商的私钥输入。
+     * @param { PubKey } pubKey - 设置密钥协商的公钥输入。
+     * @returns { DataBlob } 共享密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4795,7 +4196,7 @@ declare namespace cryptoFramework {
     generateSecretSync(priKey: PriKey, pubKey: PubKey): DataBlob;
 
     /**
-     * Indicates the algorithm name.
+     * 密钥协商指定的算法名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.KeyAgreement [since 12]
@@ -4808,13 +4209,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates a **KeyAgreement** instance.
+   * 生成KeyAgreement实例。
    *
-   * @param { string } algName - Key agreement algorithm to use. In addition to ECC, X25519 and DH are supported since
-   *     API version 11.<br>For details about the supported specifications, see
-   *     [Key Agreement Overview and Algorithm Specifications](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md)
-   *     .
-   * @returns { KeyAgreement } Returns the **KeyAgreement** instance created.
+   * @param { string } algName - 指定密钥协商算法：目前仅支持ECC，从API version 11开始，增加支持X25519和DH。<br>支持的规格详见
+   *     [密钥协商规格](docroot://security/CryptoArchitectureKit/crypto-key-agreement-overview.md)。
+   * @returns { KeyAgreement } 返回由输入算法指定生成的KeyAgreement对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -4829,10 +4228,10 @@ declare namespace cryptoFramework {
   function createKeyAgreement(algName: string): KeyAgreement;
 
   /**
-   * Enumerates the asymmetric key parameters.
+   * 表示密钥参数的枚举。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 10 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Key.AsymKey** since API version 12.
+   * API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为
+   * SystemCapability.Security.CryptoFramework.Key.AsymKey。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4843,7 +4242,7 @@ declare namespace cryptoFramework {
    */
   enum AsyKeySpecItem {
     /**
-     * Prime modulus **p** in the DSA algorithm.
+     * DSA算法的素模数p。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4855,7 +4254,7 @@ declare namespace cryptoFramework {
     DSA_P_BN = 101,
 
     /**
-     * Parameter **q**, prime factor of (p – 1) in the DSA algorithm.
+     * DSA算法中密钥参数q（p-1的素因子）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4867,7 +4266,7 @@ declare namespace cryptoFramework {
     DSA_Q_BN = 102,
 
     /**
-     * Parameter **g** in the DSA algorithm.
+     * DSA算法的参数g。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4879,7 +4278,7 @@ declare namespace cryptoFramework {
     DSA_G_BN = 103,
 
     /**
-     * Private key **sk** in the DSA algorithm.
+     * DSA算法的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4891,7 +4290,7 @@ declare namespace cryptoFramework {
     DSA_SK_BN = 104,
 
     /**
-     * Public key **pk** in the DSA algorithm.
+     * DSA算法的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4903,7 +4302,7 @@ declare namespace cryptoFramework {
     DSA_PK_BN = 105,
 
     /**
-     * Prime number **p** in the **Fp** field of the elliptic curve in the ECC algorithm.
+     * ECC算法中表示椭圆曲线Fp域的素数p。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4915,7 +4314,7 @@ declare namespace cryptoFramework {
     ECC_FP_P_BN = 201,
 
     /**
-     * First coefficient **a** of the elliptic curve in the ECC algorithm.
+     * ECC算法中椭圆曲线的第一个系数a。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4927,7 +4326,7 @@ declare namespace cryptoFramework {
     ECC_A_BN = 202,
 
     /**
-     * Second coefficient **b** of the elliptic curve in the ECC algorithm.
+     * ECC算法中椭圆曲线的第二个系数b。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4939,7 +4338,7 @@ declare namespace cryptoFramework {
     ECC_B_BN = 203,
 
     /**
-     * X coordinate of the base point **g** in the ECC algorithm.
+     * ECC算法中基点g的x坐标。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4951,7 +4350,7 @@ declare namespace cryptoFramework {
     ECC_G_X_BN = 204,
 
     /**
-     * Y coordinate of the base point **g** in the ECC algorithm.
+     * ECC算法中基点g的y坐标。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4963,7 +4362,7 @@ declare namespace cryptoFramework {
     ECC_G_Y_BN = 205,
 
     /**
-     * Order **n** of the base point **g** in the ECC algorithm.
+     * ECC算法中基点g的阶n。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4975,7 +4374,7 @@ declare namespace cryptoFramework {
     ECC_N_BN = 206,
 
     /**
-     * Cofactor **h** in the ECC algorithm.
+     * ECC算法中的余因子h。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4987,7 +4386,7 @@ declare namespace cryptoFramework {
     ECC_H_NUM = 207,
 
     /**
-     * Private key **sk** in the ECC algorithm.
+     * ECC算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -4999,7 +4398,7 @@ declare namespace cryptoFramework {
     ECC_SK_BN = 208,
 
     /**
-     * X coordinate of the public key **pk** (a point on the elliptic curve) in the ECC algorithm.
+     * ECC算法中，公钥pk（椭圆曲线上的一个点）的x坐标。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5011,7 +4410,7 @@ declare namespace cryptoFramework {
     ECC_PK_X_BN = 209,
 
     /**
-     * Y coordinate of the public key **pk** (a point on the elliptic curve) in the ECC algorithm.
+     * ECC算法中，公钥pk（椭圆曲线上的一个点）的y坐标。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5023,7 +4422,7 @@ declare namespace cryptoFramework {
     ECC_PK_Y_BN = 210,
 
     /**
-     * Elliptic curve field type in the ECC algorithm. Currently, only the **Fp** field is supported.
+     * ECC算法中，椭圆曲线的域类型（当前只支持Fp域）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5035,9 +4434,7 @@ declare namespace cryptoFramework {
     ECC_FIELD_TYPE_STR = 211,
 
     /**
-     * Size of the field in the ECC algorithm, in bits.
-     *
-     * Note: The size of the **Fp** field is the length of the prime **p**, in bits.
+     * ECC算法中域的大小，单位为bits（注：对于Fp域，域的大小为素数p的bits长度）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5049,7 +4446,7 @@ declare namespace cryptoFramework {
     ECC_FIELD_SIZE_NUM = 212,
 
     /**
-     * Standards for Efficient Cryptography Group (SECG) curve name in the ECC algorithm.
+     * ECC算法中的SECG(Standards for Efficient Cryptography Group)曲线名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5061,7 +4458,7 @@ declare namespace cryptoFramework {
     ECC_CURVE_NAME_STR = 213,
 
     /**
-     * Modulus **n** in the RSA algorithm.
+     * RSA算法中的模数n。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5073,7 +4470,7 @@ declare namespace cryptoFramework {
     RSA_N_BN = 301,
 
     /**
-     * Private key **sk** (private key exponent **d**) in the RSA algorithm.
+     * RSA算法中的私钥sk（即私钥指数d）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5085,7 +4482,7 @@ declare namespace cryptoFramework {
     RSA_SK_BN = 302,
 
     /**
-     * Public key **pk** (public key exponent **e**) in the RSA algorithm.
+     * RSA算法中的公钥pk（即公钥指数e）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5097,7 +4494,7 @@ declare namespace cryptoFramework {
     RSA_PK_BN = 303,
 
     /**
-     * Prime **p** in the DH algorithm.
+     * DH算法中的素数p。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5109,7 +4506,7 @@ declare namespace cryptoFramework {
     DH_P_BN = 401,
 
     /**
-     * Parameter **g** in the DH algorithm.
+     * DH算法中的参数g。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5121,7 +4518,7 @@ declare namespace cryptoFramework {
     DH_G_BN = 402,
 
     /**
-     * Length of the private key in the DH algorithm, in bits.
+     * DH算法中私钥长度，单位为bits。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5133,7 +4530,7 @@ declare namespace cryptoFramework {
     DH_L_NUM = 403,
 
     /**
-     * Private key **sk** in the DH algorithm.
+     * DH算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5145,7 +4542,7 @@ declare namespace cryptoFramework {
     DH_SK_BN = 404,
 
     /**
-     * Public key **pk** in the DH algorithm.
+     * DH算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5157,7 +4554,7 @@ declare namespace cryptoFramework {
     DH_PK_BN = 405,
 
     /**
-     * Private key **sk** in the Ed25519 algorithm.
+     * Ed25519算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5169,7 +4566,7 @@ declare namespace cryptoFramework {
     ED25519_SK_BN = 501,
 
     /**
-     * Public key **pk** in the Ed25519 algorithm.
+     * Ed25519算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5181,7 +4578,7 @@ declare namespace cryptoFramework {
     ED25519_PK_BN = 502,
 
     /**
-     * Private key **sk** in the X25519 algorithm.
+     * X25519算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5193,7 +4590,7 @@ declare namespace cryptoFramework {
     X25519_SK_BN = 601,
 
     /**
-     * Public key **pk** in the X25519 algorithm.
+     * X25519算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5206,7 +4603,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Enumerates the asymmetric key data types.
+   * 表示非对称密钥数据项类型的枚举。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
    * @stagemodelonly
@@ -5215,7 +4612,7 @@ declare namespace cryptoFramework {
    */
   enum AsyKeyDataItem {
     /**
-     * Indicates the private seed of the ML-DSA private key.
+     * ML-DSA私钥的私有种子。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5225,7 +4622,7 @@ declare namespace cryptoFramework {
     ML_DSA_PRIVATE_SEED = 0,
 
     /**
-     * Indicates the private raw of the ML-DSA private key.
+     * ML-DSA私钥的私有raw。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5235,7 +4632,7 @@ declare namespace cryptoFramework {
     ML_DSA_PRIVATE_RAW = 1,
 
     /**
-     * Indicates the public raw of the ML-DSA public key.
+     * ML-DSA公钥的public raw。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5245,7 +4642,7 @@ declare namespace cryptoFramework {
     ML_DSA_PUBLIC_RAW = 2,
 
     /**
-     * Indicates the private seed of the ML-KEM private key.
+     * ML-KEM私钥的私有种子。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5255,7 +4652,7 @@ declare namespace cryptoFramework {
     ML_KEM_PRIVATE_SEED = 3,
 
     /**
-     * Indicates the private raw of the ML-KEM private key.
+     * ML-KEM私钥的私有raw。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5265,7 +4662,7 @@ declare namespace cryptoFramework {
     ML_KEM_PRIVATE_RAW = 4,
 
     /**
-     * Indicates the public raw of the ML-KEM public key.
+     * ML-KEM公钥的public raw。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5275,7 +4672,7 @@ declare namespace cryptoFramework {
     ML_KEM_PUBLIC_RAW = 5,
 
     /**
-     * Private key **K** on the elliptic curve (EC).
+     * 表示椭圆曲线（EC）私钥的 K。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5285,7 +4682,7 @@ declare namespace cryptoFramework {
     EC_PRIVATE_K = 6,
 
     /**
-     * Indicates the 04||X||Y||K of the EC private key.
+     * 表示椭圆曲线（EC）私钥的 04||X||Y||K。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5295,7 +4692,7 @@ declare namespace cryptoFramework {
     EC_PRIVATE_04_X_Y_K = 7,
 
     /**
-     * Indicates the X||Y of the EC public key.
+     * 表示椭圆曲线（EC）公钥的 X||Y。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5305,7 +4702,7 @@ declare namespace cryptoFramework {
     EC_PUBLIC_X_Y = 8,
 
     /**
-     * Indicates the 04||X||Y of the EC public key.
+     * 表示椭圆曲线（EC）公钥的 04||X||Y 。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5315,7 +4712,7 @@ declare namespace cryptoFramework {
     EC_PUBLIC_04_X_Y = 9,
 
     /**
-     * Indicates the 02||X or 03||X of the EC public key.
+     * 表示椭圆曲线（EC）公钥的 02||X 或 03||X。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
      * @stagemodelonly
@@ -5326,10 +4723,10 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Enumerates the key parameter types.
+   * 表示密钥参数类型的枚举。
    *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 10 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Key.AsymKey** since API version 12.
+   * API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为
+   * SystemCapability.Security.CryptoFramework.Key.AsymKey。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5340,9 +4737,9 @@ declare namespace cryptoFramework {
    */
   enum AsyKeySpecType {
     /**
-     * Common parameter of the public and private keys. You can use
-     * [generateKeyPair]{@link cryptoFramework.AsyKeyGeneratorBySpec.generateKeyPair(callback: AsyncCallback<KeyPair>)}
-     * to randomly generate a key pair based on the parameters of this type.
+     * 表示公私钥中包含的公共参数。使用此类型的参数可以调用
+     * [generateKeyPair]{@link cryptoFramework.AsyKeyGeneratorBySpec.generateKeyPair(callback: AsyncCallback<KeyPair>)}随
+     * 机生成密钥对。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5354,9 +4751,9 @@ declare namespace cryptoFramework {
     COMMON_PARAMS_SPEC = 0,
 
     /**
-     * Parameter of the private key. You can use
-     * [generatePriKey]{@link cryptoFramework.AsyKeyGeneratorBySpec.generatePriKey(callback: AsyncCallback<PriKey>)} to
-     * generate a private key based on the parameters of this type.
+     * 表示私钥中包含的参数。使用此类型的参数可以调用
+     * [generatePriKey]{@link cryptoFramework.AsyKeyGeneratorBySpec.generatePriKey(callback: AsyncCallback<PriKey>)}生成指定
+     * 的私钥。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5368,9 +4765,9 @@ declare namespace cryptoFramework {
     PRIVATE_KEY_SPEC = 1,
 
     /**
-     * Parameter of the public key. You can use
-     * [generatePubKey]{@link cryptoFramework.AsyKeyGeneratorBySpec.generatePubKey(callback: AsyncCallback<PubKey>)} to
-     * generate a public key based on the parameters of this type.
+     * 表示公钥中包含的参数。使用此类型的参数可以调用
+     * [generatePubKey]{@link cryptoFramework.AsyKeyGeneratorBySpec.generatePubKey(callback: AsyncCallback<PubKey>)}生成指定
+     * 的公钥。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5382,9 +4779,9 @@ declare namespace cryptoFramework {
     PUBLIC_KEY_SPEC = 2,
 
     /**
-     * Full parameters of the public and private keys. You can use
-     * [generateKeyPair]{@link cryptoFramework.AsyKeyGeneratorBySpec.generateKeyPair(callback: AsyncCallback<KeyPair>)}
-     * to generate a key pair based on the parameters of this type.
+     * 表示公私钥中包含的全量参数。使用此类型的参数可以调用
+     * [generateKeyPair]{@link cryptoFramework.AsyKeyGeneratorBySpec.generateKeyPair(callback: AsyncCallback<KeyPair>)}生
+     * 成指定的密钥对。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5397,10 +4794,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines the asymmetric key parameters for creating a key generator. You need to construct a child class object and
-   * pass it to [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key
-   * generator. When constructing a child class object, use little-endian format for RSA keys and use big-endian format
-   * and positive numbers for other key parameters of the bigint type.
+   * 指定非对称密钥参数的基本接口，用于创建密钥生成器。在指定非对称密钥参数时需要构造其子类对象，并将子类对象传入
+   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。构造子类对象时，除了RSA密钥采用小端写法外，
+   * 其他bigint类型的密钥参数均采用大端写法，并使用正数。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5411,7 +4807,7 @@ declare namespace cryptoFramework {
    */
   interface AsyKeySpec {
     /**
-     * Asymmetric key algorithm, for example, **RSA**, **DSA**, **ECC**, **SM2**, **Ed25519**, **X25519**, or **DH**.
+     * 指定非对称密钥的算法名称，比如"RSA"、"DSA"、"ECC"、"SM2"、"Ed25519"、"X25519"、"DH"。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5423,7 +4819,7 @@ declare namespace cryptoFramework {
     algName: string;
 
     /**
-     * Key parameter type, which is used to distinguish public and private key parameters.
+     * 指定密钥参数类型，用于区分公/私钥参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5436,11 +4832,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the common parameters of
-   * the public and private keys in the DSA algorithm. It can be used to randomly generate a public or private key.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DSA算法中公私钥包含的公共参数，随机生成公/私钥。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5451,7 +4845,7 @@ declare namespace cryptoFramework {
    */
   interface DSACommonParamsSpec extends AsyKeySpec {
     /**
-     * Prime modulus **p** in the DSA algorithm.
+     * DSA算法的素模数p。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5463,7 +4857,7 @@ declare namespace cryptoFramework {
     p: bigint;
 
     /**
-     * Parameter **q**, prime factor of (p – 1) in the DSA algorithm.
+     * DSA算法中密钥参数q（p-1的素因子）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5475,7 +4869,7 @@ declare namespace cryptoFramework {
     q: bigint;
 
     /**
-     * Parameter **g** in the DSA algorithm.
+     * DSA算法的参数g。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5488,11 +4882,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public key in the DSA algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DSA算法中公钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5503,7 +4895,7 @@ declare namespace cryptoFramework {
    */
   interface DSAPubKeySpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the DSA algorithm.
+     * 指定DSA算法中公私钥包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5515,7 +4907,7 @@ declare namespace cryptoFramework {
     params: DSACommonParamsSpec;
 
     /**
-     * Public key **pk** in the DSA algorithm.
+     * DSA算法的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5528,11 +4920,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify full parameters of the
-   * public and private keys in the DSA algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DSA算法中公私钥包含的全量参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5543,7 +4933,7 @@ declare namespace cryptoFramework {
    */
   interface DSAKeyPairSpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the DSA algorithm.
+     * 指定DSA算法中公私钥包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5555,7 +4945,7 @@ declare namespace cryptoFramework {
     params: DSACommonParamsSpec;
 
     /**
-     * Private key **sk** in the DSA algorithm.
+     * DSA算法的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5567,7 +4957,7 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Public key **pk** in the DSA algorithm.
+     * DSA算法的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5580,7 +4970,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines the field type of an elliptic curve. Currently, only the **Fp** field is supported.
+   * 指定椭圆曲线的域类型。当前只支持Fp域。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5591,7 +4981,7 @@ declare namespace cryptoFramework {
    */
   interface ECField {
     /**
-     * Type of the elliptic curve field. Currently, only **Fp** is supported.
+     * 指定椭圆曲线域的类型，当前只支持"Fp"。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5604,7 +4994,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines the prime field of the elliptic curve. It is a child class of [ECField]{@link cryptoFramework.ECField}.
+   * 指定椭圆曲线的素数域。是[ECField]{@link cryptoFramework.ECField}的子类。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5615,7 +5005,7 @@ declare namespace cryptoFramework {
    */
   interface ECFieldFp extends ECField {
     /**
-     * Value of the prime number **p**.
+     * 指定素数p的值。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5628,7 +5018,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a point on the elliptic curve.
+   * 指定椭圆曲线上的一个点。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5639,7 +5029,7 @@ declare namespace cryptoFramework {
    */
   interface Point {
     /**
-     * X coordinate of the point on an elliptic curve.
+     * 指定椭圆曲线上点的x坐标。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5651,7 +5041,7 @@ declare namespace cryptoFramework {
     x: bigint;
 
     /**
-     * Y coordinate of the point on an elliptic curve.
+     * 指定椭圆曲线上点的y坐标。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5664,11 +5054,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the common parameters of
-   * the public and private keys in the ECC algorithm. It can be used to randomly generate a public or private key.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定ECC算法中公私钥包含的公共参数，随机生成公/私钥。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5679,7 +5067,7 @@ declare namespace cryptoFramework {
    */
   interface ECCCommonParamsSpec extends AsyKeySpec {
     /**
-     * Field of the elliptic curve. Currently, only **Fp** is supported.
+     * 指定椭圆曲线的域（当前只支持Fp域）。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5691,7 +5079,7 @@ declare namespace cryptoFramework {
     field: ECField;
 
     /**
-     * First coefficient **a** of the elliptic curve.
+     * 指定椭圆曲线的第一个系数a。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5703,7 +5091,7 @@ declare namespace cryptoFramework {
     a: bigint;
 
     /**
-     * Second coefficient **b** of the elliptic curve.
+     * 指定椭圆曲线的第二个系数b。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5715,7 +5103,7 @@ declare namespace cryptoFramework {
     b: bigint;
 
     /**
-     * Base point g.
+     * 指定基点g。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5727,7 +5115,7 @@ declare namespace cryptoFramework {
     g: Point;
 
     /**
-     * Order **n** of the base point **g** in the ECC algorithm.
+     * ECC算法中基点g的阶n。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5739,7 +5127,7 @@ declare namespace cryptoFramework {
     n: bigint;
 
     /**
-     * Cofactor **h**.
+     * 指定余因子h。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5752,11 +5140,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * private key in the ECC algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定ECC算法中私钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5767,7 +5153,7 @@ declare namespace cryptoFramework {
    */
   interface ECCPriKeySpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the ECC algorithm.
+     * 指定ECC算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5779,7 +5165,7 @@ declare namespace cryptoFramework {
     params: ECCCommonParamsSpec;
 
     /**
-     * Private key **sk** in the ECC algorithm.
+     * ECC算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5792,11 +5178,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public key in the ECC algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定ECC算法中公钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5807,7 +5191,7 @@ declare namespace cryptoFramework {
    */
   interface ECCPubKeySpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the ECC algorithm.
+     * 指定ECC算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5819,7 +5203,7 @@ declare namespace cryptoFramework {
     params: ECCCommonParamsSpec;
 
     /**
-     * Public key **pk** in the ECC algorithm.
+     * 指定ECC算法的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5832,11 +5216,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify full parameters of the
-   * public and private keys in the ECC algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定ECC算法中公私钥包含的全量参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5847,7 +5229,7 @@ declare namespace cryptoFramework {
    */
   interface ECCKeyPairSpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the ECC algorithm.
+     * 指定ECC算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5859,7 +5241,7 @@ declare namespace cryptoFramework {
     params: ECCCommonParamsSpec;
 
     /**
-     * Private key **sk** in the ECC algorithm.
+     * ECC算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5871,7 +5253,7 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Public key **pk** in the ECC algorithm.
+     * 指定ECC算法的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5884,7 +5266,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Generates common parameters for an asymmetric key pair based on the specified elliptic curve name.
+   * 用于根据椭圆曲线名称为非对称密钥对生成公共参数。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5895,13 +5277,12 @@ declare namespace cryptoFramework {
    */
   class ECCKeyUtil {
     /**
-     * Generates common parameters for an asymmetric key pair based on the specified name identifier (NID) of an
-     * elliptic curve. For details, see
-     * [ECC](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#ecc) and
-     * [SM2](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#sm2).
+     * 根据椭圆曲线相应的NID（Name Identifier）字符串名称生成相应的非对称公共密钥参数。详见
+     * [ECC密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#ecc)和
+     * [SM2密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#sm2)。
      *
-     * @param { string } curveName - NID of the elliptic curve.
-     * @returns { ECCCommonParamsSpec } ECC common parameters generated.
+     * @param { string } curveName - 椭圆曲线相应的NID（Name Identifier）字符串名称。
+     * @returns { ECCCommonParamsSpec } 返回ECC公共密钥参数。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5917,20 +5298,16 @@ declare namespace cryptoFramework {
     static genECCCommonParamsSpec(curveName: string): ECCCommonParamsSpec;
 
     /**
-     * Converts the specified point data into a **Point** object based on the curve name (NID). Currently, compressed
-     * and uncompressed point data is supported.
+     * 根据椭圆曲线的曲线名，即相应的NID（Name Identifier），将指定的点数据转换为Point对象。当前支持压缩/非压缩格式的点数据。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > According to section 2.2 in RFC 5480:
-     * > 1. The uncompressed point data is represented as **0x04**|x coordinate|y coordinate.
-     * > 2. The compressed point data in the **Fp** field (the **F2m** field is not supported currently) is represented
-     * > as follows: **0x03**|x coordinate (when the coordinate y is an odd number); **0x02**|x coordinate (when the
-     * > coordinate y is an even number).
+     * > 根据RFC5480规范中第2.2节的描述：
      *
-     * @param { string } curveName - Elliptic curve name, that is, the NID.
-     * @param { Uint8Array } encodedPoint - Data of the point on the ECC elliptic curve to convert.
-     * @returns { Point } **Point** object obtained.
+     *
+     * @param { string } curveName - 椭圆曲线的曲线名，即相应的NID（Name Identifier）。
+     * @param { Uint8Array } encodedPoint - 指定的ECC椭圆曲线上的点的数据。
+     * @returns { Point } 返回ECC的Point对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5945,14 +5322,12 @@ declare namespace cryptoFramework {
     static convertPoint(curveName: string, encodedPoint: Uint8Array): Point;
 
     /**
-     * Obtains the point data in the specified format from a **Point** object. Currently, compressed and uncompressed
-     * point data is supported.
+     * 根据椭圆曲线的曲线名，即相应的NID（Name Identifier），按照指定的点数据格式，将Point对象转换为点数据。当前支持压缩/非压缩格式的点数据。
      *
-     * @param { string } curveName - Elliptic curve name, that is, the NID.
-     * @param { Point } point - **Point** object of the elliptic curve.
-     * @param { string } format - Format of the point data to obtain. Currently, the value can be **COMPRESSED** or
-     *     **UNCOMPRESSED** only.
-     * @returns { Uint8Array } Point data in the specified format.
+     * @param { string } curveName - 椭圆曲线的曲线名，即相应的NID（Name Identifier）。
+     * @param { Point } point - 椭圆曲线上的Point点对象。
+     * @param { string } format - 需要获取的点数据格式，当前支持"COMPRESSED"或"UNCOMPRESSED"。
+     * @returns { Uint8Array } 返回指定格式的点数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5968,11 +5343,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public and private keys in the DH algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DH算法中公私钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5983,7 +5356,7 @@ declare namespace cryptoFramework {
    */
   interface DHCommonParamsSpec extends AsyKeySpec {
     /**
-     * Large prime **p** in the DH algorithm.
+     * 指定DH算法中大素数p。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5995,7 +5368,7 @@ declare namespace cryptoFramework {
     p: bigint;
 
     /**
-     * Parameter **g** in the DH algorithm.
+     * DH算法中的参数g。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6007,7 +5380,7 @@ declare namespace cryptoFramework {
     g: bigint;
 
     /**
-     * Length of the private key in the DH algorithm, in bits.
+     * DH算法中私钥长度，单位为bits。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6020,11 +5393,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * private key in the DH algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DH算法中私钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6035,7 +5406,7 @@ declare namespace cryptoFramework {
    */
   interface DHPriKeySpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the DH algorithm.
+     * 指定DH算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6047,7 +5418,7 @@ declare namespace cryptoFramework {
     params: DHCommonParamsSpec;
 
     /**
-     * Private key **sk** in the DH algorithm.
+     * DH算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6060,11 +5431,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public key in the DH algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DH算法中公钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6075,7 +5444,7 @@ declare namespace cryptoFramework {
    */
   interface DHPubKeySpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the DH algorithm.
+     * 指定DH算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6087,7 +5456,7 @@ declare namespace cryptoFramework {
     params: DHCommonParamsSpec;
 
     /**
-     * Public key **pk** in the DH algorithm.
+     * DH算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6100,11 +5469,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify full parameters of the
-   * public and private keys in the DH algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定DH算法中公私钥包含的全量参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6115,7 +5482,7 @@ declare namespace cryptoFramework {
    */
   interface DHKeyPairSpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the DH algorithm.
+     * 指定DH算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6127,7 +5494,7 @@ declare namespace cryptoFramework {
     params: DHCommonParamsSpec;
 
     /**
-     * Private key **sk** in the DH algorithm.
+     * DH算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6139,7 +5506,7 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Public key **pk** in the DH algorithm.
+     * DH算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6152,7 +5519,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Generates common parameters for a DH key based on the prime **p** length and the private key length.
+   * 根据素数P的长度和私钥长度（bit位数）生成DH公共密钥参数。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6163,15 +5530,13 @@ declare namespace cryptoFramework {
    */
   class DHKeyUtil {
     /**
-     * Generates common parameters for a DH key based on the prime **p** length and the private key length. For details,
-     * see [DH](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#dh).
+     * 根据素数P的长度和私钥长度（bit位数）生成DH公共密钥参数。详见
+     * [DH密钥生成规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md#dh)。
      *
-     * @param { int } pLen - Length of the prime **p**, in bits.
-     * @param { int } [skLen] - Maximum length of the generated DH private key, in bits. The default value is **0**.<br>
-     *     When this parameter is set to **0**, the maximum length of the generated DH private key is as follows:<br>
-     *     ffdhe2048: 255 bits.<br>ffdhe3072: 275 bits.<br>ffdhe4096: 325 bits.<br>ffdhe6144: 375 bits.<br>ffdhe8192: 40
-     *     0 bits.
-     * @returns { DHCommonParamsSpec } DH common parameters generated.
+     * @param { int } pLen - 用于指定DH公共密钥参数中素数P的长度，单位为bits。
+     * @param { int } [skLen] - 用于指定生成DH私钥的最大长度，单位为bits，默认值为0。<br>当参数值设置为0时，生成DH私钥的最大长度为：<br>ffdhe2048：255 bits。<br>
+     *     ffdhe3072：275 bits。<br>ffdhe4096：325 bits。<br>ffdhe6144：375 bits。<br>ffdhe8192：400 bits。
+     * @returns { DHCommonParamsSpec } 返回DH公共密钥参数。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6189,11 +5554,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * private key in the Ed25519 algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定Ed25519算法中私钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6204,7 +5567,7 @@ declare namespace cryptoFramework {
    */
   interface ED25519PriKeySpec extends AsyKeySpec {
     /**
-     * Private key **sk** in the Ed25519 algorithm.
+     * Ed25519算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6217,11 +5580,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public key in the Ed25519 algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定Ed25519算法中公钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6232,7 +5593,7 @@ declare namespace cryptoFramework {
    */
   interface ED25519PubKeySpec extends AsyKeySpec {
     /**
-     * Public key **pk** in the Ed25519 algorithm.
+     * Ed25519算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6245,11 +5606,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify full parameters of the
-   * public and private keys in the Ed25519 algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定Ed25519算法中公私钥包含的全量参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6260,7 +5619,7 @@ declare namespace cryptoFramework {
    */
   interface ED25519KeyPairSpec extends AsyKeySpec {
     /**
-     * Private key **sk** in the Ed25519 algorithm.
+     * Ed25519算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6272,7 +5631,7 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Public key **pk** in the Ed25519 algorithm.
+     * Ed25519算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6285,11 +5644,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * private key in the X25519 algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定X25519算法中私钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6300,7 +5657,7 @@ declare namespace cryptoFramework {
    */
   interface X25519PriKeySpec extends AsyKeySpec {
     /**
-     * Private key **sk** in the X25519 algorithm.
+     * X25519算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6313,11 +5670,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public key in the X25519 algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定X25519算法中公钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6328,7 +5683,7 @@ declare namespace cryptoFramework {
    */
   interface X25519PubKeySpec extends AsyKeySpec {
     /**
-     * Public key **pk** in the X25519 algorithm.
+     * X25519算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6341,11 +5696,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify full parameters of the
-   * public and private keys in the X25519 algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定X25519算法中公私钥包含的全量参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6356,7 +5709,7 @@ declare namespace cryptoFramework {
    */
   interface X25519KeyPairSpec extends AsyKeySpec {
     /**
-     * Private key **sk** in the X25519 algorithm.
+     * X25519算法中的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6368,7 +5721,7 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Public key **pk** in the X25519 algorithm.
+     * X25519算法中的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6381,11 +5734,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the common parameters of
-   * the public and private keys in the RSA algorithm. It can be used to randomly generate a public or private key.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定RSA算法中公私钥包含的公共参数，随机生成公/私钥。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6396,7 +5747,7 @@ declare namespace cryptoFramework {
    */
   interface RSACommonParamsSpec extends AsyKeySpec {
     /**
-     * Modulus **n**.
+     * 指定模数n。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6409,11 +5760,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify the parameters of the
-   * public key in the RSA algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定RSA算法中公钥包含的参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6424,7 +5773,7 @@ declare namespace cryptoFramework {
    */
   interface RSAPubKeySpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the RSA algorithm.
+     * 指定RSA算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6436,7 +5785,7 @@ declare namespace cryptoFramework {
     params: RSACommonParamsSpec;
 
     /**
-     * Public key **pk** in the RSA algorithm.
+     * 指定RSA算法的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6449,11 +5798,9 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines a child class of [AsyKeySpec]{@link cryptoFramework.AsyKeySpec} used to specify full parameters of the
-   * public and private keys in the RSA algorithm.
+   * 密钥参数[AsyKeySpec]{@link cryptoFramework.AsyKeySpec}的子类，用于指定RSA算法中公私钥包含的全量参数。
    *
-   * To generate a key based on key parameters, pass it to
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create a key generator.
+   * 在使用密钥参数生成密钥时，将其传入[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法创建密钥生成器。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6464,7 +5811,7 @@ declare namespace cryptoFramework {
    */
   interface RSAKeyPairSpec extends AsyKeySpec {
     /**
-     * Common parameters of the public and private keys in the RSA algorithm.
+     * 指定RSA算法中公私钥都包含的公共参数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6476,7 +5823,7 @@ declare namespace cryptoFramework {
     params: RSACommonParamsSpec;
 
     /**
-     * Private key **sk** in the RSA algorithm.
+     * 指定RSA算法的私钥sk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6488,7 +5835,7 @@ declare namespace cryptoFramework {
     sk: bigint;
 
     /**
-     * Public key **pk** in the RSA algorithm.
+     * 指定RSA算法的公钥pk。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6500,23 +5847,11 @@ declare namespace cryptoFramework {
     pk: bigint;
   }
   /**
-   * # Attributes
+   * 非对称密钥生成器。在使用该类的方法前，需要先使用[createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec}方法构建一个
+   * AsyKeyGeneratorBySpec实例。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Key.AsymKey
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API versions 10 to 11, and
-   * **SystemCapability.Security.CryptoFramework.Key.AsymKey** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                      |
-   * | ------- | ------ | ---- | ---- | -------------------------- |
-   * | algName | string | Yes  | No  | Algorithm used by the asymmetric key generator.|
    */
   /**
-   * Provides APIs for using the **AsKeyGenerator**. Before using the APIs of this class, you need to use
-   * [createAsyKeyGeneratorBySpec()]{@link cryptoFramework.createAsyKeyGeneratorBySpec} to create an
-   * **AsyKeyGeneratorBySpec** instance.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6527,16 +5862,12 @@ declare namespace cryptoFramework {
    */
   interface AsyKeyGeneratorBySpec {
     /**
-     * Generates a key pair using this asymmetric key generator. This API uses an asynchronous callback to return the
-     * result.
+     * 获取非对称密钥生成器生成的密钥。使用callback异步回调。
      *
-     * If a key parameter of the [COMMON_PARAMS_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the
-     * key generator, a key pair will be randomly generated. If a key parameter of the
-     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key generator, you can obtain a
-     * key pair that is consistent with the specified key parameters.
+     * 当使用[COMMON_PARAMS_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到随机生成的密钥对；当使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到各项数据与密钥参数一致的密钥对。
      *
-     * @param { AsyncCallback<KeyPair> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the key pair generated. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<KeyPair> } callback - 回调函数。当获取非对称密钥成功，err为undefined，data为获取到的KeyPair；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -6550,14 +5881,12 @@ declare namespace cryptoFramework {
     generateKeyPair(callback: AsyncCallback<KeyPair>): void;
 
     /**
-     * Generates a key pair using this asymmetric key generator. This API uses a promise to return the result.
+     * 获取该非对称密钥生成器生成的密钥。使用Promise异步回调。
      *
-     * If a key parameter of the [COMMON_PARAMS_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the
-     * key generator, a key pair will be randomly generated. If a key parameter of the
-     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key generator, you can obtain a
-     * key pair that is consistent with the specified key parameters.
+     * 当使用[COMMON_PARAMS_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到随机生成的密钥对；当使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到各项数据与密钥参数一致的密钥对。
      *
-     * @returns { Promise<KeyPair> } Promise used to return the asymmetric key pair.
+     * @returns { Promise<KeyPair> } Promise对象，返回非对称密钥KeyPair。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6573,19 +5902,12 @@ declare namespace cryptoFramework {
     generateKeyPair(): Promise<KeyPair>;
 
     /**
-     * Generates a key pair using this asymmetric key generator. This API returns the result synchronously.
+     * 同步获取该非对称密钥生成器生成的密钥。
      *
-     * If a key parameter of the [COMMON_PARAMS_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the
-     * key generator, a key pair will be randomly generated. If a key parameter of the
-     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key generator, you can obtain a
-     * key pair that is consistent with the specified key parameters.
+     * 当使用[COMMON_PARAMS_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到随机生成的密钥对；当使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到各项数据与密钥参数一致的密钥对。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateKeyPair}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { KeyPair } Asymmetric key pair.
+     * @returns { KeyPair } 非对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6600,15 +5922,12 @@ declare namespace cryptoFramework {
     generateKeyPairSync(): KeyPair;
 
     /**
-     * Generates a private key using this asymmetric key generator. This API uses an asynchronous callback to return the
-     * result.
+     * 获取非对称密钥生成器生成的密钥。使用callback异步回调。
      *
-     * If [PRIVATE_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType} is used to create a key generator, the key generator
-     * generates the specified private key. If [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} is used to create a
-     * key generator, you can obtain the specified private key from the key pair generated.
+     * 使用[PRIVATE_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型密钥参数创建密钥生成器，生成指定私钥。使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型密钥参数创建密钥生成器，从生成的密钥对中获取指定私钥。
      *
-     * @param { AsyncCallback<PriKey> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the private key generated. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<PriKey> } callback - 回调函数。当获取非对称密钥成功，err为undefined，data为获取到的PriKey；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Mandatory parameters are left unspecified;
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -6622,14 +5941,12 @@ declare namespace cryptoFramework {
     generatePriKey(callback: AsyncCallback<PriKey>): void;
 
     /**
-     * Generates a private key using this asymmetric key generator. This API uses a promise to return the result.
+     * 获取该非对称密钥生成器生成的密钥。使用Promise异步回调。
      *
-     * If a key parameter of the [PRIVATE_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key
-     * generator, a private key can be obtained. If a key parameter of the
-     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key generator, you can obtain
-     * the private key from the key pair generated.
+     * 当使用[PRIVATE_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到指定的私钥；当使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的私钥。
      *
-     * @returns { Promise<PriKey> } Promise used to return the private key.
+     * @returns { Promise<PriKey> } Promise对象，返回非对称密钥的私钥PriKey。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6645,19 +5962,12 @@ declare namespace cryptoFramework {
     generatePriKey(): Promise<PriKey>;
 
     /**
-     * Generates a private key using this asymmetric key generator. This API returns the result synchronously.
+     * 同步获取该非对称密钥生成器生成的密钥。
      *
-     * If a key parameter of the [PRIVATE_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key
-     * generator, a private key can be obtained. If a key parameter of the
-     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key generator, you can obtain
-     * the private key from the key pair generated.
+     * 当使用[PRIVATE_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到指定的私钥；当使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的私钥。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generatePriKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { PriKey } Private key.
+     * @returns { PriKey } 非对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6672,16 +5982,12 @@ declare namespace cryptoFramework {
     generatePriKeySync(): PriKey;
 
     /**
-     * Generates a public key using this asymmetric key generator. This API uses an asynchronous callback to return the
-     * result.
+     * 获取非对称密钥生成器生成的密钥。使用callback异步回调。
      *
-     * If a key parameter of the [PUBLIC_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key
-     * generator, the specified public key can be obtained. If a key parameter of the
-     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key generator, you can obtain
-     * the specified public key from the key pair generated.
+     * 当使用[PUBLIC_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到指定的公钥；当使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的公钥。
      *
-     * @param { AsyncCallback<PubKey> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the public key generated. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<PubKey> } callback - 回调函数。当获取非对称密钥成功，err为undefined，data为获取到的PubKey；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes: Incorrect parameter types;
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17630001 - crypto operation error.
@@ -6695,14 +6001,12 @@ declare namespace cryptoFramework {
     generatePubKey(callback: AsyncCallback<PubKey>): void;
 
     /**
-     * Generates a public key using this asymmetric key generator. This API uses a promise to return the result.
+     * 获取该非对称密钥生成器生成的密钥。使用Promise异步回调。
      *
-     * If a key parameter of the [PUBLIC_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key
-     * generator, the specified public key can be obtained. If a key parameter of the
-     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} type is used to create the key generator, you can obtain
-     * the specified public key from the key pair generated.
+     * 当使用[PUBLIC_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到指定的公钥；当使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以从生成的密钥对中获取指定的公钥。
      *
-     * @returns { Promise<PubKey> } Promise used to return the public key.
+     * @returns { Promise<PubKey> } Promise对象，返回非对称密钥的公钥PubKey。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6718,18 +6022,12 @@ declare namespace cryptoFramework {
     generatePubKey(): Promise<PubKey>;
 
     /**
-     * Generates a public key using this asymmetric key generator. This API returns the result synchronously.
+     * 同步获取该非对称密钥生成器生成的密钥。
      *
-     * If [PUBLIC_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType} is used to create a key generator, the key generator
-     * generates the specified public key. If [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType} is used to create a
-     * key generator, you can obtain the specified public key from the key pair generated.
+     * 当使用[PUBLIC_KEY_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数来创建密钥生成器时，可以得到指定的公钥；使用
+     * [KEY_PAIR_SPEC]{@link cryptoFramework.AsyKeySpecType}类型的密钥参数时，可以从生成的密钥对中获取指定的公钥。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generatePubKey}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @returns { PubKey } Public key.
+     * @returns { PubKey } 非对称密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6744,7 +6042,7 @@ declare namespace cryptoFramework {
     generatePubKeySync(): PubKey;
 
     /**
-     * Indicates the algorithm name of the generator.
+     * 非对称密钥生成器的算法名。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -6757,13 +6055,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Obtains an asymmetric key generator instance with the specified key parameters.
+   * 指定密钥参数，获取非对称密钥生成器实例。
    *
-   * @param { AsyKeySpec } asyKeySpec - Key parameters. The **AsyKeyGenerator** generates the public/private key based
-   *     on the specified parameters.<br>For details about the supported specifications, see
-   *     [Asymmetric Key Generation and Conversion Specifications](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)
-   *     .
-   * @returns { AsyKeyGeneratorBySpec } Returns the **AsyKeyGenerator** instance created.
+   * @param { AsyKeySpec } asyKeySpec - 密钥参数。非对称密钥生成器根据指定的这些参数生成公/私钥。<br>支持的规格详见
+   *     [非对称密钥生成和转换规格](docroot://security/CryptoArchitectureKit/crypto-asym-key-generation-conversion-spec.md)。
+   * @returns { AsyKeyGeneratorBySpec } 返回非对称密钥生成器实例。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -6778,8 +6074,7 @@ declare namespace cryptoFramework {
   function createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec;
 
   /**
-   * Defines the parameters of the key derivation function. When the key derivation function is used to derive a key,
-   * you need to construct and pass in a child class object of **KdfSpec**.
+   * 密钥派生函数参数，使用密钥派生函数进行密钥派生时，需要构建其子类对象并作为输入。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6790,7 +6085,7 @@ declare namespace cryptoFramework {
    */
   interface KdfSpec {
     /**
-     * Algorithm of the key derivation function, for example, **PBKDF2**.
+     * 指明密钥派生函数的算法名，如"PBKDF2"。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6803,14 +6098,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines the child class of [KdfSpec]{@link cryptoFramework.KdfSpec}. It is used as a parameter for PBKDF2 key
-   * derivation.
+   * 密钥派生函数参数[KdfSpec]{@link cryptoFramework.KdfSpec}的子类，作为PBKDF2密钥派生函数进行密钥派生时的输入。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **password** is the original password. If **password** of the string type is used, pass in the actual data for
-   * > key derivation, rather than a HexString or Base64-encoded value. In addition, the string must be encoded in UTF-8
-   * > , as other encodings may alter the derivation outcome.
+   * > password 是原始密码。如果使用 string 类型，需直接传入用于密钥派生的数据，而不是 HexString 或 base64 等字符串类型，并确保该字符串为 UTF-8 编码，否则派生结果会有差异。
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6821,7 +6113,7 @@ declare namespace cryptoFramework {
    */
   interface PBKDF2Spec extends KdfSpec {
     /**
-     * Original password entered by the user.
+     * 用户输入的原始密码。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6833,7 +6125,7 @@ declare namespace cryptoFramework {
     password: string | Uint8Array;
 
     /**
-     * Salt value.
+     * 盐值。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6845,7 +6137,7 @@ declare namespace cryptoFramework {
     salt: Uint8Array;
 
     /**
-     * Number of iterations. The value must be a positive integer.
+     * 迭代次数，需要为正整数。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6857,7 +6149,7 @@ declare namespace cryptoFramework {
     iterations: int;
 
     /**
-     * Length of the derived key, in bytes.
+     * 派生得到的密钥字节长度，单位为bytes。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -6870,18 +6162,15 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines the child class of [KdfSpec]{@link cryptoFramework.KdfSpec}. It is a parameter for HKDF key derivation.
+   * 密钥派生函数参数[KdfSpec]{@link cryptoFramework.KdfSpec}的子类，作为HKDF密钥派生函数进行密钥派生时的输入。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **key** is the original key material entered by the user. An empty string can be passed in for **info** and
-   * > **salt** based on the mode.
+   * > key指的是用户输入的最初的密钥材料。根据模式的不同info与salt可以传空，但是不可不传。
    * >
-   * > For example, if the mode is **EXTRACT_AND_EXPAND**, all parameter values must be passed in. If the mode is
-   * > **EXTRACT_ONLY**, **info** can be empty. When **HKDFSpec** is constructed, pass in **null** to **info**.
+   * > 例如：EXTRACT_AND_EXPAND模式需要输入全部的值，EXTRACT_ONLY模式info可以为空，在构建HKDFSpec的时候，info传入null值。
    * >
-   * > The default mode is **EXTRACT_AND_EXPAND**. The value **HKDF|SHA256|EXTRACT_AND_EXPAND** is equivalent to
-   * > **HKDF|SHA256**.
+   * > 默认的模式为EXTRACT_AND_EXPAND，"HKDF|SHA256|EXTRACT_AND_EXPAND"等价于"HKDF|SHA256"。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
@@ -6891,7 +6180,7 @@ declare namespace cryptoFramework {
    */
   interface HKDFSpec extends KdfSpec {
     /**
-     * Key material.
+     * 密钥材料。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6902,7 +6191,7 @@ declare namespace cryptoFramework {
     key: string | Uint8Array;
 
     /**
-     * Salt value.
+     * 盐值。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6913,7 +6202,7 @@ declare namespace cryptoFramework {
     salt: Uint8Array;
 
     /**
-     * Information used to expand the key.
+     * 拓展信息。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6924,7 +6213,7 @@ declare namespace cryptoFramework {
     info: Uint8Array;
 
     /**
-     * Length of the derived key, in bytes.
+     * 派生得到的密钥字节长度，单位为bytes。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6936,14 +6225,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines the child class of [KdfSpec]{@link cryptoFramework.KdfSpec}. It is a parameter for scrypt key derivation
-   * function (KDF).
+   * 密钥派生函数参数[KdfSpec]{@link cryptoFramework.KdfSpec}的子类，作为SCRYPT密钥派生函数进行密钥派生时的输入。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **passphrase** specifies the original password. If **password** is of the string type, pass in the data used for
-   * > key derivation rather than a string of the HexString or Base64 type. In addition, the string must be in utf-8
-   * > format. Otherwise, the key derived may be different from the one expected.
+   * > passphrase指的是原始密码，如果使用string类型，需要直接传入用于密钥派生的数据，而不是HexString、base64等字符串类型，同时需要确保该字符串为utf-8编码，否则派生结果会有差异。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
@@ -6953,7 +6239,7 @@ declare namespace cryptoFramework {
    */
   interface ScryptSpec extends KdfSpec {
     /**
-     * Original password entered by the user.
+     * 用户输入的原始密码。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6964,7 +6250,7 @@ declare namespace cryptoFramework {
     passphrase: string | Uint8Array;
 
     /**
-     * Salt value.
+     * 盐值。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6975,7 +6261,7 @@ declare namespace cryptoFramework {
     salt: Uint8Array;
 
     /**
-     * Number of iterations. The value must be a positive integer.
+     * 迭代次数，需要为正整数。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6986,7 +6272,7 @@ declare namespace cryptoFramework {
     n: long;
 
     /**
-     * Block size. The value must be a positive integer.
+     * 块大小参数，需要为正整数。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -6997,7 +6283,7 @@ declare namespace cryptoFramework {
     r: long;
 
     /**
-     * Parallelization parameter. The value must be a positive integer.
+     * 并行化参数，需要为正整数。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7008,7 +6294,7 @@ declare namespace cryptoFramework {
     p: long;
 
     /**
-     * Maximum memory size, in bytes. The value must be a positive integer.
+     * 最大内存限制参数，需要为正整数，单位为bytes。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7019,7 +6305,7 @@ declare namespace cryptoFramework {
     maxMemory: long;
 
     /**
-     * Length of the derived key, in bytes. The value must be a positive integer.
+     * 派生得到的密钥字节长度，需要为正整数，单位为bytes。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7031,12 +6317,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Defines the child class of [KdfSpec]{@link cryptoFramework.KdfSpec}. It is a parameter for X963KDF key derivation
-   * function (KDF).
+   * 密钥派生函数参数[KdfSpec]{@link cryptoFramework.KdfSpec}的子类，作为X963KDF密钥派生函数进行密钥派生时的输入。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **key** is the original key material entered by the user.
+   * > key指的是用户输入的最初的密钥材料。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Kdf
    * @crossplatform
@@ -7046,7 +6331,7 @@ declare namespace cryptoFramework {
    */
   interface X963KdfSpec extends KdfSpec {
     /**
-     * Key material.
+     * 密钥材料。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7057,7 +6342,7 @@ declare namespace cryptoFramework {
     key: string | Uint8Array;
 
     /**
-     * Additional description.
+     * 附加信息。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7068,8 +6353,8 @@ declare namespace cryptoFramework {
     info: Uint8Array;
 
     /**
-     * Length of the derived key, in bytes.
-     * The value must be a positive integer.
+     * 派生得到的密钥字节长度，需要为正整数，单位为bytes。
+     * 取值应为正整数。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Kdf
      * @crossplatform
@@ -7080,22 +6365,10 @@ declare namespace cryptoFramework {
     keySize: int;
   }
   /**
-   * # Attributes
+   * 密钥派生函数（key derivation function）类，使用密钥派生方法之前需要创建该类的实例进行操作，通过createKdf(algName: string): Kdf方法构造此实例。
    *
-   * **Atomic service API**: This API can be used in atomic services since API version 12.
-   *
-   * **System capability**: SystemCapability.Security.CryptoFramework.Kdf
-   *
-   * The system capability is **SystemCapability.Security.CryptoFramework** in API version 11, and
-   * **SystemCapability.Security.CryptoFramework.Kdf** since API version 12.
-   *
-   * | Name   | Type  | Read-Only| Optional| Description                        |
-   * | ------- | ------ | ---- | ---- | ---------------------------- |
-   * | algName | string | Yes  | No  | Algorithm of the key derivation function.|
    */
   /**
-   * Defines the key derivation function class. Before using APIs of this class, you need to create an instance of this
-   * class by using **createKdf(algName: string): Kdf**.
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -7106,13 +6379,10 @@ declare namespace cryptoFramework {
    */
   interface Kdf {
     /**
-     * Generates a key based on the specified key derivation parameters. This API uses an asynchronous callback to
-     * return the result.
+     * 基于传入的密钥派生参数进行密钥派生。使用callback异步回调。
      *
-     * @param { KdfSpec } params - Parameters of the key derivation function.
-     * @param { AsyncCallback<DataBlob> } callback - Callback used to return the key generated. If the operation is
-     *     successful, **err** is **undefined** and **data** is the key generated. Otherwise, **err** is an error
-     *     object.
+     * @param { KdfSpec } params - 设置密钥派生函数的参数。
+     * @param { AsyncCallback<DataBlob> } callback - 回调函数，用于获取派生的密钥。当密钥派生成功，err为undefined，data为派生的密钥；否则为错误对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -7133,10 +6403,10 @@ declare namespace cryptoFramework {
     generateSecret(params: KdfSpec, callback: AsyncCallback<DataBlob>): void;
 
     /**
-     * Generates a key based on the specified key derivation parameters. This API uses a promise to return the result.
+     * 基于传入的密钥派生参数进行密钥派生。使用Promise异步回调。
      *
-     * @param { KdfSpec } params - Parameters of the key derivation function.
-     * @returns { Promise<DataBlob> } Promise used to return the key generated.
+     * @param { KdfSpec } params - 设置密钥派生函数的参数。
+     * @returns { Promise<DataBlob> } Promise对象，返回派生的密钥。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -7157,15 +6427,10 @@ declare namespace cryptoFramework {
     generateSecret(params: KdfSpec): Promise<DataBlob>;
 
     /**
-     * Generates a key based on the specified key derivation parameters. This API returns the result synchronously.
+     * 基于传入的密钥派生参数进行密钥派生，通过同步方式返回派生得到的密钥。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link generateSecret}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
-     *
-     * @param { KdfSpec } params - Parameters of the key derivation function.
-     * @returns { DataBlob } Key derived.
+     * @param { KdfSpec } params - 设置密钥派生函数的参数。
+     * @returns { DataBlob } 用于获取派生得到的密钥DataBlob数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -7186,7 +6451,7 @@ declare namespace cryptoFramework {
     generateSecretSync(params: KdfSpec): DataBlob;
 
     /**
-     * Indicates the algorithm name of the key derivation function.
+     * 密钥派生函数的算法名称。
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Kdf [since 12]
@@ -7199,11 +6464,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates a key derivation function instance.
+   * 密钥派生函数（key derivation function）实例生成。
    *
-   * @param { string } algName - Key derivation algorithm (including the hash function for the HMAC). Currently, only
-   *     PBKDF2, HKDF, and scrypt are supported. For example, **PBKDF2
-   * @returns { Kdf } Key derivation function instance created.
+   * @param { string } algName - 指定密钥派生算法（包含HMAC配套的散列函数）：目前支持PBKDF2、HKDF算法、SCRYPT算法，如"PBKDF2|SHA256", "HKDF|SHA256", "
+   *     SCRYPT"。<br>支持的规格详见[密钥派生函数规格](docroot://security/CryptoArchitectureKit/crypto-key-derivation-overview.md)。
+   * @returns { Kdf } 返回由输入算法指定生成的Kdf对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -7218,18 +6483,15 @@ declare namespace cryptoFramework {
   function createKdf(algName: string): Kdf;
 
   /**
-   * Represents the SM2 ciphertext parameters. You can use this object to generate SM2 ciphertext in ASN.1 format or
-   * obtain SM2 parameters from the SM2 ciphertext in ASN.1 format.
+   * SM2密文参数，使用SM2密文格式转换函数进行格式转换时，需要用到此对象。可以通过指定此参数，生成符合国密标准的ASN.1格式的SM2密文，反之，也可以从ASN.1格式的SM2密文中获取具体参数。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - **hashData** is a value obtained by applying the SM3 algorithm to the plaintext. It has a fixed length of 256
-   * > bits.
+   * > - hashData为使用SM3算法对明文数据运算得到的杂凑值，其长度固定为256位。
    * >
-   * > - **cipherTextData** is the ciphertext with the same length as the plaintext.
+   * > - cipherTextData是与明文等长的密文。
    * >
-   * > - During the generation of ciphertext in C1C3C2 format, if the length of x (**C1_X**) or y (**C1_Y**) is less
-   * > than 32 bytes, zeros must be added to the high-order bits to extend them to 32 bytes.
+   * > - 在拼接生成C1C3C2格式的密文时，如果x分量（C1_X）或y分量（C1_Y）的长度不足32字节，需要在高位补0，使得x分量和y分量的长度均为32字节。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
@@ -7239,7 +6501,7 @@ declare namespace cryptoFramework {
    */
   interface SM2CipherTextSpec {
     /**
-     * Indicates the x coordinate, also known as C1x.
+     * x分量。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -7250,7 +6512,7 @@ declare namespace cryptoFramework {
     xCoordinate: bigint;
 
     /**
-     * Indicates the y coordinate, also known as C1y.
+     * y分量。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -7261,7 +6523,7 @@ declare namespace cryptoFramework {
     yCoordinate: bigint;
 
     /**
-     * Indicates the detailed ciphertext data, also known as C2.
+     * 密文。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -7272,7 +6534,7 @@ declare namespace cryptoFramework {
     cipherTextData: Uint8Array;
 
     /**
-     * Indicates the hash data, also known as C3.
+     * 杂凑值。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @crossplatform
@@ -7284,7 +6546,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides APIs for SM2 cryptographic operations.
+   * 用于SM2密码学运算的工具类。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @crossplatform
@@ -7294,12 +6556,11 @@ declare namespace cryptoFramework {
    */
   class SM2CryptoUtil {
     /**
-     * Generates SM2 ciphertext in ASN.1 format.
+     * 根据指定的SM2密文参数，生成符合国密标准的ASN.1格式SM2密文。
      *
-     * @param { SM2CipherTextSpec } spec - SM2 ciphertext parameters.
-     * @param { string } [mode] - Order of the SM2 parameters in the ciphertext. Currently, only C1C3C2 is supported. If
-     *     this parameter is left empty or is an empty string, the default value is used.
-     * @returns { DataBlob } SM2 ciphertext in ASN.1 format.
+     * @param { SM2CipherTextSpec } spec - 指定的SM2密文参数。
+     * @param { string } [mode] - 可选的密文转换模式，可用于指定密文参数的拼接顺序，当前仅支持默认值"C1C3C2"。为空或空字符串时使用默认值。
+     * @returns { DataBlob } 返回符合国密标准的ASN.1格式的SM2密文。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -7314,12 +6575,11 @@ declare namespace cryptoFramework {
     static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob;
 
     /**
-     * Obtains SM2 ciphertext parameters from the SM2 ciphertext in ASN.1 format.
+     * 从符合国密标准的ASN.1格式的SM2密文中，获取具体的SM2密文参数。
      *
-     * @param { DataBlob } cipherText - SM2 ciphertext in ASN.1 format.
-     * @param { string } [mode] - Order of the SM2 parameters in the ciphertext. Currently, only C1C3C2 is supported. If
-     *     this parameter is left empty or is an empty string, the default value is used.
-     * @returns { SM2CipherTextSpec } SM2 ciphertext parameters obtained.
+     * @param { DataBlob } cipherText - 符合国密标准的ASN.1格式的SM2密文。
+     * @param { string } [mode] - 可选的密文转换模式，可用于指定密文参数的拼接顺序，当前仅支持默认值"C1C3C2"。为空或空字符串时使用默认值。
+     * @returns { SM2CipherTextSpec } 返回SM2密文参数。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -7335,11 +6595,11 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Represents the SM2 signature data that contains (r, s).
+   * 包含（r、s）的sm2签名数据的结构体。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > **r** and **s** are each 256 bits long.
+   * > r和s的长度各为256位。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
@@ -7349,8 +6609,7 @@ declare namespace cryptoFramework {
    */
   interface EccSignatureSpec {
     /**
-     * Randomized value derived from the elliptic curve calculation using the ephemeral private key during signature
-     * generation.
+     * r分量。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -7361,7 +6620,7 @@ declare namespace cryptoFramework {
     r: bigint;
 
     /**
-     * Signature component, computed using the signer's private key, r, and the hashed message.
+     * s分量。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @crossplatform
@@ -7373,7 +6632,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Provides utilities for converting SM2 data.
+   * 用于SM2数据转换的工具类。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Signature
    * @crossplatform
@@ -7383,10 +6642,10 @@ declare namespace cryptoFramework {
    */
   class SignatureUtils {
     /**
-     * Generates r and s from the SM2 signature data in ASN1 DER format.
+     * 从ASN1 DER格式的sm2签名数据获取r和s。
      *
-     * @param { Uint8Array } data - Signature data in ASN1 DER format.
-     * @returns { EccSignatureSpec } struct that contains r and s.
+     * @param { Uint8Array } data - ASN1 DER格式的签名数据。
+     * @returns { EccSignatureSpec } 包含r和s的数据结构体。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
@@ -7401,10 +6660,10 @@ declare namespace cryptoFramework {
     static genEccSignatureSpec(data: Uint8Array): EccSignatureSpec;
 
     /**
-     * Converts an SM2 signature (r, s) to the ASN1 DER format.
+     * 将（r、s）的sm2签名数据转换为ASN1 DER格式。
      *
-     * @param { EccSignatureSpec } spec - SM2 signature data to convert.
-     * @returns { Uint8Array } Signature data in ASN1 DER format.
+     * @param { EccSignatureSpec } spec - （r、s）的sm2签名数据。
+     * @returns { Uint8Array } ASN1 DER格式的签名数据。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed. Possible causes:
@@ -7420,7 +6679,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Indicates the KEM algorithm name ID.
+   * KEM算法名称ID。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -7429,7 +6688,7 @@ declare namespace cryptoFramework {
    */
   enum KemAlgNameId {
     /**
-     * Indicates the ML_KEM_512 algorithm name ID.
+     * ML_KEM_512算法名称ID。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -7439,7 +6698,7 @@ declare namespace cryptoFramework {
     ML_KEM_512 = 0,
 
     /**
-     * Indicates the ML_KEM_768 algorithm name ID.
+     * ML_KEM_768算法名称ID。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -7449,7 +6708,7 @@ declare namespace cryptoFramework {
     ML_KEM_768 = 1,
 
     /**
-     * Indicates the ML_KEM_1024 algorithm name ID.
+     * ML_KEM_1024算法名称ID。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -7460,7 +6719,7 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Indicates the encapsulation result of the KEM.
+   * KEM封装结果。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -7469,7 +6728,7 @@ declare namespace cryptoFramework {
    */
   interface KemEncapResult {
     /**
-     * Indicates the shared secret of the KEM.
+     * KEM的共享密钥。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -7479,7 +6738,7 @@ declare namespace cryptoFramework {
     sharedSecret: Uint8Array;
 
     /**
-     * Indicates the wrapped key of the KEM.
+     * KEM的密文。
      *
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
      * @stagemodelonly
@@ -7490,7 +6749,8 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Indicates the KEM type, which is used for encapsulation and decapsulation operations.
+   * KEM类型，用于封装和解封装操作。
+   * 在使用该类的接口之前，需要使用createKem创建该类的实例。
    *
    * @syscap SystemCapability.Security.CryptoFramework.Cipher
    * @stagemodelonly
@@ -7499,10 +6759,10 @@ declare namespace cryptoFramework {
    */
   interface Kem {
     /**
-     * Encapsulates a key.
+     * KEM的封装。
      *
-     * @param { PubKey } pubKey - the public key.
-     * @param { Uint8Array | null } ikme - the ikme used to generate an ephemeral key.
+     * @param { PubKey } pubKey - KEM的公钥。
+     * @param { Uint8Array | null } ikme - KEM的IKME。
      * @returns { Promise<KemEncapResult> } the promise returned by the function.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
@@ -7516,15 +6776,15 @@ declare namespace cryptoFramework {
     encapsulate(pubKey: PubKey, ikme: Uint8Array | null): Promise<KemEncapResult>;
 
     /**
-     * Encapsulates a key.
+     * 封装一个key。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link encapsulate}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     * <br><br>**注意**
+     * <br>建议优先使用异步API, {@link encapsulate}。同步API可以
+     * 由于系统繁忙、高负载等原因，耗时较长，阻塞主线程。因此，
+     * 建议在子线程内调用同步API，避免阻塞主线程。
      *
-     * @param { PubKey } pubKey - the public key.
-     * @param { Uint8Array | null } ikme - the ikme used to generate an ephemeral key.
+     * @param { PubKey } pubKey - 公钥。
+     * @param { Uint8Array | null } ikme - 用于生成临时密钥的ikme。
      * @returns { KemEncapResult } the encapsulation result of the KEM.
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
@@ -7538,11 +6798,11 @@ declare namespace cryptoFramework {
     encapsulateSync(pubKey: PubKey, ikme: Uint8Array | null): KemEncapResult;
 
     /**
-     * Decapsulates a wrapped key.
+     * 解封装密钥。
      *
-     * @param { PriKey } priKey - the private key.
-     * @param { Uint8Array } wrappedKey - the wrapped key of the KEM.
-     * @returns { Promise<Uint8Array> } the promise returned by the function.
+     * @param { PriKey } priKey - KEM的私钥。
+     * @param { Uint8Array } wrappedKey - KEM的密文。
+     * @returns { Promise<Uint8Array> } 函数返回的promise。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
@@ -7555,16 +6815,16 @@ declare namespace cryptoFramework {
     decapsulate(priKey: PriKey, wrappedKey: Uint8Array): Promise<Uint8Array>;
 
     /**
-     * Decapsulates a wrapped key.
+     * 解封装封装的密钥。
      *
-     * <br><br>**NOTE**
-     * <br>It is recommended to prioritize the use of asynchronous API, {@link decapsulate}. Synchronous API may
-     * take a long time and block the main thread due to system busyness, high load, and other reasons. Therefore,
-     * it is advised to invoke synchronous API within a child thread to avoid blocking the main thread.
+     * <br><br>**注意**
+     * <br>建议优先使用异步API, {@link decapsulate}。同步API可以
+     * 由于系统繁忙、高负载等原因，耗时较长，阻塞主线程。因此，
+     * 建议在子线程内调用同步API，避免阻塞主线程。
      *
-     * @param { PriKey } priKey - the private key of the KEM.
-     * @param { Uint8Array } wrappedKey - the wrapped key of the KEM.
-     * @returns { Uint8Array } the decapsulation result of the KEM.
+     * @param { PriKey } priKey - KEM的私钥。
+     * @param { Uint8Array } wrappedKey - KEM的封装密钥。
+     * @returns { Uint8Array } KEM的解封装结果。
      * @throws { BusinessError } 17620001 - memory operation failed.
      * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
@@ -7578,9 +6838,10 @@ declare namespace cryptoFramework {
   }
 
   /**
-   * Creates a kem object for encapsulation and decapsulation operations.
+   * KEM类型，用于封装和解封装操作。
+   * 在使用该类的接口之前，需要使用createKem创建该类的实例。
    *
-   * @param { KemAlgNameId } algNameId - the algorithm name ID of the KEM.
+   * @param { KemAlgNameId } algNameId - KEM的算法名称ID。
    * @returns { Kem } the KEM instance.
    * @throws { BusinessError } 17620001 - memory operation failed.
    * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
