@@ -1929,7 +1929,6 @@ declare namespace relationalStore {
     DELETED_FLAG_FIELD = '#_deleted_flag'
   }
   
-  
   /**
    * Describes the data origin sources.
    *
@@ -3156,7 +3155,6 @@ declare namespace relationalStore {
      */
     having(conditions:string, args?: Array<ValueType>): RdbPredicates;
   }
-
 
   /**
    * Provides APIs to access the result set obtained by querying the RDB store. This result set is the collection of
