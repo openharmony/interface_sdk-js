@@ -18,7 +18,7 @@
  */
 import { ResourceColor } from './units';
 import { LineCapStyle } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -74,6 +74,16 @@ export declare interface DividerAttribute extends CommonMethod {
      */
     default lineCap(value: LineCapStyle | undefined): this;
     /**
+     * Set Divider options.
+     *
+     * @param { double | string } [options] - Divider constructor options
+     * @returns { DividerAttribute } Returns the instance of the DividerAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setDividerOptions(): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<DividerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -97,3 +107,18 @@ export declare interface DividerAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function Divider(): DividerAttribute;
+
+/**
+ * Defines Divider Component.
+ *
+ * @param { CustomBuilderT<DividerAttribute> } style - the callback to set up component's attributes.
+ * @returns { DividerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Divider(
+    style: CustomBuilderT<DividerAttribute>
+): DividerAttribute;

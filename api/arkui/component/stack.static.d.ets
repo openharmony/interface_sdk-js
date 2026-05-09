@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { Alignment } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Options used to construct the stack.
@@ -85,6 +85,16 @@ export declare interface StackAttribute extends CommonMethod {
      */
     default syncLoad(enable: boolean): this;
     /**
+     * Set Stack options.
+     *
+     * @param { StackOptions } [options] - Stack constructor options
+     * @returns { StackAttribute } Returns the instance of the StackAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setStackOptions(options?: StackOptions): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<StackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -113,3 +123,20 @@ export declare function Stack(
     options?: StackOptions,
     content_?: CustomBuilder,
 ): StackAttribute
+
+/**
+ * Defines Stack Component.
+ *
+ * @param { CustomBuilderT<StackAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { StackAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Stack(
+    style: CustomBuilderT<StackAttribute>,
+    content_?: CustomBuilder,
+): StackAttribute;

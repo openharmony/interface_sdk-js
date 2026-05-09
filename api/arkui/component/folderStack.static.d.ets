@@ -18,7 +18,7 @@
  */
 import window from '../../@ohos.window';
 import { FoldStatus, Alignment, AppRotation } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Import the WindowStatusType type object for onHoverStatusChange.
@@ -156,6 +156,16 @@ export declare interface FolderStackAttribute extends CommonMethod {
      */
     default autoHalfFold(value: boolean | undefined): this;
     /**
+ 	 * Set FolderStack options.
+ 	 *
+ 	 * @param { FolderStackOptions } [options] - FolderStack constructor options
+ 	 * @returns { FolderStackAttribute } Returns the instance of the FolderStackAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setFolderStackOptions(options?: FolderStackOptions): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<FolderStackAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -230,3 +240,20 @@ export declare function FolderStack(
     options?: FolderStackOptions, 
     content_?: CustomBuilder
 ): FolderStackAttribute
+
+/**
+ * Defines FolderStack Component.
+ *
+ * @param { CustomBuilderT<FolderStackAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { FolderStackAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function FolderStack(
+    style: CustomBuilderT<FolderStackAttribute>,
+    content_?: CustomBuilder,
+): FolderStackAttribute;

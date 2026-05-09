@@ -18,7 +18,7 @@
  */
 import { HorizontalAlign, FlexAlign } from './enums';
 import { Resource } from './../../global/resource';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Defines the space property with string, double and resource unit.
@@ -121,6 +121,16 @@ export declare interface ColumnAttribute extends CommonMethod {
      */
     default reverse(isReversed: boolean | undefined): this;
     /**
+     * Set Column options.
+     *
+     * @param { ColumnOptions | ColumnOptionsV2 } [options] - Column constructor options
+     * @returns { ColumnAttribute } Returns the instance of the ColumnAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setColumnOptions(options?: ColumnOptions | ColumnOptionsV2): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -148,3 +158,20 @@ export declare function Column(
     options?: ColumnOptions | ColumnOptions | ColumnOptionsV2,
     content_?: CustomBuilder,
 ): ColumnAttribute
+
+/**
+ * Defines Column Component.
+ *
+ * @param { CustomBuilderT<ColumnAttribute> } [style] - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ColumnAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Column(
+    style: CustomBuilderT<ColumnAttribute>,
+    content_?: CustomBuilder,
+): ColumnAttribute;
