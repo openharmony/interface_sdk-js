@@ -2710,6 +2710,26 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     index?: int;
+
+    /**
+     * Font languages.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    languages?: Array<string>;
+
+    /**
+     * Font features.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    fontFeatures?: Array<string>;
   }
 
   /**
