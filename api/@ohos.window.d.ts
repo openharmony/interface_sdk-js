@@ -403,15 +403,6 @@ declare namespace window {
      * @since 23 static
      */
     TYPE_MAIN = 32,
-    /**
-     * TYPE_FLOAT_NAVIGATION.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 16 dynamic
-     */
-    TYPE_FLOAT_NAVIGATION = 22
   }
 
   /**
@@ -778,7 +769,7 @@ declare namespace window {
      */
     INTERPOLATION_SPRING = 1,
     /**
-     * Cubic B¨¦zier curve.
+     * Cubic Bï¿½ï¿½zier curve.
      *
      * When this curve type is used, **param** and **duration** in
      * [WindowAnimationConfig]{@link @ohos.window:window.WindowAnimationConfig} are mandatory.
@@ -14604,17 +14595,5 @@ declare namespace window {
     foregroundBelowWindow?: int;
   }
 }
-
-/*** if arkts dynamic */
-import { UIContext } from './@ohos.arkui.UIContext';
-import { ColorMetrics } from './@ohos.arkui.node';
-/*** endif */
-
-/*** if arkts static */
-import { LocalStorage } from '@ohos.arkui.stateManagement';
-import { UIContext } from '@ohos.arkui.UIContext';
-import { ColorMetrics } from '@ohos.arkui.node';
-import { ImageFit } from '@ohos.arkui.component';
-/*** endif */
 
 export default window;

@@ -462,7 +462,7 @@ declare namespace display {
    *
    * @param { 'foldAngleChange' } type - Event type. The event **'foldAngleChange'** is triggered when the folding angle
    *     of the device changes.
-   * @param { Callback<Array<double>> } callback - Callback used to return the folding angle (0¨C180 degrees). For dual-
+   * @param { Callback<Array<double>> } callback - Callback used to return the folding angle (0ï¿½C180 degrees). For dual-
    *     fold axis devices, the array contains two angles. The first value represents the folding angle of the first
    *     fold axis, while the second value represents the folding angle of the second fold axis.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -491,9 +491,9 @@ declare namespace display {
    *
    * @param { 'foldAngleChange' } type - Event type. The event **'foldAngleChange'** is triggered when the folding angle
    *     of the device changes.
-   * @param { Callback<Array<double>> } callback - Callback used to return the folding angle (0¨C180 degrees). If this
+   * @param { Callback<Array<double>> } callback - Callback used to return the folding angle (0ï¿½C180 degrees). If this
    *     parameter is not specified, all subscriptions to the specified event are canceled. [since 12 - 19]
-   * @param { Callback<Array<double>> } [callback] - Callback used to return the folding angle (0¨C180 degrees). If this
+   * @param { Callback<Array<double>> } [callback] - Callback used to return the folding angle (0ï¿½C180 degrees). If this
    *     parameter is not specified, all subscriptions to the specified event are canceled. [since 20]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1276,11 +1276,11 @@ declare namespace display {
    *
    * > **NOTE**
    *
-   * > For foldable devices where both the inner and outer screens can serve as the primary screen ¡ª like large or wide-
-   * > folding models ¡ª the inner screen's display mode is **FOLD_DISPLAY_MODE_FULL**, and the outer screen's display
+   * > For foldable devices where both the inner and outer screens can serve as the primary screen ï¿½ï¿½ like large or wide-
+   * > folding models ï¿½ï¿½ the inner screen's display mode is **FOLD_DISPLAY_MODE_FULL**, and the outer screen's display
    * > mode is **FOLD_DISPLAY_MODE_MAIN**.
    *
-   * > For foldable devices where the outer screen serves only as an auxiliary display ¡ª like small-folding models ¡ª the
+   * > For foldable devices where the outer screen serves only as an auxiliary display ï¿½ï¿½ like small-folding models ï¿½ï¿½ the
    * > inner screen's display mode is **FOLD_DISPLAY_MODE_MAIN**, and the outer screen's display mode is
    * > **FOLD_DISPLAY_MODE_SUB**.
    *
@@ -1777,10 +1777,10 @@ declare namespace display {
 
     /**
      * Clockwise rotation angle of the display.
-     * The value **0** indicates that the display rotates clockwise by 0¡ã, which is the standard display direction.
-     * The value **1** indicates that the display rotates clockwise by 90¡ã.
-     * The value **2** indicates that the display rotates clockwise by 180¡ã.
-     * The value **3** indicates that the display rotates clockwise by 270¡ã.
+     * The value **0** indicates that the display rotates clockwise by 0ï¿½ï¿½, which is the standard display direction.
+     * The value **1** indicates that the display rotates clockwise by 90ï¿½ï¿½.
+     * The value **2** indicates that the display rotates clockwise by 180ï¿½ï¿½.
+     * The value **3** indicates that the display rotates clockwise by 270ï¿½ï¿½.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice [since 11]
@@ -2373,15 +2373,6 @@ declare namespace display {
      * @since 23 dynamic&static
      */
     readonly radius: int;
-
-    /**
-     * The radius of round corner.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 23 dynamic&static
-     */
-    radius: int;
   }
 }
 

@@ -84,4 +84,3 @@ declare class WindowExtensionContext extends ExtensionContext {
 }
 
 export default WindowExtensionContext;
-export default WindowExtensionContext;
