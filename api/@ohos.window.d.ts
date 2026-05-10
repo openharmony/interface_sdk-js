@@ -6910,7 +6910,7 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - Whether to show the status bar and <!--RP15-->three-button
      *     navigation bar<!--RP15End--> in full-screen mode.<br>For example, to show all of them, set this parameter to
-     *     **['status',?'navigation']**. If this parameter is set to [], they are hidden.
+     *     **['status','navigation']**. If this parameter is set to [], they are hidden.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6930,7 +6930,7 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - Whether to show the status bar and <!--RP15-->three-button
      *     navigation bar<!--RP15End--> in full-screen mode.<br>For example, to show all of them, set this parameter to
-     *     **['status',?'navigation']**. If this parameter is set to [], they are hidden.
+     *     **['status','navigation']**. If this parameter is set to [], they are hidden.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @since 7 dynamiconly
@@ -6950,7 +6950,7 @@ declare namespace window {
      *
      * @param { Array<'status' | 'navigation'> } names - Whether to show the status bar and <!--RP15-->three-button
      *     navigation bar<!--RP15End--> in full-screen mode.<br>For example, to show all of them, set this parameter to
-     *     **['status',?'navigation']**. If this parameter is set to [], they are hidden.
+     *     **['status','navigation']**. If this parameter is set to [], they are hidden.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
