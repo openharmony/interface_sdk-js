@@ -21,9 +21,8 @@ import type { AsyncCallback } from './@ohos.base';
 import cryptoFramework from './@ohos.security.cryptoFramework';
 
 /**
- * The certificate algorithm library framework provides certificate-related APIs. The **certFramework** module depends
- * on the basic algorithm capabilities of the Crypto framework. For details, see
- * [Crypto Framework]{@link @ohos.security.cryptoFramework:cryptoFramework}.
+ * 证书算法库框架提供证书相关接口。其中，依赖加解密算法库框架的基础算法能力的部分，详细接口说明可参考
+ * [cryptoFramework API参考]{@link @ohos.security.cryptoFramework:cryptoFramework}。
  *
  * @syscap SystemCapability.Security.Cert
  * @crossplatform [since 11]
@@ -33,7 +32,7 @@ import cryptoFramework from './@ohos.security.cryptoFramework';
  */
 declare namespace cert {
   /**
-   * Enumerates the error codes.
+   * 表示执行结果的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -43,7 +42,7 @@ declare namespace cert {
    */
   enum CertResult {
     /**
-     * Invalid parameters.
+     * 非法入参。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -54,7 +53,7 @@ declare namespace cert {
     INVALID_PARAMS = 401,
 
     /**
-     * This operation is not supported.
+     * 操作不支持。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -65,7 +64,7 @@ declare namespace cert {
     NOT_SUPPORT = 801,
 
     /**
-     * Memory error.
+     * 内存错误。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -76,7 +75,7 @@ declare namespace cert {
     ERR_OUT_OF_MEMORY = 19020001,
 
     /**
-     * Runtime error.
+     * 运行时外部错误。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -87,7 +86,7 @@ declare namespace cert {
     ERR_RUNTIME_ERROR = 19020002,
 
     /**
-     * Parameter check failed.
+     * 参数检查失败。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -98,7 +97,7 @@ declare namespace cert {
     ERR_PARAMETER_CHECK_FAILED = 19020003,
 
     /**
-     * Crypto operation error.
+     * 调用三方算法库API出错。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -109,7 +108,7 @@ declare namespace cert {
     ERR_CRYPTO_OPERATION = 19030001,
 
     /**
-     * The certificate signature verification failed.
+     * 证书签名验证错误。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -120,7 +119,7 @@ declare namespace cert {
     ERR_CERT_SIGNATURE_FAILURE = 19030002,
 
     /**
-     * The certificate has not taken effect.
+     * 证书尚未生效。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -131,7 +130,7 @@ declare namespace cert {
     ERR_CERT_NOT_YET_VALID = 19030003,
 
     /**
-     * The certificate has expired.
+     * 证书过期。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -142,7 +141,7 @@ declare namespace cert {
     ERR_CERT_HAS_EXPIRED = 19030004,
 
     /**
-     * Failed to obtain the certificate issuer.
+     * 无法获取证书的颁发者。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -153,7 +152,7 @@ declare namespace cert {
     ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY = 19030005,
 
     /**
-     * The key cannot be used for signing a certificate.
+     * 证书的密钥用途不含证书签名。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -164,7 +163,7 @@ declare namespace cert {
     ERR_KEYUSAGE_NO_CERTSIGN = 19030006,
 
     /**
-     * The key cannot be used for digital signature.
+     * 证书的密钥用途不含数字签名。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -175,7 +174,7 @@ declare namespace cert {
     ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE = 19030007,
 
     /**
-     * The password for the private key is incorrect.
+     * 私钥密码错误。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -186,7 +185,13 @@ declare namespace cert {
     ERR_MAYBE_WRONG_PASSWORD = 19030008,
 
     /**
-     * Untrusted certificate.
+     * 证书不受信任。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -196,7 +201,13 @@ declare namespace cert {
     ERR_CERT_UNTRUSTED = 19030009,
 
     /**
-     * The certificate has been revoked.
+     * 证书已被吊销。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -206,7 +217,13 @@ declare namespace cert {
     ERR_CERT_HAS_REVOKED = 19030010,
 
     /**
-     * Unsupported critical extension.
+     * 未知的关键扩展。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -216,7 +233,13 @@ declare namespace cert {
     ERR_UNKNOWN_CRITICAL_EXTENSION = 19030011,
 
     /**
-     * Host name mismatch in the certificate.
+     * 证书主机名不匹配。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -226,7 +249,13 @@ declare namespace cert {
     ERR_CERT_HOSTNAME_MISMATCH = 19030012,
 
     /**
-     * Email address mismatch in the certificate.
+     * 证书邮箱地址不匹配。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -236,7 +265,13 @@ declare namespace cert {
     ERR_CERT_EMAIL_ADDRESS_MISMATCH = 19030013,
 
     /**
-     * Key usage mismatch in the certificate.
+     * 证书密钥用途不匹配。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -246,7 +281,13 @@ declare namespace cert {
     ERR_CERT_KEYUSAGE_MISMATCH = 19030014,
 
     /**
-     * Failed to obtain the certificate revocation list.
+     * 无法获取证书吊销列表。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -256,7 +297,13 @@ declare namespace cert {
     ERR_CRL_NOT_FOUND = 19030015,
 
     /**
-     * The certificate revocation list does not take effect.
+     * 证书吊销列表尚未生效。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -266,7 +313,13 @@ declare namespace cert {
     ERR_CRL_NOT_YET_VALID = 19030016,
 
     /**
-     * The certificate revocation list has expired.
+     * 证书吊销列表已过期。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -276,7 +329,13 @@ declare namespace cert {
     ERR_CRL_HAS_EXPIRED = 19030017,
 
     /**
-     * Failed to verify the signature of the certificate revocation list.
+     * 证书吊销列表签名验证失败。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -286,7 +345,13 @@ declare namespace cert {
     ERR_CRL_SIGNATURE_FAILURE = 19030018,
 
     /**
-     * Failed to find the issuer of the certificate revocation list.
+     * 无法获取证书吊销列表颁发者。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -296,7 +361,13 @@ declare namespace cert {
     ERR_CRL_ISSUER_NOT_FOUND = 19030019,
 
     /**
-     * Failed to obtain the OCSP response.
+     * 无法获取在线证书状态协议（OCSP）响应。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -306,7 +377,13 @@ declare namespace cert {
     ERR_OCSP_RESPONSE_NOT_FOUND = 19030020,
 
     /**
-     * Invalid OCSP response.
+     * OCSP响应无效。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -316,7 +393,13 @@ declare namespace cert {
     ERR_OCSP_RESPONSE_INVALID = 19030021,
 
     /**
-     * Failed to verify the OCSP signature.
+     * OCSP签名验证失败。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -326,7 +409,13 @@ declare namespace cert {
     ERR_OCSP_SIGNATURE_FAILURE = 19030022,
 
     /**
-     * Unknown OCSP certificate status.
+     * OCSP证书状态未知。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -336,7 +425,13 @@ declare namespace cert {
     ERR_OCSP_CERT_STATUS_UNKNOWN = 19030023,
 
     /**
-     * Network connection timed out.
+     * 网络连接超时。
+     *
+     * 26.0.0
+     *
+     * **模型约束**：此接口仅可在Stage模型下使用。
+     *
+     * **原子化服务API：** 从API版本26.0.0开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -347,7 +442,7 @@ declare namespace cert {
   }
 
   /**
-   * Encapsulates binary data. The core field **data** is of the Uint8Array type.
+   * 二进制数据的封装接口，核心字段data为Uint8Array类型。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -357,7 +452,7 @@ declare namespace cert {
    */
   interface DataBlob {
     /**
-     * Indicates the content of data blob.
+     *
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -369,7 +464,7 @@ declare namespace cert {
   }
 
   /**
-   * Defines a list of data arrays.
+   * buffer数组的列表。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -379,7 +474,7 @@ declare namespace cert {
    */
   interface DataArray {
     /**
-     * Indicates the content of data array.
+     *
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -391,7 +486,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the certificate encoding formats.
+   * 表示证书编码格式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -401,7 +496,7 @@ declare namespace cert {
    */
   enum EncodingFormat {
     /**
-     * Distinguished Encoding Rules (DER) format.
+     * DER格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -412,7 +507,7 @@ declare namespace cert {
     FORMAT_DER = 0,
 
     /**
-     * Privacy-Enhanced Mail (PEM) format.
+     * PEM格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -423,7 +518,7 @@ declare namespace cert {
     FORMAT_PEM = 1,
 
     /**
-     * PKCS #7 format.
+     * PKCS7格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -435,7 +530,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the certificate fields that can be obtained.
+   * 表示获取证书字段的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -445,7 +540,7 @@ declare namespace cert {
    */
   enum CertItemType {
     /**
-     * Information to be signed.
+     * 表示获取证书的待签名信息。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -456,7 +551,7 @@ declare namespace cert {
     CERT_ITEM_TYPE_TBS = 0,
 
     /**
-     * Public key of the certificate.
+     * 表示获取证书的公钥信息。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -467,7 +562,7 @@ declare namespace cert {
     CERT_ITEM_TYPE_PUBLIC_KEY = 1,
 
     /**
-     * Unique ID of the certificate issuer.
+     * 表示获取证书的颁发者唯一编号。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -478,7 +573,7 @@ declare namespace cert {
     CERT_ITEM_TYPE_ISSUER_UNIQUE_ID = 2,
 
     /**
-     * Unique ID of the certificate subject.
+     * 表示获取证书的主体唯一编号。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -489,7 +584,7 @@ declare namespace cert {
     CERT_ITEM_TYPE_SUBJECT_UNIQUE_ID = 3,
 
     /**
-     * Certificate extensions, each of which is identified by a unique object identifier (OID).
+     * 表示获取证书的扩展域信息。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -501,7 +596,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the OID types of the certificate extensions that can be obtained.
+   * 表示获取扩展域中对象标识符类型的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -511,7 +606,7 @@ declare namespace cert {
    */
   enum ExtensionOidType {
     /**
-     * All object identifiers.
+     * 表示获取扩展域中所有的对象标识符。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -522,7 +617,7 @@ declare namespace cert {
     EXTENSION_OID_TYPE_ALL = 0,
 
     /**
-     * Object identifier whose **critical** is **true**.
+     * 表示获取扩展域中critical为true的对象标识符。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -533,7 +628,7 @@ declare namespace cert {
     EXTENSION_OID_TYPE_CRITICAL = 1,
 
     /**
-     * Object identifier whose **critical** is **false**.
+     * 表示获取扩展域中critical为false的对象标识符。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -545,7 +640,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the object types in certificate extensions that can be obtained.
+   * 表示获取扩展域中对象类型的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -555,7 +650,7 @@ declare namespace cert {
    */
   enum ExtensionEntryType {
     /**
-     * Entire object.
+     * 表示获取整个对象。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -566,7 +661,7 @@ declare namespace cert {
     EXTENSION_ENTRY_TYPE_ENTRY = 0,
 
     /**
-     * Critical attribute of the object.
+     * 表示获取对象的critical属性。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -577,7 +672,7 @@ declare namespace cert {
     EXTENSION_ENTRY_TYPE_ENTRY_CRITICAL = 1,
 
     /**
-     * Data of the object.
+     * 表示获取对象的数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -589,7 +684,7 @@ declare namespace cert {
   }
 
   /**
-   * Defines a certificate binary array in encoding format.
+   * 带编码格式的证书二进制数组。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -599,7 +694,7 @@ declare namespace cert {
    */
   interface EncodingBlob {
     /**
-     * Certificate data.
+     * 传入的证书数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -609,7 +704,7 @@ declare namespace cert {
      */
     data: Uint8Array;
     /**
-     * Certificate encoding format.
+     * 指明证书编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -621,7 +716,7 @@ declare namespace cert {
   }
 
   /**
-   * Defines the certificate chain data, which is passed in as input parameters during certificate chain verification.
+   * 证书链数据，在证书链校验时，作为入参传入。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -631,7 +726,7 @@ declare namespace cert {
    */
   interface CertChainData {
     /**
-     * Certificate data.
+     * 传入的证书数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -641,7 +736,7 @@ declare namespace cert {
      */
     data: Uint8Array;
     /**
-     * Number of certificates contained in the input data.
+     * 传入的数据中，包含的证书数量。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -651,7 +746,7 @@ declare namespace cert {
      */
     count: int;
     /**
-     * Certificate encoding format.
+     * 指明证书编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -663,7 +758,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the obtained encoding formats.
+   * 表示获取编码格式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -673,7 +768,7 @@ declare namespace cert {
    */
   enum EncodingType {
     /**
-     * UTF-8.
+     * UTF8编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -685,7 +780,7 @@ declare namespace cert {
   }
 
   /**
-   * Provides APIs for X.509 certificate operations.
+   * X509证书类。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -695,11 +790,10 @@ declare namespace cert {
    */
   interface X509Cert {
     /**
-     * Verifies the certificate signature. This API uses an asynchronous callback to return the result.
+     * 表示对证书验签。使用callback异步回调。
      *
-     * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If **error** is **null**, the
-     *     signature verification is successful. If **error** is not **null**, the signature verification fails.
+     * @param { cryptoFramework.PubKey } key - 用于验签的公钥对象。
+     * @param { AsyncCallback<void> } callback - 回调函数，使用AsyncCallback的第一个error参数判断是否验签成功，error为null表示成功，不为null表示失败。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -713,10 +807,10 @@ declare namespace cert {
     verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
 
     /**
-     * Verifies the certificate signature. This API uses a promise to return the result.
+     * 表示对证书验签。使用Promise异步回调。
      *
-     * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { cryptoFramework.PubKey } key - 用于验签的公钥对象。
+     * @returns { Promise<void> } Promise对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -730,10 +824,9 @@ declare namespace cert {
     verify(key: cryptoFramework.PubKey): Promise<void>;
 
     /**
-     * Obtains the serialized X.509 certificate data. This API uses an asynchronous callback to return the result.
+     * 表示获取X509证书序列化数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<EncodingBlob> } callback - Callback invoked to return the serialized X.509 certificate
-     *     data obtained.
+     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数，表示X509证书序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -750,9 +843,9 @@ declare namespace cert {
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
     /**
-     * Obtains the serialized X.509 certificate data. This API uses a promise to return the result.
+     * 表示获取X509证书序列化数据。使用Promise异步回调。
      *
-     * @returns { Promise<EncodingBlob> } Serialized X.509 certificate data obtained.
+     * @returns { Promise<EncodingBlob> } 表示X509证书序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -769,7 +862,7 @@ declare namespace cert {
     getEncoded(): Promise<EncodingBlob>;
 
     /**
-     * Obtains the public key of this X.509 certificate.
+     * 表示获取X509证书公钥。
      *
      * @returns { cryptoFramework.PubKey } Public key of the X.509 certificate obtained. This object is used only for
      *     **verify()** of **X509Cert**.
@@ -784,9 +877,9 @@ declare namespace cert {
     getPublicKey(): cryptoFramework.PubKey;
 
     /**
-     * Checks the validity period of this X.509 certificate.
+     * 表示检查X509证书有效期。
      *
-     * @param { string } date - Date in the ASN.1 format.
+     * @param { string } date - 日期，为ASN.1时间格式。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -803,9 +896,9 @@ declare namespace cert {
     checkValidityWithDate(date: string): void;
 
     /**
-     * Obtains the X.509 certificate version.
+     * 表示获取X509证书版本。
      *
-     * @returns { int } X.509 certificate version obtained.
+     * @returns { int } 表示X509证书版本。
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -815,14 +908,13 @@ declare namespace cert {
     getVersion(): int;
 
     /**
-     * Obtains the X.509 certificate serial number.
+     * 表示获取X509证书序列号。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 10. Use
-     * > [getCertSerialNumber]{@link cert.X509Cert.getCertSerialNumber} instead.
+     * > 从API version 9开始支持，从API version 10开始废弃，建议使用[getCertSerialNumber]{@link cert.X509Cert.getCertSerialNumber}替代。
      *
-     * @returns { number } X.509 certificate serial number obtained.
+     * @returns { number } 表示X509证书序列号。
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 10
@@ -831,9 +923,9 @@ declare namespace cert {
     getSerialNumber(): number;
 
     /**
-     * Obtains the X.509 certificate serial number.
+     * 表示获取X509证书序列号。
      *
-     * @returns { bigint } X.509 certificate serial number obtained.
+     * @returns { bigint } 表示X509证书序列号。
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
      * @syscap SystemCapability.Security.Cert
@@ -845,13 +937,13 @@ declare namespace cert {
     getCertSerialNumber(): bigint;
 
     /**
-     * Obtains the X.509 certificate issuer.
+     * 表示获取X509证书颁发者名称。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The obtained X.509 certificate issuer name contains a string terminator.
+     * > 获取到的X509证书颁发者名称数据带字符串结束符。
      *
-     * @returns { DataBlob } X.509 certificate issuer obtained.
+     * @returns { DataBlob } 表示X509证书颁发者名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -865,10 +957,10 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
-     * Obtains the issuer name of an X.509 certificate based on the encoding type.
+     * 根据编码类型获取X509证书颁发者名称。
      *
-     * @param { EncodingType } encodingType - Encoding type.
-     * @returns { string } Issuer name of an X.509 certificate, separated by commas (,).
+     * @param { EncodingType } encodingType - 表示编码类型。
+     * @returns { string } 表示X509证书颁发者名称，使用逗号分隔相对可分辨名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -884,17 +976,14 @@ declare namespace cert {
     getIssuerName(encodingType: EncodingType): string;
 
     /**
-     * Obtains the subject of this X.509 certificate.
+     * 表示获取X509证书主体名称。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The obtained X.509 certificate subject name contains a string terminator.
+     * > 获取到的X509证书主体名称数据带字符串结束符。
      *
-     * @param { EncodingType } [encodingType] - Encoding type. If this parameter is set, the subject name in UTF-8
-     *     format is to be obtained. If this parameter is not set, the subject name in ASCII encoding format is obtained
-     *     by default.<br>This parameter is available since API version 12. [since 12]
-     * @returns { DataBlob } Subject name of an X.509 certificate, separated by commas (,) after being converted into a
-     *     string.
+     * @param { EncodingType } [encodingType] - 编码类型。设置参数表示获取UTF8格式编码；不设置默认获取ASCII格式编码。<br>API 12后支持设置此参数。 [since 12]
+     * @returns { DataBlob } 表示X509证书主体名称，转化成字符串后使用逗号分隔相对可分辨名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -910,9 +999,9 @@ declare namespace cert {
     getSubjectName(encodingType?: EncodingType): DataBlob;
 
     /**
-     * Obtains the start time of this X.509 certificate.
+     * 表示获取X509证书有效期起始时间。
      *
-     * @returns { string } Certificate start time obtained, in ASN.1 format.
+     * @returns { string } 表示X509证书有效期起始时间，日期为ASN.1时间格式。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -926,9 +1015,9 @@ declare namespace cert {
     getNotBeforeTime(): string;
 
     /**
-     * Obtains the expiration time of this X.509 certificate.
+     * 表示获取X509证书有效期截止时间。
      *
-     * @returns { string } Certificate expiration time obtained, in ASN.1 format.
+     * @returns { string } 表示X509证书有效期截止时间，日期为ASN.1时间格式。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -942,9 +1031,9 @@ declare namespace cert {
     getNotAfterTime(): string;
 
     /**
-     * Obtains the signature data of this X.509 certificate.
+     * 表示获取X509证书签名数据。
      *
-     * @returns { DataBlob } Signature data obtained.
+     * @returns { DataBlob } 表示X509证书签名数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -958,9 +1047,9 @@ declare namespace cert {
     getSignature(): DataBlob;
 
     /**
-     * Obtains the signing algorithm of this X.509 certificate.
+     * 表示获取X509证书签名算法名称。
      *
-     * @returns { string } X.509 certificate signing algorithm obtained.
+     * @returns { string } 表示X509证书签名算法名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -974,10 +1063,9 @@ declare namespace cert {
     getSignatureAlgName(): string;
 
     /**
-     * Obtains the object identifier (OID) of the X.509 certificate signing algorithm. OIDs are allocated by the
-     * International Organization for Standardization (ISO).
+     * 表示获取X509证书签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
      *
-     * @returns { string } OID obtained. It will be truncated if the length exceeds 128 bytes.
+     * @returns { string } 表示X509证书签名算法对象标志符OID。若OID长度超过128字节，则会被截断。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -991,9 +1079,9 @@ declare namespace cert {
     getSignatureAlgOid(): string;
 
     /**
-     * Obtains the signing algorithm parameters of this X.509 certificate.
+     * 表示获取X509证书签名算法参数。
      *
-     * @returns { DataBlob } X.509 certificate signing algorithm parameters obtained.
+     * @returns { DataBlob } 表示X509证书签名算法参数。
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
@@ -1008,9 +1096,9 @@ declare namespace cert {
     getSignatureAlgParams(): DataBlob;
 
     /**
-     * Obtains the key usage of this X.509 certificate.
+     * 表示获取X509证书密钥用途。
      *
-     * @returns { DataBlob } Key usage of the X.509 certificate obtained.
+     * @returns { DataBlob } 表示X509证书密钥用途。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19030001 - crypto operation error.
      * @syscap SystemCapability.Security.Cert
@@ -1022,9 +1110,9 @@ declare namespace cert {
     getKeyUsage(): DataBlob;
 
     /**
-     * Obtains the usage of the extended key of this X.509 certificate.
+     * 表示获取X509证书扩展密钥用途。
      *
-     * @returns { DataArray } Usage of the extended key obtained.
+     * @returns { DataArray } 表示X509证书扩展密钥用途。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1038,9 +1126,9 @@ declare namespace cert {
     getExtKeyUsage(): DataArray;
 
     /**
-     * Obtains the basic constraints for obtaining this X.509 certificate.
+     * 表示获取X509证书基本约束。
      *
-     * @returns { int } Basic constraints obtained.
+     * @returns { int } 表示X509证书基本约束。
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -1050,13 +1138,13 @@ declare namespace cert {
     getBasicConstraints(): int;
 
     /**
-     * Obtains the Subject Alternative Names (SANs) of this X.509 certificate.
+     * 表示获取X509证书主体可选名称。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The obtained SANs contain a string terminator.
+     * > 获取到的X509证书主体可选名称数据带字符串结束符。
      *
-     * @returns { DataArray } SANs obtained.
+     * @returns { DataArray } 表示X509证书主体可选名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1070,13 +1158,13 @@ declare namespace cert {
     getSubjectAltNames(): DataArray;
 
     /**
-     * Obtains the Issuer Alternative Names (IANs) of this X.509 certificate.
+     * 表示获取X509证书颁发者可选名称。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The obtained IANs contain a string terminator.
+     * > 获取到的X509证书颁发者可选名称数据带字符串结束符。
      *
-     * @returns { DataArray } IANs obtained.
+     * @returns { DataArray } 表示X509证书颁发者可选名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1090,10 +1178,10 @@ declare namespace cert {
     getIssuerAltNames(): DataArray;
 
     /**
-     * Obtains the fields in the X.509 certificate.
+     * 表示获取X509证书对应的字段。
      *
-     * @param { CertItemType } itemType - Certificate field to obtain.
-     * @returns { DataBlob } Fields in DER format.
+     * @param { CertItemType } itemType - 表示需要获取的证书字段。
+     * @returns { DataBlob } 表示X509证书对应的字段，返回值为DER格式。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1110,11 +1198,10 @@ declare namespace cert {
     getItem(itemType: CertItemType): DataBlob;
 
     /**
-     * Checks whether this certificate matches the specified parameters.
+     * 判断证书是否与输入参数匹配。
      *
-     * @param { X509CertMatchParameters } param - Parameters specified for matching the certificate.
-     * @returns { boolean } Returns **true** if the certificate matches the parameters specified; returns **false**
-     *     otherwise.
+     * @param { X509CertMatchParameters } param - 表示需要匹配的参数。
+     * @returns { boolean } 当参数匹配时，该方法返回true，否则返回false。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1129,9 +1216,9 @@ declare namespace cert {
     match(param: X509CertMatchParameters): boolean;
 
     /**
-     * Obtains the CRL distribution points of this X.509 certificate.
+     * 获取X509证书CRL的分发点统一资源标识符。
      *
-     * @returns { DataArray } URIs of the distribution points for this X.509 CRL obtained.
+     * @returns { DataArray } 表示X509证书CRL的分发点统一资源标识符。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1145,9 +1232,9 @@ declare namespace cert {
     getCRLDistributionPoint(): DataArray;
 
     /**
-     * Obtains the distinguished name (DN) of the X.509 certificate issuer.
+     * 获取颁发者的X509可分辨名称。
      *
-     * @returns { X500DistinguishedName } DN object obtained.
+     * @returns { X500DistinguishedName } X509的可分辨对象。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1161,9 +1248,9 @@ declare namespace cert {
     getIssuerX500DistinguishedName(): X500DistinguishedName;
 
     /**
-     * Obtains the DN of the X.509 certificate subject (holder).
+     * 获取证书主题的X509可分辨名称。
      *
-     * @returns { X500DistinguishedName } DN object obtained.
+     * @returns { X500DistinguishedName } X509的可分辨对象。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1177,9 +1264,9 @@ declare namespace cert {
     getSubjectX500DistinguishedName(): X500DistinguishedName;
 
     /**
-     * Converts the object data into a string.
+     * 获取对象的字符串类型数据。
      *
-     * @returns { string } String obtained.
+     * @returns { string } 对象的字符串类型数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1193,10 +1280,10 @@ declare namespace cert {
     toString(): string;
 
     /**
-     * Converts this object into a string in the specified encoding format.
+     * 根据编码类型获取对象的字符串类型数据。
      *
-     * @param { EncodingType } encodingType - Encoding type.
-     * @returns { string } String obtained.
+     * @param { EncodingType } encodingType - 表示编码类型。
+     * @returns { string } 表示对象的字符串类型数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1212,9 +1299,9 @@ declare namespace cert {
     toString(encodingType: EncodingType): string;
 
     /**
-     * Obtains the hash value of the data in DER format.
+     * 获取DER格式数据的哈希值。
      *
-     * @returns { Uint8Array } Hash value obtained.
+     * @returns { Uint8Array } DER格式数据的哈希值。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1228,9 +1315,9 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * Obtains the certification extensions in DER format.
+     * 获取对应实体的扩展域DER格式数据。
      *
-     * @returns { CertExtension } Certificate extensions object obtained.
+     * @returns { CertExtension } 证书扩展域段类对象。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1245,10 +1332,10 @@ declare namespace cert {
   }
 
   /**
-   * Creates an **X509Cert** instance. This API uses an asynchronous callback to return the result.
+   * 表示创建X509证书对象。使用callback异步回调。
    *
-   * @param { EncodingBlob } inStream - X.509 certificate serialization data.
-   * @param { AsyncCallback<X509Cert> } callback - Callback invoked to return the **X509Cert** instance created.
+   * @param { EncodingBlob } inStream - X509证书序列化数据。
+   * @param { AsyncCallback<X509Cert> } callback - 回调函数，表示X509证书对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -1263,10 +1350,10 @@ declare namespace cert {
   function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback<X509Cert>): void;
 
   /**
-   * Creates an **X509Cert** instance. This API uses a promise to return the result.
+   * 表示创建X509证书对象。使用Promise异步回调。
    *
-   * @param { EncodingBlob } inStream - X.509 certificate serialization data.
-   * @returns { Promise<X509Cert> } Returns the **X509Cert** instance created.
+   * @param { EncodingBlob } inStream - X509证书序列化数据。
+   * @returns { Promise<X509Cert> } 表示X509证书对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -1281,7 +1368,7 @@ declare namespace cert {
   function createX509Cert(inStream: EncodingBlob): Promise<X509Cert>;
 
   /**
-   * Provides APIs for operating the certificate extensions.
+   * 证书扩展域段类。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -1291,9 +1378,9 @@ declare namespace cert {
    */
   interface CertExtension {
     /**
-     * Obtains the serialized data of the certificate extensions.
+     * 表示获取证书扩展域段序列化数据。
      *
-     * @returns { EncodingBlob } Serialized data obtained.
+     * @returns { EncodingBlob } 表示证书扩展域段序列化数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1307,10 +1394,10 @@ declare namespace cert {
     getEncoded(): EncodingBlob;
 
     /**
-     * Obtains the OIDs of the certificate extensions.
+     * 表示获取证书扩展域段对象标识符列表。
      *
-     * @param { ExtensionOidType } valueType - Type of the OIDs to obtain.
-     * @returns { DataArray } OIDs obtained.
+     * @param { ExtensionOidType } valueType - 表示证书扩展域段对象标识符类型。
+     * @returns { DataArray } 表示证书扩展域段对象标识符列表。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1327,11 +1414,11 @@ declare namespace cert {
     getOidList(valueType: ExtensionOidType): DataArray;
 
     /**
-     * Obtains the certificate extension object information.
+     * 表示获取证书扩展域段对象信息。
      *
-     * @param { ExtensionEntryType } valueType - Type of the information to obtain.
-     * @param { DataBlob } oid - OID of the certificate extension to obtain.
-     * @returns { DataBlob } Certificate extension object information obtained.
+     * @param { ExtensionEntryType } valueType - 表示证书扩展域段获取的类型。
+     * @param { DataBlob } oid - 表示证书扩展域段获取的对象标识符。
+     * @returns { DataBlob } 表示证书扩展域段对象的数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1348,13 +1435,10 @@ declare namespace cert {
     getEntry(valueType: ExtensionEntryType, oid: DataBlob): DataBlob;
 
     /**
-     * Checks whether the certificate is a CA certificate.
+     * 表示校验证书是否为CA证书。
      *
-     * @returns { int } If the key purpose in the certificate extension contains signing and the CA field in the basic
-     *     constraints is **true**, the certificate is a CA certificate. Returns **-1** if the certificate is not a CA
-     *     certificate; returns the path length in the basic constraints otherwise. Returns **-2** if the certificate is
-     *     a CA certificate but the path length is not specified in the basic constraints, which means the path length
-     *     is not limited.
+     * @returns { int } 当证书扩展域段中密钥用途包含签名用途，并且基本约束中cA字段为true时，表示证书为CA证书。如果不是CA，则返回-1；否则返回基本约束中的路径长度。如果证书是CA证书，但是基本约束中未给定路
+     *     径长度，则返回-2，表示无路径长度限制。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1368,9 +1452,9 @@ declare namespace cert {
     checkCA(): int;
 
     /**
-     * Checks whether there is critical extension that is not supported.
+     * 判断是否存在不支持的关键扩展。
      *
-     * @returns { boolean } Returns **true** if unsupported critical extension is found; returns **false** otherwise.
+     * @returns { boolean } 当存在不支持的关键扩展时，该方法返回true，否则返回false。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1385,10 +1469,10 @@ declare namespace cert {
   }
 
   /**
-   * Creates a certificate extension object. This API uses an asynchronous callback to return the result.
+   * 表示创建证书扩展域段的对象。使用callback异步回调。
    *
-   * @param { EncodingBlob } inStream - Serialized data obtained.
-   * @param { AsyncCallback<CertExtension> } callback - Callback for the **CertExtension** instance.
+   * @param { EncodingBlob } inStream - 表示证书扩展域段序列化数据。
+   * @param { AsyncCallback<CertExtension> } callback - 回调函数，表示扩展域段对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -1403,10 +1487,10 @@ declare namespace cert {
   function createCertExtension(inStream: EncodingBlob, callback: AsyncCallback<CertExtension>): void;
 
   /**
-   * Creates a certificate extension object. This API uses a promise to return the result.
+   * 表示创建证书扩展域段的对象。使用Promise异步回调。
    *
-   * @param { EncodingBlob } inStream - Serialized data obtained.
-   * @returns { Promise<CertExtension> } Promise used to return the **CertExtension** instance created.
+   * @param { EncodingBlob } inStream - 表示证书扩展域段序列化数据。
+   * @returns { Promise<CertExtension> } 表示证书扩展域段对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -1421,12 +1505,11 @@ declare namespace cert {
   function createCertExtension(inStream: EncodingBlob): Promise<CertExtension>;
 
   /**
-   * Provides APIs for operating the revoked certificates.
+   * 被吊销证书对象。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API is supported since API version 9 and deprecated since API version 11. Use
-   * > [X509CRLEntry]{@link cert.X509CrlEntry} instead.
+   * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRLEntry]{@link cert.X509CrlEntry}替代。
    *
    * @syscap SystemCapability.Security.Cert
    * @since 9 dynamiconly
@@ -1435,16 +1518,14 @@ declare namespace cert {
    */
   interface X509CrlEntry {
     /**
-     * Obtains the serialized data of this revoked certificate. This API uses an asynchronous callback to return the
-     * result.
+     * 表示获取被吊销证书的序列化数据。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRLEntry.getEncoded]{@link cert.X509CRL.getEncoded(callback: AsyncCallback<EncodingBlob>)} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRLEntry.getEncoded]{@link cert.X509CRL.getEncoded(callback: AsyncCallback<EncodingBlob>)}替代。
      *
-     * @param { AsyncCallback<EncodingBlob> } callback - Callback invoked to return the serialized data of the revoked
-     *     certificate.
+     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数，表示被吊销证书的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1460,15 +1541,13 @@ declare namespace cert {
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
     /**
-     * Obtains the serialized data of this revoked certificate. This API uses a promise to return the result.
+     * 表示获取被吊销证书的序列化数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRLEntry.getEncoded]{@link cert.X509CRL.getEncoded()} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRLEntry.getEncoded]{@link cert.X509CRL.getEncoded()}替代。
      *
-     * @returns { Promise<EncodingBlob> } Promise used to return the serialized data of the revoked certificate
-     *     obtained.
+     * @returns { Promise<EncodingBlob> } 表示被吊销证书的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1484,14 +1563,14 @@ declare namespace cert {
     getEncoded(): Promise<EncodingBlob>;
 
     /**
-     * Obtains the serial number of this revoked certificate.
+     * 表示获取被吊销证书的序列号。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRLEntry.getSerialNumber]{@link cert.X509CRLEntry.getSerialNumber} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRLEntry.getSerialNumber]{@link cert.X509CRLEntry.getSerialNumber}替代。
      *
-     * @returns { number } Serial number of the revoked certificate obtained.
+     * @returns { number } 表示被吊销证书的序列号。
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1500,14 +1579,14 @@ declare namespace cert {
     getSerialNumber(): number;
 
     /**
-     * Obtains the issuer of a revoked certificate.
+     * 表示获取被吊销证书的颁发者信息。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRLEntry.getCertIssuer]{@link cert.X509CRLEntry.getCertIssuer()} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRLEntry.getCertIssuer]{@link cert.X509CRLEntry.getCertIssuer()}替代。
      *
-     * @returns { DataBlob } Issuer of the revoked certificate obtained.
+     * @returns { DataBlob } 表示被吊销证书的颁发者信息。
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
@@ -1520,14 +1599,14 @@ declare namespace cert {
     getCertIssuer(): DataBlob;
 
     /**
-     * Obtains the date when the certificate is revoked.
+     * 表示获取证书被吊销的日期，日期为ASN.1时间格式。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRLEntry.getRevocationDate]{@link cert.X509CRLEntry.getRevocationDate} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRLEntry.getRevocationDate]{@link cert.X509CRLEntry.getRevocationDate}替代。
      *
-     * @returns { string } Certificate revocation date, in ASN.1 format.
+     * @returns { string } 表示证书被吊销的日期，日期为ASN.1时间格式。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1541,7 +1620,7 @@ declare namespace cert {
   }
 
   /**
-   * Provides APIs for operating the revoked certificates.
+   * 被吊销证书对象。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -1551,11 +1630,9 @@ declare namespace cert {
    */
   interface X509CRLEntry {
     /**
-     * Obtains the serialized data of this revoked certificate. This API uses an asynchronous callback to return the
-     * result.
+     * 表示获取被吊销证书的序列化数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<EncodingBlob> } callback - Callback invoked to return the serialized data of the revoked
-     *     certificate.
+     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数，表示被吊销证书的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1572,10 +1649,9 @@ declare namespace cert {
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
     /**
-     * Obtains the serialized data of this revoked certificate. This API uses a promise to return the result.
+     * 表示获取被吊销证书的序列化数据。使用Promise异步回调。
      *
-     * @returns { Promise<EncodingBlob> } Promise used to return the serialized data of the revoked certificate
-     *     obtained.
+     * @returns { Promise<EncodingBlob> } 表示被吊销证书的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1592,9 +1668,9 @@ declare namespace cert {
     getEncoded(): Promise<EncodingBlob>;
 
     /**
-     * Obtains the serial number of this revoked certificate.
+     * 表示获取被吊销证书的序列号。
      *
-     * @returns { bigint } Serial number of the revoked certificate obtained.
+     * @returns { bigint } 表示被吊销证书的序列号。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1608,13 +1684,13 @@ declare namespace cert {
     getSerialNumber(): bigint;
 
     /**
-     * Obtains the issuer of a revoked certificate.
+     * 表示获取被吊销证书的颁发者信息。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The obtained issuer of this revoked certificate contains a string terminator.
+     * > 获取到的被吊销证书的颁发者信息数据带字符串结束符。
      *
-     * @returns { DataBlob } Issuer of the revoked certificate obtained.
+     * @returns { DataBlob } 表示被吊销证书的颁发者信息。
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
@@ -1629,10 +1705,10 @@ declare namespace cert {
     getCertIssuer(): DataBlob;
 
     /**
-     * Obtains the issuer information of a revoked certificate based on the encoding type.
+     * 根据编码类型获取被吊销证书的颁发者信息。
      *
-     * @param { EncodingType } encodingType - Encoding type.
-     * @returns { string } Issuer information of a revoked certificate, separated by commas (,).
+     * @param { EncodingType } encodingType - 表示编码类型。
+     * @returns { string } 表示被吊销证书的颁发者信息，使用逗号分隔相对可分辨名称。
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
@@ -1649,9 +1725,9 @@ declare namespace cert {
     getCertIssuer(encodingType: EncodingType): string;
 
     /**
-     * Obtains the date when the certificate was revoked.
+     * 表示获取证书被吊销的日期。
      *
-     * @returns { string } Promise used to return the certificate revocation date obtained.
+     * @returns { string } 表示证书被吊销的日期。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1665,9 +1741,9 @@ declare namespace cert {
     getRevocationDate(): string;
 
     /**
-     * Obtains the CRL extensions.
+     * 表示获取CRL的扩展。
      *
-     * @returns { DataBlob } X.509 CRL extensions obtained.
+     * @returns { DataBlob } 表示X509CRL扩展用途。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1681,9 +1757,9 @@ declare namespace cert {
     getExtensions(): DataBlob;
 
     /**
-     * Checks whether this CRL entry has extensions.
+     * 表示判断CRL Entry是否有扩展。
      *
-     * @returns { boolean } Returns **true** if the CRL entry has extension; returns **false** otherwise.
+     * @returns { boolean } 返回true则表示CRL Entry有扩展，返回false则表示无扩展。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1697,9 +1773,9 @@ declare namespace cert {
     hasExtensions(): boolean;
 
     /**
-     * Obtains the distinguished name (DN) of the X.509 certificate issuer.
+     * 获取颁发者的X509可分辨名称。
      *
-     * @returns { X500DistinguishedName } DN object obtained.
+     * @returns { X500DistinguishedName } X509的可分辨对象。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1713,9 +1789,9 @@ declare namespace cert {
     getCertIssuerX500DistinguishedName(): X500DistinguishedName;
 
     /**
-     * Converts the object data into a string.
+     * 获取对象的字符串类型数据。
      *
-     * @returns { string } String obtained.
+     * @returns { string } 对象的字符串类型数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1729,9 +1805,9 @@ declare namespace cert {
     toString(): string;
 
     /**
-     * Obtains the hash value of the data in DER format.
+     * 获取DER格式数据的哈希值。
      *
-     * @returns { Uint8Array } Hash value obtained.
+     * @returns { Uint8Array } DER格式数据的哈希值。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1745,9 +1821,9 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * Obtains the certification extensions in DER format.
+     * 获取对应实体的扩展域DER格式数据。
      *
-     * @returns { CertExtension } Certificate extensions object obtained.
+     * @returns { CertExtension } 证书扩展域段类对象。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1762,12 +1838,11 @@ declare namespace cert {
   }
 
   /**
-   * Provides APIs for X.509 certificate CRL operations.
+   * X509证书吊销列表对象。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API is supported since API version 9 and deprecated since API version 11. Use [X509CRL]{@link cert.X509Crl}
-   * > instead.
+   * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL]{@link cert.X509Crl}替代。
    *
    * @syscap SystemCapability.Security.Cert
    * @since 9 dynamiconly
@@ -1776,16 +1851,14 @@ declare namespace cert {
    */
   interface X509Crl {
     /**
-     * Checks whether an X.509 certificate is revoked.
+     * 表示检查证书是否吊销。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.isRevoked]{@link cert.X509CRL.isRevoked} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.isRevoked]{@link cert.X509CRL.isRevoked}替代。
      *
-     * @param { X509Cert } cert - X.509 certificate to check.
-     * @returns { boolean } Whether the certificate is revoked. The value **true** indicates that the certificate is
-     *     revoked, and **false** indicates the opposite.
+     * @param { X509Cert } cert - 表示被检查的证书对象。
+     * @returns { boolean } 表示证书吊销状态，true表示已吊销，false表示未吊销。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1797,14 +1870,13 @@ declare namespace cert {
     isRevoked(cert: X509Cert): boolean;
 
     /**
-     * Obtains the CRL type.
+     * 表示获取证书吊销列表类型。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getType]{@link cert.X509CRL.getType} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getType]{@link cert.X509CRL.getType}替代。
      *
-     * @returns { string } CRL type obtained.
+     * @returns { string } 表示证书吊销列表类型。
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1813,15 +1885,14 @@ declare namespace cert {
     getType(): string;
 
     /**
-     * Obtains the serialized X.509 CRL data. This API uses an asynchronous callback to return the result.
+     * 表示获取X509证书吊销列表的序列化数据。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getEncoded]{@link cert.X509CRL.getEncoded(callback: AsyncCallback<EncodingBlob>)} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.getEncoded]{@link cert.X509CRL.getEncoded(callback: AsyncCallback<EncodingBlob>)}替代。
      *
-     * @param { AsyncCallback<EncodingBlob> } callback - Callback invoked to return the serialized X.509 CRL data
-     *     obtained.
+     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数，表示X509证书吊销列表的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1837,14 +1908,13 @@ declare namespace cert {
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
     /**
-     * Obtains the serialized X.509 CRL data. This API uses a promise to return the result.
+     * 表示获取X509证书吊销列表的序列化数据。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getEncoded]{@link cert.X509CRL.getEncoded()} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getEncoded]{@link cert.X509CRL.getEncoded()}替代。
      *
-     * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 CRL data obtained.
+     * @returns { Promise<EncodingBlob> } 表示X509证书吊销列表的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1860,18 +1930,15 @@ declare namespace cert {
     getEncoded(): Promise<EncodingBlob>;
 
     /**
-     * Verifies the signature of the X.509 CRL. This API uses an asynchronous callback to return the result. The RSA
-     * algorithm is supported.
+     * 表示对X509证书吊销列表进行验签。使用callback异步回调。验签支持RSA算法。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.verify]{@link cert.X509CRL.verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>)}
-     * > instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.verify]{@link cert.X509CRL.verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>)}替代。
      *
-     * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If **error** is **null**, the
-     *     signature verification is successful. If **error** is not **null**, the signature verification fails.
+     * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
+     * @param { AsyncCallback<void> } callback - 回调函数,使用AsyncCallback的第一个error参数判断是否验签成功，error为null表示成功，error不为null表示失败。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1884,16 +1951,15 @@ declare namespace cert {
     verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
 
     /**
-     * Verifies the signature of the X.509 CRL. This API uses a promise to return the result. The RSA algorithm is
-     * supported.
+     * 表示对X509证书吊销列表进行验签。使用Promise异步回调。验签支持RSA算法。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.verify]{@link cert.X509CRL.verify(key: cryptoFramework.PubKey)} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.verify]{@link cert.X509CRL.verify(key: cryptoFramework.PubKey)}替代。
      *
-     * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
+     * @returns { Promise<void> } Promise对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1906,14 +1972,13 @@ declare namespace cert {
     verify(key: cryptoFramework.PubKey): Promise<void>;
 
     /**
-     * Obtains the version of the X.509 CRL.
+     * 表示获取X509证书吊销列表的版本号。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getVersion]{@link cert.X509CRL.getVersion} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getVersion]{@link cert.X509CRL.getVersion}替代。
      *
-     * @returns { number } Obtains the version of the X.509 CRL.
+     * @returns { number } 表示获取X509证书吊销列表的版本号。
      * @syscap SystemCapability.Security.Cert
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -1922,14 +1987,13 @@ declare namespace cert {
     getVersion(): number;
 
     /**
-     * Obtains the issuer of the X.509 CRL.
+     * 表示获取X509证书吊销列表颁发者名称。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getIssuerName]{@link cert.X509CRL.getIssuerName()} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getIssuerName]{@link cert.X509CRL.getIssuerName()}替代。
      *
-     * @returns { DataBlob } Issuer of the X.509 CRL obtained.
+     * @returns { DataBlob } 表示X509证书吊销列表颁发者名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1942,14 +2006,13 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
-     * Obtains the last update date of this X.509 CRL.
+     * 表示获取X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getLastUpdate]{@link cert.X509CRL.getLastUpdate} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getLastUpdate]{@link cert.X509CRL.getLastUpdate}替代。
      *
-     * @returns { string } Last update date of the X.509 CRL, in ASN.1 format.
+     * @returns { string } 表示X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1962,14 +2025,13 @@ declare namespace cert {
     getLastUpdate(): string;
 
     /**
-     * Obtains the next update date of this CRL.
+     * 表示获取证书吊销列表下一次更新的日期，日期为ASN.1时间格式。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getNextUpdate]{@link cert.X509CRL.getNextUpdate} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getNextUpdate]{@link cert.X509CRL.getNextUpdate}替代。
      *
-     * @returns { string } Next update date of the CRL, in ASN.1 format.
+     * @returns { string } 表示X509证书吊销列表下一次更新的日期，日期为ASN.1时间格式。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -1982,15 +2044,14 @@ declare namespace cert {
     getNextUpdate(): string;
 
     /**
-     * Obtains the revoked X.509 certificate based on the specified serial number of the certificate.
+     * 表示通过指定证书序列号获取被吊销X509证书对象。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getRevokedCert]{@link cert.X509CRL.getRevokedCert} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getRevokedCert]{@link cert.X509CRL.getRevokedCert}替代。
      *
-     * @param { number } serialNumber - Serial number of the certificate.
-     * @returns { X509CrlEntry } Revoked X.509 certificate obtained.
+     * @param { number } serialNumber - 表示证书序列号。
+     * @returns { X509CrlEntry } 表示被吊销X509证书对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2004,15 +2065,15 @@ declare namespace cert {
     getRevokedCert(serialNumber: number): X509CrlEntry;
 
     /**
-     * Obtains the revoked X.509 certificate based on the specified certificate.
+     * 表示通过指定证书对象获取被吊销X509证书对象。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use X509
-     * > CRL.getRevokedCertWithCert](#getrevokedcertwithcert11) instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.getRevokedCertWithCert]{@link cert.X509CRL.getRevokedCertWithCert}替代。
      *
-     * @param { X509Cert } cert - Certificate based on which the revoked certificate is obtained.
-     * @returns { X509CrlEntry } Revoked X.509 certificate obtained.
+     * @param { X509Cert } cert - 表示证书对象。
+     * @returns { X509CrlEntry } 表示被吊销X509证书对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2026,16 +2087,14 @@ declare namespace cert {
     getRevokedCertWithCert(cert: X509Cert): X509CrlEntry;
 
     /**
-     * Obtains all the revoked X.509 certificates. This API uses an asynchronous callback to return the result.
+     * 表示获取被吊销X509证书列表。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getRevokedCerts]{@link cert.X509CRL.getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>)}
-     * > instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.getRevokedCerts]{@link cert.X509CRL.getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>)}替代。
      *
-     * @param { AsyncCallback<Array<X509CrlEntry>> } callback - Callback invoked to return the revoked X.509
-     *     certificates obtained.
+     * @param { AsyncCallback<Array<X509CrlEntry>> } callback - 回调函数，表示被吊销X509证书列表。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2049,14 +2108,13 @@ declare namespace cert {
     getRevokedCerts(callback: AsyncCallback<Array<X509CrlEntry>>): void;
 
     /**
-     * Obtains all the revoked X.509 certificates. This API uses a promise to return the result.
+     * 表示获取被吊销X509证书列表。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getRevokedCerts]{@link cert.X509CRL.getRevokedCerts()} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getRevokedCerts]{@link cert.X509CRL.getRevokedCerts()}替代。
      *
-     * @returns { Promise<Array<X509CrlEntry>> } A list of revoked X.509 certificates.
+     * @returns { Promise<Array<X509CrlEntry>> } 表示被吊销X509证书列表。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2070,14 +2128,13 @@ declare namespace cert {
     getRevokedCerts(): Promise<Array<X509CrlEntry>>;
 
     /**
-     * Obtains the DER-encoded CRL information, that is, **tbsCertList** from this CRL.
+     * 表示获取证书吊销列表的tbsCertList信息。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getTBSInfo]{@link cert.X509CRL.getTBSInfo} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getTBSInfo]{@link cert.X509CRL.getTBSInfo}替代。
      *
-     * @returns { DataBlob } **tbsCertList** information obtained.
+     * @returns { DataBlob } 表示证书吊销列表的tbsCertList信息。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2090,14 +2147,13 @@ declare namespace cert {
     getTbsInfo(): DataBlob;
 
     /**
-     * Obtains the signature data of the X.509 CRL.
+     * 表示获取X509证书吊销列表的签名数据。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getSignature]{@link cert.X509CRL.getSignature} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getSignature]{@link cert.X509CRL.getSignature}替代。
      *
-     * @returns { DataBlob } Signature data of the X.509 CRL obtained.
+     * @returns { DataBlob } 表示X509证书吊销列表的签名数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2110,14 +2166,14 @@ declare namespace cert {
     getSignature(): DataBlob;
 
     /**
-     * Obtains the signing algorithm of the X.509 CRL.
+     * 表示获取X509证书吊销列表签名的算法名称。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getSignatureAlgName]{@link cert.X509CRL.getSignatureAlgName} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.getSignatureAlgName]{@link cert.X509CRL.getSignatureAlgName}替代。
      *
-     * @returns { string } Signing algorithm obtained.
+     * @returns { string } 表示X509证书吊销列表签名的算法名。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2130,15 +2186,14 @@ declare namespace cert {
     getSignatureAlgName(): string;
 
     /**
-     * Obtains the OID of the X.509 CRL signing algorithm. OIDs are allocated by the International Organization for
-     * Standardization (ISO).
+     * 表示获取X509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getSignatureAlgOid]{@link cert.X509CRL.getSignatureAlgOid} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getSignatureAlgOid]{@link cert.X509CRL.getSignatureAlgOid}替
+     * > 代。
      *
-     * @returns { string } OID of the X.509 CRL signing algorithm obtained.
+     * @returns { string } 表示X509证书吊销列表签名算法的对象标志符OID。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2151,14 +2206,14 @@ declare namespace cert {
     getSignatureAlgOid(): string;
 
     /**
-     * Obtains the parameters of the X.509 CRL signing algorithm.
+     * 表示获取X509证书吊销列表签名的算法参数。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. Use
-     * > [X509CRL.getSignatureAlgParams]{@link cert.X509CRL.getSignatureAlgParams} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+     * > [X509CRL.getSignatureAlgParams]{@link cert.X509CRL.getSignatureAlgParams}替代。
      *
-     * @returns { DataBlob } Algorithm parameters obtained.
+     * @returns { DataBlob } 表示X509证书吊销列表签名的算法参数。
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
@@ -2173,15 +2228,15 @@ declare namespace cert {
   }
 
   /**
-   * Creates an **X509Crl** instance. This API uses an asynchronous callback to return the result.
+   * 表示创建X509证书吊销列表的对象。使用callback异步回调。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API is supported since API version 9 and deprecated since API version 11. Use
-   * > [cert.createX509CRL]{@link cert.createX509CRL(inStream: EncodingBlob, callback: AsyncCallback<X509CRL>)} instead.
+   * > 从API version 9开始支持，从API version 11开始废弃，建议使用
+   * > [cert.createX509CRL]{@link cert.createX509CRL(inStream: EncodingBlob, callback: AsyncCallback<X509CRL>)}替代。
    *
-   * @param { EncodingBlob } inStream - Serialized CRL data.
-   * @param { AsyncCallback<X509Crl> } callback - Callback invoked to return the **X509Crl** instance created.
+   * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。
+   * @param { AsyncCallback<X509Crl> } callback - 回调函数，表示证书吊销列表对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -2194,15 +2249,15 @@ declare namespace cert {
   function createX509Crl(inStream: EncodingBlob, callback: AsyncCallback<X509Crl>): void;
 
   /**
-   * Creates an **X509Crl** instance. This API uses a promise to return the result.
+   * 表示创建X509证书吊销列表的对象。使用Promise异步回调。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API is supported since API version 9 and deprecated since API version 11. Use
-   * > [cert.createX509CRL]{@link cert.createX509CRL(inStream: EncodingBlob)} instead.
+   * > 从API version 9开始支持，从API version 11开始废弃，建议使用[cert.createX509CRL]{@link cert.createX509CRL(inStream: EncodingBlob)}
+   * > 替代。
    *
-   * @param { EncodingBlob } inStream - Serialized CRL data.
-   * @returns { Promise<X509Crl> } **X509Crl** instance created.
+   * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。
+   * @returns { Promise<X509Crl> } 表示证书吊销列表对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -2215,7 +2270,7 @@ declare namespace cert {
   function createX509Crl(inStream: EncodingBlob): Promise<X509Crl>;
 
   /**
-   * Provides APIs for managing a CRL object.
+   * 被吊销证书列表对象。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -2225,11 +2280,10 @@ declare namespace cert {
    */
   interface X509CRL {
     /**
-     * Checks whether an X.509 certificate is revoked.
+     * 表示检查证书是否吊销。
      *
-     * @param { X509Cert } cert - X.509 certificate to check.
-     * @returns { boolean } Whether the certificate is revoked. The value **true** indicates that the certificate is
-     *     revoked, and **false** indicates the opposite.
+     * @param { X509Cert } cert - 表示被检查的证书对象。
+     * @returns { boolean } 表示证书吊销状态，true表示已吊销，false表示未吊销。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2242,9 +2296,9 @@ declare namespace cert {
     isRevoked(cert: X509Cert): boolean;
 
     /**
-     * Obtains the CRL type.
+     * 表示获取证书吊销列表类型。
      *
-     * @returns { string } CRL type obtained.
+     * @returns { string } 表示证书吊销列表类型。
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2254,10 +2308,9 @@ declare namespace cert {
     getType(): string;
 
     /**
-     * Obtains the serialized X.509 CRL data. This API uses an asynchronous callback to return the result.
+     * 表示获取X509证书吊销列表的序列化数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<EncodingBlob> } callback - Callback invoked to return the serialized X.509 CRL data
-     *     obtained.
+     * @param { AsyncCallback<EncodingBlob> } callback - 回调函数，表示X509证书吊销列表的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2274,9 +2327,9 @@ declare namespace cert {
     getEncoded(callback: AsyncCallback<EncodingBlob>): void;
 
     /**
-     * Obtains the serialized X.509 CRL data. This API uses a promise to return the result.
+     * 表示获取X509证书吊销列表的序列化数据。使用Promise异步回调。
      *
-     * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 CRL data obtained.
+     * @returns { Promise<EncodingBlob> } 表示X509证书吊销列表的序列化数据。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2293,12 +2346,10 @@ declare namespace cert {
     getEncoded(): Promise<EncodingBlob>;
 
     /**
-     * Verifies the signature of the X.509 CRL. This API uses an asynchronous callback to return the result. The RSA
-     * algorithm is supported.
+     * 表示对X509证书吊销列表进行验签。使用callback异步回调。验签支持RSA算法。
      *
-     * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If **error** is **null**, the
-     *     signature verification is successful. If **error** is not **null**, the signature verification fails.
+     * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
+     * @param { AsyncCallback<void> } callback - 回调函数,使用AsyncCallback的第一个error参数判断是否验签成功，error为null表示成功，error不为null表示失败。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2312,11 +2363,10 @@ declare namespace cert {
     verify(key: cryptoFramework.PubKey, callback: AsyncCallback<void>): void;
 
     /**
-     * Verifies the signature of the X.509 CRL. This API uses a promise to return the result. The RSA algorithm is
-     * supported.
+     * 表示对X509证书吊销列表进行验签。使用Promise异步回调。验签支持RSA算法。
      *
-     * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
+     * @returns { Promise<void> } Promise对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2330,9 +2380,9 @@ declare namespace cert {
     verify(key: cryptoFramework.PubKey): Promise<void>;
 
     /**
-     * Obtains the version of the X.509 CRL.
+     * 表示获取X509证书吊销列表的版本号。
      *
-     * @returns { int } Obtains the version of the X.509 CRL.
+     * @returns { int } 表示获取X509证书吊销列表的版本号。
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
      * @atomicservice [since 12]
@@ -2342,13 +2392,13 @@ declare namespace cert {
     getVersion(): int;
 
     /**
-     * Obtains the issuer of the X.509 CRL.
+     * 表示获取X509证书吊销列表颁发者名称。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The obtained X.509 CRL issuer name contains a string terminator.
+     * > 获取到的X509证书吊销列表颁发者名称数据带字符串结束符。
      *
-     * @returns { DataBlob } Issuer of the X.509 CRL obtained.
+     * @returns { DataBlob } 表示X509证书吊销列表颁发者名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2362,10 +2412,10 @@ declare namespace cert {
     getIssuerName(): DataBlob;
 
     /**
-     * Obtains the issuer name of an X.509 CRL based on the encoding type.
+     * 根据编码类型获取X509证书吊销列表颁发者名称。
      *
-     * @param { EncodingType } encodingType - Encoding type.
-     * @returns { string } Issuer name of an X.509 CRL, separated by commas (,).
+     * @param { EncodingType } encodingType - 表示编码类型。
+     * @returns { string } 表示X509证书吊销列表颁发者名称，使用逗号分隔相对可分辨名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2381,9 +2431,9 @@ declare namespace cert {
     getIssuerName(encodingType: EncodingType): string;
 
     /**
-     * Obtains the last update date of this X.509 CRL.
+     * 表示获取X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
      *
-     * @returns { string } Last update date of the X.509 CRL, in ASN.1 format.
+     * @returns { string } 表示X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2397,9 +2447,9 @@ declare namespace cert {
     getLastUpdate(): string;
 
     /**
-     * Obtains the next update date of this CRL.
+     * 表示获取证书吊销列表下一次更新的日期，日期为ASN.1时间格式。
      *
-     * @returns { string } Next update date of the CRL, in ASN.1 format.
+     * @returns { string } 表示X509证书吊销列表下一次更新的日期，日期为ASN.1时间格式。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2413,10 +2463,10 @@ declare namespace cert {
     getNextUpdate(): string;
 
     /**
-     * Obtains the revoked X.509 certificate based on the specified serial number of the certificate.
+     * 表示通过指定证书序列号获取被吊销X509证书对象。
      *
-     * @param { bigint } serialNumber - Serial number of the certificate.
-     * @returns { X509CRLEntry } Revoked X.509 certificate obtained.
+     * @param { bigint } serialNumber - 表示证书序列号。
+     * @returns { X509CRLEntry } 表示被吊销X509证书对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2431,10 +2481,10 @@ declare namespace cert {
     getRevokedCert(serialNumber: bigint): X509CRLEntry;
 
     /**
-     * Obtains the revoked X.509 certificate based on the specified certificate.
+     * 表示通过指定证书对象获取被吊销X509证书对象。
      *
-     * @param { X509Cert } cert - Certificate based on which the revoked certificate is obtained.
-     * @returns { X509CRLEntry } Revoked X.509 certificate obtained.
+     * @param { X509Cert } cert - 表示证书对象。
+     * @returns { X509CRLEntry } 表示被吊销X509证书对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2449,10 +2499,9 @@ declare namespace cert {
     getRevokedCertWithCert(cert: X509Cert): X509CRLEntry;
 
     /**
-     * Obtains all the revoked X.509 certificates. This API uses an asynchronous callback to return the result.
+     * 表示获取被吊销X509证书列表。使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<X509CRLEntry>> } callback - Callback invoked to return the revoked X.509
-     *     certificates obtained.
+     * @param { AsyncCallback<Array<X509CRLEntry>> } callback - 回调函数，表示被吊销X509证书列表。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2467,9 +2516,9 @@ declare namespace cert {
     getRevokedCerts(callback: AsyncCallback<Array<X509CRLEntry>>): void;
 
     /**
-     * Obtains all the revoked X.509 certificates. This API uses a promise to return the result.
+     * 表示获取被吊销X509证书列表。使用Promise异步回调。
      *
-     * @returns { Promise<Array<X509CRLEntry>> } A list of revoked X.509 certificates.
+     * @returns { Promise<Array<X509CRLEntry>> } 表示被吊销X509证书列表。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -2484,9 +2533,9 @@ declare namespace cert {
     getRevokedCerts(): Promise<Array<X509CRLEntry>>;
 
     /**
-     * Obtains the DER-encoded CRL information, that is, **tbsCertList** from this CRL.
+     * 表示获取证书吊销列表的tbsCertList信息。
      *
-     * @returns { DataBlob } **tbsCertList** information obtained.
+     * @returns { DataBlob } 表示证书吊销列表的tbsCertList信息。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2500,9 +2549,9 @@ declare namespace cert {
     getTBSInfo(): DataBlob;
 
     /**
-     * Obtains the signature data of the X.509 CRL.
+     * 表示获取X509证书吊销列表的签名数据。
      *
-     * @returns { DataBlob } Signature data of the X.509 CRL obtained.
+     * @returns { DataBlob } 表示X509证书吊销列表的签名数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2516,9 +2565,9 @@ declare namespace cert {
     getSignature(): DataBlob;
 
     /**
-     * Obtains the signing algorithm of the X.509 CRL.
+     * 表示获取X509证书吊销列表签名的算法名称。
      *
-     * @returns { string } Signing algorithm obtained.
+     * @returns { string } 表示X509证书吊销列表签名的算法名。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2532,10 +2581,9 @@ declare namespace cert {
     getSignatureAlgName(): string;
 
     /**
-     * Obtains the OID of the X.509 CRL signing algorithm. OIDs are allocated by the International Organization for
-     * Standardization (ISO).
+     * 表示获取X509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
      *
-     * @returns { string } OID of the X.509 CRL signing algorithm obtained.
+     * @returns { string } 表示X509证书吊销列表签名算法的对象标志符OID。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2549,9 +2597,9 @@ declare namespace cert {
     getSignatureAlgOid(): string;
 
     /**
-     * Obtains the parameters of the X.509 CRL signing algorithm.
+     * 表示获取X509证书吊销列表签名的算法参数。
      *
-     * @returns { DataBlob } Algorithm parameters obtained.
+     * @returns { DataBlob } 表示X509证书吊销列表签名的算法参数。
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
@@ -2566,9 +2614,9 @@ declare namespace cert {
     getSignatureAlgParams(): DataBlob;
 
     /**
-     * Obtains the CRL extensions.
+     * 表示获取CRL的扩展。
      *
-     * @returns { DataBlob } X.509 CRL extensions obtained.
+     * @returns { DataBlob } 表示X509CRL扩展用途。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2582,11 +2630,10 @@ declare namespace cert {
     getExtensions(): DataBlob;
 
     /**
-     * Checks whether this CRL matches the specified parameters.
+     * 判断证书吊销列表是否与输入参数匹配。
      *
-     * @param { X509CRLMatchParameters } param - Parameters specified for matching the certificate.
-     * @returns { boolean } Returns **true** if the certificate matches the parameters specified; returns **false**
-     *     otherwise.
+     * @param { X509CRLMatchParameters } param - 表示需要匹配的参数。
+     * @returns { boolean } 当参数匹配时，该方法返回true，否则返回false。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -2601,9 +2648,9 @@ declare namespace cert {
     match(param: X509CRLMatchParameters): boolean;
 
     /**
-     * Obtains the distinguished name (DN) of the X.509 certificate issuer.
+     * 获取颁发者的X509可分辨名称。
      *
-     * @returns { X500DistinguishedName } DN object obtained.
+     * @returns { X500DistinguishedName } X509的可分辨对象。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2617,9 +2664,9 @@ declare namespace cert {
     getIssuerX500DistinguishedName(): X500DistinguishedName;
 
     /**
-     * Converts the object data into a string.
+     * 获取对象的字符串类型数据。
      *
-     * @returns { string } String obtained.
+     * @returns { string } 对象的字符串类型数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2633,10 +2680,10 @@ declare namespace cert {
     toString(): string;
 
     /**
-     * Converts this object into a string in the specified encoding format.
+     * 根据编码类型获取对象的字符串类型数据。
      *
-     * @param { EncodingType } encodingType - Encoding type.
-     * @returns { string } String obtained.
+     * @param { EncodingType } encodingType - 表示编码类型。
+     * @returns { string } 表示对象的字符串类型数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2652,9 +2699,9 @@ declare namespace cert {
     toString(encodingType: EncodingType): string;
 
     /**
-     * Obtains the hash value of the data in DER format.
+     * 获取DER格式数据的哈希值。
      *
-     * @returns { Uint8Array } Hash value obtained.
+     * @returns { Uint8Array } DER格式数据的哈希值。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2668,9 +2715,9 @@ declare namespace cert {
     hashCode(): Uint8Array;
 
     /**
-     * Obtains the certification extensions in DER format.
+     * 获取对应实体的扩展域DER格式数据。
      *
-     * @returns { CertExtension } Certificate extensions object obtained.
+     * @returns { CertExtension } 证书扩展域段类对象。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -2685,10 +2732,10 @@ declare namespace cert {
   }
 
   /**
-   * Creates an **X509Crl** instance. This API uses an asynchronous callback to return the result.
+   * 表示创建X509证书吊销列表的对象。使用callback异步回调。
    *
-   * @param { EncodingBlob } inStream - Serialized CRL data. The data length cannot exceed 8192 bytes.
-   * @param { AsyncCallback<X509CRL> } callback - Callback invoked to return the **X509Crl** instance created.
+   * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。当前支持的数据长度不超过8192字节。
+   * @param { AsyncCallback<X509CRL> } callback - 回调函数，表示证书吊销列表对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -2702,10 +2749,10 @@ declare namespace cert {
   function createX509CRL(inStream: EncodingBlob, callback: AsyncCallback<X509CRL>): void;
 
   /**
-   * Creates an **X509Crl** instance. This API uses a promise to return the result.
+   * 表示创建X509证书吊销列表的对象。使用Promise异步回调。
    *
-   * @param { EncodingBlob } inStream - Serialized CRL data. The data length cannot exceed 8192 bytes.
-   * @returns { Promise<X509CRL> } **X509Crl** instance created.
+   * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。当前支持的数据长度不超过8192字节。
+   * @returns { Promise<X509CRL> } 表示证书吊销列表对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -2719,7 +2766,7 @@ declare namespace cert {
   function createX509CRL(inStream: EncodingBlob): Promise<X509CRL>;
 
   /**
-   * Enumerates the certificate revocation flag.
+   * 表示证书吊销检查标志的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
@@ -2728,12 +2775,10 @@ declare namespace cert {
    */
   enum CertRevocationFlag {
     /**
-     * OCSP check is preferred. This flag is valid only when CERT_REVOCATION_CRL_CHECK and CERT_REVOCATION_OCSP_CHECK
-     * are both set.
+     * 优先OCSP检查。仅当CERT_REVOCATION_CRL_CHECK与CERT_REVOCATION_OCSP_CHECK同时设置时，该标志生效。
      *
-     * After the OCSP check is performed, the CRL is rolled back when no response is received or the CRL times out.
-     * If this parameter is not set, CRL check is performed first. If no CRL is found or the timer expires, OCSP is
-     * rolled back.
+     * 设置后先执行OCSP检查，未找到响应或超时时回退CRL；
+     * 不设置则先执行CRL检查，未找到CRL或超时时回退OCSP。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2743,12 +2788,10 @@ declare namespace cert {
     CERT_REVOCATION_PREFER_OCSP = 0,
 
     /**
-     * Enable the CRL check. Check the certificate status using a certificate revocation list.
+     * 启用CRL检查。使用证书吊销列表检查证书状态。
      *
-     * The crls parameter of the [X509CertRevokedParams]{@link cert.X509CertRevokedParams} is used. The CRL is not
-     * matched and the [X509CertRevokedParams]{@link is used.
-     * If the allowDownloadCrl parameter in cert.X509CertRevokedParams} is set to true, the CDP extension of the
-     * certificate is used to download the CRL.
+     * 首先使用[X509CertRevokedParams]{@link cert.X509CertRevokedParams}的crls参数，未匹配到CRL且[X509CertRevokedParams]{@link
+     * cert.X509CertRevokedParams}的allowDownloadCrl参数设置为true则尝试使用证书的CDP扩展下载CRL
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2758,13 +2801,11 @@ declare namespace cert {
     CERT_REVOCATION_CRL_CHECK = 1,
 
     /**
-     * Enable OCSP inspection. Check the certificate status using the Online Certificate Status Protocol.
+     * 启用OCSP检查。使用在线证书状态协议检查证书状态。
      *
-     * Start with [X509CertRevokedParams]{@link
-     * The ocspResponses parameter of cert.X509CertRevokedParams} does not match the response and
-     * [X509CertRevokedParams]{@link
-     * If the allowOcspCheckOnline parameter of cert.X509CertRevokedParams} is set to true, the system attempts to
-     * obtain the OCSP URL from the certificate AIA extension and sends a request to obtain the response.
+     * 首先使用[X509CertRevokedParams]{@link
+     * cert.X509CertRevokedParams}的ocspResponses参数，未匹配到响应且[X509CertRevokedParams]{@link
+     * cert.X509CertRevokedParams}的allowOcspCheckOnline参数设置为true则尝试从证书AIA扩展获取OCSP URL并发送请求获取响应
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2774,11 +2815,10 @@ declare namespace cert {
     CERT_REVOCATION_OCSP_CHECK = 2,
 
     /**
-     * Check the revocation status of all certificates.
+     * 检查所有证书的吊销状态。
      *
-     * Perform revocation check on all certificates in the certificate chain (skip self-signed signature certificate).
-     * If this parameter is not set, only the terminal certificate (the first certificate in the certificate chain) is
-     * checked.
+     * 设置后对证书链中所有证书执行吊销检查（跳过自签名证书）；
+     * 不设置则仅检查终端证书（证书链第一个证书）。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2789,7 +2829,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the OCSP digest algorithm.
+   * 表示OCSP摘要算法的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
@@ -2798,7 +2838,7 @@ declare namespace cert {
    */
   enum OcspDigest {
     /**
-     * SHA1 digest algorithm.
+     * SHA1摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2808,7 +2848,7 @@ declare namespace cert {
     SHA1 = 0,
 
     /**
-     * SHA224 digest algorithm.
+     * SHA224摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2818,7 +2858,7 @@ declare namespace cert {
     SHA224 = 1,
 
     /**
-     * SHA256 digest algorithm.
+     * SHA256摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2828,7 +2868,7 @@ declare namespace cert {
     SHA256 = 2,
 
     /**
-     * SHA384 digest algorithm.
+     * SHA384摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2838,7 +2878,7 @@ declare namespace cert {
     SHA384 = 3,
 
     /**
-     * SHA512 digest algorithm.
+     * SHA512摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2849,7 +2889,7 @@ declare namespace cert {
   }
 
   /**
-   * Parameters for checking a certificate revocation status.
+   * 表示证书吊销检查参数。
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
@@ -2858,8 +2898,7 @@ declare namespace cert {
    */
   interface X509CertRevokedParams {
     /**
-     * Revocation check flag. Quantity range: [1,4]. The array must contain either CERT_REVOCATION_CRL_CHECK or
-     * CERT_REVOCATION_OCSP_CHECK.
+     * 吊销检查标志。数量范围：[1, 4]。数组必须包含CERT_REVOCATION_CRL_CHECK或CERT_REVOCATION_OCSP_CHECK。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2869,7 +2908,7 @@ declare namespace cert {
     revocationFlags: Array<CertRevocationFlag>;
 
     /**
-     * CRL list. Maximum quantity: 100.
+     * CRL列表。最大数量：100。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2879,10 +2918,9 @@ declare namespace cert {
     crls?: Array<X509CRL>;
 
     /**
-     * Indicates whether to allow CRL download. The default value is false. true: The CDP extension of the certificate
-     * is used to download the CRL. false: Do not attempt to download the CRL.
-     * **Note**
-     * - Skip download if matching CRL exists in crls
+     * 是否允许下载CRL，默认值为false。true：尝试使用证书的CDP扩展下载CRL；false：不尝试下载CRL。
+     * **注意**
+     * -如果crls中存在匹配的CRL，则跳过下载
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -2893,7 +2931,7 @@ declare namespace cert {
     allowDownloadCrl?: boolean;
 
     /**
-     * OCSP response data. Preconfigured OCSP response data. Maximum quantity: 100.
+     * OCSP响应数据。预置的OCSP响应数据。最大数量：100。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2903,11 +2941,10 @@ declare namespace cert {
     ocspResponses?: Array<Uint8Array>;
 
     /**
-     * Indicates whether to allow online OCSP check. The default value is false. true: Perform online OCSP check, that
-     * is, attempt to obtain the OCSP URL from the certificate AIA extension and send a request to obtain the response.
-     * false: Do not perform online OCSP check.
-     * **Note**
-     * - Skip online OCSP check if a matching OCSP response is found in ocspResponses
+     * 是否允许在线OCSP检查，默认值为false。true：执行在线OCSP检查，即尝试从证书AIA扩展获取OCSP URL并发送请求获取响应；false：不执行在线OCSP检查。
+     * **注意**
+     * -如果在ocspResponses中找到匹配的OCSP响应，则跳过在线OCSP检查
+     * <br>获取响应的请求。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -2918,7 +2955,7 @@ declare namespace cert {
     allowOcspCheckOnline?: boolean;
 
     /**
-     * Digest algorithm used by OCSP requests. The default value is SHA256.
+     * OCSP请求使用的摘要算法，默认值为SHA256。
      *
      * @default SHA256
      * @syscap SystemCapability.Security.Cert
@@ -2930,7 +2967,7 @@ declare namespace cert {
   }
 
   /**
-   * Parameters for validating a certificate.
+   * 表示证书验证参数。
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
@@ -2939,8 +2976,7 @@ declare namespace cert {
    */
   interface X509CertValidatorParams {
     /**
-     * Indicates the list of untrusted certificates. An intermediate certificate is used only to construct a certificate
-     * chain and is not used as a trust anchor. Maximum quantity: 100.
+     * 非信任证书列表。仅用于构建证书链的中间证书，不作为信任锚点。最大数量：100。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2950,10 +2986,8 @@ declare namespace cert {
     untrustedCerts?: Array<X509Cert>;
 
     /**
-     * Trust certificate list. Specifies the trusted root certificate or intermediate CA certificate as the trust anchor
-     *  for authentication. Maximum quantity: 100.
-     * During verification, the certificate chain must be traced back to the trust certificate. You must set this
-     * parameter or set trustSystemCa to true.
+     * 信任证书列表。指定信任的根证书或中间CA证书，作为验证的信任锚点。最大数量：100。
+     * 验证时，证书链须追溯至信任证书，必须设置此参数或将trustSystemCa设为true。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -2963,8 +2997,7 @@ declare namespace cert {
     trustedCerts?: Array<X509Cert>;
 
     /**
-     * Indicates whether to trust the system CA. The default value is false. true: Use the preconfigured CA certificate
-     * store as the trust anchor. false: The preconfigured CA certificate store is not used as the trust anchor.
+     * 是否信任系统CA。默认值为false。true：使用系统预置的CA证书库作为信任锚；false：不使用系统预置的CA证书库作为信任锚。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -2975,9 +3008,7 @@ declare namespace cert {
     trustSystemCa?: boolean;
 
     /**
-     * Indicates whether to allow partial chain validation. The default value is false. true: Any certificate in the
-     * trust certificate can be used as the trust anchor instead of the root certificate. false: indicates that the root
-     *  certificate must be traced during certificate chain construction.
+     * 是否允许部分链验证。默认值为false。true：允许使用信任证书中的任意证书作为信任锚，而非必须追溯到根证书；false：构建证书链时必须追溯到根证书。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -2988,10 +3019,7 @@ declare namespace cert {
     partialChain?: boolean;
 
     /**
-     * Indicates whether intermediate CA certificates can be downloaded from the network. The default value is false.
-     * true: Use the issuer address in the certificate AIA extension to download the issuer certificate when the
-     * intermediate certificate is missing in the certificate chain. false: The intermediate CA certificate cannot be
-     * downloaded from the network.
+     * 是否允许从网络下载中间CA证书。默认值为false。true：当构建证书链缺失中间证书时，尝试使用证书AIA扩展中颁发者地址下载颁发者证书，解决证书链不完整的问题；false：不允许从网络下载中间的CA证书。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -3002,10 +3030,8 @@ declare namespace cert {
     allowDownloadIntermediateCa?: boolean;
 
     /**
-     * Verification date, in the format of YYMMDDHHMMSSZ or YYYYMMDDHHMMSSZ. By default, the current system time is
-     * used.
-     * You can customize the verification time, which is applicable to scenarios such as offline verification of
-     * historical signatures.
+     * 验证日期。格式为YYMMDDHHMMSSZ或YYYYMMDDHHMMSSZ，默认使用当前系统时间。
+     * 支持自定义验证时间，适用于离线验证历史签名等场景。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3015,8 +3041,7 @@ declare namespace cert {
     date?: string;
 
     /**
-     * Indicates whether to verify the date. true: Verify the validity period of the certificate and CRL. false: The
-     * validity period of the certificate and CRL is not verified.
+     * 是否验证日期。true：验证证书和CRL有效期；false：不验证证书和CRL有效期。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -3027,10 +3052,9 @@ declare namespace cert {
     validateDate?: boolean;
 
     /**
-     * Allows specific validation errors to be ignored. Maximum quantity: 8.
-     * Errors that can be ignored include: ERR_CERT_NOT_YET_VALID, ERR_CERT_HAS_EXPIRED, ERR_UNKNOWN_CRITICAL_EXTENSION,
-     *  ERR_CRL_NOT_FOUND,
-     * ERR_CRL_NOT_YET_VALID, ERR_CRL_HAS_EXPIRED, ERR_OCSP_RESPONSE_NOT_FOUND, ERR_NETWORK_TIMEOUT.
+     * 允许忽略特定的验证错误。最大数量：8。
+     * 可忽略的错误包括：ERR_CERT_NOT_YET_VALID、ERR_CERT_HAS_EXPIRED、ERR_UNKNOWN_CRITICAL_EXTENSION、ERR_CRL_NOT_FOUND、
+     * ERR_CRL_NOT_YET_VALID、ERR_CRL_HAS_EXPIRED、ERR_OCSP_RESPONSE_NOT_FOUND、ERR_NETWORK_TIMEOUT。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3040,9 +3064,8 @@ declare namespace cert {
     ignoreErrs?: Array<CertResult>;
 
     /**
-     * List of hostnames. Verify that the certificate's subject alternate name (SAN) or common name (CN) contains the
-     * specified hostname. Maximum number: 100; maximum length of each host name: 128.
-     * If one of the host names is matched, the verification is successful.
+     * 主机名列表。验证证书的主题备用名（SAN）或通用名（CN）是否包含指定的主机名。最大数量：100，每个主机名最大长度：128。
+     * 只要匹配其中一个主机名即校验成功。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3052,8 +3075,7 @@ declare namespace cert {
     hostnames?: Array<string>;
 
     /**
-     * Email address list. Verify that the certificate contains the specified email address. The maximum number is 1.
-     * The maximum length of the email address is 128
+     * 邮箱地址列表。验证证书是否包含指定的邮箱地址。最大数量：1，邮箱地址最大长度：128
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3063,9 +3085,8 @@ declare namespace cert {
     emailAddresses?: Array<string>;
 
     /**
-     * Key usage list. Verify that the certificate's key usage extension includes the specified usage. Maximum quantity:
-     *  9.
-     * The certificate must contain all specified key usages.
+     * 密钥用途列表。验证证书的密钥用途扩展是否包含指定的用途。最大数量：9。
+     * 证书必须包含所有指定的密钥用途才校验成功。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3075,11 +3096,10 @@ declare namespace cert {
     keyUsage?: Array<KeyUsageType>;
 
     /**
-     * User ID, which is used to set the user ID required for signature verification during SM2 certificate
-     * verification. Maximum length: 128 characters.
-     * The most commonly used value is `[0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35,
-     * 0x36, 0x37, 0x38]`. (The corresponding ASCII character string is 1234567812345678, 16 bytes.)
-     * Certificate revocation check is not supported after userId is set.
+     * 用户ID。用于验证国密SM2证书时设置签名验证所需的用户标识符。最大长度：128。
+     * 国密证书场景最常用的值为`[0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37,
+     * 0x38]`（对应ASCII字符串为"1234567812345678"，16字节）。
+     * 设置userId后不支持证书吊销检查。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3089,8 +3109,7 @@ declare namespace cert {
     userId?: Uint8Array;
 
     /**
-     * Indicates the certificate revocation check parameter. Used to check whether a certificate is revoked. The
-     * configuration includes the CRL list, OCSP response data, and whether online check is allowed.
+     * 证书吊销检查参数。用于检查证书是否被吊销。包含CRL列表、OCSP响应数据、是否允许在线检查等配置。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3101,7 +3120,7 @@ declare namespace cert {
   }
 
   /**
-   * The result of certificate verification.
+   * 表示证书验证结果。
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
@@ -3110,9 +3129,7 @@ declare namespace cert {
    */
   interface VerifyCertResult {
     /**
-     * Indicates the authenticated certificate chain. Upon successful authentication, the complete certificate chain is
-     * returned, from the endpoint certificate to the trust anchor. It can be used for subsequent certificate
-     * information query or other verification operations.
+     * 验证后的证书链。验证成功时返回完整的证书链，从终端证书到信任锚点。可用于后续的证书信息查询或其他验证操作。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3123,7 +3140,7 @@ declare namespace cert {
   }
 
   /**
-   * Provides APIs for certificate chain validator operations.
+   * 证书链校验器对象。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform [since 11]
@@ -3133,18 +3150,14 @@ declare namespace cert {
    */
   interface CertChainValidator {
     /**
-     * Validates an X.509 certificate chain. This API uses an asynchronous callback to return the result.
+     * 表示校验X509证书链。使用callback异步回调。
      *
-     * The certificate chain validator does not verify the certificate validity period because the system time on the
-     * device is untrusted. To check the validity period of a certificate, use the
-     * [checkValidityWithDate()]{@link cert.X509Cert.checkValidityWithDate} API of the **X509Cert** class. For details
-     * about certificate specifications, see
-     * [Certificate Specifications](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#certificate-specifications)
-     * .
+     * 由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X509证书的
+     * [checkValidityWithDate]{@link cert.X509Cert.checkValidityWithDate}方法进行检查。详见
+     * [证书规格](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#证书规格)。
      *
-     * @param { CertChainData } certChain - Serialized X.509 certificate chain data.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If **error** is **null**, the
-     *     validation is successful. If **error** is not **null**, the validation fails.
+     * @param { CertChainData } certChain - 表示X509证书链序列化数据。
+     * @param { AsyncCallback<void> } callback - 回调函数，使用AsyncCallback的第一个error参数判断是否校验成功，error为null表示成功，error不为null表示失败。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3167,17 +3180,14 @@ declare namespace cert {
     validate(certChain: CertChainData, callback: AsyncCallback<void>): void;
 
     /**
-     * Validates an X.509 certificate chain. This API uses a promise to return the result.
+     * 表示校验X509证书链。使用Promise异步回调。
      *
-     * The certificate chain validator does not verify the certificate validity period because the system time on the
-     * device is untrusted. To check the validity period of a certificate, use the
-     * [checkValidityWithDate()]{@link cert.X509Cert.checkValidityWithDate} API of the **X509Cert** class. For details
-     * about certificate specifications, see
-     * [Certificate Specifications](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#certificate-specifications)
-     * .
+     * 由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X509证书的
+     * [checkValidityWithDate]{@link cert.X509Cert.checkValidityWithDate}方法进行检查。详见
+     * [证书规格](docroot://security/DeviceCertificateKit/certificate-framework-overview.md#证书规格)。
      *
-     * @param { CertChainData } certChain - Serialized X.509 certificate chain data.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @param { CertChainData } certChain - 表示X509证书链序列化数据。
+     * @returns { Promise<void> } Promise对象。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3200,27 +3210,20 @@ declare namespace cert {
     validate(certChain: CertChainData): Promise<void>;
 
     /**
-     * Verifies the certificate, returns the certificate chain that is successfully built and verified.
+     * 验证证书，返回构建成功并验证成功的证书链。
      *
-     * The certificate chain construction process complies with the following rules:
-     * 1. Trusted anchor source: The trusted certificate list (trustedCerts) is always used as the trust anchor source.
-     * The preconfigured certificate is used as the trust anchor source only when trustSystemCa is set to true.
-     * 2. Issuer search sequence: The system searches for the issuer from the trust anchor source first. If the issuer
-     * cannot be found, the system searches for the issuer in the untrusted certificate list (untrustedCerts). The
-     * intermediate CA certificate downloaded online is an untrusted certificate.
-     * 3. Trust anchor locking: Once the issuer is found in the trust anchor source, the subsequent lookup process does
-     * not roll back to the untrusted certificate, that is, the subsequent certificates must come from the trust anchor
-     * source.
-     * 4. Construction completion conditions:
-     * If partialChain is false (default value), the build is complete only when the root certificate (from signature
-     * certificate) is found.
-     * If partialChain is true, the first time the issuer is found in the trust anchor source, the build is complete.
-     * 5. Follow-up verification: After the certificate chain is constructed, perform other verification operations,
-     * such as certificate signature verification and certificate revocation check.
+     * 证书链构建过程遵循以下规则：
+     * 1. 信任锚来源：信任证书列表（trustedCerts）始终作为信任锚来源；系统预置证书仅在trustSystemCa设置为true时作为信任锚来源。
+     * 2. 颁发者查找顺序：优先从信任锚来源中查找颁发者，若找不到则回退到不信任证书列表（untrustedCerts）中查找。在线下载的中间CA证书属于不信任证书。
+     * 3. 信任锚锁定：一旦在信任锚来源中找到颁发者，后续查找过程中不会再回退到不信任证书中查找，即后续证书必须都来自信任锚来源。
+     * 4. 构建完成条件：
+     * 若partialChain为false（默认值），必须找到根证书（自签名证书）才表示构建完成。
+     * 若partialChain为true，首次在信任锚来源中找到颁发者即表示构建完成。
+     * 5. 后续校验：证书链构建完成后，再进行证书签名校验、证书吊销检查等其他校验操作。
      *
-     * @param { X509Cert } cert - indicates the certificate to verify.
-     * @param { X509CertValidatorParams } params - indicates the certificate validator parameters.
-     * @returns { Promise<VerifyCertResult> } the promise returned by the function.
+     * @param { X509Cert } cert - 待验证的证书。
+     * @param { X509CertValidatorParams } params - 证书验证参数。
+     * @returns { Promise<VerifyCertResult> } Promise对象，返回验证结果。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -3258,7 +3261,7 @@ declare namespace cert {
     validate(cert: X509Cert, params: X509CertValidatorParams): Promise<VerifyCertResult>;
 
     /**
-     * Algorithm used by the X.509 certificate chain validator.
+     * X509证书链校验器算法名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
@@ -3270,10 +3273,10 @@ declare namespace cert {
   }
 
   /**
-   * Creates a **CertChainValidator** object.
+   * 表示创建证书链校验器对象。
    *
-   * @param { string } algorithm - Certificate chain validator algorithm. Currently, only **PKIX** is supported.
-   * @returns { CertChainValidator } **CertChainValidator** object created.
+   * @param { string } algorithm - 表示证书链校验器算法。当前仅支持输入"PKIX"。
+   * @returns { CertChainValidator } 表示证书链校验器对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - this operation is not supported.
@@ -3290,7 +3293,7 @@ declare namespace cert {
   function createCertChainValidator(algorithm: string): CertChainValidator;
 
   /**
-   * Enumerates the types of the common name (CN), which uniquely identifies the subject of the certificate.
+   * 表示证书主体用途的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3300,7 +3303,7 @@ declare namespace cert {
    */
   enum GeneralNameType {
     /**
-     * Indicates others.
+     * 表示其他名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3311,7 +3314,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_OTHER_NAME = 0,
 
     /**
-     * Indicates an email address.
+     * 表示电子邮件地址。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3322,7 +3325,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_RFC822_NAME = 1,
 
     /**
-     * Indicates a DNS name.
+     * 表示一个DNS名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3333,7 +3336,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_DNS_NAME = 2,
 
     /**
-     * Indicates an X.400 address.
+     * 表示X.400地址。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3344,7 +3347,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_X400_ADDRESS = 3,
 
     /**
-     * Indicates a directory name.
+     * 表示一个目录名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3355,7 +3358,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_DIRECTORY_NAME = 4,
 
     /**
-     * Indicates an Electronic Data Interchange (EDI) entity.
+     * 表示特定的EDI实体。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3366,7 +3369,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_EDI_PARTY_NAME = 5,
 
     /**
-     * Indicates a uniform resource identifier.
+     * 表示一个统一资源标识符。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3377,7 +3380,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_UNIFORM_RESOURCE_ID = 6,
 
     /**
-     * Indicates an IP address.
+     * 表示一个IP地址。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3388,7 +3391,7 @@ declare namespace cert {
     GENERAL_NAME_TYPE_IP_ADDRESS = 7,
 
     /**
-     * Indicates a registered object identifier.
+     * 表示一个已注册的对象标识符。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3400,7 +3403,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the CN information of a certificate.
+   * 用于表示证书主体信息对象。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3410,7 +3413,7 @@ declare namespace cert {
    */
   interface GeneralName {
     /**
-     * Type of the certificate subject.
+     * 指定具体的证书主体类型。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3421,7 +3424,7 @@ declare namespace cert {
     type: GeneralNameType;
 
     /**
-     * DER format of the certificate subject.
+     * 指定具体的证书主体DER格式内容。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3433,7 +3436,7 @@ declare namespace cert {
   }
 
   /**
-   * Defines the parameters used to match a certificate. If no parameter is specified, all certificates are matched.
+   * 用于匹配证书的过滤参数。如果参数中任一项都未指定，则匹配所有证书。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3443,7 +3446,7 @@ declare namespace cert {
    */
   interface X509CertMatchParameters {
     /**
-     * Subject Alternative Names (SANs) of the certificate.
+     * 指定证书主体名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3454,7 +3457,7 @@ declare namespace cert {
     subjectAlternativeNames?: Array<GeneralName>;
 
     /**
-     * Whether to match all SANs of the certificate. **true**: yes; **false**: no.
+     * 指定是否需要匹配证书主体名称。true为需要，false为不需要。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3465,7 +3468,7 @@ declare namespace cert {
     matchAllSubjectAltNames?: boolean;
 
     /**
-     * Key of the certificate authority (CA).
+     * 指定证书颁发机构密钥。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3476,8 +3479,7 @@ declare namespace cert {
     authorityKeyIdentifier?: Uint8Array;
 
     /**
-     * Minimum length of the certification path (chain of trust) that can be built from the certificate to a trusted
-     * root CA.
+     * 指定证书CA路径长度。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3488,7 +3490,7 @@ declare namespace cert {
     minPathLenConstraint?: int;
 
     /**
-     * Certificate object.
+     * 指定具体的证书对象。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3499,7 +3501,7 @@ declare namespace cert {
     x509Cert?: X509Cert;
 
     /**
-     * Certificate validity period.
+     * 指定证书有效期。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3510,7 +3512,7 @@ declare namespace cert {
     validDate?: string;
 
     /**
-     * Certificate issuer, in DER format.
+     * 指定证书颁发者，为DER编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3521,7 +3523,7 @@ declare namespace cert {
     issuer?: Uint8Array;
 
     /**
-     * Extended key usage.
+     * 指定扩展密钥用途。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3532,7 +3534,7 @@ declare namespace cert {
     extendedKeyUsage?: Array<string>;
 
     /**
-     * Constraints on the subject names that can be included in certificates.
+     * 指定证书的使用者名称。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3543,7 +3545,7 @@ declare namespace cert {
     nameConstraints?: Uint8Array;
 
     /**
-     * Certificate policy.
+     * 指定证书策略。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3554,7 +3556,7 @@ declare namespace cert {
     certPolicy?: Array<string>;
 
     /**
-     * Validity period of the certificate private key.
+     * 指定证书私钥有效期。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3565,7 +3567,7 @@ declare namespace cert {
     privateKeyValid?: string;
 
     /**
-     * Whether to match the key usage. **true**: yes; **false**: no.
+     * 指定是否需要匹配密钥用途。true为需要，false为不需要。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3576,7 +3578,7 @@ declare namespace cert {
     keyUsage?: Array<boolean>;
 
     /**
-     * Serial number of the certificate.
+     * 指定证书的序列号。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3587,7 +3589,7 @@ declare namespace cert {
     serialNumber?: bigint;
 
     /**
-     * Certificate subject, in DER format.
+     * 指定证书主题，DER编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3598,7 +3600,7 @@ declare namespace cert {
     subject?: Uint8Array;
 
     /**
-     * Identifier of the public key of the certificate's subject.
+     * 指定证书公钥。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3609,7 +3611,7 @@ declare namespace cert {
     subjectKeyIdentifier?: Uint8Array;
 
     /**
-     * Public key of the certificate, in DER format.
+     * 指定证书公钥，DER编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3620,7 +3622,7 @@ declare namespace cert {
     publicKey?: DataBlob;
 
     /**
-     * Algorithm of the certificate public key.
+     * 指定证书公钥的算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3631,8 +3633,7 @@ declare namespace cert {
     publicKeyAlgID?: string;
 
     /**
-     * Specifies the certificate private key. string indicates a private key in PEM format, and Uint8Array indicates a
-     * private key in DER format.
+     * 指定证书私钥，string表示PEM格式私钥，Uint8Array表示DER格式私钥。
      *
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
@@ -3643,8 +3644,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the parameters used to match a certificate revocation list (CRL). If no parameter is specified, all CRLs
-   * are matched.
+   * 用于匹配证书吊销列表的过滤参数。如果参数中任一项都未指定，则匹配所有证书吊销列表。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3654,7 +3654,7 @@ declare namespace cert {
    */
   interface X509CRLMatchParameters {
     /**
-     * Certificate issuer, in DER format.
+     * 指定证书颁发者，为DER编码格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3665,7 +3665,7 @@ declare namespace cert {
     issuer?: Array<Uint8Array>;
 
     /**
-     * Certificate object.
+     * 指定具体的证书对象。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3676,7 +3676,7 @@ declare namespace cert {
     x509Cert?: X509Cert;
 
     /**
-     * Certificate update time.
+     * 指定证书更新时间。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3687,7 +3687,7 @@ declare namespace cert {
     updateDateTime?: string;
 
     /**
-     * Maximum number of CRLs.
+     * 指定CRL个数最大值。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3698,7 +3698,7 @@ declare namespace cert {
     maxCRL?: bigint;
 
     /**
-     * Minimum number of CRLs.
+     * 指定CRL个数最小值。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -3710,7 +3710,7 @@ declare namespace cert {
   }
 
   /**
-   * Provides APIs for locating certificates or CRLs in a **CertCRLCollection** object.
+   * 证书和证书吊销列表集合对象。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3720,10 +3720,10 @@ declare namespace cert {
    */
   interface CertCRLCollection {
     /**
-     * Selects certificates that match the specified parameters. This API uses a promise to return the result.
+     * 查找证书和证书吊销列表集合中所有与参数匹配的证书对象。使用Promise异步回调。
      *
-     * @param { X509CertMatchParameters } param - Parameters used to match the certificates.
-     * @returns { Promise<Array<X509Cert>> } Promise used to return the result. Matched certificates.
+     * @param { X509CertMatchParameters } param - 表示证书需匹配的参数。
+     * @returns { Promise<Array<X509Cert>> } Promise对象。表示匹配到的证书对象数组。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3738,11 +3738,10 @@ declare namespace cert {
     selectCerts(param: X509CertMatchParameters): Promise<Array<X509Cert>>;
 
     /**
-     * Selects certificates that match the specified parameters. This API uses an asynchronous callback to return the
-     * result.
+     * 查找证书和证书吊销列表集合中所有与参数匹配的证书对象。使用callback异步回调。
      *
-     * @param { X509CertMatchParameters } param - Parameters used to match the certificates.
-     * @param { AsyncCallback<Array<X509Cert>> } callback - Callback invoked to return the matched certificates.
+     * @param { X509CertMatchParameters } param - 表示证书需匹配的参数。
+     * @param { AsyncCallback<Array<X509Cert>> } callback - 回调函数，表示匹配到的证书对象数组。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3757,10 +3756,10 @@ declare namespace cert {
     selectCerts(param: X509CertMatchParameters, callback: AsyncCallback<Array<X509Cert>>): void;
 
     /**
-     * Selects CRLs that match the specified parameters. This API uses a promise to return the result.
+     * 查找证书和证书吊销列表集合中所有与参数匹配的证书吊销列表对象。使用Promise异步回调。
      *
-     * @param { X509CRLMatchParameters } param - Parameters used to match the CRLs.
-     * @returns { Promise<Array<X509CRL>> } Promise used to return the matched CRLs.
+     * @param { X509CRLMatchParameters } param - 表示证书吊销列表需匹配的参数。
+     * @returns { Promise<Array<X509CRL>> } Promise对象，表示匹配到的证书吊销列表对象数组。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3775,10 +3774,10 @@ declare namespace cert {
     selectCRLs(param: X509CRLMatchParameters): Promise<Array<X509CRL>>;
 
     /**
-     * Selects CRLs that match the specified parameters. This API uses an asynchronous callback to return the result.
+     * 查找证书和证书吊销列表集合中所有与参数匹配的证书吊销列表对象。使用callback异步回调。
      *
-     * @param { X509CRLMatchParameters } param - Parameters used to match the CRLs.
-     * @param { AsyncCallback<Array<X509CRL>> } callback - Callback used to return the matched CRLs.
+     * @param { X509CRLMatchParameters } param - 表示证书吊销列表需匹配的参数对象。
+     * @param { AsyncCallback<Array<X509CRL>> } callback - 回调函数，表示匹配到的证书吊销列表对象数组。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3794,12 +3793,12 @@ declare namespace cert {
   }
 
   /**
-   * Creates an object for a collection of X.509 certificates and CRLs.
+   * 表示创建证书和证书吊销列表集合对象，并返回相应的结果。
    *
-   * @param { Array<X509Cert> } certs - X.509 certificates.
+   * @param { Array<X509Cert> } certs - X509Cert数组。
    * @param { Array<X509CRL> } [options] crls - array of X509CRL. [since 11 - 11]
-   * @param { Array<X509CRL> } [crls] - X.509 CRLs. [since 12]
-   * @returns { CertCRLCollection } **CertCRLCollection** object created.
+   * @param { Array<X509CRL> } [crls] - X509CRL数组。 [since 12]
+   * @returns { CertCRLCollection } 表示证书和证书吊销列表集合对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -3812,7 +3811,7 @@ declare namespace cert {
   function createCertCRLCollection(certs: Array<X509Cert>, crls?: Array<X509CRL>): CertCRLCollection;
 
   /**
-   * Provides APIs for managing the X.509 certificate chain.
+   * X509证书链对象。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -3822,9 +3821,9 @@ declare namespace cert {
    */
   interface X509CertChain {
     /**
-     * Obtains the X.509 certificate list.
+     * 获取X509证书列表。
      *
-     * @returns { Array<X509Cert> } X.509 certificate list obtained.
+     * @returns { Array<X509Cert> } X509证书数组。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3839,10 +3838,10 @@ declare namespace cert {
     getCertList(): Array<X509Cert>;
 
     /**
-     * Validates a certificate chain. This API uses a promise to return the result.
+     * 校验证书链。使用Promise异步回调。
      *
-     * @param { CertChainValidationParameters } param - Parameters for validating the X.509 certificate chain.
-     * @returns { Promise<CertChainValidationResult> } Promise used to return the result.
+     * @param { CertChainValidationParameters } param - 表示校验X509证书链的参数。
+     * @returns { Promise<CertChainValidationResult> } Promise对象，返回证书链校验结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3865,11 +3864,10 @@ declare namespace cert {
     validate(param: CertChainValidationParameters): Promise<CertChainValidationResult>;
 
     /**
-     * Validates a certificate chain. This API uses an asynchronous callback to return the result.
+     * 使用校验参数校验证书链。使用callback异步回调。
      *
-     * @param { CertChainValidationParameters } param - Parameters for validating the X.509 certificate chain.
-     * @param { AsyncCallback<CertChainValidationResult> } callback - Callback used to return the certificate chain
-     *     validation result.
+     * @param { CertChainValidationParameters } param - 表示校验X509证书链的参数。
+     * @param { AsyncCallback<CertChainValidationResult> } callback - 回调函数，返回证书链校验结果。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -3892,9 +3890,9 @@ declare namespace cert {
     validate(param: CertChainValidationParameters, callback: AsyncCallback<CertChainValidationResult>): void;
 
     /**
-     * Converts the object data into a string.
+     * 获取对象的字符串类型数据。
      *
-     * @returns { string } String obtained.
+     * @returns { string } 对象的字符串类型数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -3908,9 +3906,9 @@ declare namespace cert {
     toString(): string;
 
     /**
-     * Obtains the hash value of the data in DER format.
+     * 获取DER格式数据的哈希值。
      *
-     * @returns { Uint8Array } Hash value obtained.
+     * @returns { Uint8Array } DER格式数据的哈希值。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -3925,10 +3923,10 @@ declare namespace cert {
   }
 
   /**
-   * Creates an **X509CertChain** instance. This API uses a promise to return the result.
+   * 表示创建X509证书链对象。使用Promise异步回调。
    *
-   * @param { EncodingBlob } inStream - X.509 certificate serialization data.
-   * @returns { Promise<X509CertChain> } **X509CertChain** object created.
+   * @param { EncodingBlob } inStream - X509证书序列化数据。
+   * @returns { Promise<X509CertChain> } 表示X509证书链对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -3942,11 +3940,10 @@ declare namespace cert {
   function createX509CertChain(inStream: EncodingBlob): Promise<X509CertChain>;
 
   /**
-   * Creates an **X509CertChain** instance. This API uses an asynchronous callback to return the result.
+   * 表示创建X509证书链对象。使用callback异步回调。
    *
-   * @param { EncodingBlob } inStream - X.509 certificate serialization data.
-   * @param { AsyncCallback<X509CertChain> } callback - Callback invoked to return the **X509CertChain** instance
-   *     created.
+   * @param { EncodingBlob } inStream - X509证书序列化数据。
+   * @param { AsyncCallback<X509CertChain> } callback - 回调函数，表示X509证书链对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -3960,11 +3957,10 @@ declare namespace cert {
   function createX509CertChain(inStream: EncodingBlob, callback: AsyncCallback<X509CertChain>): void;
 
   /**
-   * Creates an X.509 certificate chain object based on the specified certificates. This API returns the result
-   * synchronously.
+   * 表示使用X509Cert数组方式创建X509证书链对象，并同步返回结果。
    *
-   * @param { Array<X509Cert> } certs - Array of X.509 certificates.
-   * @returns { X509CertChain } **X509CertChain** object created.
+   * @param { Array<X509Cert> } certs - X509证书对象数组。
+   * @returns { X509CertChain } 表示X509证书链对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -3978,13 +3974,11 @@ declare namespace cert {
   function createX509CertChain(certs: Array<X509Cert>): X509CertChain;
 
   /**
-   * Builds an X.509 certificate chain with a CertChainBuildParameters object. This API uses a promise to return the
-   * result.
+   * 表示使用CertChainBuildParameters对象方式创建X509证书链对象。使用Promise异步回调。
    *
-   * @param { CertChainBuildParameters } param - Object used to build the certificate chain.<br> The value of
-   *     **maxLength** in [CertChainBuildParameters]{@link cert.CertChainBuildParameters} must be less than the number
-   *     of certificates in the certificate set.
-   * @returns { Promise<CertChainBuildResult> } **X509CertChain** object created.
+   * @param { CertChainBuildParameters } param - 构建证书链的参数对象。  <br>
+   *     [CertChainBuildParameters]{@link cert.CertChainBuildParameters}中的maxLength要小于证书集合中证书数量。
+   * @returns { Promise<CertChainBuildResult> } 表示X509证书链对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -4006,7 +4000,7 @@ declare namespace cert {
   function buildX509CertChain(param: CertChainBuildParameters): Promise<CertChainBuildResult>;
 
   /**
-   * Enumerates the CSR encoding formats.
+   * 表示生成CSR的编码格式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4016,7 +4010,7 @@ declare namespace cert {
    */
   enum EncodingBaseFormat {
     /**
-     * Privacy-Enhanced Mail (PEM) format.
+     * PEM格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4027,7 +4021,7 @@ declare namespace cert {
     PEM = 0,
 
     /**
-     * Distinguished Encoding Rules (DER) format.
+     * DER格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4039,7 +4033,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents data of the parsed PKCS #12 (.p12) file.
+   * 表示返回P12文件的解析后的证书、私钥及其他证书合集。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4049,7 +4043,7 @@ declare namespace cert {
    */
   interface Pkcs12Data {
     /**
-     * Private key obtained after the .p12 file is parsed.
+     * 表示P12文件解析后的私钥。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4060,7 +4054,7 @@ declare namespace cert {
     privateKey?: string | Uint8Array;
 
     /**
-     * X.509 certificate obtained after the .p12 file is parsed.
+     * 表示P12文件解析后的证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4071,7 +4065,7 @@ declare namespace cert {
     cert?: X509Cert;
 
     /**
-     * Other certificates obtained after the .p12 file is parsed.
+     * 表示P12文件解析后的其他证书合集。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4083,7 +4077,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the configuration for parsing .p12 files.
+   * 表示解析P12文件的配置。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4093,7 +4087,7 @@ declare namespace cert {
    */
   interface Pkcs12ParsingConfig {
     /**
-     * Password of the .p12 file.
+     * 表示P12文件的密码。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4104,9 +4098,9 @@ declare namespace cert {
     password: string;
 
     /**
-     * Whether to obtain the private key. The default value is **true**.
+     * 表示是否获取私钥。默认为true。
      *
-     * **true**: To obtain the private key in PKCS #8 format; **false**: Not to obtain the private key.
+     * true为获取，返回PKCS8编码的私钥数据；false为不获取。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -4118,10 +4112,9 @@ declare namespace cert {
     needsPrivateKey?: boolean;
 
     /**
-     * Format of the private key to be obtained. Currently, the PEM and DER formats are supported. If this parameter is
-     * not specified, the PEM format is used by default.
+     * 表示获取私钥的格式，当前支持PEM和DER格式。参数缺省时，默认为PEM格式。
      *
-     * **Note**: This parameter is valid only when **needsPrivateKey** is set to **true**.
+     * **注意**：当needsPrivateKey值为true时，该参数生效。
      *
      * @default EncodingBaseFormat.PEM
      * @syscap SystemCapability.Security.Cert
@@ -4133,7 +4126,7 @@ declare namespace cert {
     privateKeyFormat?: EncodingBaseFormat;
 
     /**
-     * Whether to obtain the certificate. The default value is **true**. **true**: yes; **false**: no.
+     * 表示是否获取证书。默认为true。true为获取，false为不获取。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -4145,7 +4138,7 @@ declare namespace cert {
     needsCert?: boolean;
 
     /**
-     * Whether to obtain other certificates. The default value is **false**. **true**: yes; **false**: no.
+     * 表示是否获取其他证书合集。默认为false。true为获取，false为不获取。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -4158,11 +4151,11 @@ declare namespace cert {
   }
 
   /**
-   * Parses a .p12 file.
+   * 表示从P12文件中解析证书、私钥及其他证书合集，并返回结果。
    *
-   * @param { Uint8Array } data - .p12 file to parse, in DER format.
-   * @param { Pkcs12ParsingConfig } config - Configuration for parsing the file.
-   * @returns { Pkcs12Data } Data parsed from the .p12 file.
+   * @param { Uint8Array } data - P12文件，DER格式。
+   * @param { Pkcs12ParsingConfig } config - P12文件的解析配置。
+   * @returns { Pkcs12Data } 表示P12文件解析后的证书、私钥及其他证书合集。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -4179,12 +4172,11 @@ declare namespace cert {
   function parsePkcs12(data: Uint8Array, config: Pkcs12ParsingConfig): Pkcs12Data;
 
   /**
-   * Parses a PKCS #12 file. This API uses a promise to return the result.
+   * 表示从Pkcs12文件中解析证书、私钥及其他证书合集。使用Promise异步回调。
    *
-   * @param { Uint8Array } data - PKCS #12 file to parse, in DER format.
-   * @param { string } password - PKCS #12 password.
-   * @returns { Promise<Pkcs12Data> } Promise used to return the certificate, private key, and other certificates parsed
-   *     from the PKCS #12 file. The private key in the returned **Pkcs12Data** is encoded in PEM format.
+   * @param { Uint8Array } data - Pkcs12文件，DER格式。
+   * @param { string } password - Pkcs12的密码。
+   * @returns { Promise<Pkcs12Data> } Promise对象，返回Pkcs12文件解析后的证书、私钥及其他证书合集。返回的Pkcs12Data中的私钥采用PEM格式编码。
    * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -4202,12 +4194,11 @@ declare namespace cert {
   function parsePkcs12(data: Uint8Array, password: string): Promise<Pkcs12Data>;
 
   /**
-   * Creates a [TrustAnchor]{@link cert.X509TrustAnchor} object array by using the CA certificate parsed from a .p12
-   * keystore file. This API uses a promise to return the result.
+   * 表示从P12文件中读取ca证书来构造[TrustAnchor]{@link cert.X509TrustAnchor}对象数组。使用Promise异步回调。
    *
-   * @param { Uint8Array } keystore - .p12 file to parse, in DER format.
-   * @param { string } pwd - Password of the .p12 file.
-   * @returns { Promise<Array<X509TrustAnchor>> } **X509TrustAnchor** object array created.
+   * @param { Uint8Array } keystore - P12文件，DER格式。
+   * @param { string } pwd - P12文件的密码。
+   * @returns { Promise<Array<X509TrustAnchor>> } 表示X509TrustAnchor对象数组。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -4229,14 +4220,11 @@ declare namespace cert {
   function createTrustAnchorsWithKeyStore(keystore: Uint8Array, pwd: string): Promise<Array<X509TrustAnchor>>;
 
   /**
-   * Creates an **X500DistinguishedName** object with a name in the form of a string. This API uses a promise to return
-   * the result.
+   * 表示使用字符串格式的名称创建X500DistinguishedName对象。使用Promise异步回调。
    *
-   * @param { string } nameStr - Name string format defined by X.509. The name is separated by slashes (/). Each
-   *     distinguishable name is in the format of **attribute=value**. Common attributes include **CN** (common name),
-   *     **O** (organization name), **OU** (organization unit), **C** (country/region), **ST** (province/state), and
-   *     **L** (city/district). For example, **\/CN=example.com/O=Example/C=CN**.
-   * @returns { Promise<X500DistinguishedName> } Promise used to return the **X500DistinguishedName** object created.
+   * @param { string } nameStr - X509定义的Name字符串格式，使用斜杠'/'进行分割可分辨名称，每个可分辨名称为“属性=值”形式，常用属性包括CN（通用名）、O（组织名）、OU（组织单位）、C（国家/地
+   *     区）、ST（省/州）、L（市/区）。例如：/CN=example.com/O=Example/C=CN。
+   * @returns { Promise<X500DistinguishedName> } 表示X509的可分辨对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -4258,11 +4246,10 @@ declare namespace cert {
   function createX500DistinguishedName(nameStr: string): Promise<X500DistinguishedName>;
 
   /**
-   * Creates an **X500DistinguishedName** object with a name in DER format. This API uses a promise to return the
-   * result.
+   * 表示使用DER格式的名称创建X500DistinguishedName对象。使用Promise异步回调。
    *
-   * @param { Uint8Array } nameDer - Name of the Uint8Array type in DER format defined by X.509.
-   * @returns { Promise<X500DistinguishedName> } Promise used to return the **X500DistinguishedName** object created.
+   * @param { Uint8Array } nameDer - X509定义的Uint8Array类型的DER格式数据。
+   * @returns { Promise<X500DistinguishedName> } 表示X509的可分辨对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -4284,7 +4271,7 @@ declare namespace cert {
   function createX500DistinguishedName(nameDer: Uint8Array): Promise<X500DistinguishedName>;
 
   /**
-   * Provides APIs for managing the **X500DistinguishedName** instance.
+   * X509定义的Name类型的对象。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4294,9 +4281,9 @@ declare namespace cert {
    */
   interface X500DistinguishedName {
     /**
-     * Obtains the DN in the form of a string.
+     * 获取可分辨名的字符串。
      *
-     * @returns { string } DN in the form of a string obtained.
+     * @returns { string } 可分辨名的字符串。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -4310,10 +4297,10 @@ declare namespace cert {
     getName(): string;
 
     /**
-     * Obtains RDN strings based on the specified encoding format.
+     * 根据指定编码格式获取可分辨名称的字符串。
      *
-     * @param { EncodingType } encodingType - Encoding format.
-     * @returns { string } RDN string. Multiple strings are separated by commas (,).
+     * @param { EncodingType } encodingType - 表示编码格式。
+     * @returns { string } 表示可分辨名称的字符串，使用逗号分隔相对可分辨名称。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -4329,10 +4316,10 @@ declare namespace cert {
     getName(encodingType: EncodingType): string;
 
     /**
-     * Obtains relative distinguished name (RDN) strings of the specified type.
+     * 按指定类型获取相对可分辨名称的字符串。
      *
-     * @param { string } type - Type of the RDNs to obtain. For example, **CN** and **OU**.
-     * @returns { Array<string> } Array of RDN strings.
+     * @param { string } type - 指定类型的名称。如"CN"、"OU"等。
+     * @returns { Array<string> } 相对可分辨名称的字符串数组。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4349,11 +4336,11 @@ declare namespace cert {
     getName(type: string): Array<string>;
 
     /**
-     * Obtains an array of RDN strings based on the specified type and encoding format.
+     * 根据指定类型和编码格式获取相对可分辨名称的字符串数组。
      *
-     * @param { string } type - Type of the RDNs to obtain. For example, **CN** and **OU**.
-     * @param { EncodingType } encodingType - Encoding format.
-     * @returns { Array<string> } Array of RDN strings.
+     * @param { string } type - 指定类型的名称。如"CN"、"OU"等。
+     * @param { EncodingType } encodingType - 表示编码格式。
+     * @returns { Array<string> } 相对可分辨名称的字符串数组。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -4368,9 +4355,9 @@ declare namespace cert {
     getName(type: string, encodingType: EncodingType): Array<string>;
 
     /**
-     * Obtains the data of the X.509 certificate **extensions** field.
+     * 获取X509证书扩展域的数据。
      *
-     * @returns { EncodingBlob } X.509 certificate serialization data obtained.
+     * @returns { EncodingBlob } X509证书序列化数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -4385,8 +4372,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents an X.509 trust anchor, which is used to verify the certificate chain. The certificate or public key in
-   * the trust anchor is used as the trusted root to verify the certificate chain.
+   * 表示X509信任锚，用于校验证书链。使用信任锚中的证书或者公钥作为可信根，对证书链进行校验。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4396,8 +4382,7 @@ declare namespace cert {
    */
   interface X509TrustAnchor {
     /**
-     * Trusted CA certificate. If **CACert** is set, only **CACert** is used to validate the certificate chain.
-     * **CAPubKey** and **CASubject** are not used.
+     * 信任的CA证书。如果配置了CACert，则校验证书链时只使用CACert，不再使用CAPubKey和CASubject。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4408,8 +4393,7 @@ declare namespace cert {
     CACert?: X509Cert;
 
     /**
-     * Public key of the trusted CA certificate, in DER format. This parameter takes effect only when **CACert** is not
-     * set.
+     * 信任的CA证书公钥，DER格式。仅在未配置CACert时生效。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4420,9 +4404,7 @@ declare namespace cert {
     CAPubKey?: Uint8Array;
 
     /**
-     * Subject of the trusted CA certificate, in DER format. This parameter takes effect only when **CAPubKey** is set.
-     * The validation object is determined based on the **CAPubKey** type (self-signed or upper-level), and can be the
-     * subject or issuer of the root certificate.
+     * 信任的CA证书主题，DER格式。仅在配置了CAPubKey时生效。校验对象根据CAPubKey类型（自签或上级）决定是校验根证书的主题还是颁发者。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4433,7 +4415,7 @@ declare namespace cert {
     CASubject?: Uint8Array;
 
     /**
-     * Name constraints, in DER format. Only the leaf certificate of the current certificate chain is validated.
+     * 名称约束，DER格式。只校验当前证书链的叶子证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4445,7 +4427,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the options for checking the certificate revocation status.
+   * 表示证书链在线校验证书吊销状态选项的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4455,7 +4437,7 @@ declare namespace cert {
    */
   enum RevocationCheckOptions {
     /**
-     * Use OCSP over CRL (default).
+     * 优先采用OCSP进行校验，默认采用CRL校验。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4466,10 +4448,8 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_PREFER_OCSP = 0,
 
     /**
-     * Obtain the CRL/OCSP response over the network. By default, it is disabled. Only the first CRL distribution point
-     * address can be obtained from the CDP extension of the certificate to check the certificate revocation status, or
-     * the first OCSP server address can be obtained from the AIA extension of the certificate to check the certificate
-     * revocation status. Moreover, only HTTP is supported. You must declare the ohos.permission.INTERNET permission.
+     * 支持通过访问网络获取CRL或OCSP响应进行吊销状态的校验，默认为关闭。仅支持通过证书中的CDP扩展中获取首个CRL分发点地址以检查证书吊销状态，或通过AIA扩展获取首个OCSP服务器地址以进行吊销状态验证，且仅支持http协
+     * 议。必须声明ohos.permission.INTERNET权限。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4480,9 +4460,7 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_ACCESS_NETWORK = 1,
 
     /**
-     * This parameter is valid when the **ACCESS_NETWORK** option is enabled. It allows the alternative solution to be
-     * used to obtain the certificate revocation status if the preferred solution cannot be used due to network
-     * problems.
+     * 当ACCESS_NETWORK选项打开时有效，如果优选的校验方法由于网络原因导致无法校验证书状态，则采用备选的方案进行校验。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4493,9 +4471,7 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_FALLBACK_NO_PREFER = 2,
 
     /**
-     * This parameter is valid when the **ACCESS_NETWORK** option is enabled. It allows the locally configured CRL/OCSP
-     * response to be used to check the certificate revocation status if the online CRL/OCSP response cannot be used due
-     * to network problems.
+     * 当ACCESS_NETWORK选项打开时有效，如果在线获取CRL和OCSP响应都由于网络的原因导致无法校验证书状态，则采用本地设置的CRL和OCSP响应进行校验。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4506,12 +4482,9 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_FALLBACK_LOCAL = 3,
 
     /**
-     * This parameter is valid when the **ACCESS_NETWORK** option is enabled. If this capability is enabled, the system
-     * continues to check the revocation status of the intermediate certificate if the OCSP or CRL check of the leaf
-     * certificate fails. This capability is disabled by default.
+     * 当ACCESS_NETWORK选项打开时有效。如果开启了该能力，对终端实体证书OCSP或CRL校验失败，则会继续校验中间证书的吊销情况。默认关闭。
      *
-     * Note: This capability and **REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT** cannot be enabled at
-     * the same time.
+     * **注意**：当前能力与REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT不能同时开启。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4522,11 +4495,9 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE = 4,
 
     /**
-     * If this capability is enabled, the system checks the revocation status of the leaf certificate based on the local
-     * CRL. This capability is disabled by default.
+     * 如果开启了该能力，则会拿本地吊销列表校验终端实体证书的吊销情况。默认关闭。
      *
-     * Note: This capability and **REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE** cannot be enabled at the same
-     * time.
+     * **注意**：当前能力与REVOCATION_CHECK_OPTION_CHECK_INTERMEDIATE_CA_ONLINE不能同时开启。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4537,9 +4508,7 @@ declare namespace cert {
     REVOCATION_CHECK_OPTION_LOCAL_CRL_ONLY_CHECK_END_ENTITY_CERT = 5,
 
     /**
-     * If this capability is enabled, the system ignores the network unreachable error when obtaining the CRL or OCSP
-     * response over the network for revocation status check. This capability is disabled by default. By default, the
-     * network unreachable error may cause certificate chain validation failure.
+     * 如果开启了该能力，通过访问网络获取CRL或OCSP响应进行吊销状态的校验时，忽略网络不可达错误。默认关闭，默认情况下，网络不可达可能导致证书链校验失败。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4550,7 +4519,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the types of the online certificate chain validation policy.
+   * 表示证书链在线校验策略的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4560,7 +4529,7 @@ declare namespace cert {
    */
   enum ValidationPolicyType {
     /**
-     * Do not verify **sslHostname** or **dNSName** in the certificate. It is the default value.
+     * 默认值，不需要校验证书中的sslHostname或dNSName。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4571,7 +4540,7 @@ declare namespace cert {
     VALIDATION_POLICY_TYPE_X509 = 0,
 
     /**
-     * Verify **sslHostname** or **dNSName** in the certificate.
+     * Indicates need to verify the sslHostname field in the certificate.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4583,7 +4552,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the purposes, for which the key in the certificate is used.
+   * 表示证书中密钥用途的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4593,7 +4562,7 @@ declare namespace cert {
    */
   enum KeyUsageType {
     /**
-     * The certificate holder can use the private key contained in the certificate to generate a digital signature.
+     * 证书持有者可以用证书中包含的私钥进行数字签名操作。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4604,7 +4573,7 @@ declare namespace cert {
     KEYUSAGE_DIGITAL_SIGNATURE = 0,
 
     /**
-     * The certificate holder can use the key to verify a digital signature as part of a nonrepudiation service.
+     * Indicates certificate public key can be used for non repudiation operations, preventing the signer from denying their signature.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4615,7 +4584,7 @@ declare namespace cert {
     KEYUSAGE_NON_REPUDIATION = 1,
 
     /**
-     * The certificate holder can use the public key contained in the certificate for key encryption.
+     * Indicates certificate public key can be used for key encryption operations, for encrypting symmetric keys, etc.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4626,7 +4595,7 @@ declare namespace cert {
     KEYUSAGE_KEY_ENCIPHERMENT = 2,
 
     /**
-     * The certificate holder can use the public key contained in the certificate for data encryption.
+     * Indicates certificate public key can be used for data encryption operations, to encrypt data.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4637,7 +4606,7 @@ declare namespace cert {
     KEYUSAGE_DATA_ENCIPHERMENT = 3,
 
     /**
-     * The certificate holder can use the private key contained in the certificate to perform key agreement operations.
+     * Indicates certificate public key can be used for key negotiation operations, to negotiate shared keys.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4648,7 +4617,7 @@ declare namespace cert {
     KEYUSAGE_KEY_AGREEMENT = 4,
 
     /**
-     * The certificate holder can use the private key contained in the certificate to sign other certificates.
+     * Indicates certificate public key can be used for certificate signing operations.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4659,7 +4628,7 @@ declare namespace cert {
     KEYUSAGE_KEY_CERT_SIGN = 5,
 
     /**
-     * The certificate holder can use the private key contained in the certificate to sign CRLs.
+     * Indicates certificate public key can be used for signing operations on certificate revocation lists (CRLs).
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4670,7 +4639,7 @@ declare namespace cert {
     KEYUSAGE_CRL_SIGN = 6,
 
     /**
-     * The certificate holder can use the key to perform encryption operations only.
+     * Indicates the key can only be used for encryption operations and cannot be used for decryption operations.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4681,7 +4650,7 @@ declare namespace cert {
     KEYUSAGE_ENCIPHER_ONLY = 7,
 
     /**
-     * The certificate holder can use the key to perform decryption operations only.
+     * Indicates the key can only be used for decryption operations and cannot be used for encryption operations.
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4693,7 +4662,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the parameters for checking the certificate revocation status for a certificate chain.
+   * 表示证书链校验证书吊销状态的参数。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4703,7 +4672,7 @@ declare namespace cert {
    */
   interface RevocationCheckParameter {
     /**
-     * OCSP request extensions.
+     * 表示发送OCSP请求的扩展字段。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4714,10 +4683,9 @@ declare namespace cert {
     ocspRequestExtension?: Array<Uint8Array>;
 
     /**
-     * URI of the alternative server used to send OCSP requests. HTTP and HTTPS are supported. The specific
-     * configuration is determined via the negotiation with the server.
+     * 表示用于OCSP请求的备选服务器URI地址，支持HTTP/HTTPS，具体配置由与服务器协商决定。
      *
-     * Note: The URI takes effect only for the leaf certificate.
+     * **说明**：当前URI只针对实体证书生效。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4728,7 +4696,7 @@ declare namespace cert {
     ocspResponderURI?: string;
 
     /**
-     * Signing certificate used for verifying the signature of the OCSP response.
+     * 表示用于OCSP响应的签名校验的签名证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4739,7 +4707,7 @@ declare namespace cert {
     ocspResponderCert?: X509Cert;
 
     /**
-     * Alternative OCSP responses.
+     * 表示用于OCSP服务器响应的备选数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4750,9 +4718,9 @@ declare namespace cert {
     ocspResponses?: Uint8Array;
 
     /**
-     * Address used to download the CRLs.
+     * 表示用于CRL请求的备选下载地址。
      *
-     * Note: The URI takes effect only for the leaf certificate.
+     * **说明**：当前URI只针对实体证书生效。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4763,7 +4731,7 @@ declare namespace cert {
     crlDownloadURI?: string;
 
     /**
-     * A set of rules for obtaining the certificate revocation status.
+     * 表示证书吊销状态查询的策略组合。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4774,8 +4742,7 @@ declare namespace cert {
     options?: Array<RevocationCheckOptions>;
 
     /**
-     * Hash algorithm used to create a certificate ID during OCSP communication. The options **MD5**, **SHA1**,
-     * **SHA224**, **SHA256**, **SHA384**, and **SHA512** are supported. The default value is **SHA256**.
+     * 表示OCSP通信时创建证书ID使用的哈希算法。默认为SHA256，支持可配置MD5、SHA1、SHA224、SHA256、SHA384、SHA512算法。
      *
      * @default SHA256
      * @syscap SystemCapability.Security.Cert
@@ -4788,7 +4755,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the parameters for certificate chain validation.
+   * 表示证书链校验的参数。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4798,7 +4765,7 @@ declare namespace cert {
    */
   interface CertChainValidationParameters {
     /**
-     * Validity period of the certificate to validate.
+     * 表示需要校验证书的有效期。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4809,7 +4776,7 @@ declare namespace cert {
     date?: string;
 
     /**
-     * List of trusted anchors.
+     * 表示信任锚列表。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4820,8 +4787,7 @@ declare namespace cert {
     trustAnchors: Array<X509TrustAnchor>;
 
     /**
-     * Whether to use the prebuilt CA certificate to validate the certificate chain. **true** means yes; **false**
-     * otherwise.
+     * 表示是否使用系统预置CA证书校验证书链。true表示使用；false表示不使用。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -4833,11 +4799,10 @@ declare namespace cert {
     trustSystemCa?: boolean;
 
     /**
-     * Whether to allow the application to download the missing intermediate CA certificate from the network.
-     * **true** means yes; **false** otherwise. The default value is **false**.
-     * The download address is obtained from the certificate AIA extension. Only HTTP is supported. To use the network
-     * for download, you need to request the **ohos.permission.INTERNET** permission. For details about the permission
-     * configuration, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
+     * 表示是否允许尝试从网络下载缺失的中间CA证书。
+     * true表示允许；false表示不允许。默认值为false。
+     * 下载地址将从证书AIA扩展中获取，仅支持http，如需使用网络下载，需申请ohos.permission.INTERNET权限。配置方式请参见
+     * [声明权限](docroot://security/AccessToken/declare-permissions.md)。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -4848,7 +4813,7 @@ declare namespace cert {
     allowDownloadIntermediateCa?: boolean;
 
     /**
-     * Check whether the certificate is in a CRL.
+     * 表示需要校验证书是否在证书吊销列表中。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4859,7 +4824,7 @@ declare namespace cert {
     certCRLs?: Array<CertCRLCollection>;
 
     /**
-     * Parameters for checking the certificate revocation status online.
+     * 表示需要在线校验证证书吊销状态的参数对象。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4870,7 +4835,7 @@ declare namespace cert {
     revocationCheckParam?: RevocationCheckParameter;
 
     /**
-     * Type of the policy for certificate validation.
+     * 表示需要校验证书的策略类型。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4881,7 +4846,7 @@ declare namespace cert {
     policy?: ValidationPolicyType;
 
     /**
-     * Host name in the certificate to be verified. This parameter must be used with **policy** together.
+     * 表示需要校验证书中主机名，与policy配合使用。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4892,7 +4857,7 @@ declare namespace cert {
     sslHostname?: string;
 
     /**
-     * Usage of the key in the certificate to be validated.
+     * 表示需要校验证书中的密钥用途。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4904,7 +4869,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the return value of certificate chain validation.
+   * 表示证书链校验的返回值。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4914,7 +4879,7 @@ declare namespace cert {
    */
   interface CertChainValidationResult {
     /**
-     * Trust anchor.
+     * 表示信任锚。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4925,7 +4890,7 @@ declare namespace cert {
     readonly trustAnchor: X509TrustAnchor;
 
     /**
-     * Entity certificate.
+     * 表示实体证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4937,7 +4902,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the parameters for building a certificate chain.
+   * 用于指定证书链创建参数。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4947,7 +4912,7 @@ declare namespace cert {
    */
   interface CertChainBuildParameters {
     /**
-     * Filter criteria.
+     * 指定过滤条件。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4958,7 +4923,7 @@ declare namespace cert {
     certMatchParameters: X509CertMatchParameters;
 
     /**
-     * Maximum length of the CA certificate in the certificate chain.
+     * 指定最终证书链中CA证书的最大长度。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4969,7 +4934,7 @@ declare namespace cert {
     maxLength?: int;
 
     /**
-     * Parameters for certificate chain validation.
+     * 指定验证条件。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -4981,7 +4946,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the certificate chain build result.
+   * 用于指定证书链创建结果。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -4991,7 +4956,7 @@ declare namespace cert {
    */
   interface CertChainBuildResult {
     /**
-     * Certificate chain object created.
+     * 生成的证书链对象。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5002,7 +4967,7 @@ declare namespace cert {
     readonly certChain: X509CertChain;
 
     /**
-     * Result of the certificate chain validation.
+     * 指定最终证书链的最大长度。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5014,7 +4979,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the Cryptographic Message Syntax (CMS) message types.
+   * 表示Cms内容类型的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5024,7 +4989,7 @@ declare namespace cert {
    */
   enum CmsContentType {
     /**
-     * Signature data.
+     * 签名数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5035,7 +5000,7 @@ declare namespace cert {
     SIGNED_DATA = 0,
 
     /**
-     * Encapsulated data.
+     * 封装数据。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5047,7 +5012,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the CMS message formats.
+   * 表示Cms内容数据格式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5057,7 +5022,7 @@ declare namespace cert {
    */
   enum CmsContentDataFormat {
     /**
-     * Binary.
+     * 表示二进制数据格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5068,7 +5033,7 @@ declare namespace cert {
     BINARY = 0,
 
     /**
-     * Text.
+     * 表示文本数据格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5080,7 +5045,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the CMS signature formats.
+   * 表示Cms签名格式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5090,7 +5055,7 @@ declare namespace cert {
    */
   enum CmsFormat {
     /**
-     * Privacy-Enhanced Mail (PEM) format.
+     * PEM格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5101,7 +5066,7 @@ declare namespace cert {
     PEM = 0,
 
     /**
-     * Distinguished Encoding Rules (DER) format.
+     * DER格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5113,7 +5078,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the private key information.
+   * 表示私钥信息。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5123,7 +5088,7 @@ declare namespace cert {
    */
   interface PrivateKeyInfo {
     /**
-     * Encrypted or unencrypted private key in PEM or DER format.
+     * 未加密或加密的私钥，支持PEM或DER格式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5134,7 +5099,7 @@ declare namespace cert {
     key: string | Uint8Array;
 
     /**
-     * Password of the private key, if the private key is encrypted.
+     * 私钥的密码，如果私钥是加密的。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5146,7 +5111,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the RSA CMS signature padding modes.
+   * 表示RSA类型CMS签名填充方式的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5156,7 +5121,7 @@ declare namespace cert {
    */
   enum CmsRsaSignaturePadding {
     /**
-     * PKCS #1 padding mode.
+     * PKCS1填充方式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5167,7 +5132,7 @@ declare namespace cert {
     PKCS1_PADDING = 0,
 
     /**
-     * PKCS #1 PSS padding mode.
+     * PKCS1 PSS填充方式。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5179,7 +5144,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the configuration of the CMS signer.
+   * 表示Cms签名者的配置选项。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5189,8 +5154,7 @@ declare namespace cert {
    */
   interface CmsSignerConfig {
     /**
-     * Message digest algorithm, for example, **SHA384**. Currently, **SHA1**, **SHA256**, **SHA384**, and **SHA512**
-     * are supported.
+     * 消息摘要算法的名称，例如 "SHA384", 当前支持"SHA1"、"SHA256"、"SHA384"、"SHA512"。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5201,10 +5165,9 @@ declare namespace cert {
     mdName: string;
 
     /**
-     * Padding mode for an RSA signature. The default value is **PKCS1_PADDING**.
-     * When this parameter is set to **PKCS1_PSS_PADDING**, **mdName** must be set to **SHA256**, **SHA384**, or
-     * **SHA512**.
-     * **Note**: This parameter is valid only when the private key type of the signature is RSA.
+     * RSA 签名填充方式。默认值为：PKCS1_PADDING。
+     * 当设置为 PKCS1_PSS_PADDING 时，mdName 必须为 "SHA256"、"SHA384" 或 "SHA512"。
+     * **说明**：仅当签名者私钥类型为RSA时有效。
      *
      * @default CmsRsaSignaturePadding.PKCS1_PADDING
      * @syscap SystemCapability.Security.Cert
@@ -5216,7 +5179,7 @@ declare namespace cert {
     rsaSignaturePadding?: CmsRsaSignaturePadding;
 
     /**
-     * Whether to add a certificate. The default value is **true**. **true**: yes; **false**: no.
+     * 是否添加证书。默认为true。true为需要，false为不需要。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -5228,7 +5191,7 @@ declare namespace cert {
     addCert?: boolean;
 
     /**
-     * Whether to add the signature attribute. The default value is **true**. **true**: yes; **false**: no.
+     * 是否添加签名属性。默认为true。true为需要，false为不需要。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -5240,8 +5203,7 @@ declare namespace cert {
     addAttr?: boolean;
 
     /**
-     * Whether to add the SMIME capability to the CMS object. The default value is **true**. **true**: yes; **false**:
-     * no.
+     * 是否将SMIME能力添加到Cms对象。默认为true。true为需要，false为不需要。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -5254,7 +5216,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the digest algorithms of the CMS KeyAgree type.
+   * CMS KeyAgree类型接收者摘要算法的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5264,7 +5226,7 @@ declare namespace cert {
    */
   enum CmsKeyAgreeRecipientDigestAlgorithm {
     /**
-     * SHA-256.
+     * SHA256 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5275,7 +5237,7 @@ declare namespace cert {
     SHA256 = 0,
 
     /**
-     * SHA-384.
+     * SHA384 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5286,7 +5248,7 @@ declare namespace cert {
     SHA384 = 1,
 
     /**
-     * SHA-512.
+     * SHA512 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5298,7 +5260,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the symmetric algorithms of the CMS recipient.
+   * CMS接收者对称算法的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5308,7 +5270,7 @@ declare namespace cert {
    */
   enum CmsRecipientEncryptionAlgorithm {
     /**
-     * AES_128_CBC.
+     * AES_128_CBC 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5319,7 +5281,7 @@ declare namespace cert {
     AES_128_CBC = 0,
 
     /**
-     * AES_192_CBC.
+     * AES_192_CBC 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5330,7 +5292,7 @@ declare namespace cert {
     AES_192_CBC = 1,
 
     /**
-     * AES_256_CBC.
+     * AES_256_CBC 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5341,7 +5303,7 @@ declare namespace cert {
     AES_256_CBC = 2,
 
     /**
-     * AES_128_GCM.
+     * AES_128_GCM 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5352,7 +5314,7 @@ declare namespace cert {
     AES_128_GCM = 3,
 
     /**
-     * AES_192_GCM.
+     * AES_192_GCM 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5363,7 +5325,7 @@ declare namespace cert {
     AES_192_GCM = 4,
 
     /**
-     * AES_256_GCM.
+     * AES_256_GCM 算法
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5375,7 +5337,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents KeyTrans recipient information encapsulated in CMS data.
+   * CMS封装数据的KeyTrans接收方信息。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5385,7 +5347,7 @@ declare namespace cert {
    */
   interface CmsKeyTransRecipientInfo {
     /**
-     * RSA certificate.
+     * RSA证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5397,7 +5359,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents KeyAgree recipient information encapsulated in CMS data.
+   * CMS封装数据的KeyAgree接收方信息。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5407,7 +5369,7 @@ declare namespace cert {
    */
   interface CmsKeyAgreeRecipientInfo {
     /**
-     * RSA certificate.
+     * RSA证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5418,7 +5380,7 @@ declare namespace cert {
     cert: X509Cert;
 
     /**
-     * KDF digest algorithm. The default value is **SHA256**.
+     * KDF摘要算法，默认为SHA256。
      *
      * @default CmsKeyAgreeRecipientDigestAlgorithm.SHA256
      * @syscap SystemCapability.Security.Cert
@@ -5431,11 +5393,11 @@ declare namespace cert {
   }
 
   /**
-   * Represents recipient information encapsulated in CMS data.
+   * CMS封装数据的接收者信息。
    *
-   * > * * Note: * *
+   * > **说明：**
    * >
-   * > At least one receiver needs to be set.
+   * > 至少需要设置一个接收者。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5445,7 +5407,7 @@ declare namespace cert {
    */
   interface CmsRecipientInfo {
     /**
-     * KeyTrans recipient information.
+     * keyTrans接收者信息。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5455,7 +5417,7 @@ declare namespace cert {
      */
     keyTransInfo?: CmsKeyTransRecipientInfo;
     /**
-     * keyAgree recipient information.
+     * keyAgree接收者信息。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5467,7 +5429,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the configuration for generating the CMS signing result.
+   * 表示生成Cms签名结果的配置选项。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5477,7 +5439,7 @@ declare namespace cert {
    */
   interface CmsGeneratorOptions {
     /**
-     * Format of the content. The default value is **CmsContentDataFormat.BINARY**.
+     * 内容数据的格式。默认为CmsContentDataFormat.BINARY。
      *
      * @default CmsContentDataFormat.BINARY
      * @syscap SystemCapability.Security.Cert
@@ -5489,7 +5451,7 @@ declare namespace cert {
     contentDataFormat?: CmsContentDataFormat;
 
     /**
-     * Format of the CMS data generated. The default value is **DER**.
+     * Cms最终数据的输出格式。默认为DER。
      *
      * @default CmsFormat.DER
      * @syscap SystemCapability.Security.Cert
@@ -5501,8 +5463,7 @@ declare namespace cert {
     outFormat?: CmsFormat;
 
     /**
-     * Whether the final CMS data does not contain the raw data. The default value is **false**. **true**: raw data is
-     * contained; **false**: raw data is not contained.
+     * Cms最终数据是否不包含原始数据。默认为false。true为包含，false为不包含。
      *
      * @default false
      * @syscap SystemCapability.Security.Cert
@@ -5515,14 +5476,12 @@ declare namespace cert {
   }
 
   /**
-   * Provides APIs for generating the messages in CMS format.
+   * CmsGenerator对象用于生成CMS（Cryptographic Message Syntax）格式的消息。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > PKCS #7 is a standard syntax for storing signed or encrypted data. CMS is an extension of PKCS #7. PKCS#7
-   * > supports data types including data, signature data, envelope data,
-   * > > signature and envelope data, message digest data, and encrypted data. It is often used to protect data
-   * > integrity and confidentiality.
+   * > PKCS#7是用于存储签名或加密数据的标准语法。注意CMS是PKCS#7的扩展，PKCS#7支持的数据类型包括数据、签名数据、信封数据、
+   * > > 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5532,11 +5491,11 @@ declare namespace cert {
    */
   interface CmsGenerator {
     /**
-     * Adds signer information to the CMS whose content type is **SIGNED_DATA**.
+     * 用于为内容类型为SIGNED_DATA的CMS添加签名者信息。
      *
-     * @param { X509Cert } cert - X.509 certificate.
-     * @param { PrivateKeyInfo } keyInfo - Private key information.
-     * @param { CmsSignerConfig } config - Signer configuration.
+     * @param { X509Cert } cert - 指定X509证书。
+     * @param { PrivateKeyInfo } keyInfo - 指定私钥信息。
+     * @param { CmsSignerConfig } config - 指定签名者选项。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5554,13 +5513,11 @@ declare namespace cert {
     addSigner(cert: X509Cert, keyInfo: PrivateKeyInfo, config: CmsSignerConfig): void;
 
     /**
-     * Adds a CMS certificate of the **SIGNED_DATA** content type, for example, the issuer certificate of a signing
-     * certificate.
+     * 用于添加内容类型为SIGNED_DATA的CMS的证书，例如签名证书的颁发者证书。
      *
-     * If the **addSigner** API is not called and only the certificate is added, the generated CMS signature data
-     * contains only the certificate.
+     * 如果未调用addSigner接口，并且仅添加证书后，生成的CMS签名数据将只包含证书。
      *
-     * @param { X509Cert } cert - X.509 certificate to add.
+     * @param { X509Cert } cert - 要添加的X509证书。
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5577,12 +5534,11 @@ declare namespace cert {
     addCert(cert: X509Cert): void;
 
     /**
-     * Sets the encryption algorithm for the CMS whose content type is **ENVELOPED_DATA**.
+     * 为内容类型为ENVELOPED_DATA的CMS设置加密算法。
      *
-     * This method should be called immediately after the **CmsGenerator** of the **ENVELOPED_DATA** type is created. If
-     * this method is not called, AES_256_GCM is used as the encryption algorithm by default.
+     * 该方法应在创建ENVELOPED_DATA类型的CmsGenerator后立即调用。如果未调用此方法，则默认使用AES_256_GCM作为加密算法。
      *
-     * @param { CmsRecipientEncryptionAlgorithm } algorithm - Encryption algorithm used by the CMS to encapsulate data.
+     * @param { CmsRecipientEncryptionAlgorithm } algorithm - 用于CMS封装数据的加密算法。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5598,13 +5554,12 @@ declare namespace cert {
     setRecipientEncryptionAlgorithm(algorithm: CmsRecipientEncryptionAlgorithm): void;
 
     /**
-     * Adds recipient information to a CMS with the content type of **ENVELOPED_DATA**. This API uses a promise to
-     * return the result.
+     * 为内容类型为ENVELOPED_DATA的CMS添加接收者信息。使用Promise异步回调。
      *
-     * At least one recipient needs to be set.
+     * 该方法至少需要设置一个接收者。
      *
-     * @param { CmsRecipientInfo } recipientInfo - Recipient information.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { CmsRecipientInfo } recipientInfo - 接收者信息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5622,11 +5577,10 @@ declare namespace cert {
     addRecipientInfo(recipientInfo: CmsRecipientInfo): Promise<void>;
 
     /**
-     * Obtains the CMS data, for example, the CMS signature data or CMS encapsulated data. This API uses a promise to
-     * return the result.
+     * 用于获取CMS最终数据，例如CMS签名数据或CMS封装数据。使用Promise异步回调。
      *
-     * @param { Uint8Array } data - Data to be operated.
-     * @param { CmsGeneratorOptions } [options] - Configuration of the CMS operation.
+     * @param { Uint8Array } data - Cms操作的内容。
+     * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
      * @returns { Promise<Uint8Array | string> } Promise used to return the CMS data.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -5644,11 +5598,10 @@ declare namespace cert {
     doFinal(data: Uint8Array, options?: CmsGeneratorOptions): Promise<Uint8Array | string>;
 
     /**
-     * Obtains the CMS data, for example, the CMS signature data or CMS encapsulated data. This API returns the result
-     * synchronously.
+     * 用于获取CMS最终数据，例如CMS签名数据或CMS封装数据。（同步方法）。
      *
-     * @param { Uint8Array } data - Data to be operated.
-     * @param { CmsGeneratorOptions } [options] - Configuration of the CMS operation.
+     * @param { Uint8Array } data - Cms操作的内容。
+     * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
      * @returns { Uint8Array | string } CMS data generated.
      * @throws { BusinessError } 401 - invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -5666,13 +5619,11 @@ declare namespace cert {
     doFinalSync(data: Uint8Array, options?: CmsGeneratorOptions): Uint8Array | string;
 
     /**
-     * Obtains the encrypted content data of the CMS whose content type is **ENVELOPED_DATA**. This API uses a promise
-     * to return the result.
+     * 用于获取内容类型为ENVELOPED_DATA的CMS的加密内容数据。使用Promise异步回调。
      *
-     * Obtains the encrypted content data if the **CmsGenerator** of the **ENVELOPED_DATA** type is created and data
-     * separation is used to generate CMS encapsulated data.
+     * 如果创建了类型为ENVELOPED_DATA的CmsGenerator并使用了数据分离来生成CMS封装数据，使用此方法来获取加密的内容数据。
      *
-     * @returns { Promise<Uint8Array> } Promise used to return the encrypted data.
+     * @returns { Promise<Uint8Array> } Promise对象, 返回加密的数据内容。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5687,10 +5638,10 @@ declare namespace cert {
   }
 
   /**
-   * Creates a **CmsGenerator** object.
+   * 表示创建CmsGenerator对象。
    *
-   * @param { CmsContentType } contentType - CMS message type.
-   * @returns { CmsGenerator } **CmsGenerator** object created.
+   * @param { CmsContentType } contentType - 指定CMS内容类型。
+   * @returns { CmsGenerator } CmsGenerator对象。
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 19020001 - memory malloc failed.
@@ -5706,7 +5657,7 @@ declare namespace cert {
   function createCmsGenerator(contentType: CmsContentType): CmsGenerator;
 
   /**
-   * Represents CMS verification configuration.
+   * CMS验证的配置。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5716,8 +5667,8 @@ declare namespace cert {
    */
   interface CmsVerificationConfig {
     /**
-     * Trust certificate.
-     * Note: You need to configure the trust certificates of all signers.
+     * 信任证书。
+     * **说明**：需要配置所有签名者的信任证书。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5728,7 +5679,7 @@ declare namespace cert {
     trustCerts: Array<X509Cert>;
 
     /**
-     * Signing certificate. This parameter is left empty by default.
+     * 签名证书。默认为空。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5739,8 +5690,7 @@ declare namespace cert {
     signerCerts?: Array<X509Cert>;
 
     /**
-     * Content data. If the detached mode is used, you need to specify the plaintext data. This parameter can be left
-     * empty in attached mode.
+     * 内容数据，如果是detached模式，则需要指定明文数据。attached模式可以不传。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5751,7 +5701,7 @@ declare namespace cert {
     contentData?: Uint8Array;
 
     /**
-     * Format of the content. The default value is **CmsContentDataFormat.BINARY**.
+     * 内容数据的格式。默认为CmsContentDataFormat.BINARY。
      *
      * @default CmsContentDataFormat.BINARY
      * @syscap SystemCapability.Security.Cert
@@ -5764,7 +5714,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents CMS decapsulation configuration.
+   * CMS解封装的配置。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5774,7 +5724,7 @@ declare namespace cert {
    */
   interface CmsEnvelopedDecryptionConfig {
     /**
-     * Private key parameter. This parameter is left empty by default.
+     * 私钥参数。默认为空。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5785,7 +5735,7 @@ declare namespace cert {
     keyInfo?: PrivateKeyInfo;
 
     /**
-     * Public key certificate. This parameter is left empty by default.
+     * 公钥证书。默认为空。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5796,8 +5746,7 @@ declare namespace cert {
     cert?: X509Cert;
 
     /**
-     * Encrypted content data used when the CMS does not contain the specified data. This parameter is left empty by
-     * default.
+     * 加密的内容数据，如果CMS不包含指定数据。默认为空。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5808,7 +5757,7 @@ declare namespace cert {
     encryptedContentData?: Uint8Array;
 
     /**
-     * Format of the content. The default value is **CmsContentDataFormat.BINARY**.
+     * 内容数据的格式。默认为CmsContentDataFormat.BINARY。
      *
      * @default CmsContentDataFormat.BINARY
      * @syscap SystemCapability.Security.Cert
@@ -5821,7 +5770,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates certificate types obtained from CMS.
+   * 从CMS中获取证书不同类型的枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5831,7 +5780,7 @@ declare namespace cert {
    */
   enum CmsCertType {
     /**
-     * Signer certificates.
+     * 签名者证书
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5842,7 +5791,7 @@ declare namespace cert {
     SIGNER_CERTS = 0,
 
     /**
-     * All certificates.
+     * 全部证书
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -5854,14 +5803,12 @@ declare namespace cert {
   }
 
   /**
-   * Verifies and decapsulates signed and encapsulated messages in CMS format.
+   * CmsParser对象用于对已签名跟封装的CMS（Cryptographic Message Syntax）格式的消息进行验签和解封装。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > PKCS #7 is a standard syntax for storing signed or encrypted data. CMS is an extension of PKCS #7. PKCS#7
-   * > supports data types including data, signature data, envelope data,
-   * > > signature and envelope data, message digest data, and encrypted data. It is often used to protect data
-   * > integrity and confidentiality.
+   * > PKCS#7是用于存储签名或加密数据的标准语法。注意CMS是PKCS#7的扩展，PKCS#7支持的数据类型包括数据、签名数据、信封数据、
+   * > > 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -5871,16 +5818,20 @@ declare namespace cert {
    */
   interface CmsParser {
     /**
-     * Converts data in CMS format into CMS objects. This API uses a promise to return the result.
+     * 用于把CMS格式的数据转成CMS对象。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > CMS data in PEM and DER formats is supported. **string** corresponds to the PEM format, and **Uint8Array**
-     * > corresponds to the DER format.
+     * > 支持PEM跟DER格式的CMS数据。string对应PEM格式；Uint8Array对应DER格式数据。
      *
-     * @param { Uint8Array | string } data - CMS data content.
-     * @param { CmsFormat } cmsFormat - Input CMS format.
-     * @returns { Promise<void> } Promise that returns no value.
+     * > **说明**
+     * >
+     * > 支持PEM和DER格式的CMS数据。**string**对应PEM格式，**Uint8Array**
+     * > 对应于DER格式。
+     *
+     * @param { Uint8Array | string } data - CMS数据内容。
+     * @param { CmsFormat } cmsFormat - 指定输入的CMS格式。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5897,9 +5848,9 @@ declare namespace cert {
     setRawData(data: Uint8Array | string, cmsFormat: CmsFormat): Promise<void>;
 
     /**
-     * Obtains the CMS data type. Currently, signature data and decapsulated data can be obtained.
+     * 用于获取CMS的数据类型。当前支持获取签名数据、解封装数据两种类型。
      *
-     * @returns { CmsContentType } CMS data type.
+     * @returns { CmsContentType } 返回CMS数据类型。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5913,10 +5864,10 @@ declare namespace cert {
     getContentType(): CmsContentType;
 
     /**
-     * Verifies the CMS of the **Signed_DATA** content type. This API uses a promise to return the result.
+     * 用于验证Signed_DATA内容类型的CMS。使用Promise异步回调。
      *
-     * @param { CmsVerificationConfig } config - CMS signature verification configuration.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { CmsVerificationConfig } config - CMS验签配置内容。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5937,9 +5888,9 @@ declare namespace cert {
     verifySignedData(config: CmsVerificationConfig): Promise<void>;
 
     /**
-     * Obtains the plaintext data from CMS data of the signature type. This API uses a promise to return the result.
+     * 用于从签名类型的CMS数据中获取明文数据。使用Promise异步回调。
      *
-     * @returns { Promise<Uint8Array> } Promise used to return the original CMS data.
+     * @returns { Promise<Uint8Array> } Promise对象，返回CMS原始数据。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5953,11 +5904,10 @@ declare namespace cert {
     getContentData(): Promise<Uint8Array>;
 
     /**
-     * Obtains the certificate from CMS data of the signature type by passing enumerated values. The signer certificate
-     * or all certificates can be obtained. This API uses a promise to return the result.
+     * 传入枚举值，用于从签名类型的CMS数据中获取证书。当前支持获取签名者证书或全部证书。使用Promise异步回调。
      *
-     * @param { CmsCertType } type - Type of the certificate obtained from the CMS.
-     * @returns { Promise<Array<X509Cert>> } Promise used to return a certificate set.
+     * @param { CmsCertType } type - 从cms中获取证书的类型。
+     * @returns { Promise<Array<X509Cert>> } Promise对象，返回证书集合。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5973,10 +5923,10 @@ declare namespace cert {
     getCerts(type: CmsCertType): Promise<Array<X509Cert>>;
 
     /**
-     * Verifies the CMS of the **Enveloped_DATA** content type. This API uses a promise to return the result.
+     * 用于验证Enveloped_DATA内容类型的CMS。使用Promise异步回调。
      *
-     * @param { CmsEnvelopedDecryptionConfig } config - CMS decapsulation configuration content.
-     * @returns { Promise<Uint8Array> } Promise used to return the decapsulation result.
+     * @param { CmsEnvelopedDecryptionConfig } config - CMS解封装配置内容。
+     * @returns { Promise<Uint8Array> } Promise对象，返回解封装结果。
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
      *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -5994,9 +5944,9 @@ declare namespace cert {
   }
 
   /**
-   * Creates a **CmsParser** object.
+   * 表示创建CmsParser对象。
    *
-   * @returns { CmsParser } CmsParser object.
+   * @returns { CmsParser } CmsParser对象。
    * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -6010,10 +5960,9 @@ declare namespace cert {
   function createCmsParser(): CmsParser;
 
   /**
-   * Defines the CSR attribute representation.
+   * 定义CSR属性表示。
    *
-   * CSR attribute field. Currently, only character string attribute fields are supported. The attribute value added to
-   * the CSR is encoded in UTF-8 format. The common type is challengePassword.
+   * CSR属性字段，当前仅支持字符串类型的属性字段，属性值添加到CSR中编码为utf-8。常见的type为challengePassword。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6023,7 +5972,7 @@ declare namespace cert {
    */
   interface CsrAttribute {
     /**
-     * Attribute type defined in PKCS#9.
+     * openssl指定的扩展类型。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6034,7 +5983,7 @@ declare namespace cert {
     type: string;
 
     /**
-     * Attribute value.
+     * 属性值。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6046,20 +5995,17 @@ declare namespace cert {
   }
 
   /**
-   * Configuration parameters for generating a CSR using the RSA private key, including the subject name, digest
-   * algorithm, attribute, and output format.
+   * RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、输出格式等。
    *
-   * > * * Note: * *
+   * > **说明：**
    * >
-   * > - subject is an object of the Name type defined by X509.
+   * > - subject是X509定义的Name类型的对象。
    * >
-   * > - mdName indicates the digest algorithm name. Currently, SHA1, SHA256, SHA384, and SHA512 are supported.
+   * > - mdName是摘要算法名，当前支持SHA1、SHA256、SHA384、SHA512。
    * >
-   * > - attributes is an optional parameter that specifies the attribute types and attribute values specified in PKCS#9
-   *  to generate a CSR. For example, challengePassword.
+   * > - attributes是可选参数，指定openssl中规定的扩展类型跟扩展值生成CSR。例如challengePassword、keyUsage等。
    * >
-   * > - outFormat specifies the format of the output CSR. If the format is not specified, the PEM format is used by
-   * default.
+   * > - outFormat指定输出CSR的格式，若不指定默认为PEM格式。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6069,7 +6015,7 @@ declare namespace cert {
    */
   interface CsrGenerationConfig {
     /**
-     * Provides APIs for managing the **X500DistinguishedName** instance.
+     * X509定义的Name类型的对象。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6080,7 +6026,7 @@ declare namespace cert {
     subject: X500DistinguishedName;
 
     /**
-     * Message digest algorithm name.
+     * 摘要算法名。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6091,7 +6037,7 @@ declare namespace cert {
     mdName: string;
 
     /**
-     * A collection of attributes.
+     * 属性的集合。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6102,7 +6048,7 @@ declare namespace cert {
     attributes?: Array<CsrAttribute>;
 
     /**
-     * Output format.
+     * 输出类型。
      *
      * @default EncodingBaseFormat.PEM
      * @syscap SystemCapability.Security.Cert
@@ -6115,10 +6061,10 @@ declare namespace cert {
   }
 
   /**
-   * Generates a CSR.
+   * 表示使用指定的RSA私钥，传入主体、扩展、摘要算法、输出格式等配置参数去生成CSR。
    *
-   * @param { PrivateKeyInfo } keyInfo - Private key information.
-   * @param { CsrGenerationConfig } config - Configuration for generating the CSR.
+   * @param { PrivateKeyInfo } keyInfo - 包含私钥跟口令的配置参数。
+   * @param { CsrGenerationConfig } config - 包含生成CSR的配置参数。
    * @returns { string | Uint8Array } CSR generated.
    * @throws { BusinessError } 401 - invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -6136,7 +6082,7 @@ declare namespace cert {
   function generateCsr(keyInfo: PrivateKeyInfo, config: CsrGenerationConfig): string | Uint8Array;
 
   /**
-   * Enumerates password-based encryption scheme (PBES) algorithms.
+   * 表示基于密码的加密算法枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6146,7 +6092,7 @@ declare namespace cert {
    */
   enum PbesEncryptionAlgorithm {
     /**
-     * AES-128-CBC.
+     * AES-128-CBC加密算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6157,7 +6103,7 @@ declare namespace cert {
     AES_128_CBC = 0,
 
     /**
-     * AES-192-CBC.
+     * AES-192-CBC加密算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6168,7 +6114,7 @@ declare namespace cert {
     AES_192_CBC = 1,
 
     /**
-     * AES-256-CBC.
+     * AES-256-CBC加密算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6180,7 +6126,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates PBES algorithm parameters. Currently, only PBES2 is supported.
+   * 表示基于密码的加密算法参数，当前仅支持PBES2。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6190,8 +6136,8 @@ declare namespace cert {
    */
   interface PbesParams {
     /**
-     * Length of the salt value. The default value is **16**, and the minimum value is **8**.
-     * The value must be an integer greater than or equal to 8.
+     * 表示盐值长度。默认为16，最小值为8。
+     * 取值应为≥8的整数。
      *
      * @default 16
      * @syscap SystemCapability.Security.Cert
@@ -6203,8 +6149,8 @@ declare namespace cert {
     saltLen?: int;
 
     /**
-     * Number of iterations. The default value is **2048**.
-     * The value must be a positive integer.
+     * 表示迭代次数。默认为2048。
+     * 取值应为正整数。
      *
      * @default 2048
      * @syscap SystemCapability.Security.Cert
@@ -6216,7 +6162,7 @@ declare namespace cert {
     iterations?: int;
 
     /**
-     * PBES algorithm type. The default value is **AES_256_CBC**.
+     * 表示PBES加密算法类型。默认为AES_256_CBC。
      *
      * @default PbesEncryptionAlgorithm.AES_256_CBC
      * @syscap SystemCapability.Security.Cert
@@ -6229,7 +6175,7 @@ declare namespace cert {
   }
 
   /**
-   * Enumerates the PKCS #12 MAC digest algorithms.
+   * 表示PKCS12 MAC摘要算法枚举。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6239,7 +6185,7 @@ declare namespace cert {
    */
   enum Pkcs12MacDigestAlgorithm {
     /**
-     * SHA-256.
+     * SHA256摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6250,7 +6196,7 @@ declare namespace cert {
     SHA256 = 0,
 
     /**
-     * SHA-384.
+     * SHA384摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6261,7 +6207,7 @@ declare namespace cert {
     SHA384 = 1,
 
     /**
-     * SHA-512.
+     * SHA512摘要算法。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6273,7 +6219,7 @@ declare namespace cert {
   }
 
   /**
-   * Represents the configuration for creating .p12 files.
+   * 表示创建P12文件的配置。
    *
    * @syscap SystemCapability.Security.Cert
    * @crossplatform
@@ -6283,7 +6229,7 @@ declare namespace cert {
    */
   interface Pkcs12CreationConfig {
     /**
-     * Password of the .p12 file. The minimum length is 4.
+     * 表示P12文件的密码。最小长度为4。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6294,7 +6240,7 @@ declare namespace cert {
     password: string;
 
     /**
-     * Algorithm parameters for encrypting the private key.
+     * 表示私钥加密的算法参数。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6305,8 +6251,7 @@ declare namespace cert {
     keyEncParams?: PbesParams;
 
     /**
-     * Whether to encrypt the certificate. The default value is **true**. **true** means to encrypt the certificate;
-     * **false** otherwise.
+     * 表示是否加密证书。默认为true。true为加密，false为不加密。
      *
      * @default true
      * @syscap SystemCapability.Security.Cert
@@ -6318,7 +6263,7 @@ declare namespace cert {
     encryptCert?: boolean;
 
     /**
-     * Algorithm parameters for encrypting the certificate.
+     * 表示证书加密的算法参数。
      *
      * @syscap SystemCapability.Security.Cert
      * @crossplatform
@@ -6329,8 +6274,8 @@ declare namespace cert {
     certEncParams?: PbesParams;
 
     /**
-     * Length of the salt value of the P12 MAC. The minimum value is **8**, and the default value is **16**.
-     * The value must be an integer greater than or equal to 8.
+     * 表示P12 MAC的盐值长度。最小值为8，默认为16。
+     * 取值应为≥8的整数。
      *
      * @default 16
      * @syscap SystemCapability.Security.Cert
@@ -6342,8 +6287,8 @@ declare namespace cert {
     macSaltLen?: int;
 
     /**
-     * Number of P12 MAC iterations. The default value is **2048**.
-     * The value must be a positive integer.
+     * 表示P12 MAC的迭代次数。默认为2048。
+     * 取值应为正整数。
      *
      * @default 2048
      * @syscap SystemCapability.Security.Cert
@@ -6355,7 +6300,7 @@ declare namespace cert {
     macIterations?: int;
 
     /**
-     * Enumerates the P12 MAC digest algorithms. The default value is **SHA256**.
+     * 表示P12 MAC的摘要算法。默认为SHA256。
      *
      * @default Pkcs12MacDigestAlgorithm.SHA256
      * @syscap SystemCapability.Security.Cert
@@ -6368,11 +6313,11 @@ declare namespace cert {
   }
 
   /**
-   * Creates PKCS #12 data. This API uses a promise to return the result synchronously.
+   * 表示创建Pkcs12数据，同步返回结果。
    *
-   * @param { Pkcs12Data } data - P12 data object to be packed.
-   * @param { Pkcs12CreationConfig } config - Configuration for creating the P12 file.
-   * @returns { Uint8Array } P12 file created, in DER format.
+   * @param { Pkcs12Data } data - 要打包的P12数据对象。
+   * @param { Pkcs12CreationConfig } config - P12文件的创建配置。
+   * @returns { Uint8Array } 表示创建的P12文件，DER格式。
    * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
@@ -6390,11 +6335,11 @@ declare namespace cert {
   function createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array;
 
   /**
-   * Creates PKCS #12 data. This API uses a promise to return the result.
+   * 表示创建Pkcs12数据。使用Promise异步回调。
    *
-   * @param { Pkcs12Data } data - PKCS #12 data object to be packed.
-   * @param { Pkcs12CreationConfig } config - Configuration for creating the PKCS #12 file.
-   * @returns { Promise<Uint8Array> } Promise used to return the result. PKCS #12 file created, in DER format.
+   * @param { Pkcs12Data } data - 要打包的Pkcs12数据对象。
+   * @param { Pkcs12CreationConfig } config - Pkcs12文件的创建配置。
+   * @returns { Promise<Uint8Array> } Promise对象。表示创建的Pkcs12文件，DER格式。
    * @throws { BusinessError } 19020001 - memory malloc failed.
    * @throws { BusinessError } 19020002 - runtime error. Possible causes: 1. Memory copy failed;
    *     <br>2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C.
