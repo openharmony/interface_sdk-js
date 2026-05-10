@@ -7171,8 +7171,8 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      *     Possible cause: The internal services of the window are not started normally.
      * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
      * @atomicservice
+     * @stagemodelonly
      * @since 23 dynamic&static
      * @test
      */
@@ -7361,7 +7361,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onUiExtensionSecureLimitChange(callback: Callback<boolean>): void;
 
@@ -7395,7 +7395,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offUiExtensionSecureLimitChange(callback?: Callback<boolean>): void;
 
@@ -8148,7 +8148,7 @@ declare namespace window {
      *     Function keyboardWillShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onKeyboardWillShow(callback: Callback<KeyboardInfo>): void;
 
@@ -8180,7 +8180,7 @@ declare namespace window {
      *     Function keyboardWillShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offKeyboardWillShow(callback?: Callback<KeyboardInfo>): void;
 
@@ -8211,7 +8211,7 @@ declare namespace window {
      *     Function keyboardDidShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onKeyboardDidShow(callback: Callback<KeyboardInfo>): void;
 
@@ -8243,7 +8243,7 @@ declare namespace window {
      *     Function keyboardDidShow can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offKeyboardDidShow(callback?: Callback<KeyboardInfo>): void;
 
@@ -8274,7 +8274,7 @@ declare namespace window {
      *     Function keyboardWillHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onKeyboardWillHide(callback: Callback<KeyboardInfo>): void;
 
@@ -8306,7 +8306,7 @@ declare namespace window {
      *     Function keyboardWillHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offKeyboardWillHide(callback?: Callback<KeyboardInfo>): void;
 
@@ -8337,7 +8337,7 @@ declare namespace window {
      *     Function keyboardDidHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onKeyboardDidHide(callback: Callback<KeyboardInfo>): void;
 
@@ -8369,7 +8369,7 @@ declare namespace window {
      *     Function keyboardDidHide can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offKeyboardDidHide(callback?: Callback<KeyboardInfo>): void;
 
@@ -8393,7 +8393,7 @@ declare namespace window {
      *
      * @param { Callback<void> } callback - Callback used to return the click event outside this window.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 22 static
+     * @since 23 static
      */
     onTouchOutside(callback: Callback<void>): void;
 
@@ -8419,7 +8419,7 @@ declare namespace window {
      * @param { Callback<void> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 22 static
+     * @since 23 static
      */
     offTouchOutside(callback?: Callback<void>): void;
 
@@ -8791,7 +8791,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onNoInteractionDetected(timeout: long, callback: Callback<void>): void;
 
@@ -8828,7 +8828,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offNoInteractionDetected(callback?: Callback<void>): void;
 
@@ -8960,7 +8960,7 @@ declare namespace window {
      * @param { Callback<void> } callback
      *     - Callback invoked when the click event occurs in the target window of the modal window mode.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 22 static
+     * @since 23 static
      */
     onDialogTargetTouch(callback: Callback<void>): void;
 
@@ -8986,7 +8986,7 @@ declare namespace window {
      * @param { Callback<void> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @since 22 static
+     * @since 23 static
      */
     offDialogTargetTouch(callback?: Callback<void>): void;
 
@@ -9409,7 +9409,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onWindowHighlightChange(callback: Callback<boolean>): void;
 
@@ -9444,7 +9444,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offWindowHighlightChange(callback?: Callback<boolean>): void;
 
@@ -12231,7 +12231,7 @@ declare namespace window {
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     onWindowTitleButtonRectChange(callback: Callback<TitleButtonRect>): void;
 
@@ -12269,7 +12269,7 @@ declare namespace window {
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 22 static
+     * @since 23 static
      */
     offWindowTitleButtonRectChange(callback?: Callback<TitleButtonRect>): void;
 
@@ -13117,7 +13117,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     onFreeWindowModeChange(callback: Callback<boolean>): void;
 
@@ -13131,7 +13131,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     offFreeWindowModeChange(callback?: Callback<boolean>): void;
 
@@ -13817,7 +13817,7 @@ declare namespace window {
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     loadContentByName(name: string, storage?: LocalStorage): Promise<void>;
 
