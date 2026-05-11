@@ -2358,7 +2358,7 @@ export declare class Magnifier {
    *     The unit of y is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   show(x: double, y: double): void;
 
