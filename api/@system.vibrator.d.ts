@@ -27,7 +27,8 @@
  * > >   - For lite wearables, this module is constantly maintained and available.
  * > >   - For other device types, this module is no longer maintained since API version 8, and You are advised to use 
  * > the new [@ohos.vibrator]{@link @ohos.vibrator:vibrator} module.
- * > - The initial APIs of this module are supported since API version 3. Newly added APIs will be marked with a superscript to indicate their earliest API version.
+ * > - The initial APIs of this module are supported since API version 3. 
+ * > Newly added APIs will be marked with a superscript to indicate their earliest API version.
  * > - This module requires hardware support and can only be debugged on real devices.
  *
  * @file
@@ -111,7 +112,8 @@ export default class Vibrator {
    * > **NOTE**
    * >
    * > Except for lite wearables. You are advised to use
-   * > [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)} since API version 8.
+   * > [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)}
+   * > instead.
    *
    * @permission ohos.permission.VIBRATE
    * @param { VibrateOptions } options - Vibration options.
