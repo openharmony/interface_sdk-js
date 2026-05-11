@@ -24707,33 +24707,17 @@ declare class CommonMethod<T> {
   touchable(value: boolean): T;
 
   /**
-   * Defines the component's hit test behavior in touch events.
+   * Sets the hit test mode for a component. If **hitTestBehavior** is not set, the component defaults to
+   * **HitTestMode.Default**.
    *
    * @param { HitTestMode } value - the hit test mode.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Defines the component's hit test behavior in touch events.
-   *
-   * @param { HitTestMode } value - the hit test mode.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets how the component behaves during hit testing.
-   *
-   * @param { HitTestMode } value - the hit test mode.
-   * @default HitTestMode.default - Both the node and its child nodes respond to the hit test of a touch event,
-   * but its sibling nodes are blocked from the hit test. The hit test for ancestor nodes is not affected.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @form [since 26.0.0]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   hitTestBehavior(value: HitTestMode): T;
 
