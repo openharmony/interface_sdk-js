@@ -191,7 +191,7 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      * @since 26.0.0 static
      */
-    time: number;
+    time: long;
 
     /**
      * Filename of the first fully visible photo in the last selection interface.
