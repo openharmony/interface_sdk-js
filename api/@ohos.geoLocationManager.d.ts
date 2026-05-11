@@ -5828,7 +5828,40 @@ declare namespace geoLocationManager {
      * @since 22 dynamic
      * @since 23 static
      */
-    GEOFENCE_TRANSITION_EVENT_DWELL = 4
+    GEOFENCE_TRANSITION_EVENT_DWELL = 4,
+
+    /**
+     * The device is approaching the geofence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    GEOFENCE_TRANSITION_EVENT_APPROACHING_GEOFENCE = 8,
+
+    /**
+     * The device is leaving the geofence.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    GEOFENCE_TRANSITION_EVENT_LEAVING_GEOFENCE = 16,
+
+    /**
+     * The device is approaching the fence from the outside and already very near to it for long time.
+     *
+     * @syscap SystemCapability.Location.Location.Geofence
+     * @systemapi
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    GEOFENCE_TRANSITION_EVENT_NEAR_WANDER = 32
   }
 
   /**
