@@ -604,15 +604,7 @@ declare namespace volumeManager {
    *
    * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
    * @param { string } volumeId - Volume ID.
-   * @param { Want } want - Burn options. The Want parameter currently includes the following fields:
-   *     <br>diskName: string - Disk name for the burn operation.
-   *     <br>burnPath: string - Source path of data to be burned.
-   *     <br>isIsoImage: boolean - Whether to burn as ISO image. true indicates ISO image burn mode,
-   *         false indicates normal data burn mode.
-   *     <br>burnSpeed: int - Burn speed in KB/s. 0 indicates maximum speed.
-   *     <br>fsType: string - File system type for the burned disk (e.g., 'ISO9660' or 'UDF').
-   *     <br>isIncBurnSupport: boolean - Whether incremental burn is supported.
-   *     <br>Note: The content of Want may be dynamically extended by file management in the future.
+   * @param { Want } want - Want information about the target ability.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
