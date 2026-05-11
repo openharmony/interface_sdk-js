@@ -22,11 +22,11 @@
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
- * The **batteryStatistics** module provides APIs for querying software and hardware power consumption statistics.
+ * 该模块提供软硬件耗电统计信息的查询接口。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - The APIs provided by this module are system APIs.
+ * > - 本模块接口为系统接口。
  *
  * @syscap SystemCapability.PowerManager.BatteryStatistics
  * @systemapi
@@ -35,7 +35,7 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  */
 declare namespace batteryStats {
   /**
-   * Enumerates power consumption types.
+   * 表示电量消耗类型的枚举值。
    *
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
@@ -44,7 +44,7 @@ declare namespace batteryStats {
    */
   export enum ConsumptionType {
     /**
-     * Unknown type.
+     * 表示电量消耗类型未知。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -54,7 +54,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_INVALID = -17,
 
     /**
-     * Power consumption of an application.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -64,7 +63,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_APP = -16,
 
     /**
-     * Power consumption of Bluetooth.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -74,7 +72,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_BLUETOOTH = -15,
 
     /**
-     * Power consumption when the CPU is idle.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -84,7 +81,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_IDLE = -14,
 
     /**
-     * Power consumption of a phone call.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -94,7 +90,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_PHONE = -13,
 
     /**
-     * Power consumption of wireless communication.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -104,7 +99,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_RADIO = -12,
 
     /**
-     * Power consumption of the screen.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -114,7 +108,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_SCREEN = -11,
 
     /**
-     * Power consumption of the user.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -124,7 +117,6 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_USER = -10,
 
     /**
-     * Power consumption of Wi-Fi.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -135,9 +127,9 @@ declare namespace batteryStats {
   }
 
   /**
-   * Obtains the power consumption information list. This API uses a promise to return the result.
+   * 获取耗电信息列表。使用Promise异步回调。
    *
-   * @returns { Promise<Array<BatteryStatsInfo>> } Promise used to return the power consumption information list.
+   * @returns { Promise<Array<BatteryStatsInfo>> } Promise对象，返回耗电信息列表。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryStatistics
@@ -148,12 +140,10 @@ declare namespace batteryStats {
   function getBatteryStats(): Promise<Array<BatteryStatsInfo>>;
 
   /**
-   * Obtains the power consumption information list. This API uses an asynchronous callback to return the result.
+   * 获取耗电信息列表。使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<BatteryStatsInfo>> } callback - Callback used to return the result. If the operation
-   *     is successful, **err** is undefined and **data** is the obtained Array<
-   *     [BatteryStatsInfo]{@link batteryStats.BatteryStatsInfo}>. Otherwise, **err** is an error object.
-   *     **AsyncCallback** has encapsulated an API of the **BatteryStatsInfo** class.
+   * @param { AsyncCallback<Array<BatteryStatsInfo>> } callback - 回调函数。当获取耗电信息列表成功，err为undefined，data为获取到的Array<
+   *     [BatteryStatsInfo]{@link batteryStats.BatteryStatsInfo}>>；否则为错误对象；AsyncCallback封装了一个BatteryStatsInfo类型的接口。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -165,10 +155,10 @@ declare namespace batteryStats {
   function getBatteryStats(callback: AsyncCallback<Array<BatteryStatsInfo>>): void;
 
   /**
-   * Obtains the power consumption of an application, in unit of mAh.
+   * 获取应用的耗电量，单位毫安时。
    *
-   * @param { int } uid - Application UID.
-   * @returns { double } Power consumption of the application with this UID, in unit of mAh.
+   * @param { int } uid - 应用的UID。
+   * @returns { double } UID对应应用的耗电量，单位毫安时。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -180,11 +170,10 @@ declare namespace batteryStats {
   function getAppPowerValue(uid: int): double;
 
   /**
-   * Obtains the proportion of the power consumption of an application.
+   * 获取应用的耗电百分比。
    *
-   * @param { int } uid - Application UID.
-   * @returns { double } Proportion of the power consumption of an application with this UID, which ranges
-   *     from 0.00 to 1.00.
+   * @param { int } uid - 应用的UID。
+   * @returns { double } UID对应应用的耗电百分比，取值范围：0.00到1.00。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -196,11 +185,10 @@ declare namespace batteryStats {
   function getAppPowerPercent(uid: int): double;
 
   /**
-   * Obtains the power consumption of a hardware unit according to the consumption type, in unit of mAh
+   * 根据耗电类型获取硬件单元的耗电量。
    *
-   * @param { ConsumptionType } type - Power consumption type. The value must be an enum.
-   * @returns { double } Power consumption of the hardware unit corresponding to the power consumption type, in unit
-   *     of mAh.
+   * @param { ConsumptionType } type - 电量消耗类型；该参数类型是枚举类。
+   * @returns { double } 电量消耗类型对应硬件的耗电量，单位毫安时。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -212,11 +200,10 @@ declare namespace batteryStats {
   function getHardwareUnitPowerValue(type: ConsumptionType): double;
 
   /**
-   * Obtains the proportion of the power consumption of a hardware unit according to the power consumption type.
+   * 根据耗电类型获取硬件单元的耗电百分比。
    *
-   * @param { ConsumptionType } type - Power consumption type. The value must be an enum.
-   * @returns { double } Proportion of the power consumption of the hardware unit corresponding to the power consumption
-   *     type, which ranges from 0.00 to 1.00.
+   * @param { ConsumptionType } type - 电量消耗类型；该参数类型是枚举类。
+   * @returns { double } 电量消耗类型对应硬件的耗电百分比，取值范围：0.00到1.00。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -228,7 +215,10 @@ declare namespace batteryStats {
   function getHardwareUnitPowerPercent(type: ConsumptionType): double;
 
   /**
-   * Describes the device power consumption information.
+   * 设备的耗电信息。
+   *
+   */
+  /**
    *
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi
@@ -237,7 +227,7 @@ declare namespace batteryStats {
    */
   interface BatteryStatsInfo {
     /**
-     * The uid related with the power consumption info.
+     * 耗电信息相关的UID。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -247,7 +237,7 @@ declare namespace batteryStats {
     uid: int;
 
     /**
-     * The type related with the power consumption info.
+     * 耗电信息相关的类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -257,7 +247,7 @@ declare namespace batteryStats {
     type: ConsumptionType;
 
     /**
-     * The power consumption value(mAh).
+     * 耗电的值，单位毫安时。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi

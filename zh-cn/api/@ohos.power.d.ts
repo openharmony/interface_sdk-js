@@ -21,8 +21,7 @@
 import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
- * The **power** module provides APIs for rebooting and shutting down the system, as well as querying the screen status.
- * You can use these APIs to obtain the device activity status, power mode, and screen on/off status.
+ * 该模块主要提供重启、关机、查询屏幕状态等接口。开发者可以使用该模块的接口获取设备的活动状态、电源模式、亮灭屏状态等。
  *
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7 dynamic
@@ -30,10 +29,10 @@ import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
  */
 declare namespace power {
   /**
-   * Shuts down the system.
+   * 系统关机。
    *
    * @permission ohos.permission.REBOOT
-   * @param { string } reason - Shutdown reason. The value must be a string.
+   * @param { string } reason - 关机原因；该参数必须为字符串类型。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -47,12 +46,11 @@ declare namespace power {
   function shutdown(reason: string): void;
 
   /**
-   * Restarts the system.
-   * <p>This method requires the ohos.permission.REBOOT permission.
+   * 重启系统。
    *
    * @permission ohos.permission.REBOOT
-   * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
-   * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
+   * @param { string } reason 重启原因。例如，“updater”表示重启后进入更新模式。如果未指定该参数，系统将在重启后进入正常模式。
+   *     reason参数必须为字符串类型。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -61,12 +59,10 @@ declare namespace power {
   function rebootDevice(reason: string): void;
 
   /**
-   * Reboots a device.
+   * 重启设备。
    *
    * @permission ohos.permission.REBOOT
-   * @param { string } reason - Indicates the restart reason. For example, "updater" indicates entering the updater mode
-   *     after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
-   *     reason parameter must be of type string.
+   * @param { string } reason - 重启原因；该参数必须为字符串类型。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -80,11 +76,10 @@ declare namespace power {
   function reboot(reason: string): void;
 
   /**
-   * Checks the screen status of the current device. This API uses an asynchronous callback to return the result.
+   * 检测当前设备的亮灭屏状态。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined** and **data** is the screen status obtained, where the value **true** indicates on and
-   *     the value **false** indicates off. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<boolean> } callback - 回调函数。当检测成功，err为undefined，data为获取到的亮灭屏状态，返回true表示亮屏，返回false表示灭屏；否则为错误对象
+   *     。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -93,7 +88,7 @@ declare namespace power {
   function isScreenOn(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks the screen status of the current device. This API uses a promise to return the result.
+   * 检测当前设备的亮灭屏状态。使用Promise异步回调。
    *
    * @returns { Promise<boolean> } Returns true if the screen is on; returns false otherwise.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -104,12 +99,12 @@ declare namespace power {
   function isScreenOn(): Promise<boolean>;
 
   /**
-   * Checks whether the current device is active.
+   * 检测当前设备是否处于活动状态。
    *
-   * - A device with a screen is active when the screen is on and inactive when the screen is off.
-   * - A device without a screen is active when it exits the sleep mode and inactive when it enters the sleep mode.
+   * - 有屏的设备亮屏时为活动状态，熄屏时为非活动状态。
+   * - 无屏的设备非休眠时为活动状态，休眠时为非活动状态。
    *
-   * @returns { boolean } Return value **true** if the device is active; returns **false** otherwise.
+   * @returns { boolean } 活动状态返回true，非活动状态返回false。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
    * @since 23 static
@@ -117,10 +112,10 @@ declare namespace power {
   function isActive(): boolean;
 
   /**
-   * Wakes up a device.
+   * 唤醒设备。
    *
    * @permission ohos.permission.POWER_MANAGER [since 19]
-   * @param { string } detail - Wakeup reason. The value must be a string.
+   * @param { string } detail - 唤醒原因；该参数必须为字符串类型。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
@@ -134,14 +129,11 @@ declare namespace power {
   function wakeup(detail: string): void;
 
   /**
-   * Enables a device to enter the sleep state.
+   * 使设备进入睡眠状态。
    *
    * @permission ohos.permission.POWER_MANAGER [since 19]
-   * @param { boolean } isImmediate - Whether the device enters the sleep state immediately. The value **true**
-   *     indicates that the device enters the sleep state immediately after the screen is turned off; **false**
-   *     indicates that the system controls when the device enters the sleep state. If this parameter is not set, the
-   *     default value **false** is used. If you only want to turn off the screen, you are advised not to set this
-   *     parameter.<br>**NOTE**: This parameter is supported since API version 10. [since 10]
+   * @param { boolean } isImmediate - 是否直接使设备进入睡眠状态。true表示灭屏后立即进入睡眠，不填该参数则默认为false，表示灭屏后由系统自动检测何时进入睡眠。如果只想做灭屏操作，建议不填参数。<
+   *     br>**说明：** 从API version 10开始，支持该参数。 [since 10]
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
@@ -155,9 +147,9 @@ declare namespace power {
   function suspend(isImmediate?: boolean): void;
 
   /**
-   * Obtains the power mode of this device.
+   * 获取当前设备的电源模式。
    *
-   * @returns { DevicePowerMode } Power mode.
+   * @returns { DevicePowerMode } 电源模式。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
    * @since 23 static
@@ -165,12 +157,11 @@ declare namespace power {
   function getPowerMode(): DevicePowerMode;
 
   /**
-   * Sets the power mode of a device. This API uses an asynchronous callback to return the result.
+   * 设置当前设备的电源模式。使用callback异步回调。
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
-   * @param { DevicePowerMode } mode - Power mode. The value must be an enum.
-   * @param { AsyncCallback<void> } callback - Callback invoked to return the result.<br> If the power mode is
-   *     successfully set, **err** is **undefined**; otherwise, **err** is an error object.
+   * @param { DevicePowerMode } mode - 电源模式；该参数类型是一个枚举类。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置电源模式成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -184,11 +175,11 @@ declare namespace power {
   function setPowerMode(mode: DevicePowerMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the power mode of a device. This API uses a promise to return the result.
+   * 设置当前设备的电源模式。使用Promise异步回调。
    *
    * @permission ohos.permission.POWER_OPTIMIZATION
-   * @param { DevicePowerMode } mode - Power mode. The value must be an enum.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { DevicePowerMode } mode - 电源模式；该参数类型是一个枚举类。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -202,10 +193,9 @@ declare namespace power {
   function setPowerMode(mode: DevicePowerMode): Promise<void>;
 
   /**
-   * Checks whether the device is in standby mode.
+   * 检测当前设备是否进入待机低功耗续航模式。
    *
-   * @returns { boolean } The value **true** indicates that the device is in standby mode, and the value **false**
-   *     indicates the opposite.
+   * @returns { boolean } 进入待机模式返回true，否则返回false。
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 10 dynamic
@@ -214,11 +204,10 @@ declare namespace power {
   function isStandby(): boolean;
 
   /**
-   * Hibernates a device.
+   * 休眠设备。
    *
    * @permission ohos.permission.POWER_MANAGER [since 19]
-   * @param { boolean } clearMemory - Whether to clear the memory. The value **true** means to clear the memory before
-   *     the system enters the hibernation state, and the value **false** means the opposite.
+   * @param { boolean } clearMemory - true 代表在进入休眠之前清理内存，否则为false。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
@@ -232,12 +221,10 @@ declare namespace power {
   function hibernate(clearMemory: boolean): void;
 
   /**
-   * Sets the screen-off timeout duration, in unit of ms.
+   * 设置熄屏超时时间，单位毫秒。
    *
    * @permission ohos.permission.POWER_MANAGER [since 19]
-   * @param { long } timeout - Screen-off timeout duration, in milliseconds. A value greater than **0** indicates the
-   *     specified timeout duration is used, and the value **-1** indicates that the default timeout duration is used.
-   *     Other values are invalid.
+   * @param { long } timeout - 熄屏超时时间，单位是毫秒，大于0代表熄屏超时时间，-1代表恢复默认超时时间，其它是无效值。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
@@ -251,13 +238,12 @@ declare namespace power {
   function setScreenOffTime(timeout: long): void;
 
   /**
-   * Refreshes the device activity status (for example, resetting the screen-off time).
+   * 刷新设备活动状态（如：重设屏幕超时息屏时间等）。
    *
-   * This API takes effect only when the device is active. For details about the device activity status, see
-   * [power.isActive]{@link @ohos.power:power.isActive}.
+   * 只有设备在活动状态下生效，设备活动状态见[power.isActive]{@link @ohos.power:power.isActive}接口。
    *
    * @permission ohos.permission.REFRESH_USER_ACTION
-   * @param { string } reason - Reason for refreshing the device activity status. The value must be a string.
+   * @param { string } reason - 刷新设备活动状态的原因。该参数必须为字符串类型。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -272,12 +258,10 @@ declare namespace power {
   function refreshActivity(reason: string): void;
 
   /**
-   * Registers a callback to be invoked when the device is shut down or rebooted. This API uses an asynchronous callback
-   * to return the result.
+   * 订阅电源关机或重启的回调提醒。使用callback异步回调。
    *
    * @permission ohos.permission.REBOOT
-   * @param { Callback<boolean> } callback - Callback used to return the result. The value **true** indicates that the
-   *     device is rebooted, and **false** indicates that the device is shut down.
+   * @param { Callback<boolean> } callback - 回调函数，返回true表示重启；返回false表示关机。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -289,11 +273,10 @@ declare namespace power {
   function registerShutdownCallback(callback: Callback<boolean>): void;
 
   /**
-   * Unregisters the callback to be invoked when the device is shut down or rebooted. This API uses a callback to return
-   * the result.
+   * 取消订阅电源关机或重启的回调提醒。使用callback同步回调。
    *
    * @permission ohos.permission.REBOOT
-   * @param { Callback<void> } [callback] - Callback that returns no value.
+   * @param { Callback<void> } [callback] - 回调函数，无返回值。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -305,19 +288,18 @@ declare namespace power {
   function unregisterShutdownCallback(callback?: Callback<void>): void;
 
   /**
-   * Query the power configuration value for a given scene name.
+   * 按场景名称查询电源配置值。
    *
    * @permission ohos.permission.POWER_CONFIG
-   * @param { string } sceneName - Indicates the scene name of the power configuration.
-   *     sceneName parameter must be a string and its length cannot exceed 128 bytes.
-   * @returns { string } Returns the power configuration value on success.
+   * @param { string } sceneName - 表示电源配置的场景名称。
+   *     sceneName参数必须是字符串类型。
+   * @returns { string } 成功时返回电源配置值，否则返回空字符串。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
-   *     1. The sceneName parameter is an empty string;
-   *     2. The length of sceneName parameter exceeds 128 bytes.
+   *     1. The length of sceneName parameter exceeds 128 bytes.
    * @throws { BusinessError } 4900501 - Failed to read the power configuration value.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -327,21 +309,18 @@ declare namespace power {
   function getPowerConfig(sceneName: string): string;
 
   /**
-   * Update the power configuration value for a given scene name.
+   * 根据场景名称设置电源配置值。
    *
    * @permission ohos.permission.POWER_CONFIG
-   * @param { string } sceneName - Indicates the scene name of the power configuration.
-   *     sceneName parameter must be a string and its length cannot exceed 128 bytes.
-   * @param { string } value - Indicates the power configuration value. value parameter must be a string and
-   *     its length cannot exceed 128 bytes.
+   * @param { string } sceneName - 表示电源配置的场景名称。sceneName参数必须是字符串类型。
+   * @param { string } value - 表示电源配置值，value参数必须为string类型。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
-   *     1. The sceneName or value parameter is an empty string;
-   *     2. The length of sceneName parameter exceeds 128 bytes;
-   *     3. The length of value parameter exceeds 128 bytes.
+   *     1. The length of sceneName parameter exceeds 128 bytes;
+   *     2. The length of value parameter exceeds 4096 bytes.
    * @throws { BusinessError } 4900601 - Failed to write the power configuration value.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
@@ -351,7 +330,7 @@ declare namespace power {
   function setPowerConfig(sceneName: string, value: string): void;
 
   /**
-   * Enumerates power modes.
+   * 表示电源模式的枚举值。
    *
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
@@ -359,7 +338,7 @@ declare namespace power {
    */
   export enum DevicePowerMode {
     /**
-     * Standard mode. It is the default value.
+     * 表示标准模式，默认值。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
@@ -391,7 +370,7 @@ declare namespace power {
      */
     MODE_EXTREME_POWER_SAVE = 603,
     /**
-     * Custom power saving mode.
+     * 表示自定义省电模式。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 20 dynamic
@@ -401,14 +380,12 @@ declare namespace power {
   }
 
   /**
-   * Sets the power key filtering strategy. After the power service subscribes to the power key event, this API is used
-   * to configure the processing mode of this event.
+   * 设置电源键过滤策略，在电源服务订阅电源键事件后，用于配置电源键事件的处理方式。
    *
-   * For details about the power key filtering strategy, see
-   * [power.PowerKeyFilteringStrategy]{@link @ohos.power:power.PowerKeyFilteringStrategy}.
+   * 电源键过滤策略见[power.PowerKeyFilteringStrategy]{@link @ohos.power:power.PowerKeyFilteringStrategy}接口。
    *
    * @permission ohos.permission.POWER_MANAGER
-   * @param { PowerKeyFilteringStrategy } strategy - Power key filtering strategy. The value must be of the enum type.
+   * @param { PowerKeyFilteringStrategy } strategy - 电源键过滤策略。该参数必须为枚举类型。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -421,7 +398,7 @@ declare namespace power {
   function setPowerKeyFilteringStrategy(strategy: PowerKeyFilteringStrategy): void;
 
   /**
-   * Enumerates the power key filtering strategies.
+   * 表示电源键过滤策略。
    *
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 21 dynamic
@@ -429,7 +406,7 @@ declare namespace power {
    */
   export enum PowerKeyFilteringStrategy {
     /**
-     * Disable the filtering of power key long-press event. This is the default value.
+     * 表示不使能电源键过滤策略，默认值。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 21 dynamic
@@ -437,7 +414,7 @@ declare namespace power {
      */
     DISABLE_LONG_PRESS_FILTERING = 0,
     /**
-     * Filters the long-press event of the current power key once. The next is not filtered by default.
+     * 表示仅过滤当前电源键长按事件，下一次电源键长按事件默认不过滤。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 21 dynamic

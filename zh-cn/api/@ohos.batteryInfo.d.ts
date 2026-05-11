@@ -19,8 +19,7 @@
  */
 
 /**
- * The **batteryInfo** module provides APIs for querying the charger type, battery health status, and battery charging
- * status.
+ * 该模块主要提供电池状态和充放电状态的查询接口。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @atomicservice [since 12]
@@ -28,12 +27,11 @@
  */
 declare namespace batteryInfo {
   /**
-   * Sets the battery configuration based on the specified scenario.
+   * 按场景名称设置电池配置。
    *
-   * @param { string } sceneName - Scenario name. The value must be a string.
-   * @param { string } sceneValue - Scenario value. The value must be a string.
-   * @returns { number } Operation result. The value **0** indicates that the operation is successful, and a non-zero
-   *     value indicates the opposite.
+   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
+   * @param { string } sceneValue - 设置场景的值；该参数必须为字符串类型。
+   * @returns { number } 返回设置充电结果。返回0表示设置成功，返回非0表示设置失败。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
@@ -44,11 +42,10 @@ declare namespace batteryInfo {
   function setBatteryConfig(sceneName: string, sceneValue: string): number;
 
   /**
-   * Obtains the battery configuration based on the specified scenario.
+   * 按场景名称查询电池配置。
    *
-   * @param { string } sceneName - Scenario name. The value must be a string.
-   * @returns { string } Operation result. The battery configuration is returned if the operation is successful.
-   *     Otherwise, **""** is returned.
+   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
+   * @returns { string } 返回电池充电配置，否则返回""。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
@@ -59,11 +56,10 @@ declare namespace batteryInfo {
   function getBatteryConfig(sceneName: string): string;
 
   /**
-   * Checks whether the battery configuration is enabled based on the specified scenario.
+   * 检查是否按场景名称启用电池配置。
    *
-   * @param { string } sceneName - Scenario name. The value must be a string.
-   * @returns { boolean } Operation result. The value **true** indicates that the charging scenario is supported, and
-   *     the value **false** indicates the opposite.
+   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
+   * @returns { boolean } 如果设备支持充电场景，则返回true，否则返回false。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
@@ -74,7 +70,7 @@ declare namespace batteryInfo {
   function isBatteryConfigSupported(sceneName: string): boolean;
 
   /**
-   * Battery state of charge (SoC) of the device, in unit of percentage, which ranges from 0 to 100.
+   * 设备的电池SOC状态，单位为百分比，取值范围为0到100。 单位为： 百分比，取值应为[0,100]内的整数。
    *
    * @constant [since 6 - 11]
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -84,7 +80,7 @@ declare namespace batteryInfo {
   const batterySOC: number;
 
   /**
-   * Battery charging state of the current device.
+   * 表示当前设备电池的充电状态。
    *
    * @constant [since 6 - 11]
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -94,7 +90,7 @@ declare namespace batteryInfo {
   const chargingStatus: BatteryChargeState;
 
   /**
-   * Battery health status of the device.
+   * 表示当前设备电池的健康状态。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
@@ -102,7 +98,7 @@ declare namespace batteryInfo {
   const healthStatus: BatteryHealthState;
 
   /**
-   * Charger type of the device.
+   * 表示当前设备连接的充电器类型。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
@@ -110,7 +106,7 @@ declare namespace batteryInfo {
   const pluggedType: BatteryPluggedType;
 
   /**
-   * Battery voltage of the device, in unit of microvolt.
+   * 表示当前设备电池的电压，单位微伏。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
@@ -118,7 +114,7 @@ declare namespace batteryInfo {
   const voltage: number;
 
   /**
-   * Battery technology of the device.
+   * 表示当前设备电池的技术型号。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
@@ -126,7 +122,7 @@ declare namespace batteryInfo {
   const technology: string;
 
   /**
-   * Battery temperature of the device, in unit of 0.1°C.
+   * 表示当前设备电池的温度，单位0.1摄氏度。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
@@ -134,10 +130,7 @@ declare namespace batteryInfo {
   const batteryTemperature: number;
 
   /**
-   * Whether the battery is supported or present. The value **true** means that the battery is supported or present;
-   * **false** means the opposite.
-   *
-   * Default value: **false**.
+   * 表示当前设备是否支持电池或者电池是否在位。true表示支持电池或电池在位，false表示不支持电池或电池不在位，默认为false。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 7 dynamic
@@ -145,7 +138,7 @@ declare namespace batteryInfo {
   const isBatteryPresent: boolean;
 
   /**
-   * Battery level of the device.
+   * 表示当前设备电池电量的等级。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9 dynamic
@@ -153,7 +146,7 @@ declare namespace batteryInfo {
   const batteryCapacityLevel: BatteryCapacityLevel;
 
   /**
-   * Estimated time for fully charging the current device, in unit of milliseconds. This is a system API.
+   * 表示当前设备充满电的预估时间，单位毫秒。此接口为系统接口。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
@@ -162,7 +155,7 @@ declare namespace batteryInfo {
   const estimatedRemainingChargeTime: number;
 
   /**
-   * Total battery capacity of the device, in unit of mAh. This is a system API.
+   * 表示当前设备电池的总容量，单位毫安时。此接口为系统接口。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
@@ -171,7 +164,7 @@ declare namespace batteryInfo {
   const totalEnergy: number;
 
   /**
-   * Battery current of the device, in unit of mA.
+   * 表示当前设备电池的电流，单位毫安。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 12 dynamic
@@ -179,7 +172,7 @@ declare namespace batteryInfo {
   const nowCurrent: number;
 
   /**
-   * Remaining battery capacity of the device, in unit of mAh. This is a system API.
+   * 表示当前设备电池的剩余容量，单位毫安时。此接口为系统接口。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
@@ -188,35 +181,35 @@ declare namespace batteryInfo {
   const remainingEnergy: number;
 
   /**
-   * Enumerates charger types.
+   * 表示连接的充电器类型的枚举。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
    */
   export enum BatteryPluggedType {
     /**
-     * Unknown charger type.
+     * Unknown type
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     NONE = 0,
     /**
-     * AC charger.
+     * AC charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     AC = 1,
     /**
-     * USB charger.
+     * USB charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     USB = 2,
     /**
-     * Wireless charger.
+     * Wireless charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
@@ -225,7 +218,7 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates charging states.
+   * 表示电池充电状态的枚举。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice [since 12]
@@ -267,7 +260,7 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates battery health states.
+   * 表示电池健康状态的枚举。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
@@ -281,7 +274,7 @@ declare namespace batteryInfo {
      */
     UNKNOWN = 0,
     /**
-     * The battery is in the healthy state.
+     * The battery is in healthy state.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
@@ -318,63 +311,56 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates battery levels.
+   * 表示电池电量等级的枚举。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9 dynamic
    */
   export enum BatteryCapacityLevel {
     /**
-     * Unknown battery level.
+     * The battery is in unknown capacity level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 dynamic
      */
     LEVEL_NONE = 0,
     /**
-     * Full battery level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_FULL = 1,
     /**
-     * High battery level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_HIGH = 2,
     /**
-     * Normal battery level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_NORMAL = 3,
     /**
-     * Low battery level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_LOW = 4,
     /**
-     * Alarm battery level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_WARNING = 5,
     /**
-     * Ultra-low battery level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_CRITICAL = 6,
     /**
-     * Power-down battery level.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
@@ -383,70 +369,70 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates keys for querying the additional information about the **COMMON_EVENT_BATTERY_CHANGED** event.
+   * 表示COMMON_EVENT_BATTERY_CHANGED通用事件附加信息的查询键。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 9 dynamic
    */
   export enum CommonEventBatteryChangedKey {
     /**
-     * Remaining battery level in percentage.
+     * 表示剩余电池电量百分比的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_SOC = 'soc',
     /**
-     * Battery charging status of the device.
+     * 表示当前设备电池充电状态的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_CHARGE_STATE = 'chargeState',
     /**
-     * Battery health status of the device.
+     * 表示当前设备电池健康状态的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_HEALTH_STATE = 'healthState',
     /**
-     * Type of the charger connected to the device.
+     * 表示当前设备连接的充电器类型的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_PLUGGED_TYPE = 'pluggedType',
     /**
-     * Battery voltage of the device.
+     * 表示当前设备电池电压的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_VOLTAGE = 'voltage',
     /**
-     * Battery technology of the device.
+     * 表示当前设备电池技术型号的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_TECHNOLOGY = 'technology',
     /**
-     * Battery temperature of the device.
+     * 表示当前设备电池温度的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_TEMPERATURE = 'temperature',
     /**
-     * Whether the battery is supported by the device or installed.
+     * 表示当前设备是否支持电池或者电池是否在位的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     EXTRA_PRESENT = 'present',
     /**
-     * Battery level of the device.
+     * 表示当前设备电池电量等级的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic

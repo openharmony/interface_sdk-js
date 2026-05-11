@@ -21,14 +21,10 @@
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
- * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
- * when the screen is off.
- * <p>{@link create} can be called to obtain a {@link RunningLock}.
- * <p>{@link hold} can be called to set the lock duration, during which the system will not hibernate. After the
- * lock duration times out, the lock is automatically released and the system hibernates if no other
- * {@link RunningLock} is set.
+ * The **runningLock** module provides APIs for creating, querying, holding, and releasing running locks. A running lock
+ * enables the proximity sensor to turn on or off the screen, or prevents the device from entering sleep mode when the
+ * screen is off. For details about the running lock types, see [RunningLockType]{@link runningLock.RunningLockType}.
  *
- * @namespace runningLock
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7 dynamic
  * @since 23 static
@@ -36,36 +32,34 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
 declare namespace runningLock {
 
   /**
-   * Provides a mechanism to prevent the system from hibernating so that the applications can run in the background or
-   * when the screen is off.
+   * Defines a **RunningLock** object.
+   *
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamic
    * @since 23 static
    */
   class RunningLock {
     /**
-     * Prevents the system from hibernating and sets the lock duration.
-     * This method requires the ohos.permission.RUNNING_LOCK permission.
+     * Locks a running lock.
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @param { number } timeout Indicates the lock duration (ms). After the lock duration times out, the lock is automatically
-     * released and the system hibernates if no other {@link RunningLock} is set.
+     * @param { number } timeout - Duration for locking and holding the **RunningLock** object, in ms.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead RunningLock#hold
+     * @useinstead runningLock.RunningLock.hold
      */
     lock(timeout: number): void;
 
     /**
-     * Prevents the system from hibernating and sets the lock duration.
-     * This method requires the ohos.permission.RUNNING_LOCK permission.
+     * Holds a running lock.
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @param { int } timeout Indicates the lock duration (ms). After the lock duration times out,
-     * the lock is automatically released and the system hibernates if no other {@link RunningLock} is set.
-     * timeout parameter must be of type int.
-     * @throws { BusinessError } 201 â€“ If the permission is denied.
+     * @param { int } timeout - Duration for locking and holding the **RunningLock** object, in ms.<br>The value must be
+     *     a number:<br>**-1**: The lock is permanently held and needs to be released automatically.<br>**0**: The lock
+     *     is released 3 seconds after the timer expires by default.<br>> 0: The lock is released based on the input
+     *     value after the timer expires.
+     * @throws { BusinessError } 201 ¨C If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
@@ -74,20 +68,21 @@ declare namespace runningLock {
     hold(timeout: int): void;
 
     /**
-     * Checks whether a lock is held or in use.
+     * Checks whether this running lock is used.
      *
      * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead RunningLock#isHolding
+     * @useinstead runningLock.RunningLock.isHolding
      */
     isUsed(): boolean;
 
     /**
-     * Checks whether a lock is held or in use.
+     * Checks whether this running lock is being held.
      *
-     * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
+     * @returns { boolean } The value **true** indicates that the **RunningLock** object is held; and the value
+     *     **false** indicates that the **RunningLock** object is released.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static
@@ -95,23 +90,21 @@ declare namespace runningLock {
     isHolding(): boolean;
 
     /**
-     * Release the {@link RunningLock} that prevents the system from hibernating.
-     * This method requires the ohos.permission.RUNNING_LOCK permission.
+     * Releases this running lock.
      *
      * @permission ohos.permission.RUNNING_LOCK
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead RunningLock#unhold
+     * @useinstead runningLock.RunningLock.unhold
      */
     unlock(): void;
 
     /**
-     * Release the {@link RunningLock} that prevents the system from hibernating.
-     * This method requires the ohos.permission.RUNNING_LOCK permission.
+     * Releases this running lock.
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @throws { BusinessError } 201 â€“ If the permission is denied.
+     * @throws { BusinessError } 201 ¨C If the permission is denied.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static
@@ -120,22 +113,19 @@ declare namespace runningLock {
   }
 
   /**
-   * Enumerates the {@link RunningLock} types.
-   * <p>These {@link RunningLock} types are available: {@link BACKGROUND}, {@link PROXIMITY_SCREEN_CONTROL}
-   * and {@link BACKGROUND_USER_IDLE}.
-   * {@link BACKGROUND} ensures that applications can run in the background.
-   * {@link PROXIMITY_SCREEN_CONTROL} determines whether to turn on or off the screen based on the proximity sensor.
-   * {@link BACKGROUND_USER_IDLE} ensures that applications can prevent the system from automatic sleep due to a period
-   * of idle user activity.
+   * Enumerates the types of **RunningLock** objects.
    *
-   * @enum { int }
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamic
    * @since 23 static
    */
   export enum RunningLockType {
     /**
-     * Indicates the lock that prevents the system from hibernating.
+     * A lock that prevents the system from entering sleep mode when the screen is off.
+     *
+     * **NOTE**
+     *
+     * This parameter is supported since API version 7 and deprecated since API version 10.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamic
@@ -144,10 +134,8 @@ declare namespace runningLock {
      */
     BACKGROUND = 1,
     /**
-     * Indicates the lock that determines whether to turn on or off the screen based on the proximity sensor.
-     * For example, during a call, if the proximity sensor detects that the device is moving close to
-     * the user's ear, the screen turns off; if the proximity sensor detects that the device is moving away
-     * from the user's ear, the screen turns on.
+     * A lock that enables the proximity sensor and turns on or off the screen based on the distance between the sensor
+     * and the obstacle.
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamic
@@ -155,10 +143,13 @@ declare namespace runningLock {
      */
     PROXIMITY_SCREEN_CONTROL = 2,
     /**
-     * Indicates the lock that prevents the system from automatic sleep due to a period of idle user activity,
-     * but cannot prevent the forcing sleep such as scenarios of lid close, etc.
-     * The caller must listen to the {@link ohos.commonEventManager#commonEventManager#COMMON_EVENT_ENTER_FORCE_SLEEP}
-     * to release this lock.
+     * A background lock that prevents the system from automatically entering sleep mode when the user is inactive for a
+     * period of time. Note: This lock cannot prevent the system from entering the forced sleep state in scenarios such
+     * as closing the PC lid. The user must listen for the
+     * [COMMON_EVENT_ENTER_FORCE_SLEEP](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_enter_force_sleep12)
+     * event and release this lock after receiving the event. The behavior of this lock varies with devices. For details
+     * about how to use this type of lock, see
+     * [Preventing the Idle System from Entering Sleep Mode](docroot://basic-services/powermgr/runningLock/runningLock-dev.md).
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 23 dynamic&static
@@ -167,39 +158,43 @@ declare namespace runningLock {
   }
 
   /**
-   * Checks whether the specified {@link RunningLockType} is supported.
+   * Checks whether the system supports the running lock of a specified type. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { RunningLockType } type Indicates the specified {@link RunningLockType}.
-   * @param { AsyncCallback<boolean> } callback Indicates the callback function contains the result whether the specified
-   * {@link RunningLockType} is supported.
+   * @param { RunningLockType } type - Type of the running lock.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined** and **data** is the query result obtained, where the value **true** indicates that the
+   *     specified type of the running lock is supported and **false** indicates the opposite. Otherwise, **err** is an
+   *     error object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead RunningLock#isSupported
+   * @useinstead runningLock.isSupported
    */
   function isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the specified {@link RunningLockType} is supported.
+   * Checks whether the system supports the running lock of a specified type. This API uses a promise to return the
+   * result.
    *
-   * @param { RunningLockType } type Indicates the specified {@link RunningLockType}.
-   * @returns { Promise<boolean> } Returns true if the specified {@link RunningLockType} is supported;
-   * returns false otherwise.
+   * @param { RunningLockType } type - Type of the running lock.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the specified
+   *     type of the running lock is supported, and the value **false** indicates the opposite.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead RunningLock#isSupported
+   * @useinstead runningLock.isSupported
    */
   function isRunningLockTypeSupported(type: RunningLockType): Promise<boolean>;
 
   /**
-   * Checks whether the specified {@link RunningLockType} is supported.
+   * Checks whether the system supports the running lock of a specified type.
    *
-   * @param { RunningLockType } type Indicates the specified {@link RunningLockType}.
-   * the RunningLockType type is an enumeration class.
-   * @returns { boolean } Whether the specified {@link RunningLockType} is supported.
+   * @param { RunningLockType } type - Type of the running lock. The value must be an enum.
+   * @returns { boolean } The value **true** indicates that the specified type of the running lock is supported, and the
+   *     value **false** indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
-   * 2. Parameter verification failed.
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
    * @since 23 static
@@ -241,17 +236,14 @@ declare namespace runningLock {
   function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
 
   /**
-   * Creates a {@link RunningLock} object.
-   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
-   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   * Creates a running lock. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or
-   *     class name and a suffix. name parameter must be of type string.
-   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
-   *     the RunningLockType type is an enumeration class.
-   * @param { AsyncCallback<RunningLock> } callback Indicates the callback of {@link RunningLock} object.
-   *     AsyncCallback encapsulates a class of RunningLock type
+   * @param { string } name - Name of the **RunningLock** object. The value must be a string.
+   * @param { RunningLockType } type - Type of the **RunningLock** object. The value must be an enum.
+   * @param { AsyncCallback<RunningLock> } callback - Callback used to return the result. If the operation is successful
+   *     , **err** is **undefined** and data is the created **RunningLock** object. Otherwise, **err** is an error
+   *     object. **AsyncCallback** has encapsulated an API of the **RunningLock** class.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -261,16 +253,12 @@ declare namespace runningLock {
   function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
   /**
-   * Creates a {@link RunningLock} object.
-   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
-   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   * Creates a running lock. This API uses a promise to return the result.
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or
-   *     class name and a suffix. name parameter must be of type string.
-   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
-   *     the RunningLockType type is an enumeration class.
-   * @returns { Promise<RunningLock> } The {@link RunningLock} object.
+   * @param { string } name - Name of the **RunningLock** object. The value must be a string.
+   * @param { RunningLockType } type - Type of the **RunningLock** object. The value must be an enum.
+   * @returns { Promise<RunningLock> } Promise used to return the result.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -279,4 +267,5 @@ declare namespace runningLock {
    */
   function create(name: string, type: RunningLockType): Promise<RunningLock>;
 }
+
 export default runningLock;

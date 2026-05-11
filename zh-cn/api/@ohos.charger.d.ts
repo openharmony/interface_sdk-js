@@ -19,11 +19,11 @@
  */
 
 /**
- * The **charger** module enumerates charging types.
- *
- * > **NOTE**
+ * 提供充电类型。
+ * 
+ * > **说明：**
  * >
- * > The APIs provided by this module are system APIs.
+ * > 本模块为系统接口。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @systemapi
@@ -32,7 +32,7 @@
  */
 declare namespace charger {
   /**
-   * Enumerates charging types.
+   * 表示充电类型的枚举。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi

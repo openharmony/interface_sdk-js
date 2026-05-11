@@ -31,7 +31,7 @@
 
 
 /**
- * Defines a response that returns the charging status and remaining power of the device.
+ * 包含充电状态及剩余电量的对象。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamiconly
@@ -40,12 +40,10 @@
  */
 export interface BatteryResponse {
   /**
-   * Whether the battery is being charged. The value **true** indicates that the battery is being changed; **false**
-   * indicates the opposite. The default value is **false**.
+   * 当前电池是否在充电中。true表示在充电，false表示没有充电，默认为false。
    *
-   * Note: This API is no longer maintained since API version 6 except for lite wearables. You are advised to use
-   * [batteryInfo.chargingStatus](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#constants)
-   * instead.
+   * **说明：** 除Lite Wearable外，从API Version 6开始不再维护，建议使用
+   * [`batteryInfo.chargingStatus`](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#常量)替代。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
@@ -56,10 +54,10 @@ export interface BatteryResponse {
   charging: boolean;
 
   /**
-   * Current battery level, which ranges from **0.00** to **1.00**.
+   * 当前电池的电量百分比，取值范围：0.00?-?1.00?。
    *
-   * Note: This API is no longer maintained since API version 6 except for lite wearables. You are advised to use
-   * [batteryInfo.batterySOC](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#constants) instead.
+   * **说明：** 除Lite Wearable外，从API Version 6开始不再维护，建议使用
+   * [`batteryInfo.batterySOC`](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#常量)替代。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
@@ -71,7 +69,7 @@ export interface BatteryResponse {
 }
 
 /**
- * Object that contains the API calling result.
+ * 包含接口调用结果的对象。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamiconly
@@ -80,8 +78,7 @@ export interface BatteryResponse {
  */
 export interface GetStatusOptions {
   /**
-   * Called when an API call is successful. **data** is a return value of the
-   *     [BatteryResponse](#batteryresponsedeprecated) type.
+   * 接口调用成功的回调函数，data为[BatteryResponse](#batteryresponsedeprecated)类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
@@ -91,8 +88,7 @@ export interface GetStatusOptions {
   success?: (data: BatteryResponse) => void;
 
   /**
-   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
-   *     code.
+   * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
@@ -102,7 +98,7 @@ export interface GetStatusOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when an API call is complete.
+   * 包含接口调用结果的对象。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
@@ -113,7 +109,7 @@ export interface GetStatusOptions {
 }
 
 /**
- * The module allows you to query the charging status and remaining power of a device.
+ * 该模块提供充电状态及剩余电量的查询功能。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamiconly
@@ -122,10 +118,9 @@ export interface GetStatusOptions {
  */
 export default class Battery {
   /**
-   * Obtains the current charging state and battery level.
+   * 获取设备当前的充电状态及剩余电量。
    *
-   * @param { GetStatusOptions } options Object that contains the API calling result. This parameter is optional and
-   *     is left blank by default.
+   * @param { GetStatusOptions } options 包含接口调用结果的对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
