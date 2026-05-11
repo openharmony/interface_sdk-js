@@ -102,6 +102,8 @@ export declare interface SecurityUIExtensionOptions {
  *
  * @typedef { Callback<Record<string, RecordData>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 static
  */
 export type ReceiveCallback = Callback<Record<string, RecordData>>;
