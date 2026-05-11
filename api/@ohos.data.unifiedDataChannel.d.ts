@@ -124,7 +124,7 @@ declare namespace unifiedDataChannel {
 
   /**
    * Defines URI permissions for drag intention.
-   *
+   * 
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice
@@ -350,7 +350,6 @@ declare namespace unifiedDataChannel {
     /**
      * UnifiedData properties.
      *
-     * @type { UnifiedDataProperties } [since 12 - 22]
      * @returns { UnifiedDataProperties } Properties of all data records in a unified data. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
@@ -362,7 +361,6 @@ declare namespace unifiedDataChannel {
     /**
      * UnifiedData properties.
      *
-     * @type { UnifiedDataProperties } [since 12 - 22]
      * @param { UnifiedDataProperties } Properties of all data records in a unified data. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice
@@ -384,7 +382,6 @@ declare namespace unifiedDataChannel {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
-     * @type { Record<string, long> } [since 11 - 22]
      * @returns { Record<string, long> } Type and size information of data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -396,7 +393,6 @@ declare namespace unifiedDataChannel {
     /**
      * A map for each type and data size, key is data type, value is the corresponding data size
      *
-     * @type { Record<string, long> } [since 11 - 22]
      * @param { Record<string, long> } Type and size information of data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -408,7 +404,6 @@ declare namespace unifiedDataChannel {
     /**
      * Total data size of data in Bytes
      *
-     * @type { long } [since 11 - 22]
      * @returns { long } Total size information of data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -420,7 +415,6 @@ declare namespace unifiedDataChannel {
     /**
      * Total data size of data in Bytes
      *
-     * @type { long } [since 11 - 22]
      * @param { long } Total size information of data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -432,7 +426,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the overview information of unifiedData.
      *
-     * @type { Record<string, long> } [since 22 - 22]
      * @readonly [since 22 - 22]
      * @returns { Record<string, long> } Key represents the data type, and value represents the corresponding data
      *     size. [since 23]
@@ -614,7 +607,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified text
      *
-     * @type { ?Record<string, string> } [since 11 - 22]
      * @returns { Record<string, string> | undefined } the details of unified text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -626,7 +618,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified text
      *
-     * @type { ?Record<string, string> } [since 11 - 22]
      * @param { Record<string, string> | undefined } the details of unified text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -649,7 +640,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the content of text
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the content of text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -662,7 +652,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the content of text
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the content of text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -714,7 +703,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the url of a link
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the url of a link [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -727,7 +715,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the url of a link
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the url of a link [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -750,7 +737,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the description of a link
      *
-     * @type { ?string } [since 11 - 22]
      * @returns { string | undefined } the description of a link. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -762,7 +748,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the description of a link
      *
-     * @type { ?string } [since 11 - 22]
      * @param { string | undefined } the description of a link [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -785,7 +770,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the content of html, with html tags
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the content of html. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -798,7 +782,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the content of html, with html tags
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the content of html. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -821,7 +804,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the plain content of html
      *
-     * @type { ?string } [since 11 - 22]
      * @returns { string | undefined } the plain content of html [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -833,7 +815,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the plain content of html
      *
-     * @type { ?string } [since 11 - 22]
      * @param { string | undefined} the plain content of html [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -891,7 +872,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified File
      *
-     * @type { ?Record<string, string> } [since 11 - 22]
      * @returns { Record<string, string> | undefined } the details of unified File [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -903,8 +883,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of unified File
      *
-     * @type { ?Record<string, string> } [since 11 - 13]
-     * @type { ?Record<string, string> | undefined } [since 14 - 22]
      * @param { Record<string, string> } the details of unified File. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14 - 22]
@@ -916,7 +894,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of file
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the uri of file. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -929,7 +906,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of file
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the uri of file. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -965,7 +941,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of image
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the uri of image. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -978,7 +953,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of image
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the uri of image. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -1003,7 +977,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of video
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the uri of video. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -1016,7 +989,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of video
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the uri of video. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -1041,7 +1013,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of audio
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the uri of audio. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -1054,7 +1025,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of audio
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the uri of audio. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -1079,7 +1049,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of folder
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the uri of folder [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -1092,7 +1061,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the uri of folder
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the uri of folder [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @crossplatform [since 14]
@@ -1130,7 +1098,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @type { ?Record<string, int | long | double | string | Uint8Array> } [since 11 - 22]
      * @returns { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
      *     data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1142,7 +1109,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the details of system defined data
      *
-     * @type { ?Record<string, int | long | double | string | Uint8Array> } [since 11 - 22]
      * @param { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
      *     data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -1165,7 +1131,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
-     * @type { int } [since 11 - 22]
      * @returns { int } the id of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1177,7 +1142,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the id of form
      *
-     * @type { int } [since 11 - 22]
      * @param { int } the id of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1189,7 +1153,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the name of form
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the name of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1201,7 +1164,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the name of form
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the name of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1213,7 +1175,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the bundle name of form
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the bundle name of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1225,7 +1186,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the bundle name of form
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the bundle name of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1237,7 +1197,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the ability name of form
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the ability name of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1249,7 +1208,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the ability name of form.
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the ability name of form [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1261,7 +1219,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the module of form
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the module of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1273,7 +1230,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the module of form
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the module of form. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1296,7 +1252,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the app id
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the app id. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1308,7 +1263,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the app id
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the app id. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1320,7 +1274,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the app name
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the app name. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1332,7 +1285,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the app name
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the app name. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1396,7 +1348,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the bundle name of app
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the bundle name of app. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1408,7 +1359,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the bundle name of app
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the bundle name of app. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1420,7 +1370,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the ability name of app
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the ability name of app. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1432,7 +1381,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the ability name of app
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the ability name of app. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1456,7 +1404,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the raw data of pixel map
      *
-     * @type { Uint8Array } [since 11 - 22]
      * @returns { Uint8Array } the raw data of pixel map. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1468,7 +1415,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the raw data of pixel map
      *
-     * @type { Uint8Array } [since 11 - 22]
      * @param { Uint8Array } the raw data of pixel map. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1493,7 +1439,6 @@ declare namespace unifiedDataChannel {
      * Indicates the type of data, should always be started with 'ApplicationDefined.', will
      * return error otherwise
      *
-     * @type { string } [since 11 - 22]
      * @returns { string } the type of data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1506,7 +1451,6 @@ declare namespace unifiedDataChannel {
      * Indicates the type of data, should always be started with 'ApplicationDefined.', will
      * return error otherwise
      *
-     * @type { string } [since 11 - 22]
      * @param { string } the type of data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1518,7 +1462,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the raw data of application defined data
      *
-     * @type { Uint8Array } [since 11 - 22]
      * @returns { Uint8Array } the raw data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1530,7 +1473,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the raw data of application defined data
      *
-     * @type { Uint8Array } [since 11 - 22]
      * @param { Uint8Array } the raw data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @atomicservice [since 11]
@@ -1664,8 +1606,7 @@ declare namespace unifiedDataChannel {
 
     /**
      * Unique identifier of the data object in the UDMF, which can be obtained from the value returned by 
-     * [insertData]{@link unifiedDataChannel.insertData(options: Options, data: UnifiedData, callback: AsyncCallback<string>)}
-     * .
+     * [insertData]{@link unifiedDataChannel.insertData(options: Options, data: UnifiedData, callback: AsyncCallback<string>)}.
      * 
      * The key consists of **udmf:/**, **intention**, **bundleName**, and **groupId** with a (/) in between, for example
      * , **udmf://DataHub/com.ohos.test/0123456789**.
@@ -1893,8 +1834,7 @@ declare namespace unifiedDataChannel {
    * file conflicts, and progress indicator type.
    * 
    * For details, see 
-   * [Obtaining Data Asynchronously Through Drag-and-Drop](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#example-3-obtaining-data-asynchronously-through-drag-and-drop)
-   * .
+   * [Obtaining Data Asynchronously Through Drag-and-Drop].
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @atomicservice

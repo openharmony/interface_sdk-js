@@ -30,7 +30,7 @@
 declare namespace uniformTypeDescriptor {
   /**
    * Enumerates the uniform data types. Some data types are related. For example, the JPEG type belongs to the IMAGE 
-   * type. For more preset data types, see [Preset UTD List](docroot://database/uniform-data-type-list.md).
+   * type. For more preset data types, see [Preset UTD List].
    * 
    * The following table lists the common uniform data types.
    *
@@ -2274,7 +2274,7 @@ declare namespace uniformTypeDescriptor {
   /**
    * Obtains the **TypeDescriptor** object based on the uniform data type ID.
    *
-   * @param { string } typeId - [Uniform data type ID](docroot://database/uniform-data-type-descriptors.md).
+   * @param { string } typeId - [Uniform data type ID].
    * @returns { TypeDescriptor } **TypeDescriptor** object obtained. If the uniform data type does not exist, **null**
    *     is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
@@ -2305,7 +2305,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } filenameExtension - File name extension.
    * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
    *     parameter has no default value. If it is not specified, the
-   *     [uniform data type ID](docroot://database/uniform-data-type-descriptors.md) is queried based on the file name
+   *     [uniform data type ID] is queried based on the file name
    *     extension.
    * @returns { string } ID of the uniform data type that matches the specified file name extension and **belongsTo** (
    *     if specified). If no match is found, the data type dynamically generated based on the rules specified by the
@@ -2326,7 +2326,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } mimeType - MIME type.
    * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
    *     parameter has no default value. If it is not specified, the
-   *     [uniform data type ID](docroot://database/uniform-data-type-descriptors.md) is queried based on the MIME name.
+   *     [uniform data type ID] is queried based on the MIME name.
    * @returns { string } ID of the uniform data type that matches the specified MIME type and **belongsTo** (if
    *     specified). If no match is found, the data type dynamically generated based on the rules specified by the input
    *     parameters is returned.
@@ -2345,7 +2345,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } filenameExtension - File name extension.
    * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
    *     parameter has no default value. If it is not specified, the
-   *     [uniform data type ID](docroot://database/uniform-data-type-descriptors.md) is queried based on the file name
+   *     [uniform data type ID] is queried based on the file name
    *     extension.
    * @returns { Array<string> } Uniform data type IDs that match the specified file name extension and **belongsTo** (if
    *     specified). If no match is found, the data types dynamically generated based on the rules specified by the
@@ -2365,7 +2365,7 @@ declare namespace uniformTypeDescriptor {
    * @param { string } mimeType - MIME type.
    * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
    *     parameter has no default value. If it is not specified, the
-   *     [uniform data type ID](docroot://database/uniform-data-type-descriptors.md) is queried based on the MIME name.
+   *     [uniform data type ID] is queried based on the MIME name.
    * @returns { Array<string> } Uniform data type IDs that match the specified MIME type and **belongsTo** (if specified
    *     ). If no match is found, the data types dynamically generated based on the rules specified by the input
    *     parameters are returned.

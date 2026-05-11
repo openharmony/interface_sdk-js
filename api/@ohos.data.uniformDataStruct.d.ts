@@ -466,7 +466,7 @@ declare namespace uniformDataStruct {
     oriUri: string;
 
     /**
-     * File type, which must be UTD. For details, see [Prebuilt UTDs](docroot://database/uniform-data-type-list.md). The
+     * File type, which must be UTD. For details, see [Prebuilt UTDs]. The
      * maximum length of the value is 1024 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
