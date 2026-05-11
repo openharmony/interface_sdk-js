@@ -40,9 +40,19 @@ import BaseContext from './application/BaseContext';
 import image from './@ohos.multimedia.image';
 import rpc from './@ohos.rpc';
 import dialogRequest from './@ohos.app.ability.dialogRequest';
+/*** if arkts dynamic */
+import { UIContext } from './@ohos.arkui.UIContext';
+import { ColorMetrics } from './@ohos.arkui.node';
+/*** endif */
 import ConfigurationConstant from './@ohos.app.ability.ConfigurationConstant';
 import bundleManager from './@ohos.bundle.bundleManager';
-import { ColorMetrics } from './@ohos.arkui.node';
+/*** if arkts static */
+import { LocalStorage } from '@ohos.arkui.stateManagement';
+import { UIContext } from '@ohos.arkui.UIContext';
+import { ColorMetrics } from '@ohos.arkui.node';
+import { ImageFit } from '@ohos.arkui.component';
+/*** endif */
+
 /*** if arkts dynamic */
 /**
  * Defines the window callback.
