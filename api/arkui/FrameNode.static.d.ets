@@ -2040,7 +2040,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getListAttribute(node: FrameNode): ListAttribute | undefined;
 
@@ -2052,7 +2052,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getListEvent(node: FrameNode): UIListEvent | undefined;
 
@@ -2063,11 +2063,9 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function bindListController(node: FrameNode, controller: Scroller): void;
 
@@ -2130,7 +2128,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getListItemAttribute(node: FrameNode): ListItemAttribute | undefined;
 
@@ -2193,7 +2191,7 @@ export declare namespace typeNode {
    *      and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getListItemGroupAttribute(node: FrameNode): ListItemGroupAttribute | undefined;
 
@@ -2318,11 +2316,9 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function bindScrollController(node: FrameNode, controller: Scroller): void;
 
@@ -2334,7 +2330,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getScrollAttribute(node: FrameNode): ScrollAttribute | undefined;
 
@@ -2346,7 +2342,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getScrollEvent(node: FrameNode): UIScrollEvent | undefined;
 
@@ -2494,7 +2490,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getGridAttribute(node: FrameNode): GridAttribute | undefined;
 
@@ -2506,7 +2502,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getGridEvent(node: FrameNode): UIGridEvent | undefined;
 
@@ -2517,11 +2513,9 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function bindGridController(node: FrameNode, controller: Scroller): void;
 
@@ -2584,7 +2578,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getGridItemAttribute(node: FrameNode): GridItemAttribute | undefined;
 
@@ -2647,7 +2641,7 @@ export declare namespace typeNode {
    *      and return undefined if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */ 
   export function getWaterFlowAttribute(node: FrameNode): WaterFlowAttribute | undefined;
 
@@ -2659,7 +2653,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getWaterFlowEvent(node: FrameNode): UIWaterFlowEvent | undefined;
 
@@ -2670,11 +2664,9 @@ export declare namespace typeNode {
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 24 and will not be
-   *     threw above API version 24. [since 24 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function bindWaterFlowController(node: FrameNode, controller: Scroller): void;
 
@@ -2736,7 +2728,7 @@ export declare namespace typeNode {
    *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   export function getFlowItemAttribute(node: FrameNode): FlowItemAttribute | undefined;
 
