@@ -14692,6 +14692,7 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
  * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
  * @returns { GestureRecognizer } gesture recognizer of the component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -32102,6 +32103,7 @@ declare class CommonMethod<T> {
    *     touch test.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
