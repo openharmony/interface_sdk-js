@@ -27,7 +27,8 @@
  * > >   - For lite wearables, this module is constantly maintained and available.
  * > >   - For other device types, this module is no longer maintained since API version 8, and You are advised to use 
  * > the new [@ohos.vibrator]{@link @ohos.vibrator:vibrator} module.
- * > - The initial APIs of this module are supported since API version 3. Newly added APIs will be marked with a superscript to indicate their earliest API version.
+ * > - The initial APIs of this module are supported since API version 3. 
+ * > Newly added APIs will be marked with a superscript to indicate their earliest API version.
  * > - This module requires hardware support and can only be debugged on real devices.
  *
  * @file
