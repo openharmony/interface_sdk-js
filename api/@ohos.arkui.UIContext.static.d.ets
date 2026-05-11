@@ -972,7 +972,7 @@ export declare class PromptAction {
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 /**
@@ -986,7 +986,7 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 /**
@@ -999,7 +999,7 @@ type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, nod
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 /**
@@ -1116,7 +1116,7 @@ export interface OrderOverlayOptions {
  * @typedef { string | int } NodeIdentity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type NodeIdentity = string | int;
 
@@ -1132,7 +1132,7 @@ export declare type NodeIdentity = string | int;
  * @enum { number } NodeRenderState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export const enum NodeRenderState {
   /**
@@ -1144,7 +1144,7 @@ export const enum NodeRenderState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ABOUT_TO_RENDER_IN = 0,
 
@@ -1156,7 +1156,7 @@ export const enum NodeRenderState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ABOUT_TO_RENDER_OUT = 1
 }
@@ -1169,7 +1169,7 @@ export const enum NodeRenderState {
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
@@ -1182,7 +1182,7 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
  * @enum { number } GestureActionPhase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export const enum GestureActionPhase {
   /**
@@ -1191,7 +1191,7 @@ export const enum GestureActionPhase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WILL_START = 0,
 
@@ -1201,7 +1201,7 @@ export const enum GestureActionPhase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WILL_END = 1
 }
@@ -1212,7 +1212,7 @@ export const enum GestureActionPhase {
  * @enum { number } GestureListenerType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export const enum GestureListenerType {
   /**
@@ -1220,7 +1220,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   TAP = 0,
 
@@ -1229,7 +1229,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   LONG_PRESS = 1,
 
@@ -1238,7 +1238,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   PAN = 2,
 
@@ -1247,7 +1247,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   PINCH = 3,
 
@@ -1256,7 +1256,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   SWIPE = 4,
 
@@ -1265,7 +1265,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ROTATION = 5
 }
@@ -1276,7 +1276,7 @@ export const enum GestureListenerType {
  * @interface GestureTriggerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export interface GestureTriggerInfo {
   /**
@@ -1285,7 +1285,7 @@ export interface GestureTriggerInfo {
    * @type { GestureEvent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   event: GestureEvent;
 
@@ -1296,7 +1296,7 @@ export interface GestureTriggerInfo {
    * @type { GestureRecognizer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   current: GestureRecognizer;
 
@@ -1306,7 +1306,7 @@ export interface GestureTriggerInfo {
    * @type { GestureActionPhase }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   currentPhase: GestureActionPhase;
 
@@ -1316,7 +1316,7 @@ export interface GestureTriggerInfo {
    * @type { ?FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   node?: FrameNode;
 }
@@ -1327,7 +1327,7 @@ export interface GestureTriggerInfo {
  * @interface GestureObserverConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export interface GestureObserverConfigs {
   /**
@@ -1337,7 +1337,7 @@ export interface GestureObserverConfigs {
    * @type { Array<GestureActionPhase> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   actionPhases: Array<GestureActionPhase>;
 }
@@ -1349,7 +1349,7 @@ export interface GestureObserverConfigs {
  * @param { GestureTriggerInfo } info - the gesture details triggered with user interaction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
@@ -1750,7 +1750,7 @@ export declare class UIObserver {
    *     is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   addGlobalGestureListener(type: GestureListenerType,
       option: GestureObserverConfigs, callback: GestureListenerCallback): void;
@@ -1763,7 +1763,7 @@ export declare class UIObserver {
    *     all callbacks for the given gesture type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
 
@@ -1945,7 +1945,7 @@ export declare class UIObserver {
    * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onNodeRenderState(nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
 
@@ -1957,7 +1957,7 @@ export declare class UIObserver {
    *     all callbacks will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offNodeRenderState(nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
@@ -1980,7 +1980,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onWillClick(callback: ClickEventListenerCallback): void;
 
@@ -1991,7 +1991,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offWillClick(callback?: ClickEventListenerCallback): void;
 
@@ -2002,7 +2002,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onDidClick(callback: ClickEventListenerCallback): void;
 
@@ -2013,7 +2013,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offDidClick(callback?: ClickEventListenerCallback): void;
 
@@ -2024,7 +2024,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onWillTap(callback: GestureEventListenerCallback): void;
 
@@ -2035,7 +2035,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offWillTap(callback?: GestureEventListenerCallback): void;
 
@@ -2046,7 +2046,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onDidTap(callback: GestureEventListenerCallback): void;
 
@@ -2057,7 +2057,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offDidTap(callback?: GestureEventListenerCallback): void;
 
@@ -2068,7 +2068,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onBeforePanStart(callback: PanListenerCallback): void;
 
@@ -2079,7 +2079,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offBeforePanStart(callback?: PanListenerCallback): void;
 
@@ -2090,7 +2090,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onBeforePanEnd(callback: PanListenerCallback): void;
 
@@ -2101,7 +2101,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offBeforePanEnd(callback?: PanListenerCallback): void;
 
@@ -2112,7 +2112,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onAfterPanStart(callback: PanListenerCallback): void;
 
@@ -2123,7 +2123,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offAfterPanStart(callback?: PanListenerCallback): void;
 
@@ -2134,7 +2134,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onAfterPanEnd(callback: PanListenerCallback): void;
 
@@ -2145,7 +2145,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offAfterPanEnd(callback?: PanListenerCallback): void;
 }
@@ -2651,7 +2651,7 @@ export declare class DragController {
    * @param { boolean } enabled - Indicating enable the disallow status showing or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enableDropDisallowedBadge(enabled: boolean): void;
 }
@@ -3064,7 +3064,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
