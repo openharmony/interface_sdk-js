@@ -12473,6 +12473,68 @@ declare namespace audio {
   }
 
   /**
+   * Defines mode for playback capture, each mode means different target streams to capture.
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AudioPlaybackCaptureMode {
+    /**
+     * Default mode. Capture most of the audio streams, except tone streams and privacy streams.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_DEFAULT = 0x0,
+    /**
+     * Media mode. Capture media, voice message and also unknown streams.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_MEDIA = 0x1,
+    /**
+     * Excluding self mode. Capture streams excluding the audio played by application itself.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_EXCLUDING_SELF = 0x8000,
+  }
+
+  /**
+   * Defines the playback capture start state, which is returned asynchronously
+   * after calling {@link AudioCapturer.requestPlaybackCaptureStart} function.
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum PlaybackCaptureStartState {
+    /**
+     * Start playback capture success state.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_SUCCESS = 0,
+    /**
+     * Start playback capture failed state, because the request for interrupt is denied
+     * or meet system internal error.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_FAILED = 1,
+    /**
+     * Start playback capture but user not authorized state.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_NOT_AUTHORIZED = 2,
+  }
+
+  /**
    * Describes audio capturer information.
    * @typedef AudioCapturerInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -12593,6 +12655,15 @@ declare namespace audio {
      * @since 23 static
      */
     preferredInputDevice?: AudioDeviceDescriptor;
+
+    /**
+     * The playback capture mode for audio capturer.
+     * This can be a combination of the available {@link AudioPlaybackCaptureMode}.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    playbackCaptureMode?: AudioPlaybackCaptureMode;
   }
 
   /**
@@ -12947,6 +13018,18 @@ declare namespace audio {
      * @since 23 static
      */
     start(): Promise<void>;
+
+    /**
+     * Asynchronously request to start the playback capture stream.
+     * This function is non-blocking, which means system will continue to process user authorization and
+     * stream starting when receiving the start request. And the final result will be returned by callback.
+     * @param { Callback<PlaybackCaptureStartState> } callback - Callback function used to receive the final
+     *     result of start request.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    requestPlaybackCaptureStart(callback: Callback<PlaybackCaptureStartState>): void;
 
     /**
      * Reads the buffer from the audio capturer. This method uses an asynchronous callback to return the result.
