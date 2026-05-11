@@ -260,7 +260,7 @@ declare namespace unifiedDataChannel {
    * @since 10 dynamic
    * @since 23 static
    */
-    class UnifiedData {
+  class UnifiedData {
     /**
      * Defines a constructor used to create a **UnifiedData** object with a data record.
      *
@@ -448,7 +448,7 @@ declare namespace unifiedDataChannel {
    * @since 10 dynamic
    * @since 23 static
    */
-   class UnifiedRecord {
+  class UnifiedRecord {
     /**
      * Obtains the type of this **UnfiedRecord**. The data obtained by 
      * [getRecords]{@link unifiedDataChannel.UnifiedData.getRecords} from the **UnifiedData** object is a 
@@ -980,7 +980,7 @@ declare namespace unifiedDataChannel {
    * @since 10 dynamic
    * @since 23 static
    */
-    class Video extends File {
+  class Video extends File {
     /**
      * Indicates the uri of video
      *
@@ -1126,7 +1126,7 @@ declare namespace unifiedDataChannel {
      */
     set details(value: Record<string, int | long | double | string | Uint8Array> | undefined);
   }
-  
+
   /**
    * Represents the service widget data defined by the system. It is a child class of 
    * [SystemDefinedRecord]{@link unifiedDataChannel.SystemDefinedRecord}.
