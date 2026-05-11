@@ -60,7 +60,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_APP = -16,
+    CONSUMPTION_TYPE_APP,
 
     /**
      * Power consumption of Bluetooth.
@@ -70,7 +70,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_BLUETOOTH = -15,
+    CONSUMPTION_TYPE_BLUETOOTH,
 
     /**
      * Power consumption when the CPU is idle.
@@ -80,7 +80,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_IDLE = -14,
+    CONSUMPTION_TYPE_IDLE,
 
     /**
      * Power consumption of a phone call.
@@ -90,7 +90,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_PHONE = -13,
+    CONSUMPTION_TYPE_PHONE,
 
     /**
      * Power consumption of wireless communication.
@@ -100,7 +100,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_RADIO = -12,
+    CONSUMPTION_TYPE_RADIO,
 
     /**
      * Power consumption of the screen.
@@ -110,7 +110,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_SCREEN = -11,
+    CONSUMPTION_TYPE_SCREEN,
 
     /**
      * Power consumption of the user.
@@ -120,7 +120,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_USER = -10,
+    CONSUMPTION_TYPE_USER,
 
     /**
      * Power consumption of Wi-Fi.
@@ -130,7 +130,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_WIFI = -9,
+    CONSUMPTION_TYPE_WIFI,
   }
 
   /**

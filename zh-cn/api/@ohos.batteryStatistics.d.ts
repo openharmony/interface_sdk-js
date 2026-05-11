@@ -60,7 +60,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_APP = -16,
+    CONSUMPTION_TYPE_APP,
 
     /**
      *
@@ -69,7 +69,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_BLUETOOTH = -15,
+    CONSUMPTION_TYPE_BLUETOOTH,
 
     /**
      *
@@ -78,7 +78,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_IDLE = -14,
+    CONSUMPTION_TYPE_IDLE,
 
     /**
      *
@@ -87,7 +87,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_PHONE = -13,
+    CONSUMPTION_TYPE_PHONE,
 
     /**
      *
@@ -96,7 +96,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_RADIO = -12,
+    CONSUMPTION_TYPE_RADIO,
 
     /**
      *
@@ -105,7 +105,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_SCREEN = -11,
+    CONSUMPTION_TYPE_SCREEN,
 
     /**
      *
@@ -114,7 +114,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_USER = -10,
+    CONSUMPTION_TYPE_USER,
 
     /**
      *
@@ -123,7 +123,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_WIFI = -9,
+    CONSUMPTION_TYPE_WIFI,
   }
 
   /**

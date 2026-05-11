@@ -193,28 +193,28 @@ declare namespace batteryInfo {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    NONE = 0,
+    NONE,
     /**
      * AC charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    AC = 1,
+    AC,
     /**
      * USB charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    USB = 2,
+    USB,
     /**
      * Wireless charger
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    WIRELESS = 3
+    WIRELESS
   }
 
   /**
@@ -232,7 +232,7 @@ declare namespace batteryInfo {
      * @atomicservice [since 12]
      * @since 6 dynamic
      */
-    NONE = 0,
+    NONE,
     /**
      * The battery is being charged.
      *
@@ -240,7 +240,7 @@ declare namespace batteryInfo {
      * @atomicservice [since 12]
      * @since 6 dynamic
      */
-    ENABLE = 1,
+    ENABLE,
     /**
      * The battery is not being charged.
      *
@@ -248,7 +248,7 @@ declare namespace batteryInfo {
      * @atomicservice [since 12]
      * @since 6 dynamic
      */
-    DISABLE = 2,
+    DISABLE,
     /**
      * The battery is fully charged.
      *
@@ -256,7 +256,7 @@ declare namespace batteryInfo {
      * @atomicservice [since 12]
      * @since 6 dynamic
      */
-    FULL = 3
+    FULL
   }
 
   /**
@@ -272,42 +272,42 @@ declare namespace batteryInfo {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    UNKNOWN = 0,
+    UNKNOWN,
     /**
      * The battery is in healthy state.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    GOOD = 1,
+    GOOD,
     /**
      * The battery is overheated.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    OVERHEAT = 2,
+    OVERHEAT,
     /**
      * The battery voltage is over high.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    OVERVOLTAGE = 3,
+    OVERVOLTAGE,
     /**
      * The battery temperature is low.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    COLD = 4,
+    COLD,
     /**
      * The battery is dead.
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
-    DEAD = 5
+    DEAD
   }
 
   /**
@@ -323,49 +323,49 @@ declare namespace batteryInfo {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 dynamic
      */
-    LEVEL_NONE = 0,
+    LEVEL_NONE,
     /**
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_FULL = 1,
+    LEVEL_FULL,
     /**
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_HIGH = 2,
+    LEVEL_HIGH,
     /**
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_NORMAL = 3,
+    LEVEL_NORMAL,
     /**
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_LOW = 4,
+    LEVEL_LOW,
     /**
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_WARNING = 5,
+    LEVEL_WARNING,
     /**
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_CRITICAL = 6,
+    LEVEL_CRITICAL,
     /**
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_SHUTDOWN = 7,
+    LEVEL_SHUTDOWN,
   }
 
   /**
