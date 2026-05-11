@@ -292,6 +292,8 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead print#print
    */
   function print(files: Array<string>, callback: AsyncCallback<PrintTask>): void;
 
@@ -305,6 +307,8 @@ declare namespace print {
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead print#print
    */
   function print(files: Array<string>): Promise<PrintTask>;
 
