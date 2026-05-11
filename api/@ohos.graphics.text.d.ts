@@ -1492,6 +1492,16 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     fontEdging?: drawing.FontEdging;
+
+    /**
+     * Array of font typefaces
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    fontTypefaces?: Array<drawing.Typeface>;
   }
 
   /**
