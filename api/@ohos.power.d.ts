@@ -373,7 +373,7 @@ declare namespace power {
      * @since 9 dynamic
      * @since 23 static
      */
-    MODE_POWER_SAVE = 601,
+    MODE_POWER_SAVE,
     /**
      * Performance mode.
      *
@@ -381,7 +381,7 @@ declare namespace power {
      * @since 9 dynamic
      * @since 23 static
      */
-    MODE_PERFORMANCE = 602,
+    MODE_PERFORMANCE,
     /**
      * Ultra power saving mode.
      *
@@ -389,7 +389,7 @@ declare namespace power {
      * @since 9 dynamic
      * @since 23 static
      */
-    MODE_EXTREME_POWER_SAVE = 603,
+    MODE_EXTREME_POWER_SAVE,
     /**
      * Custom power saving mode.
      *

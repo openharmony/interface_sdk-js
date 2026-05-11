@@ -59,7 +59,7 @@ declare namespace runningLock {
      *     a number:<br>**-1**: The lock is permanently held and needs to be released automatically.<br>**0**: The lock
      *     is released 3 seconds after the timer expires by default.<br>> 0: The lock is released based on the input
      *     value after the timer expires.
-     * @throws { BusinessError } 201 ¨C If the permission is denied.
+     * @throws { BusinessError } 201 - If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
@@ -104,7 +104,7 @@ declare namespace runningLock {
      * Releases this running lock.
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @throws { BusinessError } 201 ¨C If the permission is denied.
+     * @throws { BusinessError } 201 - If the permission is denied.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static

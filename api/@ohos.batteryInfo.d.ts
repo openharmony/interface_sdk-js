@@ -126,7 +126,7 @@ declare namespace batteryInfo {
   const technology: string;
 
   /**
-   * Battery temperature of the device, in unit of 0.1¡ãC.
+   * Battery temperature of the device, in unit of 0.1Â°C.
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 6 dynamic
