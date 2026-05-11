@@ -1040,11 +1040,12 @@ declare namespace cloudData {
   }
 
   /**
-   * Sets cloud strategy.
+   * Sets the cloud sync strategy of an application. This API uses a promise to return the result.
    *
-   * @param { StrategyType } strategy - Indicates the strategy type of the cloud sync.
-   * @param { Array<commonType.ValueType> } param - Indicates specific strategy of the cloud sync.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { StrategyType } strategy - Type of the strategy to set.
+   * @param { Array<commonType.ValueType> } param - Strategy parameters to set. 
+   *     Currently, only network strategies can be set. By default, Wi-Fi and cellular network are supported.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types;
    *     3. Parameter verification failed.
@@ -1313,7 +1314,7 @@ declare namespace cloudData {
     }
 
     /**
-     * Result interface.
+     * Represents the device-cloud sharing result.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1332,7 +1333,7 @@ declare namespace cloudData {
       code: int;
 
       /**
-       * Error code description.
+       * Detailed description of the error code. The default value is undefined.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1342,7 +1343,7 @@ declare namespace cloudData {
       description?: string;
 
       /**
-       * The result value.
+       * Value returned. The specific type is specified by the T parameter. The default value is undefined.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1362,8 +1363,8 @@ declare namespace cloudData {
      */
     interface Privilege {
       /**
-       * Whether the participant can modify the shared data. The value **true** means the participant can modify the 
-       * data; the value **false** means the opposite. The default value is **false**.
+       * Whether the participant can modify the shared data. The value true means the participant can modify the
+       * data; the value false means the opposite. The default value is false.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1373,8 +1374,8 @@ declare namespace cloudData {
       writable?: boolean;
 
       /**
-       * Whether the participant can read the shared data. The value **true** means the participant can read the data; 
-       * the value **false** means the opposite. The default value is **false**.
+       * Whether the participant can read the shared data. The value true means the participant can read the data;
+       * the value false means the opposite. The default value is false.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1384,8 +1385,8 @@ declare namespace cloudData {
       readable?: boolean;
 
       /**
-       * Whether the participant can create data to share. The value **true** means the participant can create data; the
-       * value **false** means the opposite. The default value is **false**.
+       * Whether the participant can create data to share. The value true means the participant can create data; the
+       * value false means the opposite. The default value is false.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1395,8 +1396,8 @@ declare namespace cloudData {
       creatable?: boolean;
 
       /**
-       * Whether the participant can delete the shared data. The value **true** means the participant can delete the 
-       * data; the value **false** means the opposite. The default value is **false**.
+       * Whether the participant can delete the shared data. The value true means the participant can delete the
+       * data; the value false means the opposite. The default value is false.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1406,8 +1407,8 @@ declare namespace cloudData {
       deletable?: boolean;
 
       /**
-       * Whether the participant can share the data to others. The value **true** means the participant can share the 
-       * data; the value **false** means the opposite. The default value is **false**.
+       * Whether the participant can share the data to others. The value true means the participant can share the
+       * data; the value false means the opposite. The default value is false.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1427,7 +1428,7 @@ declare namespace cloudData {
      */
     interface Participant {
       /**
-       * Identity of participant.
+       * ID of the participant.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1437,7 +1438,7 @@ declare namespace cloudData {
       identity: string;
 
       /**
-       * Role of the participant, which can be inviter or invitee.
+       * Role of the participant, inviter or invitee. The default value is undefined.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1447,7 +1448,7 @@ declare namespace cloudData {
       role?: Role;
 
       /**
-       * State of the sharing invitation.
+       * State of the device-cloud sharing. The default value is undefined.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1457,7 +1458,7 @@ declare namespace cloudData {
       state?: State;
 
       /**
-       * Permissions for the shared data.
+       * Permissions on the shared data. The Privilege defaults are used by default.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1467,7 +1468,8 @@ declare namespace cloudData {
       privilege?: Privilege;
 
       /**
-       * Attach information.
+       * Additional information, such as the verification code used for participant identity verification.
+       * The default value is an empty string.
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1478,19 +1480,20 @@ declare namespace cloudData {
     }
 
     /**
-     * Allocates shared resources based on conditions,
-     * and shares data with the specified privilege to participants.
+     * Allocates a shared resource ID based on the data that matches the specified predicates.
+     * This API uses a promise to return the result set of the data to share,
+     * which also includes the column names if they are specified.
      *
-     * @param { string } storeId - Indicates relational store name.
-     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
-     * @param { Array<Participant> } participants - Participants to share.
-     * @param { Array<string> } [columns] - Columns to be shared.
-     * @returns { Promise<relationalStore.ResultSet> } - Promise used to return {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } storeId - Name of the RDB store.
+     * @param { relationalStore.RdbPredicates } predicates - Predicates for matching the data to share.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @param { Array<string> } [columns] - Columns in which the data is located.
+     *     The default value is undefined, which means column names are not returned.
+     * @returns { Promise<relationalStore.ResultSet> } Promise used to return the result set of the data to share.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1505,19 +1508,17 @@ declare namespace cloudData {
     ): Promise<relationalStore.ResultSet>;
 
     /**
-     * Allocates shared resources based on conditions,
-     * and shares data with the specified privilege to participants.
+     * Allocates a shared resource ID based on the data that matches the specified predicates.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } storeId - Indicates relational store name.
-     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
-     * @param { Array<Participant> } participants - Participants to share.
-     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
-     *     callback invoked to return the {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } storeId - Name of the RDB store.
+     * @param { relationalStore.RdbPredicates } predicates - Predicates for matching the data to share.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1532,20 +1533,18 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Allocates shared resources based on conditions,
-     * and shares data with the specified privilege to participants.
+     * Allocates a shared resource ID based on the data that matches the specified predicates.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } storeId - Indicates relational store name.
-     * @param { relationalStore.RdbPredicates } predicates - See {@link relationalStore.RdbPredicates}.
-     * @param { Array<Participant> } participants - Participants to share.
-     * @param { Array<string> } columns - Columns to be shared.
-     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Indicates the
-     *     callback invoked to return the {@link relationalStore.ResultSet}.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } storeId - Name of the RDB store.
+     * @param { relationalStore.RdbPredicates } predicates - Predicates for matching the data to share.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @param { Array<string> } columns - Columns in which the data is located.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1561,18 +1560,16 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Shares data with the specified privilege to participants.
+     * Shares data based on the specified shared resource ID and participants.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the participants
-     *     involved in the data sharing.
-     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
-     *     callback invoked to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1586,17 +1583,16 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Shares data with the specified privilege to participants.
+     * Shares data based on the specified shared resource ID and participants.
+     * This API uses a promise to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the participants
-     *     involved in the data sharing.
-     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1609,18 +1605,16 @@ declare namespace cloudData {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * UnShares data.
+     * Unshares data based on the specified shared resource ID and participants.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the participants
-     *     involved.
-     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the callback invoked
-     *     to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1634,17 +1628,16 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * UnShares data.
+     * Unshares data based on the specified shared resource ID and participants.
+     * This API uses a promise to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the participants
-     *     involved.
-     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1657,15 +1650,15 @@ declare namespace cloudData {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * Exit sharing.
+     * Exits the share of the specified shared resource.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { AsyncCallback<Result<void>> } callback - The callback of exit.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { AsyncCallback<Result<void>> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1675,15 +1668,15 @@ declare namespace cloudData {
     function exit(sharingResource: string, callback: AsyncCallback<Result<void>>): void;
 
     /**
-     * Exit sharing.
+     * Exits the share of the specified shared resource.
+     * This API uses a promise to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @returns { Promise<Result<void>> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @returns { Promise<Result<void>> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1693,18 +1686,16 @@ declare namespace cloudData {
     function exit(sharingResource: string): Promise<Result<void>>;
 
     /**
-     * Changes the permissions for the shared data.
+     * Changes the privilege on the shared data.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the participants
-     *     whose permissions are to be changed.
-     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Indicates the
-     *     callback invoked to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1718,17 +1709,16 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Changes the permissions for the shared data.
+     * Changes the privilege on the shared data.
+     * This API uses a promise to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { Array<Participant> } participants - Indicates the participants
-     *     whose permissions are to be changed.
-     * @returns { Promise<Result<Array<Result<Participant>>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { Array<Participant> } participants - Participants of the share.
+     * @returns { Promise<Result<Array<Result<Participant>>>> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1741,16 +1731,15 @@ declare namespace cloudData {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * Queries the participants based on the specified shared data.
+     * Queries the participants of the specified shared data.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
-     *     callback invoked to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1760,15 +1749,15 @@ declare namespace cloudData {
     function queryParticipants(sharingResource: string, callback: AsyncCallback<Result<Array<Participant>>>): void;
 
     /**
-     * Queries the participants based on the specified shared data.
+     * Queries the participants of the specified shared data.
+     * This API uses a promise to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @returns { Promise<Result<Array<Participant>>> } Promise used to return the participants obtained.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1778,16 +1767,15 @@ declare namespace cloudData {
     function queryParticipants(sharingResource: string): Promise<Result<Array<Participant>>>;
 
     /**
-     * Queries the participants based on the specified invitation code.
+     * Queries the participants based on the sharing invitation code.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } invitationCode - Indicates the invitation code.
-     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Indicates the
-     *     callback invoked to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } invitationCode - Invitation code.
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1800,15 +1788,15 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * Queries the participants based on the specified invitation code.
+     * Queries the participants based on the sharing invitation code.
+     * This API uses a promise to return the result.
      *
-     * @param { string } invitationCode - Indicates the invitation code.
-     * @returns { Promise<Result<Array<Participant>>> } - Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } invitationCode - Invitation code.
+     * @returns { Promise<Result<Array<Participant>>> } Promise used to return the participants obtained.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1818,17 +1806,16 @@ declare namespace cloudData {
     function queryParticipantsByInvitation(invitationCode: string): Promise<Result<Array<Participant>>>;
 
     /**
-     * Confirms the invitation of cloud sharing.
+     * Confirms the invitation based on the sharing invitation code and obtains the shared resource ID.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } invitationCode - Indicates the invitation code.
-     * @param { State } state - Indicates the state of invitation.
-     * @param { AsyncCallback<Result<string>> } callback - Indicates the callback
-     *     invoked to return the sharing resource.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } invitationCode - Invitation code of the share.
+     * @param { State } state - Confirmation state.
+     * @param { AsyncCallback<Result<string>> } callback - Callback used to return the shared resource ID.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1838,16 +1825,16 @@ declare namespace cloudData {
     function confirmInvitation(invitationCode: string, state: State, callback: AsyncCallback<Result<string>>): void;
 
     /**
-     * Confirms the invitation of cloud sharing.
+     * Confirms the invitation based on the sharing invitation code and obtains the shared resource ID.
+     * This API uses a promise to return the result.
      *
-     * @param { string } invitationCode - Indicates the invitation code.
-     * @param { State } state - Indicates the state of invitation.
-     * @returns { Promise<Result<string>> } - Promise used to return the sharing resource.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } invitationCode - Invitation code of the share.
+     * @param { State } state - Confirmation state.
+     * @returns { Promise<Result<string>> } Promise used to return the shared resource ID.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1857,16 +1844,16 @@ declare namespace cloudData {
     function confirmInvitation(invitationCode: string, state: State): Promise<Result<string>>;
 
     /**
-     * Changes confirmation of shared record.
+     * Changes the invitation confirmation state based on the shared resource ID.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { State } state - Indicates the state of invitation.
-     * @param { AsyncCallback<Result<void>> } callback - Indicates the callback.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { State } state - Confirmation state.
+     * @param { AsyncCallback<Result<void>> } callback - Callback used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1876,16 +1863,16 @@ declare namespace cloudData {
     function changeConfirmation(sharingResource: string, state: State, callback: AsyncCallback<Result<void>>): void;
 
     /**
-     * Changes confirmation of shared record.
+     * Changes the invitation confirmation state based on the shared resource ID.
+     * This API uses a promise to return the result.
      *
-     * @param { string } sharingResource - Indicates the sharing resource.
-     * @param { State } state - Indicates the state of invitation.
-     * @returns { Promise<Result<void>> } - The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
-     *     . Incorrect parameter types;
-     *     3. Parameter verification failed.
+     * @param { string } sharingResource - Shared resource ID.
+     * @param { State } state - Confirmation state.
+     * @returns { Promise<Result<void>> } Promise used to return the result.
+     * @throws { BusinessError } 202 - Permission verification failed,
+     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
