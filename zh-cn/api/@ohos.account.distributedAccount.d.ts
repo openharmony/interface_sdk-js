@@ -24,8 +24,7 @@ import type { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * The **distributedAccount** module provides APIs for managing distributed accounts, including querying and updating
- * account login states.
+ * 本模块提供管理分布式账号的一些基础功能，主要包括查询和更新账号登录状态。
  *
  * @syscap SystemCapability.Account.OsAccount
  * @since 7 dynamic
@@ -33,10 +32,9 @@ import type { RecordData } from './@ohos.base';
  */
 declare namespace distributedAccount {
   /**
-   * Obtains a **DistributedAccountAbility** instance.
+   * 获取分布式账号单实例对象。
    *
-   * @returns { DistributedAccountAbility } **DistributedAccountAbility** instance obtained.
-   *     This instance provides APIs for querying and updating the login state of a distributed account.
+   * @returns { DistributedAccountAbility } 返回一个实例，实例提供查询和更新分布式账号登录状态方法。
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
    * @since 23 static
@@ -44,8 +42,7 @@ declare namespace distributedAccount {
   function getDistributedAccountAbility(): DistributedAccountAbility;
 
   /**
-   * Provides APIs for querying and updating the login state of a distributed account. You must obtain a
-   * **DistributedAccountAbility** instance first.
+   * 提供查询和更新分布式账号登录状态方法（需要先获取分布式账号的单实例对象）。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
@@ -53,18 +50,16 @@ declare namespace distributedAccount {
    */
   interface DistributedAccountAbility {
     /**
-     * Queries the distributed account information. This API uses an asynchronous callback to return the result.
+     * 获取分布式账号信息。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [getOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.getOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>)}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<DistributedInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the distributed account information obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<DistributedInfo> } callback - 回调函数。当获取分布式账号信息成功，err为undefined，data为获取到的分布式账号信息对象；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -73,16 +68,16 @@ declare namespace distributedAccount {
     queryOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
 
     /**
-     * Queries the distributed account information. This API uses a promise to return the result.
+     * 获取分布式账号信息。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [getOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.getOsAccountDistributedInfo()}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Promise<DistributedInfo> } Promise used to return the distributed account information obtained.
+     * @returns { Promise<DistributedInfo> } Promise对象，返回分布式账号信息对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -91,13 +86,11 @@ declare namespace distributedAccount {
     queryOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
     /**
-     * Obtains the distributed account information. This API uses an asynchronous callback to return the result.
+     * 获取分布式账号信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or
      *     ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<DistributedInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the distributed account information obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<DistributedInfo> } callback - 回调参数。当获取分布式账号信息成功，err为undefined，data为获取到的分布式账号信息对象；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -109,11 +102,11 @@ declare namespace distributedAccount {
     getOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
 
     /**
-     * Obtains the distributed account information. This API uses a promise to return the result.
+     * 获取分布式账号信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or
      *     ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Promise<DistributedInfo> } Promise used to return the distributed account information obtained.
+     * @returns { Promise<DistributedInfo> } Promise对象，返回分布式账号信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
@@ -123,17 +116,14 @@ declare namespace distributedAccount {
     getOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
     /**
-     * Obtains distributed information about an OS account. This API uses an asynchronous callback to return the
-     * result.
+     * 获取指定系统账号的分布式信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or
      *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 10 - 19]
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or (ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and
      *     ohos.permission.GET_DISTRIBUTED_ACCOUNTS) [since 20]
-     * @param { int } localId - ID of the target OS account.
-     * @param { AsyncCallback<DistributedInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the distributed account information obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { AsyncCallback<DistributedInfo> } callback - 回调参数。当获取分布式账号信息成功，err为undefined，data为获取到的分布式账号信息对象；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -146,14 +136,14 @@ declare namespace distributedAccount {
     getOsAccountDistributedInfoByLocalId(localId: int, callback: AsyncCallback<DistributedInfo>): void;
 
     /**
-     * Obtains distributed information about an OS account. This API uses a promise to return the result.
+     * 获取指定系统账号的分布式信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or
      *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 10 - 19]
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or (ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and
      *     ohos.permission.GET_DISTRIBUTED_ACCOUNTS) [since 20]
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<DistributedInfo> } Promise used to return the distributed account information obtained.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<DistributedInfo> } Promise对象，返回分布式账号信息对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -166,18 +156,17 @@ declare namespace distributedAccount {
     getOsAccountDistributedInfoByLocalId(localId: int): Promise<DistributedInfo>;
 
     /**
-     * Updates the distributed account information. This API uses an asynchronous callback to return the result.
+     * 更新分布式账号信息。使用callback异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [setOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>)}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Distributed account information to update.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the distributed account
-     *     information is updated successfully, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { DistributedInfo } accountInfo - 分布式账号信息。
+     * @param { AsyncCallback<void> } callback - 回调函数。当更新分布式账号信息成功时，err为undefined，否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -186,17 +175,17 @@ declare namespace distributedAccount {
     updateOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates the distributed account information. This API uses a promise to return the result.
+     * 更新分布式账号信息。使用Promise异步回调。
      *
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [setOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.setOsAccountDistributedInfo(accountInfo: DistributedInfo)}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Distributed account information to update.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DistributedInfo } accountInfo - 分布式账号信息。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -205,13 +194,12 @@ declare namespace distributedAccount {
     updateOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
     /**
-     * Sets the distributed account information. This API uses an asynchronous callback to return the result.
-     * This API can be called only by system applications.
+     * 更新分布式账号信息。使用callback异步回调。
+     * 该接口仅限系统应用调用。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Distributed account information to set.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the distributed account
-     *     information is set successfully, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { DistributedInfo } accountInfo - 分布式账号信息。
+     * @param { AsyncCallback<void> } callback - 回调函数。当更新分布式账号信息成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -225,12 +213,12 @@ declare namespace distributedAccount {
     setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the distributed account information. This API uses a promise to return the result.
-     * This API can be called only by system applications.
+     * 更新分布式账号信息。使用Promise异步回调。
+     * 该接口仅限系统应用调用。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Distributed account information to set.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DistributedInfo } accountInfo - 分布式账号信息。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -244,14 +232,12 @@ declare namespace distributedAccount {
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
     /**
-     * Sets the distributed information for an OS account. This API uses an asynchronous callback to return the
-     * result.
+     * 设置指定系统账号的分布式信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { DistributedInfo } distributedInfo - Distributed account information to set.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the distributed
-     *     information is set successfully, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { DistributedInfo } distributedInfo - 分布式账号信息。
+     * @param { AsyncCallback<void> } callback - 回调函数。当设置指定系统账号的分布式信息成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -268,12 +254,12 @@ declare namespace distributedAccount {
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the distributed information for an OS account. This API uses a promise to return the result.
+     * 设置指定系统账号的分布式信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { DistributedInfo } distributedInfo - Distributed account information to set.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @param { DistributedInfo } distributedInfo - 分布式账号信息。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -291,7 +277,7 @@ declare namespace distributedAccount {
   }
 
   /**
-   * Enumerates the statuses of a distributed account.
+   * 表示分布式账号状态枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 10 dynamic
@@ -299,7 +285,7 @@ declare namespace distributedAccount {
    */
   enum DistributedAccountStatus {
     /**
-     * The account has not logged in.
+     * 未登录状态。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
@@ -308,7 +294,7 @@ declare namespace distributedAccount {
     NOT_LOGGED_IN = 0,
 
     /**
-     * The account has logged in.
+     * 已登录状态。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
@@ -318,7 +304,7 @@ declare namespace distributedAccount {
   }
 
   /**
-   * Represents the distributed information about an OS account.
+   * 提供操作系统账号的分布式信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
@@ -326,7 +312,7 @@ declare namespace distributedAccount {
    */
   interface DistributedInfo {
     /**
-     * Name of the distributed account. It must be a non-null string.
+     * 分布式账号名称，非空字符串。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -335,7 +321,7 @@ declare namespace distributedAccount {
     name: string;
 
     /**
-     * UID of the distributed account. It must be a non-null string.
+     * 分布式账号UID，非空字符串。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -344,8 +330,7 @@ declare namespace distributedAccount {
     id: string;
 
     /**
-     * Login state of the distributed account. The state can be login, logout, token invalid, or logoff, which
-     * correspond to the following strings respectively:
+     * 分布式账号登录状态，包括登录、登出、Token失效和注销，分别对应以下字符串：
      *
      * - Ohos.account.event.LOGIN
      *
@@ -362,7 +347,7 @@ declare namespace distributedAccount {
     event: string;
 
     /**
-     * Nickname of the distributed account. By default, no value is passed in.
+     * 分布式账号的昵称，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -371,7 +356,7 @@ declare namespace distributedAccount {
     nickname?: string;
 
     /**
-     * Avatar of the distributed account. By default, no value is passed in.
+     * 分布式账号的头像，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -380,7 +365,7 @@ declare namespace distributedAccount {
     avatar?: string;
 
     /**
-     * Status of the distributed account. The value is of the enumerated type. The default status is unlogged.
+     * 分布式账号的状态，枚举类型，默认为未登录状态。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
@@ -389,8 +374,7 @@ declare namespace distributedAccount {
     readonly status?: DistributedAccountStatus;
 
     /**
-     * Additional information about the distributed account, in the form of KV pairs. This parameter is left empty by
-     * default.
+     * 分布式账号扩展信息，根据业务所需，以k-v形式传递定制化信息，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -398,8 +382,7 @@ declare namespace distributedAccount {
     scalableData?: object;
 
     /**
-     * Additional information about the distributed account, in the form of KV pairs. This parameter is left empty by
-     * default.
+     * 分布式账号扩展信息，根据业务所需，以k-v形式传递定制化信息，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 23 static
