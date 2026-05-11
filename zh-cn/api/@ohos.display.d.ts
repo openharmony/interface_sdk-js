@@ -1249,7 +1249,7 @@ declare namespace display {
      * @since 10 dynamic
      * @since 23 static
      */
-    FOLD_DISPLAY_MODE_COORDINATION = 4
+    FOLD_DISPLAY_MODE_COORDINATION
   }
 
   /**
