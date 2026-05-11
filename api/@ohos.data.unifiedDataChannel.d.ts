@@ -426,7 +426,6 @@ declare namespace unifiedDataChannel {
     /**
      * Indicates the overview information of unifiedData.
      *
-     * @readonly [since 22 - 22]
      * @returns { Record<string, long> } Key represents the data type, and value represents the corresponding data
      *     size. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -609,6 +608,7 @@ declare namespace unifiedDataChannel {
      *
      * @returns { Record<string, string> | undefined } the details of unified text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -620,6 +620,7 @@ declare namespace unifiedDataChannel {
      *
      * @param { Record<string, string> | undefined } the details of unified text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -739,6 +740,7 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string | undefined } the description of a link. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -750,6 +752,7 @@ declare namespace unifiedDataChannel {
      *
      * @param { string | undefined } the description of a link [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -806,6 +809,7 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string | undefined } the plain content of html [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -817,6 +821,7 @@ declare namespace unifiedDataChannel {
      *
      * @param { string | undefined} the plain content of html [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -874,6 +879,7 @@ declare namespace unifiedDataChannel {
      *
      * @returns { Record<string, string> | undefined } the details of unified File [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -885,6 +891,7 @@ declare namespace unifiedDataChannel {
      *
      * @param { Record<string, string> } the details of unified File. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14 - 22]
      * @atomicservice [since 11 - 22]
      * @since 23 static
@@ -1101,6 +1108,7 @@ declare namespace unifiedDataChannel {
      * @returns { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
      *     data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @atomicservice [since 11 - 22]
      * @since 23 static
      */
@@ -1112,6 +1120,7 @@ declare namespace unifiedDataChannel {
      * @param { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
      *     data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @atomicservice [since 11 - 22]
      * @since 23 static
      */
@@ -2151,8 +2160,8 @@ declare namespace unifiedDataChannel {
    * @returns { Promise<Array<UnifiedData>> } Promise used to return the data deleted.
    *     <br>If only the **key** is specified in **options**, the data corresponding to the key deleted is returned.
    *     <br>If only the **intention** is specified in **options**, all data in the **intention** deleted is returned.
-   *     <br>If both **intention** and **key** are specified, the intersection of the two deleted is returned. If there is no
-   *     intersection between the two, an error object is returned.
+   *     <br>If both **intention** and **key** are specified, the intersection of the two deleted is returned. If there 
+   *     is no intersection between the two, an error object is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
