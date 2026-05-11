@@ -14997,12 +14997,12 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * Margin of the scrollbar.
      *
      * @param { ScrollBarMargin | undefined } margin - Margin of the scrollbar.
-     *     <br>Default value: {start: LengthMetrics.vp(0), end: LengthMetrics.vp(0)}.
-     *     Passing undefined will restore the default value.
+     *     <br>Passing undefined will restore the default value.Default value: {start: LengthMetrics.vp(0), end: 
+     *     LengthMetrics.vp(0)}.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default scrollBarMargin(margin: ScrollBarMargin | undefined): this;
     /**
@@ -15083,12 +15083,11 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *
      * @param { double | Resource | undefined } offset - Offset from the start of the content to the boundary of
      *     the scrollable display area.
-     *     <br>Unit: vp
-     *     <br>Unit:Default value: <em>0</em>. Passing undefined will restore the default value.
+     *     <br>Unit: vp, <br>Passing undefined will restore the default value. Default value: <em>0</em>.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default contentStartOffset(offset: double | Resource | undefined): this;
     /**
@@ -15096,12 +15095,11 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      *
      * @param { double | Resource | undefined } offset - Offset from the end of the content to the boundary of
      *     the scrollable display area.
-     *     <br>Unit: vp
-     *     <br>Default value: <em>0</em>. Passing undefined will restore the default value.
+     *     <br>Unit: vp, <br>Passing undefined will restore the default value.Default value: <em>0</em>. 
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default contentEndOffset(offset: double | Resource | undefined): this;
     /**
@@ -15112,7 +15110,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onWillStartDragging(handler: VoidCallback | undefined): this;
     /**
@@ -15123,7 +15121,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onWillStopDragging(handler: OnWillStopDraggingCallback | undefined): this;
     /**
@@ -15134,7 +15132,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onDidStopDragging(handler: OnDidStopDraggingCallback | undefined): this;
     /**
@@ -15145,7 +15143,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onWillStartFling(handler: VoidCallback | undefined): this;
     /**
@@ -15156,7 +15154,7 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onDidStopFling(handler: VoidCallback | undefined): this;
     /**
@@ -15310,12 +15308,12 @@ export type OnScrollCallback = (scrollOffset: double, scrollState: ScrollState) 
 /**
  * On scroll callback using in scrollable onWillStopDragging.
  *
- * @typedef { function } OnWillStopDraggingCallback
+ * @typedef { function }
  * @param { double } velocity - The veolicity of the scroll view at the moment the touch was released.
  *     <br>Unit: vp/s.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type OnWillStopDraggingCallback = (velocity: double) => void;
 /**
@@ -15325,7 +15323,7 @@ export type OnWillStopDraggingCallback = (velocity: double) => void;
  * @param { boolean } willFling - whether start fling animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type OnDidStopDraggingCallback = (willFling: boolean) => void;
 /**
@@ -16077,7 +16075,7 @@ export declare interface UICommonEvent {
  * @interface UIScrollableCommonEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface UIScrollableCommonEvent extends UICommonEvent {
   /**
@@ -16088,7 +16086,7 @@ export declare interface UIScrollableCommonEvent extends UICommonEvent {
    *     <br>Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnReachStart(callback: VoidCallback | undefined): void;
   /**
@@ -16099,7 +16097,7 @@ export declare interface UIScrollableCommonEvent extends UICommonEvent {
    *     <br>Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnReachEnd(callback: VoidCallback | undefined): void;
   /**
@@ -16109,7 +16107,7 @@ export declare interface UIScrollableCommonEvent extends UICommonEvent {
    *     <br>Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollStart(callback: VoidCallback | undefined): void;
   /**
@@ -16119,7 +16117,7 @@ export declare interface UIScrollableCommonEvent extends UICommonEvent {
    *     <br>Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollStop(callback: VoidCallback | undefined): void;
   /**
@@ -16130,7 +16128,7 @@ export declare interface UIScrollableCommonEvent extends UICommonEvent {
    *     <br>Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void;
 }

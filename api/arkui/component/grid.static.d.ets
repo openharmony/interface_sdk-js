@@ -291,7 +291,7 @@ export declare interface ComputedBarAttribute {
  * @interface UIGridEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface UIGridEvent extends UIScrollableCommonEvent {
   /**
@@ -301,7 +301,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    *      Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0  static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -311,7 +311,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -321,19 +321,19 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
 }
 /**
  * Defines the callback type used in onScrollIndex.
  *
- * @typedef {function} OnGridScrollIndexCallback
+ * @typedef {function}
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type OnGridScrollIndexCallback = (first: int, last: int) => void;
 /**
@@ -696,7 +696,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @returns { this } the attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default focusWrapMode(mode: FocusWrapMode | undefined): this;
     /**
@@ -707,7 +707,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @returns { this } The attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**

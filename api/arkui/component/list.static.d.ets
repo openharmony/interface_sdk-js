@@ -361,7 +361,7 @@ export declare interface ChainAnimationOptions {
  * @interface UIListEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface UIListEvent extends UIScrollableCommonEvent {
   /**
@@ -371,7 +371,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -381,7 +381,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -391,7 +391,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    *     start, end, or center positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void;
   /**
@@ -401,7 +401,7 @@ export declare interface UIListEvent extends UIScrollableCommonEvent {
    *     the list visible content changes. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollVisibleContentChange(callback: OnScrollVisibleContentChangeCallback | undefined): void;
 }
@@ -497,13 +497,13 @@ export type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInf
 /**
  * Defines the callback type used in onScrollIndex.
  *
- * @typedef {function} OnListScrollIndexCallback
+ * @typedef {function}
  * @param { int } start - the first index in visible content.
  * @param { int } end - the last index in visible content.
  * @param { int } center - the center index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type OnListScrollIndexCallback = (start: int, end: int, center: int) => void;
 /**
@@ -693,7 +693,7 @@ export interface ListOptions {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum ScrollSnapAnimationSpeed {
   /**
@@ -701,7 +701,7 @@ export declare enum ScrollSnapAnimationSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   NORMAL = 0,
   /**
@@ -709,7 +709,7 @@ export declare enum ScrollSnapAnimationSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   SLOW = 1
 }
@@ -1037,7 +1037,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @returns { this } the attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default focusWrapMode(mode: FocusWrapMode | undefined): this;
     /**
@@ -1048,7 +1048,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @returns { this } The attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**
@@ -1059,7 +1059,7 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @returns { this } The attribute of the list.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed | undefined): this;
     /**

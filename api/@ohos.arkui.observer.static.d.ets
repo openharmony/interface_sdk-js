@@ -431,7 +431,7 @@ declare namespace uiObserver {
          * @type { ?Axis }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         axis?: Axis;
     }

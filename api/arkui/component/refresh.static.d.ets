@@ -219,7 +219,7 @@ export declare interface RefreshAttribute extends CommonMethod {
      * @returns { this } The attribute of the Refresh.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default maxPullDownDistance(distance: double | undefined): this;
     /**
