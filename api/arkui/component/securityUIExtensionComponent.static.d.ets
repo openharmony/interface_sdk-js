@@ -28,6 +28,8 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare enum SecurityDpiFollowStrategy {
@@ -35,6 +37,8 @@ export declare enum SecurityDpiFollowStrategy {
      * Followed the host DPI.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     FOLLOW_HOST_DPI = 0,
@@ -42,6 +46,8 @@ export declare enum SecurityDpiFollowStrategy {
      * Followed the UIExtensionAbility.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
@@ -51,6 +57,8 @@ export declare enum SecurityDpiFollowStrategy {
  *
  * @interface SecurityUIExtensionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface SecurityUIExtensionOptions {
@@ -61,6 +69,8 @@ export declare interface SecurityUIExtensionOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     isTransferringCaller?: boolean;
@@ -70,6 +80,8 @@ export declare interface SecurityUIExtensionOptions {
      *
      * @type { ?ComponentContent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     placeholder?: ComponentContent;
@@ -79,6 +91,8 @@ export declare interface SecurityUIExtensionOptions {
      * @type { ?SecurityDpiFollowStrategy }
      * @default SecurityDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     dpiFollowStrategy?: SecurityDpiFollowStrategy;
@@ -98,6 +112,8 @@ export type ReceiveCallback = Callback<Record<string, RecordData>>;
  *
  * @interface SecurityUIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface SecurityUIExtensionProxy {
@@ -107,6 +123,8 @@ export declare interface SecurityUIExtensionProxy {
      *
      * @param { Record<string, RecordData> } data
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     send(data: Record<string, RecordData>): void;
@@ -119,6 +137,8 @@ export declare interface SecurityUIExtensionProxy {
      * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
      * @throws { BusinessError } 100012 - Transferring data failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     sendSync(data: Record<string, RecordData>): Record<string, RecordData>;
@@ -128,7 +148,9 @@ export declare interface SecurityUIExtensionProxy {
      *
      * @param { Callback<SecurityUIExtensionProxy> } callback - Callback of the listened event.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
      */
     onAsyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
     /**
@@ -137,7 +159,9 @@ export declare interface SecurityUIExtensionProxy {
      *
      * @param { Callback<SecurityUIExtensionProxy> } callback - Callback of the listened event.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
      */
     onSyncReceiverRegister(callback: Callback<SecurityUIExtensionProxy>): void;
     /**
@@ -146,7 +170,9 @@ export declare interface SecurityUIExtensionProxy {
      *
      * @param { Callback<SecurityUIExtensionProxy> } [callback] - Callback of the listened event.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
      */
     offAsyncReceiverRegister(callback?: Callback<SecurityUIExtensionProxy>): void;
     /**
@@ -155,7 +181,9 @@ export declare interface SecurityUIExtensionProxy {
      *
      * @param { Callback<SecurityUIExtensionProxy> } [callback] - Callback of the listened event.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
      */
     offSyncReceiverRegister(callback?: Callback<SecurityUIExtensionProxy>): void;
 }
@@ -166,6 +194,8 @@ export declare interface SecurityUIExtensionProxy {
  * @extends CommonMethod
  * @typedef SecurityUIExtensionComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 static
  * @noninterop
  */
@@ -176,6 +206,8 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
      * @param { Callback<SecurityUIExtensionProxy> | undefined } callback
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     onRemoteReady(callback: Callback<SecurityUIExtensionProxy> | undefined): this;
@@ -185,6 +217,8 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
      * @param { ReceiveCallback | undefined  } callback - Called when data received from UIExtensionAbility
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     onReceive(callback: ReceiveCallback | undefined): this;
@@ -194,6 +228,8 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
      * @param { ErrorCallback<BusinessError> | undefined } callback
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     onError(callback: ErrorCallback<BusinessError> | undefined): this;
@@ -203,6 +239,8 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
      * @param { Callback<TerminationInfo> | undefined } callback
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     onTerminated(callback: Callback<TerminationInfo> | undefined): this;
@@ -212,6 +250,8 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
      * @param { AttributeModifier<SecurityUIExtensionComponentAttribute> | undefined } modifier
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
      * @since 26.0.0 static
      */
     attributeModifier(modifier: AttributeModifier<SecurityUIExtensionComponentAttribute> | undefined): this;
@@ -224,6 +264,8 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
  * @param { CustomBuilder } [content_] - container
  * @returns { SecurityUIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
  * @since 26.0.0 static
  * @noninterop
  */
