@@ -1204,6 +1204,7 @@ declare namespace unifiedDataChannel {
    * [SystemDefinedRecord]{@link unifiedDataChannel.SystemDefinedRecord}.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @atomicservice [since 11]
    * @since 10 dynamic
    * @since 23 static
@@ -1618,7 +1619,6 @@ declare namespace unifiedDataChannel {
      * **Use scenario**: This API is used to share data across applications in drag-and-drop scenarios.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
      * @systemapi [since 12 - 13]
      * @publicapi [since 14]
      * @stagemodelonly
