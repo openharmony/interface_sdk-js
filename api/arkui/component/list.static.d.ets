@@ -21,7 +21,7 @@ import { ChildrenMainSize, EditModeOptions, ItemDragInfo, RectResult, Scrollable
 import { Axis, FocusWrapMode } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor, ItemFillPolicy, CacheCountInfo, Resource } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, Bindable, CommonMethod, UIScrollableCommonEvent } from "./common";
 /**
  * Declare scroll status
@@ -1215,3 +1215,59 @@ export declare function List(
     options?: ListOptions, 
     content_?: CustomBuilder,
 ): ListAttribute
+
+/**
+ * Defines the Extendable List.
+ *
+ * @implements ListAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableList implements ListAttribute {
+    /**
+     * Constructor of Extendable List.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ListOptions } [options]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableList>(
+        factory: ConstructorT<T>, 
+        options?: ListOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable List.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableList>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+
+    /**
+     * Set the List Options.
+     *
+     * @param { ListOptions } [options]
+     * @returns { ExtendableList }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setListOptions(options?: ListOptions): this;
+}

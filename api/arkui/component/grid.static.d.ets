@@ -21,7 +21,7 @@ import { EdgeEffectOptions, EditModeOptions, NestedScrollOptions, ItemDragInfo, 
 import { Length, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { BarState, Color, EdgeEffect, FocusWrapMode } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, Bindable, CommonMethod, UIScrollableCommonEvent } from "./common";
 
 /**
@@ -771,3 +771,65 @@ export declare function Grid(
     scroller?: Scroller, layoutOptions?: GridLayoutOptions, 
     content_?: CustomBuilder,
 ): GridAttribute
+
+/**
+ * Defines the Extendable Grid.
+ *
+ * @implements GridAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableGrid implements GridAttribute {
+    /**
+     * Constructor of Extendable Grid.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { Scroller } [scroller]
+     * @param { GridLayoutOptions } [layoutOptions]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableGrid>(
+        factory: ConstructorT<T>, 
+        scroller?: Scroller, 
+        layoutOptions?: GridLayoutOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Grid.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableGrid>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+
+    /**
+     * Set the Grid Options.
+     *
+     * @param { Scroller } [scroller]
+     * @param { GridLayoutOptions } [layoutOptions]
+     * @returns { ExtendableGrid }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setGridOptions(
+        scroller?: Scroller, 
+        layoutOptions?: GridLayoutOptions
+    ): this;
+}
