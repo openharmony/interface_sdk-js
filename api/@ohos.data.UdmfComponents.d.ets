@@ -22,6 +22,7 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
  * Enumerates the form card types.
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @stagemodelonly
  * @since 20 dynamic
  */
 declare enum FormType {
@@ -29,6 +30,7 @@ declare enum FormType {
    * Big form card, with fixed size of 4 x 4.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   TYPE_BIG = 0,
@@ -37,6 +39,7 @@ declare enum FormType {
    * Medium-sized form card, with fixed size of 4 x 2.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   TYPE_MID = 1,
@@ -45,6 +48,7 @@ declare enum FormType {
    * Small form card, with fixed size of 2 x 1.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   TYPE_SMALL = 2
@@ -54,6 +58,7 @@ declare enum FormType {
  * Defines a content form card.
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @stagemodelonly
  * @since 20 dynamic
  */
 @Component
@@ -62,6 +67,7 @@ declare struct ContentFormCard {
    * Data of the form card.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   contentFormData: uniformDataStruct.ContentForm;
@@ -70,6 +76,7 @@ declare struct ContentFormCard {
    * Type of the form card.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   @Prop
@@ -79,6 +86,7 @@ declare struct ContentFormCard {
    * Width of the content form card. The unit of measurement is vp.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   @Prop
@@ -88,6 +96,7 @@ declare struct ContentFormCard {
    * Height of the content form card. The unit of measurement is vp.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   @Prop
@@ -97,6 +106,7 @@ declare struct ContentFormCard {
    * Callback to be invoked when the form card is tapped.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 20 dynamic
    */
   handleOnClick?: Function;

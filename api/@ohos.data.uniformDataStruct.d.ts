@@ -28,6 +28,7 @@ import image from './@ohos.multimedia.image';
  * type adaptation workload.
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @stagemodelonly
  * @since 12 dynamic
  * @since 23 static
  */
@@ -36,6 +37,7 @@ declare namespace uniformDataStruct {
    * Represents data of the plain text type.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -45,6 +47,7 @@ declare namespace uniformDataStruct {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -53,6 +56,7 @@ declare namespace uniformDataStruct {
      * Plaintext content.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -62,6 +66,7 @@ declare namespace uniformDataStruct {
      * Text abstract. It is an empty string by default.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      */
     abstract?: string;
@@ -70,6 +75,7 @@ declare namespace uniformDataStruct {
      * Indicates the abstract of the PlainText.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 23 static
      */
     textAbstract?: string;
@@ -90,6 +96,7 @@ declare namespace uniformDataStruct {
      * By default, it is an empty dictionary object.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -100,6 +107,7 @@ declare namespace uniformDataStruct {
    * Represents data of the hyperlink type.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -109,6 +117,7 @@ declare namespace uniformDataStruct {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -117,6 +126,7 @@ declare namespace uniformDataStruct {
      * URL.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -125,6 +135,7 @@ declare namespace uniformDataStruct {
      * Description of the linked content. This parameter is optional. By default, it is an empty string.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -145,6 +156,7 @@ declare namespace uniformDataStruct {
      * By default, it is an empty dictionary object.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -155,6 +167,7 @@ declare namespace uniformDataStruct {
    * Represents data of the HTML type.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -164,6 +177,7 @@ declare namespace uniformDataStruct {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -173,6 +187,7 @@ declare namespace uniformDataStruct {
      * Content in HTML format.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -181,6 +196,7 @@ declare namespace uniformDataStruct {
      * Plaintext without HTML tags. This parameter is optional. By default, it is an empty string.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -201,6 +217,7 @@ declare namespace uniformDataStruct {
      * By default, it is an empty dictionary object.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -220,6 +237,7 @@ declare namespace uniformDataStruct {
    * Represents data of the home screen icon type defined by the system.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -229,6 +247,7 @@ declare namespace uniformDataStruct {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -237,6 +256,7 @@ declare namespace uniformDataStruct {
      * ID of the application, for which the icon is used.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -245,6 +265,7 @@ declare namespace uniformDataStruct {
      * Name of the application, for which the icon is used.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -253,6 +274,7 @@ declare namespace uniformDataStruct {
      * Image ID of the icon.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -261,6 +283,7 @@ declare namespace uniformDataStruct {
      * Label ID corresponding to the icon name.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -269,6 +292,7 @@ declare namespace uniformDataStruct {
      * Bundle name corresponding to the icon.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -277,6 +301,7 @@ declare namespace uniformDataStruct {
      * Application ability name corresponding to the icon.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -286,6 +311,7 @@ declare namespace uniformDataStruct {
      * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -296,6 +322,7 @@ declare namespace uniformDataStruct {
    * Represents data of the content widget type.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 14 dynamic
    * @since 23 static
    */
@@ -304,6 +331,7 @@ declare namespace uniformDataStruct {
      * Uniform data type, which has a fixed value of **general.content-form**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 14 dynamic
      * @since 23 static
      */
@@ -313,6 +341,7 @@ declare namespace uniformDataStruct {
      * Image data in the content widget.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 14 dynamic
      * @since 23 static
      */
@@ -322,6 +351,7 @@ declare namespace uniformDataStruct {
      * Description of the content widget.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 14 dynamic
      * @since 23 static
      */
@@ -331,6 +361,7 @@ declare namespace uniformDataStruct {
      * Title of the content widget.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 14 dynamic
      * @since 23 static
      */
@@ -340,6 +371,7 @@ declare namespace uniformDataStruct {
      * Application icon data in the content widget.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 14 dynamic
      * @since 23 static
      */
@@ -349,6 +381,7 @@ declare namespace uniformDataStruct {
      * Application name in the content widget.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 14 dynamic
      * @since 23 static
      */
@@ -358,6 +391,7 @@ declare namespace uniformDataStruct {
      * Hyperlink in the content widget.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 14 dynamic
      * @since 23 static
      */
@@ -368,6 +402,7 @@ declare namespace uniformDataStruct {
    * Represents data of the widget type defined by the system.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -377,6 +412,7 @@ declare namespace uniformDataStruct {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -386,6 +422,7 @@ declare namespace uniformDataStruct {
      * Widget ID.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -395,6 +432,7 @@ declare namespace uniformDataStruct {
      * Widget name.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -404,6 +442,7 @@ declare namespace uniformDataStruct {
      * Bundle to which the widget belongs.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -413,6 +452,7 @@ declare namespace uniformDataStruct {
      * Ability name corresponding to the widget.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -422,6 +462,7 @@ declare namespace uniformDataStruct {
      * Module to which the widget belongs.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -432,6 +473,7 @@ declare namespace uniformDataStruct {
      * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -442,6 +484,7 @@ declare namespace uniformDataStruct {
    * Represents data of the file URI type.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -451,6 +494,7 @@ declare namespace uniformDataStruct {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -460,6 +504,7 @@ declare namespace uniformDataStruct {
      * File path.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -470,6 +515,7 @@ declare namespace uniformDataStruct {
      * maximum length of the value is 1024 bytes.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -480,6 +526,7 @@ declare namespace uniformDataStruct {
      * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -499,6 +546,7 @@ declare namespace uniformDataStruct {
    * Represents data of the pixel map type defined by the system.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -508,6 +556,7 @@ declare namespace uniformDataStruct {
      * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -517,6 +566,7 @@ declare namespace uniformDataStruct {
      * Binary data of the pixel map.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -527,6 +577,7 @@ declare namespace uniformDataStruct {
      * number, a string, or a Uint8Array. By default, it is an empty dictionary object.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */

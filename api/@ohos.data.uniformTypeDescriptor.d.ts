@@ -22,6 +22,7 @@
  * The **uniformTypeDescriptor** module abstracts and defines uniform data types.
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+ * @stagemodelonly
  * @crossplatform [since 14]
  * @atomicservice [since 11]
  * @since 10 dynamic
@@ -35,6 +36,7 @@ declare namespace uniformTypeDescriptor {
    * The following table lists the common uniform data types.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @crossplatform [since 14]
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -47,6 +49,7 @@ declare namespace uniformTypeDescriptor {
      * This type is uncategorized.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -58,6 +61,7 @@ declare namespace uniformTypeDescriptor {
      * This type is uncategorized.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -69,6 +73,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -80,6 +85,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -93,6 +99,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -106,6 +113,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -119,6 +127,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -132,6 +141,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -143,6 +153,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **XML**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -154,6 +165,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **XML**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -165,6 +177,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **XML**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -176,6 +189,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -187,6 +201,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -198,6 +213,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -209,6 +225,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -220,6 +237,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -231,6 +249,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -242,6 +261,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -253,6 +273,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -264,6 +285,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -275,6 +297,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -286,6 +309,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -297,6 +321,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -308,6 +333,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -319,6 +345,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -330,6 +357,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -341,6 +369,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -352,6 +381,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -363,6 +393,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -374,6 +405,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -385,6 +417,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -396,6 +429,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -407,6 +441,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **DELIMITED_VALUES_TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -418,6 +453,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **DELIMITED_VALUES_TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -429,6 +465,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -440,6 +477,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -451,6 +489,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -462,6 +501,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -473,6 +513,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -484,6 +525,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -495,6 +537,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -506,6 +549,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **MEDIA**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -519,6 +563,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -530,6 +575,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -541,6 +587,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -552,6 +599,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -563,6 +611,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -574,6 +623,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -585,6 +635,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -596,6 +647,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -607,6 +659,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -618,6 +671,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FAX**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -629,6 +683,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FAX**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -640,6 +695,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -651,6 +707,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -662,6 +719,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -673,6 +731,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -684,6 +743,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -695,6 +755,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -706,6 +767,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -717,6 +779,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -728,6 +791,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -739,6 +803,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -750,6 +815,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -761,6 +827,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -772,6 +839,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -783,6 +851,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -794,6 +863,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -805,6 +875,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -816,6 +887,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **POSTSCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -827,6 +899,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **MEDIA**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -840,6 +913,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -851,6 +925,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -862,6 +937,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -873,6 +949,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -884,6 +961,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -895,6 +973,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -906,6 +985,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -917,6 +997,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -928,6 +1009,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -939,6 +1021,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -950,6 +1033,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -961,6 +1045,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -972,6 +1057,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -983,6 +1069,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -994,6 +1081,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1005,6 +1093,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **MEDIA**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1018,6 +1107,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1029,6 +1119,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1040,6 +1131,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1051,6 +1143,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1062,6 +1155,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1073,6 +1167,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1084,6 +1179,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1095,6 +1191,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1106,6 +1203,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1117,6 +1215,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1128,6 +1227,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1139,6 +1239,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1150,6 +1251,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1161,6 +1263,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1172,6 +1275,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1183,6 +1287,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1194,6 +1299,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1205,6 +1311,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1216,6 +1323,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1227,6 +1335,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1238,6 +1347,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ENTITY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1251,6 +1361,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ENTITY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1262,6 +1373,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **DIRECTORY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1275,6 +1387,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ENTITY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1286,6 +1399,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1297,6 +1411,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1308,6 +1423,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1319,6 +1435,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TAR_ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1330,6 +1447,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1341,6 +1459,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1352,6 +1471,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **DISK_IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1363,6 +1483,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to ARCHIVE.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1374,6 +1495,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1385,6 +1507,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE** and **EXECUTABLE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1396,6 +1519,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1407,6 +1531,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1418,6 +1543,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1429,6 +1555,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1440,6 +1567,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1451,6 +1579,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1462,6 +1591,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1473,6 +1603,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1484,6 +1615,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1495,6 +1627,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1506,6 +1639,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1517,6 +1651,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1528,6 +1663,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1539,6 +1675,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1550,6 +1687,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1561,6 +1699,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1572,6 +1711,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1583,6 +1723,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1594,6 +1735,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENDOCUMENT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1605,6 +1747,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1616,6 +1759,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1627,6 +1771,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1638,6 +1783,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1649,6 +1795,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **CALENDAR** and **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1660,6 +1807,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **CALENDAR** and **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1671,6 +1819,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1682,6 +1831,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1693,6 +1843,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1704,6 +1855,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1715,6 +1867,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **EXECUTABLE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1726,6 +1879,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **EXECUTABLE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1737,6 +1891,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1748,6 +1903,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1759,6 +1915,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **NAVIGATION**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1770,6 +1927,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1781,6 +1939,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1792,6 +1951,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1803,6 +1963,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1814,6 +1975,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1825,6 +1987,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1836,6 +1999,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1847,6 +2011,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @atomicservice [since 11]
      * @since 10 dynamic
      * @since 23 static
@@ -1859,6 +2024,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @atomicservice [since 11]
      * @since 10 dynamic
      * @since 23 static
@@ -1871,6 +2037,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 14]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1884,6 +2051,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1895,6 +2063,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **DIRECTORY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1906,6 +2075,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OPENHARMONY_PACKAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -1917,6 +2087,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1928,6 +2099,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1939,6 +2111,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1950,6 +2123,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1961,6 +2135,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1972,6 +2147,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1983,6 +2159,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1994,6 +2171,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2005,6 +2183,7 @@ declare namespace uniformTypeDescriptor {
      * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2016,6 +2195,7 @@ declare namespace uniformTypeDescriptor {
    * data type and its relationship with other uniform data types.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @crossplatform [since 20]
    * @since 11 dynamic
    * @since 23 static
@@ -2027,6 +2207,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } [since 11 - 22]
      * @returns { string } Type ID of the uniform data type. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2039,6 +2220,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } [since 11 - 22]
      * @param { string } value - Type ID of the uniform data type. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2051,6 +2233,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> } [since 11 - 22]
      * @returns { Array<string> } Uniform data type IDs [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2063,6 +2246,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> } [since 11 - 22]
      * @param { Array<string> } value - Uniform data type IDs [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2075,6 +2259,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } [since 11 - 22]
      * @returns { string } A textual description [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2087,6 +2272,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } [since 11 - 22]
      * @param { string } value - A textual description [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2099,6 +2285,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } [since 11 - 22]
      * @returns { string } Reference URL [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2111,6 +2298,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } [since 11 - 22]
      * @param { string } value - Reference URL [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2123,6 +2311,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } Default icon file path [since 11 - 22]
      * @returns { string } Default icon file path [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2135,6 +2324,7 @@ declare namespace uniformTypeDescriptor {
      * @type { string } [since 11 - 22]
      * @param { string } value - Default icon file path [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2147,6 +2337,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> } [since 12 - 22]
      * @returns { Array<string> } File name extensions [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 12 dynamic
      * @since 23 static
@@ -2159,6 +2350,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> } [since 12 - 22]
      * @param { Array<string> } value - File name extensions [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 12 dynamic
      * @since 23 static
@@ -2171,6 +2363,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> } [since 12 - 22]
      * @returns { Array<string> } MIMETypes [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 12 dynamic
      * @since 23 static
@@ -2183,6 +2376,7 @@ declare namespace uniformTypeDescriptor {
      * @type { Array<string> } [since 12 - 22]
      * @param { Array<string> } value - MIMETypes [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 12 dynamic
      * @since 23 static
@@ -2199,6 +2393,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2217,6 +2412,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2235,6 +2431,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2250,6 +2447,7 @@ declare namespace uniformTypeDescriptor {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @crossplatform [since 20]
      * @since 11 dynamic
      * @since 23 static
@@ -2266,6 +2464,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @crossplatform [since 20]
    * @since 11 dynamic
    */
@@ -2280,6 +2479,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function getTypeDescriptor(typeId: string): TypeDescriptor | null;
@@ -2299,6 +2499,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @crossplatform [since 20]
    * @since 11 dynamic
    * @since 23 static
@@ -2319,6 +2520,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @crossplatform [since 20]
    * @since 11 dynamic
    * @since 23 static
@@ -2339,6 +2541,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @crossplatform [since 20]
    * @since 13 dynamic
    * @since 23 static
@@ -2358,6 +2561,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
    *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @crossplatform [since 20]
    * @since 13 dynamic
    * @since 23 static
@@ -2377,6 +2581,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 20400003 - The content of one or more typeDescriptors violate rules.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    * @since 23 static
@@ -2395,6 +2600,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 20400004 - One or more typeIds are invalid or do not exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    * @since 23 static
