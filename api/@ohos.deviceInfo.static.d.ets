@@ -25,7 +25,7 @@
  * > **NOTE**
  * >
  * > Some parameters whose return value is the default value are not yet available.
- * > > The APIs of this module return information about device getants. You are not expected to call these APIs 
+ * > The APIs of this module return information about device getants. You are not expected to call these APIs 
  * > frequently.
  *
  * @syscap SystemCapability.Startup.SystemInfo
