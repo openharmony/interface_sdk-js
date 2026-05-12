@@ -420,7 +420,7 @@ declare namespace abilityManager {
    * @param { int } missionId - 目标应用的missionId，最大为2<sup>31</sup>-1。
    * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function. [since 10 - 10]
    * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared data. You can
-   *     perform error handling or other custom processing.
+   *     perform error handling or other custom processing. [since 11]
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
