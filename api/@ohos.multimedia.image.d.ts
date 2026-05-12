@@ -295,6 +295,15 @@ declare namespace image {
     YCRCB_P010 = 12,
 
     /**
+    * Indicates that each pixel is stored on 8 bits, a YUV planar format comprised of Y plane only.
+    *
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    Y8 = 14,
+
+    /**
      * Indicates that each pixel is stored on 8 bits, without 4-byte stride alignment.
      * Each pixel contains 1 component: ALPHA(8bits) and is stored from the higher-order to the lower-order bits.
      *
@@ -3416,6 +3425,66 @@ declare namespace image {
   }
 
   /**
+  * Describes the options for tiff image packing.
+  *
+  * @syscap SystemCapability.Multimedia.Image.ImagePacker
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  interface PackingOptionsForTiff {
+    /**
+    * Compression algorithm type: 3 (CCITT G3), 4 (CCITT G4), 5 (LZW).
+    * - For binary image: must be 3 (G3) or 4 (G4), automatically uses 4 (G4).
+    * - For Y8/RGB_888 format: automatically uses LZW (5), user setting is ignored.
+    * The value should be an integer, Currently, only 3, 4, and 5 are supported.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    compression?: int;
+
+    /**
+    * Image orientation.Default value is TOP_LEFT.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    orientation?: Orientation;
+
+    /**
+    * Horizontal resolution.
+    * The value must be greater than 0.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    xResolution?: double;
+
+    /**
+    * Vertical resolution.
+    * The value must be greater than 0.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    yResolution?: double;
+
+    /**
+    * Resolution unit: 1 (No unit), 2 (Inch), 3 (Centimeter).
+    * Currently, only 1, 2, and 3 are supported.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    resolutionUnit?: int;
+  }
+
+  /**
    * Enumerates the order of cropping and scaling.
    * 
    * If the **cropAndScaleStrategy** parameter is not specified in 
@@ -3558,6 +3627,15 @@ declare namespace image {
      * @since 26.0.0 dynamic&static
      */
     maxEmbedThumbnailDimension?: int;
+
+    /**
+     * Options for tiff image packing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+     tiffPackingOptions?: PackingOptionsForTiff;
   }
 
   /**
@@ -15168,6 +15246,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Describes binary buffer info.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface BinaryBufferInfo {
+    /**
+     * Describes binary buffer size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    size: Size;
+
+    /**
+     * Describes binary buffer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    data: ArrayBuffer;
+
+    /**
+     * Bytes per row.If it is not specified, it will be calculated as (width + 7) / 8.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bytesPerRow?: int;
+  }
+
+  /**
    * ImagePacker instance.
    *
    * @typedef ImagePacker
@@ -15592,6 +15707,38 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     packToFile(picture: Picture, fd: int, options: PackingOption): Promise<void>
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { BinaryBufferInfo } bufferInfo - image buffer info.
+     * @param { int } fd - ID of a file descriptor
+     *     <br>The value must be a positive integer.
+     * @param { PackingOptionsForTiff } [options] - Options for tiff image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 7800202 - Invalid parameter. Possible causes: 1. Invalid FD; 2. Compression algorithm
+     *     mismatch.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    packBinaryImageToTiffFile(bufferInfo: BinaryBufferInfo, fd: int, options?: PackingOptionsForTiff): Promise<void>;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { BinaryBufferInfo } bufferInfo - image buffer info.
+     * @param { PackingOptionsForTiff } [options] - Options for tiff image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @throws { BusinessError } 7800202 - Invalid parameter. Possible causes: 1. Invalid FD; 2. Compression algorithm
+     *     mismatch.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    packBinaryImageToTiffData(bufferInfo: BinaryBufferInfo, options?: PackingOptionsForTiff): Promise<ArrayBuffer>;
 
     /**
      * Supported image formats.
