@@ -12,256 +12,230 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file
  * @kit DataProtectionKit
  */
-
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type common from './@ohos.app.ability.common';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * Provides the capability to access the data loss prevention (DLP) files.
+ * Data loss prevention (DLP) is a system solution provided to prevent data disclosure. This module provides APIs for 
+ * cross-device file access management, encrypted storage, and access authorization.
  *
- * @namespace dlpPermission
+ * > **NOTE**
+ * > The kit to which **@ohos.dlpPermission** belongs has been changed from `DataLossPreventionKit` to `
+ * > DataProtectionKit`. You are advised to use the new module name `@kit.DataProtectionKit` to import the module. If `@
+ * > kit.DataLossPreventionKit` is imported, only the APIs before the change can be called and the APIs after the change
+ * > cannot be used.
+ * 
  * @syscap SystemCapability.Security.DataLossPrevention
  * @since 10
  */
 declare namespace dlpPermission {
   /**
-   * Enumerates the types of actions that can be performed on a DLP file.
+   * Enumerates the types of actions that can be performed on a DLP file. For example, the DLP sandbox application can dim 
+   * its button based on this parameter.
    *
-   * @enum { number }
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   export enum ActionFlagType {
     /**
-     * View a DLP file.
+     * View the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_VIEW = 0x00000001,
-
     /**
-     * Save a DLP file.
+     * Save the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_SAVE = 0x00000002,
-
     /**
-     * Save a DLP file as another file.
+     * Save the file as another file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_SAVE_AS = 0x00000004,
-
     /**
-     * Edit a DLP file.
+     * Edit the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_EDIT = 0x00000008,
-
     /**
-     * Take a screenshot of a DLP file.
+     * Capture screenshots of the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_SCREEN_CAPTURE = 0x00000010,
-
     /**
-     * Share the screen, on which a DLP file is opened.
+     * Share the screen of the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_SCREEN_SHARE = 0x00000020,
-
     /**
-     * Record the screen, on which a DLP file is opened.
+     * Record the screen on which the file is open.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_SCREEN_RECORD = 0x00000040,
-
     /**
-     * Copy in the editor, on which a DLP file is opened.
+     * Copy the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_COPY = 0x00000080,
-
     /**
-     * Print a DLP file.
+     * Print the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_PRINT = 0x00000100,
-
     /**
-     * Export a DLP file.
+     * Export the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_EXPORT = 0x00000200,
-
     /**
-     * Change the permissions for a DLP file.
+     * Modify the permissions on the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     ACTION_PERMISSION_CHANGE = 0x00000400
   }
-
   /**
-   * Enumerates the access permissions for a DLP file.
+   * Enumerates the permissions on a DLP file.
    *
-   * @enum { number }
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   export enum DLPFileAccess {
     /**
-     * No permission.
+     * The user has no permission on the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     NO_PERMISSION = 0,
-
     /**
-     * Read-only.
+     * The user has only the permission to read the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     READ_ONLY = 1,
-
     /**
-     * Edit.
+     * Edit the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     CONTENT_EDIT = 2,
-
     /**
-     * Full control.
+     * The user has full control on the file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     FULL_CONTROL = 3
   }
-
   /**
-   * Represents the permission info of a DLP file.
+   * Represents the permission information about a DLP file.
    *
-   * @interface DLPPermissionInfo
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   export interface DLPPermissionInfo {
     /**
-     * Access permission for the DLP file.
+     * User permission on the DLP file, for example, read-only.
      *
-     * @type { DLPFileAccess }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     dlpFileAccess: DLPFileAccess;
-
     /**
-     * Actions allowed for the DLP file. The value is a combination of flags in {@link ActionFlagType}.
+     * Operations that can be performed on the DLP file. It is a combination of different 
+     * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}.
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     flags: number;
   }
-
   /**
-   * Represents the accessed DLP file info.
+   * Represents the information about a DLP file opened.
    *
-   * @interface AccessedDLPFileInfo
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   export interface AccessedDLPFileInfo {
     /**
-     * URI of the DLP file.
+     * URI of the DLP file. The value contains up to 4095 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     uri: string;
-
     /**
-     * Time when the DLP file was last opened.
+     * Time when the file was last opened. The value must be greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     lastOpenTime: number;
   }
-
   /**
-   * Represents the retention sandbox info.
+   * Represents the sandbox retention information.
    *
-   * @interface RetentionSandboxInfo
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   export interface RetentionSandboxInfo {
     /**
-     * Application index of the DLP sandbox.
+     * Index of the DLP sandbox application. The value ranges from 1001 to 1100.
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     appIndex: number;
-
     /**
-     * Bundle name of the application.
+     * Bundle name of the application. The value contains 7 to 128 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     bundleName: string;
-
     /**
-     * List of file URIs.
+     * URI list of the DLP files. The array has no length limit, but each string cannot exceed 4095 bytes
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     docUris: Array<string>;
   }
-
   /**
    * Checks whether a file is a DLP file. This method uses a promise to return the result.
    *
-   * @param { number } fd - Indicates the file descriptor of the file to check.
+   * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
+   *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
+   *     value is truncated.
    * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -271,12 +245,14 @@ declare namespace dlpPermission {
    * @since 10
    */
   function isDLPFile(fd: number): Promise<boolean>;
-
   /**
-   * Checks whether a file is a DLP file. This method uses an asynchronous callback to return the result.
+   * Checks whether a file is a DLP file based on the FD. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } fd - Indicates the file descriptor of the file to check.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback of isDLPFile.
+   * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
+   *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
+   *     value is truncated.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means the
+   *     file is a DLP file; the value **false** means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -285,11 +261,11 @@ declare namespace dlpPermission {
    * @since 10
    */
   function isDLPFile(fd: number, callback: AsyncCallback<boolean>): void;
-
   /**
-   * Obtains the permission info of this DLP file. This method uses a promise to return the result.
+   * Obtains the permission information of this DLP file. This API uses a promise to return the result.
    *
-   * @returns { Promise<DLPPermissionInfo> } Returns the {@link DLPPermissionInfo}.
+   * @returns { Promise<DLPPermissionInfo> } Promise used to return the permission information about the DLP file. The
+   *     operation is successful if no error is reported.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100006 - No permission to call this API,
    *     which is available only for DLP sandbox applications.
@@ -298,11 +274,11 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPPermissionInfo(): Promise<DLPPermissionInfo>;
-
   /**
-   * Obtains the permission info of this DLP file. This method uses an asynchronous callback to return the result.
+   * Obtains the permission information of this DLP file. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<DLPPermissionInfo> } callback - Indicates the callback of getDLPPermissionInfo.
+   * @param { AsyncCallback<DLPPermissionInfo> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100006 - No permission to call this API,
@@ -312,29 +288,29 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPPermissionInfo(callback: AsyncCallback<DLPPermissionInfo>): void;
-
   /**
-   * Obtains the original file name from a DLP file name. This method removes the DLP file name extension from the DLP file name.
+   * Obtains the original file name of a DLP file. This API returns the result synchronously.
    *
-   * @param { string } fileName - Indicates the DLP file name.
-   * @returns { string } Returns the original file name obtained.
+   * @param { string } fileName - Name of the target file. The value contains up to 255 bytes. Otherwise, **null** is
+   *     returned.
+   * @returns { string }  Original name of the DLP file obtained. For example, if the DLP file name is **test.txt.dlp**
+   *     , the original file name returned is **test.txt**. The value contains up to 255 bytes.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   function getOriginalFileName(fileName: string): string;
-
   /**
-   * Obtains the DLP file name extension.
+   * Obtains the DLP file name extension. This API returns the result synchronously.
    *
-   * @returns { string } Returns the DLP file name extension obtained.
+   * @returns { string } DLP file name extension obtained. For example, if the original file name is **text.txt**, the
+   *     encrypted DLP file name is **test.txt.dlp**, and the returned extension is **.dlp**.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   function getDLPSuffix(): string;
-
   /**
    * Subscribes to the event reported when a DLP file is opened by current application.
    *
