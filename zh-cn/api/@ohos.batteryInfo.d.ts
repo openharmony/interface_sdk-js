@@ -70,7 +70,7 @@ declare namespace batteryInfo {
   function isBatteryConfigSupported(sceneName: string): boolean;
 
   /**
-   * 设备的电池SOC状态，单位为百分比，取值范围为0到100。 单位为： 百分比，取值应为[0,100]内的整数。
+   * 表示当前设备剩余电池电量百分比，取值范围是[0，100]。
    *
    * @constant [since 6 - 11]
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -188,28 +188,28 @@ declare namespace batteryInfo {
    */
   export enum BatteryPluggedType {
     /**
-     * Unknown type
+     * 表示未获取到连接充电器类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     NONE,
     /**
-     * AC charger
+     * 表示连接的充电器类型为交流充电器。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     AC,
     /**
-     * USB charger
+     * 表示连接的充电器类型为USB。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     USB,
     /**
-     * Wireless charger
+     * 表示连接的充电器类型为无线充电器。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
@@ -226,7 +226,7 @@ declare namespace batteryInfo {
    */
   export enum BatteryChargeState {
     /**
-     * Unknown state.
+     * 表示电池充电状态为未充电。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice [since 12]
@@ -234,7 +234,7 @@ declare namespace batteryInfo {
      */
     NONE,
     /**
-     * The battery is being charged.
+     * 表示电池充电状态为使能状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice [since 12]
@@ -242,7 +242,7 @@ declare namespace batteryInfo {
      */
     ENABLE,
     /**
-     * The battery is not being charged.
+     * 表示电池充电状态为停止状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice [since 12]
@@ -250,7 +250,7 @@ declare namespace batteryInfo {
      */
     DISABLE,
     /**
-     * The battery is fully charged.
+     * 表示电池充电状态为已充满状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @atomicservice [since 12]
@@ -267,42 +267,42 @@ declare namespace batteryInfo {
    */
   export enum BatteryHealthState {
     /**
-     * Unknown state.
+     * 表示电池健康状态未知。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     UNKNOWN,
     /**
-     * The battery is in healthy state.
+     * 表示电池健康状态为正常。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     GOOD,
     /**
-     * The battery is overheated.
+     * 表示电池健康状态为过热。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     OVERHEAT,
     /**
-     * The battery voltage is over high.
+     * 表示电池健康状态为过压。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     OVERVOLTAGE,
     /**
-     * The battery temperature is low.
+     * 表示电池健康状态为低温。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
      */
     COLD,
     /**
-     * The battery is dead.
+     * 表示电池健康状态为僵死状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 6 dynamic
@@ -318,54 +318,61 @@ declare namespace batteryInfo {
    */
   export enum BatteryCapacityLevel {
     /**
-     * The battery is in unknown capacity level.
+     * 表示电池电量等级为未知电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 dynamic
      */
     LEVEL_NONE,
     /**
+     * 表示电池电量等级为满电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_FULL,
     /**
+     * 表示电池电量等级为高电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_HIGH,
     /**
+     * 表示电池电量等级为正常电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_NORMAL,
     /**
+     * 表示电池电量等级为低电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_LOW,
     /**
+     * 表示电池电量等级为告警电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_WARNING,
     /**
+     * 表示电池电量等级为极低电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
     LEVEL_CRITICAL,
     /**
+     * 表示电池电量等级为关机电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_SHUTDOWN,
+    LEVEL_SHUTDOWN
   }
 
   /**

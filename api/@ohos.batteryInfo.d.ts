@@ -379,7 +379,7 @@ declare namespace batteryInfo {
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 9 dynamic
      */
-    LEVEL_SHUTDOWN,
+    LEVEL_SHUTDOWN
   }
 
   /**

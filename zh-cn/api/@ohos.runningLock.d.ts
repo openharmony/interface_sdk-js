@@ -56,7 +56,7 @@ declare namespace runningLock {
      * @permission ohos.permission.RUNNING_LOCK
      * @param { int } timeout - 锁定和持有RunningLock的时长，单位：毫秒。<br>该参数必须为数字类型：<br>**-1**：永久持锁，需要主动释放。<br>**0**：默认3s后超时释放。<br>
      *     **>0**：按传入值超时释放。
-     * @throws { BusinessError } 201 – If the permission is denied.
+     * @throws { BusinessError } 201 - If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
@@ -67,7 +67,7 @@ declare namespace runningLock {
     /**
      * 查询当前RunningLock是持有状态还是释放状态。
      *
-     * @returns { boolean } Returns true if the lock is held or in use; returns false if the lock has been released.
+     * @returns { boolean } 返回true表示当前RunningLock是持有状态，返回false表示当前RunningLock是释放状态。
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -100,7 +100,7 @@ declare namespace runningLock {
      * 释放RunningLock锁。
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @throws { BusinessError } 201 – If the permission is denied.
+     * @throws { BusinessError } 201 - If the permission is denied.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static
@@ -189,13 +189,14 @@ declare namespace runningLock {
    * 创建RunningLock锁。使用callback异步回调。
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name 锁的名字。
-   * @param { RunningLockType } type 要创建的锁的类型。
-   * @param { AsyncCallback<RunningLock> } callback 回调函数。当创建锁成功，err为undefined，data为创建的RunningLock；否则为错误对象。
+   * @param { string } name - 锁的名字。建议使用包名或类名加后缀的方式命名。
+   * @param { RunningLockType } type - 要创建的锁的类型。
+   * @param { AsyncCallback<RunningLock> } callback - 回调函数。当创建锁成功，err为undefined，data为创建的RunningLock；否则为错误对象；
+   *     AsyncCallback封装了一个RunningLock类型的类。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead RunningLock#create
+   * @useinstead runningLock.create
    */
   function createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
@@ -203,13 +204,13 @@ declare namespace runningLock {
    * 创建RunningLock锁。使用Promise异步回调。
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name 锁的名字。
-   * @param { RunningLockType } type 要创建的锁的类型。
+   * @param { string } name - 锁的名字。建议使用包名或类名加后缀的方式命名。
+   * @param { RunningLockType } type - 要创建的锁的类型。
    * @returns { Promise<RunningLock> } Promise对象，返回RunningLock锁对象。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead RunningLock#create
+   * @useinstead runningLock.create
    */
   function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
 

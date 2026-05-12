@@ -202,36 +202,35 @@ declare namespace runningLock {
   function isSupported(type: RunningLockType): boolean;
 
   /**
-   * Creates a {@link RunningLock} object.
-   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
-   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   * Creates a {@link RunningLock} object. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
-   * a suffix.
-   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
-   * @param { AsyncCallback<RunningLock> } callback Indicates the callback contains the {@link RunningLock} object.
+   * @param { string } name - Indicates the {@link RunningLock} name. A recommended name consists of the package or
+   *     class name and a suffix.
+   * @param { RunningLockType } type - Indicates the {@link RunningLockType}.
+   * @param { AsyncCallback<RunningLock> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined** and data is the created **RunningLock** object. Otherwise, **err** is an
+   *     error object. **AsyncCallback** has encapsulated an API of the **RunningLock** class.
+   * Indicates the callback contains the {@link RunningLock} object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead RunningLock#create
+   * @useinstead runningLock.create
    */
   function createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
   /**
-   * Creates a {@link RunningLock} object.
-   * <p>This method requires the ohos.permission.RUNNING_LOCK permission.
-   * <p>The {@link RunningLock} object can be used to perform a lock operation to prevent the system from hibernating.
+   * Creates a {@link RunningLock} object. This API uses a promise to return the result.
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name Indicates the {@link RunningLock} name. A recommended name consists of the package or class name and
-   * a suffix.
-   * @param { RunningLockType } type Indicates the {@link RunningLockType}.
-   * @returns { Promise<RunningLock> } Returns the {@link RunningLock} object.
+   * @param { string } name - Indicates the {@link RunningLock} name. A recommended name consists of the package or
+   *     class name and a suffix.
+   * @param { RunningLockType } type - Indicates the {@link RunningLockType}.
+   * @returns { Promise<RunningLock> } Promise used to return the {@link RunningLock} object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead RunningLock#create
+   * @useinstead runningLock.create
    */
   function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
 
@@ -241,9 +240,9 @@ declare namespace runningLock {
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name - Name of the **RunningLock** object. The value must be a string.
    * @param { RunningLockType } type - Type of the **RunningLock** object. The value must be an enum.
-   * @param { AsyncCallback<RunningLock> } callback - Callback used to return the result. If the operation is successful
-   *     , **err** is **undefined** and data is the created **RunningLock** object. Otherwise, **err** is an error
-   *     object. **AsyncCallback** has encapsulated an API of the **RunningLock** class.
+   * @param { AsyncCallback<RunningLock> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined** and data is the created **RunningLock** object. Otherwise, **err** is an
+   *     error object. **AsyncCallback** has encapsulated an API of the **RunningLock** class.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
@@ -258,7 +257,7 @@ declare namespace runningLock {
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name - Name of the **RunningLock** object. The value must be a string.
    * @param { RunningLockType } type - Type of the **RunningLock** object. The value must be an enum.
-   * @returns { Promise<RunningLock> } Promise used to return the result.
+   * @returns { Promise<RunningLock> } Promise used to return the {@link RunningLock} object.
    * @throws { BusinessError } 201 - If the permission is denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core

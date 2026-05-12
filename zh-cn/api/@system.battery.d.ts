@@ -14,16 +14,16 @@
  */
 
 /**
- * The **battery** module allows you to query the charging status and remaining power of a device.
+ * 该模块提供充电状态及剩余电量的查询功能。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - Module maintenance policy:
+ * > - 模块维护策略：
  * > >
- * > >    \- For lite wearables, this module is constantly maintained and available.
+ * > >    \- 对于Lite Wearable设备类型，该模块长期维护，正常使用。
  * > >
- * > >    \- For other device types, this module is no longer maintained since API version 6. You are advised to use 
- * > [@ohos.batteryInfo]{@link @ohos.batteryInfo:batteryInfo} instead.
+ * > >    \- 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，建议使用
+ * > [@ohos.batteryInfo]{@link @ohos.batteryInfo:batteryInfo}替代。
  *
  * @file
  * @kit BasicServicesKit
@@ -54,7 +54,7 @@ export interface BatteryResponse {
   charging: boolean;
 
   /**
-   * 当前电池的电量百分比，取值范围：0.00?-?1.00?。
+   * 当前电池的电量百分比，取值范围：0.00~1.00。
    *
    * **说明：** 除Lite Wearable外，从API Version 6开始不再维护，建议使用
    * [`batteryInfo.batterySOC`](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#常量)替代。
@@ -98,7 +98,7 @@ export interface GetStatusOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * 包含接口调用结果的对象。
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly

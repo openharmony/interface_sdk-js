@@ -14,17 +14,16 @@
  */
 
 /**
- * The **brightness** module provides APIs for querying and adjusting the screen brightness and mode.
+ * 该模块提供屏幕亮度和模式的查询、调节接口。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - Module maintenance policy:
+ * > - 模块维护策略：
  * > >
- * > >    \- For lite wearables, this module is constantly maintained and available.
+ * > >    \- 对于Lite Wearable设备类型，该模块长期维护，正常使用。
  * > >
- * > >    \- For other device types, this module is no longer maintained since API version 7.<!--Del--> You are advised 
- * > to use APIs of [@ohos.brightness]{@link @ohos.brightness:brightness}. <!--DelEnd-->The substitute APIs are 
- * > available only for system applications.
+ * > >    \- 对于支持该模块的其他设备类型，该模块从API Version 7开始不再维护。<!--Del-->建议使用
+ * > [@ohos.brightness]{@link @ohos.brightness:brightness}替代。<!--DelEnd-->替代接口能力仅对系统应用开放。
  *
  * @file
  * @kit BasicServicesKit
@@ -91,7 +90,7 @@ export interface GetBrightnessOptions {
 }
 
 /**
- * 获取屏幕亮度的参数对象。
+ * 设置屏幕亮度的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -102,11 +101,11 @@ export interface SetBrightnessOptions {
   /**
    * 屏幕亮度，值为1-255之间的整数。
    *
-   * -?如果值小于等于0，系统按1处理。
+   * - 如果值小于等于0，系统按1处理。
    *
-   * -?如果值大于255，系统按255处理。
+   * - 如果值大于255，系统按255处理。
    *
-   * -?如果值为小数，系统将处理为整数。例如设置为8.1，系统按8处理。
+   * - 如果值为小数，系统将处理为整数。例如设置为8.1，系统按8处理。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -147,7 +146,8 @@ export interface SetBrightnessOptions {
 }
 
 /**
- *Defines a response that returns the screen brightness mode.
+ * 包含屏幕亮度模式的对象。
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -361,6 +361,12 @@ export default class Brightness {
 
   /**
    * 设置屏幕是否保持常亮状态，开启常亮模式推荐在onShow()阶段调用。
+   *
+   * 注意：
+   *
+   * - 除Lite Wearable外，从API version 7开始不再维护，建议使用[window.setWindowKeepScreenOn()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowkeepscreenon9)替代。
+   *
+   * - 在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
    *
    * @param { SetKeepScreenOnOptions } options 设置屏幕常亮的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite

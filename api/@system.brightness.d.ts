@@ -93,7 +93,7 @@ export interface GetBrightnessOptions {
 }
 
 /**
- * Options for obtaining the screen brightness.
+ * Options for setting the screen brightness.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -373,9 +373,15 @@ export default class Brightness {
   /**
    * Sets whether to always keep the screen on. Call this API in **onShow()**.
    *
-   * Note: This API is no longer maintained since API version 7 except for lite wearables. You are advised to use
+   * **NOTE**
+   *
+   * - This API is no longer maintained since API version 7 except for lite wearables. You are advised to use
    * [window.setWindowKeepScreenOn()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowkeepscreenon9)
    * instead.
+   *
+   * - On Lite Wearables, this API can only prevent the system from turning off the screen due to inactivity
+   * timeout (automatic). It cannot prevent screen-off caused by user actions (such as covering the screen) or
+   * the end of the keep-screen-on period.
    *
    * @param { SetKeepScreenOnOptions } options Options for setting the screen to be steady on. This parameter is
    *     optional and is left blank by default.

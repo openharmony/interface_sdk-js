@@ -41,68 +41,68 @@ declare namespace charger {
    */
   export enum ChargeType {
     /**
-     * Unknown charging type.
+     * 表示未知类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    NONE = 0,
+    NONE,
     /**
-     * Wired normal charging.
+     * 表示有线正常充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    WIRED_NORMAL = 1,
+    WIRED_NORMAL,
     /**
-     * Wired fast charging.
+     * 表示有线快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    WIRED_QUICK = 2,
+    WIRED_QUICK,
     /**
-     * Wired super fast charging.
+     * 表示有线超级快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    WIRED_SUPER_QUICK = 3,
+    WIRED_SUPER_QUICK,
     /**
-     * Wireless normal charging.
+     * 表示无线正常充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    WIRELESS_NORMAL = 4,
+    WIRELESS_NORMAL,
     /**
-     * Wireless fast charging.
+     * 表示无线快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    WIRELESS_QUICK = 5,
+    WIRELESS_QUICK,
     /**
-     * Wireless super fast charging.
+     * 表示无线超级快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
-    WIRELESS_SUPER_QUICK = 6
+    WIRELESS_SUPER_QUICK
   }
 }
 

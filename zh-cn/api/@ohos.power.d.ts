@@ -49,12 +49,12 @@ declare namespace power {
    * 重启系统。
    *
    * @permission ohos.permission.REBOOT
-   * @param { string } reason 重启原因。例如，“updater”表示重启后进入更新模式。如果未指定该参数，系统将在重启后进入正常模式。
+   * @param { string } reason - 重启原因。例如，“updater”表示重启后进入更新模式。如果未指定该参数，系统将在重启后进入正常模式。
    *     reason参数必须为字符串类型。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead power#reboot
+   * @useinstead power.reboot
    */
   function rebootDevice(reason: string): void;
 
@@ -90,12 +90,12 @@ declare namespace power {
   /**
    * 检测当前设备的亮灭屏状态。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Returns true if the screen is on; returns false otherwise.
-   * @syscap SystemCapability.PowerManager.PowerManager.Core
-   * @since 7 dynamiconly
-   * @deprecated since 9
-   * @useinstead power.isActive
-   */
+     * @returns { Promise<boolean> } Promise对象。返回true表示亮屏；返回false表示灭屏。
+     * @syscap SystemCapability.PowerManager.PowerManager.Core
+     * @since 7 dynamiconly
+     * @deprecated since 9
+     * @useinstead power.isActive
+     */
   function isScreenOn(): Promise<boolean>;
 
   /**
@@ -291,16 +291,16 @@ declare namespace power {
    * 按场景名称查询电源配置值。
    *
    * @permission ohos.permission.POWER_CONFIG
-   * @param { string } sceneName - 表示电源配置的场景名称。
-   *     sceneName参数必须是字符串类型。
-   * @returns { string } 成功时返回电源配置值，否则返回空字符串。
+   * @param { string } sceneName - 表示电源配置的场景名称。sceneName参数必须是字符串类型且最大长度128字节。
+   * @returns { string } 返回电源配置值。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
-   *     1. The length of sceneName parameter exceeds 128 bytes.
-   * @throws { BusinessError } 4900501 - Failed to read the power configuration value.
+     *     1. The sceneName parameter is an empty string;
+     *     2. The length of sceneName parameter exceeds 128 bytes.
+     * @throws { BusinessError } 4900501 - Failed to read the power configuration value.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @stagemodelonly
@@ -312,16 +312,17 @@ declare namespace power {
    * 根据场景名称设置电源配置值。
    *
    * @permission ohos.permission.POWER_CONFIG
-   * @param { string } sceneName - 表示电源配置的场景名称。sceneName参数必须是字符串类型。
-   * @param { string } value - 表示电源配置值，value参数必须为string类型。
+   * @param { string } sceneName - 表示电源配置的场景名称。sceneName参数必须是字符串类型且最大长度128字节；
+   * @param { string } value - 表示电源配置值。value参数必须是字符串类型且最大长度128字节。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 4900101 - Failed to connect to the service.
    * @throws { BusinessError } 4900400 - Invalid parameter. Possible causes:
-   *     1. The length of sceneName parameter exceeds 128 bytes;
-   *     2. The length of value parameter exceeds 4096 bytes.
-   * @throws { BusinessError } 4900601 - Failed to write the power configuration value.
+     *     1. The sceneName or value parameter is an empty string;
+     *     2. The length of sceneName parameter exceeds 128 bytes;
+     *     3. The length of value parameter exceeds 128 bytes.
+     * @throws { BusinessError } 4900601 - Failed to write the power configuration value.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @systemapi
    * @stagemodelonly
@@ -346,29 +347,29 @@ declare namespace power {
      */
     MODE_NORMAL = 600,
     /**
-     * Power saving mode.
+     * 表示省电模式。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static
      */
-    MODE_POWER_SAVE = 601,
+    MODE_POWER_SAVE,
     /**
-     * Performance mode.
+     * 表示性能模式。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static
      */
-    MODE_PERFORMANCE = 602,
+    MODE_PERFORMANCE,
     /**
-     * Ultra power saving mode.
+     * 表示超级省电模式。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static
      */
-    MODE_EXTREME_POWER_SAVE = 603,
+    MODE_EXTREME_POWER_SAVE,
     /**
      * 表示自定义省电模式。
      *
@@ -406,7 +407,7 @@ declare namespace power {
    */
   export enum PowerKeyFilteringStrategy {
     /**
-     * 表示不使能电源键过滤策略，默认值。
+     * 表示不使能电源键长按事件的过滤策略，默认值。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 21 dynamic
@@ -414,7 +415,7 @@ declare namespace power {
      */
     DISABLE_LONG_PRESS_FILTERING = 0,
     /**
-     * 表示仅过滤当前电源键长按事件，下一次电源键长按事件默认不过滤。
+     * 表示仅过滤当前电源键长按事件，下一次不过滤。
      *
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 21 dynamic

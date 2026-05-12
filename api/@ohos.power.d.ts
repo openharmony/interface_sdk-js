@@ -48,15 +48,14 @@ declare namespace power {
 
   /**
    * Restarts the system.
-   * <p>This method requires the ohos.permission.REBOOT permission.
    *
    * @permission ohos.permission.REBOOT
-   * @param { string } reason Indicates the restart reason. For example, "updater" indicates entering the updater mode
-   * after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
+   * @param { string } reason - Indicates the restart reason. For example, "updater" indicates entering the updater mode
+   *     after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead power#reboot
+   * @useinstead power.reboot
    */
   function rebootDevice(reason: string): void;
 

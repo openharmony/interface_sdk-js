@@ -16,7 +16,6 @@
 /**
  * @file
  * @kit BasicServicesKit
- * @arkts 1.1&1.2
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
@@ -54,6 +53,7 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_INVALID = -17,
 
     /**
+     * 表示应用消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -63,6 +63,7 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_APP,
 
     /**
+     * 表示蓝牙消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -72,6 +73,7 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_BLUETOOTH,
 
     /**
+     * 表示CPU空闲时消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -81,6 +83,7 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_IDLE,
 
     /**
+     * 表示通话来电消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -90,6 +93,7 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_PHONE,
 
     /**
+     * 表示无线通讯消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -99,6 +103,7 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_RADIO,
 
     /**
+     * 表示屏幕消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -108,6 +113,7 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_SCREEN,
 
     /**
+     * 表示用户消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -117,13 +123,14 @@ declare namespace batteryStats {
     CONSUMPTION_TYPE_USER,
 
     /**
+     * 表示无线网消耗的电量类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_WIFI,
+    CONSUMPTION_TYPE_WIFI
   }
 
   /**
@@ -173,7 +180,7 @@ declare namespace batteryStats {
    * 获取应用的耗电百分比。
    *
    * @param { int } uid - 应用的UID。
-   * @returns { double } UID对应应用的耗电百分比，取值范围：0.00到1.00。
+   * @returns { double } UID对应应用的耗电百分比，取值范围是[0.00，1.00]。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -203,7 +210,7 @@ declare namespace batteryStats {
    * 根据耗电类型获取硬件单元的耗电百分比。
    *
    * @param { ConsumptionType } type - 电量消耗类型；该参数类型是枚举类。
-   * @returns { double } 电量消耗类型对应硬件的耗电百分比，取值范围：0.00到1.00。
+   * @returns { double } 电量消耗类型对应硬件的耗电百分比，取值范围是[0.00，1.00]。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 4600101 - Failed to connect to the service.
@@ -216,9 +223,6 @@ declare namespace batteryStats {
 
   /**
    * 设备的耗电信息。
-   *
-   */
-  /**
    *
    * @syscap SystemCapability.PowerManager.BatteryStatistics
    * @systemapi

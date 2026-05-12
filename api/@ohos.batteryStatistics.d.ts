@@ -130,7 +130,7 @@ declare namespace batteryStats {
      * @since 8 dynamic
      * @since 23 static
      */
-    CONSUMPTION_TYPE_WIFI,
+    CONSUMPTION_TYPE_WIFI
   }
 
   /**
