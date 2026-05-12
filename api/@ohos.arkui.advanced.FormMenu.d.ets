@@ -28,18 +28,16 @@ import { Builder, MenuItemOptions } from '@ohos.arkui.component';
 /**
  * Defines the form menu item style.
  *
- * @interface FormMenuItemStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @noninterop
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
- * @noninterop
  */
 export interface FormMenuItemStyle {
   /**
    * Defines options of the form menu.
    *
-   * @type { ?MenuItemOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
@@ -51,18 +49,16 @@ export interface FormMenuItemStyle {
 /**
  * Defines the add form options.
  *
- * @interface AddFormOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @noninterop
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
- * @noninterop
  */
 export interface AddFormOptions {
   /**
    * Indicates the form data.
    *
-   * @type { ?formBindingData.FormBindingData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
@@ -73,7 +69,6 @@ export interface AddFormOptions {
   /**
    * The callback is used to return the form id.
    *
-   * @type { ?AsyncCallback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
@@ -84,7 +79,6 @@ export interface AddFormOptions {
   /**
    * The style of the menu item.
    *
-   * @type { ?FormMenuItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
@@ -100,10 +94,10 @@ export interface AddFormOptions {
  * @param { string } componentId - The id of the component used to get form snapshot.
  * @param { AddFormOptions } [options] - Add form options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @noninterop
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
- * @noninterop
  */
 @Builder
 export declare function AddFormMenuItem(
