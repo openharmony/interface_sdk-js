@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.Applications.Settings.Core.Lite
  * @famodelonly
- * @since 24 dynamic&static
+ * @since 24
  */
 
 declare namespace settingsLite {
@@ -32,7 +32,7 @@ declare namespace settingsLite {
    *
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function openPinSettingPage(): void;
 
@@ -41,7 +41,7 @@ declare namespace settingsLite {
    *
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function openNfcSettingsPage(): void;
 
@@ -50,7 +50,7 @@ declare namespace settingsLite {
    *
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function openDoubleClickSettingsPage(): void;
 
@@ -59,7 +59,7 @@ declare namespace settingsLite {
    * application itself.
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   interface ClickCallback {
     /**
@@ -69,7 +69,7 @@ declare namespace settingsLite {
      *     is returned. Otherwise, an unexpected application is started.
      * @syscap SystemCapability.Applications.Settings.Core.Lite
      * @famodelonly
-     * @since 24 dynamic&static
+     * @since 24
      */
     onResult(result: boolean): void;
   }
@@ -81,7 +81,7 @@ declare namespace settingsLite {
    * @param { ClickCallback } callback Callback used to return the execution result.
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function isDoubleClickAppForSelf(callback: ClickCallback): void;
 }
