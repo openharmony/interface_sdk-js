@@ -122,7 +122,7 @@ export declare function ColumnSplit(
 /**
  * Defines ColumnSplit Component.
  *
- * @param { CustomBuilderT<ColumnSplitAttribute> } [style] - the callback to set up component's attributes.
+ * @param { CustomBuilderT<ColumnSplitAttribute> } style - the callback to set up component's attributes.
  * @param { CustomBuilder } [content_] - container
  * @returns { ColumnSplitAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

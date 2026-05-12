@@ -19,6 +19,7 @@
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { Length } from "./units";
 import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 
 /**
  * Defines the Shape Point, the first element is the x-axis offset and the second is the y-axis.
@@ -93,6 +94,16 @@ export declare interface LineAttribute extends CommonShapeMethod {
      */
     default endPoint(value: ShapePoint | undefined): this;
     /**
+ 	 * Set Line options.
+ 	 *
+ 	 * @param { LineOptions } [options] - Line constructor options
+ 	 * @returns { LineAttribute } Returns the instance of the LineAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setLineOptions(options?: LineOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<LineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -118,3 +129,19 @@ export declare interface LineAttribute extends CommonShapeMethod {
 export declare function Line(
     options?: LineOptions
 ): LineAttribute
+
+/**
+ * Defines Line Component.
+ *
+ * @param { CustomBuilderT<LineAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { LineAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Line(
+    style: CustomBuilderT<LineAttribute>
+): LineAttribute;

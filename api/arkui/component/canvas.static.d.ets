@@ -22,7 +22,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from './imageCommon';
 import { Matrix2D } from './matrix2d';
 import { DrawingCanvas, VoidCallback, LengthMetricsUnit, LengthMetrics, ColorMetrics } from './units';
 import { Size } from '../Graphics';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { AttributeModifier, CommonMethod, Callback } from './common';
 import { Color } from './enums'
 
@@ -2077,6 +2077,27 @@ export declare interface CanvasAttribute extends CommonMethod {
    */
   enableAnalyzer(enable: boolean | undefined): this;
   /**
+   * Set Canvas options.
+   *
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } [context] - Canvas context object.
+   * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
+   * @returns { CanvasAttribute } Returns instance of CanvasAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setCanvasOptions(context?: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions?: ImageAIOptions): this;
+  /**
+   * Set Canvas options.
+   *
+   * @param { CanvasParams } params - Parameters for creating Canvas.
+   * @returns { CanvasAttribute } Returns instance of CanvasAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setCanvasOptions(params: CanvasParams): this;
+  /**
    * Call attributeModifier.
    *
    * @param { AttributeModifier<CanvasAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -2119,4 +2140,19 @@ export declare function Canvas(
 @ComponentBuilder
 export declare function Canvas(
   params: CanvasParams
+): CanvasAttribute;
+
+/**
+ * Defines Canvas Component.
+ *
+ * @param { CustomBuilderT<CanvasAttribute> } style_ - Canvas attribute instance.
+ * @returns { CanvasAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Canvas(
+    style_: CustomBuilderT<CanvasAttribute>
 ): CanvasAttribute;

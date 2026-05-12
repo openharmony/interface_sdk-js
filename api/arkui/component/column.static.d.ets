@@ -162,7 +162,7 @@ export declare function Column(
 /**
  * Defines Column Component.
  *
- * @param { CustomBuilderT<ColumnAttribute> } [style] - the callback to set up component's attributes.
+ * @param { CustomBuilderT<ColumnAttribute> } style - the callback to set up component's attributes.
  * @param { CustomBuilder } [content_] - container
  * @returns { ColumnAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
