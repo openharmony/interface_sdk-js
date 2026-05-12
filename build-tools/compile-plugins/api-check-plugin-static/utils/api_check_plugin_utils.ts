@@ -935,7 +935,6 @@ export function readFile(dir: string, utFiles: string[]): void {
 export function checkPermissionTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
   const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
   const jsDocTags: JSDocTag []  = getPermissionJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
-  config.tagNameShouldExisted = jsDocTags.length > 0;
   if (jsDocTags ===  undefined || jsDocTags.length === 0  ) {
     return false;
   }
