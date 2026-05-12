@@ -5512,12 +5512,4 @@ declare namespace huks {
   }
 }
 
-/*** if arkts 1.1 */
-import type { AsyncCallback } from './@ohos.base';
-/*** endif */
-
-/*** if arkts 1.2 */
-import { BusinessError, AsyncCallback } from '@ohos.base';
-/*** endif */
-
 export default huks;
