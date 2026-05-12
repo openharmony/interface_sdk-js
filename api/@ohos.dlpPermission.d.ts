@@ -1213,14 +1213,15 @@ declare namespace dlpPermission {
      */
     replaceDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
     /**
-     * Deletes a link file of the DLP file. This method uses a promise to return the result.
+     * Deletes a link file from the FUSE. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } linkFileName - Indicates the name of link file to delete.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
@@ -1230,16 +1231,16 @@ declare namespace dlpPermission {
      * @since 10
      */
     deleteDLPLinkFile(linkFileName: string): Promise<void>;
-
     /**
-     * Deletes a link file of the DLP file. This method uses an asynchronous callback to return the result.
+     * Deletes a link file. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } linkFileName - Indicates the name of link file to delete.
-     * @param { AsyncCallback<void> } callback - Indicates the callback of deleteDLPLinkFile.
+     * @param { string } linkFileName -  Name of the link file. The value contains up to 255 bytes.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
@@ -1249,16 +1250,16 @@ declare namespace dlpPermission {
      * @since 10
      */
     deleteDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
-
     /**
-     * Recovers the file in plaintext from the DLP file. This method uses a promise to return the result.
+     * Recovers the plaintext of a DLP file. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { number } plaintextFd - FD of the target plaintext file.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
@@ -1274,16 +1275,16 @@ declare namespace dlpPermission {
      * @since 10
      */
     recoverDLPFile(plaintextFd: number): Promise<void>;
-
     /**
-     * Recovers the file in plaintext from the DLP file. This method uses an asynchronous callback to return the result.
+     * Recovers the plaintext of a DLP file. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
-     * @param { AsyncCallback<void> } callback - Indicates the callback of recoverDLPFile.
+     * @param { number } plaintextFd - FD of the target plaintext file.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
@@ -1299,12 +1300,15 @@ declare namespace dlpPermission {
      * @since 10
      */
     recoverDLPFile(plaintextFd: number, callback: AsyncCallback<void>): void;
-
     /**
-     * Closes the DLP file when the object is no longer used. This method uses a promise to return the result.
+     * Closes this **DLPFile** instance. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If a DLP file is no longer used, close the **dlpFile** instance to release the memory.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1315,12 +1319,15 @@ declare namespace dlpPermission {
      * @since 10
      */
     closeDLPFile(): Promise<void>;
-
     /**
-     * Closes the DLP file when the object is no longer used. This method uses an asynchronous callback to return the result.
+     * Closes this **DLPFile** instance. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If a DLP file is no longer used, close the **dlpFile** instance to release the memory.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { AsyncCallback<void> } callback - Indicates the callback of closeDLPFile.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1333,15 +1340,18 @@ declare namespace dlpPermission {
      */
     closeDLPFile(callback: AsyncCallback<void>): void;
   }
-
   /**
-   * Generates a DLP file. This method uses a promise to return the result.
+   * Generates a DLP file, which is an encrypted file that can be accessed only by authorized users. The users can
+   * have the full control permission or read-only permission on the DLP file. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
-   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file.
-   * @param { DLPProperty } property - Indicates the property of the DLP file.
-   * @returns { Promise<DLPFile> } Returns the {@link DLPFile}.
+   * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
+   * @param { number } ciphertextFd - FD of the encrypted file.
+   * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
+   *     account, and contact account information.
+   * @returns { Promise<DLPFile> } Promise If the operation is successful, a **DLPFile** instance is returned.
+   *     Otherwise, **null** is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1358,15 +1368,17 @@ declare namespace dlpPermission {
    * @since 10
    */
   function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty): Promise<DLPFile>;
-
   /**
-   * Generates a DLP file. This method uses an asynchronous callback to return the result.
+   * Generates a DLP file, which is an encrypted file that can be accessed only by authorized users. The users can
+   * have the full control permission or read-only permission on the DLP file. This API uses an asynchronous callback
+   * to return the result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { number } plaintextFd - Indicates the file descriptor of the file in plaintext.
-   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file.
-   * @param { DLPProperty } property - Indicates the property of the DLP file.
-   * @param { AsyncCallback<DLPFile> } callback - Indicates the callback of generateDLPFile.
+   * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
+   * @param { number } ciphertextFd - FD of the encrypted file
+   * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner account, and contact account
+   *     information.
+   * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1382,20 +1394,15 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function generateDLPFile(
-    plaintextFd: number,
-    ciphertextFd: number,
-    property: DLPProperty,
-    callback: AsyncCallback<DLPFile>
-  ): void;
-
+  function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty, callback: AsyncCallback<DLPFile>): void;
   /**
-   * Opens a DLP file. This method uses a promise to return the result.
+   * Opens a DLP file. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file to open.
-   * @param { string } appId - Indicates the app ID of the application which opens the DLP file.
-   * @returns { Promise<DLPFile> } Returns the {@link DLPFile}.
+   * @param { number } ciphertextFd - FD of the encrypted file.
+   * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.
+   * @returns { Promise<DLPFile> } Promise If the operation is successful, a **DLPFile** instance is returned.
+   *     Otherwise, **null** is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1416,14 +1423,13 @@ declare namespace dlpPermission {
    * @since 11
    */
   function openDLPFile(ciphertextFd: number, appId: string): Promise<DLPFile>;
-
   /**
-   * Opens a DLP file. This method uses an asynchronous callback to return the result.
+   * Opens a DLP file. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { number } ciphertextFd - Indicates the file descriptor of the DLP file to open.
-   * @param { string } appId - Indicates the app ID of the application which opens the DLP file.
-   * @param { AsyncCallback<DLPFile> } callback - Indicates the callback of openDLPFile.
+   * @param { number } ciphertextFd - FD of the encrypted file.
+   * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.
+   * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1444,12 +1450,12 @@ declare namespace dlpPermission {
    * @since 11
    */
   function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
-
   /**
-   * Sets sandbox application configuration. This method uses a promise to return the result.
+   * Sets sandbox application configuration. This API uses a promise to return the result.
    *
-   * @param { string } configInfo - Configuration of the sandbox application.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { string } configInfo - Sandbox application configuration. The length must be less than 4 MB. If the value
+   *     exceeds this range, **null** is returned.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1461,11 +1467,10 @@ declare namespace dlpPermission {
    * @since 11
    */
   function setSandboxAppConfig(configInfo: string): Promise<void>;
-
   /**
-   * Cleans sandbox application configuration. This method uses a promise to return the result.
+   * Cleans sandbox application configuration. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - No permission to call this API,
    *     which is available only for non-DLP sandbox applications.
@@ -1475,9 +1480,8 @@ declare namespace dlpPermission {
    * @since 11
    */
   function cleanSandboxAppConfig(): Promise<void>;
-
   /**
-   * Obtains sandbox application configuration. This method uses a promise to return the result.
+   * Obtains sandbox application configuration. This API uses a promise to return the result.
    *
    * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1487,10 +1491,15 @@ declare namespace dlpPermission {
    * @since 11
    */
   function getSandboxAppConfig(): Promise<string>;
-
   /**
-  * Checks whether the current system provides the DLP feature. This method uses a promise to return the result.
+  * Queries whether the current system provides the data encryption feature. This API uses a promise to return the
+  * result.
   *
+  * >**NOTE**
+  * >
+  * > This API is enabled by the [MDM](docroot://mdm/mdm-kit-intro.md) kit and is used for enterprise devices. For
+  * > other devices (such as consumer devices), this API is inapplicable. Calling it returns **false**.
+  * 
   * @returns { Promise<boolean> } Promise used to return the result.
   * @throws { BusinessError } 19100011 - The system ability works abnormally.
   * @syscap SystemCapability.Security.DataLossPrevention
