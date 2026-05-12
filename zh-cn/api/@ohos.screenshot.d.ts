@@ -22,7 +22,7 @@ import { AsyncCallback, ErrorCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
 /**
- * Provides the screen capture capability.
+ * 本模块提供屏幕截图的能力。
  *
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
@@ -31,15 +31,12 @@ import image from './@ohos.multimedia.image';
  */
 declare namespace screenshot {
   /**
-   * Obtains a screenshot. This API uses an asynchronous callback to return the result.
+   * 获取屏幕截图，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
    * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
-   * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
-   *     , the snapshot is a white screen.
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object. The size of the
-   *     PixelMap object is **imageSize**. If **imageSize** is not specified, the size of the logical screen associated
-   *     with the specified display ID is used.
+   * @param { ScreenshotOptions } options - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。
+   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。返回一个PixelMap对象，其大小为指定的imageSize大小，若未指定默认为displayId所在逻辑屏的大小。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
@@ -53,11 +50,11 @@ declare namespace screenshot {
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * Obtains a screenshot. This API uses an asynchronous callback to return the result.
+   * 获取屏幕截图，使用callback异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
    * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
+   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。返回一个PixelMap对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -69,14 +66,12 @@ declare namespace screenshot {
   function save(callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * Obtains a screenshot. This API uses a promise to return the result.
+   * 获取屏幕截图，使用Promise异步回调。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
    * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
-   * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
-   *     , the snapshot is a white screen. [since 7 - 21]
-   * @param { ScreenshotOptions } [options] - Information about the snapshot. If the screen to capture is a virtual
-   *     screen, the snapshot is a white screen. [since 22]
+   * @param { ScreenshotOptions } options - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。 [since 7 - 21]
+   * @param { ScreenshotOptions } [options] - 要截取的图像信息。当指定截取屏幕为虚拟屏时，截取图像为白屏。 [since 22]
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -90,21 +85,16 @@ declare namespace screenshot {
   function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
 
   /**
-   * Obtains a screenshot. This API uses a promise to return the result. SDR stands for Standard Dynamic Range, and HDR
-   * stands for High Dynamic Range.
-   *
-   * - If the screen contains HDR resources (even if they are partially obscured), this API returns an array with both
-   * SDR and HDR PixelMaps, regardless of whether HDR is enabled.
-   * - If there are no HDR resources, it returns an array with a single SDR PixelMap. Unlike the
-   * [save]{@link screenshot.save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>)} API, which
-   * returns a single SDR PixelMap, this API always returns an array. Additionally, this API does not support cropping,
-   * stretching, or rotating features available in the
-   * [save]{@link screenshot.save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>)} API.
+   * 获取屏幕截图，使用Promise异步回调。SDR为标准动态范围图，HDR为高动态范围图。
+   * 
+   * - 当物理屏存在HDR资源（包括HDR资源被遮挡）时，无论HDR是否开启，该接口返回一个包含SDR和HDR的PixelMap数组。
+   * - 当物理屏不存在HDR资源时，与[save]{@link screenshot.save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>)}
+   * 接口返回一个SDR的PixelMap不同，该接口返回包含一个SDR的PixelMap数组。同时该接口不具备
+   * [save]{@link screenshot.save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>)}接口的裁剪、拉伸、旋转功能。
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 20 - 21]
    * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
-   * @param { HdrScreenshotOptions } [options] - Information about the HDR snapshot. This parameter is left unspecified
-   *     by default.
+   * @param { HdrScreenshotOptions } [options] - 要截取的HDR图像信息。默认为空。
    * @returns { Promise<Array<image.PixelMap>> } Promise used to return an array of PixelMap objects. If the screen
    *     contains HDR resources (even if they are partially obscured), the array contains two PixelMaps: the first is an
    *     SDR PixelMap, and the second is an HDR PixelMap. If there are no HDR resources, the array contains a single SDR
@@ -125,18 +115,14 @@ declare namespace screenshot {
   function saveHdrPicture(options?: HdrScreenshotOptions): Promise<Array<image.PixelMap>>;
 
   /**
-   * Takes a screenshot of the entire screen. This API uses a promise to return the result.
-   *
-   * This API allows you to take screenshots of different screens by setting various **displayId** values, but only full
-   * -screen captures are supported. The [pick]{@link screenshot.pick} API allows you to take screenshots of a specified
-   * region.
+   * 获取屏幕全屏截图，使用Promise异步回调。
+   * 
+   * 此接口可以通过设置不同的displayId截取不同屏幕的截图，且只能截取全屏；[pick]{@link screenshot.pick}接口可实现区域截屏。
    *
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE [since 14 - 21]
    * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
-   * @param { CaptureOption } options - Capture options. If this parameter is left blank, the display with ID 0 is
-   *     captured by default. [since 14 - 21]
-   * @param { CaptureOption } [options] - Capture options. If this parameter is left blank, the display with ID 0 is
-   *     captured by default. [since 22]
+   * @param { CaptureOption } options - 截取图像的相关信息。此参数不填时，默认截取displayId为0的屏幕截图。 [since 14 - 21]
+   * @param { CaptureOption } [options] - 截取图像的相关信息。此参数不填时，默认截取displayId为0的屏幕截图。 [since 22]
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -153,11 +139,9 @@ declare namespace screenshot {
   function capture(options?: CaptureOption): Promise<image.PixelMap>;
 
   /**
-   * Obtains this screenshot. Currently, only the screenshot of the display whose ID is **0** can be obtained. (If a
-   * screenshot of the extended screen is needed, you can use the [capture]{@link screenshot.capture} API.) This API
-   * uses a promise to return the result.
+   * 获取屏幕截图，当前仅支持获取displayId为0的屏幕截图（如果需要对扩展屏截图，可以通过[capture]{@link screenshot.capture}接口实现），使用Promise异步回调。
    *
-   * @returns { Promise<PickInfo> } Promise used to return the PickInfo object.
+   * @returns { Promise<PickInfo> } Promise对象。返回一个PickInfo对象。
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -168,7 +152,7 @@ declare namespace screenshot {
   function pick(): Promise<PickInfo>;
 
   /**
-   * Describes the screenshot options.
+   * 截取图像的信息。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
@@ -177,7 +161,7 @@ declare namespace screenshot {
    */
   interface PickInfo {
     /**
-     * Region of the screen to capture.
+     * 表示截取图像的区域。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -187,7 +171,7 @@ declare namespace screenshot {
     pickRect: Rect;
 
     /**
-     * PixelMap object of the captured image.
+     * 表示截取的图像PixelMap对象。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -198,7 +182,7 @@ declare namespace screenshot {
   }
 
   /**
-   * Describes the region of the screen to capture.
+   * 表示截取图像的区域。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
@@ -207,7 +191,7 @@ declare namespace screenshot {
    */
   interface Rect {
     /**
-     * Left boundary of the screen region to capture, in px. The value must be an integer.
+     * 表示截取图像区域的左边界，单位为px，该参数应为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -217,7 +201,7 @@ declare namespace screenshot {
     left: long;
 
     /**
-     * Top boundary of the screen region to capture, in px. The value must be an integer.
+     * 表示截取图像区域的上边界，单位为px，该参数应为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -227,7 +211,7 @@ declare namespace screenshot {
     top: long;
 
     /**
-     * Width of the screen region to capture, in px. The value must be an integer.
+     * 表示截取图像区域的宽度，单位为px，该参数应为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -237,7 +221,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the screen region to capture, in px. The value must be an integer.
+     * 表示截取图像区域的高度，单位为px，该参数应为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -248,7 +232,7 @@ declare namespace screenshot {
   }
 
   /**
-   * Describes the size of the screen region to capture.
+   * 表示截取图像的大小。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -257,7 +241,7 @@ declare namespace screenshot {
    */
   interface Size {
     /**
-     * Width of the screen region to capture, in px. The value must be an integer.
+     * 表示截取图像的宽度，单位为px，该参数应为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -267,7 +251,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the screen region to capture, in px. The value must be an integer.
+     * 表示截取图像的高度，单位为px，该参数应为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -278,7 +262,7 @@ declare namespace screenshot {
   }
 
   /**
-   * Describes the capture options.
+   * 设置截取图像的信息。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
@@ -287,8 +271,7 @@ declare namespace screenshot {
    */
   interface CaptureOption {
     /**
-     * ID of the [display]{@link @ohos.display:display.DisplayState} to capture. The default value is **0**. The value
-     * must be an integer greater than or equal to 0. If a non-integer is passed, a parameter error is reported.
+     * 表示截取图像的显示设备[Display]{@link @ohos.display:display.DisplayState}的ID号，默认为0，该参数应为大于或等于0的整数，非整数会报参数错误。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -298,13 +281,10 @@ declare namespace screenshot {
     displayId?: long;
 
     /**
-     * List of window IDs that are not displayed during screen capture. By default, this list is empty. Valid window IDs
-     * must be positive integers. Currently, this parameter applies only to
-     * [floating ball windows]{@link @ohos.window.floatingBall:floatingBall}. If a window ID does not correspond to a
-     * floating ball window, is not a positive integer, or does not exist, error code 401 is reported. You are advised
-     * to call
+     * 表示截取图像时不显示的窗口ID列表，默认为空。窗口ID应为大于0的整数，目前仅[闪控球窗口]{@link @ohos.window.floatingBall:floatingBall}生效，窗口ID为非闪控球窗口、非整数、小于
+     * 等于0、或者不存在的窗口ID时报参数错误，错误码为401。推荐使用
      * [getFloatingBallWindowInfo()]{@link @ohos.window.floatingBall:floatingBall.FloatingBallController.getFloatingBallWindowInfo}
-     * to obtain the window ID of a floating ball window.
+     * 方法获取闪控球窗口ID属性。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -315,7 +295,7 @@ declare namespace screenshot {
   }
 
   /**
-   * Describes the screenshot options.
+   * 设置截取图像的信息。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
@@ -324,8 +304,7 @@ declare namespace screenshot {
    */
   interface ScreenshotOptions {
     /**
-     * Region of the screen to capture. If no value is passed, the region of the logical screen associated with the
-     * specified display ID is returned.
+     * 表示截取图像的区域，不传值默认返回displayId所在逻辑屏的区域。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -334,8 +313,7 @@ declare namespace screenshot {
      */
     screenRect?: Rect;
     /**
-     * Region of the screen to capture. If no value is passed, the region of the logical screen associated with the
-     * specified display ID is returned.
+     * 表示截取图像的区域，不传值默认返回displayId所在逻辑屏的区域。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -344,8 +322,7 @@ declare namespace screenshot {
      */
     imageSize?: Size;
     /**
-     * Angle by which the captured image should be rotated. Currently, the value can be **0** only. The default value is
-     * **0**.
+     * 表示截取图像后要旋转的角度，当前仅支持输入值为0，默认值为0。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -354,8 +331,7 @@ declare namespace screenshot {
      */
     rotation?: int;
     /**
-     * ID of the [display]{@link @ohos.display:display.DisplayState} device on which the screen region is to be
-     * captured. The value must be an integer.
+     * 表示截取图像的显示设备[Display]{@link @ohos.display:display.DisplayState}的ID号，该参数应为整数。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -364,9 +340,9 @@ declare namespace screenshot {
      */
     displayId?: long;
     /**
-     * Whether to send a notification after a snapshot is captured. **true** to send, **false** otherwise. The default
-     * value is **true**. Such a notification can be listened for through
-     * [captureStatusChange]{@link @ohos.display:display.on(type: 'captureStatusChange', callback: Callback<boolean>)}.
+     * 表示截取图像之后是否发送截屏通知，true表示发送截屏通知，false表示不发送截屏通知，默认值为true。截屏通知可以通过
+     * [captureStatusChange]{@link @ohos.display:display.on(type: 'captureStatusChange', callback: Callback<boolean>)}接口
+     * 监听。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -375,9 +351,7 @@ declare namespace screenshot {
      */
     isNotificationNeeded?: boolean;
     /**
-     * Whether to capture all displays on the current screen. If the screen contains multiple displays, the value
-     * **true** means that the entire screen is captured, and **false** means that only the region of the logical screen
-     * associated with the specified display ID is captured.
+     * 表示是否截取当前Screen上的所有display。对于一个Screen上有多个display的场景，为true表示截取整个Screen，false则只截取displayId所在逻辑屏的区域，默认值为false。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -388,7 +362,7 @@ declare namespace screenshot {
   }
 
   /**
-   * Describes the HDR screenshot options.
+   * 设置截取HDR图像的信息。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -397,8 +371,7 @@ declare namespace screenshot {
    */
   interface HdrScreenshotOptions {
     /**
-     * ID of the [display]{@link @ohos.display:display.DisplayState} device on which the screen region is to be
-     * captured. The value must be an integer. The default value is **0**.
+     * 表示截取图像的显示设备[Display]{@link @ohos.display:display.DisplayState}的ID号，该参数应为整数。默认为0。
      *
      * @default The ID of the current display. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.Window.SessionManager
@@ -408,9 +381,9 @@ declare namespace screenshot {
      */
     displayId?: long;
     /**
-     * Whether to send a notification after a snapshot is captured. **true** to send, **false** otherwise. The default
-     * value is **true**. Such a notification can be listened for through
-     * [captureStatusChange]{@link @ohos.display:display.on(type: 'captureStatusChange', callback: Callback<boolean>)}.
+     * 表示截取图像之后是否发送截屏通知，true表示发送截屏通知，false表示不发送截屏通知，默认值为true。截屏通知可以通过
+     * [captureStatusChange]{@link @ohos.display:display.on(type: 'captureStatusChange', callback: Callback<boolean>)}接口
+     * 监听。
      *
      * @default true
      * @syscap SystemCapability.Window.SessionManager
@@ -420,9 +393,7 @@ declare namespace screenshot {
      */
     isNotificationNeeded?: boolean;
     /**
-     * Whether to capture all displays on the current screen. If the screen contains multiple displays, the value
-     * **true** means that the entire screen is captured, and **false** means that only the region of the logical screen
-     * associated with the specified display ID is captured. The default value is **false**.
+     * 表示是否截取当前物理屏上所有DisplayId对应的逻辑屏。对于一个物理屏上有多个DisplayId的场景，true表示截取整个物理屏，false表示只截取DisplayId所在区域的逻辑屏。默认值为false。
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
@@ -432,47 +403,45 @@ declare namespace screenshot {
      */
     isCaptureFullOfScreen?: boolean;
     /**
-     * screenshot display intent type.
+     * 截取图像的显示类型。
      *
      * @type { ?DisplayIntentType }
      * @default DisplayIntentType.CANONICAL
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 24 dynamic&static
      */
     displayIntent?: DisplayIntentType;
   }
 
   /**
-   * Enumerates the screenshot display intent type.
+   * 枚举截图显示意图类型。
    *
    * @enum { int }
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 24 dynamic&static
    */
   enum DisplayIntentType {
     /**
-     * Specifies that the screenshot renders with canonical display attributes optimizing output for
-     * presentation on the HDR display.
+     * 指定使用规范显示属性渲染屏幕截图，以优化HDR显示器上的演示输出。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 24 dynamic&static
      */
     CANONICAL = 0,
 
     /**
-     * Specifies that the screenshot renders with local display attributes optimizing output for
-     * presentation on the capture display.
+     * 指定使用本地显示属性渲染屏幕截图，以优化在捕获显示上的显示输出。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 24 dynamic&static
      */
     LOCAL = 1
   }

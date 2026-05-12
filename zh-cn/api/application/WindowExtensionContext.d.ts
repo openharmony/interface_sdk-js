@@ -24,20 +24,18 @@ import Want from '../@ohos.application.Want';
 import StartOptions from '../@ohos.app.ability.StartOptions';
 
 /**
- * The WindowExtensionContext module provides the context environment for the WindowExtensionAbility. It inherits from
- * [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
- *
- * The module provides the capabilities of the
- * [WindowExtensionAbility]{@link ./../@ohos.application.WindowExtensionAbility}, including starting the ability.
- *
- * > **NOTE**
+ * WindowExtensionContext模块是WindowExtensionAbility的上下文环境，继承自[ExtensionContext]{@link ExtensionContext:ExtensionContext}。
+ * 
+ * WindowExtensionContext模块提供[WindowExtensionAbility]{@link ./../@ohos.application.WindowExtensionAbility}具有的能力，包括启动
+ * Ability。
+ * 
+ * > **说明：**
  * >
- * > - This module is deprecated since API version 21. You are advised to use
- * > [UIExtensionContext]{@link UIExtensionContext:UIExtensionContext} instead.
+ * > - 从API version 21开始废弃，推荐使用[UIExtensionContext]{@link UIExtensionContext:UIExtensionContext}。
  * >
- * > - The APIs provided by this module are system APIs.
+ * > - 本模块接口为系统接口。
  * >
- * > - The APIs of this module can be used only in the stage model.
+ * > - 本模块接口仅可在Stage模型下使用。
  *
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi
@@ -47,11 +45,17 @@ import StartOptions from '../@ohos.app.ability.StartOptions';
  */
 declare class WindowExtensionContext extends ExtensionContext {
   /**
-   * Starts an ability. This API uses an asynchronous callback to return the result.
+   * 启动Ability，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > - 从API version 9开始支持，从API version 21开始废弃，推荐使用
+   * > [UIExtensionContext.startability]{@link UIExtensionContext:UIExtensionContext#startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>)}
+   * > 。
    *
-   * @param { Want } want - Want information about the target ability.
-   * @param { StartOptions } options - Parameters used for starting the ability.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Want } want - 启动Ability的want信息。
+   * @param { StartOptions } options - 启动Ability所携带的参数。
+   * @param { AsyncCallback<void> } callback - callback形式返回启动结果。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
    *     API. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;
@@ -65,11 +69,17 @@ declare class WindowExtensionContext extends ExtensionContext {
   startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability. This API uses a promise to return the result.
+   * 启动Ability，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > - 从API version 9开始支持，从API version 21开始废弃，推荐使用
+   * > [UIExtensionContext.startability]{@link UIExtensionContext:UIExtensionContext#startAbility(want: Want, options?: StartOptions)}
+   * > 。
    *
-   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
-   * @param { StartOptions } [options] - Parameters used for starting the ability.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Want } want - Want类型参数，传入需要启动的ability的信息，如Ability名称，Bundle名称等。
+   * @param { StartOptions } [options] - 启动Ability所携带的参数。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
    *     API. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Mandatory parameters are left unspecified;

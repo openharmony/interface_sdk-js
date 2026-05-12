@@ -21,12 +21,14 @@
 import { Callback } from './@ohos.base';
 import window from './@ohos.window';
 /**
- * The **uiExtension** module provides APIs for the
- * [EmbeddedUIExtensionAbility](docroot://application-models/embeddeduiextensionability.md) (or
- * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}) to obtain the host application
- * window information or the information about the corresponding
- * [EmbeddedComponent]{@link ./@internal/component/ets/embedded_component}<!--Del--> (or
- * [UIExtensionComponent]{@link ./@internal/component/ets/ui_extension_component})<!--DelEnd--> component.
+ * 用于[EmbeddedUIExtensionAbility](docroot://application-models/embeddeduiextensionability.md)（或
+ * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}）中获取宿主应用的窗口信息或对应的
+ * [EmbeddedComponent]{@link ./@internal/component/ets/embedded_component}<!--Del-->（或
+ * [UIExtensionComponent]{@link ./@internal/component/ets/ui_extension_component}）<!--DelEnd-->组件的信息。
+ * 
+ * > **说明**
+ * >
+ * > 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -36,7 +38,7 @@ import window from './@ohos.window';
  */
 declare namespace uiExtension {
   /**
-   * The proxy of the UIExtension window.
+   * UIExtension窗口代理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -46,10 +48,9 @@ declare namespace uiExtension {
    */
   interface WindowProxy {
     /**
-     * Obtains the area where this window cannot be displayed, for example, the system bar area, notch, gesture area,
-     * and soft keyboard area.
+     * 获取宿主应用窗口内容规避的区域；如系统栏区域、刘海屏区域、手势区域、软键盘区域等与宿主窗口内容重叠时，需要宿主窗口内容避让的区域。
      *
-     * @param { window.AvoidAreaType } type - Type of the avoidance area.
+     * @param { window.AvoidAreaType } type - 表示避让区类型。
      * @returns { window.AvoidArea } Avoidance area for the content of the host window.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
@@ -64,12 +65,10 @@ declare namespace uiExtension {
     getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea;
 
     /**
-     * Subscribes to events of system avoidance area changes.
+     * 注册系统避让区变化的监听。
      *
-     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at **'avoidAreaChange'**, indicating the event
-     *     of changes to the area where the window cannot be displayed.
-     * @param { Callback<AvoidAreaInfo> } callback - Callback function that receives the information about the current
-     *     avoidance area.
+     * @param { 'avoidAreaChange' } type - 监听的事件类型，固定为'avoidAreaChange'，即系统避让区变化事件。
+     * @param { Callback<AvoidAreaInfo> } callback - 回调函数：入参用于接收当前避让区的信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameters types.
@@ -100,13 +99,10 @@ declare namespace uiExtension {
     onAvoidAreaChange(callback: Callback<AvoidAreaInfo>): void;
 
     /**
-     * Unsubscribes from events of system avoidance area changes.
+     * 注销系统避让区变化的监听。
      *
-     * @param { 'avoidAreaChange' } type - Event type. The value is fixed at **'avoidAreaChange'**, indicating the event
-     *     of changes to the area where the window cannot be displayed.
-     * @param { Callback<AvoidAreaInfo> } callback - Callback used for unsubscription. If a value is passed in, the
-     *     corresponding subscription is canceled. If no value is passed in, all subscriptions to the specified event
-     *     are canceled.
+     * @param { 'avoidAreaChange' } type - 注销的事件类型，固定为'avoidAreaChange'，即系统避让区变化事件。
+     * @param { Callback<AvoidAreaInfo> } callback - 回调函数：如果传入该参数，则关闭该监听。如果未传入参数，则关闭所有系统避让区变化的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameters types.
@@ -140,12 +136,11 @@ declare namespace uiExtension {
     offAvoidAreaChange(callback?: Callback<AvoidAreaInfo>): void;
 
     /**
-     * Subscribes to size change events of the component (**EmbeddedComponent** or **UIExtensionComponent**).
+     * 注册组件（EmbeddedComponent或UIExtensionComponent）尺寸变化的监听。
      *
-     * @param { 'windowSizeChange' } type - Event type. The value is fixed at **'windowSizeChange'**, indicating the
-     *     component (**EmbeddedComponent** or **UIExtensionComponent**) size change events.
-     * @param { Callback<window.Size> } callback - Callback function that receives the current component size as the
-     *     input parameter.
+     * @param { 'windowSizeChange' } type - 监听的事件类型，固定为'windowSizeChange'，即组件（EmbeddedComponent或UIExtensionComponent）尺寸变
+     *     化事件。
+     * @param { Callback<window.Size> } callback - 回调函数：入参用于接收当前组件（EmbeddedComponent或UIExtensionComponent）的尺寸。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameters types.
@@ -176,13 +171,12 @@ declare namespace uiExtension {
     onWindowSizeChange(callback: Callback<window.Size>): void;
 
     /**
-     * Unsubscribes from size change events of the component (**EmbeddedComponent** or **UIExtensionComponent**).
+     * 注销组件（EmbeddedComponent或UIExtensionComponent）尺寸变化的监听。
      *
-     * @param { 'windowSizeChange' } type - Event type. The value is fixed at **'windowSizeChange'**, indicating the
-     *     component (**EmbeddedComponent** or **UIExtensionComponent**) size change events.
-     * @param { Callback<window.Size> } [callback] - Callback used to return the size of the current component (
-     *     **EmbeddedComponent** or **UIExtensionComponent**). If a value is passed in, the corresponding subscription
-     *     is canceled. If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { 'windowSizeChange' } type - 注销的事件类型，固定值：'windowSizeChange'，即组件（EmbeddedComponent或UIExtensionComponent）尺寸
+     *     变化事件。
+     * @param { Callback<window.Size> } [callback] - 回调函数。返回当前的组件（EmbeddedComponent或UIExtensionComponent）尺寸。如果传入该参数，则关闭该
+     *     监听。如果未传入参数，则关闭组件（EmbeddedComponent或UIExtensionComponent）尺寸变化的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameters types.
@@ -216,27 +210,22 @@ declare namespace uiExtension {
     offWindowSizeChange(callback?: Callback<window.Size>): void;
 
     /**
-     * Sets whether to hide non-secure windows. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 设置是否隐藏不安全窗口，使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > - A non-secure window refers to any window that may obstruct the
-     * > [EmbeddedComponent]{@link ./@internal/component/ets/embedded_component} or
-     * > [UIExtensionComponent]{@link ./@internal/component/ets/ui_extension_component}, such as global floating windows
-     * > , host subwindows, and dialog box windows created by the host application (excluding windows of these types
-     * > created by system applications).
+     * > - 不安全窗口是指可能遮挡[EmbeddedComponent]{@link ./@internal/component/ets/embedded_component}（或
+     * > [UIExtensionComponent]{@link ./@internal/component/ets/ui_extension_component}）组件的窗口，如全局悬浮窗、宿主子窗口和宿主创建的Dialog窗口
+     * > （不包括系统应用创建的上述类型窗口）。
      * >
-     * > - When using the **EmbeddedComponent** or **UIExtensionComponent** to display sensitive information, call this
-     * > API to hide non-secure windows and prevent information obstruction. Hidden non-secure windows will reappear
-     * > when the **EmbeddedComponent** or **UIExtensionComponent** is hidden or destroyed.
+     * > - 当EmbeddedComponent（或UIExtensionComponent）组件被用来显示敏感操作提示内容时，可以选择隐藏不安全窗口，保护敏感操作提示内容不会被遮挡。当EmbeddedComponent（或
+     * > UIExtensionComponent）组件不显示或销毁时，不安全窗口会重新显示。
      * >
-     * > - On PCs/2-in-1 devices, global floating windows within non-secure windows remain visible when
-     * > **hideNonSecureWindows(true)** is called.
+     * > - 针对PC/2in1设备，当调用hideNonSecureWindows(true)时，不安全窗口中的全局悬浮窗不会被隐藏。
      *
      * @permission ohos.permission.ALLOW_SHOW_NON_SECURE_WINDOWS
-     * @param { boolean } shouldHide - Whether to hide non-secure windows. The value **true** means to hide non-secure
-     *     windows, and **false** means the opposite.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { boolean } shouldHide - 指示是否隐藏不安全窗口，true表示隐藏，false表示不隐藏。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
@@ -255,10 +244,10 @@ declare namespace uiExtension {
     hideNonSecureWindows(shouldHide: boolean): Promise<void>;
 
     /**
-     * Creates a subwindow for this window proxy. This API uses a promise to return the result.
+     * 创建该WindowProxy实例下的子窗口，使用Promise异步回调。
      *
-     * @param { string } name - Name of the subwindow.
-     * @param { window.SubWindowOptions } subWindowOptions - Parameters used for creating the subwindow.
+     * @param { string } name - 子窗口的名字。
+     * @param { window.SubWindowOptions } subWindowOptions - 子窗口参数。
      * @returns { Promise<window.Window> } Promise used to return the subwindow created.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified.
@@ -280,14 +269,13 @@ declare namespace uiExtension {
     createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>;
 
     /**
-     * Create subwindow.
+     * 创建该WindowProxy实例下的子窗口，可通过设置followCreatorLifecycle，决定子窗是否跟随组件（EmbeddedComponent或UIExtensionComponent）的生命周期，使用
+     * Promise异步回调。
      *
-     * @param { string } name - Name of the subwindow.
-     * @param { window.SubWindowOptions } subWindowConfig - Configuration parameters for creating the subwindow.
-     * @param { boolean } followCreatorLifecycle - Whether the lifecycle of the subwindow follows creator of
-     *     subwindow. If true, when the creator goes to background, the subwindow will also go to background, when the
-     *     creator returns to foreground, the subwindow will also return to foreground. If false, the subwindow will
-     *     not change when the creator goes to background or returns to foreground.
+     * @param { string } name - 子窗口的名字。
+     * @param { window.SubWindowOptions } subWindowConfig - 子窗口参数。
+     * @param { boolean } followCreatorLifecycle - 子窗生命周期是否跟组件（EmbeddedComponent或UIExtensionComponent）保持同步。true表示该组件隐藏时，
+     *     子窗隐藏，该组件显示时子窗显示，false表示子窗的显隐不跟随该组件变化。
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -304,16 +292,14 @@ declare namespace uiExtension {
         followCreatorLifecycle: boolean): Promise<window.Window>;
 
     /**
-     * Adds or deletes the watermark flag for this window. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 为当前窗口添加或删除安全水印标志，使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > With the watermark flag added, the watermark is applied on the full screen when the window is in the foreground
-     * > , regardless of whether the window is displayed in full screen, floating, and split screen mode.
+     * > 添加安全水印标志后，窗口在前台时会将当前全屏幕覆盖水印。全屏、悬浮窗、分屏等场景下只要有添加了安全水印标志的窗口在前台，就会显示全屏水印。
      *
-     * @param { boolean } enable - Whether to add or delete the flag. The value **true** means to add the watermark flag
-     *     , and **false** means to delete the watermark flag.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { boolean } enable - 是否对窗口添加标志位。true表示添加，false表示删除。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 1300002 - The UIExtension window proxy is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300008 - The display device is abnormal.
@@ -326,13 +312,12 @@ declare namespace uiExtension {
     setWaterMarkFlag(enable: boolean): Promise<void>;
 
     /**
-     * Information about the component (**EmbeddedComponent** or **UIExtensionComponent**).
-     *
-     * Note: Due to architecture restrictions, avoid obtaining the value in
-     * [onSessionCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate}. Instead, when
-     * possible, obtain the value after receiving the
+     * 组件（EmbeddedComponent或UIExtensionComponent）的信息。
+     * 
+     * **约束：** 由于架构约束，不建议在
+     * [onSessionCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate}阶段同步获取该值，建议在收到
      * [on('windowSizeChange')]{@link @ohos.arkui.uiExtension:uiExtension.WindowProxy.on(type: 'windowSizeChange', callback: Callback<window.Size>)}
-     * callback.
+     * 回调之后获取。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -343,15 +328,11 @@ declare namespace uiExtension {
     properties: WindowProxyProperties;
 
     /**
-     * Unsubscribes from position and size change events of the component (**EmbeddedComponent** or
-     * **UIExtensionComponent**).
+     * 注销组件（EmbeddedComponent或UIExtensionComponent）位置及尺寸变化的监听。
      *
-     * @param { 'rectChange' } type - Event type. The value is fixed at **'rectChange'**, indicating the rectangle
-     *     change event for the component (**EmbeddedComponent** or **UIExtensionComponent**).
-     * @param { Callback<RectChangeOptions> } callback - Callback used to return the current rectangle change values and
-     *     the reason for the change of the component (**EmbeddedComponent** or **UIExtensionComponent**). If a value is
-     *     passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the
-     *     specified event are canceled.
+     * @param { 'rectChange' } type - 监听事件，固定为'rectChange'，即组件（EmbeddedComponent或UIExtensionComponent）矩形变化事件。
+     * @param { Callback<RectChangeOptions> } callback - 回调函数。返回当前组件（EmbeddedComponent或UIExtensionComponent）矩形变化值及变化原因。如
+     *     果传入参数，则关闭该监听。如果未传入参数，则关闭所有组件（EmbeddedComponent或UIExtensionComponent）矩形变化的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameters types.
@@ -390,12 +371,10 @@ declare namespace uiExtension {
     offRectChange(callback?: Callback<RectChangeOptions>): void;
 
     /**
-     * Sets the events that the component (**EmbeddedComponent** or **UIExtensionComponent**) will occupy, preventing
-     * the host from responding to these events within the component's area.
+     * 设置组件（EmbeddedComponent或UIExtensionComponent）占用事件，宿主将不响应组件区域内被占用的事件。
      *
-     * @param { int } eventFlags - Type of events to occupy. For details about the available values, see
-     *     [EventFlag]{@link uiExtension.EventFlag}.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } eventFlags - 占用的事件类型，具体取值可见[EventFlag]{@link uiExtension.EventFlag}枚举值。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameters types.
@@ -412,16 +391,12 @@ declare namespace uiExtension {
     occupyEvents(eventFlags: int): Promise<void>;
 
     /**
-     * Subscribes to position and size change events of the component (**EmbeddedComponent** or **UIExtensionComponent**
-     * ).
+     * 注册组件（EmbeddedComponent或UIExtensionComponent）位置及尺寸变化的监听。
      *
-     * @param { 'rectChange' } type - Event type. The value is fixed at **'rectChange'**, indicating the rectangle
-     *     change event for the component (**EmbeddedComponent** or **UIExtensionComponent**).
-     * @param { 'number' } reasons - Reason why the position and size of the component (**EmbeddedComponent** or
-     *     **UIExtensionComponent**) change. For details about the values, see
-     *     [RectChangeReason]{@link uiExtension.RectChangeReason}.
-     * @param { Callback<RectChangeOptions> } callback - Callback used to return the current rectangle change values and
-     *     the reason for the change of the component (**EmbeddedComponent** or **UIExtensionComponent**).
+     * @param { 'rectChange' } type - 监听事件，固定为'rectChange'，即组件（EmbeddedComponent或UIExtensionComponent）矩形变化事件。
+     * @param { 'number' } reasons - 触发组件（EmbeddedComponent或UIExtensionComponent）位置及尺寸变化的原因，具体取值可参考
+     *     [RectChangeReason]{@link uiExtension.RectChangeReason}枚举值。
+     * @param { Callback<RectChangeOptions> } callback - 回调函数。返回当前组件（EmbeddedComponent或UIExtensionComponent）矩形变化值及变化原因。
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameters types.
@@ -444,6 +419,7 @@ declare namespace uiExtension {
      *     This API can be used only on 2-in-1 devices.
      *
      * @param { int } reasons - The reasons of component rect change.
+     *     <br>取值范围为全体整数。
      * @param { Callback<RectChangeOptions> } callback - Callback used to return the RectChangeOptions.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -459,7 +435,7 @@ declare namespace uiExtension {
   }
 
   /**
-   * Represents the information about the avoidance area of the window.
+   * 用于表示窗口避让区的信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -469,7 +445,7 @@ declare namespace uiExtension {
    */
   interface AvoidAreaInfo {
     /**
-     * Type of the avoidance area of the window.
+     * 窗口避让区类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -480,7 +456,7 @@ declare namespace uiExtension {
     type: window.AvoidAreaType;
 
     /**
-     * Avoidance area for the content of the window.
+     * 窗口内容避让区域。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -492,7 +468,7 @@ declare namespace uiExtension {
   }
 
   /**
-   * Provides information about a component.
+   * 用于表示组件的相关信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -502,7 +478,7 @@ declare namespace uiExtension {
    */
   interface WindowProxyProperties {
     /**
-     * Position and size of the component (**EmbeddedComponent** or **UIExtensionComponent**).
+     * 组件（EmbeddedComponent或UIExtensionComponent）的位置和宽高。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -514,8 +490,7 @@ declare namespace uiExtension {
   }
 
   /**
-   * Provides the values and reasons returned when the rectangle (position and size) of the component (
-   * **EmbeddedComponent** or **UIExtensionComponent**) changes.
+   * 组件（EmbeddedComponent或UIExtensionComponent）矩形（位置及尺寸）变化返回的值及变化原因。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -526,7 +501,7 @@ declare namespace uiExtension {
   interface RectChangeOptions {
 
     /**
-     * New values of the rectangle of the component after the change.
+     * 组件矩形变化后的值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -537,7 +512,7 @@ declare namespace uiExtension {
     rect: window.Rect;
 
     /**
-     * Reason for the rectangle change.
+     * 组件矩形变化的原因。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -549,7 +524,7 @@ declare namespace uiExtension {
   }
 
   /**
-   * Enumerates event types.
+   * 事件类型枚举。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -560,7 +535,7 @@ declare namespace uiExtension {
   enum EventFlag {
 
     /**
-     * Pan-left event.
+     * 左滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -571,7 +546,7 @@ declare namespace uiExtension {
     EVENT_PAN_GESTURE_LEFT = 0x00000001,
 
     /**
-     * Pan-right event.
+     * 右滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -582,7 +557,7 @@ declare namespace uiExtension {
     EVENT_PAN_GESTURE_RIGHT = 0x00000002,
 
     /**
-     * Long press event.
+     * 长按事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -593,7 +568,7 @@ declare namespace uiExtension {
     EVENT_LONG_PRESS = 0x00000200,
 
     /**
-     * Pan-up event.
+     * 上滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -604,7 +579,7 @@ declare namespace uiExtension {
     EVENT_PAN_GESTURE_UP = 0x00000004,
 
     /**
-     * Click event.
+     * 点击事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -615,7 +590,7 @@ declare namespace uiExtension {
     EVENT_CLICK = 0x00000100,
 
     /**
-     * No event.
+     * 无事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -626,7 +601,7 @@ declare namespace uiExtension {
     EVENT_NONE = 0x00000000,
 
     /**
-     * Pan-down event.
+     * 下滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -638,8 +613,7 @@ declare namespace uiExtension {
   }
 
   /**
-   * Enumerates the reasons for changes in the rectangle (position and size) of the component (**EmbeddedComponent** or
-   * **UIExtensionComponent**).
+   * 组件（EmbeddedComponent或UIExtensionComponent）矩形（位置及尺寸）变化的原因。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -650,7 +624,7 @@ declare namespace uiExtension {
   enum RectChangeReason {
 
     /**
-     * The rectangle of the host window containing the component changes.
+     * 组件所在的宿主窗口矩形变化。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
