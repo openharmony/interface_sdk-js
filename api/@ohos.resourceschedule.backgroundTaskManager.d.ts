@@ -42,6 +42,7 @@ declare namespace backgroundTaskManager {
    * The request object of continuous task.
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice [since 26.0.0]
    * @since 21 dynamic
    * @since 24 static
    */
@@ -51,6 +52,7 @@ declare namespace backgroundTaskManager {
      *
      * @returns { BackgroundTaskMode[] } the background modes
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -61,6 +63,7 @@ declare namespace backgroundTaskManager {
      *
      * @param { BackgroundTaskMode[] } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -71,6 +74,7 @@ declare namespace backgroundTaskManager {
      *
      * @returns { BackgroundTaskSubmode[] } the background submodes
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -81,6 +85,7 @@ declare namespace backgroundTaskManager {
      *
      * @param { BackgroundTaskSubmode[] } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -91,6 +96,7 @@ declare namespace backgroundTaskManager {
      *
      * @returns { WantAgent } the wantAgent
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @stagemodelonly
      * @since 21 dynamic
      * @since 24 static
@@ -102,6 +108,7 @@ declare namespace backgroundTaskManager {
      *
      * @param { WantAgent } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -110,8 +117,8 @@ declare namespace backgroundTaskManager {
     /**
      * Indicates whether to merge notifications, default is not to merge.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      */
     combinedTaskNotification?: boolean;
@@ -139,8 +146,8 @@ declare namespace backgroundTaskManager {
     /**
      * The continuous task id, default -1.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      */
     continuousTaskId?: number;
@@ -173,6 +180,7 @@ declare namespace backgroundTaskManager {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -314,8 +322,8 @@ declare namespace backgroundTaskManager {
     notificationId: int;
     /**
      * The continuous task id.
-     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 15 dynamic
      * @since 23 static
      */
@@ -894,29 +902,6 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 9
-   */
-  /**
-   * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to this service. </p>
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-   * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
@@ -925,8 +910,8 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
@@ -945,29 +930,6 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 9
-   */
-  /**
-   * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to the this service. </p>
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-   * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    * <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
@@ -976,8 +938,8 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
@@ -1025,6 +987,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice [since 26.0.0]
    * @since 21 dynamic
    * @since 24 static
    */
@@ -1069,6 +1032,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice [since 26.0.0]
    * @since 21 dynamic
    * @since 24 static
    */
@@ -1079,41 +1043,7 @@ declare namespace backgroundTaskManager {
    *
    * @param { Context } context - App running context.
    * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 9
-   */
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -1124,8 +1054,8 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 19 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
@@ -1135,41 +1065,7 @@ declare namespace backgroundTaskManager {
    *
    * @param { Context } context - App running context.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 9
-   */
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Parcel operation failed.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -1180,8 +1076,8 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 19 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
@@ -1198,6 +1094,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice  [since 26.0.0]
    * @since 21 dynamic
    * @since 24 static
    */
@@ -1537,17 +1434,9 @@ declare namespace backgroundTaskManager {
   /**
    * Supported background mode.
    *
-   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 9
-   */
-  /**
-   * Supported background mode.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum BackgroundMode {
@@ -1564,14 +1453,8 @@ declare namespace backgroundTaskManager {
      * audio playback mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 9
-     */
-    /**
-     * audio playback mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     AUDIO_PLAYBACK = 2,
@@ -1589,6 +1472,7 @@ declare namespace backgroundTaskManager {
      * location mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1607,14 +1491,8 @@ declare namespace backgroundTaskManager {
      * multi-device connection mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 9
-     */
-    /**
-     * multi-device connection mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     MULTI_DEVICE_CONNECTION = 6,
@@ -1652,8 +1530,8 @@ declare namespace backgroundTaskManager {
   /**
    * Supported Continuous task mode.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice [since 26.0.0]
    * @since 21 dynamic
    * @since 24 static
    */
@@ -1671,6 +1549,7 @@ declare namespace backgroundTaskManager {
      * audio playback mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -1689,6 +1568,7 @@ declare namespace backgroundTaskManager {
      * share location mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -1707,6 +1587,7 @@ declare namespace backgroundTaskManager {
      * multi-device connection mode
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -1745,6 +1626,7 @@ declare namespace backgroundTaskManager {
      * 'av playback and record' mode, for example audio playback, audio recording.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 22 dynamic
      * @since 24 static
      */
@@ -1772,8 +1654,8 @@ declare namespace backgroundTaskManager {
   /**
    * Supported Continuous task submode.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @atomicservice [since 26.0.0]
    * @since 21 dynamic
    * @since 24 static
    */
@@ -1791,6 +1673,7 @@ declare namespace backgroundTaskManager {
      * normal notification submode.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 21 dynamic
      * @since 24 static
      */
@@ -1809,6 +1692,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 22 dynamic
      * @since 24 static
      */
@@ -1818,6 +1702,7 @@ declare namespace backgroundTaskManager {
      * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @atomicservice [since 26.0.0]
      * @since 22 dynamic
      * @since 24 static
      */
