@@ -23,11 +23,11 @@
  * 
  * > - The following modules cannot be referenced in the FormExtensionAbility, as doing so may cause the program to exit
  * >  abnormally:
- * > >   - @ohos.ability.particleAbility (ParticleAbility)
- * > >   - @ohos.multimedia.audio (Audio Management)
- * > >   - @ohos.multimedia.camera (Camera Management)
- * > >   - @ohos.multimedia.media (Media)
- * > >   - @ohos.resourceschedule.backgroundTaskManager (Background Task Management)
+ * >   - @ohos.ability.particleAbility (ParticleAbility)
+ * >   - @ohos.multimedia.audio (Audio Management)
+ * >   - @ohos.multimedia.camera (Camera Management)
+ * >   - @ohos.multimedia.media (Media)
+ * >   - @ohos.resourceschedule.backgroundTaskManager (Background Task Management)
  *
  * @file
  * @kit FormKit
@@ -328,7 +328,7 @@ declare class FormExtensionAbility {
    * @since 23 static
    */
   onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
-
+  
   /**
    * Called when the widget location changes.
    *

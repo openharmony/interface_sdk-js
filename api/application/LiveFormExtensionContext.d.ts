@@ -29,10 +29,6 @@ import type { ConnectOptions } from '../ability/connectOptions';
  * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}, is the context of 
  * [LiveFormExtensionAbility]{@link @ohos.app.form.LiveFormExtensionAbility}.
  * 
- * > **NOTE**
- * 
- * > - The APIs of this module can be used only in the stage model.
- *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
@@ -42,12 +38,12 @@ import type { ConnectOptions } from '../ability/connectOptions';
 declare class LiveFormExtensionContext extends ExtensionContext {
   /**
    * Starts the widget provider (application) page. This API uses a promise to return the result.
-   * This API can only be used to start the page of the interactive widget provider (application). If this API is used 
+   * <br>This API can only be used to start the page of the interactive widget provider (application). If this API is used 
    * to start the page of another application, error code 16501011 will be reported.
-   * You are advised to call this API in click event callbacks. Calling it in callbacks of other gesture events is not 
+   * <br>You are advised to call this API in click event callbacks. Calling it in callbacks of other gesture events is not 
    * recommended, and direct calls in non-gesture events are not allowed. Otherwise, the error code 16501011 will be 
    * reported.
-   * In addition, this API can be directly called in the click event callback but cannot be called after a delay. 
+   * <br>In addition, this API can be directly called in the click event callback but cannot be called after a delay. 
    * Otherwise, the error code 16501011 will be reported.
    *
    * @param { Want } want - Information about the application page to be started. 

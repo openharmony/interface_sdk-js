@@ -24,10 +24,6 @@ import type Want from './@ohos.app.ability.Want';
 /**
  * The **FormAgent** module provides APIs related to the widget agent. Currently, you can use the APIs to request to 
  * publish widgets only.
- * 
- * > **NOTE**
- * 
- * > - The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Ability.Form
  * @systemapi
@@ -41,10 +37,13 @@ declare namespace formAgent {
    * widget host is usually the home screen.
    *
    * @permission ohos.permission.AGENT_REQUIRE_FORM
-   * @param { Want } want - Publish request, which must contain the following fields:<br>**bundleName**: bundle name of the 
-   *     target widget.<br>**abilityName**: ability of the target widget.<br>parameters:<br>- 
-   *     **ohos.extra.param.key.form_dimension**: dimension of the target widget.<br>- **ohos.extra.param.key.form_name**: 
-   *     name of the target widget.<br>- **ohos.extra.param.key.module_name**: module name of the target widget.
+   * @param { Want } want - Publish request, which must contain the following fields:
+   *     <br>**bundleName**: bundle name of the target widget.
+   *     <br>**abilityName**: ability of the target widget.
+   *     <br>parameters:
+   *     <br>- **ohos.extra.param.key.form_dimension**: dimension of the target widget.
+   *     <br>- **ohos.extra.param.key.form_name**: name of the target widget.
+   *     <br>- **ohos.extra.param.key.module_name**: module name of the target widget.
    * @param { AsyncCallback<string> } callback - Callback used to return the widget ID.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -65,10 +64,13 @@ declare namespace formAgent {
    * usually the home screen.
    *
    * @permission ohos.permission.AGENT_REQUIRE_FORM
-   * @param { Want } want - Publish request, which must contain the following fields:<br>**bundleName**: bundle name of the 
-   *     target widget.<br>**abilityName**: ability of the target widget.<br>parameters:<br>- 
-   *     **ohos.extra.param.key.form_dimension**: dimension of the target widget.<br>- **ohos.extra.param.key.form_name**: 
-   *     name of the target widget.<br>- **ohos.extra.param.key.module_name**: module name of the target widget.
+   * @param { Want } want - Publish request, which must contain the following fields:
+   *     <br>**bundleName**: bundle name of the target widget.
+   *     <br>**abilityName**: ability of the target widget.
+   *     <br>parameters:
+   *     <br>- **ohos.extra.param.key.form_dimension**: dimension of the target widget.
+   *     <br>- **ohos.extra.param.key.form_name**: name of the target widget.
+   *     <br>- **ohos.extra.param.key.module_name**: module name of the target widget.
    * @returns { Promise<string> } Promise used to return the widget ID.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:

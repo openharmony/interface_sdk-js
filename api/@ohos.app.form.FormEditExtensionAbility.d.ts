@@ -25,10 +25,6 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}, provides the widget editing 
  * function.
  * 
- * > **NOTE**
- * 
- * > The APIs of this module can be used only in the stage model.
- *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 18 dynamic

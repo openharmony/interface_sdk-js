@@ -31,13 +31,13 @@ declare interface FormLinkOptions {
    * 
    * - **"router"**: redirection to the specified UIAbility of the widget provider.
    * - **"message"**: custom message. If this type of action is triggered, the 
-   * [onFormEvent()](../../apis-form-kit/js-apis-app-form-formExtensionAbility.md#formextensionabilityonformevent) 
+   * [onFormEvent()]{@link @ohos.app.form.FormExtensionAbility:FormExtensionAbility.onFormEvent}
    * lifecycle callback of the provider FormExtensionAbility is called.
    * - **"call"**: launch of the widget provider in the background. If this type of action is triggered, the specified 
-   * UIAbility (whose launch type must be [singleton](../../../application-models/uiability-launch-type.md#singleton)) 
+   * UIAbility (whose launch type must be [singleton](docroot://application-models/uiability-launch-type.md#singleton)
    * of the widget provider is started in the background, but not displayed in the foreground. This action type requires
    *  that the widget provider should have the 
-   * [ohos.permission.KEEP_BACKGROUND_RUNNING](../../../security/AccessToken/permissions-for-all.md#ohospermissionkeep_background_running)
+   * [ohos.permission.KEEP_BACKGROUND_RUNNING](docroot://security/AccessToken/permissions-for-all.md#ohospermissionkeep_background_running)
    *  permission.
    * 
    * **NOTE**
@@ -145,9 +145,9 @@ interface FormLinkInterface {
 }
 
 /**
- * The [universal attributes]{@link ./@internal/component/ets/common} are supported.
+ * The [universal attributes]{@link common} are supported.
  * 
- * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ * The [universal events]{@link common} are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form

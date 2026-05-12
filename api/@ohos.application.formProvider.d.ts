@@ -27,15 +27,10 @@ import Want from './@ohos.app.ability.Want';
  * The **FormProvider** module provides APIs related to the widget provider. You can use the APIs to update a widget, 
  * set the next refresh time for a widget, obtain widget information, and request a widget release.
  * 
- * > **NOTE**
- * 
- * > - This module is deprecated since API version 9. You are advised to use 
- * > [formProvider]{@link @ohos.app.form.formProvider:formProvider} instead.
- *
  * @syscap SystemCapability.Ability.Form
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formProvider/formProvider
+ * @useinstead @ohos.app.form.formProvider:formProvider
  */
 declare namespace formProvider {
   /**
@@ -47,7 +42,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#setFormNextRefreshTime
+   * @useinstead @ohos.app.form.formProvider:formProvider#setFormNextRefreshTime
    */
   function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
 
@@ -60,7 +55,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#setFormNextRefreshTime
+   * @useinstead @ohos.app.form.formProvider:formProvider#setFormNextRefreshTime
    */
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
@@ -73,7 +68,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#updateForm
+   * @useinstead @ohos.app.form.formProvider:formProvider#updateForm
    */
   function updateForm(
     formId: string,
@@ -90,7 +85,7 @@ declare namespace formProvider {
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#updateForm
+   * @useinstead @ohos.app.form.formProvider:formProvider#updateForm
    */
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 }
