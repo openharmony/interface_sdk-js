@@ -908,255 +908,182 @@ declare namespace dlpPermission {
      * Time when the authorization expires. The value must be greater than or equal to 0.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.[since 10 - 20]
+     * @systemapi Hide this for inner system use. [since 10 - 20]
      * @publicapi [since 21]
      * @since 10
      */
     permExpiryTime: number;
   }
-
   /**
-   * Represents the DLP file property.
+   * Represents the authorization information.
    *
-   * @interface DLPProperty
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 20]
+   * @publicapi [since 21]
    * @since 10
-   */
-  /**
-   * Represents the DLP file property.
-   *
-   * @interface DLPProperty
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
    */
   export interface DLPProperty {
     /**
-     * Owner account of the DLP file.
+     * Account of the owner who can set the permission. The value contains up to 255 bytes. If the value exceeds
+     * this range, **null** is returned.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Owner account of the DLP file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     ownerAccount: string;
-
     /**
-     * Owner account ID of the DLP file.
+     * Account ID of the owner. The value contains up to 255 bytes. If the value exceeds this range, **null** is
+     * returned.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Owner account ID of the DLP file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     ownerAccountID: string;
-
     /**
-     * Type of the owner account of the DLP file.
+     * Account type of the owner.
      *
-     * @type { AccountType }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Type of the owner account of the DLP file.
-     *
-     * @type { AccountType }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     ownerAccountType: AccountType;
-
     /**
-     * Authorized users of the DLP file.
+     *  List of users who are authorized to access the DLP file. By default, this parameter is left blank.
      *
-     * @type { ?Array<AuthUser> }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Authorized users of the DLP file.
-     *
-     * @type { ?Array<AuthUser> }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     authUserList?: Array<AuthUser>;
-
     /**
-     * Contact account of the DLP file.
+     * Account of the contact. The value contains up to 255 bytes. If the value exceeds this range, **null** is
+     * returned.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Contact account of the DLP file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     contactAccount: string;
-
     /**
-     * Whether the DLP file can be accessed offline.
-     * If the DLP file supports offline access, the credential server
-     * needs to be connected to the network only when the DLP file is opened for the first time.
+     * Whether the file can be accessed offline. **true**: yes; **false**: no.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Whether the DLP file can be accessed offline.
-     * If the DLP file supports offline access, the credential server
-     * needs to be connected to the network only when the DLP file is opened for the first time.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     offlineAccess: boolean;
-
     /**
-     * Everyone access list for the DLP file.
+     * Permission granted to everyone. This parameter is left blank by default.
      *
-     * @type { ?Array<DLPFileAccess> }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
      */
-    /**
-     * Everyone access list for the DLP file.
-     *
-     * @type { ?Array<DLPFileAccess> }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
-     */
     everyoneAccessList?: Array<DLPFileAccess>;
-
     /**
-     * Timestamp of the time when the DLP file expires.
+     * Timestamp when the file permission has expired. This parameter is left blank by default. The value must be
+     * greater than or equal to 0. If the value is not within the range, **null** is returned.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 11
      */
-    /**
-     * Timestamp of the time when the DLP file expires.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
-     */
     expireTime?: number;
-
     /**
-     * Defines the action to perform when the DLP file has expired.
-     * @type { ?ActionType }
+     * Whether the file can be opened after the permission expires (with the editing permission). This parameter is
+     * valid only when **expireTime** is not empty. This parameter is left empty by default.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 20 - 20]
+     * @publicapi [since 21]
      * @since 20
      */
-    /**
-     * Defines the action to perform when the DLP file has expired.
-     * @type { ?ActionType }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
-     */
     actionUponExpiry?: ActionType;
-
     /**
-     * Id of file.
-     * @type { ?string }
+     * System account ID. This parameter is left empty by default. The value contains up to 255 bytes. If the value
+     * exceeds this range, **null** is returned.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     fileId?: string;
-
     /**
-     * Defines the number of times the DLP file can be opened.
-     * @type { ?number }
+     * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or
+     * equal to 0. If the value is not within the range, **null** is returned.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     allowedOpenCount?: number;
-
     /**
-     * Defines whether watermarking is required.
-     * @type { ?boolean }
+     * Whether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 23
      */
     waterMarkConfig?: boolean;
-
     /**
-     * Defines the countdown for the DLP file can be opened.
-     * @type { ?number }
+     * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically
+     * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value
+     * is not within the range, **null** is returned. **Model restriction**: This API can be used only in the stage
+     * model.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
      * @since 23
      */
     countdown?: number;
-
     /**
-     * Defines the extended fields of the DLP file.
+     * Extended attribute of a DLP file. This parameter is left empty by default. **Model restriction**: This API
+     * can be used only in the stage model.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
      * @since 24
      */
     extensionFields?: Record<string, Object>;
   }
-
   /**
-   * Defines the DLP file object.
+   * Provides APIs for managing DLP files. A **DLPFile** instance indicates a DLP file object. You can use
+   * [generateDLPFile]{@link dlpPermission.generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty)}
+   * or [openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)} to obtain a **DLPFile**
+   * instance.
    *
-   * @interface DLPFile
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface DLPFile {
     /**
-     * DLP file property.
+     * Authorized user information.
      *
-     * @type { DLPProperty }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     dlpProperty: DLPProperty;
-
     /**
-     * Adds a link file for the DLP file. This method uses a promise to return the result.
-     * The link file is implemented through the Filesystem in Userspace (FUSE).
+     * Adds a link file to the Filesystem in Userspace (FUSE). The link file is a virtual file mapped to the
+     * ciphertext in the FUSE. The read and write operations on the link file will be synchronized to the DLP file.
+     * This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } linkFileName - Indicates the name of link file to add.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
@@ -1166,17 +1093,16 @@ declare namespace dlpPermission {
      * @since 10
      */
     addDLPLinkFile(linkFileName: string): Promise<void>;
-
     /**
-     * Adds a link file for the DLP file. This method uses an asynchronous callback to return the result.
-     * The link file is implemented through the FUSE.
+     * Adds a link file to the FUSE. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } linkFileName - Indicates the name of link file to add.
-     * @param { AsyncCallback<void> } callback - Indicates the callback of addDLPLinkFile.
+     * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
@@ -1186,12 +1112,11 @@ declare namespace dlpPermission {
      * @since 10
      */
     addDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
-
     /**
-     * Stops the FUSE link between the DLP file and a link file. This method uses a promise to return the result.
+     * Stops the read and write on the FUSE. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1202,12 +1127,11 @@ declare namespace dlpPermission {
      * @since 10
      */
     stopFuseLink(): Promise<void>;
-
     /**
-     * Stops the FUSE link between the DLP file and a link file. This method uses an asynchronous callback to return the result.
+     * Stops the read and write on the FUSE. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { AsyncCallback<void> } callback - Indicates the callback of stopFuseLink.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1219,12 +1143,11 @@ declare namespace dlpPermission {
      * @since 10
      */
     stopFuseLink(callback: AsyncCallback<void>): void;
-
     /**
-     * Resumes the FUSE link between the DLP file and a link file. This method uses a promise to return the result.
+     * Resumes the read and write on the FUSE. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @returns { Promise<void> } The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1235,12 +1158,11 @@ declare namespace dlpPermission {
      * @since 10
      */
     resumeFuseLink(): Promise<void>;
-
     /**
-     * Resumes the FUSE link between the DLP file and a link file. This method uses an asynchronous callback to return the result.
+     * Resumes the read and write on the FUSE. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { AsyncCallback<void> } callback - Indicates the callback of resumeFuseLink.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1252,16 +1174,16 @@ declare namespace dlpPermission {
      * @since 10
      */
     resumeFuseLink(callback: AsyncCallback<void>): void;
-
     /**
-     * Replaces the link file of the DLP file. This method uses a promise to return the result.
+     * Replaces a link file. This API uses a promise to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } linkFileName - Indicates the name of link file.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
@@ -1271,16 +1193,16 @@ declare namespace dlpPermission {
      * @since 10
      */
     replaceDLPLinkFile(linkFileName: string): Promise<void>;
-
     /**
-     * Replaces the link file of the DLP file. This method uses an asynchronous callback to return the result.
+     * Replaces a link file. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } linkFileName - Indicates the name of link file.
-     * @param { AsyncCallback<void> } callback - Indicates the callback of replaceDLPLinkFile.
+     * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
+     *     unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
@@ -1290,7 +1212,6 @@ declare namespace dlpPermission {
      * @since 10
      */
     replaceDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
-
     /**
      * Deletes a link file of the DLP file. This method uses a promise to return the result.
      *
