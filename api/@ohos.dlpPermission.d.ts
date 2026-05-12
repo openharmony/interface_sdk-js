@@ -1506,102 +1506,83 @@ declare namespace dlpPermission {
   * @since 12
   */
   function isDLPFeatureProvided(): Promise<boolean>;
-
   /**
-   * Enumerates the action types when exceed expiry time.
-   * @enum { number } Valuable
+   * Enumerates the actions to be performed when the file's permission expiration time is reached. The default value
+   * is **NOT_OPEN**.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 20 - 20]
+   * @publicapi [since 21]
    * @since 20
-   */
-  /**
-   * Enumerates the action types when exceed expiry time.
-   * @enum { number } Valuable
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
    */
   export enum ActionType {
     /**
-     * NOT_OPEN, which not allows DLP files to be opened exceed expiry time.
+     * Users are not allowed to open the DLP file when the file's permission expiration time is reached.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 20 - 20]
+     * @publicapi [since 21]
      * @since 20
-     */
-    /**
-     * NOT_OPEN, which not allows DLP files to be opened exceed expiry time.
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     NOT_OPEN = 0,
 
     /**
-     * OPEN, which allows DLP files to be opened exceed expiry time.
+     * Logged-in users are allowed to edit the DLP file when the file's permission expiration time is reached.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 20 - 20]
+     * @publicapi [since 21]
      * @since 20
-     */
-    /**
-     * OPEN, which allows DLP files to be opened exceed expiry time.
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     OPEN = 1
   }
-
   /**
-   * Represents the DLP file Custom property.
+   * Represents a custom policy.
    * 
-   * @interface CustomProperty
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 20 - 20]
+   * @publicapi [since 21]
    * @since 20
-   */
-  /**
-   * Represents the DLP file Custom property.
-   * 
-   * @interface CustomProperty
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
    */
   export interface CustomProperty {
     /**
-     * User defined information for enterprise space.
+     * JSON string of an enterprise custom policy. The length cannot exceed 4 MB. If the value exceeds this range,
+     * **null** is returned.
      * 
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 20 - 20]
+     * @publicapi [since 21]
      * @since 20
-     */
-    /**
-     * User defined information for enterprise space.
-     * 
-     * @type { string }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     enterprise: string;
     /**
      * Represents query options for DLP files.
      *
-     * @type { ?DlpFileQueryOptions }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
      * @since 26.0.0
      */
     options?: DlpFileQueryOptions;
   }
-
   /**
-   * Generates a DLP file.
+   * Obtains a **DLPFile** object. This API uses a promise to return the result.
    *
+   * > **NOTE**
+   * >
+   * > This API can be called only by enterprise accounts. Enterprises need to set up their own enterprise account
+   * > servers. This API generates a DLP file, which is an encrypted file that can be accessed only by accounts
+   * > authorized by the enterprise server.
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } plaintextFd - FD of the file in plaintext.
-   * @param { number } dlpFd - FD of the DLP file to generate.
-   * @param { DLPProperty } property - General DLP policy to use.
-   * @param { CustomProperty } customProperty - Custom DLP policy to use.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { number } plaintextFd -  FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
+   *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
+   *     value is truncated.
+   * @param { number } dlpFd - FD of an encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value of
+   *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
+   *     value is truncated.
+   * @param { DLPProperty } property -General policy of DLP files.
+   * @param { CustomProperty } customProperty - Enterprise custom policy.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1611,40 +1592,23 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100014 - Account not logged in.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 20 - 20]
+   * @publicapi [since 21]
    * @since 20
-   */
-  /**
-   * Generates a DLP file.
-   *
-   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } plaintextFd - FD of the file in plaintext.
-   * @param { number } dlpFd - FD of the DLP file to generate.
-   * @param { DLPProperty } property - General DLP policy to use.
-   * @param { CustomProperty } customProperty - Custom DLP policy to use.
-   * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
-   * @throws { BusinessError } 19100003 - Credential task time out.
-   * @throws { BusinessError } 19100004 - Credential service error.
-   * @throws { BusinessError } 19100005 - Credential authentication server error.
-   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-   * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100014 - Account not logged in.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
    */
   function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
-
   /**
-   * Queries the DLP file policy.
+   * Parses the file header in a DLP file to obtain the DLP plaintext policy. This API uses a promise to return the
+   * result.
    * 
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } dlpFd FD of the target DLP file.
-   * @returns { Promise<string> } Promise that returns no value.
+   * @param { number } FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
+   *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
+   *     value is truncated.
+   * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed 4
+   *     MB.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1655,39 +1619,29 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 20 - 20]
+   * @publicapi [since 21]
    * @since 20
-   */
-  /**
-   * Queries the DLP file policy.
-   * 
-   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } dlpFd FD of the target DLP file.
-   * @returns { Promise<string> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
-   * @throws { BusinessError } 19100003 - Credential task time out.
-   * @throws { BusinessError } 19100004 - Credential service error.
-   * @throws { BusinessError } 19100005 - Credential authentication server error.
-   * @throws { BusinessError } 19100008 - The file is not a DLP file.
-   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-   * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100013 - The user does not have the permission.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
    */
   function queryDlpPolicy(dlpFd: number): Promise<string>;
-
   /**
-   * Decrypts a DLP file. This API uses a promise to return the result.
+   * Decrypts a DLP file to generate a plaintext file. This API uses a promise to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > This API can be called only by enterprise accounts. Enterprises need to set up their own enterprise account
+   * > servers. The enterprise server determines whether an account is authorized to decrypt DLP files.
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } dlpFd FD of the target DLP file.
-   * @param { number } plaintextFd FD of the target DLP file.
+   * @param { number } dlpFd - FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
+   *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
+   *     value is truncated.
+   * @param { number } plaintextFd - FD of the decrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
+   *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
+   *     value is truncated.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
    * @throws { BusinessError } 19100003 - Credential task time out.
@@ -1698,31 +1652,11 @@ declare namespace dlpPermission {
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @throws { BusinessError } 19100013 - The user does not have the permission.
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 20 - 20]
+   * @publicapi [since 21]
    * @since 20
    */
-  /**
-   * Decrypts a DLP file. This API uses a promise to return the result.
-   *
-   * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } dlpFd FD of the target DLP file.
-   * @param { number } plaintextFd FD of the target DLP file.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 19100001 - Invalid parameter value.
-   * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
-   * @throws { BusinessError } 19100003 - Credential task time out.
-   * @throws { BusinessError } 19100004 - Credential service error.
-   * @throws { BusinessError } 19100005 - Credential authentication server error.
-   * @throws { BusinessError } 19100008 - The file is not a DLP file.
-   * @throws { BusinessError } 19100009 - Failed to operate the DLP file.
-   * @throws { BusinessError } 19100011 - The system ability works abnormally.
-   * @throws { BusinessError } 19100013 - The user does not have the permission.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
-   */
   function decryptDlpFile(dlpFd: number, plaintextFd: number): Promise<void>;
-
   /**
    * Customization policy for enterprise Application settings.
    *
@@ -1732,20 +1666,18 @@ declare namespace dlpPermission {
    */
   export interface EnterprisePolicy {
     /**
-     * Enterprise custom policy string.
+     * JSON string of an enterprise custom policy. The length cannot exceed 4 MB.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     policyString: string;
   }
-
   /**
-   * Set enterprise application protection policies.
+   * Sets the protection policy for enterprise applications.
    *
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { EnterprisePolicy } policy - Indicates the enterprise custom policy string.
+   * @param { EnterprisePolicy } policy - Protection policy to be set for enterprise applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1754,23 +1686,34 @@ declare namespace dlpPermission {
    * @since 21
    */
   function setEnterprisePolicy(policy: EnterprisePolicy): void;
-
   /**
-   * Connect server.
+   * Registers the callback capability with the system ability (SA). This API is used in the **registerPlugin** API.
    * 
-   * @interface DlpConnPlugin
+   * > **NOTE**
+   * >
+   * > [registerPlugin]{@link dlpPermission.DlpConnManager.registerPlugin} requires identical parameters to this API.
+   * > [connectServer]{@link dlpPermission.DlpConnManager.connectServer} is called by the SA and the parameters are
+   * > returned through the callback.
+   * 
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 21
    */
   export interface DlpConnPlugin {
     /**
-     * Connect server.
+     * This API is called by the SA. After processing the cloud connection capability, it will be called as a
+     * callback in the SA.
+     * 
+     * > **NOTE**
+     * >
+     * > **connectServer** indicates a call from the system capability side to the frontend.
      * 
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
-     * @param { string } requestId Id request.
-     * @param { string } requestData Context in request.
-     * @param { Callback<string> } callback Callback fun.
+     * @param { string } requestId - ID of the request transferred by the SA. No value range restriction is
+     *     specified.
+     * @param { string } requestData - Data transferred by the SA. No value range restriction is specified.
+     * @param { Callback<string> } callback -  API transferred by the SA, which is used for callback. No value range
+     *     restriction is specified.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -1778,16 +1721,20 @@ declare namespace dlpPermission {
      */
     connectServer(requestId: string, requestData: string, callback: Callback<string>): void;
   }
-
   /**
-   * Manager of connect.
+   * Calls **registerPlugin** and **unregisterPlugin** to register and unregister callback capabilities in the SA.
+   * 
+   * > **NOTE**
+   * >
+   * > **registerPlugin** registers callback capabilities in the SA, and **unregisterPlugin** unregisters callback
+   * > capabilities from the SA.
    * 
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 21
    */
   export class DlpConnManager {
     /**
-     * constructor.
+     * Represents a constructor for instantiating [DlpConnManager]{@link dlpPermission.DlpConnManager}.
      * 
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
@@ -1796,27 +1743,33 @@ declare namespace dlpPermission {
      * @since 21
      */
     constructor();
-
     /**
-     * register plugin.
+     * Registers a callback with the SA.
+     * 
+     * > **NOTE**
+     * >
+     * > **registerPlugin** registers the callback with the SA.
      * 
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
-     * @param { DlpConnPlugin } plugin Plugin.
-     * @returns { number } Id for plugin.
+     * @param { DlpConnPlugin } plugin - Callback capability.
+     * @returns { number } Registration result, which indicates the ID of the callback. The value range is
+     *     [0, 2<sup>64</sup>-1].
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
      * @throws { BusinessError } 19100004 - Credential service error.
-     * @static
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     static registerPlugin(plugin: DlpConnPlugin): number;
-
     /**
-     * unregister plugin.
+     * Unregisters a callback from the SA.
+     * 
+     * > **NOTE**
+     * >
+     * > **unregisterPlugin** unregisters a plug-in from the SA.
      * 
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
@@ -1825,13 +1778,11 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
      * @throws { BusinessError } 19100003 - Credential task time out.
      * @throws { BusinessError } 19100004 - Credential service error.
-     * @static
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     static unregisterPlugin(): void;
   }
-
   /**
    * Queries the list of URIs of DLP files that have been opened and matched the specified options.
    *
@@ -1847,7 +1798,6 @@ declare namespace dlpPermission {
    * @since 26.0.0
    */
   function queryOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<Array<string>>;
-
   /**
    * Closes all currently open DLP files that match the specified options.
    *
@@ -1863,11 +1813,9 @@ declare namespace dlpPermission {
    * @since 26.0.0
    */
   function closeOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<void>;
-
   /**
    * Represents query options for DLP files.
    *
-   * @interface DlpFileQueryOptions
    * @syscap SystemCapability.Security.DataLossPrevention
    * @stagemodelonly
    * @since 26.0.0
@@ -1876,7 +1824,6 @@ declare namespace dlpPermission {
     /**
      * User-defined classification label for an enterprise DLP file.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
      * @since 26.0.0
