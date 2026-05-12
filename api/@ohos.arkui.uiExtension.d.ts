@@ -29,6 +29,7 @@ import window from './@ohos.window';
  * [UIExtensionComponent]{@link ./@internal/component/ets/ui_extension_component})<!--DelEnd--> component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
@@ -38,6 +39,7 @@ declare namespace uiExtension {
    * The proxy of the UIExtension window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -54,6 +56,7 @@ declare namespace uiExtension {
      *     2. Incorrect parameters types.
      *     3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -245,6 +248,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -315,6 +319,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -330,6 +335,7 @@ declare namespace uiExtension {
      * callback.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -398,6 +404,7 @@ declare namespace uiExtension {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -455,6 +462,7 @@ declare namespace uiExtension {
    * Represents the information about the avoidance area of the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -464,6 +472,7 @@ declare namespace uiExtension {
      * Type of the avoidance area of the window.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -474,6 +483,7 @@ declare namespace uiExtension {
      * Avoidance area for the content of the window.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -485,6 +495,7 @@ declare namespace uiExtension {
    * Provides information about a component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -494,6 +505,7 @@ declare namespace uiExtension {
      * Position and size of the component (**EmbeddedComponent** or **UIExtensionComponent**).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -506,6 +518,7 @@ declare namespace uiExtension {
    * **EmbeddedComponent** or **UIExtensionComponent**) changes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -516,6 +529,7 @@ declare namespace uiExtension {
      * New values of the rectangle of the component after the change.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -526,6 +540,7 @@ declare namespace uiExtension {
      * Reason for the rectangle change.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -537,6 +552,7 @@ declare namespace uiExtension {
    * Enumerates event types.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
@@ -547,6 +563,7 @@ declare namespace uiExtension {
      * Pan-left event.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -557,6 +574,7 @@ declare namespace uiExtension {
      * Pan-right event.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -567,6 +585,7 @@ declare namespace uiExtension {
      * Long press event.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -577,6 +596,7 @@ declare namespace uiExtension {
      * Pan-up event.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -587,6 +607,7 @@ declare namespace uiExtension {
      * Click event.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -597,6 +618,7 @@ declare namespace uiExtension {
      * No event.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -607,6 +629,7 @@ declare namespace uiExtension {
      * Pan-down event.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -619,6 +642,7 @@ declare namespace uiExtension {
    * **UIExtensionComponent**).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -629,6 +653,7 @@ declare namespace uiExtension {
      * The rectangle of the host window containing the component changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static

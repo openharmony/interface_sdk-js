@@ -31,6 +31,7 @@ import window from './@ohos.window';
  * > 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  * @since 23 static
@@ -40,6 +41,7 @@ declare namespace uiExtension {
    * UIExtension窗口代理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -55,6 +57,7 @@ declare namespace uiExtension {
      *     2. Incorrect parameters types.
      *     3. Parameter verification failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -234,6 +237,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -301,6 +305,7 @@ declare namespace uiExtension {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -315,6 +320,7 @@ declare namespace uiExtension {
      * 回调之后获取。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -377,6 +383,7 @@ declare namespace uiExtension {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -431,6 +438,7 @@ declare namespace uiExtension {
    * 用于表示窗口避让区的信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -440,6 +448,7 @@ declare namespace uiExtension {
      * 窗口避让区类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -450,6 +459,7 @@ declare namespace uiExtension {
      * 窗口内容避让区域。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -461,6 +471,7 @@ declare namespace uiExtension {
    * 用于表示组件的相关信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -470,6 +481,7 @@ declare namespace uiExtension {
      * 组件（EmbeddedComponent或UIExtensionComponent）的位置和宽高。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -481,6 +493,7 @@ declare namespace uiExtension {
    * 组件（EmbeddedComponent或UIExtensionComponent）矩形（位置及尺寸）变化返回的值及变化原因。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -491,6 +504,7 @@ declare namespace uiExtension {
      * 组件矩形变化后的值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -501,6 +515,7 @@ declare namespace uiExtension {
      * 组件矩形变化的原因。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -512,6 +527,7 @@ declare namespace uiExtension {
    * 事件类型枚举。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    * @since 23 static
@@ -522,6 +538,7 @@ declare namespace uiExtension {
      * 左滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -532,6 +549,7 @@ declare namespace uiExtension {
      * 右滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -542,6 +560,7 @@ declare namespace uiExtension {
      * 长按事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -552,6 +571,7 @@ declare namespace uiExtension {
      * 上滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -562,6 +582,7 @@ declare namespace uiExtension {
      * 点击事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -572,6 +593,7 @@ declare namespace uiExtension {
      * 无事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -582,6 +604,7 @@ declare namespace uiExtension {
      * 下滑事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -593,6 +616,7 @@ declare namespace uiExtension {
    * 组件（EmbeddedComponent或UIExtensionComponent）矩形（位置及尺寸）变化的原因。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -603,6 +627,7 @@ declare namespace uiExtension {
      * 组件所在的宿主窗口矩形变化。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static

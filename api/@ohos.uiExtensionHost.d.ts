@@ -35,6 +35,7 @@ import uiExtension from './@ohos.arkui.uiExtension';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 11 dynamic
  * @since 23 static
  */
@@ -44,6 +45,7 @@ declare namespace uiExtensionHost {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
@@ -57,6 +59,7 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 401 - Parameter error.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -231,6 +234,7 @@ declare namespace uiExtensionHost {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -270,6 +274,7 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. [since 12]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
@@ -343,6 +348,7 @@ declare namespace uiExtensionHost {
      * @throws { BusinessError } 1300008 - The display device is abnormal.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -372,6 +378,7 @@ declare namespace uiExtensionHost {
      *     2. Not the UIExtensionAbility process calling.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 13 dynamic
      * @since 23 static
      */
@@ -383,6 +390,7 @@ declare namespace uiExtensionHost {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 11 dynamic
    * @since 23 static
    */
@@ -392,6 +400,7 @@ declare namespace uiExtensionHost {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
