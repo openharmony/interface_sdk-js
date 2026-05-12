@@ -221,7 +221,6 @@ declare namespace appRecovery {
    * @StageModelOnly
    * @atomicservice [since 11]
    * @since 9 dynamic
-   * @since 23 static
    */
   function saveAppState(): boolean;
   /**
