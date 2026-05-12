@@ -1375,6 +1375,29 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuSystemMaterial(material: Optional<SystemUiMaterial>): SelectAttribute;
 
   /**
+   * Sets the distortion animation mode of the select with the new material.
+   * 
+   * @param { DistortionMode } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  menuDistortionMode(mode: DistortionMode): SelectAttribute;
+  /**
+   * Sets the edgelight animation mode of the select with the new material.
+   * 
+   * @param { EdgeLightMode } mode - Animation mode. The default value is EdgeLightMode.EDGELIGHT_DISABLED.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  menuEdgeLightMode(mode: EdgeLightMode): SelectAttribute;
+
+  /**
    * Defines the select menu's background blur style with options
    *
    * @param { Optional<BackgroundBlurStyleOptions> } blurStyle - The background blur style of menu.
