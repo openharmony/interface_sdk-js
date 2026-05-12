@@ -911,7 +911,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 12]
- 	 * @since 9 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
@@ -939,7 +939,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 12]
- 	 * @since 9 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
@@ -1055,7 +1055,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 12]
- 	 * @since 9 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
@@ -1077,7 +1077,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 12]
- 	 * @since 9 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   function stopBackgroundRunning(context: Context): Promise<void>;
@@ -1436,7 +1436,7 @@ declare namespace backgroundTaskManager {
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 12]
- 	 * @since 9 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   export enum BackgroundMode {
@@ -1454,7 +1454,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 12]
- 	   * @since 9 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     AUDIO_PLAYBACK = 2,
