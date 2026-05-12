@@ -1026,6 +1026,16 @@ declare namespace screen {
      * @since 23 static
      */
     readonly serialNumber?: string;
+
+    /**
+     * Physical pixel density of the screen, that is, the number of pixels per inch.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly densityDpi?: double;
   }
 
   /**
