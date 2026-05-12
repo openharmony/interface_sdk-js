@@ -95,56 +95,67 @@ export class DrawableDescriptor {
    * Get pixelMap of drawable image.
    *
    * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
+   * @throws { BusinessError } 111002 - The native memory referenced by 
+   *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get pixelMap of drawable image.
-   *
-   * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get pixelMap of drawable image.
-   *
-   * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getPixelMap(): image.PixelMap;
 
   /**
-   * Synchronously loads the image and returns the loading result.
+   * Synchronously loads image and return loading result.
    *
-   * @returns { DrawableDescriptorLoadedResult } loading outcome.
-   * @throws { BusinessError } 111001 - resource loading failed.
+   * @returns { DrawableDescriptorLoadedResult } The image loading result.
+   * @throws { BusinessError } 111001 - resource loading failed. [since 21]
+   * @throws { BusinessError } 111002 - The native memory referenced by 
+   *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
+   * @crossplatform [since 21]
+   * @atomicservice [since 21]
    * @since 21 dynamic
    */
   loadSync(): DrawableDescriptorLoadedResult;
 
   /**
-   * Asynchronously loads image and returns loading result.
+   * Asynchronously loads image and return loading result.
    *
    * @returns { Promise<DrawableDescriptorLoadedResult> } The image loading result.
-   * @throws { BusinessError } 111001 - resource loading failed.
+   * @throws { BusinessError } 111001 - resource loading failed. [since 21]
+   * @throws { BusinessError } 111002 - The native memory referenced by 
+   *     the drawableDescriptor has been released. [since 26.0.0]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 21]
+   * @atomicservice [since 21]
+   * @since 21 dynamic
+   */
+  load(): Promise<DrawableDescriptorLoadedResult>;
+
+  /**
+   * Release the DrawableDescriptor object. After relase, any method call that
+   *     Access to the object's internal data will fail.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 21 dynamic
+   * @since 26.0.0 dynamic
    */
-  load(): Promise<DrawableDescriptorLoadedResult>;
+  release(): void;
+  /**
+   * Checks whether the DrawableDescriptor is released. If so, then any method call that
+   *     accesses the object's internal data will fail.
+   *
+   * @returns { boolean } Return true if the DrawableDescriptor object has been released, or false if not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  isReleased(): boolean;
 }
 
 /**
@@ -208,28 +219,13 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * Get DrawableDescriptor for the foreground.
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
+   * @throws { BusinessError } 111002 - The native memory referenced by 
+   *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get DrawableDescriptor for the foreground.
-   *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get DrawableDescriptor for the foreground.
-   *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getForeground(): DrawableDescriptor;
 
@@ -237,28 +233,13 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * Get DrawableDescriptor for the background.
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
+   * @throws { BusinessError } 111002 - The native memory referenced by 
+   *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get DrawableDescriptor for the background.
-   *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get DrawableDescriptor for the background.
-   *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getBackground(): DrawableDescriptor;
 
@@ -266,28 +247,13 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * Get DrawableDescriptor for the mask.
    *
    * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
+   * @throws { BusinessError } 111002 - The native memory referenced by 
+   *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get DrawableDescriptor for the mask.
-   *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get DrawableDescriptor for the mask.
-   *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getMask(): DrawableDescriptor;
 
