@@ -19,1810 +19,2171 @@
  */
 
 /**
- * Provides methods for uniform data type definition and query.
+ * The **uniformTypeDescriptor** module abstracts and defines uniform data types.
  *
- * @namespace uniformTypeDescriptor
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @since 10
- */
-/**
- * Provides methods for uniform data type definition and query.
- *
- * @namespace uniformTypeDescriptor
- * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Provides methods for uniform data type definition and query.
- *
- * @namespace uniformTypeDescriptor
- * @syscap SystemCapability.DistributedDataManager.UDMF.Core
- * @crossplatform
- * @atomicservice
- * @since 14 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 14]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  * @since 23 static
  */
 declare namespace uniformTypeDescriptor {
   /**
-   * Uniform data type IDs.
+   * Enumerates the uniform data types. Some data types are related. For example, the JPEG type belongs to the IMAGE 
+   * type. For more preset data types, see [Preset UTD List].
+   * 
+   * The following table lists the common uniform data types.
    *
-   * @enum { string }
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 10
-   */
-  /**
-   * Uniform data type IDs.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Uniform data type IDs.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   enum UniformDataType {
     /**
-     * Base data type for physical hierarchy, which identifies the physical representation of the data type.
+     * Generic physical storage type.
+     * 
+     * This type is uncategorized.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     ENTITY = 'general.entity',
 
     /**
-     * Base data type for logical hierarchy, which identifies the logical content representation of the data type.
+     * Generic logical content type.
+     * 
+     * This type is uncategorized.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     OBJECT = 'general.object',
 
     /**
-     * Base data type for mixed object. For example, a PDF file contains both text and special formatting data.
+     * Generic composite content type. For example, a PDF file that contains text and image.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     COMPOSITE_OBJECT = 'general.composite-object',
 
     /**
-     * Text data type.
+     * Generic text type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * Text data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Text data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     TEXT = 'general.text',
 
     /**
-     * Plain text data type.
+     * Text without specific encoding or identifier.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * Plain text data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Plain text data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     PLAIN_TEXT = 'general.plain-text',
 
     /**
-     * HTML data type.
+     * HTML.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * HTML data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * HTML data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     HTML = 'general.html',
 
     /**
-     * Hyperlink data type.
+     * Hyperlink.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * Hyperlink data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Hyperlink data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     HYPERLINK = 'general.hyperlink',
 
     /**
-     * XML(Extensible Markup Language) data type.
+     * XML.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     XML = 'general.xml',
 
     /**
-     * Xhtml data type.
+     * XHTML.
+     * 
+     * This type belongs to **XML**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     XHTML = 'general.xhtml',
 
     /**
-     * Rss data type.
+     * RSS.
+     * 
+     * This type belongs to **XML**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     RSS = 'general.rss',
 
     /**
-     * Real synchronized multimedia integration language.
+     * Synchronized Multimedia Integration Language (SMIL).
+     * 
+     * This type belongs to **XML**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     SMIL = 'com.real.smil',
 
     /**
-     * Source code data type.
+     * Generic source code type.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     SOURCE_CODE = 'general.source-code',
 
     /**
-     * Script data type.
+     * Source code in any scripting language.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     SCRIPT = 'general.script',
 
     /**
-     * Shell script data type.
+     * Shell script.
+     * 
+     * This type belongs to **SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     SHELL_SCRIPT = 'general.shell-script',
 
     /**
-     * C-shell script data type.
+     * C shell script.
+     * 
+     * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     CSH_SCRIPT = 'general.csh-script',
 
     /**
-     * Perl script data type.
+     * Perl script.
+     * 
+     * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PERL_SCRIPT = 'general.perl-script',
 
     /**
-     * PHP script data type.
+     * PHP script.
+     * 
+     * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PHP_SCRIPT = 'general.php-script',
 
     /**
-     * Python script data type.
+     * Python script.
+     * 
+     * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PYTHON_SCRIPT = 'general.python-script',
 
     /**
-     * Ruby script data type.
+     * Ruby script.
+     * 
+     * This type belongs to **SHELL_SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     RUBY_SCRIPT = 'general.ruby-script',
 
     /**
-     * TypeScript data type.
+     * TypeScript source code.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     TYPE_SCRIPT = 'general.type-script',
 
     /**
-     * JavaScript data type.
+     * JavaScript source code.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     JAVA_SCRIPT = 'general.java-script',
 
     /**
-     * Css data type.
+     * CSS.
+     * 
+     * This type belongs to **SCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     CSS = 'general.css',
 
     /**
-     * C header data type.
+     * Header file in C.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     C_HEADER = 'general.c-header',
 
     /**
-     * C source code data type.
+     * Source code in C.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     C_SOURCE = 'general.c-source',
 
     /**
-     * C++ header data type.
+     * Header file in C++.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     C_PLUS_PLUS_HEADER = 'general.c-plus-plus-header',
 
     /**
-     * C++ source code data type.
+     * Source code in C++.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     C_PLUS_PLUS_SOURCE = 'general.c-plus-plus-source',
 
     /**
-     * Java source code data type.
+     * Source code in Java.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     JAVA_SOURCE = 'general.java-source',
 
     /**
-     * Tex source code data type.
+     * Source code in TEX format.
+     * 
+     * This type belongs to **SOURCE_CODE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     TEX = 'general.tex',
 
     /**
-     * Markdown format.
+     * Markdown.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MARKDOWN = 'general.markdown',
 
     /**
-     * Asc text data type.
+     * ASCII.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     ASC_TEXT = 'general.asc-text',
 
     /**
-     * Rich text data type.
+     * Rich text.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     RICH_TEXT = 'general.rich-text',
 
     /**
-     * Delimited values text data type.
+     * Generic type of all delimited value texts.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     DELIMITED_VALUES_TEXT = 'general.delimited-values-text',
 
     /**
-     * Comma separated values text data type.
+     * Comma-separated values (CSV).
+     * 
+     * This type belongs to **DELIMITED_VALUES_TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     COMMA_SEPARATED_VALUES_TEXT = 'general.comma-separated-values-text',
 
     /**
-     * Tab separated values text data type.
+     * Tab-separated values (TSV).
+     * 
+     * This type belongs to **DELIMITED_VALUES_TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     TAB_SEPARATED_VALUES_TEXT = 'general.tab-separated-values-text',
 
     /**
-     * Ebook data type.
+     * Generic eBook file format type.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     EBOOK = 'general.ebook',
 
     /**
-     * EPUB ebook file format data type.
+     * Electronic publication (EPUB).
+     * 
+     * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     EPUB = 'general.epub',
 
     /**
-     * AZW ebook file format data type.
+     * AZW.
+     * 
+     * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     AZW = 'com.amazon.azw',
 
     /**
-     * AZW3 ebook file format data type.
+     * AZW3.
+     * 
+     * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     AZW3 = 'com.amazon.azw3',
 
     /**
-     * KFX ebook file format data type.
+     * KFX.
+     * 
+     * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     KFX = 'com.amazon.kfx',
 
     /**
-     * MOBI ebook file format data type.
+     * MOBI.
+     * 
+     * This type belongs to **EBOOK**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     MOBI = 'com.amazon.mobi',
 
     /**
-     * Media data type.
+     * Generic media type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     MEDIA = 'general.media',
 
     /**
-     * Image data type.
+     * Image.
+     * 
+     * This type belongs to **MEDIA**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * Image data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     IMAGE = 'general.image',
 
     /**
-     * JPEG image format data type.
+     * JPEG.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     JPEG = 'general.jpeg',
 
     /**
-     * PNG image format data type.
+     * PNG.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PNG = 'general.png',
 
     /**
-     * Raw image format data type.
+     * Raw image.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     RAW_IMAGE = 'general.raw-image',
 
     /**
-     * TIFF image format data type.
+     * TIFF.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     TIFF = 'general.tiff',
 
     /**
-     * Windows bitmap image data type.
+     * BMP.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     BMP = 'com.microsoft.bmp',
 
     /**
-     * Windows icon data type.
+     * Windows icon.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     ICO = 'com.microsoft.ico',
 
     /**
-     * Adobe Photoshop document data type.
+     * Adobe Photoshop image.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PHOTOSHOP_IMAGE = 'com.adobe.photoshop-image',
 
     /**
-     * Adobe Illustrator document data type.
+     * Adobe Illustrator image (.ai).
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     AI_IMAGE = 'com.adobe.illustrator.ai-image',
 
     /**
-     * Base type for fax images.
+     * Generic type of the fax.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     FAX = 'general.fax',
 
     /**
-     *  J2 jConnect fax file format.
+     * J2 jConnect fax file format.
+     * 
+     * This type belongs to **FAX**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     JFX_FAX = 'com.j2.jfx-fax',
 
     /**
-     * The electronic fax document format.
+     * EFX file format.
+     * 
+     * This type belongs to **FAX**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     EFX_FAX = 'com.js.efx-fax',
 
     /**
-     * X bitmap image.
+     * X BitMAP (XBM) used in the X Window system (X11).
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     XBITMAP_IMAGE = 'general.xbitmap-image',
 
     /**
-     * Gif image format data type.
+     * GIF.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     GIF = 'general.gif',
 
     /**
-     * Tagged Graphics (TGA), a type of image format.
+     * Tagged Graphics (TGA) format.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     TGA_IMAGE = 'com.truevision.tga-image',
 
     /**
-     * Silicon Graphics image.
+     * Silicon Graphics image (SGI) format.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     SGI_IMAGE = 'com.sgi.sgi-image',
 
     /**
-     * OpenEXR image.
+     * OpenXR image format.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENEXR_IMAGE = 'com.ilm.openexr-image',
 
     /**
-     * FlashPix image.
+     * FlashPix image format.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     FLASHPIX_IMAGE = 'com.kodak.flashpix.image',
 
     /**
-     * Microsoft Word data type.
+     * Microsoft Word.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WORD_DOC = 'com.microsoft.word.doc',
 
     /**
-     * Microsoft Excel data type.
+     * Microsoft Excel.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     EXCEL = 'com.microsoft.excel.xls',
 
     /**
-     * Microsoft PowerPoint presentation data type.
+     * Microsoft PowerPoint presentation format.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PPT = 'com.microsoft.powerpoint.ppt',
 
     /**
-     * Microsoft Word dot data type.
+     * Microsoft Word template.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     WORD_DOT = 'com.microsoft.word.dot',
 
     /**
-     * Microsoft Powerpoint pps data type.
+     * Microsoft PowerPoint slide show format.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     POWERPOINT_PPS = 'com.microsoft.powerpoint.pps',
 
     /**
-     * Microsoft Powerpoint pot data type.
+     * Microsoft PowerPoint template.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     POWERPOINT_POT = 'com.microsoft.powerpoint.pot',
 
     /**
-     * Microsoft Excel xlt data type.
+     * Microsoft Excel template.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     EXCEL_XLT = 'com.microsoft.excel.xlt',
 
     /**
-     * Microsoft Visio vsd data type.
+     * Microsoft Visio.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     VISIO_VSD = 'com.microsoft.visio.vsd',
 
     /**
-     * PDF data type.
+     * PDF.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PDF = 'com.adobe.pdf',
 
     /**
-     * PostScript data type.
+     * PostScript.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     POSTSCRIPT = 'com.adobe.postscript',
 
     /**
-     * Encapsulated PostScript data type.
+     * Encapsulated PostScript.
+     * 
+     * This type belongs to **POSTSCRIPT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     ENCAPSULATED_POSTSCRIPT = 'com.adobe.encapsulated-postscript',
 
     /**
-     * Video data type.
+     * Generic video type.
+     * 
+     * This type belongs to **MEDIA**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * Video data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Video data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     VIDEO = 'general.video',
 
     /**
-     * AVI video format data type.
+     * AVI.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     AVI = 'general.avi',
 
     /**
-     * MPEG video format data type.
+     * MPEG-1 or MPEG-2.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     MPEG = 'general.mpeg',
 
     /**
-     * MPEG4 video format data type.
+     * MPEG-4.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     MPEG4 = 'general.mpeg-4',
 
     /**
-     * 3GPP video format data type.
+     * 3GP (3GPP file format).
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     VIDEO_3GPP = 'general.3gpp',
 
     /**
-     * 3GPP2 video format data type.
+     * 3G2 (3GPP2 file format).
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     VIDEO_3GPP2 = 'general.3gpp2',
 
     /**
-     * Ts video format data type.
+     * MPEG-TS.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     TS = 'general.ts',
 
     /**
-     * Mpegurl video format data type.
+     * MPEG video playlist format.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MPEGURL_VIDEO = 'general.mpegurl-video',
 
     /**
-     * Windows WM video format data type.
+     * Windows WM format.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WINDOWS_MEDIA_WM = 'com.microsoft.windows-media-wm',
 
     /**
-     * Windows WMV video format data type.
+     * Windows WMV format.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WINDOWS_MEDIA_WMV = 'com.microsoft.windows-media-wmv',
 
     /**
-     * Windows WMP video format data type.
+     * Windows WMP format.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WINDOWS_MEDIA_WMP = 'com.microsoft.windows-media-wmp',
 
     /**
-     * Windows WVX video format data type.
+     * Windows WVX format.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WINDOWS_MEDIA_WVX = 'com.microsoft.windows-media-wvx',
 
     /**
-     * Windows WMX video format data type.
+     * Windows WMX format.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WINDOWS_MEDIA_WMX = 'com.microsoft.windows-media-wmx',
 
     /**
-     * RealMedia.
+     * RealMedia format.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     REALMEDIA = 'com.real.realmedia',
 
     /**
-     * Matroska video format data type.
+     * MKV.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MATROSKA_VIDEO = 'org.matroska.mkv',
 
     /**
-     * Flash data type.
+     * Flash.
+     * 
+     * This type belongs to **VIDEO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     FLASH = 'com.adobe.flash',
 
     /**
-     * Audio data type.
+     * Generic audio type.
+     * 
+     * This type belongs to **MEDIA**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * Audio data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Audio data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     AUDIO = 'general.audio',
 
     /**
-     * AAC audio format data type.
+     * AAC.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     AAC = 'general.aac',
 
     /**
-     * AIFF audio format data type.
+     * AIFF.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     AIFF = 'general.aiff',
 
     /**
-     * ALAC audio format data type.
+     * ALAC.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     ALAC = 'general.alac',
 
     /**
-     * FLAC audio format data type.
+     * FLAC.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     FLAC = 'general.flac',
 
     /**
-     * MP3 audio format data type.
+     * MP3.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     MP3 = 'general.mp3',
 
     /**
-     * OGG audio format data type.
+     * OGG.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     OGG = 'general.ogg',
 
     /**
-     * PCM audio format data type.
+     * PCM.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     PCM = 'general.pcm',
 
     /**
-     * Windows WMA audio format data type.
+     * Windows WMA.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WINDOWS_MEDIA_WMA = 'com.microsoft.windows-media-wma',
 
     /**
-     * Waveform audio format data type created by Microsoft.
+     * Windows Waveform.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WAVEFORM_AUDIO = 'com.microsoft.waveform-audio',
 
     /**
-     * Windows WAX audio format data type.
+     * Windows WAX.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     WINDOWS_MEDIA_WAX = 'com.microsoft.windows-media-wax',
 
     /**
-     * Au file format.
+     * AU format.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     AU_AUDIO = 'general.au-audio',
 
     /**
-     * Audio Interchange File Format.
+     * AIFC.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     AIFC_AUDIO = 'general.aifc-audio',
 
     /**
-     * Mpegurl audio format data type.
+     * MPEG audio playlist format.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MPEGURL_AUDIO = 'general.mpegurl-audio',
 
     /**
-     * Mpeg-4 audio format data type.
+     * MPEG-4.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MPEG_4_AUDIO = 'general.mpeg-4-audio',
 
     /**
-     * Mp2 audio format data type.
+     * MP2.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MP2 = 'general.mp2',
 
     /**
-     * MPEG audio format. This type belongs to AUDIO.
+     * MPEG audio format.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MPEG_AUDIO = 'general.mpeg-audio',
 
     /**
-     * Ulaw audio format data type.
+     * ULAW.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     ULAW_AUDIO = 'general.ulaw-audio',
 
     /**
-     * Digidesign Sound Designer II audio.
+     * Digidesign Sound Designer II (SDII).
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     SD2_AUDIO = 'com.digidesign.sd2-audio',
 
     /**
-     * RealMedia audio.
+     * RealAudio.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     REALAUDIO = 'com.real.realaudio',
 
     /**
-     * Matroska audio format data type.
+     * MKA.
+     * 
+     * This type belongs to **AUDIO**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     MATROSKA_AUDIO = 'org.matroska.mka',
 
     /**
-     * File data type.
+     * Generic file type.
+     * 
+     * This type belongs to **ENTITY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * File data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * File data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     FILE = 'general.file',
 
     /**
-     * Directory data type.
+     * Generic directory type.
+     * 
+     * This type belongs to **ENTITY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     DIRECTORY = 'general.directory',
 
     /**
-     * Folder data type.
+     * Generic folder type.
+     * 
+     * This type belongs to **DIRECTORY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * Folder data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Folder data type.
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     FOLDER = 'general.folder',
 
     /**
-     * Symlink data type.
+     * Generic symbolic type.
+     * 
+     * This type belongs to **ENTITY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     SYMLINK = 'general.symlink',
 
     /**
-     * Archive file data type.
+     * Generic archive file type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     ARCHIVE = 'general.archive',
 
     /**
-     * Bzip2 archive file data type.
+     * BZ2.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     BZ2_ARCHIVE = 'general.bz2-archive',
 
     /**
-     * Opg archive data type.
+     * OPG.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPG = 'general.opg',
 
     /**
-     * Taz archive data type.
+     * TAR.
+     * 
+     * This type belongs to **TAR_ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     TAZ_ARCHIVE = 'general.taz-archive',
 
     /**
-     * Web archive data type.
+     * MHTML format for web page archiving.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     WEB_ARCHIVE = 'general.web-archive',
 
     /**
-     * Disk image archive file data type.
+     * Generic type of any file that can be mounted as a volume.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     DISK_IMAGE = 'general.disk-image',
 
     /**
-     * Iso data type.
+     * ISO image (optical disk image) format.
+     * 
+     * This type belongs to **DISK_IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     ISO = 'general.iso',
 
     /**
-     * Tar archive data type.
+     * TAR.
+     * 
+     * This type belongs to ARCHIVE.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     TAR_ARCHIVE = 'general.tar-archive',
 
     /**
-     * Zip archive data type.
+     * ZIP.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     ZIP_ARCHIVE = 'general.zip-archive',
 
     /**
-     * Java archive data type.
+     * JAR (Java archive).
+     * 
+     * This type belongs to **ARCHIVE** and **EXECUTABLE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     JAVA_ARCHIVE = 'com.sun.java-archive',
 
     /**
-     * GNU. This type belongs to ARCHIVE.
+     * GNU.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     GNU_TAR_ARCHIVE = 'org.gnu.gnu-tar-archive',
 
     /**
-     * Gzip archive data type.
+     * GZIP archive.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     GNU_ZIP_ARCHIVE = 'org.gnu.gnu-zip-archive',
 
     /**
-     * Gzip tar archive data type.
+     * GZIP TAR.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     GNU_ZIP_TAR_ARCHIVE = 'org.gnu.gnu-zip-tar-archive',
 
     /**
-     * Office Open XML.
+     * OpenXML base type.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENXML = 'org.openxmlformats.openxml',
 
     /**
-     * Office Open XML Document.
+     * WordProcessingML format.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     WORDPROCESSINGML_DOCUMENT = 'org.openxmlformats.wordprocessingml.document',
 
     /**
-     * Office Open XML Workbook.
+     * SpreadsheetML format.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     SPREADSHEETML_SHEET = 'org.openxmlformats.spreadsheetml.sheet',
 
     /**
-     * Office Open XML Presentation.
+     * PresentationML format.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     PRESENTATIONML_PRESENTATION = 'org.openxmlformats.presentationml.presentation',
 
     /**
-     * Office Open XML Drawingml visio.
+     * DrawingML file format of Office Open XML (OOXML).
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     DRAWINGML_VISIO = 'org.openxmlformats.drawingml.visio',
 
     /**
-     * Office Open XML Drawingml template.
+     * DrawingML template format of OOXML.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     DRAWINGML_TEMPLATE = 'org.openxmlformats.drawingml.template',
 
     /**
-     * Office Open XML Wordprocessingml template.
+     * WordProcessingML template format of OOXML.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     WORDPROCESSINGML_TEMPLATE = 'org.openxmlformats.wordprocessingml.template',
 
     /**
-     * Office Open XML Presentationml template.
+     * PresentationML template format of OOXML.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     PRESENTATIONML_TEMPLATE = 'org.openxmlformats.presentationml.template',
 
     /**
-     * Office Open XML Presentationml slideshow.
+     * PresentationML slide show format of OOXML.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     PRESENTATIONML_SLIDESHOW = 'org.openxmlformats.presentationml.slideshow',
 
     /**
-     * Office Open XML Spreadsheetml template.
+     * SpreadsheetML template format of OOXML.
+     * 
+     * This type belongs to **OPENXML** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     SPREADSHEETML_TEMPLATE = 'org.openxmlformats.spreadsheetml.template',
 
     /**
-     * Open Document Format for Office Applications.
+     * OpenDocument format for Office applications.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENDOCUMENT = 'org.oasis.opendocument',
 
     /**
-     * OpenDocument Text.
+     * OpenDocument format for word processing (text) documents.
+     * 
+     * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENDOCUMENT_TEXT = 'org.oasis.opendocument.text',
 
     /**
-     * OpenDocument Spreadsheet.
+     * OpenDocument format for spreadsheets.
+     * 
+     * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENDOCUMENT_SPREADSHEET = 'org.oasis.opendocument.spreadsheet',
 
     /**
-     * OpenDocument Presentation.
+     * OpenDocument format for presentations.
+     * 
+     * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENDOCUMENT_PRESENTATION = 'org.oasis.opendocument.presentation',
 
     /**
-     * OpenDocument Graphics.
+     * OpenDocument format for graphics.
+     * 
+     * This type belongs to **OPENDOCUMENT** and **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENDOCUMENT_GRAPHICS = 'org.oasis.opendocument.graphics',
 
     /**
-     * OpenDocument Formula.
+     * OpenDocument format for formula.
+     * 
+     * This type belongs to **OPENDOCUMENT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENDOCUMENT_FORMULA = 'org.oasis.opendocument.formula',
 
     /**
-     * Stuffit archive.
+     * Stuffit compression format (stuffit archive).
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     STUFFIT_ARCHIVE = 'com.allume.stuffit-archive',
 
     /**
-     * Rar archive.
+     * WinRAR.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     RAR_ARCHIVE = 'com.rarlab.rar-archive',
 
     /**
-     * 7-zip archive.
+     * 7-Zip.
+     * 
+     * This type belongs to **ARCHIVE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     SEVEN_ZIP_ARCHIVE = 'org.7-zip.7-zip-archive',
 
     /**
-     * Calendar data type.
+     * Generic calendar type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     CALENDAR = 'general.calendar',
 
     /**
-     * VCalendar type, a type of calendar format.
+     * VCalendar (VCS) format.
+     * 
+     * This type belongs to **CALENDAR** and **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     VCS = 'general.vcs',
 
     /**
-     * ICalendar type, a type of calendar format.
+     * Internet Calendaring and Scheduling (ICS) format.
+     * 
+     * This type belongs to **CALENDAR** and **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     ICS = 'general.ics',
 
     /**
-     * Contact data type.
+     * Generic contact type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     CONTACT = 'general.contact',
 
     /**
-     * Database data type.
+     * Generic database file type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     DATABASE = 'general.database',
 
     /**
-     * Message data type.
+     * Generic message type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     MESSAGE = 'general.message',
 
     /**
-     * Base type for executable data.
+     * Generic type of all executable files.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     EXECUTABLE = 'general.executable',
 
     /**
-     * Microsoft Windows application.
+     * Microsoft Windows portable executable format.
+     * 
+     * This type belongs to **EXECUTABLE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     PORTABLE_EXECUTABLE = 'com.microsoft.portable-executable',
 
     /**
-     * Java class.
+     * Java class file format.
+     * 
+     * This type belongs to **EXECUTABLE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     SUN_JAVA_CLASS = 'com.sun.java-class',
 
     /**
-     * A file format data type stand for electronic business card.
+     * Generic electronic business card type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     VCARD = 'general.vcard',
 
     /**
-     * Navigation data type.
+     * Generic navigation data type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     NAVIGATION = 'general.navigation',
 
     /**
-     * Location data type.
+     * Location data.
+     * 
+     * This type belongs to **NAVIGATION**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     LOCATION = 'general.location',
 
     /**
-     * Base type for fonts.
+     * Basic type of fonts.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     FONT = 'general.font',
 
     /**
-     * TrueType font.
+     * TrueType font format.
+     * 
+     * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     TRUETYPE_FONT = 'general.truetype-font',
 
     /**
-     * TrueType collection font.
+     * TrueType Collection font format.
+     * 
+     * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     TRUETYPE_COLLECTION_FONT = 'general.truetype-collection-font',
 
     /**
-     * OpenType font.
+     * OpenType font format.
+     * 
+     * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENTYPE_FONT = 'general.opentype-font',
 
     /**
-     * PostScript font.
+     * PostScript font format.
+     * 
+     * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     POSTSCRIPT_FONT = 'com.adobe.postscript-font',
 
     /**
-     * A Printer Font Binary version of Adobe's Type 1.
+     * PostScript Font Binary font format.
+     * 
+     * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     POSTSCRIPT_PFB_FONT = 'com.adobe.postscript-pfb-font',
 
     /**
-     * Adobe Type 1 font.
+     * Adobe Type 1 font format.
+     * 
+     * This type belongs to **FONT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     POSTSCRIPT_PFA_FONT = 'com.adobe.postscript-pfa-font',
 
     /**
-     * OpenHarmony system defined form data type(the data is provided and bound to OpenHarmony system).
+     * Widget defined for the system.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * OpenHarmony system defined form data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @stagemodelonly
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     OPENHARMONY_FORM = 'openharmony.form',
 
     /**
-     * OpenHarmony system defined app item data type(the data is provided and bound to OpenHarmony system).
+     * Home screen icon defined for the system.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * OpenHarmony system defined app item data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @stagemodelonly
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     OPENHARMONY_APP_ITEM = 'openharmony.app-item',
 
     /**
-     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
+     * Pixel map defined for the system.
+     * 
+     * This type belongs to **IMAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 10
-     */
-    /**
-     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * OpenHarmony system defined pixel map data type(the data is provided and bound to OpenHarmony system).
-     *
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 14]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 23 static
      */
     OPENHARMONY_PIXEL_MAP = 'openharmony.pixel-map',
 
     /**
-     * OpenHarmony system defined atomic service data type(the data is provided and bound to OpenHarmony system).
+     * Atomic service type defined for the system.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     OPENHARMONY_ATOMIC_SERVICE = 'openharmony.atomic-service',
 
     /**
-     * OpenHarmony system defined package, which is a directory presented to the user as a file(the data is provided
-     * <br>and bound to OpenHarmony system).
+     * Package (compressed folder) defined for the system.
+     * 
+     * This type belongs to **DIRECTORY**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     OPENHARMONY_PACKAGE = 'openharmony.package',
 
     /**
-     * OpenHarmony system defined ability package(the data is provided and bound to OpenHarmony system).
+     * Ability package defined for the system.
+     * 
+     * This type belongs to **OPENHARMONY_PACKAGE**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 11 dynamic
      * @since 23 static
      */
     OPENHARMONY_HAP = 'openharmony.hap',
 
     /**
-     * OpenHarmony system AppNotepad data format.
+     * Memo format defined for the system.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENHARMONY_HDOC = 'openharmony.hdoc',
 
     /**
-     * OpenHarmony system Notes data format.
+     * Note format defined for the system.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENHARMONY_HINOTE = 'openharmony.hinote',
 
     /**
-     * OpenHarmony system defined styled string.
+     * Style string type defined for the system.
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENHARMONY_STYLED_STRING = 'openharmony.styled-string',
 
     /**
-     * OpenHarmony system defined Want.
+     * Want defined for the system.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OPENHARMONY_WANT = 'openharmony.want',
 
     /**
-     * Ofd data type.
+     * Open Fixed-layout Document (OFD).
+     * 
+     * This type belongs to **COMPOSITE_OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OFD = 'general.ofd',
 
     /**
-     * Cad data type.
+     * Generic type of all computer-aided design types.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     CAD = 'general.cad',
 
     /**
-     * Octet stream data type.
+     * Any binary data type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
     OCTET_STREAM = 'general.octet-stream',
 
     /**
-     * File uri data type.
+     * File address type.
+     * 
+     * This type belongs to **TEXT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
     FILE_URI = 'general.file-uri',
 
     /**
-     * Content form data type.
+     * Content widget type.
+     * 
+     * This type belongs to **OBJECT**.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -1830,631 +2191,282 @@ declare namespace uniformTypeDescriptor {
   }
 
   /**
-   * Class describing the uniform data type defined in the {@code UniformDataType}, which consists of attributes and
-   * <br>methods describing the uniform data type and its relationships to other uniform data types.
+   * Represents a class for defining a uniform data type. It provides properties and methods for describing a uniform 
+   * data type and its relationship with other uniform data types.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 11
-   */
-  /**
-   * Class describing the uniform data type defined in the {@code UniformDataType}, which consists of attributes and
-   * <br>methods describing the uniform data type and its relationships to other uniform data types.
-   *
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @since 11 dynamic
    * @since 23 static
    */
   class TypeDescriptor {
     /**
      * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } [since 11 - 22]
+     * @returns { string } Type ID of the uniform data type. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
-     *
-     * @returns { string } Type ID of the uniform data type.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     get typeId(): string;
 
     /**
      * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } [since 11 - 22]
+     * @param { string } value - Type ID of the uniform data type. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Type ID of the uniform data type, which corresponds to the enum string in the {@code UniformDataType}.
-     *
-     * @param { string } value - Type ID of the uniform data type.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     set typeId(value: string);
 
     /**
      * Uniform data type IDs that the uniform data type belongs to.
      *
-     * @type { Array<string> }
-     * @readonly
+     * @type { Array<string> } [since 11 - 22]
+     * @returns { Array<string> } Uniform data type IDs [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Uniform data type IDs that the uniform data type belongs to.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Uniform data type IDs that the uniform data type belongs to.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Uniform data type IDs that the uniform data type belongs to.
-     *
-     * @returns { Array<string> } Uniform data type IDs
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     get belongingToTypes(): Array<string>;
 
     /**
      * Uniform data type IDs that the uniform data type belongs to.
      *
-     * @type { Array<string> }
-     * @readonly
+     * @type { Array<string> } [since 11 - 22]
+     * @param { Array<string> } value - Uniform data type IDs [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Uniform data type IDs that the uniform data type belongs to.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Uniform data type IDs that the uniform data type belongs to.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Uniform data type IDs that the uniform data type belongs to.
-     *
-     * @param { Array<string> } value - Uniform data type IDs
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     set belongingToTypes(value: Array<string>);
 
     /**
      * A textual description for the uniform data type.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } [since 11 - 22]
+     * @returns { string } A textual description [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * A textual description for the uniform data type.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * A textual description for the uniform data type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * A textual description for the uniform data type.
-     *
-     * @returns { string } A textual description
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     get description(): string;
 
     /**
      * A textual description for the uniform data type.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } [since 11 - 22]
+     * @param { string } value - A textual description [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * A textual description for the uniform data type.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * A textual description for the uniform data type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * A textual description for the uniform data type.
-     *
-     * @param { string } value - A textual description
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     set description(value: string);
 
     /**
      * Reference URL for the uniform data type, which describes the detail information of the type.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } [since 11 - 22]
+     * @returns { string } Reference URL [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
-     *
-     * @returns { string } Reference URL
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     get referenceURL(): string;
 
     /**
      * Reference URL for the uniform data type, which describes the detail information of the type.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } [since 11 - 22]
+     * @param { string } value - Reference URL [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Reference URL for the uniform data type, which describes the detail information of the type.
-     *
-     * @param { string } value - Reference URL
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     set referenceURL(value: string);
 
     /**
      * Default icon file path for the uniform data type.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } Default icon file path [since 11 - 22]
+     * @returns { string } Default icon file path [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Default icon file path for the uniform data type.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Default icon file path for the uniform data type.
-     *
-     * @type { string } Default icon file path
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Default icon file path for the uniform data type.
-     *
-     * @returns { string } Default icon file path
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     get iconFile(): string;
 
     /**
      * Default icon file path for the uniform data type.
      *
-     * @type { string }
-     * @readonly
+     * @type { string } [since 11 - 22]
+     * @param { string } value - Default icon file path [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 11 dynamic
-     */
-    /**
-     * Default icon file path for the uniform data type.
-     *
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * Default icon file path for the uniform data type.
-     *
-     * @type { string }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * Default icon file path for the uniform data type.
-     *
-     * @param { string } value - Default icon file path
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     set iconFile(value: string);
 
     /**
      * File name extensions for the uniform data type.
      *
-     * @type { Array<string> }
-     * @readonly
+     * @type { Array<string> } [since 12 - 22]
+     * @returns { Array<string> } File name extensions [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 12 dynamic
-     */
-    /**
-     * File name extensions for the uniform data type.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * File name extensions for the uniform data type.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * File name extensions for the uniform data type.
-     *
-     * @returns { Array<string> } File name extensions
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     get filenameExtensions(): Array<string>;
 
     /**
      * File name extensions for the uniform data type.
      *
-     * @type { Array<string> }
-     * @readonly
+     * @type { Array<string> } [since 12 - 22]
+     * @param { Array<string> } value - File name extensions [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 12 dynamic
-     */
-    /**
-     * File name extensions for the uniform data type.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * File name extensions for the uniform data type.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * File name extensions for the uniform data type.
-     *
-     * @param { Array<string> } value - File name extensions
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     set filenameExtensions(value: Array<string>);
 
     /**
      * MIMETypes of the uniform data type.
      *
-     * @type { Array<string> }
-     * @readonly
+     * @type { Array<string> } [since 12 - 22]
+     * @returns { Array<string> } MIMETypes [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 12 dynamic
-     */
-    /**
-     * MIMETypes of the uniform data type.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * MIMETypes of the uniform data type.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * MIMETypes of the uniform data type.
-     *
-     * @returns { Array<string> } MIMETypes
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     get mimeTypes(): Array<string>;
 
     /**
      * MIMETypes of the uniform data type.
      *
-     * @type { Array<string> }
-     * @readonly
+     * @type { Array<string> } [since 12 - 22]
+     * @param { Array<string> } value - MIMETypes [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @crossplatform [since 20]
      * @since 12 dynamic
-     */
-    /**
-     * MIMETypes of the uniform data type.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
-     */
-    /**
-     * MIMETypes of the uniform data type.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 22 dynamic
-     */
-    /**
-     * MIMETypes of the uniform data type.
-     *
-     * @param { Array<string> } value - MIMETypes
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     set mimeTypes(value: Array<string>);
 
     /**
-     * Checks whether the uniform data type belongs to the given uniform data type.
+     * Checks whether this data type belongs to the specified uniform data type.
      *
-     * @param { string } type - A uniform data type to be compared.
-     * @returns { boolean } Returns true if the data type belongs to the given data type, else false.
+     * @param { string } type - Uniform data type specified, which is a value of
+     *     [UniformDataType]{@link uniformTypeDescriptor.UniformDataType}.
+     * @returns { boolean } Returns **true** if the data type belongs to or is the same as the specified uniform data
+     *     type; returns **false** if they are not related.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    /**
-     * Checks whether the uniform data type belongs to the given uniform data type.
-     *
-     * @param { string } type - A uniform data type to be compared.
-     * @returns { boolean } Returns true if the data type belongs to the given data type, else false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     belongsTo(type: string): boolean;
 
     /**
-     * Checks whether the uniform data type is the lower level type of the given uniform data type.
+     * Checks whether this data type is a lower-level type of the specified uniform data type. For example, 
+     * **TYPE_SCRIPT** is a lower-level type of **SOURCE_CODE**, and **TYPE_SCRIPT** and **SOURCE_CODE** are lower-level
+     * types of **TEXT**.
      *
-     * @param { string } type - A uniform data type to be compared.
-     * @returns { boolean } Returns true if the data type is the lower level type of the given data type, else false.
+     * @param { string } type - Uniform data type specified, which is a value of
+     *     [UniformDataType]{@link uniformTypeDescriptor.UniformDataType}.
+     * @returns { boolean } Returns **true** if the data type is a lower-level type of the specified uniform data type;
+     *     returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    /**
-     * Checks whether the uniform data type is the lower level type of the given uniform data type.
-     *
-     * @param { string } type - A uniform data type to be compared.
-     * @returns { boolean } Returns true if the data type is the lower level type of the given data type, else false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     isLowerLevelType(type: string): boolean;
 
     /**
-     * Checks whether the uniform data type is the higher level type of the given uniform data type.
+     * Checks whether this data type is a higher-level type of the specified uniform data type. For example, 
+     * **SOURCE_CODE** is a higher-level type of **TYPE_SCRIPT**, and **TEXT** is a higher-level type of **SOURCE_CODE**
+     * and **TYPE_SCRIPT**.
      *
-     * @param { string } type - A uniform data type to be compared.
-     * @returns { boolean } Returns true if the data type is the higher level type of the given data type, else false.
+     * @param { string } type - Uniform data type specified, which is a value of
+     *     [UniformDataType]{@link uniformTypeDescriptor.UniformDataType}.
+     * @returns { boolean } Returns **true** if the data type is a higher-level type of the specified uniform data type;
+     *     returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    /**
-     * Checks whether the uniform data type is the higher level type of the given uniform data type.
-     *
-     * @param { string } type - A uniform data type to be compared.
-     * @returns { boolean } Returns true if the data type is the higher level type of the given data type, else false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     isHigherLevelType(type: string): boolean;
 
     /**
-     * Checks whether the uniform type descriptor is equal to the given uniform type descriptor.
+     * Checks whether this data type is the same as the specified uniform data type. That is, compares **typeId**s of 
+     * two [TypeDescriptor]{@link uniformTypeDescriptor.TypeDescriptor} objects.
      *
-     * @param { TypeDescriptor } typeDescriptor - A uniform type descriptor to be compared.
-     * @returns { boolean } Returns true if the type descriptor is equal to the given type descriptor, else false.
+     * @param { TypeDescriptor } typeDescriptor - Uniform data type to compare.
+     * @returns { boolean } Returns **true** if the type IDs are the same; returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @since 11
-     */
-    /**
-     * Checks whether the uniform type descriptor is equal to the given uniform type descriptor.
-     *
-     * @param { TypeDescriptor } typeDescriptor - A uniform type descriptor to be compared.
-     * @returns { boolean } Returns true if the type descriptor is equal to the given type descriptor, else false.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     * <br>2.Incorrect parameters types.
-     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @crossplatform
-     * @since 20 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 20]
+     * @since 11 dynamic
      * @since 23 static
      */
     equals(typeDescriptor: TypeDescriptor): boolean;
   }
 
   /**
-   * Queries and returns the uniform type descriptor by the given uniform data type ID.
+   * Obtains the **TypeDescriptor** object based on the uniform data type ID.
    *
-   * @param { string } typeId - Uniform data type ID.
-   * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
-   * <br>if the uniform data type does not exist.
+   * @param { string } typeId - [Uniform data type ID].
+   * @returns { TypeDescriptor } **TypeDescriptor** object obtained. If the uniform data type does not exist, **null**
+   *     is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 11
-   */
-  /**
-   * Queries and returns the uniform type descriptor by the given uniform data type ID.
-   *
-   * @param { string } typeId - Uniform data type ID.
-   * @returns { TypeDescriptor } Returns the uniform type descriptor corresponding to the uniform data type ID or null
-   * <br>if the uniform data type does not exist.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameter types.
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @since 11 dynamic
    */
   function getTypeDescriptor(typeId: string): TypeDescriptor;
 
@@ -2464,129 +2476,94 @@ declare namespace uniformTypeDescriptor {
    * @param { string } typeId - Uniform data type ID.
    * @returns { TypeDescriptor | null } Returns the uniform type descriptor corresponding to the uniform data type ID
    *     or null if the uniform data type does not exist.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function getTypeDescriptor(typeId: string): TypeDescriptor | null;
 
   /**
-   * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it belongs to.
+   * Obtains the uniform data type ID based on the given file name extension and data type. If there are multiple 
+   * uniform data type IDs matching the conditions, the first one is returned.
    *
-   * @param { string } filenameExtension - Filename extension.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
-   * does not exist.
+   * @param { string } filenameExtension - File name extension.
+   * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
+   *     parameter has no default value. If it is not specified, the
+   *     [uniform data type ID] is queried based on the file name
+   *     extension.
+   * @returns { string } ID of the uniform data type that matches the specified file name extension and **belongsTo** (
+   *     if specified). If no match is found, the data type dynamically generated based on the rules specified by the
+   *     input parameters is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 11
-   */
-  /**
-   * Queries and returns the uniform type descriptor by the given filename extension and the uniform data type it
-   * belongs to.
-   *
-   * @param { string } filenameExtension - Filename extension.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { string } Returns the uniform data type ID corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
-   * does not exist.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @since 11 dynamic
    * @since 23 static
    */
   function getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string;
 
   /**
-   * Queries and returns the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
+   * Obtains the uniform data type ID based on the given MIME type and data type. If there are multiple uniform data 
+   * type IDs matching the conditions, the first one is returned.
    *
    * @param { string } mimeType - MIME type.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
+   *     parameter has no default value. If it is not specified, the
+   *     [uniform data type ID] is queried based on the MIME name.
+   * @returns { string } ID of the uniform data type that matches the specified MIME type and **belongsTo** (if
+   *     specified). If no match is found, the data type dynamically generated based on the rules specified by the input
+   *     parameters is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 11
-   */
-  /**
-   * Queries and returns the uniform type descriptor by the given MIME type and the uniform data type it belongs to.
-   *
-   * @param { string } mimeType - MIME type.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { string } Returns the uniform data type ID corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @since 11 dynamic
    * @since 23 static
    */
   function getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string;
 
   /**
-   * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it
-   * belongs to.
+   * Obtains the uniform data type IDs based on the given file name extension and data type.
    *
-   * @param { string } filenameExtension - Filename extension.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
-   * does not exist.
+   * @param { string } filenameExtension - File name extension.
+   * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
+   *     parameter has no default value. If it is not specified, the
+   *     [uniform data type ID] is queried based on the file name
+   *     extension.
+   * @returns { Array<string> } Uniform data type IDs that match the specified file name extension and **belongsTo** (if
+   *     specified). If no match is found, the data types dynamically generated based on the rules specified by the
+   *     input parameters are returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 13
-   */
-  /**
-   * Queries and returns the uniform type descriptor list by the given filename extension and the uniform data type it
-   * belongs to.
-   *
-   * @param { string } filenameExtension - Filename extension.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given filename extension and the
-   * <br>uniform data type it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type
-   * does not exist.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @since 13 dynamic
    * @since 23 static
    */
   function getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array<string>;
 
   /**
-   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs
-   * to.
+   * Obtains the uniform data type IDs based on the given MIME type and data type.
    *
    * @param { string } mimeType - MIME type.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
+   * @param { string } [belongsTo] - ID of the uniform data type, to which the data type to be obtained belongs. This
+   *     parameter has no default value. If it is not specified, the
+   *     [uniform data type ID] is queried based on the MIME name.
+   * @returns { Array<string> } Uniform data type IDs that match the specified MIME type and **belongsTo** (if specified
+   *     ). If no match is found, the data types dynamically generated based on the rules specified by the input
+   *     parameters are returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameters types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @since 13
-   */
-  /**
-   * Queries and returns the uniform type descriptor list by the given MIME type and the uniform data type it belongs to.
-   *
-   * @param { string } mimeType - MIME type.
-   * @param { string } [belongsTo] - A uniform data type ID it belongs to.
-   * @returns { Array<string> } Returns the uniform data type ID list corresponding to the given MIME type and the uniform data type
-   * <br>it belongs to(If the 'belongsTo' parameter is set) or flexible type if the uniform data type does not exist.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   * <br>2.Incorrect parameters types.
-   * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-   * @crossplatform
-   * @since 20 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @since 13 dynamic
    * @since 23 static
    */
   function getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array<string>;
@@ -2604,6 +2581,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 20400003 - The content of one or more typeDescriptors violate rules.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    * @since 23 static
@@ -2622,6 +2600,7 @@ declare namespace uniformTypeDescriptor {
    * @throws { BusinessError } 20400004 - One or more typeIds are invalid or do not exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    * @since 23 static
