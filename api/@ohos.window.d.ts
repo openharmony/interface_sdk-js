@@ -98,7 +98,7 @@ declare type TransitionControllerCallback = (context: window.TransitionContext) 
  * @param { window.WindowEventType } event - Window callback event type
  * @syscap SystemCapability.Window.SessionManager
  * @stagemodelonly
- * @since 24 dynamic&static
+ * @since 26.0.0 dynamic&static
  */
 declare type WindowEventListener = (windowId: int, event: window.WindowEventType) => void;
 
@@ -4924,7 +4924,7 @@ declare namespace window {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function createSubWindowAndBindParent(name: string, parentId: int, ctx: BaseContext,
     parentWindowEventListener: WindowEventListener): Promise<Window>;
