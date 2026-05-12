@@ -183,7 +183,7 @@ declare namespace util {
    * @param { string } uuid - A string representing the UUID.
    * @returns { Uint8Array } A Uint8Array value representing the UUID parsed. If the parsing fails, **SyntaxError** is
    *     thrown.
-   * @throws { BusinessError } 10200002 - Invalid uuid string. [since 12]
+   * @throws { BusinessError } 10200002 - Invalid uuid string.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -792,7 +792,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead null
+     * @useinstead ohos.util.LRUCache.constructor
      */
     constructor(capacity?: number);
 
@@ -1057,7 +1057,7 @@ declare namespace util {
      * A constructor used to create a **LRUCache** instance. The default capacity of the cache is 64.
      *
      * @param { number } [capacity] - Capacity of the cache to create. The default value is **64**, and the maximum
-     *     value is **2147483647**. [since 12]
+     *     value is **2147483647**.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1383,7 +1383,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead null
+     * @useinstead ohos.util.ScopeHelper.constructor
      */
     constructor(lowerObj: ScopeType, upperObj: ScopeType);
 
@@ -1859,7 +1859,7 @@ declare namespace util {
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
      * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
-     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
+     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding.
      * @returns { Uint8Array } Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -1920,7 +1920,7 @@ declare namespace util {
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
      * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
-     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
+     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding.
      * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
