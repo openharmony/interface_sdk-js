@@ -3897,82 +3897,31 @@ declare namespace image {
   }
 
   /**
-   * Initialization options for pixelmap.
+   * Defines PixelMap initialization options.
    *
-   * @typedef InitializationOptions
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 8
-   */
-  /**
-   * Initialization options for pixelmap.
-   *
-   * @typedef InitializationOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Initialization options for pixelmap.
-   *
-   * @typedef InitializationOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Initialization options for pixelmap.
-   *
-   * @typedef InitializationOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   interface InitializationOptions {
     /**
-     * PixelMap size.
+     * Image size.
      *
-     * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 8
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     size: Size;
 
     /**
-     * PixelMap source format.
+     * Pixel format of the passed-in buffer data. The default value is **BGRA_8888**.
      *
-     * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -3980,310 +3929,114 @@ declare namespace image {
     srcPixelFormat?: PixelMapFormat;
 
     /**
-     * PixelMap expected format.
+     * Pixel format of the generated PixelMap. The default value is **RGBA_8888**.
      *
-     * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 8
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     pixelFormat?: PixelMapFormat;
 
     /**
-     * Editable or not.
+     * Whether the image pixels are editable. **true** if editable, **false** otherwise. The value **false** provides 
+     * better image rendering and transmission performance. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 8
-     */
-    /**
-     * Editable or not.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Editable or not.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Editable or not.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     editable?: boolean;
 
     /**
-     * PixelMap expected alpha type.
+     * Alpha type. The default value is **IMAGE_ALPHA_TYPE_PREMUL**.
      *
-     * @type { ?AlphaType }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap expected alpha type.
-     *
-     * @type { ?AlphaType }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected alpha type.
-     *
-     * @type { ?AlphaType }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected alpha type.
-     *
-     * @type { ?AlphaType }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     alphaType?: AlphaType;
 
     /**
-     * PixelMap expected scaling effect.
+     * Scale mode. The default value is **0**.
      *
-     * @type { ?ScaleMode }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap expected scaling effect.
-     *
-     * @type { ?ScaleMode }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected scaling effect.
-     *
-     * @type { ?ScaleMode }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected scaling effect.
-     *
-     * @type { ?ScaleMode }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     scaleMode?: ScaleMode;
   }
 
   /**
-   * Initialization options for ImageSource.
+   * Defines image source initialization options.
    *
-   * @typedef SourceOptions
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
-   */
-  /**
-   * Initialization options for ImageSource.
-   *
-   * @typedef SourceOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Initialization options for ImageSource.
-   *
-   * @typedef SourceOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Initialization options for ImageSource.
-   *
-   * @typedef SourceOptions
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   interface SourceOptions {
     /**
-     * The density for ImageSource.
-     * <br>Unit:ppi.
+     * Pixel density of the image resource, in ppi.
+     * 
+     * If **desiredSize** is not set in [DecodingOptions]{@link image.DecodingOptions} and 
+     * **SourceOptions.sourceDensity** and **DecodingOptions.fitDensity** are not 0, the PixelMap output after decoding 
+     * will be scaled.
+     * 
+     * The formula for calculating the width after scaling is as follows (the same applies to the height): (width * 
+     * fitDensity + (sourceDensity >> 1)) / sourceDensity.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * The density for ImageSource.
-     * <br>Unit:ppi.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The density for ImageSource.
-     * <br>Unit:ppi.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The density for ImageSource.
-     * <br>Unit:ppi.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     sourceDensity: int;
 
     /**
-     * PixelMap expected format.
+     * Image pixel format. The default value is **UNKNOWN**.
      *
-     * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap expected format.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     sourcePixelFormat?: PixelMapFormat;
 
     /**
-     * PixelMap size.
+     * Image pixel size. The default value is null.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * PixelMap size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     sourceSize?: Size;
   }
 
   /**
-   * Value for HDR_STATIC_METADATA.
+   * Describes the static metadata keys, that is, the values available for **HDR_STATIC_METADATA** in 
+   * [HdrMetadataKey]{@link @ohos.multimedia.image:image.HdrMetadataKey}.
    *
-   * @typedef HdrStaticMetadata
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
@@ -4294,7 +4047,6 @@ declare namespace image {
      * primary colors. The values are stored in an array of length 3, in the order of red, green, and blue (r, g, b).
      * Each value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
-     * @type { Array<double> }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4306,7 +4058,6 @@ declare namespace image {
      * primary colors. The values are stored in an array of length 3, in the order of red, green, and blue (r, g, b).
      * Each value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
-     * @type { Array<double> }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4314,10 +4065,10 @@ declare namespace image {
     displayPrimariesY: Array<double>;
 
     /**
-     * The X-coordinate of the white point value. Specifies the normalized X-coordinate of the white point. 
+     * The X-coordinate of the white point value. Specifies the normalized X-coordinate of the white point.
+     * 
      * The value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4325,10 +4076,10 @@ declare namespace image {
     whitePointX: double;
 
     /**
-     * The Y-coordinate of the white point value. Specifies the normalized Y-coordinate of the white point. 
+     * The Y-coordinate of the white point value. Specifies the normalized Y-coordinate of the white point.
+     * 
      * The value is represented in units of 0.00002 and must fall within the range [0.0, 1.0].
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4338,9 +4089,9 @@ declare namespace image {
     /**
      * Maximum luminance of the image's primary display.
      * The value is measured in units of 1, with a maximum allowed value of 65,535.
-     * <br>Unit:nit.
      *
-     * @type { double }
+     * Unit:nit.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4349,10 +4100,9 @@ declare namespace image {
 
     /**
      * Minimum luminance of the image's primary display.
+     * 
      * The value is measured in units of 0.0001, with a maximum allowed value of 6.55535.
-     * <br>Unit:nit.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4361,10 +4111,9 @@ declare namespace image {
 
     /**
      * Maximum brightness of displayed content.
-     * The value is measured in units of 1, with a maximum allowed value of 65,535.
-     * <br>Unit:nit.
      * 
-     * @type { double }
+     * The value is measured in units of 1, with a maximum allowed value of 65,535.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4373,10 +4122,9 @@ declare namespace image {
 
     /**
      * Maximum average brightness of displayed content.
-     * The value is measured in units of 1, with a maximum allowed value of 65,535.
-     * <br>Unit:nit.
      * 
-     * @type { double }
+     * The value is measured in units of 1, with a maximum allowed value of 65,535.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4385,9 +4133,8 @@ declare namespace image {
   }
 
   /**
-   * The per-component metadata.
+   * Describes the data content of a single channel of the gain map. For details, see ISO 21496-1.
    *
-   * @typedef GainmapChannel
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
@@ -4396,7 +4143,6 @@ declare namespace image {
     /**
      * The per-component max gain map values.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4406,7 +4152,6 @@ declare namespace image {
     /**
      * The per-component min gain map values.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4416,7 +4161,6 @@ declare namespace image {
     /**
      * The per-component gamma values.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4426,7 +4170,6 @@ declare namespace image {
     /**
      * The per-component baseline offset.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4436,7 +4179,6 @@ declare namespace image {
     /**
      * The per-component alternate offset.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4445,9 +4187,9 @@ declare namespace image {
   }
 
   /**
-   * Values for HDR_GAINMAP_METADATA.
+   * Describes the metadata keys used by a gain map, that is, the values available for **HDR_GAINMAP_METADATA** in 
+   * [HdrMetadataKey]{@link @ohos.multimedia.image:image.HdrMetadataKey}. For details, see ISO 21496-1.
    *
-   * @typedef HdrGainmapMetadata
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
@@ -4456,7 +4198,6 @@ declare namespace image {
     /**
      * The version used by the writer.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4466,7 +4207,6 @@ declare namespace image {
     /**
      * The minimum version a parser needs to understand.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4476,7 +4216,6 @@ declare namespace image {
     /**
      * The number of gain map channels, with a value of 1 or 3.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4486,7 +4225,6 @@ declare namespace image {
     /**
      * Indicate whether to use the color space of the base image.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4496,7 +4234,6 @@ declare namespace image {
     /**
      * The baseline hdr headroom.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4506,7 +4243,6 @@ declare namespace image {
     /**
      * The alternate hdr headroom.
      *
-     * @type { double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4516,7 +4252,6 @@ declare namespace image {
     /**
      * The per-channel metadata.
      *
-     * @type { Array<GainmapChannel> }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -4527,7 +4262,6 @@ declare namespace image {
   /**
    * Describes the initialization options for ImageReceiver.
    *
-   * @typedef ImageReceiverOptions
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -4536,7 +4270,6 @@ declare namespace image {
     /**
      * Image size, with both the width and height greater than 0.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -4544,10 +4277,10 @@ declare namespace image {
     size?: Size;
 
     /**
-     * Maximum number of images that can be accessed simultaneously. The value must be a positive integer less than
+     * Maximum number of images that can be accessed simultaneously.
+     * The value range is all integers, The value must be a positive integer less than
      * or equal to 64.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -4558,7 +4291,6 @@ declare namespace image {
   /**
    * Describes the image buffer data.
    *
-   * @typedef ImageBufferData
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -4567,8 +4299,6 @@ declare namespace image {
     /**
      * Row stride of each component.
      *
-     * @type { int[] }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -4577,9 +4307,7 @@ declare namespace image {
 
     /**
      * Pixel stride of each component.
-     * 
-     * @type { int[] }
-     * @readonly
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -4588,9 +4316,7 @@ declare namespace image {
 
     /**
      * Image data buffer.
-     * 
-     * @type { ArrayBuffer }
-     * @readonly
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -4599,9 +4325,17 @@ declare namespace image {
   }
 
   /**
-   * Defines the hdr metadata value.
+   * Describes the HDR metadata values used by a PixelMap, which corresponds to the values available for 
+   * [HdrMetadataKey]{@link @ohos.multimedia.image:image.HdrMetadataKey}.
    *
-   * @typedef {HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata} HdrMetadataValue
+   * @unionmember { HdrMetadataType } Metadata value corresponding to the **HDR_METADATA_TYPE** key in
+   *     [HdrMetadataKey]{@link @ohos.multimedia.image:image.HdrMetadataKey}.
+   * @unionmember { HdrStaticMetadata } Metadata value corresponding to the **HDR_STATIC_METADATA** key in
+   *     [HdrMetadataKey]{@link @ohos.multimedia.image:image.HdrMetadataKey}.
+   * @unionmember { ArrayBuffer } Metadata value corresponding to the **HDR_DYNAMIC_METADATA** key in
+   *     [HdrMetadataKey]{@link @ohos.multimedia.image:image.HdrMetadataKey}.
+   * @unionmember { HdrGainmapMetadata } Metadata value corresponding to the **HDR_GAINMAP_METADATA** key in
+   *     [HdrMetadataKey]{@link @ohos.multimedia.image:image.HdrMetadataKey}.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
@@ -4611,7 +4345,6 @@ declare namespace image {
   /**
    * Creates a PixelMap from existing pixel data. The pixel data will be copied and converted to the specified
    * pixel format to initialize the PixelMap.
-   * 
    * The following pixel formats are not supported for PixelMap creation:
    * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
    *
@@ -4629,8 +4362,8 @@ declare namespace image {
    *     Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory.
    * @throws { BusinessError } 7600305 - Failed to create the PixelMap.
    *     Possible causes:
-   *     1. Failed to perform pixel format conversion.
-   *     2. Internal data is corrupted. Please check the logs for detailed information.
+ 	 *     1. Failed to perform pixel format conversion.
+ 	 *     2. Internal data is corrupted. Please check the logs for detailed information.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @crossplatform
@@ -4643,7 +4376,7 @@ declare namespace image {
   /**
    * Creates a PixelMap from existing pixel data. The pixel data will be copied and converted to the specified
    * pixel format to initialize the PixelMap.
-   * 
+   *
    * The following pixel formats are not supported for PixelMap creation:
    * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
    *
@@ -5033,31 +4766,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnabled: boolean): PixelMap;
 
   /**
-   * Creates an ImageSource instance based on the URI.
+   * Creates an ImageSource instance based on a given URI.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { string } uri Image source URI.
-   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { string } uri - Image path. Currently, only the application sandbox path is supported.
+   *     <br>The following formats are supported: .jpg, .png, .gif, .bmp, .webp, .dng, .heic<sup>12+</sup> 
+   *     (depending on the hardware), [.svg<sup>10+</sup>]{@link @ohos.multimedia.image:image.Functions#SVG Tags}, and
+   *     .ico<sup>11+</sup>.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 6
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   function createImageSource(uri: string): ImageSource;
 
@@ -5073,46 +4797,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createImageSource(uri: string): ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the URI.
+   * Creates an ImageSource instance based on a given URI.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { string } uri - Image path. Currently, only the application sandbox path is supported.
+   *     <br>The following formats are supported: .jpg, .png, .gif, .bmp, .webp, .dng, .heic<sup>12+</sup> (depending on
+   *     the hardware), [.svg<sup>10+</sup>]{@link @ohos.multimedia.image:image.Functions#SVG Tags}, and
+   *     .ico<sup>11+</sup>.
+   * @param { SourceOptions } options - Image properties, including the image pixel density, pixel format, and image
+   *     size.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an ImageSource instance based on the URI.
-   *
-   * @param { string } uri Image source URI.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function createImageSource(uri: string, options: SourceOptions): ImageSource;
 
@@ -5129,38 +4832,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createImageSource(uri: string, options: SourceOptions): ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the file descriptor.
+   * Creates an ImageSource instance based on a given file descriptor.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { int } fd ID of a file descriptor.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { int } fd - File descriptor.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 7
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { int } fd ID of a file descriptor.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { int } fd ID of a file descriptor.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   function createImageSource(fd: int): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the file descriptor.
    *
-   * @param { int } fd ID of a file descriptor.
+   * @param { int } fd - ID of a file descriptor
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -5169,46 +4860,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createImageSource(fd: int): ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the file descriptor.
+   * Creates an ImageSource instance based on a given file descriptor.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { int } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { int } fd - File descriptor.
+   * @param { SourceOptions } options - Image properties, including the image pixel density, pixel format, and image
+   *     size.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { int } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { int } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an ImageSource instance based on the file descriptor.
-   *
-   * @param { int } fd ID of a file descriptor.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function createImageSource(fd: int, options: SourceOptions): ImageSource;
 
@@ -5225,42 +4892,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createImageSource(fd: int, options: SourceOptions): ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the buffer.
+   * Creates an ImageSource instance based on buffers. The data passed by **buf** must be undecoded. Do not pass the 
+   * pixel buffer data such as RBGA and YUV. If you want to create a PixelMap based on the pixel buffer data, call 
+   * [image.createPixelMapSync]{@link @ohos.multimedia.image:image.ImageSource.createPixelMapSync(options?: DecodingOptions)}
+   * .
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { ArrayBuffer } buf - Array of image buffers.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
@@ -5276,46 +4923,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createImageSource(buf: ArrayBuffer): ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the buffer.
+   * Creates an ImageSource instance based on buffers. The data passed by **buf** must be undecoded. Do not pass the 
+   * pixel buffer data such as RBGA and YUV. If you want to create a PixelMap based on the pixel buffer data, call 
+   * [image.createPixelMapSync]{@link @ohos.multimedia.image:image.ImageSource.createPixelMapSync(options?: DecodingOptions)}
+   * .
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { ArrayBuffer } buf - Array of image buffers.
+   * @param { SourceOptions } options - Image properties, including the image pixel density, pixel format, and image
+   *     size.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource;
 
@@ -5332,11 +4957,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the raw file descriptor.
+   * Creates an ImageSource instance based on the raw file descriptor of an image resource file.
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { resourceManager.RawFileDescriptor } rawfile The raw file descriptor of the image.
-   * @param { SourceOptions } options The config of Image source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { resourceManager.RawFileDescriptor } rawfile - Raw file descriptor of the image resource file.
+   * @param { SourceOptions } options - Image properties, including the image pixel density, pixel format, and image
+   *     size.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
@@ -5347,32 +4977,56 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Creates an ImageSource instance based on the raw file descriptor.
    *
-   * @param { resourceManager.RawFileDescriptor } rawfile The raw file descriptor of the image.
-   * @param { SourceOptions } [options] The config of Image source.
+   * @param { resourceManager.RawFileDescriptor } rawfile - The raw file descriptor of the image.
+   * @param { SourceOptions } [options] - The config of Image source.
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @since 23 static
    */
   function createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions)
-    : ImageSource | undefined;
+      : ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the buffer in incremental.
+   * Creates an ImageSource instance in incremental mode based on buffers. Such an instance does not support reading or 
+   * writing of Exif information.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
+   * 
+   * The ImageSource instance created in incremental mode supports the following capabilities (applicable to synchronous
+   * , callback, and promise modes):
+   * 
+   * - Obtaining image information: Call 
+   * [getImageInfo]{@link @ohos.multimedia.image:image.ImageSource.getImageInfo(index: int, callback: AsyncCallback<ImageInfo>)}
+   * to obtain image information by index, or call 
+   * [getImageInfo]{@link @ohos.multimedia.image:image.ImageSource.getImageInfo(callback: AsyncCallback<ImageInfo>)} to 
+   * directly obtain image information.
+   * - Obtaining an image property: Call 
+   * [getImageProperty]{@link @ohos.multimedia.image:image.ImageSource.getImageProperty(key: PropertyKey, options?: ImagePropertyOptions)}
+   * to obtain the value of a property with the specified index in an image.
+   * - Obtaining image properties: Call 
+   * [getImageProperties]{@link @ohos.multimedia.image:image.ImageSource.getImageProperties(key: Array<PropertyKey>)} to
+   * obtain the values of properties with the given names in an image.
+   * - Updating incremental data: Call 
+   * [updateData]{@link @ohos.multimedia.image:image.ImageSource.updateData(buf: ArrayBuffer, isFinished: boolean, offset: int, length: int)}
+   * .
+   * - Creating a PixelMap object: Call 
+   * [createPixelMap]{@link @ohos.multimedia.image:image.ImageSource.createPixelMap(options?: DecodingOptions)} or 
+   * [createPixelMap]{@link @ohos.multimedia.image:image.ImageSource.createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>)}
+   * to create a PixelMap object based on decoding options; call 
+   * [createPixelMap]{@link @ohos.multimedia.image:image.ImageSource.createPixelMap(callback: AsyncCallback<PixelMap>)} 
+   * to create a PixelMap object based on default parameters.
+   * - Releasing an ImageSource instance: Call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)}.
    *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { ArrayBuffer } buf - Incremental data.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer in incremental.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   function CreateIncrementalSource(buf: ArrayBuffer): ImageSource;
 
@@ -5388,90 +5042,107 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createIncrementalSource(buf: ArrayBuffer): ImageSource | undefined;
 
   /**
-   * Creates an ImageSource instance based on the buffer in incremental.
+   * Creates an ImageSource instance in incremental mode based on buffers. Such an instance does not support reading or 
+   * writing of Exif information.
+   * 
+   * The capabilities supported by the ImageSource instance created by this API are the same as those supported by the 
+   * instance created by 
+   * [CreateIncrementalSource(buf: ArrayBuffer): ImageSource]{@link image.CreateIncrementalSource(buf: ArrayBuffer)}.
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
+   * @param { ArrayBuffer } buf - Incremental data.
+   * @param { SourceOptions } options - Image properties, including the image pixel density, pixel format, and image
+   *     size.
+   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 9
-   */
-  /**
-   * Creates an ImageSource instance based on the buffer in incremental.
-   *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } options The config of source.
-   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
    */
   function CreateIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource;
 
   /**
    * Creates an ImageSource instance based on the buffer in incremental.
    *
-   * @param { ArrayBuffer } buf The buffer of the image.
-   * @param { SourceOptions } [options] The config of source.
+   * @param { ArrayBuffer } buf - The buffer of the image.
+   * @param { SourceOptions } [options] - The config of source.
    * @returns { ImageSource | undefined } Returns the ImageSource instance if the operation is successful;
    *     returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @since 23 static
    */
-  function createIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource | undefined;
+  function createIncrementalSource(buf: ArrayBuffer, 
+      options?: SourceOptions): ImageSource | undefined;
 
   /**
    * Creates an ImagePacker instance.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImagePacker instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImagePacker.release(callback: AsyncCallback<void>)} to free the memory
+   * promptly. Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+   * finished and the instance is no longer needed.
    *
-   * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
+   * @returns { ImagePacker } ImagePacker instance created.
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 6
-   */
-  /**
-   * Creates an ImagePacker instance.
-   *
-   * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an ImagePacker instance.
-   *
-   * @returns { ImagePacker } Returns the ImagePacker instance if the operation is successful; returns null otherwise.
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   function createImagePacker(): ImagePacker;
 
   /**
-   * Creates an ImageReceiver instance.
+   * Creates an ImageReceiver instance by specifying the image width, height, format, and capacity. The ImageReceiver 
+   * acts as the receiver and consumer of images. Its parameter properties do not actually affect the received images. 
+   * The configuration of image properties should be done on the sending side (the producer), such as when creating a 
+   * camera preview stream with 
+   * [createPreviewOutput]{@link @ohos.multimedia.camera:camera.CameraManager.createPreviewOutput(profile: Profile, surfaceId: string)}
+   * .
+   * Images occupy a large amount of memory. When you finish using an ImageReceiver instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageReceiver.release(callback: AsyncCallback<void>)} to free the 
+   * memory promptly. Before releasing the instance, ensure that all asynchronous operations associated with the 
+   * instance have finished and the instance is no longer needed.
    *
-   * @param { number } width The default width in pixels of the Images that this receiver will produce.
-   * @param { number } height The default height in pixels of the Images that this receiver will produce.
-   * @param { number } format The format of the Image that this receiver will produce. This must be one of the
-   *            {@link ImageFormat} constants.
-   * @param { number } capacity The maximum number of images the user will want to access simultaneously.
-   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
+   * @param { number } width - Default image width, in px. This parameter does not affect the width of the received
+   *     image. The actual width is determined by the producer, for example, the camera.
+   * @param { number } height - Default image height, in px. This parameter does not affect the height of the received
+   *     image. The actual height is determined by the producer, for example, the camera.
+   * @param { number } format - Image format, which is a constant of
+   *     [ImageFormat]{@link @ohos.multimedia.image:image.ImageFormat}. (Currently, only **ImageFormat:JPEG** is
+   *     supported. The format actually returned is determined by the producer, for example, camera.)
+   * @param { number } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
+   *     only as an expected value. The actual capacity is determined by the device hardware.
+   * @returns { ImageReceiver } ImageReceiver instance.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 9 dynamiconly
    * @deprecated since 11
-   * @useinstead image#createImageReceiver
+   * @useinstead image.createImageReceiver(size: Size, format: ImageFormat, capacity: int)
    */
   function createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver;
 
   /**
-   * Creates an ImageReceiver instance.
+   * Creates an ImageReceiver instance by specifying the image size, format, and capacity. The ImageReceiver acts as the
+   * receiver and consumer of images. Its parameter properties do not actually affect the received images. The 
+   * configuration of image properties should be done on the sending side (the producer), such as when creating a camera
+   * preview stream with 
+   * [createPreviewOutput]{@link @ohos.multimedia.camera:camera.CameraManager.createPreviewOutput(profile: Profile, surfaceId: string)}
+   * .
+   * Images occupy a large amount of memory. When you finish using an ImageReceiver instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageReceiver.release(callback: AsyncCallback<void>)} to free the 
+   * memory promptly. Before releasing the instance, ensure that all asynchronous operations associated with the 
+   * instance have finished and the instance is no longer needed.
    *
-   * @param { Size } size - The default {@link Size} in pixels of the Images that this receiver will produce.
-   * @param { ImageFormat } format - The format of the Image that this receiver will produce. This must be one of the
-   *            {@link ImageFormat} constants.
-   * @param { int } capacity - The maximum number of images the user will want to access simultaneously.
-   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * @param { Size } size - Default size of the image. This parameter does not affect the size of the received image.
+   *     The actual returned size is determined by the producer, for example, the camera.
+   * @param { ImageFormat } format - Image format, which is a constant of
+   *     [ImageFormat]{@link @ohos.multimedia.image:image.ImageFormat}. (Currently, only **ImageFormat:JPEG** is
+   *     supported. The format actually returned is determined by the producer, for example, camera.)
+   * @param { int } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
+   *     only as an expected value. The actual capacity is determined by the device hardware.
+   * @returns { ImageReceiver } ImageReceiver instance.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 11 dynamic
    */
@@ -5505,35 +5176,42 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createImageReceiver(options?: ImageReceiverOptions): ImageReceiver | undefined;
 
   /**
-   * Creates an ImageCreator instance.
+   * Creates an ImageCreator instance by specifying the image width, height, format, and capacity.
+   * Images occupy a large amount of memory. When you finish using an ImageCreator instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageCreator#release} to free the memory promptly. Before releasing the instance, ensure 
+   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
    *
-   * @param { number } width The default width in pixels of the Images that this creator will produce.
-   * @param { number } height The default height in pixels of the Images that this creator will produce.
-   * @param { number } format The format of the Image that this creator will produce. This must be one of the
-   *            {@link ImageFormat} constants.
-   * @param { number } capacity The maximum number of images the user will want to access simultaneously.
-   * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
+   * @param { number } width - Default image width, in px.
+   * @param { number } height - Default image height, in px.
+   * @param { number } format - Image format, for example, YCBCR_422_SP or JPEG.
+   * @param { number } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
+   *     only as an expected value. The actual capacity is determined by the device hardware.
+   * @returns { ImageCreator } ImageCreator instance.
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 9 dynamiconly
    * @deprecated since 11
-   * @useinstead image#createImageCreator
+   * @useinstead image.createImageCreator(size: Size, format: ImageFormat, capacity: int)
    */
   function createImageCreator(width: number, height: number, format: number, capacity: number): ImageCreator;
 
   /**
-   * Creates an ImageCreator instance.
+   * Creates an ImageCreator instance by specifying the image size, format, and capacity.
+   * Images occupy a large amount of memory. When you finish using an ImageCreator instance, call 
+   * [release]{@link @ohos.multimedia.image:image.ImageCreator#release} to free the memory promptly. Before releasing the instance, ensure 
+   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
    *
-   * @param { Size } size - The default {@link Size} in pixels of the Images that this creator will produce.
-   * @param { ImageFormat } format - The format of the Image that this creator will produce. This must be one of the
-   *            {@link ImageFormat} constants.
-   * @param { int } capacity - The maximum number of images the user will want to access simultaneously.
-   * @returns { ImageCreator } Returns the ImageCreator instance if the operation is successful; returns null otherwise.
-   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+   * @param { Size } size - Default size of the image.
+   * @param { ImageFormat } format - Image format, for example, YCBCR_422_SP or JPEG.
+   * @param { int } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
+   *     only as an expected value. The actual capacity is determined by the device hardware.
+   * @returns { ImageCreator } ImageCreator instance.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 11 dynamic
    * @since 23 static
    */
   function createImageCreator(size: Size, format: ImageFormat, capacity: int): ImageCreator;
+
   /**
    * The **PixelMap** class provides APIs to read or write image data and obtain image information. Before calling any
    * API in PixelMap, you must use
@@ -7170,20 +6848,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Picture instance. It is composed of a main pixelmap, auxiliary pictures and metadata. The main pixelmap contains 
-   * the main visual content; auxiliary pictures store additional information related to the main pixelmap;
-   * and metadata stores other information associated with the image.
+   * An image that contains special information can be decoded into a picture object, which generally contains the main 
+   * picture, auxiliary picture, and metadata. The main picture contains most information about the image and is mainly 
+   * used to render the image. The auxiliary picture is used to store data related to but different from the main 
+   * picture, revealing more comprehensive details. The metadata is generally used to store information about the image 
+   * file. The picture object class is used to read or write picture objects. Before calling any API in Picture, you 
+   * must use [image.createPicture]{@link @ohos.multimedia.image:image.createPicture} to create a Picture object.
+   * 
+   * Images occupy a large amount of memory. When you finish using a Picture instance, call 
+   * [release]{@link image.Picture.release} to free the memory promptly. Before releasing the instance, ensure that all 
+   * asynchronous operations associated with the instance have finished and the instance is no longer needed.
    *
-   * @typedef Picture
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   interface Picture {
     /**
-     * Obtains the pixel map of the main image.
+     * Obtains the PixelMap object of the main picture. This API returns the result synchronously.
      *
-     * @returns { PixelMap } Returns the pixel map.
+     * @returns { PixelMap } PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7199,12 +6883,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getMainPixelmap(): PixelMap | undefined;
 
     /**
-     * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
+     * Generates a High Dynamic Range (HDR) image and obtains its PixelMap object. This API uses a promise to return the
+     * result.
      *
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @throws { BusinessError } 7600901 - Inner unknown error. Please check the logs for detailed information.
      * @throws { BusinessError } 7600201 - Unsupported operation. e.g.,1. The picture does not has a gainmap.
-     * 2. MainPixelMap's allocator type is not DMA.
+     *     2. MainPixelMap's allocator type is not DMA.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7222,10 +6907,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getHdrComposedPixelmap(): Promise<PixelMap | undefined>;
 
     /**
-     * Obtains the hdr pixel map. This method uses a promise to return the PixelMap object.
+     * Composites an HDR image and returns PixelMap of the image. Composition options (such as PixelMapFormat) can be
+     * passed. This API uses a promise to return the result.
      *
-     * @param { HdrComposeOptions } [options] - The compose options.
-     * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object.
+     * The Picture object that calls this API must contain the main picture, gain map, and metadata.
+     *
+     * @param { HdrComposeOptions } [options] - Options for HDR composition.
+     * @returns { Promise<PixelMap | undefined> } Promise, which returns the PixelMap object or **undefined**.
      * @throws { BusinessError } 7600201 - Unsupported operation.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -7234,8 +6922,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getHdrComposedPixelmapWithOptions(options?: HdrComposeOptions): Promise<PixelMap | undefined>;
 
     /**
-     * Obtains the gain map pixel map.
-     * @returns { PixelMap | null } Returns the pixel map if the operation is successful; returns null otherwise.
+     * Obtains the PixelMap object of the gain map.
+     *
+     * @returns { PixelMap | null } PixelMap object obtained. If there is no PixelMap object, null is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -7243,12 +6932,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getGainmapPixelmap(): PixelMap | null;
 
     /**
-     * Set auxiliary picture.
+     * Sets an auxiliary picture.
      *
-     * @param { AuxiliaryPictureType } type The type of auxiliary picture.
-     * @param { AuxiliaryPicture } auxiliaryPicture AuxiliaryPicture object.
+     * @param { AuxiliaryPictureType } type - Type of the auxiliary picture.
+     * @param { AuxiliaryPicture } auxiliaryPicture - AuxiliaryPicture object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -7256,12 +6945,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setAuxiliaryPicture(type: AuxiliaryPictureType, auxiliaryPicture: AuxiliaryPicture): void;
 
     /**
-     * Obtains the auxiliary picture based on type.
+     * Obtains an auxiliary picture by type.
      *
-     * @param { AuxiliaryPictureType } type The type of auxiliary picture.
-     * @returns { AuxiliaryPicture | null } Returns the auxiliary picture object.
+     * @param { AuxiliaryPictureType } type - Type of the auxiliary picture.
+     * @returns { AuxiliaryPicture | null } AuxiliaryPicture object. If there is no AuxiliaryPicture object, null is
+     *     returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -7269,30 +6959,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture | null;
 
     /**
-     * Set the metadata of main picture.
+     * Sets the metadata for this Picture object. This API uses a promise to return the result.
      *
-     * @param { MetadataType } metadataType The type of metadata.
-     * @param { Metadata } metadata The metadata of main picture.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @param { MetadataType } metadataType - Metadata type.
+     * @param { Metadata } metadata - Metadata object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
-     * metadata type does not match the auxiliary picture type.
+     *     metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
+    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>;
 
     /**
-     * Obtains the metadata of main picture.
+     * Obtains the metadata of this Picture object. This API uses a promise to return the result.
      *
-     * @param { MetadataType } metadataType The type of metadata.
-     * @returns { Promise<Metadata> } Return the metadata of main picture.
+     * @param { MetadataType } metadataType - Metadata type.
+     * @returns { Promise<Metadata> } Promise used to return the metadata.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
-     * metadata type does not match the auxiliary picture type.
+     *     metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7310,35 +7000,48 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getMetadata(metadataType: MetadataType): Promise<Metadata | undefined>;
 
     /**
-     * Marshalling picture and write into MessageSequence.
+     * Marshals this Picture object and writes it to a MessageSequence object.
      *
-     * @param { rpc.MessageSequence } sequence rpc.MessageSequence parameter.
+     * @param { rpc.MessageSequence } sequence - MessageSequence object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
-     * 3. Decode process exception. 4. Insufficient memory.
+     *     2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload
+     *     exception.
+     *     3. Decode process exception. 4. Insufficient memory.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    marshalling(sequence: rpc.MessageSequence): void
+    marshalling(sequence: rpc.MessageSequence): void;
 
     /**
      * Releases this Picture object.
+     * 
+     * Images occupy a large amount of memory. When you finish using a Picture instance, call this API to free the 
+     * memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    release(): void
+    release(): void;
   }
 
   /**
-   * Create a Picture object by the pixel map of the main image.
+   * Creates a Picture object based on a main PixelMap.
+   * 
+   * Images occupy a large amount of memory. When you finish using a Picture instance, call 
+   * [release]{@link @ohos.multimedia.image:image.Picture.release} to free the memory promptly. Before releasing the 
+   * instance, ensure that all asynchronous operations associated with the instance have finished and the instance is no
+   * longer needed.
    *
-   * @param { PixelMap } mainPixelmap The pixel map of the main image.
-   * @returns { Picture } Returns the Picture object.
+   * @param { PixelMap } mainPixelmap - Main PixelMap.
+   * @returns { Picture } Picture object.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   *     2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
@@ -7346,17 +7049,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPicture(mainPixelmap : PixelMap): Picture;
 
   /**
-   * Creates a Picture object by a HDR PixelMap and a SDR PixelMap.A gainmap will be generated using the
-   * HDR and SDR PixelMap, and the returned Picture will contain the SDR PixelMap and the generated gainmap.
-   * 
-   * @param { PixelMap } hdrPixelMap A HDR PixelMap, which PixelMapFormat should be RGBA_F16\RGBA_1010102\YCBCR_P010
-   * and color space should be BT2020_HLG.
-   * @param { PixelMap } sdrPixelMap A SDR PixelMap, which PixelMapFormat should be RGBA_8888\NV21\NV12,
-   * and color space should be P3.
-   * @returns { Promise<Picture> } Returns the Picture object.
+   * Creates a Picture object based on an HDR PixelMap and an SDR PixelMap. The system uses the HDR PixelMap and SDR 
+   * PixelMap to generate a gainmap. The returned Picture object contains the SDR PixelMap and the generated gainmap, 
+   * both in RGBA8888 format. This API uses a promise to return the result.
+   *
+   * @param { PixelMap } hdrPixelMap - HDR PixelMap, with 16-bit or 10-bit depth, in FP16/RGBA1010102/YCBCR_P010 format,
+   *     and BT2020_HLG color space.
+   * @param { PixelMap } sdrPixelMap - SDR PixelMap, with 8-bit depth, in RGBA8888/NV21 format, and P3 color space.
+   * @returns { Promise<Picture> } Picture object that contains the SDR PixelMap and gainmap, both in RGBA8888 format.
    * @throws { BusinessError } 7600201 - Unsupported operation. HdrPixelMap's PixelMapFormat is not
-   * RGBA_F16\RGBA_1010102\YCBCR_P010, or its color space is not BT2020_HLG. Or sdrPixelMap's PixelMapFormat is not 
-   * RGBA_8888\NV21\NV12, or its color space is not P3.
+   *     RGBA_F16\RGBA_1010102\YCBCR_P010, or its color space is not BT2020_HLG. Or sdrPixelMap's PixelMapFormat is not
+   *     RGBA_8888\NV21\NV12, or its color space is not P3.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
    * @since 20 dynamic
@@ -7365,14 +7068,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap): Promise<Picture>;
 
   /**
-   * Creates a Picture object based on MessageSequence parameter.
+   * Creates a Picture object from a MessageSequence object.
+   * 
+   * Images occupy a large amount of memory. When you finish using a Picture instance, call 
+   * [release]{@link @ohos.multimedia.image:image.Picture.release} to free the memory promptly. Before releasing the 
+   * instance, ensure that all asynchronous operations associated with the instance have finished and the instance is no
+   * longer needed.
    *
-   * @param { rpc.MessageSequence } sequence - rpc.MessageSequence parameter.
-   * @returns { Picture } Returns the Picture object.
+   * @param { rpc.MessageSequence } sequence - MessageSequence object that stores the Picture information.
+   * @returns { Picture } Picture object.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception.
-   * 3. Decode process exception. 4. Insufficient memory.
+   *     2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 62980097 - IPC error. Possible cause: 1.IPC communication failed. 2. Image upload
+   *     exception.
+   *     3. Decode process exception. 4. Insufficient memory.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
@@ -7380,19 +7089,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function createPictureFromParcel(sequence: rpc.MessageSequence): Picture;
 
   /**
-   * Create a AuxiliaryPicture object by data buffer.
+   * Creates an AuxiliaryPicture instance based on the ArrayBuffer image data, auxiliary picture size, and auxiliary 
+   * picture type. This API accepts only continuous pixel data in BGRA format and will create an auxiliary picture in 
+   * RGBA format.
+   * 
+   * Images occupy a large amount of memory. When you finish using an AuxiliaryPicture instance, call 
+   * [release]{@link @ohos.multimedia.image:image.AuxiliaryPicture.release} to free the memory promptly. Before 
+   * releasing the instance, ensure that all asynchronous operations associated with the instance have finished and the 
+   * instance is no longer needed.
    *
-   * @param { ArrayBuffer } buffer The image data buffer.
-   * @param { Size } size The size of auxiliary picture.
-   * @param { AuxiliaryPictureType } type The type of auxiliary picture.
-   * @returns { AuxiliaryPicture } The AuxiliaryPicture object.
+   * @param { ArrayBuffer } buffer - Image data stored in the buffer.
+   * @param { Size } size - Size of the auxiliary picture, in px.
+   * @param { AuxiliaryPictureType } type - Type of the auxiliary picture.
+   * @returns { AuxiliaryPicture } AuxiliaryPicture instance.
    * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-   * 2.Incorrect parameter types; 3.Parameter verification failed.
+   *     2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   function createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture;
+
 
   /**
    * Create an <b>AuxiliaryPicture</b> object, the memory type used by the AuxiliaryPicture can be specified by
@@ -7405,7 +7122,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { ArrayBuffer } [pixels] - Pixel data used to initialize the auxiliary picture.
    * @returns { AuxiliaryPicture } The AuxiliaryPicture object.
    * @throws { BusinessError } 7600205 - Unsupported allocator type, e.g., use shared memory to create a gainmap as
-   * only DMA supported hdr metadata.
+   *     only DMA supported hdr metadata.
    * @throws { BusinessError } 7600206 - Invalid parameter, size.height or size.width is less than or equal to 0.
    * @throws { BusinessError } 7600301 - Alloc memory failed.
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -7416,23 +7133,31 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     allocatorType?: AllocatorType, pixels?: ArrayBuffer): AuxiliaryPicture;
 
   /**
-   * AuxiliaryPicture instance.
+   * The **AuxiliaryPicture** class is used to read or write auxiliary picture data of an image and obtain auxiliary 
+   * picture information of an image. The supported types of auxiliary pictures can be found in 
+   * [AuxiliaryPictureType]{@link @ohos.multimedia.image:image.AuxiliaryPictureType}.
+   * 
+   * Before calling any API in AuxiliaryPicture, you must create an AuxiliaryPicture instance using 
+   * [image.createAuxiliaryPicture]{@link @ohos.multimedia.image:image.createAuxiliaryPicture} or 
+   * [getAuxiliaryPicture]{@link @ohos.multimedia.image:image.Picture.getAuxiliaryPicture} in Picture.
+   * 
+   * Images occupy a large amount of memory. When you finish using an AuxiliaryPicture instance, call 
+   * [release]{@link image.AuxiliaryPicture.release} to free the memory promptly. Before releasing the instance, ensure 
+   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
    *
-   * @typedef AuxiliaryPicture
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   interface AuxiliaryPicture {
     /**
-     * Reads auxiliary picture data in an ArrayBuffer and writes the data to a AuxiliaryPicture object. This method
-     * uses a promise to return the result.
+     * Reads pixels from an ArrayBuffer and writes the data to this AuxiliaryPicture object. This API uses a promise to 
+     * return the result.
      *
-     * @param { ArrayBuffer } data A buffer from which the auxiliary picture data will be read.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
-     * error message is returned.
+     * @param { ArrayBuffer } data - Pixels of the auxiliary picture.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -7440,10 +7165,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     writePixelsFromBuffer(data: ArrayBuffer): Promise<void>;
 
     /**
-     * Reads image pixel map data and writes the data to an ArrayBuffer. This method uses
-     * a promise to return the result.
+     * Reads pixels of this auxiliary picture and writes the data to an ArrayBuffer. This API uses a promise to return 
+     * the result.
      *
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the pixel map data.
+     * @returns { Promise<ArrayBuffer> } Promise used to return the pixels of the auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7460,9 +7185,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readPixelsToBuffer(): Promise<ArrayBuffer | undefined>;
 
     /**
-     * Obtains the type of auxiliary picture.
+     * Obtains the type of this auxiliary picture.
      *
-     * @returns { AuxiliaryPictureType } Returns the type of auxiliary picture.
+     * @returns { AuxiliaryPictureType } Type of the auxiliary picture.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7478,30 +7203,30 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getType(): AuxiliaryPictureType | undefined;
 
     /**
-     * Set the metadata of auxiliary picture.
+     * Sets the metadata for this auxiliary picture. This API uses a promise to return the result.
      *
-     * @param { MetadataType } metadataType The type of metadata.
-     * @param { Metadata } metadata The metadata of auxiliary picture.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @param { MetadataType } metadataType - Metadata type, which is used to set the corresponding metadata.
+     * @param { Metadata } metadata - Metadata object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
-     * metadata type does not match the auxiliary picture type.
+     *     metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>
+    setMetadata(metadataType: MetadataType, metadata: Metadata): Promise<void>;
 
     /**
-     * Obtains the metadata of auxiliary picture.
+     * Obtains the metadata of this auxiliary picture. This API uses a promise to return the result.
      *
-     * @param { MetadataType } metadataType The type of metadata.
-     * @returns { Promise<Metadata> } Return the metadata of auxiliary picture.
+     * @param { MetadataType } metadataType - Metadata type, which is used to obtain metadata of the corresponding type.
+     * @returns { Promise<Metadata> } Promise that returns the metadata.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
-     * metadata type does not match the auxiliary picture type.
+     *     metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7520,10 +7245,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getMetadata(metadataType: MetadataType): Promise<Metadata | undefined>;
 
     /**
-     * Obtains the information about this auxiliary picture.
+     * Obtains the auxiliary picture information.
      *
-     * @returns { AuxiliaryPictureInfo } Returns the auxiliary picture information. If the operation fails, an error
-     * message is returned.
+     * @returns { AuxiliaryPictureInfo } Auxiliary picture information.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7540,39 +7264,54 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getAuxiliaryPictureInfo(): AuxiliaryPictureInfo | undefined;
 
     /**
-     * Set the information about this auxiliary picture.
+     * Sets the auxiliary picture information.
      *
-     * @param { AuxiliaryPictureInfo } info the auxiliary picture information.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @param { AuxiliaryPictureInfo } info - Auxiliary picture information.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
+     *     2.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void
+    setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void;
 
     /**
-     * Releases this AuxiliaryPicture object.
+     * Releases this AuxiliaryPicture object. No value is returned.
+     * 
+     * Images occupy a large amount of memory. When you finish using an AuxiliaryPicture instance, call this API to free
+     * the memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    release():void
+    release():void;
   }
 
   /**
-   * Enumerates auxiliary picture type.
+   * Enumerates the auxiliary pictures types.
+   * 
+   * Auxiliary pictures do not directly participate in image display, and not all images contain auxiliary pictures.
+   * 
+   * Before obtaining and using a specific auxiliary picture, call 
+   * [getAuxiliaryPicture]{@link @ohos.multimedia.image:image.Picture.getAuxiliaryPicture} in Picture to obtain the 
+   * auxiliary picture.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   enum AuxiliaryPictureType {
     /**
-     * Gain Map, which is an auxiliary image that describes how the brightness of each pixel should be scaled in order 
-     * to correctly map image luminance between display devices with different dynamic ranges. It is typically used to
-     * convert a Standard Dynamic Range (SDR) image into a High Dynamic Range (HDR) image.
+     * Gain map.
+     * 
+     * It is used to generate HDR images more accurately.
+     * 
+     * HDR synthesis usually involves using the SDR main image, gain map, and 
+     * [HDR metadata]{@link @ohos.multimedia.image:image.PixelMap.getMetadata} to calculate the luminance mapping.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7581,9 +7320,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     GAINMAP = 1,
 
     /**
-     * Depth map, which stores the depth information of an image by capturing the distance between each pixel and
-     * the camera. It provides three-dimensional structural information of the scene and is commonly used for 3D
-     * reconstruction and scene understanding.
+     * Depth map.
+     * 
+     * It is used to store the distance between each pixel and the camera, and provides the 3D structure of the scene.
+     * 
+     * It is useful for tasks like 3D reconstruction, background separation, and scene understanding.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7592,9 +7333,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     DEPTH_MAP = 2,
 
     /**
-     * Unrefocus map, representing an original portrait image with unfocused background, which provides a way to
-     * emphasize background blur inportrait photography.
-     * It helps users select the focus area during post-processing, enhancing creative flexibility.
+     * Unrefocus map.
+     * 
+     * It is used to store the pixel content that is not refocused during capture.
+     * 
+     * It is useful for post-processing effects such as portrait blurring, allowing users to select focus areas freely.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7603,8 +7346,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     UNREFOCUS_MAP = 3,
 
     /**
-     * Linear map, used to provide an additional data perspective or supplementary information, typically for enhancing
-     * visual effects. It can contain a linear representation of lighting, color, or other visual elements in the scene.
+     * Linear map.
+     * 
+     * It records lighting, color, or other visual elements linearly, providing additional data for image processing.
+     * 
+     * It is useful for visual effect enhancement and color post-processing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7613,9 +7359,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     LINEAR_MAP = 4,
 
     /**
-     * Fragment map, representing the region in the original image that is covered by a watermark.
-     * This image is used to restore or remove the effects of the watermark, helping to recover the image’s integrity
-     * and visual clarity.
+     * Fragment map.
+     * 
+     * It records areas of the original image obscured by watermarks. These areas might be cropped from the original 
+     * image or filled with placeholder pixel data.
+     * 
+     * It is useful for watermark removal and original image restoration.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7625,16 +7374,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Enumerates metadata type.
+   * Enumerates image metadata types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   enum MetadataType {
     /**
-     * EXIF metadata.
+     * Exif data.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7643,7 +7391,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     EXIF_METADATA = 1,
 
     /**
-     * Fragment metadata. 
+     * Fragment map metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7652,7 +7400,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     FRAGMENT_METADATA = 2,
 
     /**
-     * Metadata of a GIF image.
+     * GIF image metadata.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 20 dynamic
      * @since 23 static
@@ -7661,16 +7410,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Metadata of a HEIFS image.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
      */
     HEIFS_METADATA = 15,
 
-      /**
+    /**
      * Metadata of a DNG image.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -7679,39 +7428,39 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Metadata of a WebP image.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
      */
     WEBP_METADATA = 17,
 
-    /**
+     /**
      * Metadata of a PNG image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    PNG_METADATA = 19,
+     PNG_METADATA = 19,
 
-    /**
-     * Metadata of a JFIF image.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    JFIF_METADATA = 20,
-
-    /**
-     * Metadata of a TIFF image.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TIFF_METADATA = 21,
+     /**
+      * Metadata of a JFIF image.
+      *
+      * @syscap SystemCapability.Multimedia.Image.Core
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+     JFIF_METADATA = 20,
+ 
+     /**
+      * Metadata of a TIFF image.
+      *
+      * @syscap SystemCapability.Multimedia.Image.Core
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+     TIFF_METADATA = 21,
 
     /**
      * XMP metadata.
@@ -7733,51 +7482,66 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Metadata instance.
+   * The **Metadata** class provides APIs for storing image metadata. For details about the supported metadata types, 
+   * see [MetadataType]{@link @ohos.multimedia.image:image.MetadataType}.
    *
-   * @typedef Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   interface Metadata {
     /**
-     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
-     * of records.
+     * Obtains the values of properties from the image's metadata. This API uses a promise to return the result.
+     * For details about how to query the property values, see 
+     * [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}, 
+     * [FragmentMapPropertyKey]{@link @ohos.multimedia.image:image.FragmentMapPropertyKey}, 
+     * [GifPropertyKey]{@link @ohos.multimedia.image:image.GifPropertyKey}, and 
+     * [HeifsPropertyKey]{@link @ohos.multimedia.image:image.HeifsPropertyKey}.
      *
-     * @param { Array<string> } key Name of the properties whose value is to be obtained.
-     * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
+     * @param { Array<string> } key - Names of the properties.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the property values. If the operation
+     *     fails, an error code is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
-     * metadata type does not match the auxiliary picture type.
+     *     metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    getProperties(key: Array<string>): Promise<Record<string, string | null>>
+    getProperties(key: Array<string>): Promise<Record<string, string | null>>;
 
     /**
-     * Modify the value of properties in an image with the specified keys.
+     * Sets the values of properties for the image's metadata. This API uses a promise to return the result.
+     * 
+     * For details about how to query the property values, see 
+     * [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}, 
+     * [FragmentMapPropertyKey]{@link @ohos.multimedia.image:image.FragmentMapPropertyKey}, 
+     * [GifPropertyKey]{@link @ohos.multimedia.image:image.GifPropertyKey}, and 
+     * [HeifsPropertyKey]{@link @ohos.multimedia.image:image.HeifsPropertyKey}.
      *
-     * @param { Record<string, string | null> } records Array of the property Records whose values are to
-     * be modified.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @param { Record<string, string | null> } records - Array of properties and their values.
+     * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error code is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The
-     * metadata type does not match the auxiliary picture type.
+     *     metadata type does not match the auxiliary picture type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
      */
-    setProperties(records: Record<string, string | null>): Promise<void>
+    setProperties(records: Record<string, string | null>): Promise<void>;
 
     /**
-     * Obtains the value of all properties in an image. This method uses a promise to return the property values
-     * in array of records.
+     * Obtains all properties and values from the image's metadata. This API uses a promise to return the result.
+     * 
+     * For details about how to query the property values, see 
+     * [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}, 
+     * [FragmentMapPropertyKey]{@link @ohos.multimedia.image:image.FragmentMapPropertyKey}, 
+     * [GifPropertyKey]{@link @ohos.multimedia.image:image.GifPropertyKey}, and 
+     * [HeifsPropertyKey]{@link @ohos.multimedia.image:image.HeifsPropertyKey}.
      *
-     * @returns { Promise<Record<string, string | null>> } Array of Records instance used to return the property values.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the values of all properties.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7792,12 +7556,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 23 static
      */
-    getAllProperties(): Promise<Record<string, string | null> | undefined>;
+    getAllProperties(): Promise<Record<string, string|null> | undefined>;
 
     /**
-     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     * Clones the metadata. This API uses a promise to return the result.
      *
-     * @returns { Promise<Metadata> } A Promise instance used to return the metadata.
+     * @returns { Promise<Metadata> } Promise used to return the metadata instance.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      */
@@ -7813,9 +7577,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     clone(): Promise<Metadata | undefined>;
 
     /**
-     * Obtains the metadata as a blob.
+     * Obtains the metadata in binary format. This API uses a promise to return the result.
      *
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @returns { Promise<ArrayBuffer> } Promise that returns the binary data of the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -7823,10 +7587,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getBlob(): Promise<ArrayBuffer>;
   
     /**
-     * Set a blob into the metadata.
+     * Replaces the current metadata with binary data. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } blob - blob data.
-     * @returns { Promise<void> } Returns void.
+     * @param { ArrayBuffer } blob - Binary data used to replace the metadata.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
