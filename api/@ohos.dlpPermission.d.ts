@@ -619,12 +619,11 @@ declare namespace dlpPermission {
      */
     NON_GATHERING = 2
   }
-
   /**
-   * Obtains the DLP sandbox gathering policy. This method uses a promise to return the result.
+   * Obtains the DLP sandbox gathering policy. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @returns { Promise<GatheringPolicyType> } Returns the {@link GatheringPolicyType}.
+   * @returns { Promise<GatheringPolicyType> } Promise used to return the DLP sandbox gathering policy obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -634,12 +633,12 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPGatheringPolicy(): Promise<GatheringPolicyType>;
-
   /**
-   * Obtains the DLP sandbox gathering policy. This method uses an asynchronous callback to return the result.
+   * Obtains the DLP sandbox gathering policy. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { AsyncCallback<GatheringPolicyType> } callback - Indicates the callback of getDLPGatheringPolicy.
+   * @param { AsyncCallback<GatheringPolicyType> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -650,40 +649,33 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPGatheringPolicy(callback: AsyncCallback<GatheringPolicyType>): void;
-
   /**
    * Represents the installed DLP sandbox application info.
    *
-   * @interface DLPSandboxInfo
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface DLPSandboxInfo {
     /**
-     * Index of the installed DLP sandbox application.
+     * Index of the DLP sandbox application
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     appIndex: number;
-
     /**
-     * Token ID of the installed DLP sandbox application.
+     * Token ID of the DLP sandbox application.
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     tokenID: number;
-    
     /**
-     * Index of the DLP sandbox application that has been installed and needs to be started.
+     * Index of the DLP sandbox application to be bound. **Model restriction**: This API can be used only in the stage model.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
@@ -691,16 +683,18 @@ declare namespace dlpPermission {
      */
     bindAppIndex?: number;
   }
-
   /**
-   * Installs a DLP sandbox application. This method uses a promise to return the result.
+   * Installs a DLP sandbox application for an application. This API uses a promise to return the sandbox application
+   * installed.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { DLPFileAccess } access - Indicates the access permission for the DLP file.
-   * @param { number } userId - Indicates the user ID.
-   * @param { string } uri - Indicates the URI of the file.
-   * @returns { Promise<DLPSandboxInfo> } Returns the {@link DLPSandboxInfo}.
+   * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+   * @param { DLPFileAccess } access - Permission on the DLP file.
+   * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
+   *     default super user ID is **100**.
+   * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
+   * @returns { Promise<DLPSandboxInfo> } Promise used to return the information about the sandbox application
+   *     installed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -711,22 +705,19 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function installDLPSandbox(
-    bundleName: string,
-    access: DLPFileAccess,
-    userId: number,
-    uri: string
-  ): Promise<DLPSandboxInfo>;
-
+  function installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string): Promise<DLPSandboxInfo>;
   /**
-   * Installs a DLP sandbox application. This method uses an asynchronous callback to return the result.
+   * Installs a DLP sandbox application for an application. This API uses an asynchronous callback to return the index
+   * of the sandbox application installed.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { DLPFileAccess } access - Indicates the access permission for the DLP file.
-   * @param { number } userId - Indicates the user ID.
-   * @param { string } uri - Indicates the URI of the file.
-   * @param { AsyncCallback<DLPSandboxInfo> } callback - Indicates the callback of installDLPSandbox.
+   * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+   * @param { DLPFileAccess } access - Permission on the DLP file.
+   * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
+   *     default super user ID is **100**.
+   * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
+   * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the information about the sandbox
+   *     application installed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -737,22 +728,16 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function installDLPSandbox(
-    bundleName: string,
-    access: DLPFileAccess,
-    userId: number,
-    uri: string,
-    callback: AsyncCallback<DLPSandboxInfo>
-  ): void;
-
+  function installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string, callback: AsyncCallback<DLPSandboxInfo>): void;
   /**
-   * Uninstalls a DLP sandbox application. This method uses a promise to return the result.
+   * Uninstalls a DLP sandbox application for an application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } userId - Indicates the user ID.
-   * @param { number } appIndex - Indicates the index of DLP sandbox.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+   * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
+   *     default super user ID is **100**.
+   * @param { number } appIndex - DLP sandbox index.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -764,15 +749,17 @@ declare namespace dlpPermission {
    * @since 10
    */
   function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number): Promise<void>;
-
   /**
-   * Uninstalls a DLP sandbox application. This method uses an asynchronous callback to return the result.
+   * Uninstalls a DLP sandbox application for an application. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { number } userId - Indicates the user ID.
-   * @param { number } appIndex - Indicates the index of DLP sandbox.
-   * @param { AsyncCallback<void> } callback - Indicates the callback of uninstallDLPSandbox.
+   * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+   * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
+   *     default super user ID is **100**.
+   * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
+   *     successfully called.
+   * @param { AsyncCallback<void> } callback - Callback used to return the uninstallation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -783,50 +770,39 @@ declare namespace dlpPermission {
    * @systemapi Hide this for inner system use.
    * @since 10
    */
-  function uninstallDLPSandbox(
-    bundleName: string,
-    userId: number,
-    appIndex: number,
-    callback: AsyncCallback<void>
-  ): void;
-
+  function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number, callback: AsyncCallback<void>): void;
   /**
-   * Represents the DLP sandbox state.
+   * DLP sandbox identity.
    *
-   * @interface DLPSandboxState
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   export interface DLPSandboxState {
     /**
-     * Bundle name of the application.
+     * Bundle name of the application. The value contains 7 to 128 bytes
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     bundleName: string;
-
     /**
-     * Application index of the DLP sandbox.
+     * Index of the DLP sandbox application.
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     appIndex: number;
   }
-
   /**
-   * Subscribes to the event reported when a DLP sandbox application is uninstalled.
+   * Subscribes to a DLP sandbox uninstall event.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { 'uninstallDLPSandbox' } type - Indicates the type of event to subscribe to.
-   *     The value of type must be uninstallDLPSandbox.
-   * @param { Callback<DLPSandboxState> } listener - Indicates the callback for the DLP sandbox application uninstall event.
+   * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which
+   *     indicates the DLP sandbox application uninstall event.
+   * @param { Callback<DLPSandboxState> } listener - Callback used when a sandbox application is uninstalled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -838,14 +814,14 @@ declare namespace dlpPermission {
    * @since 10
    */
   function on(type: 'uninstallDLPSandbox', listener: Callback<DLPSandboxState>): void;
-
   /**
-   * Unsubscribes from the event reported when a DLP sandbox application is uninstalled.
+   * Unsubscribes from the DLP sandbox uninstall event.
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
-   * @param { 'uninstallDLPSandbox' } type - Indicates the type of event to unsubscribe from.
-   *     The value of type must be uninstallDLPSandbox.
-   * @param { Callback<DLPSandboxState> } listener - Indicates the callback for the DLP sandbox application uninstall event.
+   * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which indicates the
+   *     DLP sandbox application uninstall event.
+   * @param { Callback<DLPSandboxState> } listener - Callback used when a sandbox application is uninstalled. By default, this
+   *     parameter is left blank, which unregisters all callbacks for the sandbox uninstall event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -857,53 +833,33 @@ declare namespace dlpPermission {
    * @since 10
    */
   function off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxState>): void;
-
   /**
-   * Enumerates the account types for a DLP file.
+   * Enumerates the types of authorized accounts.
    *
-   * @enum { number }
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 20]
+   * @publicapi [since 21]
    * @since 10
-   */
-  /**
-   * Enumerates the account types for a DLP file.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
    */
   export enum AccountType {
     /**
      * Cloud account.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Cloud account.
-     *
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     CLOUD_ACCOUNT = 1,
-
     /**
      * Domain account.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
      */
-    /**
-     * Domain account.
-     *
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
-     */
     DOMAIN_ACCOUNT = 2,
-
     /**
      * Enterprise account.
      *
@@ -912,88 +868,49 @@ declare namespace dlpPermission {
      */
     ENTERPRISE_ACCOUNT = 4
   }
-
   /**
-   * Represents the authorized user information.
+   * Represents the user authorization information.
    *
-   * @interface AuthUser
    * @syscap SystemCapability.Security.DataLossPrevention
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 10 - 20]
+   * @publicapi [since 21]
    * @since 10
-   */
-  /**
-   * Represents the authorized user information.
-   *
-   * @interface AuthUser
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
    */
   export interface AuthUser {
     /**
-     * Authorized account of the DLP file.
+     * Account of the user who can access the DLP file. The value contains up to 255 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Authorized account of the DLP file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     authAccount: string;
-
     /**
-     * Type of the authorized account.
+     * Type of the account.
      *
-     * @type { AccountType }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Type of the authorized account.
-     *
-     * @type { AccountType }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     authAccountType: AccountType;
-
     /**
-     * Authorized permission for the DLP file.
+     * Permission granted to the user.
      *
-     * @type { DLPFileAccess }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Authorized permission for the DLP file.
-     *
-     * @type { DLPFileAccess }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     dlpFileAccess: DLPFileAccess;
-
     /**
-     * Authorization expiration time of the DLP file.
+     * Time when the authorization expires. The value must be greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use.[since 10 - 20]
+     * @publicapi [since 21]
      * @since 10
-     */
-    /**
-     * Authorization expiration time of the DLP file.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
      */
     permExpiryTime: number;
   }
