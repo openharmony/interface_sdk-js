@@ -8520,6 +8520,32 @@ declare namespace photoAccessHelper {
     getPreferredCompatibleMode(bundleName: string): Promise<PreferredCompatibleMode>;
 
     /**
+     * Obtain the URI list to be transcoded based on bundleName, photoAsset list, and compatibleFlag.
+     * compatibleFlags description. Bit 0 indicates a large image, and bit 1 indicates a Heif image.
+     *
+     * @param { string } bundleName - The app bundleName.
+     * @param { Array<PhotoAsset> } assets - Array of the assets.
+     * @param { int } [compatibleFlag] - Compatible configuration mask flag.
+     *     <br>The value should be an integer.
+     * @returns { Promise<Array<string>> } Promise used to return the media library file uri list that needs to be transcoded.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     Possible causes:
+     *     <br>1. The bundleName is invalid;
+     *     <br>2. The compatibleFlag is invalid;
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getAssetCompatibleUris(bundleName: string, assets: Array<PhotoAsset>, compatibleFlag?: int): Promise<Array<string>>;
+
+    /**
      * Query whether the assets exist and whether the invoker has read permission on the assets without permission.
      * @param { string[] } uris - Asset URI list.
      * @returns {Promise<Map<string, MediaAssetPermissionState>>} - Returns
