@@ -32326,6 +32326,23 @@ declare class CommonMethod<T> {
   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
   /**
+       * Sets the next accessibility focus ID for the component, with optional detailed parameters.
+       * The detailed parameters can provide additional behavior for the accessibility focus transition.
+       * @param { string } nextId - set component next accessibility focus id
+       * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
+       *     accessibility next focus processing.
+       *     Undefined indicates reverting to the default of the detailed parameters.
+       * @returns { T }
+       * @syscap SystemCapability.ArkUI.ArkUI.Full
+       * @stagemodelonly
+       * @crossplatform
+       * @form
+       * @atomicservice
+       * @since 26.0.0 dynamic
+       */
+  accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
+
+  /**
    * Enable or disable specific smart gesture shortcuts, and set response priorities for them.
    *
    * @param { SmartGestureShortcutOptions } [options] - Options for configuring smart gesture shortcuts.
