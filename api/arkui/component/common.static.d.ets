@@ -4858,7 +4858,7 @@ export declare interface ClickEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
     /**
@@ -4867,7 +4867,7 @@ export declare interface ClickEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
 
@@ -4961,7 +4961,7 @@ export declare interface HoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
     /**
@@ -4970,7 +4970,7 @@ export declare interface HoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
 }
@@ -5099,7 +5099,7 @@ export declare interface MouseEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
 
@@ -5109,7 +5109,7 @@ export declare interface MouseEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
     /**
@@ -5317,7 +5317,7 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
 
@@ -5327,7 +5327,7 @@ export declare interface AccessibilityHoverEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
 }
@@ -5463,7 +5463,7 @@ export declare interface TouchObject {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
 
@@ -5473,7 +5473,7 @@ export declare interface TouchObject {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
 
@@ -5752,7 +5752,7 @@ export declare interface AxisEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
 
@@ -5762,7 +5762,7 @@ export declare interface AxisEvent extends BaseEvent {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
 
@@ -5799,7 +5799,7 @@ export type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) 
  * @returns { GestureJudgeResult } the gesture judge result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 /**
@@ -6007,7 +6007,7 @@ export type DataSyncOptions = unifiedDataChannel.GetDataParams;
  * @typedef { unifiedDataChannel.DataLoadParams } DataLoadParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type DataLoadParams = unifiedDataChannel.DataLoadParams;
 /**
@@ -6016,7 +6016,7 @@ export type DataLoadParams = unifiedDataChannel.DataLoadParams;
  * @typedef { dragController.SpringLoadingContext } SpringLoadingContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type SpringLoadingContext = dragController.SpringLoadingContext;
 /**
@@ -6025,7 +6025,7 @@ export type SpringLoadingContext = dragController.SpringLoadingContext;
  * @typedef { dragController.DragSpringLoadingConfiguration } DragSpringLoadingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type DragSpringLoadingConfiguration = dragController.DragSpringLoadingConfiguration;
 /**
@@ -6618,7 +6618,7 @@ export declare interface DragEvent {
      * @returns { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
      getDragSource(): string;
     /**
@@ -6627,7 +6627,7 @@ export declare interface DragEvent {
      * @returns { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
      isRemote(): boolean;
     /**
@@ -6640,7 +6640,7 @@ export declare interface DragEvent {
      * @param { DataLoadParams } dataLoadParams - The data backend representation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
      setDataLoadParams(dataLoadParams: DataLoadParams): void;
     /**
@@ -6658,7 +6658,7 @@ export declare interface DragEvent {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableInternalDropAnimation(configuration: string): void;
     /**
@@ -6667,7 +6667,7 @@ export declare interface DragEvent {
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getGlobalDisplayX(): double;
 
@@ -6677,7 +6677,7 @@ export declare interface DragEvent {
      * @returns { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getGlobalDisplayY(): double;
 }
@@ -6832,7 +6832,7 @@ export declare interface KeyEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     isNumLockOn?: boolean;
     /**
@@ -6841,7 +6841,7 @@ export declare interface KeyEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     isCapsLockOn?: boolean;
     /**
@@ -6850,7 +6850,7 @@ export declare interface KeyEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     isScrollLockOn?: boolean;
 }
@@ -11204,7 +11204,7 @@ export declare interface BackgroundOptions {
      *     it is an empty array [].
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
     */
     ignoresLayoutSafeAreaEdges?: Array<LayoutSafeAreaEdge>;
 }
@@ -11441,7 +11441,7 @@ export declare interface CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default background(content: CustomBuilder | ResourceColor | undefined, options?: BackgroundOptions): this;
     /**
@@ -12886,7 +12886,7 @@ export declare interface CommonMethod {
      * @returns { this } - return the component attribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onDragSpringLoading(callback: Callback<SpringLoadingContext> | null | undefined, configuration?: DragSpringLoadingConfiguration): this;
     /**
@@ -13368,7 +13368,7 @@ export declare interface CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onVisibleAreaChange(ratios: Array<double> | undefined, event: VisibleAreaChangeCallback | undefined, measureFromViewport: boolean | undefined): this;
 
@@ -13741,7 +13741,7 @@ export declare interface CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback | undefined): this;
     /**
@@ -13763,7 +13763,7 @@ export declare interface CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback | undefined, exposeInnerGesture: boolean | undefined): this;
     /**
@@ -15941,7 +15941,7 @@ export declare interface VisibleAreaEventOptions {
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     measureFromViewport?: boolean;
 }

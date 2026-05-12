@@ -517,7 +517,7 @@ export declare interface EventLocationInfo {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
     /**
@@ -526,7 +526,7 @@ export declare interface EventLocationInfo {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
 
@@ -564,7 +564,7 @@ export declare interface FingerInfo {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayX?: double;
 
@@ -574,7 +574,7 @@ export declare interface FingerInfo {
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     globalDisplayY?: double;
     /**
@@ -1765,7 +1765,7 @@ export interface PanGestureHandlerOptions extends BaseHandlerOptions {
      * @type { ?Map<SourceTool, double> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     distanceMap?: Map<SourceTool, double>;
 }
@@ -2281,7 +2281,7 @@ export declare class EventTargetInfo {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare class TouchRecognizer {
     /**
@@ -2290,7 +2290,7 @@ export declare class TouchRecognizer {
      * @returns { EventTargetInfo } - the event target information of the component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getEventTargetInfo(): EventTargetInfo;
     /**
@@ -2298,7 +2298,7 @@ export declare class TouchRecognizer {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     cancelTouch(): void;
     /**
@@ -2585,7 +2585,7 @@ export declare class PanRecognizer extends GestureRecognizer {
      * @returns { PanDirection } - Pan recognizer direction
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getDirection(): PanDirection;
     /**
@@ -2595,7 +2595,7 @@ export declare class PanRecognizer extends GestureRecognizer {
      * @returns { double } - the distance of the pan recognizer.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getDistance(): double;
     /**
@@ -2605,7 +2605,7 @@ export declare class PanRecognizer extends GestureRecognizer {
      * @returns { Map<SourceTool, double> } - the distance map of the pan recognizer.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getDistanceMap(): Map<SourceTool, double>;
 }

@@ -150,7 +150,7 @@ export declare interface CrossLanguageOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface InteractionEventBindingInfo {
   /**
@@ -159,7 +159,7 @@ export declare interface InteractionEventBindingInfo {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   baseEventRegistered: boolean;
 
@@ -169,7 +169,7 @@ export declare interface InteractionEventBindingInfo {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   nodeEventRegistered: boolean;
 
@@ -179,7 +179,7 @@ export declare interface InteractionEventBindingInfo {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   nativeEventRegistered: boolean;
 
@@ -189,7 +189,7 @@ export declare interface InteractionEventBindingInfo {
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   builtInEventRegistered: boolean;
 }
@@ -294,7 +294,7 @@ export enum ChildrenCountMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export enum UIState {
   /**
@@ -302,7 +302,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   NORMAL = 0,
 
@@ -311,7 +311,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   PRESSED = 1 << 0,
 
@@ -320,7 +320,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   FOCUSED = 1 << 1,
 
@@ -329,7 +329,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   DISABLED = 1 << 2,
 
@@ -339,7 +339,7 @@ export enum UIState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   SELECTED = 1 << 3,
 
@@ -366,7 +366,7 @@ export enum UIState {
  * @param { int } currentUIStates - Current UI states when the handler is triggered.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 declare type UIStatesChangeHandler = (node: FrameNode, currentUIStates: int) => void;
 
@@ -1022,7 +1022,7 @@ export declare class FrameNode {
    * @param { boolean } [excludeInner=false] - A flag to disable the system's default style handling for states.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   addSupportedUIStates(uiStates: int, statesChangeHandler: UIStatesChangeHandler, excludeInner?: boolean): void;
 
@@ -1033,7 +1033,7 @@ export declare class FrameNode {
    * @param { int } uiStates - The target UI states to remove handlers from.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   removeSupportedUIStates(uiStates: int): void;
 
@@ -1137,7 +1137,7 @@ export declare class FrameNode {
    *     events binded on current node, returns undefined if no one binded on.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getInteractionEventBindingInfo(eventType: EventQueryType): InteractionEventBindingInfo | undefined;
 

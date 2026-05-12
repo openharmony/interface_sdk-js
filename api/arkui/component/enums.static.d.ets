@@ -4527,7 +4527,7 @@ export declare enum DividerMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum EventQueryType {
   /**
@@ -4535,7 +4535,7 @@ export declare enum EventQueryType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ON_CLICK = 0
 }
