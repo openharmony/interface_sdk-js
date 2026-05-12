@@ -126,7 +126,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
     CM_ERROR_PASSWORD_IS_ERR = 17500008,
@@ -498,11 +498,10 @@ declare namespace certificateManager {
 
     /**
      * Certificate URI list.
-     *
      * **Since**: 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     uriList?: Array<string>;
@@ -1547,7 +1546,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificateList(): Promise<CMResult>;
@@ -1571,7 +1570,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
@@ -1598,7 +1597,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function setCertificateStatus(certUri: string, certType: CertType, enabled: boolean) : Promise<void>;
@@ -1607,7 +1606,7 @@ declare namespace certificateManager {
    * Represents the certificate file format.
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   export enum CertFileFormat {
@@ -1615,7 +1614,7 @@ declare namespace certificateManager {
      * The certificate file format is PEM or DER.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     PEM_DER = 0,
@@ -1624,7 +1623,7 @@ declare namespace certificateManager {
      * The certificate file format is P7B.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     P7B = 1
@@ -1634,7 +1633,7 @@ declare namespace certificateManager {
    * Represents the certificate data in binary format.
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   export interface CertBlob {
@@ -1642,7 +1641,7 @@ declare namespace certificateManager {
      * Certificate file data.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certData: Uint8Array;
@@ -1651,7 +1650,7 @@ declare namespace certificateManager {
      * Certificate file format.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certFormat? : CertFileFormat;
@@ -1660,7 +1659,7 @@ declare namespace certificateManager {
      * Scope of the CA certificate.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certScope? : CertScope;
@@ -1684,7 +1683,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode.
    *     <br>In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function installUserTrustedCertificate(certificate: CertBlob) : Promise<CMResult>;
@@ -1702,7 +1701,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllUserTrustedCertificate() : Promise<void>;
@@ -1729,7 +1728,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installPublicCertificate(keystore: Uint8Array, keystorePwd: string) : Promise<CMResult>;
@@ -1751,7 +1750,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallPublicCertificate(keyUri: string) : Promise<void>;
@@ -1771,7 +1770,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllPublicCertificates() : Promise<CMResult>;
@@ -1795,7 +1794,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function grantPublicCertificate(keyUri: string, clientAppUid: int) : Promise<CMResult>;
@@ -1818,7 +1817,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAuthorizedAppList(keyUri: string) : Promise<CMResult>;
@@ -1841,7 +1840,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function removeGrantedPublicCertificate(keyUri: string, clientAppUid: int) : Promise<void>;
@@ -1862,7 +1861,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllAppPrivateCertificatesByUid(appUid: int) : Promise<CMResult>;
@@ -1889,7 +1888,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installSystemAppCertificate(keystore: Uint8Array, keystorePwd: string): Promise<CMResult>;
@@ -1912,7 +1911,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemAppCertificate(keyUri: string) : Promise<CMResult>;
@@ -1934,7 +1933,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallSystemAppCertificate(keyUri: string) : Promise<void>;
@@ -1957,7 +1956,7 @@ declare namespace certificateManager {
    *     <br> Possible causes: the ukeyInfo parameter is invalid.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function getUkeyCertificateList(ukeyProvider: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
@@ -1976,7 +1975,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllAppCertificate() : Promise<void>;
@@ -1990,20 +1989,20 @@ declare namespace certificateManager {
    *     <br>by calling the getUkeyCertificateList interface.
    * @param { Uint8Array } cert - Indicates the certificate data to be imported.
    *     <br>The certificate data format complies with the SKF specification.
-   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
-   *     <br>The value of <br>UkeyInfo.CertificatePurpose must be PURPOSE_SIGN or PURPOSE_ENCRYPT.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information
+   *     <br>UkeyInfo.CertificatePurpose can only be set to PURPOSE_SIGN, PURPOSE_ENCRYPT or PURPOSE_DEFAULT.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @throws { BusinessError } 17500002 - The certificate identified by keyuri does not exist
    * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function importUkeyCertificate(keyUri: string, cert: Uint8Array, ukeyInfo: UkeyInfo): Promise<void>;
