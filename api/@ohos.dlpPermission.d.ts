@@ -312,11 +312,12 @@ declare namespace dlpPermission {
    */
   function getDLPSuffix(): string;
   /**
-   * Subscribes to the event reported when a DLP file is opened by current application.
+   * Subscribes to a DLP file open event. The application will be notified when the DLP file is opened.
    *
-   * @param { 'openDLPFile' } type - Indicates the type of the event to subscribe to.
-   *     The value of type must be openDLPFile.
-   * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
+   * @param { 'openDLPFile' } type - Event type. It has a fixed value of **openDLPFile**, which indicates the DLP file
+   *     open event.
+   * @param { Callback<AccessedDLPFileInfo> } listener - Callback invoked when a DLP file is opened. The application
+   *     will be notified when the DLP file is opened.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -327,13 +328,14 @@ declare namespace dlpPermission {
    * @since 10
    */
   function on(type: 'openDLPFile', listener: Callback<AccessedDLPFileInfo>): void;
-
   /**
-   * Unsubscribes from the event reported when a DLP file is opened by current application.
+   * Unsubscribes from the DLP file open event. The application will not be notified when a DLP file is opened.
    *
-   * @param { 'openDLPFile' } type - Indicates the type of the event to unsubscribe from.
-   *     The value of type must be openDLPFile.
-   * @param { Callback<AccessedDLPFileInfo> } listener - Indicates the callback invoked when a DLP file is opened by current application.
+   * @param { 'openDLPFile' } type - Event type. It has a fixed value of **openDLPFile**, which indicates the DLP file
+   *     open event.
+   * @param { Callback<AccessedDLPFileInfo> } listener - Callback for the DLP file open event. The application will
+   *     not be notified when a DLP file is opened. By default, this parameter is left blank, which unregisters all
+   *     callbacks for the file open event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -344,22 +346,25 @@ declare namespace dlpPermission {
    * @since 10
    */
   function off(type: 'openDLPFile', listener?: Callback<AccessedDLPFileInfo>): void;
-
   /**
-   * Checks whether current application is in the DLP sandbox. This method uses a promise to return the result.
+   * Checks whether this application is running in a DLP sandbox environment. This API uses a promise to return the
+   * result.
    *
-   * @returns { Promise<boolean> } Returns {@code true} if current application is in a DLP sandbox; returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Returns {@code true} Promise object. The value **true** means the application is running in a sandbox;
+   *     the value **false** means the opposite.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   function isInSandbox(): Promise<boolean>;
-
   /**
-   * Checks whether current application is in the DLP sandbox. This method uses an asynchronous callback to return the result.
+   * Checks whether this application is running in a DLP sandbox environment. This API uses an asynchronous callback
+   * to return the result.
    *
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback of isInSandbox.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object. The value **true** means the application is
+   *     running in a sandbox; the value **false** means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -367,22 +372,21 @@ declare namespace dlpPermission {
    * @since 10
    */
   function isInSandbox(callback: AsyncCallback<boolean>): void;
-
   /**
-   * Obtains the file types supported by DLP. This method uses a promise to return the result.
+   * Obtains the file name extension types that support DLP. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<string>> } Returns the list of file types supported.
+   * @returns { Promise<Array<string>> } Promise used to return the file name extension types obtained.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 10
    */
   function getDLPSupportedFileTypes(): Promise<Array<string>>;
-
   /**
-   * Obtains the file types supported by DLP. This method uses an asynchronous callback to return the result.
+   * Obtains the file name extension types that support DLP. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<string>> } callback - Indicates the callback of getDLPSupportedFileTypes.
+   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -390,12 +394,15 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPSupportedFileTypes(callback: AsyncCallback<Array<string>>): void;
-
   /**
-   * Sets the retention status for the files specified by URI list. This method uses a promise to return the result.
+   * Sets the sandbox retention state. This API uses an asynchronous callback to return the result. A sandbox
+   * application is automatically installed when a DLP file is opened, and automatically uninstalled when the DLP file
+   * is closed. Once the sandbox retention state is set for a DLP file, the sandbox application will not be
+   * automatically uninstalled when the DLP file is closed. This API uses a promise to return the result.
    *
-   * @param { Array<string> } docUris - Indicates the URIs of the files, for which the retention status is to set.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
+   *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -406,12 +413,17 @@ declare namespace dlpPermission {
    * @since 10
    */
   function setRetentionState(docUris: Array<string>): Promise<void>;
-
   /**
-   * Sets the retention status for the files specified by URI list. This method uses an asynchronous callback to return the result.
+   * Sets the sandbox retention state. This API uses an asynchronous callback to return the result. A sandbox
+   * application is automatically installed when a DLP file is opened, and automatically uninstalled when the DLP file
+   * is closed. Once the sandbox retention state is set for a DLP file, the sandbox application will not be
+   * automatically uninstalled when the DLP file is closed. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { Array<string> } docUris - Indicates the URIs of the files, for which the retention status is to set.
-   * @param { AsyncCallback<void> } callback - Indicates the callback of setRetentionState.
+   * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
+   *     limit, but each string cannot exceed 4095 bytes.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -422,12 +434,13 @@ declare namespace dlpPermission {
    * @since 10
    */
   function setRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
-
   /**
-   * Cancels the retention status for the files specified by URI list. This method uses a promise to return the result.
+   * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
+   * the DLP file is closed. This API uses a promise to return the result.
    *
-   * @param { Array<string> } docUris - Indicates the list of the file URIs.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
+   *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -436,12 +449,14 @@ declare namespace dlpPermission {
    * @since 10
    */
   function cancelRetentionState(docUris: Array<string>): Promise<void>;
-
   /**
-   * Cancels the retention status for the files specified by URI list. This method uses an asynchronous callback to return the result.
+   * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
+   * the DLP file is closed. This API uses an asynchronous callback to return the result.
    *
-   * @param { Array<string> } docUris - Indicates the list of the file URIs.
-   * @param { AsyncCallback<void> } callback - Indicates the callback of cancelRetentionState.
+   * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
+   *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -450,12 +465,15 @@ declare namespace dlpPermission {
    * @since 10
    */
   function cancelRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
-
   /**
-   * Obtains information about the retained DLP sandboxes of an application. This method uses a promise to return the result.
+   * Obtains the sandbox applications in the retention state of an application. This API uses a promise to return the
+   * result.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @returns { Promise<Array<RetentionSandboxInfo>> } Returns a list of {@link RetentionSandboxInfo}.
+   * @param { string } [bundleName] - Bundle name of the application. By default, this parameter is left empty, which
+   *     obtains the sandbox retention information about the current application. The value contains 7 to 128 bytes.
+   *     If the value exceeds this range, **null** is returned.
+   * @returns { Promise<Array<RetentionSandboxInfo>> } Promise used to return the sandbox retention information
+   *     obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -465,12 +483,14 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getRetentionSandboxList(bundleName?: string): Promise<Array<RetentionSandboxInfo>>;
-
   /**
-   * Obtains information about the retained DLP sandboxes of an application. This method uses an asynchronous callback to return the result.
+   * Obtains the sandbox applications in the retention state of an application. This API uses an asynchronous callback
+   * to return the result.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
+   * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value
+   *     exceeds this range, **null** is returned.
+   * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
+   *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -480,11 +500,12 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getRetentionSandboxList(bundleName: string, callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
-
   /**
-   * Obtains information about the retained DLP sandboxes of an application. This method uses an asynchronous callback to return the result.
+   * Obtains the sandbox applications in the retention state of an application. This API uses an asynchronous callback
+   * to return the result.
    *
-   * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Indicates the callback of getRetentionSandboxList.
+   * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
+   *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -494,11 +515,11 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getRetentionSandboxList(callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
-
   /**
-   * Obtains the DLP file access records. This method uses a promise to return the result.
-   *
-   * @returns { Promise<Array<AccessedDLPFileInfo>> } Returns a list of {@link AccessedDLPFileInfo}.
+   * Obtains the list of DLP files that are accessed recently. This API uses a promise to return the result.
+   *i
+   * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed files
+   *     obtaned.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - No permission to call this API,
    *     which is available only for non-DLP sandbox applications.
@@ -507,11 +528,12 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPFileAccessRecords(): Promise<Array<AccessedDLPFileInfo>>;
-
   /**
-   * Obtains the DLP file access records. This method uses an asynchronous callback to return the result.
+   * Obtains the list of DLP files that are accessed recently. This API uses an asynchronous callback to return the
+   *     result.
    *
-   * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Indicates the callback of getDLPFileAccessRecords.
+   * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Callback used to return the result. If the
+   *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -521,43 +543,43 @@ declare namespace dlpPermission {
    * @since 10
    */
   function getDLPFileAccessRecords(callback: AsyncCallback<Array<AccessedDLPFileInfo>>): void;
-
   /**
-   * Represents the return value of the function startDLPManagerForResult.
+   * Represents information about the trigger of the DLP manager application.
    *
-   * @interface DLPManagerResult
    * @syscap SystemCapability.Security.DataLossPrevention
    * @StageModelOnly
    * @since 11
    */
   export interface DLPManagerResult {
     /**
-     * Indicates the result code returned after the DLP manager is destroyed.
+     * Result code returned after the DLP manager application is started and exits. The value ranges from 0 to 3.
      *
-     * @type { number }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @StageModelOnly
      * @since 11
      */
     resultCode: number;
-
     /**
-     * Indicates the data returned after the DLP manager is destroyed.
+     * Data returned after the DLP manager application is started and exits.
      *
-     * @type { Want }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @StageModelOnly
      * @since 11
      */
     want: Want;
   }
-
   /**
-   * Starts the DLP manager. This method uses a promise to return the result.
+   * Starts the DLP manager application on the current
+   * [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} page in borderless mode. This API uses a promise to return the result.
    *
-   * @param { common.UIAbilityContext } context - Indicates the UIAbility context of the caller.
-   * @param { Want } want - Indicates the request to the DLP manager.
-   * @returns { Promise<DLPManagerResult> } Returns the {@link DLPManagerResult}.
+   * > **NOTE**
+   * >
+   * > This API can be called only by domain accounts.
+   * 
+   * @param { common.UIAbilityContext } context -
+   *     [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} context.
+   * @param { Want } want - Object that requests the start of the DLP manager application.
+   * @returns { Promise<DLPManagerResult> } Promise used to return the **DLPManagerResult** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -569,27 +591,27 @@ declare namespace dlpPermission {
    * @since 11
    */
   function startDLPManagerForResult(context: common.UIAbilityContext, want: Want): Promise<DLPManagerResult>;
-
   /**
-   * Enumerates the gathering policy types for DLP files.
+   * Enumerates the DLP sandbox gathering policy types. **GATHERING** allows the DLP files of the same permission type
+   * to be opened in a sandbox. For example, open different tab pages in a sandbox. **NON_GATHERING** allows different
+   * DLP files to be opened in different sandboxes.
    *
-   * @enum { number }
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
    * @since 10
    */
   export enum GatheringPolicyType {
     /**
-     * Gathering, which allows multiple DLP files to be opened in a sandbox.
+     * Allows the DLP files of the same permission type to be opened in a sandbox. For example, the files of the
+     * same permission type can be opened in tab pages of a window.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
      * @since 10
      */
     GATHERING = 1,
-
     /**
-     * Non-gathering, which allows only one DLP file to be opened in a sandbox.
+     * Allows the DLP files of different permission types to be opened in different sandboxes.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
