@@ -1316,13 +1316,12 @@ declare namespace dlpPermission {
      */
     function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty, callback: AsyncCallback<DLPFile>): void;
     /**
-     * Opens a DLP file. This API uses a promise to return the result.
+     * 打开DLP文件。获取DLPFile管理对象，使用Promise方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } ciphertextFd - FD of the encrypted file.
-     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.
-     * @returns { Promise<DLPFile> } Promise If the operation is successful, a **DLPFile** instance is returned.
-     *     Otherwise, **null** is returned.
+     * @param { number } ciphertextFd - 加密文件的fd。
+     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。
+     * @returns { Promise<DLPFile> } Promise对象。返回对象表示打开生成DLP文件，返回null表示失败。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1344,12 +1343,12 @@ declare namespace dlpPermission {
      */
     function openDLPFile(ciphertextFd: number, appId: string): Promise<DLPFile>;
     /**
-     * Opens a DLP file. This API uses an asynchronous callback to return the result.
+     * DLP管理应用调用该接口，打开DLP文件。获取DLPFile管理对象，使用callback方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } ciphertextFd - FD of the encrypted file.
-     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.
-     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
+     * @param { number } ciphertextFd - 加密文件的fd。
+     * @param { string } appId - 调用方身份。最小8字节，最大1024字节。
+     * @param { AsyncCallback<DLPFile> } callback - 回调函数。返回DLPFile对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1371,11 +1370,10 @@ declare namespace dlpPermission {
      */
     function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
     /**
-     * Sets sandbox application configuration. This API uses a promise to return the result.
+     * 设置沙箱应用配置信息，使用Promise方式异步返回结果。
      *
-     * @param { string } configInfo - Sandbox application configuration. The length must be less than 4 MB. If the value
-     *     exceeds this range, **null** is returned.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } configInfo - 沙箱应用配置信息。长度小于4MB，超出此范围返回null。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1388,9 +1386,9 @@ declare namespace dlpPermission {
      */
     function setSandboxAppConfig(configInfo: string): Promise<void>;
     /**
-     * Cleans sandbox application configuration. This API uses a promise to return the result.
+     * 清理沙箱应用配置信息，使用Promise方式异步返回结果。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -1401,9 +1399,9 @@ declare namespace dlpPermission {
      */
     function cleanSandboxAppConfig(): Promise<void>;
     /**
-     * Obtains sandbox application configuration. This API uses a promise to return the result.
+     * 获取沙箱应用配置信息，使用Promise方式异步返回结果。
      *
-     * @returns { Promise<string> } Promise used to return the result.
+     * @returns { Promise<string> } Promise对象。返回沙箱应用配置信息。长度小于4MB。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @throws { BusinessError } 19100018 - The application is not authorized.
@@ -1412,23 +1410,20 @@ declare namespace dlpPermission {
      */
     function getSandboxAppConfig(): Promise<string>;
     /**
-     * Queries whether the current system provides the data encryption feature. This API uses a promise to return the 
-     * result.
+     * 查询当前系统是否提供加密保护特性，使用Promise方式异步返回结果。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API is enabled by the [MDM](docroot://mdm/mdm-kit-intro.md) kit and is used for enterprise devices. For 
-     * > other devices (such as consumer devices), this API is inapplicable. Calling it returns **false**.
+     * > 该接口由[MDM](docroot://mdm/mdm-kit-intro.md)配置使能，且使能场景为企业设备。其他设备（如消费者终端设备）无需关注该接口，如若调用该接口，则返回值为false。
      *
-     * @returns { Promise<boolean> } Promise used to return the result.
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前系统提供加密保护特性，返回false表示不提供加密保护特性。
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 12
      */
     function isDLPFeatureProvided(): Promise<boolean>;
     /**
-     * Enumerates the actions to be performed when the file's permission expiration time is reached. The default value 
-     * is **NOT_OPEN**.
+     * 表示在文件设定的权限时间到期后所执行的动作枚举，默认为NOT_OPEN。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1437,7 +1432,7 @@ declare namespace dlpPermission {
      */
     export enum ActionType {
         /**
-         * Users are not allowed to open the DLP file when the file's permission expiration time is reached.
+         * 表示超过权限管控时间后，用户无权限打开DLP文件。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1446,7 +1441,7 @@ declare namespace dlpPermission {
          */
         NOT_OPEN = 0,
         /**
-         * Logged-in users are allowed to edit the DLP file when the file's permission expiration time is reached.
+         * 表示超过权限管控时间后，登录账号的用户拥有编辑权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1456,7 +1451,7 @@ declare namespace dlpPermission {
         OPEN = 1
     }
     /**
-     * Represents a custom policy.
+     * 表示自定义策略。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1465,8 +1460,7 @@ declare namespace dlpPermission {
      */
     export interface CustomProperty {
         /**
-         * JSON string of an enterprise custom policy. The length cannot exceed 4 MB. If the value exceeds this range, 
-         * **null** is returned.
+         * 表示企业定制策略的json字符串。长度不超过4MB，超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1475,7 +1469,9 @@ declare namespace dlpPermission {
          */
         enterprise: string;
         /**
-         * Represents query options for DLP files.
+         * 企业DLP文件的查询选项。
+         * 
+         * **模型约束**：此接口仅可在Stage模型下使用。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1484,24 +1480,18 @@ declare namespace dlpPermission {
         options?: DlpFileQueryOptions;
     }
     /**
-     * Obtains a **DLPFile** object. This API uses a promise to return the result.
+     * 获取DLPFile管理对象。使用Promise异步回调。
      * 
      * > **NOTE**
      * >
-     * > This API can be called only by enterprise accounts. Enterprises need to set up their own enterprise account 
-     * > servers. This API generates a DLP file, which is an encrypted file that can be accessed only by accounts 
-     * > authorized by the enterprise server.
+     * > 该接口仅支持企业账号调用，需要企业自行搭建企业账号服务器配套使用。使用该接口可以将明文文件加密生成权限受控文件，由企业服务器管控账号是否有权限解密该文件。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { number } plaintextFd - FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
-     * @param { number } dlpFd - FD of an encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
-     * @param { DLPProperty } property - General policy of DLP files.
-     * @param { CustomProperty } customProperty - Enterprise custom policy.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { number } plaintextFd - 明文文件的文件描述符。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
+     * @param { number } dlpFd - 加密文件的文件描述符。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
+     * @param { DLPProperty } property - DLP文件通用策略。
+     * @param { CustomProperty } customProperty - 企业定制策略。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1519,15 +1509,11 @@ declare namespace dlpPermission {
      */
     function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
     /**
-     * Parses the file header in a DLP file to obtain the DLP plaintext policy. This API uses a promise to return the 
-     * result.
+     * 在DLP文件中解析文件头，获取DLP明文策略。使用Promise异步回调。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { number } dlpFd - FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
-     * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed 4
-     *     MB.
+     * @param { number } dlpFd - 待解密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
+     * @returns { Promise<string> } Promise对象，返回当前DLP策略的json字符串。长度不超过4MB。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1546,21 +1532,16 @@ declare namespace dlpPermission {
      */
     function queryDlpPolicy(dlpFd: number): Promise<string>;
     /**
-     * Decrypts a DLP file to generate a plaintext file. This API uses a promise to return the result.
+     * 将DLP文件解密生成明文文件。使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only by enterprise accounts. Enterprises need to set up their own enterprise account 
-     * > servers. The enterprise server determines whether an account is authorized to decrypt DLP files.
+     * > 该接口仅支持企业账号调用，需要企业自行搭建企业账号服务器配套使用。由企业服务器管控账号是否有权限解密DLP文件。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { number } dlpFd - FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
-     * @param { number } plaintextFd - FD of the decrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { number } dlpFd - 待解密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
+     * @param { number } plaintextFd - 目标解密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1579,14 +1560,14 @@ declare namespace dlpPermission {
      */
     function decryptDlpFile(dlpFd: number, plaintextFd: number): Promise<void>;
     /**
-     * Represents an enterprise custom policy.
+     * 表示企业定制策略。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     export interface EnterprisePolicy {
         /**
-         * JSON string of an enterprise custom policy. The length cannot exceed 4 MB.
+         * 表示企业定制策略的json字符串。长度不超过4MB。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1594,10 +1575,10 @@ declare namespace dlpPermission {
         policyString: string;
     }
     /**
-     * Sets the protection policy for enterprise applications.
+     * 设置企业应用防护策略。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { EnterprisePolicy } policy - Protection policy to be set for enterprise applications.
+     * @param { EnterprisePolicy } policy - 待设置的企业应用防护策略。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1607,33 +1588,29 @@ declare namespace dlpPermission {
      */
     function setEnterprisePolicy(policy: EnterprisePolicy): void;
     /**
-     * Registers the callback capability with the system ability (SA). This API is used in the **registerPlugin** API.
+     * 被用于registerPlugin接口中，将回调能力注册到SA（System Ability）中。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > [registerPlugin]{@link dlpPermission.DlpConnManager.registerPlugin} requires identical parameters to this API. 
-     * > [connectServer]{@link dlpPermission.DlpConnPlugin.connectServer} is called by the SA and the parameters are 
-     * > returned through the callback.
+     * > [registerPlugin]{@link dlpPermission.DlpConnManager.registerPlugin}接口的参数需要继承该接口，
+     * > [connectServer]{@link dlpPermission.DlpConnPlugin.connectServer}由SA（System Ability）侧调用，通过callback进行回传参数。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     export interface DlpConnPlugin {
         /**
-         * This API is called by the SA. After processing the cloud connection capability, it will be called as a 
-         * callback in the SA.
+         * 该函数提供给SA（System Ability）侧调用，待该函数处理完连云能力后，通过callback调用回SA（System Ability）中。
          * 
-         * > **NOTE**
+         * > **说明：**
          * >
-         * > **connectServer** indicates a call from the system capability side to the frontend.
+         * > connectServer接口代表系统能力侧向前端通信的一次调用。
          *
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
-         * @param { string } requestId - ID of the request transferred by the SA. No value range restriction is
-         *     specified.
-         * @param { string } requestData - Data transferred by the SA. No value range restriction is specified.
-         * @param { Callback<string> } callback - API transferred by the SA, which is used for callback. No value range
-         *     restriction is specified.
+         * @param { string } requestId - SA（System Ability）侧传递的本次请求的标识。无范围限制。
+         * @param { string } requestData - SA（System Ability）侧传递的数据。无范围限制。
+         * @param { Callback<string> } callback - SA（System Ability）侧传递的接口，用于回调。无范围限制。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -1642,19 +1619,18 @@ declare namespace dlpPermission {
         connectServer(requestId: string, requestData: string, callback: Callback<string>): void;
     }
     /**
-     * Calls **registerPlugin** and **unregisterPlugin** to register and unregister callback capabilities in the SA.
+     * 用于调用registerPlugin和unregisterPlugin接口，将回调能力在SA（System Ability）中注册/注销。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > **registerPlugin** registers callback capabilities in the SA, and **unregisterPlugin** unregisters callback 
-     * > capabilities from the SA.
+     * > registerPlugin接口将回调能力注册进SA（System Ability），而unregisterPlugin接口将回调能力从SA（System Ability）中注销。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     export class DlpConnManager {
         /**
-         * Represents a constructor for instantiating [DlpConnManager]{@link dlpPermission.DlpConnManager}.
+         * [DlpConnManager]{@link dlpPermission.DlpConnManager}实例化时的构造函数。.
          *
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
@@ -1664,17 +1640,16 @@ declare namespace dlpPermission {
          */
         constructor();
         /**
-         * Registers a callback with the SA.
+         * 该接口提供将回调注册到SA（System Ability）侧的功能。
          * 
-         * > **NOTE**
+         * > **说明：**
          * >
-         * > **registerPlugin** registers the callback with the SA.
+         * > registerPlugin将plugin注册到SA（System Ability）侧，待SA（System Ability）调用。
          *
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
-         * @param { DlpConnPlugin } plugin - Callback capability.
-         * @returns { number } Registration result, which indicates the ID of the callback. The value range is
-         *     [0, 2<sup>64</sup>-1].
+         * @param { DlpConnPlugin } plugin - 代表回调能力。
+         * @returns { number } 注册结果，代表该回调的id。取值范围为[0, 2<sup>64</sup>-1]。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
@@ -1685,11 +1660,11 @@ declare namespace dlpPermission {
          */
         static registerPlugin(plugin: DlpConnPlugin): number;
         /**
-         * Unregisters a callback from the SA.
+         * 提供将回调从SA（System Ability）侧注销的能力。
          * 
-         * > **NOTE**
+         * > **说明：**
          * >
-         * > **unregisterPlugin** unregisters a plug-in from the SA.
+         * > unregisterPlugin将plugin从SA（System Ability）侧注销注册。
          *
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
@@ -1704,11 +1679,17 @@ declare namespace dlpPermission {
         static unregisterPlugin(): void;
     }
     /**
-     * Queries the list of URIs of DLP files that have been opened and matched the specified options.
-     *
+     * 查询已打开且符合指定选项的企业DLP文件的URI列表。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * > 
+     * > - 该接口仅能查询调用方应用通过[generateDlpFileForEnterprise]{@link dlppermission.generatedlpfileforenterprise}生成的企业DLP文件，无法查询
+     * > 其他应用生成的企业DLP文件。
+     * >
+     * > - 相同分类标签的只读企业DLP文件在同一个沙箱中打开。如果一个沙箱中打开了多个相同标签的只读企业DLP文件，则查询结果返回所有该沙箱打开过文件的URI（包括手动关闭的文件）。
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
-     * @returns { Promise<Array<string>> } Returns list of URIs of the target DLP files that have been opened.
+     * @param { DlpFileQueryOptions } [options] - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则查询所有企业DLP文件。
+     * @returns { Promise<Array<string>> } Promise对象，返回已打开的目标企业DLP文件的URI列表。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1719,11 +1700,15 @@ declare namespace dlpPermission {
      */
     function queryOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<Array<string>>;
     /**
-     * Closes all currently open DLP files that match the specified options.
+     * 关闭当前打开的所有符合指定选项的企业DLP文件。使用Promise异步回调。
+     *
+     * > **说明：**
+     * > 
+     * > 该接口仅能关闭调用方应用通过[generateDlpFileForEnterprise]{@link dlppermission.generatedlpfileforenterprise}生成的企业DLP文件。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DlpFileQueryOptions } [options] - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则关闭所有企业DLP文件。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1734,7 +1719,7 @@ declare namespace dlpPermission {
      */
     function closeOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<void>;
     /**
-     * Represents query options for DLP files.
+     * 表示企业DLP文件的查询选项。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
@@ -1742,7 +1727,7 @@ declare namespace dlpPermission {
      */
     export interface DlpFileQueryOptions {
         /**
-         * User-defined classification label for an enterprise DLP file.
+         * 表示企业DLP文件的用户定义分类标签。单位为byte，最大长度为255字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
