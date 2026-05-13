@@ -100,6 +100,26 @@ export declare class DrawableDescriptor {
    * @since 23 static
    */
   load(): Promise<DrawableDescriptorLoadedResult>;
+
+  /**
+   * Release the DrawableDescriptor object. After relase, any method call that
+   *     accesses the object's internal data will fail.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  release(): void;
+  /**
+   * Releases the DrawableDescriptor object. After release, any method call that
+   *     accesses the object's internal data wll fail.
+   *
+   * @returns { boolean } Return true if the DrawableDescriptor object has been released, or false if not.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isReleased(): boolean;
 }
 
 /**
