@@ -1008,8 +1008,6 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600010 - The input parameter is invalid.
-   * @throws { BusinessError } 13600019 - Get all disks info failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
@@ -1028,7 +1026,6 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13600010 - The input parameter is invalid.
-   * @throws { BusinessError } 13600020 - Get disk info by id failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
