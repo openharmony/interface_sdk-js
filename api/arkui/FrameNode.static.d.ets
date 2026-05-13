@@ -1320,6 +1320,17 @@ export declare class FrameNode {
    * @since 23 static
    */ 
   invalidateAttributes(): void;
+
+  /**
+   * Get whether the current FrameNode is a minimized FrameNode.
+   *
+   * @returns { boolean } - Returns true when the current FrameNode is a minimized FrameNode,
+   *     otherwise returns false.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  isMinimized(): boolean;
 }
 
 /**

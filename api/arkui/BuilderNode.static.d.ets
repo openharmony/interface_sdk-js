@@ -92,6 +92,19 @@ export interface RenderOptions {
    * @since 23 static
    */
   surfaceId?: string;
+
+  /**
+   * Indicates whether minimized mode is enabled.
+   * If this option is enabled, the FrameNode obtained through BuilderNode.getFrameNode()
+   * is a minimized FrameNode, which provide the smallest set of capabilities.
+   * Default value: false.
+   *
+   * @type { ?boolean } The default value is false. Indicates whether minimized mode is enabled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  enableMinimized?: boolean;
 }
 
 
