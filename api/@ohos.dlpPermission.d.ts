@@ -1525,7 +1525,6 @@ declare namespace dlpPermission {
          * @since 20
          */
         NOT_OPEN = 0,
-    
         /**
          * Logged-in users are allowed to edit the DLP file when the file's permission expiration time is reached.
          *
@@ -1712,7 +1711,7 @@ declare namespace dlpPermission {
          * @param { string } requestId - ID of the request transferred by the SA. No value range restriction is
          *     specified.
          * @param { string } requestData - Data transferred by the SA. No value range restriction is specified.
-         * @param { Callback<string> } callback -  API transferred by the SA, which is used for callback. No value range 
+         * @param { Callback<string> } callback -  API transferred by the SA, which is used for callback. No value range
          *     restriction is specified.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
