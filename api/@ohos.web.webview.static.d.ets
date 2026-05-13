@@ -286,21 +286,25 @@ declare namespace webview {
     }
 
     /**
-     * The memory pressure level that can be set.
-     * @enum {number}
+     * Enumerates the memory pressure levels. When an application clears the cache occupied by the **Web** component,
+     * the **Web** kernel releases the cache based on the memory pressure level.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum PressureLevel {
         /**
-         * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
+         * Moderate memory pressure level. At this level, the **Web** kernel attempts to release the cache that has low
+         * reallocation overhead and does not need to be used immediately.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         MEMORY_PRESSURE_LEVEL_MODERATE = 1,
-
         /**
-         * At this level, modules are advised to free all possible memory.
+         * Critical memory pressure level. At this level, the **Web** kernel attempts to release all possible memory
+         * caches.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -526,33 +530,29 @@ declare namespace webview {
     }
 
     /**
-     * Provides basic information of web storage.
+     * Provides usage information of the Web SQL Database.
      *
-     * @typedef WebStorageOrigin
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     interface WebStorageOrigin {
         /**
-         * Url source.
+         * Index of the origin.
          *
-         * @type { string }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         origin: string;
         /**
-         * Specify the amount of storage for the source. Unit: byte.
+         * Storage usage of the origin.
          *
-         * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         usage: double;
         /**
-         * the callback of getOriginUsage. Unit: byte.
+         * Storage quota of the origin.
          *
-         * @type { double }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -630,68 +630,80 @@ declare namespace webview {
     function once(type: string, callback: Callback<void>): void;
 
     /**
-     * Implements a WebStorage object to manage the Web SQL database and HTML5 Web Storage APIs.
-     * All Web components in an application share a WebStorage object.
+     * Implements a **WebStorage** object to manage the Web SQL database and HTML5 Web Storage APIs. All **Web**
+     * components in an application share a **WebStorage** object.
      *
-     * <p><strong>API Note</strong>:<br>
-     * You must load the Web component before calling the APIs in WebStorage.
-     * </p>
+     * > **NOTE**
+     * >
+     * > - The sample effect is subject to the actual device.
+     * >
+     * > - You must load the **Web** component before calling the APIs in **WebStorage**.
+     * >
+     * > - After the ArkWeb kernel is upgraded to M132, the Web SQL database management becomes invalid because the
+     * > kernel discards Web SQL. For details about the ArkWeb kernel version, see
+     * > [Constraints](docroot://web/web-component-overview.md#constraints).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     class WebStorage {
         /**
-         * Deletes all data in the Web SQL Database.
+         * Deletes all storage data used by JavaScript storage APIs, including the Web SQL Database and HTML5-supported
+         * Web storage APIs.
          *
-         * @param { boolean } incognito - Whether to delete all data in the Web SQL Database in incognito mode.
-         *                                {@code true} means to delete all data in the Web SQL Database in incognito mode;
-         *                                {@code false} means to delete all data in the Web SQL Database in normal non-incognito mode.
+         * @param { boolean } [incognito] - Whether to delete all data in the Web SQL Database in incognito mode. The
+         *     value **true** means to delete all data in the Web SQL Database in incognito mode, and **false** means
+         *     the opposite.<br>Default value: **false**.<br>If **undefined** or **null** is passed, the value is
+         *     **false**.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static deleteAllData(incognito?: boolean): void;
-
         /**
          * Deletes all data in the specified origin.
          *
-         * @param { string } origin - Index of the origin, which is obtained through {@link getOrigins}.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * @param { string } origin - Index of the origin, which is obtained through
+         *     [getOrigins]{@link webview.WebStorage.static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>)}
+         *     .
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static deleteOrigin(origin: string): void;
-
         /**
-         * Obtains information about all origins that are currently using the Web SQL Database.
-         * This API uses a promise to return the result.
+         * Obtains information about origins that are currently using the Web SQL Database and HTML5-supported Web
+         * Storage APIs. This API uses a promise to return the result.
          *
-         * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
-         *                                                 For details, see {@link WebStorageOrigin}.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * @returns { Promise<Array<WebStorageOrigin>> } Promise used to return the information about the
+         *     origins.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @throws { BusinessError } 17100012 - Invalid web storage origin.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static getOrigins(): Promise<Array<WebStorageOrigin>>;
-
         /**
-         * Obtains information about all origins that are currently using the Web SQL Database.
-         * This API uses an asynchronous callback to return the result.
+         * Obtains information about origins that are currently using the Web SQL Database and HTML5-supported Web
+         * Storage APIs. This API uses an asynchronous callback to return the result.
          *
-         * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
-         *                                                              origins. For details, see {@link WebStorageOrigin}.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about
+         *     the origins.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @throws { BusinessError } 17100012 - Invalid web storage origin.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
-
         /**
          * Get the web storage quota with the origin.
          * @param { string } origin -  The origin which to be inquired.
@@ -704,41 +716,49 @@ declare namespace webview {
          * @since 23 static
          */
         static getOriginQuota(origin: string): Promise<double>;
-
         /**
-         * Get the web storage quota with the origin.
-         * @param { string } origin -  The origin which to be inquired.
-         * @param { AsyncCallback<double> } callback - the callback of getOriginQuota.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * Obtains the storage quota of an origin in Web SQL Database and HTML5-supported Web Storage APIs, in bytes.
+         * This API uses an asynchronous callback to return the result.
+         *
+         * @param { string } origin - Index of the origin.
+         * @param { AsyncCallback<double> } callback - The origin which to be inquired.
+         *     - Storage quota of the origin.<br>**number** is a long integer
+         *     ranging from -2,147,483,648 to 2,147,483,647.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
-         * @static
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static getOriginQuota(origin: string, callback: AsyncCallback<double>): void;
-
         /**
-         * Get the web amount of storage with the origin.
-         * @param { string } origin -  The origin which to be inquired.
-         * @returns { Promise<double> } - the promise returned by the function. Unit: byte.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * Obtains the storage usage of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in
+         * bytes. This API uses a promise to return the result.
+         *
+         * @param { string } origin - Index of the origin.
+         * @returns { Promise<double> } Promise used to return the storage usage of the origin.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
-         * @static
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static getOriginUsage(origin: string): Promise<double>;
-
         /**
-         * Get the web amount of storage with the origin.
-         * @param { string } origin -  The origin which to be inquired.
-         * @param { AsyncCallback<double> } callback - the callback of getOriginUsage.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * Obtains the storage usage of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in
+         * bytes. This API uses an asynchronous callback to return the result.
+         *
+         * @param { string } origin - Index of the origin.
+         * @param { AsyncCallback<double> } callback - Storage usage of the origin.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @throws { BusinessError } 17100011 - Invalid origin.
-         * @static
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -746,24 +766,27 @@ declare namespace webview {
     }
 
     /**
-     * Implements a WebDataBase object.
+     * Implements a **WebDataBase** object.
      *
-     * <p><strong>API Note</strong>:<br>
-     * You must load the Web component before calling the APIs in WebDataBase.
-     * </p>
+     * > **NOTE**
+     * >
+     * > - The sample effect is subject to the actual device.
+     * >
+     * > - You must load the **Web** component before calling the APIs in **WebDataBase**.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     class WebDataBase {
         /**
-         * Get whether instances holds any http authentication credentials.
-         * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
+         * Checks whether any saved HTTP authentication credentials exist. This API returns the result synchronously.
+         *
+         * @returns { boolean } Whether any saved HTTP authentication credentials exist.
+         *     <br>**true** is returned if any saved HTTP authentication credentials exist; otherwise, **false** is returned.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static existHttpAuthCredentials(): boolean;
-
         /**
          * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
          *
@@ -771,27 +794,33 @@ declare namespace webview {
          * @since 23 static
          */
         static deleteHttpAuthCredentials(): void;
-
         /**
-         * Get http authentication credentials.
-         * @param { string } host - The host to which the credentials apply.
-         * @param { string } realm - The realm to which the credentials apply.
-         * @returns { Array<string> } Return an array containing username and password.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * Retrieves HTTP authentication credentials for a given host and realm. This API returns the result
+         * synchronously.
+         *
+         * @param { string } host - Host to which the HTTP authentication credential is applied.
+         * @param { string } realm - Realm to which the HTTP authentication credential is applied.
+         * @returns { Array<string> } Array of the matching user names and passwords is returned if the operation is
+         *     successful; otherwise, an empty array is returned.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         static getHttpAuthCredentials(host: string, realm: string): Array<string>;
-
         /**
          * Saves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
-         * @param { string } host - Host to which HTTP authentication credentials apply.
-         * @param { string } realm - Realm to which HTTP authentication credentials apply.
+         *
+         * @param { string } host - Host to which the HTTP authentication credential is applied.
+         * @param { string } realm - Realm to which the HTTP authentication credential is applied.
          * @param { string } username - User name.
          * @param { string } password - Password.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
+         *     3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -4023,26 +4052,56 @@ declare namespace webview {
         setUrlTrustList(urlTrustList: string): void;
 
         /**
-         * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
-         * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
-         * The behavior of {@link fileAccess} will be overwritten by that of this API.
+         * Sets a path list. When the file protocol accesses resources in the path list, cross-origin access to local
+         * files and other online resources is allowed. In addition, when a path list is set, the file protocol can
+         * access only the resources in the path list. The behavior of
+         * [fileAccess]{@link WebAttribute.fileAccess} will be
+         * overwritten by that of this API. The paths in the list must be any of the following:
          *
-         * The paths in the list must be any of the following(sub path and module name must be provided):
+         * 1. The path of subdirectory of the application file directory.
+         * (The application file directory is obtained using
+         * [Context.filesDir]{@link ./application/Context:Context#filesDir}
+         * in the Ability Kit.) For example:
          *
-         * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
-         *    or "/data/storage/el2/base/haps/entry/files/example".
-         *    The application file directory is obtained using Context.filesDir in the Ability Kit.
-         * 2. The path of application resource directory or its subdirectory, like "/data/storage/el1/bundle/entry/resource/resfile"
-         *    or "/data/storage/el1/bundle/entry/resource/resfile/example".
-         *    The application resource directory is obtained from Context.resourceDir in the Ability Kit.
+         * * /data/storage/el2/base/files/example
+         * * /data/storage/el2/base/haps/entry/files/example
          *
-         * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
-         * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
-         * the behavior of the {@link fileAccess}.
+         * 2. The path of application resource directory or its subdirectory.
+         * (The application resource directory is obtained from
+         * [Context.resourceDir]{@link ./application/Context:Context#resourceDir}
+         * in the Ability Kit.) For example:
          *
-         * @param { Array<string> } pathList - The path list allow universal access.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Parameter string is too long. 3.Parameter verification failed.
+         * * /data/storage/el1/bundle/entry/resources/resfile
+         * * /data/storage/el1/bundle/entry/resources/resfile/example
+         *
+         * 3. Since API version 21, the application cache directory and its subdirectories are also supported.
+         * (The application cache directory is obtained through
+         * [Context.cacheDir]{@link ./application/Context:Context#cacheDir}
+         * in Ability Kit). For example:
+         *
+         * * /data/storage/el2/base/cache
+         * * /data/storage/el2/base/haps/entry/cache/example
+         * * The **cache/web** directory is not allowed. If it is included, an exception with the code **401** will be
+         * thrown. If the **cache** directory is set, **cache/web** cannot be accessed.
+         *
+         * 4. Since API version 21, the temporary application directory and its subdirectories are also supported.
+         * (The temporary application directory is obtained through
+         * [Context.tempDir]{@link ./application/Context:Context#tempDir}
+         * in Ability Kit). For example:
+         *
+         * * /data/storage/el2/base/temp
+         * * /data/storage/el2/base/haps/entry/temp/example
+         *
+         * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails to be
+         * set. When the path list is set to empty, the accessible files for the file protocol are subject to the
+         * behavior of the
+         * [fileAccess]{@link WebAttribute.fileAccess}.
+         *
+         * @param { Array<string> } pathList - The path list.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Parameter string is too long.
+         *     3. Parameter verification failed.
          * @throws { BusinessError } 17100001 - Init error.
          *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
@@ -4051,11 +4110,13 @@ declare namespace webview {
         setPathAllowingUniversalAccess(pathList: Array<string>): void;
 
         /**
-         * Trim memory by different memory pressure level.
+         * Clears the cache occupied by **Web** component based on the specified memory pressure level.
          *
-         * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Parameter string is too long. 3.Parameter verification failed.
+         * @param { PressureLevel } level - Pressure level of the memory to be cleared.
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Parameter string is too long.
+         *     3. Parameter verification failed.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */

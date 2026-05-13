@@ -7709,56 +7709,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether enable local file system access in web.
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether enable local file system access in web.
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to enable Access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
-   * directory can still be accessed through the file protocol.
-   * </p>
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets whether to enable access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
-   * directory can still be accessed through the file protocol.
-   * </p>
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+ 	 * Sets whether to enable access to the file system in the application. This setting does not affect the access to the
+ 	 * files specified through
+ 	 * [$rawfile(filepath/filename)](docroot://quick-start/resource-categories-and-access.md#accessing-resources). For API
+ 	 * version 11 and earlier versions, access to the file system in the application is enabled by default if this
+ 	 * attribute is not explicitly called. Since API version 12, access to the file system in the application is disabled
+ 	 * by default if this attribute is not explicitly called.
+ 	 *
+ 	 * @param { boolean } fileAccess - Whether to enable access to the file system in the application.<br>The value
+ 	 *     **true** means to enable access to the file system in the application, and **false** means the opposite.<br>
+ 	 *     When **fileAccess** is set to **false**, only the resources in the read-only resource directory
+ 	 *     **\/data/storage/el1/bundle/entry/resources/resfile** can be accessed using the file protocol, regardless of the
+ 	 *     value of **fileAccess**.<br>For API version 11 and earlier versions, if **undefined** or **null** is passed in,
+ 	 *     the value is **true**. Since API version 12, if **undefined** or **null** is passed in, the value is **false**.
+ 	 * @returns { WebAttribute }
+ 	 * @syscap SystemCapability.Web.Webview.Core
+ 	 * @crossplatform [since 23]
+ 	 * @atomicservice [since 11]
+ 	 * @since 8 dynamic
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
@@ -7798,34 +7766,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable the DOM Storage API permission.
-   *
-   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
-   *    The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether to enable the DOM Storage API permission.
-   *
-   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
-   *    The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to enable the DOM Storage API. By default, this feature is disabled.
-   * @param { boolean } domStorageAccess - Whether to enable the DOM Storage API. {@code true} means to enable
-   *                                       the DOM Storage API; {@code false} means to disable the DOM Storage API.
-   *                                       The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+ 	 * Sets whether to enable the DOM Storage API permission. If this attribute is not explicitly called, the DOM Storage
+ 	 * API permission is disabled by default.
+ 	 *
+ 	 * @param { boolean } domStorageAccess - Whether to enable the DOM Storage API.<br>The value **true** means to the DOM
+ 	 *     Storage API, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the value is
+ 	 *     **false**.
+ 	 * @returns { WebAttribute }
+ 	 * @syscap SystemCapability.Web.Webview.Core
+ 	 * @crossplatform [since 18]
+ 	 * @atomicservice [since 11]
+ 	 * @since 8 dynamic
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
@@ -8179,25 +8130,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
-   * Sets whether the Web access the database.
-   *
-   * @param { boolean } databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
-   *    The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether to enable database access. By default, this feature is disabled.
-   *
-   *
-   * @param { boolean } databaseAccess - Whether to enable database access. {@code true} means to enable
-   *                                     database access; {@code false} means to disable database access.
-   *                                     The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+ 	 * Sets whether to enable the Web SQL Database storage API permission. If this permission is not explicitly called, it
+ 	 * is disabled by default.
+ 	 *
+ 	 * > **NOTE**
+ 	 * >
+ 	 * > - After the ArkWeb kernel is upgraded to M132, the API's control over the Web SQL Database becomes invalid
+ 	 * > because the kernel discards Web SQL. For details about the ArkWeb kernel version, see
+ 	 * > [Constraints](docroot://web/web-component-overview.md#constraints).
+ 	 *
+ 	 * @param { boolean } databaseAccess - Whether to enable Web SQL Database storage API permission.<br>**true** means
+ 	 *     enabling the detection, and **false** means disabling it.<br>If **undefined** or **null** is passed in, the
+ 	 *     value is **false**.
+ 	 * @returns { WebAttribute }
+ 	 * @syscap SystemCapability.Web.Webview.Core
+ 	 * @atomicservice [since 11]
+ 	 * @since 8 dynamic
    */
   databaseAccess(databaseAccess: boolean): WebAttribute;
 

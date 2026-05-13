@@ -355,15 +355,16 @@ declare namespace webview {
   }
 
   /**
-   * The memory pressure level that can be set.
-   * @enum {number}
+   * 内存压力等级。在应用主动清理Web组件占用的缓存时，Web内核会根据内存压力等级，进行缓存释放。
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
    */
   enum PressureLevel {
     /**
-     * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
+     * 中等内存压力等级。这个等级下，Web内核会尝试释放重新分配开销较小且不需要立即使用的缓存。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
@@ -371,7 +372,8 @@ declare namespace webview {
     MEMORY_PRESSURE_LEVEL_MODERATE = 1,
 
     /**
-     * At this level, modules are advised to free all possible memory.
+     * 严重内存压力等级。这个等级下，Web内核会尝试释放所有可能的内存缓存。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
@@ -1064,108 +1066,44 @@ declare namespace webview {
   }
 
   /**
-   * Provides basic information of web storage.
+   * 提供Web SQL数据库的使用信息。
    *
-   * @interface WebStorageOrigin
+   * @interface WebStorageOrigin [since 9 - 11]
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @interface WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @typedef WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @typedef WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   interface WebStorageOrigin {
     /**
-     * Url source.
+     * 指定源的字符串索引。
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Url source.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Url source.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     origin: string;
     /**
-     * Specify the amount of storage for the source.
+     * 指定源的存储量。
+     *
+     * 单位：byte。
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Specify the amount of storage for the source. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Specify the amount of storage for the source. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     usage: number;
     /**
-     * the callback of getOriginUsage.
+     * 指定源的存储配额。
+     *
+     * 单位：byte。
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * the callback of getOriginUsage. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * the callback of getOriginUsage. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     quota: number;
   }
@@ -1271,410 +1209,212 @@ declare namespace webview {
   function once(type: string, callback: Callback<void>): void;
 
   /**
-   * Provides methods for managing web storage.3
+   * 通过WebStorage可管理Web SQL数据库接口和HTML5 Web存储接口，每个应用中的所有Web组件共享一个WebStorage。
+   *
+   * > **说明：**
+   * >
+   * > - 本Class首批接口从API version 9开始支持。
+   * >
+   * > - 示例效果请以真机运行为准。
+   * >
+   * > - 目前调用WebStorage下的方法，都需要先加载Web组件。
+   * >
+   * > - 本Class下的接口在ArkWeb内核升级到M132版本后因内核废弃Web SQL，对Web SQL数据库的管理失效。ArkWeb内核版本参考ArkWeb简介
+   * > [约束与限制](docroot://web/web-component-overview.md#约束与限制)。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides methods for managing web storage.3
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Implements a WebStorage object to manage the Web SQL database and HTML5 Web Storage APIs.
-   * All Web components in an application share a WebStorage object.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * You must load the Web component before calling the APIs in WebStorage.
-   * </p>
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebStorage {
     /**
-     * Delete all the storage data.
+     * 清除被JavaScript存储API使用的所有存储数据，这包括Web SQL数据库和HTML5支持的Web存储API。
      *
+     * @param { boolean } incognito - true表示删除所有隐私模式下内存中的web数据，false表示删除正常非隐私模式下Web的SQL数据库当前使用的所有存储。<br>默认值：false。<br>传入
+     *     undefined或null时为false。 [since 11]
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete all the storage data.
-     *
-     * @param { boolean } incognito - {@code true} delete all the storage data in incognito mode;
-     *                                {@code false} otherwise.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Deletes all data in the Web SQL Database.
-     *
-     * @param { boolean } incognito - Whether to delete all data in the Web SQL Database in incognito mode.
-     *                                {@code true} means to delete all data in the Web SQL Database in incognito mode;
-     *                                {@code false} means to delete all data in the Web SQL Database in normal non-incognito mode.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteAllData(incognito?: boolean): void;
 
     /**
-     * Delete the storage data with the origin.
+     * 清除指定源所使用的存储。
      *
-     * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @param { string } origin - 指定源的字符串索引，来自于
+     *     [getOrigins]{@link webview.WebStorage.static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>)}。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete the storage data with the origin.
-     *
-     * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Deletes all data in the specified origin.
-     *
-     * @param { string } origin - Index of the origin, which is obtained through {@link getOrigins}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteOrigin(origin: string): void;
 
     /**
-     * Get current all the web storage origins.
-     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get current all the web storage origins.
-     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about all origins that are currently using the Web SQL Database.
-     * This API uses a promise to return the result.
+     * 以Promise方式异步获取当前使用Web SQL数据库和HTML5支持的Web存储API的所有源的信息。
      *
-     * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
-     *                                                 For details, see {@link WebStorageOrigin}.
+     * @returns { Promise<Array<WebStorageOrigin>> } Promise used to return the information about the origins.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
     /**
-     * Get current all the web storage origins.
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get current all the web storage origins.
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about all origins that are currently using the Web SQL Database.
-     * This API uses an asynchronous callback to return the result.
+     * 以回调方式异步获取当前使用Web SQL数据库和HTML5支持的Web存储API的所有源的信息。
      *
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
-     *                                                              origins. For details, see {@link WebStorageOrigin}.
+     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - 以数组方式返回源的信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
     /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
+     * 以Promise方式异步获取指定源的Web SQL数据库和HTML5支持的Web存储API的存储配额，配额以字节为单位。
+     *
+     * @param { string } origin - 指定源的字符串索引
+     * @returns { Promise<number> } Promise实例，用于获取指定源的存储配额。
+     *     <br>单位：byte。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginQuota(origin: string): Promise<number>;
 
     /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
+     * 使用callback回调异步获取指定源的Web SQL数据库和HTML5支持的Web存储API的存储配额，配额以字节为单位。
+     *
+     * @param { string } origin - 指定源的字符串索引。
+     * @param { AsyncCallback<number> } callback - 指定源的存储配额。<br>number是long型整数，范围为[-2147483648, 2147483647]。<br>单位：byte。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
+     * 以Promise方式异步获取指定源的Web SQL数据库和HTML5支持的Web存储API的存储量，存储量以字节为单位。
+     *
+     * @param { string } origin - 指定源的字符串索引
+     * @returns { Promise<number> } Promise实例，用于获取指定源的存储量。
+     *     <br>单位：byte。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
+     * 以回调方式异步获取指定源的Web SQL数据库和HTML5支持的Web存储API的存储量，存储量以字节为单位。
+     *
+     * @param { string } origin - 指定源的字符串索引
+     * @param { AsyncCallback<number> } callback - 指定源的存储量。<br>单位：byte。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
 
   /**
-   * Provides methods for managing web database.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Implements a WebDataBase object.
+   * Web组件数据库管理对象。
    *
-   * <p><strong>API Note</strong>:<br>
-   * You must load the Web component before calling the APIs in WebDataBase.
-   * </p>
+   * > **说明：**
+   * >
+   * > - 本Class首批接口从API version 9开始支持。
+   * >
+   * > - 示例效果请以真机运行为准。
+   * >
+   * > - 目前调用WebDataBase下的方法，都需要先加载Web组件。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebDataBase {
     /**
-     * Get whether instances holds any http authentication credentials.
-     * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
+     * 判断是否存在任何已保存的HTTP身份验证凭据，该方法为同步方法。
+     *
+     * @returns { boolean } 是否存在任何已保存的HTTP身份验证凭据。
+     *     <br>存在返回true，不存在返回false。
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get whether instances holds any http authentication credentials.
-     * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static existHttpAuthCredentials(): boolean;
 
     /**
-     * Delete all http authentication credentials.
+     * 清除所有已保存的HTTP身份验证凭据，该方法为同步方法。
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteHttpAuthCredentials(): void;
 
     /**
-     * Get http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @returns { Array<string> } Return an array containing username and password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @returns { Array<string> } Return an array containing username and password.
+     * 检索给定主机和域的HTTP身份验证凭据，该方法为同步方法。
+     *
+     * @param { string } host - HTTP身份验证凭据应用的主机。
+     * @param { string } realm - HTTP身份验证凭据应用的域。
+     * @returns { Array<string> } 包含用户名和密码的数组，检索失败返回空数组。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getHttpAuthCredentials(host: string, realm: string): Array<string>;
 
     /**
-     * Save http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @param { string } username - The username.
-     * @param { string } password - The password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Saves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
-     * @param { string } host - Host to which HTTP authentication credentials apply.
-     * @param { string } realm - Realm to which HTTP authentication credentials apply.
-     * @param { string } username - User name.
-     * @param { string } password - Password.
+     * 保存给定主机和域的HTTP身份验证凭据，该方法为同步方法。
+     *
+     * @param { string } host - HTTP身份验证凭据应用的主机。
+     * @param { string } realm - HTTP身份验证凭据应用的域。
+     * @param { string } username - 用户名。
+     * @param { string } password - 密码。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
   }
@@ -7271,26 +7011,44 @@ declare namespace webview {
     setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void;
 
     /**
-     * Sets a path list. When a file protocol accesses resources in the path list, it can access the local files across
-     * domains. In addition, when a path list is set, the file protocol can access only the resources in the path list.
-     * The behavior of {@link fileAccess} will be overwritten by that of this API.
+     * 设置一个路径列表，当file协议访问该路径列表中的资源时，允许跨域访问本地文件，也允许跨域访问其他在线资源。此外，当设置了路径列表时，file协议仅允许访问路径列表中的资源（
+     * [fileAccess](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#fileaccess)的行为将会被此接口行为覆盖）。
      *
-     * The paths in the list must be any of the following(sub path and module name must be provided):
+     * setPathAllowingUniversalAccess放开目录的跨域访问限制是一个高风险操作。基于最小权限原则，当前el1，el2放开的路径是固定的，路径列表中的路径应符合以下任一路径格式：
      *
-     * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
-     *    or "/data/storage/el2/base/haps/entry/files/example".
-     *    The application file directory is obtained using Context.filesDir in the Ability Kit.
-     * 2. The path of application resource directory or its subdirectory, like "/data/storage/el1/bundle/entry/resource/resfile"
-     *    or "/data/storage/el1/bundle/entry/resource/resfile/example".
-     *    The application resource directory is obtained from Context.resourceDir in the Ability Kit.
+     * 1.应用文件目录的子目录（应用文件目录通过Ability Kit中的
+     * [Context.filesDir](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#属性)获取），例如：
      *
-     * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
-     * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
-     * the behavior of the {@link fileAccess}.
+     * * /data/storage/el2/base/files/example
+     * * /data/storage/el2/base/haps/entry/files/example
      *
-     * @param { Array<string> } pathList - The path list allow universal access.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * 2.应用资源目录及其子目录（应用资源目录通过Ability Kit中的
+     * [Context.resourceDir](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#属性)获取），例如：
+     *
+     * * /data/storage/el1/bundle/entry/resources/resfile
+     * * /data/storage/el1/bundle/entry/resources/resfile/example
+     *
+     * 3.从API version 21开始，还包括了应用缓存目录及其子目录（应用缓存目录通过Ability Kit中的
+     * [Context.cacheDir](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#属性)获取），例如：
+     *
+     * * /data/storage/el2/base/cache
+     * * /data/storage/el2/base/haps/entry/cache/example
+     * * 设置的目录路径中，不允许包含cache/web，否则会抛出异常码401。如果设置目录路径是cache，cache/web也不允许访问。
+     *
+     * 4.从API version 21开始，还包括了应用临时目录及其子目录（应用临时目录通过Ability Kit中的
+     * [Context.tempDir](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#属性)获取），例如：
+     *
+     * * /data/storage/el2/base/temp
+     * * /data/storage/el2/base/haps/entry/temp/example
+     *
+     * 当路径列表中有其中一个路径不满足以上条件之一，则会抛出异常码401，并且设置路径列表失败。当设置的路径列表为空，则file协议可访问范围以
+     * [fileAccess](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#fileaccess)的行为为准。
+     *
+     * @param { Array<string> } pathList - 路径列表
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Parameter string is too long.
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -7320,11 +7078,13 @@ declare namespace webview {
     getErrorPageEnabled(): boolean;
 
     /**
-     * Trim memory by different memory pressure level.
+     * 根据指定的内存压力等级，主动清理Web组件占用的缓存。
      *
-     * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @param { PressureLevel } level - 需要清理内存的内存等级。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Parameter string is too long.
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
