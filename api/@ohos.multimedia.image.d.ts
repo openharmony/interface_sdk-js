@@ -3538,22 +3538,73 @@ declare namespace image {
    * Describes the options for image encoding.
    *
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform [since 10]
-   * @atomicservice [since 11]
-   * @since 6 dynamic
+   * @since 6
+   */
+  /**
+   * Describes the option for image packing.
+   *
+   * @typedef PackingOption
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Describes the option for image packing.
+   *
+   * @typedef PackingOption
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
    * @since 23 static
    */
+  /**
+   * Packing image size limit.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface PackingSizeLimit {
+    /**
+     * Maximum packing size
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxSize: Size;
+
+    /**
+     * Specify the scaling algorithm during zooming.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    level: AntiAliasingLevel;
+  }
+
   interface PackingOption {
     /**
-     * Format of the packed image.
-     * 
-     * Currently, only the following formats are supported: image/jpeg, image/webp, image/png, image/heic (or image/heif
-     * )<sup>12+</sup>, image/sdr_astc_4x4<sup>18+</sup>, image/sdr_sut_superfast_4x4<sup>18+</sup> (depending on the 
-     * hardware), and image/hdr_astc_4x4<sup>20+</sup>.
-     * 
-     * **NOTE**: The JPEG format does not support the alpha channel. If the JPEG format with the alpha channel is used 
-     * for data encoding, the transparent color turns black.
+     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
      *
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @since 6
+     */
+    /**
+     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @crossplatform
+     * @since 10
+     */
+    /**
+     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
+     *
+     * @type { string }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -3629,43 +3680,36 @@ declare namespace image {
     maxEmbedThumbnailDimension?: int;
 
     /**
-     * Background color for processing transparent pixels during encoding.
-     * Valid when the image has transparency and the target format does not support transparency (e.g. JPEG).
-     * Transparent pixels will be blended with this background color.
-     * The value format is 0xAARRGGBB, where AA is alpha, RR is red, GG is green, BB is blue.
-     * Default value is 0 (black).
+     * The background color used when the image pixels are in RGBA format but the target encoding format does not
+     * support transparency, such as "image/jpeg" or "image/heif".
+     * The value must be a 24‑bit RGB integer expressed in hexadecimal notation (e.g., 0xRRGGBB).
+     * The alpha channel is ignored.
+     * Valid range: 0x000000 – 0xFFFFFF.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    backgroundColor?: number;
+    backgroundColor?: int;
 
     /**
-     * Maximum size of the encoded image.
-     * If the source image exceeds this size, it will be scaled down proportionally.
-     * Set width or height to 0 or negative value to indicate no limit for that dimension.
-     * <br>Unit:px.
+     * Indicates whether to carry GPS information when encoding the EXIF metadata.
+     * Default value: true.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    maxSize?: Size;
+    needsPackGPS?: boolean;
 
     /**
-     * Whether to pack GPS information into the encoded image.
-     * Default value is true.
-     * When set to false, GPS information will be removed from EXIF metadata during encoding.
+     * Packing image size limit.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    needPackGPS?: boolean;
+    sizeLimit?: PackingSizeLimit;
   }
 
   /**
