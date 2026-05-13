@@ -634,17 +634,14 @@ declare namespace dlpPermission {
         bindAppIndex?: number;
     }
     /**
-     * Installs a DLP sandbox application for an application. This API uses a promise to return the sandbox application 
-     * installed.
+     * 安装一个应用的DLP沙箱。使用Promise方式异步返回结果返回应用沙箱信息。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
-     * @param { DLPFileAccess } access - Permission on the DLP file.
-     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
-     * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
-     * @returns { Promise<DLPSandboxInfo> } Promise used to return the information about the sandbox application
-     *     installed.
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
+     * @param { DLPFileAccess } access - DLP文件授权类型。
+     * @param { number } userId - 当前的用户ID，通过账号子系统获取的OS账号ID，默认主用户ID：100。
+     * @param { string } uri - DLP文件的URI。不超过4095字节。
+     * @returns { Promise<DLPSandboxInfo> } Promise对象。安装沙箱应用，返回应用沙箱信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -657,17 +654,14 @@ declare namespace dlpPermission {
      */
     function installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string): Promise<DLPSandboxInfo>;
     /**
-     * Installs a DLP sandbox application for an application. This API uses an asynchronous callback to return the index
-     * of the sandbox application installed.
+     * 安装一个应用的DLP沙箱。使用callback方式异步返回应用沙箱信息。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
-     * @param { DLPFileAccess } access - Permission on the DLP file.
-     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
-     * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
-     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the information about the sandbox
-     *     application installed.
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
+     * @param { DLPFileAccess } access - DLP文件授权类型。
+     * @param { number } userId - 当前的用户ID，通过账号子系统获取的系账号ID，默认主用户ID：100。
+     * @param { string } uri - DLP文件的URI。不超过4095字节。
+     * @param { AsyncCallback<DLPSandboxInfo> } callback - C获取应用沙箱信息的回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -680,14 +674,13 @@ declare namespace dlpPermission {
      */
     function installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string, callback: AsyncCallback<DLPSandboxInfo>): void;
     /**
-     * Uninstalls a DLP sandbox application for an application. This API uses a promise to return the result.
+     * 卸载一个应用的DLP沙箱。使用Promise方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
-     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
-     * @param { number } appIndex - DLP sandbox index.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
+     * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。
+     * @param { number } appIndex - DLP沙箱号。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -700,16 +693,13 @@ declare namespace dlpPermission {
      */
     function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number): Promise<void>;
     /**
-     * Uninstalls a DLP sandbox application for an application. This API uses an asynchronous callback to return the 
-     * result.
+     * 卸载一个应用的DLP沙箱。使用callback方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
-     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
-     * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
-     *     successfully called.
-     * @param { AsyncCallback<void> } callback - Callback used to return the uninstallation result.
+     * @param { string } bundleName -应用包名。最小7字节，最大128字节。
+     * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。
+     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值。
+     * @param { AsyncCallback<void> } callback - 获取卸载结果的回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -722,7 +712,7 @@ declare namespace dlpPermission {
      */
     function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number, callback: AsyncCallback<void>): void;
     /**
-     * DLP sandbox identity.
+     * DLP沙箱身份。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -730,7 +720,7 @@ declare namespace dlpPermission {
      */
     export interface DLPSandboxState {
         /**
-         * Bundle name of the application. The value contains 7 to 128 bytes.
+         * 表示应用包名。最小7字节，最大128字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -738,7 +728,7 @@ declare namespace dlpPermission {
          */
         bundleName: string;
         /**
-         * Index of the DLP sandbox application.
+         * 表示DLP沙箱应用索引。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -747,12 +737,11 @@ declare namespace dlpPermission {
         appIndex: number;
     }
     /**
-     * Subscribes to a DLP sandbox uninstall event.
+     * 注册监听DLP沙箱卸载事件。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which
-     *     indicates the DLP sandbox application uninstall event.
-     * @param { Callback<DLPSandboxState> } listener - Callback used when a sandbox application is uninstalled.
+     * @param { 'uninstallDLPSandbox' } type - 监听事件类型。固定值为'uninstallDLPSandbox'：DLP沙箱卸载事件。
+     * @param { Callback<DLPSandboxState> } listener - 沙箱应用卸载事件的回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -765,13 +754,11 @@ declare namespace dlpPermission {
      */
     function on(type: 'uninstallDLPSandbox', listener: Callback<DLPSandboxState>): void;
     /**
-     * Unsubscribes from the DLP sandbox uninstall event.
+     * 取消监听DLP沙箱卸载事件。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which indicates the
-     *     DLP sandbox application uninstall event.
-     * @param { Callback<DLPSandboxState> } [listener] - Callback used when a sandbox application is uninstalled. By default, this
-     *     parameter is left blank, which unregisters all callbacks for the sandbox uninstall event.
+     * @param { 'uninstallDLPSandbox' } type - 监听事件类型。固定值为'uninstallDLPSandbox'：DLP沙箱卸载事件。
+     * @param { Callback<DLPSandboxState> } [listener] - 沙箱应用卸载事件的回调。默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -784,7 +771,7 @@ declare namespace dlpPermission {
      */
     function off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxState>): void;
     /**
-     * Enumerates the types of authorized accounts.
+     * 表示授权账号类型的枚举。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -793,7 +780,7 @@ declare namespace dlpPermission {
      */
     export enum AccountType {
         /**
-         * Cloud account.
+         * 表示云账号。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -802,7 +789,7 @@ declare namespace dlpPermission {
          */
         CLOUD_ACCOUNT = 1,
         /**
-         * Domain account.
+         * 表示域账号。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -811,7 +798,7 @@ declare namespace dlpPermission {
          */
         DOMAIN_ACCOUNT = 2,
         /**
-         * Enterprise account.
+         * 表示企业账号。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -819,7 +806,7 @@ declare namespace dlpPermission {
         ENTERPRISE_ACCOUNT = 4
     }
     /**
-     * Represents the user authorization information.
+     * 表示授权用户数据。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -828,7 +815,7 @@ declare namespace dlpPermission {
      */
     export interface AuthUser {
         /**
-         * Account of the user who can access the DLP file. The value contains up to 255 bytes.
+         * 表示被授权用户账号。不超过255字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -837,7 +824,7 @@ declare namespace dlpPermission {
          */
         authAccount: string;
         /**
-         * Type of the account.
+         * 表示被授权用户账号类型。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -846,7 +833,7 @@ declare namespace dlpPermission {
          */
         authAccountType: AccountType;
         /**
-         * Permission granted to the user.
+         * 表示被授予的权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -855,7 +842,7 @@ declare namespace dlpPermission {
          */
         dlpFileAccess: DLPFileAccess;
         /**
-         * Time when the authorization expires. The value must be greater than or equal to 0.
+         * 表示授权到期时间。取值范围大于等于0。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -865,7 +852,7 @@ declare namespace dlpPermission {
         permExpiryTime: number;
     }
     /**
-     * Represents the authorization information.
+     * 表示授权相关信息。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -874,8 +861,7 @@ declare namespace dlpPermission {
      */
     export interface DLPProperty {
         /**
-         * Account of the owner who can set the permission. The value contains up to 255 bytes. If the value exceeds 
-         * this range, **null** is returned.
+         * 表示权限设置者账号。不超过255字节，超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -884,8 +870,7 @@ declare namespace dlpPermission {
          */
         ownerAccount: string;
         /**
-         * Account ID of the owner. The value contains up to 255 bytes. If the value exceeds this range, **null** is 
-         * returned.
+         * 表示权限设置者账号的ID。不超过255字节，超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -894,7 +879,7 @@ declare namespace dlpPermission {
          */
         ownerAccountID: string;
         /**
-         * Account type of the owner.
+         * 表示权限设置者账号类型。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -903,7 +888,7 @@ declare namespace dlpPermission {
          */
         ownerAccountType: AccountType;
         /**
-         * List of users who are authorized to access the DLP file. By default, this parameter is left blank.
+         * 表示授权用户列表，默认为空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -912,8 +897,7 @@ declare namespace dlpPermission {
          */
         authUserList?: Array<AuthUser>;
         /**
-         * Account of the contact. The value contains up to 255 bytes. If the value exceeds this range, **null** is 
-         * returned.
+         * 表示联系人账号。不超过255字节，超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -922,7 +906,7 @@ declare namespace dlpPermission {
          */
         contactAccount: string;
         /**
-         * Whether the file can be accessed offline. **true**: yes; **false**: no.
+         * 表示是否是离线打开。true表示允许离线打开，false表示不可离线打开。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -931,7 +915,7 @@ declare namespace dlpPermission {
          */
         offlineAccess: boolean;
         /**
-         * Permission granted to everyone. This parameter is left blank by default.
+         * 表示授予所有人的权限，默认为空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -940,8 +924,7 @@ declare namespace dlpPermission {
          */
         everyoneAccessList?: Array<DLPFileAccess>;
         /**
-         * Timestamp when the file permission has expired. This parameter is left blank by default. The value must be 
-         * greater than or equal to 0. If the value is not within the range, **null** is returned.
+         * 表示文件权限到期时间戳，默认为空。取值范围大于等于0，超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 11 - 20]
@@ -950,8 +933,7 @@ declare namespace dlpPermission {
          */
         expireTime?: number;
         /**
-         * Whether the file can be opened after the permission expires (with the editing permission). This parameter is 
-         * valid only when **expireTime** is not empty. This parameter is left empty by default.
+         * 表示到期后文件是否允许打开（打开后拥有编辑权限），仅在expireTime不为空时生效，默认为空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -960,33 +942,30 @@ declare namespace dlpPermission {
          */
         actionUponExpiry?: ActionType;
         /**
-         * System account ID. This parameter is left empty by default. The value contains up to 255 bytes. If the value 
-         * exceeds this range, **null** is returned.
+         * 表示文件的标识，默认为空。不超过255字节，超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         fileId?: string;
         /**
-         * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or 
-         * equal to 0. If the value is not within the range, **null** is returned.
+         * 表示允许打开的次数，默认为空。取值范围大于等于0，超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         allowedOpenCount?: number;
         /**
-         * Whether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
+         * 表示是否要求添加水印。true表示要求添加水印，false表示不要求添加水印，默认为空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 23
          */
         waterMarkConfig?: boolean;
         /**
-         * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically 
-         * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value 
-         * is not within the range, **null** is returned. **Model restriction**: This API can be used only in the stage
-         * model.
+         * 表示文件可被查看的有效时间，超时后打开的文件将自动关闭，默认为空，单位：秒。取值范围大于等于0，超出此范围返回null。
+         * 
+         * **模型约束**：此接口仅可在Stage模型下使用。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -994,8 +973,9 @@ declare namespace dlpPermission {
          */
         countdown?: number;
         /**
-         * Extended attribute of a DLP file. This parameter is left empty by default. **Model restriction**: This API 
-         * can be used only in the stage model.
+         * 表示DLP文件的扩展属性，默认为空。
+         * 
+         * **模型约束**：此接口仅可在Stage模型下使用。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
