@@ -3655,7 +3655,7 @@ declare namespace image {
      */
     maxEmbedThumbnailDimension?: int;
 
-    /**	 
+    /**
      * Options for tiff image packing.
      *
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
