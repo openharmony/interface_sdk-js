@@ -1063,6 +1063,8 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600022 - Create partition failed.
@@ -1083,6 +1085,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600023 - Delete partition failed.
@@ -1105,6 +1108,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600025 - Format partition failed.
