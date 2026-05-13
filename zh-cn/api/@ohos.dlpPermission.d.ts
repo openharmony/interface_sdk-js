@@ -1683,7 +1683,7 @@ declare namespace dlpPermission {
      * 查询已打开且符合指定选项的企业DLP文件的URI列表。使用Promise异步回调。
      * 
      * > **说明：**
-     * > 
+     * >
      * > - 该接口仅能查询调用方应用通过[generateDlpFileForEnterprise]{@link dlpPermission.generateDlpFileForEnterprise}生成的企业DLP文件，无法查询
      * > 其他应用生成的企业DLP文件。
      * >
@@ -1705,7 +1705,7 @@ declare namespace dlpPermission {
      * 关闭当前打开的所有符合指定选项的企业DLP文件。使用Promise异步回调。
      * 
      * > **说明：**
-     * > 
+     * >
      * > 该接口仅能关闭调用方应用通过[generateDlpFileForEnterprise]{@link dlpPermission.generateDlpFileForEnterprise}生成的企业DLP文件。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
