@@ -3535,6 +3535,33 @@ declare namespace image {
   }
 
   /**
+   * Packing image size limit.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface PackingSizeLimit {
+    /**
+     * Maximum packing size
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxSize: Size;
+
+    /**
+     * Specify the scaling algorithm during zooming.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    level: AntiAliasingLevel;
+  }
+
+  /**
    * Describes the options for image encoding.
    *
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
@@ -3636,6 +3663,38 @@ declare namespace image {
      * @since 26.0.0 dynamic&static
      */
      tiffPackingOptions?: PackingOptionsForTiff;
+
+    /**
+     * The background color used when the image pixels are in RGBA format but the target encoding format does not
+     * support transparency, such as "image/jpeg" or "image/heif".
+     * The value must be a 24‑bit RGB integer expressed in hexadecimal notation (e.g., 0xRRGGBB).
+     * The alpha channel is ignored.
+     * Valid range: 0x000000 – 0xFFFFFF.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    backgroundColor?: int;
+
+    /**
+     * Indicates whether to carry GPS information when encoding the EXIF metadata.
+     * Default value: true.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needsPackGPS?: boolean;
+
+    /**
+     * Packing image size limit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sizeLimit?: PackingSizeLimit;
   }
 
   /**
