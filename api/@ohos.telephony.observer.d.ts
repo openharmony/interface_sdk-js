@@ -295,6 +295,7 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 6 dynamic
    */
   function on(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
 
