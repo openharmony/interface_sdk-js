@@ -984,10 +984,9 @@ declare namespace dlpPermission {
         extensionFields?: Record<string, Object>;
     }
     /**
-     * Provides APIs for managing DLP files. A **DLPFile** instance indicates a DLP file object. You can use 
+     * 管理DLPFile的实例，表示一个DLP文件对象，需要通过
      * [generateDLPFile]{@link dlpPermission.generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty)}
-     * or [openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)} to obtain a **DLPFile** 
-     * instance.
+     * /[openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)}获取DLPFile的示例。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -995,7 +994,7 @@ declare namespace dlpPermission {
      */
     export interface DLPFile {
         /**
-         * Authorized user information.
+         * 表示DLP文件授权相关信息。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -1003,13 +1002,11 @@ declare namespace dlpPermission {
          */
         dlpProperty: DLPProperty;
         /**
-         * Adds a link file to the Filesystem in Userspace (FUSE). The link file is a virtual file mapped to the 
-         * ciphertext in the FUSE. The read and write operations on the link file will be synchronized to the DLP file. 
-         * This API uses a promise to return the result.
+         * 在FUSE文件系统(Filesystem in Userspace)添加link文件(FUSE文件系统中映射到密文的虚拟文件，对该文件的读写操作会同步到DLP文件)。使用Promise方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @returns { Promise<void> } Promise that returns no value.
+         * @param { string } linkFileName - 用于fuse文件系统的link文件名。不超过255字节。
+         * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1024,11 +1021,11 @@ declare namespace dlpPermission {
          */
         addDLPLinkFile(linkFileName: string): Promise<void>;
         /**
-         * Adds a link file to the FUSE. This API uses an asynchronous callback to return the result.
+         * 在FUSE中添加link文件，使用callback方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { string } linkFileName - 用于fuse文件系统的link文件名。不超过255字节。
+         * @param { AsyncCallback<void> } callback - 获取添加结果的回调。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1043,10 +1040,10 @@ declare namespace dlpPermission {
          */
         addDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
         /**
-         * Stops the read and write on the FUSE. This API uses a promise to return the result.
+         * 停止FUSE关联读写。使用Promise方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @returns { Promise<void> } Promise that returns no value.
+         * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1058,10 +1055,10 @@ declare namespace dlpPermission {
          */
         stopFuseLink(): Promise<void>;
         /**
-         * Stops the read and write on the FUSE. This API uses an asynchronous callback to return the result.
+         * 停止FUSE关联读写，使用callback方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { AsyncCallback<void> } callback - 获取停止结果的回调。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1074,10 +1071,10 @@ declare namespace dlpPermission {
          */
         stopFuseLink(callback: AsyncCallback<void>): void;
         /**
-         * Resumes the read and write on the FUSE. This API uses a promise to return the result.
+         * 恢复FUSE关联读写。使用Promise方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @returns { Promise<void> } Promise that returns no value.
+         * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1089,10 +1086,10 @@ declare namespace dlpPermission {
          */
         resumeFuseLink(): Promise<void>;
         /**
-         * Resumes the read and write on the FUSE. This API uses an asynchronous callback to return the result.
+         * 恢复FUSE关联读写，使用callback方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { AsyncCallback<void> } callback - 获取恢复结果的回调。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1105,11 +1102,11 @@ declare namespace dlpPermission {
          */
         resumeFuseLink(callback: AsyncCallback<void>): void;
         /**
-         * Replaces a link file. This API uses a promise to return the result.
+         * 替换link文件。使用Promise方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @returns { Promise<void> } Promise that returns no value.
+         * @param { string } linkFileName - 用于fuse文件系统的link文件名。不超过255字节。
+         * @returns { Promise<void> }  Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1124,11 +1121,11 @@ declare namespace dlpPermission {
          */
         replaceDLPLinkFile(linkFileName: string): Promise<void>;
         /**
-         * Replaces a link file. This API uses an asynchronous callback to return the result.
+         * 替换link文件，使用callback方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { string } linkFileName - 用于fuse文件系统的link文件名。不超过255字节。
+         * @param { AsyncCallback<void> } callback - 获取替换结果的回调。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1143,11 +1140,11 @@ declare namespace dlpPermission {
          */
         replaceDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
         /**
-         * Deletes a link file from the FUSE. This API uses a promise to return the result.
+         * 删除fuse文件系统中创建的link文件。使用Promise方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @returns { Promise<void> } Promise that returns no value.
+         * @param { string } linkFileName - 用于fuse文件系统的link文件名。不超过255字节。
+         * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1162,11 +1159,11 @@ declare namespace dlpPermission {
          */
         deleteDLPLinkFile(linkFileName: string): Promise<void>;
         /**
-         * Deletes a link file. This API uses an asynchronous callback to return the result.
+         * 删除link文件，使用callback方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { string } linkFileName - 用于fuse文件系统的link文件名。不超过255字节。
+         * @param { AsyncCallback<void> } callback - 获取删除结果的回调。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1181,11 +1178,11 @@ declare namespace dlpPermission {
          */
         deleteDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
         /**
-         * Recovers the plaintext of a DLP file. This API uses a promise to return the result.
+         * 移除DLP文件的权限控制，恢复成明文文件。使用Promise方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { number } plaintextFd - FD of the target plaintext file.
-         * @returns { Promise<void> } Promise that returns no value.
+         * @param { number } plaintextFd - 目标明文文件的fd。
+         * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1206,11 +1203,11 @@ declare namespace dlpPermission {
          */
         recoverDLPFile(plaintextFd: number): Promise<void>;
         /**
-         * Recovers the plaintext of a DLP file. This API uses an asynchronous callback to return the result.
+         * 移除DLP文件的权限控制，恢复成明文文件，使用callback方式异步返回结果。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { number } plaintextFd - FD of the target plaintext file.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { number } plaintextFd - 目标明文文件的fd。
+         * @param { AsyncCallback<void> } callback - 获取恢复结果的回调。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1231,14 +1228,14 @@ declare namespace dlpPermission {
          */
         recoverDLPFile(plaintextFd: number, callback: AsyncCallback<void>): void;
         /**
-         * Closes this **DLPFile** instance. This API uses a promise to return the result.
+         * 关闭DLPFile，释放对象。使用Promise方式异步返回结果。
          * 
-         * > **NOTE**
+         * > **说明：**
          * >
-         * > If a DLP file is no longer used, close the **dlpFile** instance to release the memory.
+         * > dlpFile不再使用，应该关闭释放内存，且对象不应继续使用。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @returns { Promise<void> } Promise that returns no value.
+         * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1250,14 +1247,14 @@ declare namespace dlpPermission {
          */
         closeDLPFile(): Promise<void>;
         /**
-         * Closes this **DLPFile** instance. This API uses an asynchronous callback to return the result.
+         * 关闭DLPFile，释放对象，使用callback方式异步返回结果。
          * 
-         * > **NOTE**
+         * > **说明：**
          * >
-         * > If a DLP file is no longer used, close the **dlpFile** instance to release the memory.
+         * > dlpFile不再使用，应该关闭释放内存，且对象不应继续使用。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { AsyncCallback<void> } callback - 获取关闭结果的回调。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1271,17 +1268,13 @@ declare namespace dlpPermission {
         closeDLPFile(callback: AsyncCallback<void>): void;
     }
     /**
-     * Generates a DLP file, which is an encrypted file that can be accessed only by authorized users. The users can 
-     * have the full control permission or read-only permission on the DLP file. This API uses a promise to return the 
-     * result.
+     * 将明文文件加密生成权限受控文件，仅在授权列表内的用户可以打开，授权又分为完全控制权限和只读权限。获取DLPFile管理对象，使用Promise方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
-     * @param { number } ciphertextFd - FD of the encrypted file.
-     * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
-     *     account, and contact account information.
-     * @returns { Promise<DLPFile> } Promise If the operation is successful, a **DLPFile** instance is returned.
-     *     Otherwise, **null** is returned.
+     * @param { number } plaintextFd - 待加密明文文件的fd。
+     * @param { number } ciphertextFd - 目标加密文件的fd。
+     * @param { DLPProperty } property - 授权用户信息：授权用户列表、owner账号、联系人账号。
+     * @returns { Promise<DLPFile> } Promise对象。返回对象表示成功生成DLP文件，返回null表示失败。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1299,16 +1292,13 @@ declare namespace dlpPermission {
      */
     function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty): Promise<DLPFile>;
     /**
-     * Generates a DLP file, which is an encrypted file that can be accessed only by authorized users. The users can 
-     * have the full control permission or read-only permission on the DLP file. This API uses an asynchronous callback 
-     * to return the result.
+     * DLP管理应用调用该接口，将明文文件加密生成权限受控文件，仅在授权列表内的用户可以打开，授权又分为完全控制权限和只读权限。获取DLPFile管理对象，使用callback方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
-     * @param { number } ciphertextFd - FD of the encrypted file.
-     * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
-     *     account, and contact account information.
-     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
+     * @param { number } plaintextFd - 待加密明文文件的fd。
+     * @param { number } ciphertextFd - 目标加密文件的fd。
+     * @param { DLPProperty } property - 授权用户信息：授权用户列表、owner账号、联系人账号。
+     * @param { AsyncCallback<DLPFile> } callback - 回调函数。返回DLPFile对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
