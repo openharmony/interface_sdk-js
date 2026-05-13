@@ -301,7 +301,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    *      Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0  static
+   * @since 26.0.0 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
