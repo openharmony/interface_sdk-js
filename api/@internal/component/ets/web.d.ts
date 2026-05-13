@@ -6982,18 +6982,16 @@ declare interface OnOverScrollEvent {
 }
 
 /**
- * Defines the function Triggered when the PDF page scrolling.
+ * Defines the function triggered when the PDF page is scrolled to the bottom.
  *
- * @typedef OnPdfScrollEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnPdfScrollEvent {
 
   /**
-   * PDF page url.
+   * URL of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -7001,26 +6999,23 @@ declare interface OnPdfScrollEvent {
 }
 
 /**
- * Defines the function Triggered when the PDF load.
+ * Defines the function triggered when the PDF loading is successful or fails.
  *
- * @typedef OnPdfLoadEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnPdfLoadEvent {
   /**
-   * The PDF page load result.
+   * The PDF page loading result.
    *
-   * @type { PdfLoadResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   result: PdfLoadResult;
 
   /**
-   * The PDF page url.
+   * URL of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -9865,8 +9860,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onOverScroll(callback: Callback<OnOverScrollEvent>): WebAttribute;
 
   /**
-   * Triggered when the PDF in web page scrolling at bottom with pdf scroll event.
-   * @param { Callback<OnPdfScrollEvent> } callback Function Triggered when the scrolling to bottom.
+   * Called to notify the user that the PDF page has been scrolled to the bottom.
+   *
+   * @param { Callback<OnPdfScrollEvent> } callback - Callback triggered to notify the user that the PDF page has been
+   *     scrolled to the bottom.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -9874,8 +9871,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent>): WebAttribute;
 
   /**
-   * Triggered when the PDF page load finish.
-   * @param { Callback<OnPdfLoadEvent> } callback
+   * Called to notify the user of whether the PDF page is successfully loaded.
+   *
+   * @param { Callback<OnPdfLoadEvent> } callback - Callback triggered to notify users of whether the PDF page is
+   *     successfully loaded.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
