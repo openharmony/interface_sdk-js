@@ -167,7 +167,7 @@ declare namespace dlpPermission {
          */
         dlpFileAccess: DLPFileAccess;
         /**
-         * 表示DLP文件的详细操作权限，是不同[ActionFlagTypes]{@link dlpPermission.ActionFlagType}的组合。
+         * 表示DLP文件的详细操作权限，是不同[ActionFlagType]{@link dlpPermission.ActionFlagType}的组合。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -244,8 +244,7 @@ declare namespace dlpPermission {
      *
      * @param { number } fd - 待查询文件的fd（文件描述符）。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回false；当fd大于2<sup>31</sup>-1时，fd的值被截
      *     断。
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means the
-     *     file is a DLP file; the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示是DLP文件，返回false表示非DLP文件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -531,7 +530,7 @@ declare namespace dlpPermission {
      * @param { common.UIAbilityContext } context - 当前窗口
      *     [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} 上下文。
      * @param { Want } want - 请求对象。
-     * @returns { Promise<DLPManagerResult> } romise对象。打开DLP权限管理应用并退出后的结果。
+     * @returns { Promise<DLPManagerResult> } Promise对象。打开DLP权限管理应用并退出后的结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -661,7 +660,7 @@ declare namespace dlpPermission {
      * @param { DLPFileAccess } access - DLP文件授权类型。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系账号ID，默认主用户ID：100。
      * @param { string } uri - DLP文件的URI。不超过4095字节。
-     * @param { AsyncCallback<DLPSandboxInfo> } callback - C获取应用沙箱信息的回调。
+     * @param { AsyncCallback<DLPSandboxInfo> } callback - 获取应用沙箱信息的回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -696,7 +695,7 @@ declare namespace dlpPermission {
      * 卸载一个应用的DLP沙箱。使用callback方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName -应用包名。最小7字节，最大128字节。
+     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。
      * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值。
      * @param { AsyncCallback<void> } callback - 获取卸载结果的回调。
@@ -1106,7 +1105,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { string } linkFileName - 用于fuse文件系统的link文件名。不超过255字节。
-         * @returns { Promise<void> }  Promise对象。无返回结果的Promise对象。
+         * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1482,12 +1481,13 @@ declare namespace dlpPermission {
     /**
      * 获取DLPFile管理对象。使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
      * > 该接口仅支持企业账号调用，需要企业自行搭建企业账号服务器配套使用。使用该接口可以将明文文件加密生成权限受控文件，由企业服务器管控账号是否有权限解密该文件。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { number } plaintextFd - 明文文件的文件描述符。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
+     * @param { number } plaintextFd - 明文文件的文件描述符。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的
+     *     值被截断。
      * @param { number } dlpFd - 加密文件的文件描述符。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
      * @param { DLPProperty } property - DLP文件通用策略。
      * @param { CustomProperty } customProperty - 企业定制策略。
@@ -1540,7 +1540,8 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } dlpFd - 待解密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
-     * @param { number } plaintextFd - 目标解密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值被截断。
+     * @param { number } plaintextFd - 目标解密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回null；当fd大于2<sup>31</sup>-1时，fd的值
+     *     被截断。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
@@ -1630,7 +1631,7 @@ declare namespace dlpPermission {
      */
     export class DlpConnManager {
         /**
-         * [DlpConnManager]{@link dlpPermission.DlpConnManager}实例化时的构造函数。.
+         * [DlpConnManager]{@link dlpPermission.DlpConnManager} 实例化时的构造函数。
          *
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
@@ -1683,10 +1684,11 @@ declare namespace dlpPermission {
      * 
      * > **说明：**
      * > 
-     * > - 该接口仅能查询调用方应用通过[generateDlpFileForEnterprise]{@link dlppermission.generatedlpfileforenterprise}生成的企业DLP文件，无法查询
+     * > - 该接口仅能查询调用方应用通过[generateDlpFileForEnterprise]{@link dlpPermission.generateDlpFileForEnterprise}生成的企业DLP文件，无法查询
      * > 其他应用生成的企业DLP文件。
      * >
      * > - 相同分类标签的只读企业DLP文件在同一个沙箱中打开。如果一个沙箱中打开了多个相同标签的只读企业DLP文件，则查询结果返回所有该沙箱打开过文件的URI（包括手动关闭的文件）。
+     *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { DlpFileQueryOptions } [options] - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则查询所有企业DLP文件。
      * @returns { Promise<Array<string>> } Promise对象，返回已打开的目标企业DLP文件的URI列表。
@@ -1701,10 +1703,10 @@ declare namespace dlpPermission {
     function queryOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<Array<string>>;
     /**
      * 关闭当前打开的所有符合指定选项的企业DLP文件。使用Promise异步回调。
-     *
+     * 
      * > **说明：**
      * > 
-     * > 该接口仅能关闭调用方应用通过[generateDlpFileForEnterprise]{@link dlppermission.generatedlpfileforenterprise}生成的企业DLP文件。
+     * > 该接口仅能关闭调用方应用通过[generateDlpFileForEnterprise]{@link dlpPermission.generateDlpFileForEnterprise}生成的企业DLP文件。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { DlpFileQueryOptions } [options] - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则关闭所有企业DLP文件。
