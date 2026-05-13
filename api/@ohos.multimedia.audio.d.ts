@@ -3963,17 +3963,17 @@ declare namespace audio {
     getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
 
     /**
-     * Obtains an {@link AudioDebugManager} instance.
+     * Obtains an {@link AudioDebuggingManager} instance.
      * <p><strong>NOTE</strong>:
-     * The {@link AudioDebugManager} instance is a singleton.
+     * The {@link AudioDebuggingManager} instance is a singleton.
      * </p>
      *
-     * @returns { AudioDebugManager } this {@link AudioDebugManager} object.
+     * @returns { AudioDebuggingManager } this {@link AudioDebuggingManager} object.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 26.0.0 dynamic&static
      */
-    getDebugManager(): AudioDebugManager;
+    getDebugManager(): AudioDebuggingManager;
 
     /**
      * user disable the safe media volume state.
@@ -9349,9 +9349,9 @@ declare namespace audio {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface AudioDebugManager {
+  interface AudioDebuggingManager {
     /**
-     * Show Single App Audio Runtime Snapshot
+     * Print Single App Audio Runtime Snapshot
      * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
      * If the fd is less than 0, the snapshot information is stored in the pipeline log.
      * Otherwise, the snapshot is stored in the file pointed to by the fd handle.
@@ -9359,9 +9359,9 @@ declare namespace audio {
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    showAppInfo(fd: int): void;
+    printAppInfo(fd: int): void;
     /**
-     * Show AudioRenderer Runtime Snapshot
+     * Print AudioRenderer Runtime Snapshot
      * @param { AudioRenderer } renderer - renderer is a pointer. Pointer to the AudioRenderer whose runtime snapshot needs to be displayed.
      * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
      * If the fd is less than 0, the snapshot information is stored in the pipeline log.
@@ -9370,9 +9370,9 @@ declare namespace audio {
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    showRendererInfo(renderer: AudioRenderer, fd: int): void;
+    printRendererInfo(renderer: AudioRenderer, fd: int): void;
     /**
-     * Show AudioCapturer Runtime Snapshot
+     * Print AudioCapturer Runtime Snapshot
      * @param { AudioCapturer } capturer - capturer is a pointer. Pointer to the AudioCapturer whose runtime snapshot needs to be displayed.
      * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
      * If the fd is less than 0, the snapshot information is stored in the pipeline log.
@@ -9381,9 +9381,9 @@ declare namespace audio {
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    showCapturerInfo(capturer: AudioCapturer, fd: int): void;
+    printCapturerInfo(capturer: AudioCapturer, fd: int): void;
     /**
-     * Show AudioLoopback Runtime Snapshot
+     * Print AudioLoopback Runtime Snapshot
      * @param { AudioLoopback } loopback - loopback is a pointer. Pointer to the AudioLoopback whose runtime snapshot needs to be displayed.
      * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
      * If the fd is less than 0, the snapshot information is stored in the pipeline log.
@@ -9392,9 +9392,9 @@ declare namespace audio {
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    showLoopbackInfo(loopback: AudioLoopback, fd: int): void;
+    printLoopbackInfo(loopback: AudioLoopback, fd: int): void;
     /**
-     * Show AudioSession Runtime Snapshot
+     * Print AudioSession Runtime Snapshot
      * @param { AudioSessionManager } session - session is a pointer. Pointer to the AudioSessionManager whose runtime snapshot needs to be displayed.
      * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
      * If the fd is less than 0, the snapshot information is stored in the pipeline log.
@@ -9403,7 +9403,7 @@ declare namespace audio {
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    showSessionInfo(session: AudioSessionManager, fd: int): void;
+    printSessionInfo(session: AudioSessionManager, fd: int): void;
   }
 
   /**
