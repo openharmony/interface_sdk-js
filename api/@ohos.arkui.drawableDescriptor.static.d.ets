@@ -21,7 +21,7 @@
 
 import image from './@ohos.multimedia.image';
 import drawing from './@ohos.graphics.drawing';
-import { AnimationStatus, ResourceStr } from '@ohos.arkui.component';
+import { AnimationStatus, ResourceStr, ScaleOptions, Rectangle } from '@ohos.arkui.component';
 
 /**
  * The result of loading image.
@@ -388,4 +388,50 @@ export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
    * @since 23 static
    */
   getAnimationController(id?: string): AnimationController | undefined;
+}
+
+/**
+ * Options for HDR composition configuration.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface HdrCompositionConfig {
+  /**
+  * Rectangle area for HDR composition.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 26.0.0 static
+  */
+  rect: Rectangle;
+}
+
+/**
+ * Use the PictureDrawableDescriptor class to get the resource of picture or resource descriptor information.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class PictureDrawableDescriptor extends DrawableDescriptor {
+  /**
+  * Creates a new PictureDrawableDescriptor.
+  *
+  * @param { image.Picture } src - Indicates the resource to create PictureDrawableDescriptor.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 26.0.0 static
+  */
+  constructor(src: image.Picture);
+
+  /**
+  * Set HDR composition config.
+  *
+  * @param { HdrCompositionConfig } config - Indicates the HDR composition config.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 26.0.0 static
+  */
+  setHdrComposition(config: HdrCompositionConfig): void;
 }
