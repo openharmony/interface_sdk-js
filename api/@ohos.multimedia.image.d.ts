@@ -3535,30 +3535,6 @@ declare namespace image {
   }
 
   /**
-   * Describes the options for image encoding.
-   *
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 6
-   */
-  /**
-   * Describes the option for image packing.
-   *
-   * @typedef PackingOption
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes the option for image packing.
-   *
-   * @typedef PackingOption
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 23 static
-   */
-  /**
    * Packing image size limit.
    *
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
@@ -3585,6 +3561,30 @@ declare namespace image {
     level: AntiAliasingLevel;
   }
 
+  /**
+   * Describes the options for image encoding.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @since 6
+   */
+  /**
+   * Describes the option for image packing.
+   *
+   * @typedef PackingOption
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Describes the option for image packing.
+   *
+   * @typedef PackingOption
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   * @since 23 static
+   */
   interface PackingOption {
     /**
      * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
