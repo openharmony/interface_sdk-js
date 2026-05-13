@@ -9901,23 +9901,19 @@ declare namespace photoAccessHelper {
 
     /**
      * Support displaying index numbers.
-     * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.0.0 dynamic&static
      */
     isSelectionNumberVisible?: boolean;
     
     /**
      * Support selection order adjustment.
-     * @type { ?boolean }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.0.0 dynamic&static
      */
     isSelectionOrderAdjustable?: boolean;
   }
