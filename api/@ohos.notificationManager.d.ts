@@ -3791,12 +3791,14 @@ declare namespace notificationManager {
   function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
 
   /**
-   * Delays a notification to remind again after a specified time interval.
-   * This API allows to snooze a notification and be alerted again after a given time.
+   * Sets a notification snooze reminder. The notification reminds the user again after the specified time. Each setting
+   * triggers only one reminder, using the same reminder mode as the original notification.
+   * After the snooze reminder is set, the original notification is deleted.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } hashCode - The hashCode of the notification to snooze.
    * @param { long } delayTime - The time interval in seconds to delay the reminder.
+   *     <br>Unit: s.
    * @returns { Promise<void> } Returns the promise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.

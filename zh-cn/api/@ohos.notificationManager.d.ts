@@ -3590,6 +3590,28 @@ declare namespace notificationManager {
   function getNotificationStatisticsByBundle(bundles: BundleOption[]): Promise<BundleNotificationStatistics[]>;
 
   /**
+   * 设置通知稍后提醒。该通知在指定时间后再次提醒，每次设置只会提醒一次，提醒方式与该通知相同。
+   * 设置后该通知被删除。
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode  - 需要设置稍后提醒通知的唯一标识。
+   * @param { long } delayTime  - 稍后提醒的时间间隔。
+   *     <br>单位为： 秒。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @throws { BusinessError } 1600028 - This notification is not supported.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function snoozeNotification(hashCode: string, delayTime: long): Promise<void>;
+
+  /**
    * 描述通知相关开关的设置状态。
    *
    * @syscap SystemCapability.Notification.Notification
