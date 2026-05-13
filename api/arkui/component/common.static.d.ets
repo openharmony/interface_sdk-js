@@ -1,4 +1,4 @@
-﻿'use static'
+'use static'
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -9569,6 +9569,74 @@ export declare enum MenuKeyboardAvoidMode {
 }
 
 /**
+ * Defines menu grid position.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum MenuGridPosition {
+   /**
+    * The grid is located at the top of the menu.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+   TOP = 0,
+   /**
+    * The grid is located at the bottom of the menu.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+   BOTTOM = 1
+}
+
+/**
+ * Defines grid style of menu.
+ *
+ * @interface MenuGridStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface MenuGridStyleOptions {
+   /**
+    * The count of items in grid.
+    *
+    * @type { ?int }
+    * @default 3
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+   count?: int;
+   /**
+    * The horizontal size of items in grid.
+    *
+    * @type { ?int }
+    * @default 3
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+   horizontalSize?: int;
+   /**
+    * The position of grid.
+    *
+    * @type { ?MenuGridPosition }
+    * @default MenuGridPosition.TOP
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+   position?: MenuGridPosition;
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -10022,6 +10090,36 @@ export declare interface ContextMenuOptions {
      * @since 26.0.0 static
      */
     maxHeight?: LengthMetrics;
+    /**
+     * Sets the distortion animation Mode of the menu.
+     * 
+     * @default DistortionMode.DISTORTION_AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    distortionMode?: DistortionMode;
+    /**
+     * Sets the edgeLight animation Mode of the menu.
+     * 
+     * @default EdgeLightMode.EDGELIGHT_DISABLED
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    edgeLightMode?: EdgeLightMode;
+    /**
+     * Define grid style of menu. Only fixed-style menus are effective.
+     * For example, using MenuElement in bindMenu/bindContextMenu or using MenuItemOptions in MenuItem.
+     *
+     * @type { ?MenuGridStyleOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    gridStyle?: MenuGridStyleOptions;
 }
 /**
  * Defines the menu options.
@@ -13309,6 +13407,21 @@ export declare interface CommonMethod {
     default bindContextMenu(content: CustomBuilder | undefined, responseType: ResponseType | undefined, options?: ContextMenuOptions): this;
     /**
      * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+     * component. Only custom menu items are supported.
+     *
+     * @param { CustomBuilder | Array<MenuElement> | undefined } content - Indicates the content of context menu.
+     * @param { ResponseType | undefined } responseType - Indicates response type of context menu. Long pressing with
+     *     a mouse device is not supported.
+     * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default bindContextMenuByResponseType(content: CustomBuilder | Array<MenuElement> | undefined,
+        responseType: ResponseType | undefined, options?: ContextMenuOptions): this;
+    /**
+     * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
      * component. Only custom menu items are supported. Long pressing with a mouse device is not supported.
      *
      * @param { CustomBuilderT<ResponseType> | undefined } content - Indicates the content of context menu. Undefined
@@ -13320,6 +13433,20 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): this;
+    /**
+     * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+     * component. Only custom menu items are supported. Long pressing with a mouse device is not supported.
+     *
+     * @param { CustomBuilderT<ResponseType> | Array<MenuElement> | undefined } content - Indicates the content of
+     *     context menu. Undefined means unbinding.
+     * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | Array<MenuElement> | undefined,
+        options?: ContextMenuOptions): this;
     /**
      * Binds a context menu to the component, whose visibility is subject to the isShow settings.
      *
@@ -13339,6 +13466,26 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default bindContextMenu(isShow: boolean | Bindable<boolean> | undefined, content: CustomBuilder | undefined, options?: ContextMenuOptions): this;
+    /**
+     * Binds a context menu to the component, whose visibility is subject to the isShow settings.
+     *
+     * @param { boolean | Bindable<boolean> | undefined } isShow - Menu display switch,
+     *     supports incoming two-way binding parameters.
+     *     true means display content, false means hide content, default is false.
+     *     <p><strong>NOTE</strong>:
+     *     <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is set
+     *     to true before the construction is complete, display issues, such as misplacement, distortion, or failure to pop
+     *     up, may occur. Dragging via long press is not supported.
+     *     </p>
+     * @param { CustomBuilder | Array<MenuElement> | undefined } content - Indicates the content of context menu.
+     * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default bindContextMenuByIsShow(isShow: boolean | Bindable<boolean> | undefined,
+        content: CustomBuilder | Array<MenuElement> | undefined, options?: ContextMenuOptions): this;
     /**
      * Binds a modal page to the component, whose visibility is subject to the isShow settings.
      *
