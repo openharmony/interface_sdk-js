@@ -21,10 +21,10 @@
 import type { Callback } from './@ohos.base';
 
 /**
- * This module provides JavaScript APIs of the scan framework for discovering and connecting to scanners.
+ * 该模块为扫描框架的js-api接口文档，提供发现和连接扫描仪的能力。
  *
- * > **NOTE**
- * > > This topic describes only public APIs provided by the module.
+ * > **说明：**
+ * > > 当前界面仅包含本模块的公开接口。
  *
  * @syscap SystemCapability.Print.PrintFramework
  * @since 20 dynamic
@@ -32,7 +32,7 @@ import type { Callback } from './@ohos.base';
  */
 declare namespace scan {
   /**
-   * Enumerates the scan error codes.
+   * 定义扫描错误码的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -40,7 +40,7 @@ declare namespace scan {
    */
   enum ScanErrorCode {
     /**
-     * No permission.
+     * 无权限。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -49,7 +49,7 @@ declare namespace scan {
     SCAN_ERROR_NO_PERMISSION = 201,
 
     /**
-     * Non-system application.
+     * 非系统应用。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -58,7 +58,7 @@ declare namespace scan {
     SCAN_ERROR_NOT_SYSTEM_APPLICATION = 202,
 
     /**
-     * Invalid parameter.
+     * 无效参数。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -67,7 +67,7 @@ declare namespace scan {
     SCAN_ERROR_INVALID_PARAMETER = 401,
 
     /**
-     * Generic failure.
+     * 通用失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -76,7 +76,7 @@ declare namespace scan {
     SCAN_ERROR_GENERIC_FAILURE = 13100001,
 
     /**
-     * RPC failure.
+     * RPC失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -85,7 +85,7 @@ declare namespace scan {
     SCAN_ERROR_RPC_FAILURE = 13100002,
 
     /**
-     * Service failure.
+     * 服务失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -94,7 +94,7 @@ declare namespace scan {
     SCAN_ERROR_SERVER_FAILURE = 13100003,
 
     /**
-     * Unsupported operation.
+     * 不支持的操作。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -103,7 +103,7 @@ declare namespace scan {
     SCAN_ERROR_UNSUPPORTED = 13100004,
 
     /**
-     * Operation canceled.
+     * 操作取消。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -112,7 +112,7 @@ declare namespace scan {
     SCAN_ERROR_CANCELED = 13100005,
 
     /**
-     * Device busy.
+     * 设备忙。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -121,7 +121,7 @@ declare namespace scan {
     SCAN_ERROR_DEVICE_BUSY = 13100006,
 
     /**
-     * Invalid operation.
+     * 无效操作。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -130,7 +130,7 @@ declare namespace scan {
     SCAN_ERROR_INVALID = 13100007,
 
     /**
-     * Paper jammed.
+     * 卡纸。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -139,7 +139,7 @@ declare namespace scan {
     SCAN_ERROR_JAMMED = 13100008,
 
     /**
-     * Out of paper.
+     * 缺纸。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -148,7 +148,7 @@ declare namespace scan {
     SCAN_ERROR_NO_DOCS = 13100009,
 
     /**
-     * Cover open.
+     * 盖子打开。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -157,7 +157,7 @@ declare namespace scan {
     SCAN_ERROR_COVER_OPEN = 13100010,
 
     /**
-     * I/O error.
+     * I/O错误。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -166,7 +166,7 @@ declare namespace scan {
     SCAN_ERROR_IO_ERROR = 13100011,
 
     /**
-     * Insufficient memory.
+     * 内存不足。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -176,7 +176,7 @@ declare namespace scan {
     }
 
   /**
-   * Enumerates the parameter constraint types.
+   * 定义参数限制类型的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -184,7 +184,7 @@ declare namespace scan {
    */
   enum ConstraintType {
     /**
-     * No constraint.
+     * 无限制。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -193,7 +193,7 @@ declare namespace scan {
     SCAN_CONSTRAINT_NONE = 0,
 
     /**
-     * Range.
+     * 范围限制。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -202,7 +202,7 @@ declare namespace scan {
     SCAN_CONSTRAINT_RANGE = 1,
 
     /**
-     * Number list.
+     * 数字列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -211,7 +211,7 @@ declare namespace scan {
     SCAN_CONSTRAINT_WORD_LIST = 2,
 
     /**
-     * String list.
+     * 字符串列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -221,7 +221,7 @@ declare namespace scan {
     }
 
   /**
-   * Enumerates the physical units.
+   * 定义物理单位的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -229,7 +229,7 @@ declare namespace scan {
    */
   enum PhysicalUnit {
     /**
-     * No unit.
+     * 无单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -238,7 +238,7 @@ declare namespace scan {
     SCAN_UNIT_NONE = 0,
 
     /**
-     * Pixel unit.
+     * 像素单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -247,7 +247,7 @@ declare namespace scan {
     SCAN_UNIT_PIXEL = 1,
 
     /**
-     * Bit unit.
+     * 位单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -256,7 +256,7 @@ declare namespace scan {
     SCAN_UNIT_BIT = 2,
 
     /**
-     * Millimeter unit.
+     * 毫米单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -265,7 +265,7 @@ declare namespace scan {
     SCAN_UNIT_MM = 3,
 
     /**
-     * DPI unit.
+     * DPI单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -274,7 +274,7 @@ declare namespace scan {
     SCAN_UNIT_DPI = 4,
 
     /**
-     * Percentage unit.
+     * 百分比单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -283,7 +283,7 @@ declare namespace scan {
     SCAN_UNIT_PERCENT = 5,
 
     /**
-     * Microsecond unit.
+     * 微秒单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -293,7 +293,7 @@ declare namespace scan {
     }
 
   /**
-   * Enumerates the option value types.
+   * 定义选项值类型的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -301,7 +301,7 @@ declare namespace scan {
    */
   enum OptionValueType {
     /**
-     * Boolean.
+     * 布尔类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -310,7 +310,7 @@ declare namespace scan {
     SCAN_TYPE_BOOL = 0,
 
     /**
-     * Integer.
+     * 整数类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -319,7 +319,7 @@ declare namespace scan {
     SCAN_TYPE_INT = 1,
 
     /**
-     * Fixed-point number.
+     * 定点数类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -328,7 +328,7 @@ declare namespace scan {
     SCAN_TYPE_FIXED = 2,
 
     /**
-     * String.
+     * 字符串类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -338,7 +338,7 @@ declare namespace scan {
     }
 
   /**
-   * Enumerates the scanner sync codes.
+   * 定义扫描仪同步码的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -346,7 +346,7 @@ declare namespace scan {
    */
   enum ScannerSyncMode {
     /**
-     * Update code, which indicates that the scanner ID changes.
+     * 更新码，表示扫描仪id的变化。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -355,7 +355,7 @@ declare namespace scan {
     UPDATE_STR = 'update',
 
     /**
-     * Deletion code, which indicates that the scanner is offline.
+     * 删除码，表示扫描仪掉线。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -365,7 +365,7 @@ declare namespace scan {
     }
 
   /**
-   * Enumerates the scanner discovery modes.
+   * 定义扫描仪发现方式的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -373,7 +373,7 @@ declare namespace scan {
    */
   enum ScannerDiscoveryMode {
     /**
-     * Discovery mode of the network scanner.
+     * 网络扫描仪的发现模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -382,7 +382,7 @@ declare namespace scan {
     TCP_STR = 'TCP',
 
     /**
-     * Discovery mode of the USB scanner.
+     * USB扫描仪的发现模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -392,7 +392,7 @@ declare namespace scan {
     }
 
   /**
-   * Defines the range.
+   * 定义范围的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -400,7 +400,7 @@ declare namespace scan {
    */
   interface Range {
     /**
-     * Minimum value.
+     * 范围的最小值。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -409,7 +409,7 @@ declare namespace scan {
     minValue: int;
 
     /**
-     * Maximum value.
+     * 范围的最大值。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -418,7 +418,7 @@ declare namespace scan {
     maxValue: int;
 
     /**
-     * Quantized value.
+     * 范围的量化值。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -428,7 +428,7 @@ declare namespace scan {
     }
 
   /**
-   * Defines the scanner parameters.
+   * 定义扫描仪参数的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -436,7 +436,7 @@ declare namespace scan {
    */
   interface ScannerParameter {
     /**
-     * Option name.
+     * 选项名称。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -445,7 +445,7 @@ declare namespace scan {
     optionName: string;
 
     /**
-     * Option index.
+     * 选项索引。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -454,7 +454,7 @@ declare namespace scan {
     optionIndex: int;
 
     /**
-     * Option title.
+     * 选项标题。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -463,7 +463,7 @@ declare namespace scan {
     optionTitle: string;
 
     /**
-     * Option description.
+     * 选项描述。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -472,7 +472,7 @@ declare namespace scan {
     optionDesc: string;
 
     /**
-     * Option value type.
+     * 选项值类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -481,7 +481,7 @@ declare namespace scan {
     optionType: OptionValueType;
 
     /**
-     * Physical unit of the option.
+     * 选项物理单位。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -490,7 +490,7 @@ declare namespace scan {
     optionUnit: PhysicalUnit;
 
     /**
-     * Constraint type of the option.
+     * 选项约束类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -499,7 +499,7 @@ declare namespace scan {
     optionConstraintType: ConstraintType;
 
     /**
-     * String constraints of the option.
+     * 选项字符串约束。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -508,7 +508,7 @@ declare namespace scan {
     optionConstraintString?: string[];
 
     /**
-     * Integer constraints of the option.
+     * 选项整数约束。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -517,7 +517,7 @@ declare namespace scan {
     optionConstraintInt?: int[];
 
     /**
-     * Range constraint of the option.
+     * 选项范围约束。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -527,7 +527,7 @@ declare namespace scan {
     }
 
   /**
-   * Defines the scanner option value.
+   * 定义扫描仪选项值的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -535,7 +535,7 @@ declare namespace scan {
    */
   interface ScannerOptionValue {
     /**
-     * Value type.
+     * 值类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -544,7 +544,7 @@ declare namespace scan {
     valueType: OptionValueType;
 
     /**
-     * Value of the number type.
+     * 数值。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -553,7 +553,7 @@ declare namespace scan {
     numValue?: int;
 
     /**
-     * Value of the string type.
+     * 字符串值。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -562,7 +562,7 @@ declare namespace scan {
     strValue?: string;
 
     /**
-     * Value of the Boolean type.
+     * 布尔值。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -572,7 +572,7 @@ declare namespace scan {
     }
 
   /**
-   * Defines the progress of scanning pictures.
+   * 定义图片扫描进度的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -580,7 +580,7 @@ declare namespace scan {
    */
   interface PictureScanProgress {
     /**
-     * Progress percentage, whose value ranges from 0 to 100. Unit: %
+     * 当前进度百分比，范围从0~100。单位：百分比。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -589,7 +589,7 @@ declare namespace scan {
     progress: int;
 
     /**
-     * File descriptor of the scanned picture.
+     * 扫描图片的文件描述符。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -598,8 +598,7 @@ declare namespace scan {
     pictureFd: int;
 
     /**
-     * Whether the picture is the last one to be scanned. The value **true** indicates that the picture is the last
-     * one to be scanned, and **false** indicates that the picture is not the last one.
+     * 是否是本次扫描的最后一张图片。true表示是最后一张图片，false表示不是最后一张图片。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -609,7 +608,7 @@ declare namespace scan {
     }
 
   /**
-   * Defines the scanner.
+   * 定义扫描仪设备的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -617,7 +616,7 @@ declare namespace scan {
    */
   interface ScannerDevice {
     /**
-     * Unique identifier of the scanner.
+     * 扫描仪的唯一标识符。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -626,7 +625,7 @@ declare namespace scan {
     scannerId: string;
 
     /**
-     * Discovery mode of the scanner.
+     * 扫描仪的发现模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -635,7 +634,7 @@ declare namespace scan {
     discoveryMode: ScannerDiscoveryMode;
 
     /**
-     * Unique ID of the scanner.
+     * 扫描仪的唯一ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -644,7 +643,7 @@ declare namespace scan {
     uniqueId: string;
 
     /**
-     * Manufacturer of the scanner.
+     * 扫描仪的制造商。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -653,7 +652,7 @@ declare namespace scan {
     manufacturer: string;
 
     /**
-     * Model of the scanner.
+     * 扫描仪的型号。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -662,7 +661,7 @@ declare namespace scan {
     model: string;
 
     /**
-     * Name of the scanner.
+     * 扫描仪的设备名称。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -672,7 +671,7 @@ declare namespace scan {
     }
 
   /**
-   * Defines the device to be synced from the scanner.
+   * 定义扫描仪同步设备的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -680,7 +679,7 @@ declare namespace scan {
    */
   interface ScannerSyncDevice {
     /**
-     * Scanner ID.
+     * 扫描仪ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -688,7 +687,7 @@ declare namespace scan {
      */
     scannerId: string;
     /**
-     * Discovery mode.
+     * 发现模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -697,7 +696,7 @@ declare namespace scan {
     discoveryMode: ScannerDiscoveryMode;
 
     /**
-     * Unique ID.
+     * 唯一ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -706,7 +705,7 @@ declare namespace scan {
     uniqueId: string;
 
     /**
-     * Sync mode.
+     * 同步模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -715,7 +714,7 @@ declare namespace scan {
     syncMode: ScannerSyncMode;
 
     /**
-     * Old scanner ID, which is valid only when **syncMode** is set to **update**.
+     * 旧的扫描仪ID，仅在syncMode为"update"时有效。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -725,10 +724,10 @@ declare namespace scan {
     }
 
   /**
-   * Initializes the scan service. This API uses a promise to return the result.
+   * 初始化扫描服务。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -737,10 +736,10 @@ declare namespace scan {
   function init(): Promise<void>;
 
   /**
-   * Exits the scan service. This API uses a promise to return the result.
+   * 退出扫描服务。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -749,10 +748,10 @@ declare namespace scan {
   function exit(): Promise<void>;
 
   /**
-   * Starts scanner discovery. This API uses a promise to return the result.
+   * 开始发现扫描仪。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -761,11 +760,11 @@ declare namespace scan {
   function startScannerDiscovery(): Promise<void>;
 
   /**
-   * Opens a scanner. This API uses a promise to return the result.
+   * 打开扫描仪。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - ID of the scanner to be opened.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } scannerId - 要打开的扫描仪的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -774,11 +773,11 @@ declare namespace scan {
   function openScanner(scannerId: string): Promise<void>;
 
   /**
-   * Closes a scanner. This API uses a promise to return the result.
+   * 关闭扫描仪。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - ID of the scanner to be closed.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } scannerId - 要关闭的扫描仪的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -787,10 +786,10 @@ declare namespace scan {
   function closeScanner(scannerId: string): Promise<void>;
 
   /**
-   * Obtains scanner parameters. This API uses a promise to return the result.
+   * 获取扫描仪参数。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - Scanner ID.
+   * @param { string } scannerId - 扫描仪的ID。
    * @returns { Promise<ScannerParameter[]> } Promise used to return the scanner parameters.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
@@ -800,13 +799,13 @@ declare namespace scan {
   function getScannerParameter(scannerId: string): Promise<ScannerParameter[]>;
 
   /**
-   * Sets scanner parameters. This API uses a promise to return the result.
+   * 设置扫描仪参数。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - Scanner ID.
-   * @param { int } optionIndex - Index of the option to be set.
-   * @param { ScannerOptionValue } value - Value to be set.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } scannerId - 扫描仪的ID。
+   * @param { int } optionIndex - 要设置的选项的索引。
+   * @param { ScannerOptionValue } value - 要设置的值。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -815,12 +814,12 @@ declare namespace scan {
   function setScannerParameter(scannerId: string, optionIndex: int, value: ScannerOptionValue): Promise<void>;
 
   /**
-   * Sets the scan option to auto mode. This API uses a promise to return the result.
+   * 设置扫描选项为自动模式。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - Scanner ID.
-   * @param { int } optionIndex - Index of the option to be set to auto mode.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } scannerId - 扫描仪的ID。
+   * @param { int } optionIndex - 要设置为自动的选项的索引。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -829,12 +828,12 @@ declare namespace scan {
   function setScanAutoOption(scannerId: string, optionIndex: int): Promise<void>;
 
   /**
-   * Obtains the current scanner settings. This API uses a promise to return the result.
+   * 获取当前扫描仪设置。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - Scanner ID.
-   * @param { int } optionIndex - Index of the option to be obtained.
-   * @returns { Promise<ScannerOptionValue> } Promise used to return the scanner option value.
+   * @param { string } scannerId - 扫描仪的ID。
+   * @param { int } optionIndex - 要获取的选项的索引。
+   * @returns { Promise<ScannerOptionValue> } Promise对象，返回扫描仪选项值。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -843,13 +842,12 @@ declare namespace scan {
   function getScannerCurrentSetting(scannerId: string, optionIndex: int): Promise<ScannerOptionValue>;
 
   /**
-   * Starts scanning. This API uses a promise to return the result.
+   * 开始扫描。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - Scanner ID.
-   * @param { boolean } batchMode - Whether to use the batch processing mode. The value **true** indicates that the
-   *     batch processing mode is used, and **false** indicates the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } scannerId - 扫描仪的ID。
+   * @param { boolean } batchMode - 是否使用批处理模式。true表示使用批处理模式，false表示不使用批处理模式。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -858,11 +856,11 @@ declare namespace scan {
   function startScan(scannerId: string, batchMode: boolean): Promise<void>;
 
   /**
-   * Cancels scanning. This API uses a promise to return the result.
+   * 取消扫描。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - Scanner ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } scannerId - 扫描仪的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -871,11 +869,11 @@ declare namespace scan {
   function cancelScan(scannerId: string): Promise<void>;
 
   /**
-   * Obtains the progress of scanning a picture. This API uses a promise to return the result.
+   * 获取图片扫描进度。使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } scannerId - Scanner ID.
-   * @returns { Promise<PictureScanProgress> } Promise used to return the progress.
+   * @param { string } scannerId - 扫描仪的ID。
+   * @returns { Promise<PictureScanProgress> } Promise对象，返回图片扫描进度信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -884,12 +882,12 @@ declare namespace scan {
   function getPictureScanProgress(scannerId: string): Promise<PictureScanProgress>;
 
   /**
-   * Adds a scanner. This API uses a promise to return the result.
+   * 添加扫描仪（系统API）。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } uniqueId - Unique ID of the scanner.
-   * @param { ScannerDiscoveryMode } discoveryMode - Discovery mode.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } uniqueId - 扫描仪的唯一ID。
+   * @param { ScannerDiscoveryMode } discoveryMode - 发现模式。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -900,12 +898,12 @@ declare namespace scan {
   function addScanner(uniqueId: string, discoveryMode: ScannerDiscoveryMode): Promise<void>;
 
   /**
-   * Deletes a scanner. This API uses a promise to return the result.
+   * 删除扫描仪（系统API）。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } uniqueId - Unique ID of the scanner.
-   * @param { ScannerDiscoveryMode } discoveryMode - Discovery mode.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } uniqueId - 扫描仪的唯一ID。
+   * @param { ScannerDiscoveryMode } discoveryMode - 发现模式。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -916,7 +914,7 @@ declare namespace scan {
   function deleteScanner(uniqueId: string, discoveryMode: ScannerDiscoveryMode): Promise<void>;
 
   /**
-   * Obtains the added scanners. This API uses a promise to return the result.
+   * 获取已添加的扫描仪（系统API）。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @returns { Promise<ScannerDevice[]> } Promise used to return the array of added scanners.
@@ -930,12 +928,11 @@ declare namespace scan {
   function getAddedScanners(): Promise<ScannerDevice[]>;
 
   /**
-   * Registers a callback used to listen for the scanner discovery event. This API uses an asynchronous callback to
-   * return the result.
+   * 注册扫描仪设备发现事件回调。使用callback异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { 'scanDeviceFound' } type - Event type.
-   * @param { Callback<ScannerDevice> } callback - Callback used to return the discovered scanner.
+   * @param { 'scanDeviceFound' } type - 事件类型。
+   * @param { Callback<ScannerDevice> } callback - 回调函数，返回扫描仪设备发现信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -944,7 +941,6 @@ declare namespace scan {
 
   /**
    * Register event callback for scanner device found.
-   *
    * @permission ohos.permission.PRINT
    * @param { Callback<ScannerDevice> } callback - Callback for device found event.
    * @throws { BusinessError } 201 - Permission denied.
@@ -954,12 +950,11 @@ declare namespace scan {
   function onScanDeviceFound(callback: Callback<ScannerDevice>): void;
 
   /**
-   * Unregisters a callback used to listen for the scanner discovery event. This API uses an asynchronous callback to
-   * return the result.
+   * 取消注册扫描仪设备发现事件回调。使用callback异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { 'scanDeviceFound' } type - Event type.
-   * @param { Callback<ScannerDevice> } [callback] - Callback to unregister.
+   * @param { 'scanDeviceFound' } type - 事件类型。
+   * @param { Callback<ScannerDevice> } [callback] - 回调函数，返回扫描仪设备发现信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -968,7 +963,6 @@ declare namespace scan {
 
   /**
    * Unregister event callback for scanner device found.
-   *
    * @permission ohos.permission.PRINT
    * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
    * @throws { BusinessError } 201 - Permission denied.
@@ -978,12 +972,11 @@ declare namespace scan {
   function offScanDeviceFound(callback?: Callback<ScannerDevice>): void;
 
   /**
-   * Registers a callback used to listen for the scanner sync event. This API uses an asynchronous callback to return
-   * the result.
+   * 注册扫描仪设备同步事件回调。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'scanDeviceSync' } type - Event type.
-   * @param { Callback<ScannerSyncDevice> } callback - Callback used to return the synced scanner.
+   * @param { 'scanDeviceSync' } type - 事件类型。
+   * @param { Callback<ScannerSyncDevice> } callback - 回调函数，返回扫描仪设备同步信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -992,7 +985,6 @@ declare namespace scan {
 
   /**
    * Register event callback for scanner device sync.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<ScannerSyncDevice> } callback - Callback for device sync event.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1002,12 +994,11 @@ declare namespace scan {
   function onScanDeviceSync(callback: Callback<ScannerSyncDevice>): void;
 
   /**
-   * Unregisters a callback used to listen for the scanner sync event. This API uses an asynchronous callback to
-   * return the result.
+   * 取消注册扫描仪设备同步事件回调。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'scanDeviceSync' } type - Event type.
-   * @param { Callback<ScannerSyncDevice> } [callback] - Callback to unregister.
+   * @param { 'scanDeviceSync' } type - 事件类型。
+   * @param { Callback<ScannerSyncDevice> } [callback] - 回调函数，返回扫描仪设备同步信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 20 dynamic
@@ -1016,7 +1007,6 @@ declare namespace scan {
 
   /**
    * Unregister event callback for scanner device sync.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<ScannerSyncDevice> } [callback] - Optional callback to unregister.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1026,12 +1016,11 @@ declare namespace scan {
   function offScanDeviceSync(callback?: Callback<ScannerSyncDevice>): void;
 
   /**
-   * Registers a callback used to listen for the scanner addition event. This API uses an asynchronous callback to
-   * return the result.
+   * 注册扫描仪设备添加事件回调（系统API）。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'scanDeviceAdd' } type - Event type.
-   * @param { Callback<ScannerDevice> } callback - Callback used to return the added scanner.
+   * @param { 'scanDeviceAdd' } type - 事件类型。
+   * @param { Callback<ScannerDevice> } callback - 回调函数，返回扫描仪设备添加信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -1042,7 +1031,6 @@ declare namespace scan {
 
   /**
    * Register event callback for scanner device add (system API).
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<ScannerDevice> } callback - Callback for device add event.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1054,12 +1042,11 @@ declare namespace scan {
   function onScanDeviceAdd(callback: Callback<ScannerDevice>): void;
 
   /**
-   * Unregisters the callback used to listen for the scanner addition event. This API uses an asynchronous callback to
-   * return the result.
+   * 取消注册扫描仪设备添加事件回调（系统API）。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'scanDeviceAdd' } type - Event type.
-   * @param { Callback<ScannerDevice> } [callback] - Callback used to return the added scanner.
+   * @param { 'scanDeviceAdd' } type - 事件类型。
+   * @param { Callback<ScannerDevice> } [callback] - 回调函数，返回扫描仪设备添加信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -1070,7 +1057,6 @@ declare namespace scan {
 
   /**
    * Unregister event callback for scanner device add (system API).
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1082,12 +1068,11 @@ declare namespace scan {
   function offScanDeviceAdd(callback?: Callback<ScannerDevice>): void;
 
   /**
-   * Registers a callback used to listen for the scanner deletion event. This API uses an asynchronous callback to
-   * return the result.
+   * 注册扫描仪设备删除事件回调（系统API）。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'scanDeviceDel' } type - Event type.
-   * @param { Callback<ScannerDevice> } callback - Callback used to return the deleted scanner.
+   * @param { 'scanDeviceDel' } type - 事件类型。
+   * @param { Callback<ScannerDevice> } callback - 回调函数，返回扫描仪设备删除信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -1098,7 +1083,6 @@ declare namespace scan {
 
   /**
    * Register event callback for scanner device delete (system API).
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<ScannerDevice> } callback - Callback for device delete event.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1110,12 +1094,11 @@ declare namespace scan {
   function onScanDeviceDel(callback: Callback<ScannerDevice>): void;
 
   /**
-   * Unregisters the callback used to listen for the scanner deletion event. This API uses an asynchronous callback to
-   * return the result.
+   * 取消注册扫描仪设备删除事件回调（系统API）。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'scanDeviceDel' } type - Event type.
-   * @param { Callback<ScannerDevice> } [callback] - Callback used to return the deleted scanner.
+   * @param { 'scanDeviceDel' } type - 事件类型。
+   * @param { Callback<ScannerDevice> } [callback] - 回调函数，返回扫描仪设备删除信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -1126,7 +1109,6 @@ declare namespace scan {
 
   /**
    * Unregister event callback for scanner device delete (system API).
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<ScannerDevice> } [callback] - Optional callback to unregister.
    * @throws { BusinessError } 201 - Permission denied.

@@ -22,7 +22,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type Context from './application/Context';
 
 /**
- * The **print** module provides APIs for basic print operations.
+ * 该模块为基本打印的操作API，提供调用基础打印功能的接口。
  *
  * @syscap SystemCapability.Print.PrintFramework
  * @since 10 dynamic
@@ -31,7 +31,7 @@ import type Context from './application/Context';
 declare namespace print {
 
   /**
-   * Implements event listeners for print jobs.
+   * 打印任务完成后的事件监听回调接口类。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
@@ -39,12 +39,11 @@ declare namespace print {
    */
   interface PrintTask {
     /**
-     * Subscribes to the block events of a print job. This API uses an asynchronous callback to return the result.
+     * 注册打印任务阻塞的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'block' } type - Listening type.<br>The value is fixed at **'block'**.<br>It means that the print job is
-     *     blocked.
-     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is blocked.
+     * @param { 'block' } type - 注册监听，<br/>监听字段：block，<br/>表示打印任务阻塞。
+     * @param { Callback<void> } callback - 回调函数，通知调用方打印任务阻塞。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -55,7 +54,6 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -67,12 +65,11 @@ declare namespace print {
     onBlock(callback: Callback<void>): void;
 
     /**
-     * Subscribes to the success events of a print job. This API uses an asynchronous callback to return the result.
+     * 注册打印任务成功的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'succeed' } type - Listening type.<br>The value is fixed at **'succeed'**.<br>It means that the print
-     *     job is successful.
-     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is successful.
+     * @param { 'succeed' } type - 注册监听，<br/>监听字段：succeed，<br/>表示打印任务成功。
+     * @param { Callback<void> } callback - 回调函数，通知调用方打印任务成功。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -83,7 +80,6 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -95,12 +91,11 @@ declare namespace print {
     onSucceed(callback: Callback<void>): void;
 
     /**
-     * Subscribes to the failure events of a print job. This API uses an asynchronous callback to return the result.
+     * 注册打印任务失败的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'fail' } type - Listening type.<br>The value is fixed at **'fail'**.<br>It means that the print job is
-     *     failed.
-     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is failed.
+     * @param { 'fail' } type - 注册监听，<br/>监听字段：fail，<br/>表示打印任务失败。
+     * @param { Callback<void> } callback - 回调函数，通知调用方打印任务失败。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -111,7 +106,6 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -123,13 +117,11 @@ declare namespace print {
     onFail(callback: Callback<void>): void;
 
     /**
-     * Subscribes to the cancellation events of a print job. This API uses an asynchronous callback to return the
-     * result.
+     * 注册打印任务被取消的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'cancel' } type - Listening type.<br>The value is fixed at **'cancel'**.<br>It means that the print job
-     *     is canceled.
-     * @param { Callback<void> } callback - Callback used to notify the caller that the print job is canceled.
+     * @param { 'cancel' } type - 注册监听，<br/>监听字段：cancel，<br/>表示打印任务被取消。
+     * @param { Callback<void> } callback - 回调函数，通知调用方打印任务被取消。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -140,7 +132,6 @@ declare namespace print {
 
     /**
      * Register event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } callback - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -152,12 +143,11 @@ declare namespace print {
     onCancel(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes from the block events of a print job. This API uses an asynchronous callback to return the result.
+     * 取消打印任务阻塞的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'block' } type - Listening type.<br>The value is fixed at **'block'**.<br>It means that the print job is
-     *     blocked.
-     * @param { Callback<void> } callback - Callback used to unsubscribe from the block events of a specified print job.
+     * @param { 'block' } type - 取消监听，<br/>监听字段：block，<br/>表示打印任务阻塞。
+     * @param { Callback<void> } callback - 回调函数，取消指定的打印任务阻塞事件订阅。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -168,7 +158,6 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -180,13 +169,11 @@ declare namespace print {
     offBlock(callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from the success events of a print job. This API uses an asynchronous callback to return the result.
+     * 取消打印任务成功的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'succeed' } type - Listening type.<br>The value is fixed at **'succeed'**.<br>It means that the print
-     *     job is successful.
-     * @param { Callback<void> } callback - Callback used to unsubscribe from the success events of a specified print
-     *     job.
+     * @param { 'succeed' } type - 取消监听，<br/>监听字段：succeed，<br/>表示打印任务成功。
+     * @param { Callback<void> } callback - 回调函数，取消指定的打印任务成功事件订阅。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -197,7 +184,6 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -209,13 +195,11 @@ declare namespace print {
     offSucceed(callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from the failure events of a print job. This API uses an asynchronous callback to return the result.
+     * 取消打印任务失败的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'fail' } type - Listening type.<br>The value is fixed at **'fail'**.<br>It means that the print job is
-     *     failed.
-     * @param { Callback<void> } callback - Callback used to unsubscribe from the failure events of a specified print
-     *     job.
+     * @param { 'fail' } type - 取消监听，<br/>监听字段：fail，<br/>表示打印任务失败。
+     * @param { Callback<void> } callback - 回调函数，取消指定的打印任务失败事件订阅。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -226,7 +210,6 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -238,14 +221,11 @@ declare namespace print {
     offFail(callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from the cancellation events of a print job. This API uses an asynchronous callback to return the
-     * result.
+     * 取消打印任务被取消的监听，使用callback异步回调。
      *
      * @permission ohos.permission.PRINT
-     * @param { 'cancel' } type - Listening type.<br>The value is fixed at **'cancel'**.<br>It means that the print job
-     *     is canceled.
-     * @param { Callback<void> } callback - Callback used to unsubscribe from the cancellation events of a specified
-     *     print job.
+     * @param { 'cancel' } type - 取消监听，<br/>监听字段：cancel，<br/>表示打印任务被取消。
+     * @param { Callback<void> } callback - 回调函数，取消指定的打印任务被取消事件订阅。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -256,7 +236,6 @@ declare namespace print {
 
     /**
      * Unregister event callback when the current print task is in process.
-     *
      * @permission ohos.permission.PRINT
      * @param { Callback<void> } [callback] - The callback function for print task change event
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -270,7 +249,7 @@ declare namespace print {
   }
 
   /**
-   * Provides information about the document to print. This API must be implemented by a third-party application.
+   * 第三方应用程序实现此接口来渲染要打印的文件。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -279,15 +258,14 @@ declare namespace print {
   interface PrintDocumentAdapter {
 
     /**
-     * Sends an empty PDF file descriptor to a third-party application. The third-party application updates the file
-     * with the new print attributes and then calls **writeResultCallback** to print the file.
+     * 打印服务会通过本接口将一个空的pdf文件的文件描述符传给三方应用，由三方应用使用新的打印参数更新待打印文件，更新文件完成后通过本接口的回调方法writeResultCallback通知打印服务。
      *
      * @permission ohos.permission.PRINT
-     * @param { string } jobId - ID of the print job.
-     * @param { PrintAttributes } oldAttrs - Old print attributes.
-     * @param { PrintAttributes } newAttrs - New print attributes.
-     * @param { int } fd - PDF file descriptor sent to the API caller.
-     * @param { function } writeResultCallback - Callback used to print the updated file.
+     * @param { string } jobId - 表示打印任务ID。
+     * @param { PrintAttributes } oldAttrs - 表示旧打印参数。
+     * @param { PrintAttributes } newAttrs - 表示新打印参数。
+     * @param { int } fd - 表示打印文件传给接口调用方的pdf文件的文件描述符。
+     * @param { function } writeResultCallback - 表示三方应用使用新的打印参数更新待打印文件完成后的回调。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -299,11 +277,11 @@ declare namespace print {
       writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void;
 
     /**
-     * Registers a listener for print job state changes.
+     * 实现这个接口来监听打印任务状态的改变。
      *
      * @permission ohos.permission.PRINT
-     * @param { string } jobId - ID of the print job.
-     * @param { PrintDocumentAdapterState } state - New state of the print job.
+     * @param { string } jobId - 表示打印任务ID。
+     * @param { PrintDocumentAdapterState } state - 表示打印任务更改为该状态。
      * @throws { BusinessError } 201 - the application does not have permission to call this function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -315,57 +293,49 @@ declare namespace print {
   }
 
   /**
-   * Prints files. This API uses an asynchronous callback to return the result. To start the system print preview page,
-   * call the [print]{@link print.print(files: Array<string>, context: Context)} API and pass in context.
+   * 打印接口，传入文件进行打印，使用callback异步回调。拉起系统打印预览界面，需要使用[print]{@link print.print(files: Array<string>, context: Context)}接口，传入
+   * context。
    *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - List of files to print. Images (in .jpg, .png, .gif, .bmp, or .webp format) and
-   *     PDF files are supported. You should save the files to the application sandbox, obtain the sandbox URI through
-   *     **fileUri.getUriFromPath**, and then pass this URI as a parameter to this API.
-   * @param { AsyncCallback<PrintTask> } callback - Callback to be invoked when the print job is finished.
+   * @param { Array<string> } files - 待打印文件列表，支持图片（.jpg .png .gif .bmp .webp）和pdf。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取
+   *     到沙箱uri，再作为参数传入到本接口。
+   * @param { AsyncCallback<PrintTask> } callback - 异步获取打印完成之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
    * @since 23 static
-   * @deprecated since 26.0.0
-   * @useinstead print#print
    */
   function print(files: Array<string>, callback: AsyncCallback<PrintTask>): void;
 
   /**
-   * Prints files. This API uses a promise to return the result. To start the system print preview page, call the
-   * [print]{@link print.print(files: Array<string>, context: Context)} API and pass in context.
+   * 打印接口，传入文件进行打印，使用Promise异步回调。拉起系统打印预览界面，需要使用[print]{@link print.print(files: Array<string>, context: Context)}接口，传入
+   * context。
    *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - List of files to print. Images (in .jpg, .png, .gif, .bmp, or .webp format) and
-   *     PDF files are supported. You should save the files to the application sandbox, obtain the sandbox URI through
-   *     **fileUri.getUriFromPath**, and then pass this URI as a parameter to this API.
-   * @returns { Promise<PrintTask> } Promise used to return a [PrintTask]{@link print.PrintTask} object.
+   * @param { Array<string> } files - 待打印文件列表，支持图片（.jpg .png .gif .bmp .webp）和pdf。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取
+   *     到沙箱uri，再作为参数传入到本接口。
+   * @returns { Promise<PrintTask> } Promise对象，返回[PrintTask]{@link print.PrintTask}。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 10 dynamic
    * @since 23 static
-   * @deprecated since 26.0.0
-   * @useinstead print#print
    */
   function print(files: Array<string>): Promise<PrintTask>;
 
   /**
-   * Prints files. This API uses an asynchronous callback to return the result.
+   * 打印接口，传入文件进行打印，使用callback异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - List of files to be printed. Currently, the following file types are supported: "
-   *     .bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "
-   *     pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt", ".pptm", ".pptx", ".png", ".rtf", ".txt", "
-   *     .webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx", and ".xml". You should save the files to
-   *     the application sandbox, obtain the sandbox URI through **fileUri.getUriFromPath**, and then pass this URI as a
-   *     parameter to this API.
-   * @param { Context } context - UIAbilityContext used to start the system print UI.
-   * @param { AsyncCallback<PrintTask> } callback - Callback to be invoked when the print job is finished.
+   * @param { Array<string> } files - 待打印文件列表，当前支持的文件类型：".bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx
+   *     ", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt",
+   *     ".pptm", ".pptx", ".png", ".rtf", ".txt", ".webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx",
+   *     ".xml"。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取到沙箱uri，再作为参数传入到本接口。
+   * @param { Context } context - 用于拉起系统打印界面的UIAbilityContext。
+   * @param { AsyncCallback<PrintTask> } callback - 异步获取打印完成之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -376,17 +346,15 @@ declare namespace print {
   function print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>): void;
 
   /**
-   * Prints files. This API uses a promise to return the result.
+   * 打印接口，传入文件进行打印，使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { Array<string> } files - List of files to be printed. Currently, the following file types are supported: "
-   *     .bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "
-   *     pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt", ".pptm", ".pptx", ".png", ".rtf", ".txt", "
-   *     .webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx", and ".xml". You should save the files to
-   *     the application sandbox, obtain the sandbox URI through **fileUri.getUriFromPath**, and then pass this URI as a
-   *     parameter to this API.
-   * @param { Context } context - UIAbilityContext used to start the system print UI.
-   * @returns { Promise<PrintTask> } Promise used to return a [PrintTask]{@link print.PrintTask} object.
+   * @param { Array<string> } files - 待打印文件列表，当前支持的文件类型：".bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx
+   *     ", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt",
+   *     ".pptm", ".pptx", ".png", ".rtf", ".txt", ".webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx",
+   *     ".xml"。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取到沙箱uri，再作为参数传入到本接口。
+   * @param { Context } context - 用于拉起系统打印界面的UIAbilityContext。
+   * @returns { Promise<PrintTask> } Promise对象，返回[PrintTask]{@link print.PrintTask}。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -397,17 +365,17 @@ declare namespace print {
   function print(files: Array<string>, context: Context): Promise<PrintTask>;
 
   /**
-   * Prints a file. This API uses a promise to return the result.
+   * 打印接口，传入文件进行打印，三方应用需要更新打印文件，使用Promise异步回调。当前支持的文件类型：".pdf"。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } jobName - Name of the file to print, for example, **test.pdf**. The printer uses the
-   *     [onStartLayoutWrite]{@link print.PrintDocumentAdapter.onStartLayoutWrite} API to send the **fd** of the empty
-   *     PDF file to the API caller. The API caller uses the new print attributes to update the file to print.
-   * @param { PrintDocumentAdapter } printAdapter - [PrintDocumentAdapter]{@link print.PrintDocumentAdapter} API
-   *     instance implemented by a third-party application.
-   * @param { PrintAttributes } printAttributes - Print attributes.
-   * @param { Context } context - UIAbilityContext used to start the system print UI.
-   * @returns { Promise<PrintTask> } Promise used to return a [PrintTask]{@link print.PrintTask} object.
+   * @param { string } jobName - 表示待打印文件名称，例如：test.pdf。当前仅支持".pdf"文件类型。打印侧会通过
+   *     [onStartLayoutWrite]{@link print.PrintDocumentAdapter.onStartLayoutWrite}接口将空的pdf文件的fd传给接口调用方，由调用方使用新的打印参数更新待打印
+   *     文件。
+   * @param { PrintDocumentAdapter } printAdapter - 表示三方应用实现的[PrintDocumentAdapter]{@link print.PrintDocumentAdapter}接口实
+   *     例。
+   * @param { PrintAttributes } printAttributes - 表示打印参数。
+   * @param { Context } context - 用于拉起系统打印界面的UIAbilityContext。
+   * @returns { Promise<PrintTask> } Promise对象，返回[PrintTask]{@link print.PrintTask}。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -419,7 +387,7 @@ declare namespace print {
     context: Context): Promise<PrintTask>;
 
   /**
-   * Defines the print attributes.
+   * 定义打印参数的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -427,7 +395,7 @@ declare namespace print {
    */
   interface PrintAttributes {
     /**
-     * Number of printed file copies. The default value is **1**.
+     * 表示文件打印份数。默认值为1。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -436,7 +404,7 @@ declare namespace print {
     copyNumber?: int;
 
     /**
-     * Page range of the file to print.
+     * 表示待打印文件的页面范围。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -445,7 +413,7 @@ declare namespace print {
     pageRange?: PrintPageRange;
 
     /**
-     * Page size of the file to print.
+     * 表示待打印文件的纸张类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -454,7 +422,7 @@ declare namespace print {
     pageSize?: PrintPageSize | PrintPageType;
 
     /**
-     * Print direction mode.
+     * 表示待打印文件的方向。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -463,7 +431,7 @@ declare namespace print {
     directionMode?: PrintDirectionMode;
 
     /**
-     * Color mode of the files to print.
+     * 表示待打印文件的色彩模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -472,7 +440,7 @@ declare namespace print {
     colorMode?: PrintColorMode;
 
     /**
-     * Duplex mode of the files to print.
+     * 表示待打印文件的单双面模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -482,7 +450,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the print range.
+   * 定义打印范围的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -490,7 +458,7 @@ declare namespace print {
    */
   interface PrintPageRange {
     /**
-     * Start page. The default value is **1**.
+     * 表示起始页。默认值为1。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -499,7 +467,7 @@ declare namespace print {
     startPage?: int;
 
     /**
-     * End page. The default value is the maximum number of pages of the file to be printed.
+     * 表示结束页。默认值为待打印文件的最大页数。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -508,7 +476,7 @@ declare namespace print {
     endPage?: int;
 
     /**
-     * Page range set of the file to print. The default value is empty.
+     * 表示待打印的页面范围的集合。默认值为空。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -518,7 +486,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the page margins for printing.
+   * 定义打印页边距的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use. [since 10 - 23]
@@ -528,7 +496,7 @@ declare namespace print {
    */
   interface PrintMargin {
     /**
-     * Top margin of the page, in millimeters. The default value is **0**.
+     * 表示页面上边距。默认值为0。单位：毫米。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -539,7 +507,7 @@ declare namespace print {
     top?: int;
 
     /**
-     * Bottom margin of the page, in millimeters. The default value is **0**.
+     * 表示页面下边距。默认值为0。单位：毫米。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -550,7 +518,7 @@ declare namespace print {
     bottom?: int;
 
     /**
-     * Left margin of the page, in millimeters. The default value is **0**.
+     * 表示页面左边距。默认值为0。单位：毫米。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -561,7 +529,7 @@ declare namespace print {
     left?: int;
 
     /**
-     * Right margin of the page, in millimeters. The default value is **0**.
+     * 表示页面右边距。默认值为0。单位：毫米。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -573,7 +541,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the print range.
+   * 定义打印范围的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use. [since 10 - 23]
@@ -583,7 +551,7 @@ declare namespace print {
    */
   interface PrinterRange {
     /**
-     * Start page. The default value is **1**.
+     * 表示起始页。默认值为1。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -594,7 +562,7 @@ declare namespace print {
     startPage?: int;
 
     /**
-     * End page. The default value is the maximum number of pages of the file to be printed.
+     * 表示结束页。默认值为待打印文件的最大页数。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -605,7 +573,7 @@ declare namespace print {
     endPage?: int;
 
     /**
-     * Page range set of the file to print. The default value is empty.
+     * 表示待打印的页面范围的集合。默认值为空。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -617,7 +585,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the print preview attributes.
+   * 定义打印预览属性的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use. [since 10 - 23]
@@ -627,7 +595,7 @@ declare namespace print {
    */
   interface PreviewAttribute {
     /**
-     * Preview page range.
+     * 表示预览页面范围。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -638,7 +606,7 @@ declare namespace print {
     previewRange: PrinterRange;
 
     /**
-     * Print preview result. The default value is **-1**.
+     * 表示预览文件结果。默认值为-1。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -650,7 +618,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the resolution for printing.
+   * 定义打印分辨率的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use. [since 10 - 23]
@@ -660,7 +628,7 @@ declare namespace print {
    */
   interface PrintResolution {
     /**
-     * Resolution ID.
+     * 表示分辨率ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -671,7 +639,7 @@ declare namespace print {
     id: string;
 
     /**
-     * Horizontal DPI.
+     * 表示水平DPI。单位：DPI。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -682,7 +650,7 @@ declare namespace print {
     horizontalDpi: int;
 
     /**
-     * Vertical DPI.
+     * 表示垂直DPI。单位：DPI。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -694,7 +662,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the size of the printed page.
+   * 定义打印页面尺寸的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -702,7 +670,7 @@ declare namespace print {
    */
   interface PrintPageSize {
     /**
-     * Paper size ID.
+     * 表示纸张类型ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -711,7 +679,7 @@ declare namespace print {
     id: string;
 
     /**
-     * Paper size name.
+     * 表示纸张类型名称。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -720,7 +688,7 @@ declare namespace print {
     name: string;
 
     /**
-     * Page width, in millimeters.
+     * 表示页面宽度，单位：毫米。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -729,7 +697,7 @@ declare namespace print {
     width: int;
 
     /**
-     * Page height, in millimeters.
+     * 表示页面高度，单位：毫米。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -739,7 +707,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the printer capabilities.
+   * 定义打印能力的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use. [since 10 - 23]
@@ -749,7 +717,7 @@ declare namespace print {
    */
   interface PrinterCapability {
     /**
-     * Color mode.
+     * 表示色彩模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -760,7 +728,7 @@ declare namespace print {
     colorMode: int;
 
     /**
-     * Simplex or duplex mode.
+     * 表示单双面打印模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -771,7 +739,7 @@ declare namespace print {
     duplexMode: int;
 
     /**
-     * List of page sizes supported by the printer.
+     * 表示打印机支持的页面尺寸列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -782,7 +750,7 @@ declare namespace print {
     pageSize: Array<PrintPageSize>;
 
     /**
-     * List of resolutions supported by the printer.
+     * 表示打印机支持的分辨率列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -793,7 +761,7 @@ declare namespace print {
     resolution?: Array<PrintResolution>;
 
     /**
-     * Minimum margin of the printer.
+     * 表示打印机最小边距。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -804,7 +772,7 @@ declare namespace print {
     minMargin?: PrintMargin;
 
     /**
-     * Printer options. The value is a JSON object string.
+     * 表示JSON对象字符串。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 11 - 23]
@@ -816,7 +784,7 @@ declare namespace print {
   }
 
   /**
-   * Provides the printer information.
+   * 定义打印信息的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use. [since 10 - 23]
@@ -826,7 +794,7 @@ declare namespace print {
    */
   interface PrinterInfo {
     /**
-     * Printer ID.
+     * 表示打印机ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -837,7 +805,7 @@ declare namespace print {
     printerId: string;
 
     /**
-     * Printer name.
+     * 表示打印机名称。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -848,7 +816,7 @@ declare namespace print {
     printerName: string;
 
     /**
-     * Printer state.
+     * 表示当前打印机状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -859,7 +827,7 @@ declare namespace print {
     printerState: PrinterState;
 
     /**
-     * Resource ID of the printer icon. The default value is **-1**.
+     * 表示打印机图标的资源ID。默认值为-1。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -870,7 +838,7 @@ declare namespace print {
     printerIcon?: int;
 
     /**
-     * Printer description.
+     * 表示打印机说明。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -881,7 +849,7 @@ declare namespace print {
     description?: string;
 
     /**
-     * Printer capability.
+     * 表示打印机功能。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -892,7 +860,7 @@ declare namespace print {
     capability?: PrinterCapability;
 
     /**
-     * Printer options. The value is a JSON object string.
+     * 表示JSON对象字符串。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -904,7 +872,7 @@ declare namespace print {
   }
 
   /**
-   * Defines a print job.
+   * 定义打印任务的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use. [since 10 - 23]
@@ -914,7 +882,7 @@ declare namespace print {
    */
   interface PrintJob {
     /**
-     * FD list of files to print.
+     * 表示待打印文件fd列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -925,7 +893,7 @@ declare namespace print {
     fdList: Array<int>;
 
     /**
-     * ID of the print job.
+     * 表示打印任务ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -936,7 +904,7 @@ declare namespace print {
     jobId: string;
 
     /**
-     * ID of the printer used for printing.
+     * 表示负责打印的打印机ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -947,7 +915,7 @@ declare namespace print {
     printerId: string;
 
     /**
-     * State of the print job.
+     * 表示当前打印任务状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -958,7 +926,7 @@ declare namespace print {
     jobState: PrintJobState;
 
     /**
-     * Substate of the print job.
+     * 表示当前打印任务子状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 11 - 23]
@@ -969,7 +937,7 @@ declare namespace print {
     jobSubstate: PrintJobSubState;
 
     /**
-     * Copy of the file list.
+     * 表示文件列表副本。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -980,7 +948,7 @@ declare namespace print {
     copyNumber: int;
 
     /**
-     * Print range.
+     * 表示打印范围大小。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -991,8 +959,7 @@ declare namespace print {
     pageRange: PrinterRange;
 
     /**
-     * Whether the printing is sequential. The value **true** means that the printing is sequential, and **false** means
-     * the opposite. The default value is **false**.
+     * 表示是否连续打印。true表示连续打印，false表示不连续打印。默认值为false。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1003,7 +970,7 @@ declare namespace print {
     isSequential: boolean;
 
     /**
-     * Selected page size.
+     * 表示选定的页面尺寸。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1014,8 +981,7 @@ declare namespace print {
     pageSize: PrintPageSize;
 
     /**
-     * Whether pages are printed in landscape mode. The value **true** indicates that pages are printed in landscape
-     * mode, and **false** indicates that pages are printed in portrait mode. The default value is **false**.
+     * 表示是否横向打印。true表示横向打印，false表示纵向打印。默认值为false。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1026,7 +992,7 @@ declare namespace print {
     isLandscape: boolean;
 
     /**
-     * Color mode.
+     * 表示色彩模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1037,7 +1003,7 @@ declare namespace print {
     colorMode: int;
 
     /**
-     * Simplex or duplex mode.
+     * 表示单双面打印模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1048,7 +1014,7 @@ declare namespace print {
     duplexMode: int;
 
     /**
-     * Current page margin.
+     * 表示当前页边距设置。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1059,7 +1025,7 @@ declare namespace print {
     margin?: PrintMargin;
 
     /**
-     * Preview settings.
+     * 表示预览设置。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1070,7 +1036,7 @@ declare namespace print {
     preview?: PreviewAttribute;
 
     /**
-     * Printer options. The value is a JSON object string.
+     * 表示JSON对象字符串。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi [since 10 - 23]
@@ -1082,7 +1048,7 @@ declare namespace print {
   }
 
   /**
-   * Defines a print job.
+   * 定义打印任务的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
@@ -1090,7 +1056,7 @@ declare namespace print {
    */
   interface PrintJobData {
     /**
-     * Printer ID.
+     * 表示打印机ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1099,7 +1065,7 @@ declare namespace print {
     printerId: string;
 
     /**
-     * Name of the print job.
+     * 表示打印任务名称。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1108,7 +1074,7 @@ declare namespace print {
     jobName: string;
 
     /**
-     * Format of the print data.
+     * 表示打印数据格式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1117,7 +1083,7 @@ declare namespace print {
     documentFormat: PrintDocumentFormat;
 
     /**
-     * Data source type.
+     * 表示打印数据来源形式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1126,7 +1092,7 @@ declare namespace print {
     docFlavor: DocFlavor;
 
     /**
-     * Number of file list copies.
+     * 表示文件列表副本数。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1134,8 +1100,7 @@ declare namespace print {
      */
     copyNumber: int;
     /**
-     * Whether pages are printed in landscape mode. The value **true** indicates that pages are printed in landscape
-     * mode, and **false** indicates that pages are printed in portrait mode. The default value is **false**.
+     * 表示是否横向打印。true表示横向打印，false表示纵向打印。默认值为false。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1144,7 +1109,7 @@ declare namespace print {
     isLandscape: boolean;
 
     /**
-     * Color mode.
+     * 表示色彩模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1153,7 +1118,7 @@ declare namespace print {
     colorMode: PrintColorMode;
 
     /**
-     * Simplex or duplex mode.
+     * 表示单双面打印模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1162,7 +1127,7 @@ declare namespace print {
     duplexMode: PrintDuplexMode;
 
     /**
-     * Selected page size.
+     * 表示选定的页面尺寸。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1171,7 +1136,7 @@ declare namespace print {
     pageSize: PrintPageSize;
 
     /**
-     * Unique identifier of the print job.
+     * 表示打印任务的唯一标识符。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1180,7 +1145,7 @@ declare namespace print {
     jobId?: string;
 
     /**
-     * FD list of files to print.
+     * 表示待打印文件fd列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1188,7 +1153,7 @@ declare namespace print {
      */
     fdList?: int[];
     /**
-     * Binary data to print.
+     * 表示待打印二进制数据。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1197,7 +1162,7 @@ declare namespace print {
     binaryData?: Uint8Array;
 
     /**
-     * Print quality.
+     * 表示打印质量。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1206,7 +1171,7 @@ declare namespace print {
     printQuality?: PrintQuality;
 
     /**
-     * Type of the paper to print.
+     * 表示打印纸张类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1215,8 +1180,7 @@ declare namespace print {
     mediaType?: string;
 
     /**
-     * Whether to print without margins. The value **true** means to print without margins, and **false** means the
-     * opposite. Default value: **true**.
+     * 表示是否无边框打印。true表示无边框打印，false表示有边框打印。默认值为true。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1225,8 +1189,7 @@ declare namespace print {
     isBorderless?: boolean;
 
     /**
-     * Whether to automatically rotate the page. The value **true** means to automatically rotate the page, and
-     * **false** means the opposite. Default value: **true**.
+     * 表示是否自动旋转页面。true表示自动旋转页面，false表示不自动旋转页面。默认值为true。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1235,8 +1198,7 @@ declare namespace print {
     isAutoRotate?: boolean;
 
     /**
-     * Whether pages are printed in reverse order. The value **true** means that pages are printed in reverse order, and
-     * **false** means that pages are printed in normal order. The default value is **false**.
+     * 表示是否逆序打印。true表示逆序打印，false表示顺序打印。默认值为false。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1245,8 +1207,7 @@ declare namespace print {
     isReverse?: boolean;
 
     /**
-     * Whether pages are printed uncollated. The value **true** means that pages are printed uncollated, and **false**
-     * means the opposite. Default value: **true**.
+     * 表示打印顺序方式。true表示逐页打印，false表示逐份打印。默认值为true。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1255,7 +1216,7 @@ declare namespace print {
     isCollate?: boolean;
 
     /**
-     * Whether pages are printed in sequential order.
+     * 表示是否连续打印。true表示连续打印，false表示不连续打印。默认值为false。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1264,7 +1225,7 @@ declare namespace print {
     isSequential?: boolean;
 
     /**
-     * Object stringified in JSON format.
+     * 表示以JSON格式字符串化的对象。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1274,7 +1235,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the data formats.
+   * 打印数据格式的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
@@ -1282,7 +1243,7 @@ declare namespace print {
    */
   enum PrintDocumentFormat {
     /**
-     * Auto-detected format.
+     * 表示自动检测格式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1291,7 +1252,7 @@ declare namespace print {
     DOCUMENT_FORMAT_AUTO = 0,
 
     /**
-     * JPEG.
+     * 表示Jpeg格式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1300,7 +1261,7 @@ declare namespace print {
     DOCUMENT_FORMAT_JPEG = 1,
 
     /**
-     * PDF.
+     * 表示PDF格式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1309,7 +1270,7 @@ declare namespace print {
     DOCUMENT_FORMAT_PDF = 2,
 
     /**
-     * PostScript.
+     * 表示PostScript格式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1318,7 +1279,7 @@ declare namespace print {
     DOCUMENT_FORMAT_POSTSCRIPT = 3,
 
     /**
-     * Text.
+     * 表示文本格式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1327,7 +1288,7 @@ declare namespace print {
     DOCUMENT_FORMAT_TEXT = 4,
 
     /**
-     * RAW.
+     * 表示RAW格式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1337,7 +1298,7 @@ declare namespace print {
 	}
 
   /**
-   * Enumerates the data source types for printing.
+   * 打印数据来源形式的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
@@ -1345,7 +1306,7 @@ declare namespace print {
    */
   enum DocFlavor {
     /**
-     * File data.
+     * 表示文件数据。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1354,7 +1315,7 @@ declare namespace print {
     FILE_DESCRIPTOR = 0,
 
     /**
-     * Binary data.
+     * 表示二进制数据。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
@@ -1363,11 +1324,11 @@ declare namespace print {
     BYTES = 1
 	}
   /**
-   * Prints a file or binary data. This API uses a promise to return the result.
+   * 打印接口，传入文件或者二进制数据进行打印，使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { PrintJobData } job - Print job data.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { PrintJobData } job - 打印任务数据。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
@@ -1376,7 +1337,7 @@ declare namespace print {
   function startPrint(job: PrintJobData): Promise<void>;
 
   /**
-   * Enumerates the print direction modes.
+   * 打印纸张方向的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -1384,7 +1345,7 @@ declare namespace print {
    */
   enum PrintDirectionMode {
     /**
-     * Automatic.
+     * 表示自动选择纸张方向。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1393,7 +1354,7 @@ declare namespace print {
     DIRECTION_MODE_AUTO = 0,
 
     /**
-     * Portrait mode.
+     * 表示纵向打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1402,7 +1363,7 @@ declare namespace print {
     DIRECTION_MODE_PORTRAIT = 1,
 
     /**
-     * Landscape mode.
+     * 表示横向打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1412,7 +1373,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the color modes.
+   * 打印色彩模式的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -1420,7 +1381,7 @@ declare namespace print {
    */
   enum PrintColorMode {
     /**
-     * Black and white.
+     * 表示黑白打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1429,7 +1390,7 @@ declare namespace print {
     COLOR_MODE_MONOCHROME = 0,
 
     /**
-     * Color.
+     * 表示彩色打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1439,7 +1400,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the duplex modes.
+   * 打印单双面模式的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -1447,7 +1408,7 @@ declare namespace print {
    */
   enum PrintDuplexMode {
     /**
-     * Simplex (single-sided).
+     * 表示单面打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1456,7 +1417,7 @@ declare namespace print {
     DUPLEX_MODE_NONE = 0,
 
     /**
-     * Duplex (double-sided) with flipping on long edge.
+     * 表示双面打印沿长边翻转。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1465,7 +1426,7 @@ declare namespace print {
     DUPLEX_MODE_LONG_EDGE = 1,
 
     /**
-     * Duplex (double-sided) with flipping on short edge.
+     * 表示双面打印沿短边翻转。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1475,7 +1436,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print page types.
+   * 打印纸张类型的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -1483,7 +1444,7 @@ declare namespace print {
    */
   enum PrintPageType {
     /**
-     * A3.
+     * 表示A3。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1492,7 +1453,7 @@ declare namespace print {
     PAGE_ISO_A3 = 0,
 
     /**
-     * A4.
+     * 表示A4。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1501,7 +1462,7 @@ declare namespace print {
     PAGE_ISO_A4 = 1,
 
     /**
-     * A5.
+     * 表示A5。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1510,7 +1471,7 @@ declare namespace print {
     PAGE_ISO_A5 = 2,
 
     /**
-     * B5.
+     * 表示B5。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1519,7 +1480,7 @@ declare namespace print {
     PAGE_JIS_B5 = 3,
 
     /**
-     * C5.
+     * 表示C5。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1528,7 +1489,7 @@ declare namespace print {
     PAGE_ISO_C5 = 4,
 
     /**
-     * DL.
+     * 表示DL。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1537,7 +1498,7 @@ declare namespace print {
     PAGE_ISO_DL = 5,
 
     /**
-     * Letter.
+     * 表示Letter。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1546,7 +1507,7 @@ declare namespace print {
     PAGE_LETTER = 6,
 
     /**
-     * Legal.
+     * 表示Legal。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1555,7 +1516,7 @@ declare namespace print {
     PAGE_LEGAL = 7,
 
     /**
-     * 4 x 6 photo paper.
+     * 表示4x6相纸。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1564,7 +1525,7 @@ declare namespace print {
     PAGE_PHOTO_4X6 = 8,
 
     /**
-     * 5 x 7 photo paper.
+     * 表示5x7相纸。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1573,7 +1534,7 @@ declare namespace print {
     PAGE_PHOTO_5X7 = 9,
 
     /**
-     * International envelope DL.
+     * 表示INT DL ENVELOPE。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1582,7 +1543,7 @@ declare namespace print {
     PAGE_INT_DL_ENVELOPE = 10,
 
     /**
-     * B Tabloid.
+     * 表示B Tabloid。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1592,7 +1553,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print job states.
+   * 打印任务状态的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -1600,7 +1561,7 @@ declare namespace print {
    */
   enum PrintDocumentAdapterState {
     /**
-     * The preview fails.
+     * 表示预览失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1609,7 +1570,7 @@ declare namespace print {
     PREVIEW_DESTROY = 0,
 
     /**
-     * The print job is successful.
+     * 表示打印任务成功。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1618,7 +1579,7 @@ declare namespace print {
     PRINT_TASK_SUCCEED = 1,
 
     /**
-     * The print job is failed.
+     * 表示打印任务失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1627,7 +1588,7 @@ declare namespace print {
     PRINT_TASK_FAIL = 2,
 
     /**
-     * The print job is canceled.
+     * 表示打印任务取消。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1636,7 +1597,7 @@ declare namespace print {
     PRINT_TASK_CANCEL = 3,
 
     /**
-     * The print job is blocked.
+     * 表示打印任务阻塞。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1646,7 +1607,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print file creation status.
+   * 打印文件创建状态的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 11 dynamic
@@ -1654,7 +1615,7 @@ declare namespace print {
    */
   enum PrintFileCreationState {
     /**
-     * The print file is created successfully.
+     * 表示打印文件创建成功。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1663,7 +1624,7 @@ declare namespace print {
     PRINT_FILE_CREATED = 0,
 
     /**
-     * The print file fails to be created.
+     * 表示打印文件创建失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1672,7 +1633,7 @@ declare namespace print {
     PRINT_FILE_CREATION_FAILED = 1,
 
     /**
-     * The print file is successfully created but not rendered.
+     * 表示打印文件创建成功但未渲染。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 11 dynamic
@@ -1682,7 +1643,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the printer states.
+   * 打印机状态的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -1690,7 +1651,7 @@ declare namespace print {
    */
   enum PrinterState {
     /**
-     * A new printer is added.
+     * 表示新打印机到达。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1699,7 +1660,7 @@ declare namespace print {
     PRINTER_ADDED = 0,
 
     /**
-     * The printer is removed.
+     * 表示打印机丢失。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1708,7 +1669,7 @@ declare namespace print {
     PRINTER_REMOVED = 1,
 
     /**
-     * The printer is updated.
+     * 表示打印机更新。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1717,7 +1678,7 @@ declare namespace print {
     PRINTER_CAPABILITY_UPDATED = 2,
 
     /**
-     * The printer is connected.
+     * 表示打印机已连接。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1726,7 +1687,7 @@ declare namespace print {
     PRINTER_CONNECTED = 3,
 
     /**
-     * The printer is disconnected.
+     * 表示打印机已断开连接。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1735,7 +1696,7 @@ declare namespace print {
     PRINTER_DISCONNECTED = 4,
 
     /**
-     * The printer is running.
+     * 表示打印机正在运行。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1745,7 +1706,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print job states.
+   * 打印任务状态的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -1753,7 +1714,7 @@ declare namespace print {
    */
   enum PrintJobState {
     /**
-     * The printer is prepared for the print job.
+     * 表示打印任务的初始状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1762,7 +1723,7 @@ declare namespace print {
     PRINT_JOB_PREPARE = 0,
 
     /**
-     * The print job is on the print queue of the printer.
+     * 表示打印任务传送到打印机。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1771,7 +1732,7 @@ declare namespace print {
     PRINT_JOB_QUEUED = 1,
 
     /**
-     * The print job is being executed.
+     * 表示执行打印任务。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1780,7 +1741,7 @@ declare namespace print {
     PRINT_JOB_RUNNING = 2,
 
     /**
-     * The print job is blocked.
+     * 表示打印任务已被阻止。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1789,7 +1750,7 @@ declare namespace print {
     PRINT_JOB_BLOCKED = 3,
 
     /**
-     * The print job is complete.
+     * 表示打印任务完成。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1799,7 +1760,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print job substates.
+   * 打印任务子状态的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -1807,7 +1768,7 @@ declare namespace print {
    */
   enum PrintJobSubState {
     /**
-     * The print job is successful.
+     * 表示打印任务成功。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1816,7 +1777,7 @@ declare namespace print {
     PRINT_JOB_COMPLETED_SUCCESS = 0,
 
     /**
-     * The print job is failed.
+     * 表示打印任务失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1825,7 +1786,7 @@ declare namespace print {
     PRINT_JOB_COMPLETED_FAILED = 1,
 
     /**
-     * The print job is canceled by user.
+     * 表示打印任务已取消。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1834,7 +1795,7 @@ declare namespace print {
     PRINT_JOB_COMPLETED_CANCELLED = 2,
 
     /**
-     * The print file is corrupted.
+     * 表示打印文件已损坏。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1843,7 +1804,7 @@ declare namespace print {
     PRINT_JOB_COMPLETED_FILE_CORRUPTED = 3,
 
     /**
-     * The printer is offline.
+     * 表示打印处于离线状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1852,7 +1813,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_OFFLINE = 4,
 
     /**
-     * The printer is occupied by another process.
+     * 表示打印被其他进程占用。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1861,7 +1822,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_BUSY = 5,
 
     /**
-     * The print job is canceled due to a block.
+     * 表示打印任务已取消。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1870,7 +1831,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_CANCELLED = 6,
 
     /**
-     * The printer is out of paper.
+     * 表示打印纸张用完。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1879,7 +1840,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_OUT_OF_PAPER = 7,
 
     /**
-     * The printer is out of ink.
+     * 表示打印墨水用完。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1888,7 +1849,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_OUT_OF_INK = 8,
 
     /**
-     * The printer is out of toner.
+     * 表示打印墨粉用完。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1897,7 +1858,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_OUT_OF_TONER = 9,
 
     /**
-     * The printer is in a paper jam.
+     * 表示打印卡纸。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1906,7 +1867,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_JAMMED = 10,
 
     /**
-     * The printer door is open.
+     * 表示打印盖开启。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1915,7 +1876,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_DOOR_OPEN = 11,
 
     /**
-     * Print service request.
+     * 表示打印服务请求。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1924,7 +1885,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_SERVICE_REQUEST = 12,
 
     /**
-     * The printer is low on ink.
+     * 表示打印墨水不足。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1933,7 +1894,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_LOW_ON_INK = 13,
 
     /**
-     * The printer is low on toner.
+     * 表示打印墨粉不足。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1942,7 +1903,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_LOW_ON_TONER = 14,
 
     /**
-     * The printer is extremely low on ink.
+     * 表示打印墨水量非常低。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1951,7 +1912,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_REALLY_LOW_ON_INK = 15,
 
     /**
-     * The print certificate is incorrect.
+     * 表示打印证书有误。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1960,7 +1921,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_BAD_CERTIFICATE = 16,
 
     /**
-     * The print driver is abnormal.
+     * 表示打印驱动异常。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -1969,7 +1930,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_DRIVER_EXCEPTION = 17,
 
     /**
-     * There is an error with the printer account.
+     * 表示打印账户时出错。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1978,7 +1939,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_ACCOUNT_ERROR = 18,
 
     /**
-     * There is an error with the printer permission.
+     * 表示打印许可异常。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1987,7 +1948,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_PRINT_PERMISSION_ERROR = 19,
 
     /**
-     * There is an error with the color printing permission.
+     * 表示彩色打印权限异常。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -1996,7 +1957,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_PRINT_COLOR_PERMISSION_ERROR = 20,
 
     /**
-     * The printer fails to connect to the network.
+     * 表示设备未连接到网络。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2005,7 +1966,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_NETWORK_ERROR = 21,
 
     /**
-     * The printer fails to connect to the server.
+     * 表示无法连接服务器。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2014,7 +1975,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_SERVER_CONNECTION_ERROR = 22,
 
     /**
-     * There is an error with a large file printing.
+     * 表示打印大文件异常。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2023,7 +1984,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_LARGE_FILE_ERROR = 23,
 
     /**
-     * There is an error with file parsing.
+     * 表示文件分析异常。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2032,7 +1993,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_FILE_PARSING_ERROR = 24,
 
     /**
-     * The file conversion is slow.
+     * 表示文件转换太慢。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2041,7 +2002,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_SLOW_FILE_CONVERSION = 25,
 
     /**
-     * The file is uploading.
+     * 表示正在上传文件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2050,7 +2011,7 @@ declare namespace print {
     PRINT_JOB_RUNNING_UPLOADING_FILES = 26,
 
     /**
-     * The file is converting.
+     * 表示正在转换文件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2059,7 +2020,7 @@ declare namespace print {
     PRINT_JOB_RUNNING_CONVERTING_FILES = 27,
 
     /**
-     * The file fails to be uploaded.
+     * 表示文件上传失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -2068,7 +2029,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_FILE_UPLOADING_ERROR = 30,
 
     /**
-     * The print driver is missing.
+     * 表示打印驱动缺失。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -2077,7 +2038,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_DRIVER_MISSING = 34,
 
     /**
-     * The print job is interrupted.
+     * 表示打印任务中断。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -2086,7 +2047,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_INTERRUPT = 35,
 
     /**
-     * The printer is unavailable.
+     * 表示打印机不可用。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 20 dynamic
@@ -2095,7 +2056,7 @@ declare namespace print {
     PRINT_JOB_BLOCK_PRINTER_UNAVAILABLE = 98,
 
     /**
-     * There is an unknown error with the printer.
+     * 表示打印未知问题。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2105,7 +2066,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print error codes.
+   * 打印错误代码的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -2113,7 +2074,7 @@ declare namespace print {
    */
   enum PrintErrorCode {
     /**
-     * No error.
+     * 表示没有错误。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2122,7 +2083,7 @@ declare namespace print {
     E_PRINT_NONE = 0,
 
     /**
-     * No permission.
+     * 表示没有许可。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2131,7 +2092,7 @@ declare namespace print {
     E_PRINT_NO_PERMISSION = 201,
 
     /**
-     * Invalid parameters.
+     * 表示无效的参数。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2140,7 +2101,7 @@ declare namespace print {
     E_PRINT_INVALID_PARAMETER = 401,
 
     /**
-     * Printing failure.
+     * 表示一般打印失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2149,7 +2110,7 @@ declare namespace print {
     E_PRINT_GENERIC_FAILURE = 13100001,
 
     /**
-     * RPC failure.
+     * 表示RPC失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2158,7 +2119,7 @@ declare namespace print {
     E_PRINT_RPC_FAILURE = 13100002,
 
     /**
-     * Print service failure.
+     * 表示打印服务失败。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2167,7 +2128,7 @@ declare namespace print {
     E_PRINT_SERVER_FAILURE = 13100003,
 
     /**
-     * Invalid printer extension.
+     * 表示打印扩展无效。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2176,7 +2137,7 @@ declare namespace print {
     E_PRINT_INVALID_EXTENSION = 13100004,
 
     /**
-     * Invalid printer.
+     * 表示打印机无效。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2185,7 +2146,7 @@ declare namespace print {
     E_PRINT_INVALID_PRINTER = 13100005,
 
     /**
-     * Invalid print job.
+     * 表示打印任务无效。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2194,7 +2155,7 @@ declare namespace print {
     E_PRINT_INVALID_PRINT_JOB = 13100006,
 
     /**
-     * Incorrect file input/output.
+     * 表示文件输入/输出错误。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2203,7 +2164,7 @@ declare namespace print {
     E_PRINT_FILE_IO = 13100007,
 
     /**
-     * Excessive files. Maximum number: 99.
+     * 表示文件数量超过上限，当前上限99个。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -2212,7 +2173,10 @@ declare namespace print {
     E_PRINT_TOO_MANY_FILES = 13100010,
 
     /**
-     * The SMB account is locked due to multiple failed login attempts.
+     * 表示当前SMB协议共享打印机账号因多次登录失败而被锁定。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -2220,7 +2184,10 @@ declare namespace print {
     E_PRINT_SMB_LOGIN_LOCKOUT = 13100012,
 
     /**
-     * SMB Connection Failure (A network error occurs, the host is unreachable, or the port is blocked.)
+     * 表示SMB协议共享打印机连接失败（发生网络错误、主机不可达或端口被阻止）。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -2228,7 +2195,10 @@ declare namespace print {
     E_PRINT_SMB_CONNECTION_FAILURE = 13100013,
 
     /**
-     * The login account or password is invalid.
+     * 表示SMB协议共享打印机账号/密码错误。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -2237,7 +2207,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates print application events.
+   * 打印应用事件的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -2245,7 +2215,7 @@ declare namespace print {
    */
   enum ApplicationEvent {
     /**
-     * Starts the print application.
+     * 表示打印应用被拉起的事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2254,7 +2224,7 @@ declare namespace print {
     APPLICATION_CREATED = 0,
 
     /**
-     * Closes the print application by clicking **Start**.
+     * 表示由于点击打印而关闭打印应用的事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2263,7 +2233,7 @@ declare namespace print {
     APPLICATION_CLOSED_FOR_STARTED = 1,
 
     /**
-     * Closes the print application by clicking **Cancel**.
+     * 表示由于点击取消而关闭打印应用的事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -2273,7 +2243,7 @@ declare namespace print {
   }
 
   /**
-   * Provides the printer extension information.
+   * 定义打印扩展信息的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
@@ -2282,7 +2252,7 @@ declare namespace print {
    */
   interface PrinterExtensionInfo {
     /**
-     * ID of the printer extension.
+     * 表示打印机扩展的扩展ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -2292,7 +2262,7 @@ declare namespace print {
     extensionId: string;
 
     /**
-     * Vendor ID of the printer extension.
+     * 表示扩展的供应商ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -2302,7 +2272,7 @@ declare namespace print {
     vendorId: string;
 
     /**
-     * Vendor name of the printer extension.
+     * 表示供应商名称。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -2312,7 +2282,7 @@ declare namespace print {
     vendorName: string;
 
     /**
-     * Vendor icon of the printer extension.
+     * 表示供应商图标。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -2322,7 +2292,7 @@ declare namespace print {
     vendorIcon: int;
 
     /**
-     * Version of the printer extension.
+     * 表示当前打印机扩展的版本。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @systemapi
@@ -2333,11 +2303,10 @@ declare namespace print {
   }
 
   /**
-   * Obtains the information of all installed printer extensions. This API uses an asynchronous callback to return the
-   * result.
+   * 查询所有已安装的打印机扩展服务，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<Array<PrinterExtensionInfo>> } callback - Callback used to return the result.
+   * @param { AsyncCallback<Array<PrinterExtensionInfo>> } callback - 异步查询所有已安装的打印机扩展服务之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -2348,11 +2317,10 @@ declare namespace print {
   function queryAllPrinterExtensionInfos(callback: AsyncCallback<Array<PrinterExtensionInfo>>): void;
 
   /**
-   * Obtains the information of all installed printer extensions. This API uses a promise to return the result.
+   * 查询所有已安装的打印机扩展服务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<Array<PrinterExtensionInfo>> } Promise used to return the information of all installed printer
-   *     extensions.
+   * @returns { Promise<Array<PrinterExtensionInfo>> } Promise对象，返回包含所有已安装的打印机扩展服务信息的列表。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -2363,17 +2331,13 @@ declare namespace print {
   function queryAllPrinterExtensionInfos(): Promise<Array<PrinterExtensionInfo>>;
 
   /**
-   * Discovers printers by specifying the extension list. The discovered printers contain the specified print extension
-   * abilities. If an empty extension list is specified, all extension abilities are loaded. This API uses an
-   * asynchronous callback to return the result.
+   * 通过指定“打印扩展能力列表”来发现打印机，发现的打印机具备包含指定的打印扩展能力。如果指定空的打印扩展能力列表，则表示加载所有扩展能力。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
-   * @param { Array<string> } extensionList - List of
-   *     [PrintExtensionAbilities]{@link @ohos.app.ability.PrintExtensionAbility:PrintExtensionAbility} to be loaded.
-   *     The list members are the bundle names of the applications with print extension abilities. An empty list
-   *     indicates that all extension abilities are loaded.
-   * @param { AsyncCallback<void> } callback - Callback to be invoked when a printer is discovered.
+   * @param { Array<string> } extensionList - 要加载的
+   *     [打印扩展能力]{@link @ohos.app.ability.PrintExtensionAbility:PrintExtensionAbility}列表，列表成员为打印扩展能力的包名，空列表表示加载所有扩展能力。
+   * @param { AsyncCallback<void> } callback - 异步开始发现打印机之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
@@ -2385,17 +2349,13 @@ declare namespace print {
   function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Discovers printers by specifying the extension list. The discovered printers contain the specified print extension
-   * abilities. If an empty extension list is specified, all extension abilities are loaded. This API uses a promise to
-   * return the result.
+   * 通过指定“打印扩展能力列表”来发现打印机，发现的打印机具备包含指定的打印扩展能力。如果指定空的打印扩展能力列表，则表示加载所有扩展能力，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
-   * @param { Array<string> } extensionList - List of
-   *     [PrintExtensionAbilities]{@link @ohos.app.ability.PrintExtensionAbility:PrintExtensionAbility} to be loaded.
-   *     The list members are the bundle names of the applications with print extension abilities. An empty list
-   *     indicates that all extension abilities are loaded.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } extensionList - 要加载的
+   *     [打印扩展能力]{@link @ohos.app.ability.PrintExtensionAbility:PrintExtensionAbility}列表，列表成员为打印扩展能力的包名，空列表表示加载所有扩展能力。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
@@ -2407,11 +2367,11 @@ declare namespace print {
   function startDiscoverPrinter(extensionList: Array<string>): Promise<void>;
 
   /**
-   * Stops discovering printers. This API uses an asynchronous callback to return the result.
+   * 停止发现打印机，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
-   * @param { AsyncCallback<void> } callback - Callback to be invoked when printer discovery is stopped.
+   * @param { AsyncCallback<void> } callback - 停止发现打印机的异步回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
@@ -2423,11 +2383,11 @@ declare namespace print {
   function stopDiscoverPrinter(callback: AsyncCallback<void>): void;
 
   /**
-   * Stops discovering printers. This API uses a promise to return the result.
+   * 停止发现打印机，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
@@ -2439,12 +2399,12 @@ declare namespace print {
   function stopDiscoverPrinter(): Promise<void>;
 
   /**
-   * Connects to a printer by printer ID. This API uses an asynchronous callback to return the result.
+   * 通过打印机ID连接打印机，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
-   * @param { string } printerId - Printer ID.
-   * @param { AsyncCallback<void> } callback - Callback to be invoked when a printer is connected.
+   * @param { string } printerId - 打印机ID。
+   * @param { AsyncCallback<void> } callback - 通过打印机ID异步连接打印机的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
@@ -2456,12 +2416,12 @@ declare namespace print {
   function connectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Connects to a printer by printer ID. This API uses a promise to return the result.
+   * 通过打印机ID连接打印机，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 19]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT [since 20]
-   * @param { string } printerId - Printer ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } printerId - 打印机ID
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 19]
    * @syscap SystemCapability.Print.PrintFramework
@@ -2473,11 +2433,11 @@ declare namespace print {
   function connectPrinter(printerId: string): Promise<void>;
 
   /**
-   * Disconnects from the specified printer. This API uses an asynchronous callback to return the result.
+   * 断开特定打印机的连接，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } printerId - 打印机ID。
+   * @param { AsyncCallback<void> } callback - 异步断开特定打印机的连接之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2490,11 +2450,11 @@ declare namespace print {
   function disconnectPrinter(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnects from the specified printer. This API uses a promise to return the result.
+   * 断开特定打印机的连接，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } printerId - 打印机ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2507,11 +2467,11 @@ declare namespace print {
   function disconnectPrinter(printerId: string): Promise<void>;
 
   /**
-   * Queries the printer capability. This API uses an asynchronous callback to return the result.
+   * 查询打印机能力，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } printerId - 打印机ID。
+   * @param { AsyncCallback<void> } callback - 异步查询打印机能力之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2524,11 +2484,11 @@ declare namespace print {
   function queryPrinterCapability(printerId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Queries the printer capability. This API uses a promise to return the result.
+   * 查询打印机能力，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } printerId - 打印机ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2541,11 +2501,11 @@ declare namespace print {
   function queryPrinterCapability(printerId: string): Promise<void>;
 
   /**
-   * Starts the specified print job. This API uses an asynchronous callback to return the result.
+   * 开始打印任务，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Information about the print job.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { PrintJob } jobInfo - 打印任务信息。
+   * @param { AsyncCallback<void> } callback - 异步开始打印任务之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2558,11 +2518,11 @@ declare namespace print {
   function startPrintJob(jobInfo: PrintJob, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts the specified print job. This API uses a promise to return the result.
+   * 开始打印任务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Information about the print job.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { PrintJob } jobInfo - 打印任务信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2575,12 +2535,11 @@ declare namespace print {
   function startPrintJob(jobInfo: PrintJob): Promise<void>;
 
   /**
-   * Cancels the specified print job, which is on the print queue of the printer. This API uses an asynchronous callback
-   * to return the result.
+   * 取消已发送到打印机的打印任务，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Print job ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } jobId - 打印任务ID。
+   * @param { AsyncCallback<void> } callback - 异步取消已发送到打印机的打印任务之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2593,12 +2552,11 @@ declare namespace print {
   function cancelPrintJob(jobId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels the specified print job, which is on the print queue of the printer. This API uses a promise to return the
-   * result.
+   * 取消已发送到打印机的打印任务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Print job ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } jobId - 打印任务ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2611,11 +2569,11 @@ declare namespace print {
   function cancelPrintJob(jobId: string): Promise<void>;
 
   /**
-   * Restarts a print job that has been finished before. This API uses a promise to return the result.
+   * 重新打印之前打印过的打印任务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - ID of a print job that has been finished before.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } jobId - 之前打印过的打印任务ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -2626,11 +2584,11 @@ declare namespace print {
   function restartPrintJob(jobId: string): Promise<void>;
 
   /**
-   * Requests print preview data. This API uses a callback to return the result.
+   * 请求预览打印数据，使用callback回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Information about the print job.
-   * @param { Callback<int> } callback - Callback used to return the result.
+   * @param { PrintJob } jobInfo - 打印任务信息。
+   * @param { Callback<int> } callback - 请求预览打印数据之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2643,11 +2601,11 @@ declare namespace print {
   function requestPrintPreview(jobInfo: PrintJob, callback: Callback<int>): void;
 
   /**
-   * Requests print preview data. This API uses a promise to return the result.
+   * 请求预览打印数据，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrintJob } jobInfo - Information about the print job.
-   * @returns { Promise<int> } Promise used to return the preview result.
+   * @param { PrintJob } jobInfo - 打印任务信息。
+   * @returns { Promise<int> } Promise对象，返回预览结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2660,11 +2618,11 @@ declare namespace print {
   function requestPrintPreview(jobInfo: PrintJob): Promise<int>;
 
   /**
-   * Registers a listener for printer state change events. This API uses a callback to return the result.
+   * 注册打印机状态变化事件回调，使用callback回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'printerStateChange' } type - Listening type. The value is fixed at **'printerStateChange'**.
-   * @param { function } callback - Callback used to return the result.
+   * @param { 'printerStateChange' } type - 表示打印机状态改变。
+   * @param { function } callback - 打印机状态改变之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2690,7 +2648,6 @@ declare namespace print {
 
   /**
    * Register event callback for the state change of printer.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrinterStateChangeCallback } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2704,12 +2661,11 @@ declare namespace print {
   function onPrinterStateChange(callback: PrinterStateChangeCallback): void;
 
   /**
-   * Unregisters the listener for printer state change events. This API uses a callback to return the result.
+   * 取消注册打印机状态变化事件回调，使用callback回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'printerStateChange' } type - Listening type. The value is fixed at **'printerStateChange'**.
-   * @param { Callback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     operation is successful, and **false** means the opposite.
+   * @param { 'printerStateChange' } type - 表示打印机状态改变。
+   * @param { Callback<boolean> } callback - 表示取消注册打印机状态变化事件是否成功。true表示成功，false表示失败。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2722,7 +2678,6 @@ declare namespace print {
 
   /**
    * Unregister event callback for the state change of printer.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2736,11 +2691,11 @@ declare namespace print {
   function offPrinterStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * Registers a listener for print job state change events. This API uses a callback to return the result.
+   * 注册打印任务状态变化事件回调，使用callback回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'jobStateChange' } type - Listening type. The value is fixed at **'jobStateChange'**.
-   * @param { function } callback - Callback used to return the result.
+   * @param { 'jobStateChange' } type - 表示打印任务状态改变。
+   * @param { function } callback - 打印任务状态改变之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2766,7 +2721,6 @@ declare namespace print {
 
   /**
    * Register event callback for the state change of print job.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { PrintJobStateChangeCallback } callback - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2780,12 +2734,11 @@ declare namespace print {
   function onJobStateChange(callback: PrintJobStateChangeCallback): void;
 
   /**
-   * Unregisters the listener for print job state change events. This API uses a callback to return the result.
+   * 取消注册打印任务状态变化事件回调，使用callback回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'jobStateChange' } type - Listening type. The value is fixed at **'jobStateChange'**.
-   * @param { Callback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     operation is successful, and **false** means the opposite.
+   * @param { 'jobStateChange' } type - 表示打印任务状态改变。
+   * @param { Callback<boolean> } callback - 表示取消注册打印任务状态变化事件是否成功。true表示成功，false表示失败。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2798,7 +2751,6 @@ declare namespace print {
 
   /**
    * Unregister event callback for the state change of print job.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2812,12 +2764,11 @@ declare namespace print {
   function offJobStateChange(callback?: Callback<boolean>): void;
 
   /**
-   * Registers a listener for printer extension information change events. This API uses a callback to return the
-   * result.
+   * 注册打印扩展信息变化事件回调，使用callback回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'extInfoChange' } type - Listening type. The value is fixed at **'extInfoChange'**.
-   * @param { function } callback - Callback used to return the result.
+   * @param { 'extInfoChange' } type - 表示打印扩展信息改变。
+   * @param { function } callback - 打印扩展信息改变之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2843,7 +2794,6 @@ declare namespace print {
 
   /**
    * Register event callback for the information change of print extension.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { ExtInfoChangeCallback } callback - The callback function for information change of print extension.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2857,13 +2807,11 @@ declare namespace print {
   function onExtInfoChange(callback: ExtInfoChangeCallback): void;
 
   /**
-   * Unregisters the listener for printer extension information change events. This API uses a callback to return the
-   * result.
+   * 取消注册打印扩展信息变化事件回调，使用callback回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { 'extInfoChange' } type - Listening type. The value is fixed at **'extInfoChange'**.
-   * @param { Callback<boolean> } callback - Callback used to return the result. The value **true** means that the
-   *     operation is successful, and **false** means the opposite.
+   * @param { 'extInfoChange' } type - 表示打印扩展信息改变。
+   * @param { Callback<boolean> } callback - 表示取消注册打印扩展信息变化事件是否成功。true表示成功，false表示失败。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2876,7 +2824,6 @@ declare namespace print {
 
   /**
    * Unregister event callback for the information change of print extension.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { Callback<boolean> } [callback] - The callback function for state change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -2890,11 +2837,11 @@ declare namespace print {
   function offExtInfoChange(callback?: Callback<boolean>): void;
 
   /**
-   * Adds printers. This API uses an asynchronous callback to return the result.
+   * 添加打印机，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - List of printers to add.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Array<PrinterInfo> } printers - 表示新到达的打印机列表。
+   * @param { AsyncCallback<void> } callback - 异步添加打印机之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2907,11 +2854,11 @@ declare namespace print {
   function addPrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds printers. This API uses a promise to return the result.
+   * 添加打印机，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - List of printers to add.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<PrinterInfo> } printers - 表示新到达的打印机列表。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2924,11 +2871,11 @@ declare namespace print {
   function addPrinters(printers: Array<PrinterInfo>): Promise<void>;
 
   /**
-   * Removes printers. This API uses an asynchronous callback to return the result.
+   * 移除打印机，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<string> } printerIds - List of printers to remove.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Array<string> } printerIds - 表示需移除的打印机列表。
+   * @param { AsyncCallback<void> } callback - 异步移除打印机之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2941,11 +2888,11 @@ declare namespace print {
   function removePrinters(printerIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes printers. This API uses a promise to return the result.
+   * 移除打印机，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<string> } printerIds - List of printers to remove.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<string> } printerIds - 表示需移除的打印机列表。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2958,11 +2905,11 @@ declare namespace print {
   function removePrinters(printerIds: Array<string>): Promise<void>;
 
   /**
-   * Updates information about the specified printers. This API uses an asynchronous callback to return the result.
+   * 更新特定打印机的信息，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - List of printers whose information is to be updated.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Array<PrinterInfo> } printers - 表示待更新的打印机列表。
+   * @param { AsyncCallback<void> } callback - 异步更新打印机信息之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2975,11 +2922,11 @@ declare namespace print {
   function updatePrinters(printers: Array<PrinterInfo>, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates information about the specified printers. This API uses a promise to return the result.
+   * 更新特定打印机的信息，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { Array<PrinterInfo> } printers - List of printers whose information is to be updated.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Array<PrinterInfo> } printers - 表示待更新的打印机列表。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2992,12 +2939,12 @@ declare namespace print {
   function updatePrinters(printers: Array<PrinterInfo>): Promise<void>;
 
   /**
-   * Updates the printer state. This API uses an asynchronous callback to return the result.
+   * 更新打印机状态，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @param { PrinterState } state - Printer state.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } printerId - 表示打印机ID。
+   * @param { PrinterState } state - 表示打印机状态。
+   * @param { AsyncCallback<void> } callback - 异步更新打印机状态之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3010,12 +2957,12 @@ declare namespace print {
   function updatePrinterState(printerId: string, state: PrinterState, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates the printer state. This API uses a promise to return the result.
+   * 更新打印机状态，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @param { PrinterState } state - Printer state.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } printerId - 表示打印机ID。
+   * @param { PrinterState } state - 表示打印机状态。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3028,14 +2975,14 @@ declare namespace print {
   function updatePrinterState(printerId: string, state: PrinterState): Promise<void>;
 
   /**
-   * Updates the print job state. This API uses an asynchronous callback to return the result.
+   * 更新打印任务状态，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 23]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT [since 24]
-   * @param { string} jobId - ID of the print job.
-   * @param { PrintJobState } state - Print job state.
-   * @param { PrintJobSubState } subState - Substate of the print job.
-   * @param { AsyncCallback<void> } callback - Callback to be invoked when the print job state is updated.
+   * @param { string} jobId - 表示打印任务ID。
+   * @param { PrintJobState } state - 表示打印任务状态。
+   * @param { PrintJobSubState } subState - 表示打印任务子状态。
+   * @param { AsyncCallback<void> } callback - 异步更新打印任务状态之后的回调。
    * @throws { BusinessError } 201 - The application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 23]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3050,14 +2997,14 @@ declare namespace print {
     callback: AsyncCallback<void>): void;
 
   /**
-   * Updates the print job state. This API uses a promise to return the result.
+   * 更新打印任务状态，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 10 - 23]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT [since 24]
-   * @param { string} jobId - ID of the print job.
-   * @param { PrintJobState } state - Print job state.
-   * @param { PrintJobSubState } subState - Substate of the print job.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string} jobId - 表示打印任务ID。
+   * @param { PrintJobState } state - 表示打印任务状态。
+   * @param { PrintJobSubState } subState - 表示打印任务子状态。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 10 - 23]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3071,11 +3018,11 @@ declare namespace print {
   function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>;
 
   /**
-   * Updates the printer extension information. This API uses an asynchronous callback to return the result.
+   * 更新打印扩展状态，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } info - New printer extension information.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } info - 表示打印扩展变更信息。
+   * @param { AsyncCallback<void> } callback - 异步更新打印扩展状态之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3088,11 +3035,11 @@ declare namespace print {
   function updateExtensionInfo(info: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates the printer extension information. This API uses a promise to return the result.
+   * 更新打印扩展状态，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } info - New printer extension information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } info - 表示打印扩展变更信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3105,10 +3052,10 @@ declare namespace print {
   function updateExtensionInfo(info: string): Promise<void>;
 
   /**
-   * Queries all print jobs. This API uses an asynchronous callback to return the result.
+   * 查询所有打印任务，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 异步查询所有打印任务之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3121,10 +3068,10 @@ declare namespace print {
   function queryAllPrintJobs(callback: AsyncCallback<void>): void;
 
   /**
-   * Queries all print jobs. This API uses a promise to return the result.
+   * 查询所有打印任务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3137,7 +3084,7 @@ declare namespace print {
   function queryAllPrintJobs(): Promise<void>;
 
   /**
-   * Queries all active print jobs. This API uses a promise to return the result.
+   * 查询所有活跃中的打印任务，使用Promise进行异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @returns { Promise<PrintJob[]> } Promise used to return a list of all active print jobs.
@@ -3151,10 +3098,10 @@ declare namespace print {
   function queryAllActivePrintJobs(): Promise<PrintJob[]>;
 
   /**
-   * Queries all print jobs. This API uses an asynchronous callback to return the result.
+   * 查询所有打印任务，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { AsyncCallback<Array<PrintJob>> } callback - Callback used to return the result.
+   * @param { AsyncCallback<Array<PrintJob>> } callback - 异步查询所有打印任务之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3165,10 +3112,10 @@ declare namespace print {
   function queryPrintJobList(callback: AsyncCallback<Array<PrintJob>>): void;
 
   /**
-   * Queries all print jobs. This API uses a promise to return the result.
+   * 查询所有打印任务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<Array<PrintJob>> } Promise used to return a list of all print jobs.
+   * @returns { Promise<Array<PrintJob>> } Promise对象，返回包含所有打印任务的列表。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3179,11 +3126,11 @@ declare namespace print {
   function queryPrintJobList(): Promise<Array<PrintJob>>;
 
   /**
-   * Queries a print job by ID. This API uses an asynchronous callback to return the result.
+   * 按打印任务ID查询打印任务，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - ID of the print job.
-   * @param { AsyncCallback<PrintJob> } callback - Callback used to return the result.
+   * @param { string } jobId - 表示打印任务ID。
+   * @param { AsyncCallback<PrintJob> } callback - 异步按打印任务ID查询打印任务之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3196,11 +3143,11 @@ declare namespace print {
   function queryPrintJobById(jobId: string, callback: AsyncCallback<PrintJob>): void;
 
   /**
-   * Queries a print job by ID. This API uses a promise to return the result.
+   * 按打印任务ID查询打印任务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - ID of the print job.
-   * @returns { Promise<PrintJob> } Promise used to return the queried print job.
+   * @param { string } jobId - 表示打印任务ID。
+   * @returns { Promise<PrintJob> } Promise对象，返回查询到的打印任务。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3213,13 +3160,13 @@ declare namespace print {
   function queryPrintJobById(jobId: string): Promise<PrintJob>;
 
   /**
-   * Starts to obtain the print file. This API uses an asynchronous callback to return the result.
+   * 开始获取打印文件，使用Callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - ID of the print job.
-   * @param { PrintAttributes } printAttributes - Print attributes.
-   * @param { int } fd - File descriptor.
-   * @param { Callback<PrintFileCreationState> } onFileStateChanged - Callback for updating the file state.
+   * @param { string } jobId - 表示打印任务ID。
+   * @param { PrintAttributes } printAttributes - 表示打印参数。
+   * @param { int } fd - 表示打印文件描述符。
+   * @param { Callback<PrintFileCreationState> } onFileStateChanged - 表示更新文件状态的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3233,13 +3180,12 @@ declare namespace print {
     onFileStateChanged: Callback<PrintFileCreationState>): void;
 
   /**
-   * Notifies the print service of the spooler shutdown information. This API uses an asynchronous callback to return
-   * the result.
+   * 将spooler关闭信息通知打印服务，使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - ID of the print job.
-   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Spooler shutdown information.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } jobId - 表示打印任务ID。
+   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - 表示spooler关闭信息。
+   * @param { AsyncCallback<void> } callback - 异步将spooler关闭信息通知打印服务之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3253,7 +3199,6 @@ declare namespace print {
 
   /**
    * Notify print service the information.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
@@ -3269,10 +3214,9 @@ declare namespace print {
 
   /**
    * Notify print service the information.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
-   * @param { AsyncCallback<void> } callback - The callback function for indicating the result of API execution.
+   * @param { AsyncCallback<void> } callback - The callback function for indcating the result of API execution.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3284,12 +3228,12 @@ declare namespace print {
   function notifyPrintServiceSpoolerCloseForStarted(jobId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Notifies the print service of the spooler shutdown information. This API uses a promise to return the result.
+   * 将spooler关闭信息通知打印服务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - ID of the print job.
-   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - Spooler shutdown information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } jobId - 表示打印任务ID。
+   * @param { 'spooler_closed_for_cancelled' | 'spooler_closed_for_started' } type - 表示spooler关闭信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3303,7 +3247,6 @@ declare namespace print {
 
   /**
    * Notify print service the information.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @returns { Promise<void> } the promise returned by the function.
@@ -3319,7 +3262,6 @@ declare namespace print {
 
   /**
    * Notify print service the information.
-   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @param { string } jobId - Indicates id of the print job.
    * @returns { Promise<void> } the promise returned by the function.
@@ -3334,10 +3276,10 @@ declare namespace print {
   function notifyPrintServiceSpoolerCloseForStarted(jobId: string): Promise<void>;
 
   /**
-   * Obtains the list of printers added to the system. This API uses a promise to return the result.
+   * 获取系统中已添加的打印机列表，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINT
-   * @returns { Promise<Array<string>> } Promise used to return a list of all added printers.
+   * @returns { Promise<Array<string>> } Promise对象，返回包含所有已添加打印机的打印机ID的列表。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
@@ -3346,11 +3288,11 @@ declare namespace print {
   function getAddedPrinters(): Promise<Array<string>>;
 
   /**
-   * Obtains printer information based on the printer ID. This API uses a promise to return the result.
+   * 根据打印机id获取打印机信息，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @returns { Promise<PrinterInfo> } Promise used to return the printer information.
+   * @param { string } printerId - 表示打印机ID。
+   * @returns { Promise<PrinterInfo> } Promise对象，返回查询到的打印机信息。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3363,11 +3305,11 @@ declare namespace print {
   function getPrinterInfoById(printerId: string): Promise<PrinterInfo>;
 
   /**
-   * Notifies the print service of the print application events. This API uses a promise to return the result.
+   * 将打印应用相关事件通知打印服务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { ApplicationEvent } event - Print application events.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { ApplicationEvent } event - 表示打印应用事件。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3380,11 +3322,11 @@ declare namespace print {
   function notifyPrintServiceEvent(event: ApplicationEvent): Promise<void>;
 
   /**
-   * Adds a printer to the printer discovery list. This API uses a promise to return the result.
+   * 添加打印机到系统打印机发现列表，使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { PrinterInformation } printerInformation - The added printer.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { PrinterInformation } printerInformation - 表示新发现的打印机。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -3395,11 +3337,11 @@ declare namespace print {
   function addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>;
 
   /**
-   * Updates the printer capabilities to the printer discovery list. This API uses a promise to return the result.
+   * 更新打印机能力到系统打印机发现列表，使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { PrinterInformation } printerInformation - Printer whose capability is to be updated.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { PrinterInformation } printerInformation - 表示待更新能力的打印机。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -3410,11 +3352,11 @@ declare namespace print {
   function updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>;
 
   /**
-   * Removes a printer from the printer discovery list. This API uses a promise to return the result.
+   * 从系统打印机发现列表里移除打印机，使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } printerId - Printer to remove.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } printerId - 表示待移除的打印机。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -3425,11 +3367,11 @@ declare namespace print {
   function removePrinterFromDiscovery(printerId: string): Promise<void>;
 
   /**
-   * Obtains printer information based on the printer ID. This API uses a promise to return the result.
+   * 根据打印机id获取打印机信息，使用Promise异步回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { string } printerId - Printer ID used to obtain information.
-   * @returns { Promise<PrinterInformation> } Promise used to return the printer information.
+   * @param { string } printerId - 表示待获取信息的打印机id。
+   * @returns { Promise<PrinterInformation> } Promise对象，返回打印机信息。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -3440,7 +3382,7 @@ declare namespace print {
   function getPrinterInformationById(printerId: string): Promise<PrinterInformation>;
 
   /**
-   * Defines the printer information.
+   * 定义打印机信息的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -3448,7 +3390,7 @@ declare namespace print {
    */
   interface PrinterInformation {
     /**
-     * Printer ID.
+     * 表示打印机ID。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3457,7 +3399,7 @@ declare namespace print {
     printerId: string;
 
     /**
-     * Printer name.
+     * 表示打印机名称。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3466,7 +3408,7 @@ declare namespace print {
     printerName: string;
 
     /**
-     * Printer state.
+     * 表示当前打印机状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3475,7 +3417,7 @@ declare namespace print {
     printerStatus: PrinterStatus;
 
     /**
-     * Printer description.
+     * 表示打印机说明。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3484,7 +3426,7 @@ declare namespace print {
     description?: string;
 
     /**
-     * Printer capabilities.
+     * 表示打印机能力。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3493,7 +3435,7 @@ declare namespace print {
     capability?: PrinterCapabilities;
 
     /**
-     * Printer URI.
+     * 表示打印机uri。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3502,7 +3444,7 @@ declare namespace print {
     uri?: string;
 
     /**
-     * Printer model.
+     * 表示打印机型号。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3511,7 +3453,7 @@ declare namespace print {
     printerMake?: string;
 
     /**
-     * Printer preferences.
+     * 表示打印机首选项。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3520,7 +3462,7 @@ declare namespace print {
     preferences?: PrinterPreferences;
 
     /**
-     * Printer alias.
+     * 表示打印机别名。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3529,7 +3471,10 @@ declare namespace print {
     alias?: string;
 
     /**
-     * Information about the selected driver when adding the printer.
+     * 表示添加打印机时选择的驱动的信息。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -3537,7 +3482,10 @@ declare namespace print {
     selectedDriver?: PpdInfo;
 
     /**
-     * Protocol used when adding the printer.
+     * 表示添加打印机时使用的协议。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -3545,7 +3493,7 @@ declare namespace print {
     selectedProtocol?: string;
 
     /**
-     * Printer details.
+     * 表示打印机详细信息。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3555,7 +3503,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the printer capabilities.
+   * 定义打印机能力的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -3563,7 +3511,7 @@ declare namespace print {
    */
   interface PrinterCapabilities {
     /**
-     * List of paper sizes supported by the printer.
+     * 表示打印机支持的纸张尺寸列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3572,7 +3520,7 @@ declare namespace print {
     supportedPageSizes: Array<PrintPageSize>;
 
     /**
-     * List of color modes supported by the printer.
+     * 表示打印机支持的色彩模式列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3581,7 +3529,7 @@ declare namespace print {
     supportedColorModes: Array<PrintColorMode>;
 
     /**
-     * List of single- and double-sided modes supported by the printer.
+     * 表示打印机支持的单双面模式列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3590,7 +3538,7 @@ declare namespace print {
     supportedDuplexModes: Array<PrintDuplexMode>;
 
     /**
-     * List of paper types supported by the printer.
+     * 表示打印机支持的纸张类型列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3599,7 +3547,7 @@ declare namespace print {
     supportedMediaTypes?: Array<string>;
 
     /**
-     * List of print quality supported by the printer.
+     * 表示打印机支持的打印质量列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3608,7 +3556,7 @@ declare namespace print {
     supportedQualities?: Array<PrintQuality>;
 
     /**
-     * List of print directions supported by the printer.
+     * 表示打印机支持的打印方向列表。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3617,7 +3565,7 @@ declare namespace print {
     supportedOrientations?: Array<PrintOrientationMode>;
 
     /**
-     * Printer capability details.
+     * 表示打印机能力详细信息。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3627,7 +3575,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print qualities.
+   * 打印质量的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -3635,7 +3583,7 @@ declare namespace print {
    */
   enum PrintQuality {
     /**
-     * Draft
+     * 表示经济的打印质量。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3644,7 +3592,7 @@ declare namespace print {
     QUALITY_DRAFT = 3,
 
     /**
-     * Standard
+     * 表示标准的打印质量。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3653,7 +3601,7 @@ declare namespace print {
     QUALITY_NORMAL = 4,
 
     /**
-     * High
+     * 表示最佳的打印质量。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3663,7 +3611,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the print directions.
+   * 打印方向的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -3671,7 +3619,7 @@ declare namespace print {
    */
   enum PrintOrientationMode {
     /**
-     * Portrait mode.
+     * 表示纵向打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3680,7 +3628,7 @@ declare namespace print {
     ORIENTATION_MODE_PORTRAIT = 0,
 
     /**
-     * Landscape mode.
+     * 表示横向打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3689,7 +3637,7 @@ declare namespace print {
     ORIENTATION_MODE_LANDSCAPE= 1,
 
     /**
-     * Reverse landscape mode.
+     * 表示横向翻转打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3698,7 +3646,7 @@ declare namespace print {
     ORIENTATION_MODE_REVERSE_LANDSCAPE = 2,
 
     /**
-     * Reverse portrait mode.
+     * 表示纵向翻转打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3707,7 +3655,7 @@ declare namespace print {
     ORIENTATION_MODE_REVERSE_PORTRAIT = 3,
 
     /**
-     * Adaptive mode.
+     * 表示自适应方向打印。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3717,7 +3665,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates the printer states.
+   * 打印机状态的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 14 dynamic
@@ -3725,7 +3673,7 @@ declare namespace print {
    */
   enum PrinterStatus {
     /**
-     * The printer is idle.
+     * 表示打印机空闲状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3734,7 +3682,7 @@ declare namespace print {
     PRINTER_IDLE = 0,
 
     /**
-     * The printer is busy.
+     * 表示打印机忙碌状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3743,7 +3691,7 @@ declare namespace print {
     PRINTER_BUSY = 1,
 
     /**
-     * The printer is unavailable.
+     * 表示打印机脱机状态。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 14 dynamic
@@ -3753,7 +3701,7 @@ declare namespace print {
   }
 
   /**
-   * Defines the printer preferences.
+   * 定义打印机首选项的接口。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
@@ -3761,7 +3709,7 @@ declare namespace print {
    */
   interface PrinterPreferences {
     /**
-     * Default duplex mode.
+     * 表示默认单双面模式。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3770,7 +3718,7 @@ declare namespace print {
     defaultDuplexMode?: PrintDuplexMode;
 
     /**
-     * Default print quality.
+     * 表示默认打印质量。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3779,7 +3727,7 @@ declare namespace print {
     defaultPrintQuality?: PrintQuality;
 
     /**
-     * Default paper type.
+     * 表示默认纸张类型。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3788,9 +3736,7 @@ declare namespace print {
     defaultMediaType?: string;
 
     /**
-     * ID of the default paper size. The value can be a standard paper size defined by the International Organization
-     * for Standardization (ISO), for example, ISO_A4, or a non-standard paper size defined in the system, for example,
-     * Custom.178 × 254 mm.
+     * 表示默认纸张尺寸的ID，其范围包含国际标准化组织定义的标准纸张尺寸，如ISO_A4，和系统中定义的非标准的纸张尺寸，如Custom.178x254mm，表示这种纸张尺寸为178毫米 x 254毫米。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3799,7 +3745,7 @@ declare namespace print {
     defaultPageSizeId?: string;
 
     /**
-     * Default print orientation.
+     * 表示默认打印方向。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3808,8 +3754,7 @@ declare namespace print {
     defaultOrientation?: PrintOrientationMode;
 
     /**
-     * Whether to print without margins. The value **true** means to print without margins, and **false** means the
-     * opposite. The default value is **false**.
+     * 表示是否无边距打印，true表示无边距，false表示有边距。默认值为false。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3818,7 +3763,10 @@ declare namespace print {
     borderless?: boolean;
 
     /**
-     * Default color mode.
+     * 表示默认色彩模式。默认值为黑白。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -3826,7 +3774,10 @@ declare namespace print {
     defaultColorMode?: PrintColorMode;
 
     /**
-     * Default collate.
+     * 表示默认出纸顺序。true表示逐份打印，false表示逐页打印。默认值为逐份。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -3834,7 +3785,10 @@ declare namespace print {
     defaultCollate?: boolean;
 
     /**
-     * Default reverse.
+     * 表示默认打印顺序。true表示逆序打印，false表示正序打印。默认值为正序打印。
+     *
+     * **模型约束：** 此接口仅可在Stage模型下使用。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -3842,8 +3796,7 @@ declare namespace print {
     defaultReverse?: boolean;
 
     /**
-     * Other fields in the printer preferences. The fields are queried from the printer or obtained from the printer
-     * driver and stored in the string in JSON format.
+     * 表示打印机首选项中不在以上字段中的其他字段，查询打印机或者从打印机驱动获取，以json格式存储在string中。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3853,7 +3806,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates printer-related events.
+   * 打印机相关事件的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
@@ -3861,7 +3814,7 @@ declare namespace print {
    */
   enum PrinterEvent {
     /**
-     * Printer added.
+     * 表示打印机添加事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3870,7 +3823,7 @@ declare namespace print {
     PRINTER_EVENT_ADDED = 0,
 
     /**
-     * Printer deleted.
+     * 表示打印机删除事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3879,7 +3832,7 @@ declare namespace print {
     PRINTER_EVENT_DELETED = 1,
 
     /**
-     * Printer state changed.
+     * 表示打印机状态变化事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3888,7 +3841,7 @@ declare namespace print {
     PRINTER_EVENT_STATE_CHANGED = 2,
 
     /**
-     * Printer information changed.
+     * 表示打印机信息变化事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3897,7 +3850,7 @@ declare namespace print {
     PRINTER_EVENT_INFO_CHANGED = 3,
 
     /**
-     * Printer preferences changed.
+     * 表示打印机首选项变化事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3906,7 +3859,7 @@ declare namespace print {
     PRINTER_EVENT_PREFERENCE_CHANGED = 4,
 
     /**
-     * The last used printer changed.
+     * 表示上次使用的打印机的变化事件。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3916,7 +3869,7 @@ declare namespace print {
   }
 
   /**
-   * Enumerates default printer types.
+   * 默认打印类型的枚举。
    *
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
@@ -3924,7 +3877,7 @@ declare namespace print {
    */
   enum DefaultPrinterType {
     /**
-     * The printer set by the user serves as the default printer.
+     * 表示将用户手动设置的默认打印机作为当前默认打印机。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3933,7 +3886,7 @@ declare namespace print {
     DEFAULT_PRINTER_TYPE_SET_BY_USER = 0,
 
     /**
-     * The printer used last time serves as the default printer.
+     * 表示自动将上次使用的打印机作为当前默认打印机。
      *
      * @syscap SystemCapability.Print.PrintFramework
      * @since 18 dynamic
@@ -3943,13 +3896,12 @@ declare namespace print {
   }
 
   /**
-   * Updates the information of a printer in the system. This API uses a promise to return the result. Currently, only
-   * the **alias** and **options** fields of [PrinterInformation]{@link print.PrinterInformation} can be updated.
+   * 更新系统中打印机的部分信息，使用Promise异步回调。当前仅允许更新[PrinterInformation]{@link print.PrinterInformation}的alias和options字段。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB [since 18 - 23]
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.ENTERPRISE_MANAGE_PRINT [since 24]
-   * @param { PrinterInformation } printerInformation - Printer information to be updated.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { PrinterInformation } printerInformation - 表示待更新信息的打印机。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application [since 18 - 23]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3963,12 +3915,12 @@ declare namespace print {
   function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>;
 
   /**
-   * Sets the printer preferences. This API uses a promise to return the result.
+   * 设置打印机首选项，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @param { PrinterPreferences } printerPreferences - Printer preferences.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } printerId - 表示打印机ID。
+   * @param { PrinterPreferences } printerPreferences - 表示打印机首选项。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -3981,11 +3933,10 @@ declare namespace print {
   function setPrinterPreferences(printerId: string, printerPreferences: PrinterPreferences): Promise<void>;
 
   /**
-   * Discovers USB printers. This API uses a promise to return the result.
+   * 发现usb打印机，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @returns { Promise<Array<PrinterInformation>> } Promise used to return the information about the discovered USB
-   *     printers.
+   * @returns { Promise<Array<PrinterInformation>> } Promise对象，返回发现到的usb打印机信息。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @syscap SystemCapability.Print.PrintFramework
@@ -3996,12 +3947,12 @@ declare namespace print {
   function discoverUsbPrinters(): Promise<Array<PrinterInformation>>;
 
   /**
-   * Sets the default printer. This API uses a promise to return the result.
+   * 设置默认打印机，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Printer ID.
-   * @param { DefaultPrinterType } type - Default printer type.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } printerId - 表示打印机ID。
+   * @param { DefaultPrinterType } type - 表示默认打印机类型。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4014,12 +3965,12 @@ declare namespace print {
   function setDefaultPrinter(printerId: string, type: DefaultPrinterType): Promise<void>;
 
   /**
-   * Notifies the print service of the print application events. This API uses a promise to return the result.
+   * 将打印应用相关事件通知打印服务，使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { ApplicationEvent } event - Print application events.
-   * @param { string } jobId - ID of the print job.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { ApplicationEvent } event - 表示打印应用事件。
+   * @param { string } jobId - 表示打印任务ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4032,10 +3983,10 @@ declare namespace print {
   function notifyPrintServiceEvent(event: ApplicationEvent, jobId: string): Promise<void>;
 
   /**
-   * Defines a callback that takes the printer event and printer information as parameters.
+   * 将打印机事件和打印机信息作为参数的回调方法。
    *
-   * @param { PrinterEvent } event - Printer event.
-   * @param { PrinterInformation } printerInformation - Printer information.
+   * @param { PrinterEvent } event - 表示打印机事件。
+   * @param { PrinterInformation } printerInformation - 表示打印机信息。
    * @syscap SystemCapability.Print.PrintFramework
    * @since 18 dynamic
    * @since 23 static
@@ -4043,11 +3994,11 @@ declare namespace print {
   type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterInformation) => void;
 
   /**
-   * Registers a listener for the printer change events. This API uses a callback to return the result.
+   * 注册打印机变动事件回调，使用callback回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { 'printerChange' } type - Printer change event.
-   * @param { PrinterChangeCallback } callback - Callback to be invoked when the printer changes.
+   * @param { 'printerChange' } type - 表示打印机变动事件。
+   * @param { PrinterChangeCallback } callback - 打印机变动之后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -4058,7 +4009,6 @@ declare namespace print {
 
   /**
    * Register event callback for the change of printer.
-   *
    * @permission ohos.permission.PRINT
    * @param { PrinterChangeCallback } callback - The callback function for change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -4070,11 +4020,11 @@ declare namespace print {
   function onPrinterChange(callback: PrinterChangeCallback): void;
 
   /**
-   * Unregisters the listener for printer state change events. This API uses a callback to return the result.
+   * 取消注册打印机变动事件回调，使用callback回调。
    *
    * @permission ohos.permission.PRINT
-   * @param { 'printerChange' } type - Printer change event.
-   * @param { PrinterChangeCallback } [callback] - Callback to unregister.
+   * @param { 'printerChange' } type - 表示打印机变动事件。
+   * @param { PrinterChangeCallback } [callback] - 表示取消注册打印机变动事件后的回调。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
@@ -4085,7 +4035,6 @@ declare namespace print {
 
   /**
    * Unregister event callback for the change of printer.
-   *
    * @permission ohos.permission.PRINT
    * @param { PrinterChangeCallback } [callback] - The callback function for change of printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -4097,14 +4046,16 @@ declare namespace print {
   function offPrinterChange(callback?: PrinterChangeCallback): void;
 
   /**
-   * Interface defining shared device information
+   * 定义共享设备信息的接口。
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 24 dynamic&static
    */
   interface SharedHost {
     /**
-     * IP address of the shared device.
+     * 表示共享设备的IP地址。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4112,7 +4063,8 @@ declare namespace print {
     ip: string;
 
     /**
-     * Share name of the shared device.
+     * 表示共享设备的主机名称。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4120,7 +4072,8 @@ declare namespace print {
     shareName: string;
 
     /**
-     * Workgroup name of the shared device.
+     * 表示共享设备的工作组名称。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4129,7 +4082,8 @@ declare namespace print {
   }
 
   /**
-   * Get all available shared hosts.
+   * 获取所有可用的共享主机。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @returns { Promise<SharedHost[]> } Promise that resolves with the list of shared hosts.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -4142,14 +4096,12 @@ declare namespace print {
   function getSharedHosts(): Promise<SharedHost[]>;
 
   /**
-   * Authenticate SMB device as registered user and get available printers.
+   * 以注册用户身份对SMB设备进行身份验证，并获取可用打印机。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { SharedHost } host - The SMB host to authenticate.
-   *     <br>The SMB host to authenticate.
-   * @param { string } username - The username for authentication.
-   *     <br>User name used for authentication.
-   * @param { string } password - The password for authentication.
-   *     <br>Password used for authentication.
+   * @param { SharedHost } host - 要进行身份验证的SMB主机。
+   * @param { string } username - 用于鉴权的用户名。
+   * @param { string } password - 用于身份验证的密码。
    * @returns { Promise<PrinterInformation[]> } Promise that resolves with the list of available printers.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4164,14 +4116,12 @@ declare namespace print {
   function authSmbDeviceAsRegisteredUser(host: SharedHost, username: string, password: string): Promise<PrinterInformation[]>;
 
   /**
-   * Check preferences conflicts.
+   * 检查首选项冲突。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates the printer ID.
-   *     <br>Added printer ID in the system.
-   * @param { string } changedType - Indicates the field name that was modified on the printing interface.
-   *     <br>Field names set in the print preview or preferences interface.
-   * @param { PrinterPreferences } preferences - Indicates the selected value on the printing interface.
-   *     <br>The selected value on the printinginterface.
+   * @param { string } printerId - 打印机ID。
+   * @param { string } changedType - 在打印界面上修改的字段名称。
+   * @param { PrinterPreferences } preferences - 打印界面选择的值。
    * @returns { Promise<string[]> } Promise that resolves with the conflicting field names.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4184,10 +4134,10 @@ declare namespace print {
   function checkPreferencesConflicts(printerId: string, changedType: string, preferences: PrinterPreferences): Promise<string[]>;
 
   /**
-   * Get default preferences by printer ID.
+   * 按打印机ID获取默认首选项。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates the printer ID.
-   *     <br>Added printer ID in the system.
+   * @param { string } printerId - 打印机ID。
    * @returns { Promise<PrinterPreferences> } - Promise that resolves with the default preferences of the printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4200,13 +4150,12 @@ declare namespace print {
   function getPrinterDefaultPreferences(printerId: string): Promise<PrinterPreferences>;
 
   /**
-   * Query printer capabilityies by printer uri.
+   * 使用打印机的uri查询打印机能力，使用Promise异步回调。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerUri - Indicates the printer uri.
-   *     <br>Printer URI in the process of connecting.
-   * @param { string } printerId - Indicates the printer ID.
-   *     <br>Printer ID in the process of connecting.
-   * @returns { Promise<PrinterCapabilities> } - Promise that resolves with the printer capabilityies.
+   * @param { string } printerUri - 表示打印机uri。
+   * @param { string } printerId - 表示打印机ID。
+   * @returns { Promise<PrinterCapabilities> } - Promise对象，返回打印机能力。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100005 - Can not find the printer in system.
@@ -4218,15 +4167,13 @@ declare namespace print {
   function queryPrinterCapabilityByUri(printerUri: string, printerId: string): Promise<PrinterCapabilities>;
 
   /**
-   * Add a printer to cups.
+   * 添加打印机到cups，使用Promise异步回调。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerUri - Indicates the printer uri.
-   *     <br>Printer URI in the process of connecting.
-   * @param { string } printerName - Indicates the printer name.
-   *     <br>Printer name in the process of connecting.
-   * @param { string } printerMake - Indicates the printer make.
-   *     <br>Printer make in the process of connecting.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @param { string } printerUri - 表示打印机uri。
+   * @param { string } printerName - 表示打印机名称。
+   * @param { string } printerMake - 表示打印机型号。
+   * @returns { Promise<boolean> } Promise对象，返回true表示添加打印机到cups成功；返回false表示添加打印机到cups失败。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @throws { BusinessError } 13100003 - Add a printer to cups failed.
@@ -4238,11 +4185,11 @@ declare namespace print {
   function addPrinterToCups(printerUri: string, printerName: string, printerMake: string): Promise<boolean>;
 
   /**
-   * Delete a printer from cups.
+   * 从cups中删除打印机，使用Promise异步回调。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerName - Indicates the printer name.
-   *     <br>Printer name to be deleted.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } printerName - 表示打印机名称。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -4253,14 +4200,15 @@ declare namespace print {
   function deletePrinterFromCups(printerName: string): Promise<void>;
 
   /**
-   * Authenticate a print job.
+   * 验证打印作业。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates the print job ID.
-   *     <br>Job ID to be printed.
-   * @param { string } userName - Indicates the user name.
-   *     <br>Indicates the user name.
-   * @param { string } password - Indicates the user password.
-   *     <br>Indicates the user password.
+   * @param { string } jobId - 打印作业ID。
+   *     <br>要打印的作业ID。
+   * @param { string } userName - 用户名。
+   *     <br>用户名。
+   * @param { string } password - 用户密码。
+   *     <br>用户密码。
    * @returns { Promise<boolean> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4273,12 +4221,13 @@ declare namespace print {
   function authPrintJob(jobId: string, userName: string, password: string): Promise<boolean>;
 
   /**
-   * Analyze print events.
+   * 分析打印事件。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates the printer ID.
-   *     <br>Printer ID to be analyzed.
-   * @param { string } eventType - Indicates the avant type.
-   *     <br>Event types to be analyzed.
+   * @param { string } printerId - 打印机ID。
+   *     <br>要分析的打印机ID。
+   * @param { string } eventType - 前卫类型。
+   *     <br>需要分析的事件类型。
    * @returns { Promise<string> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4290,14 +4239,16 @@ declare namespace print {
   function analyzePrintEvents(printerId: string, eventType: string): Promise<string>;
 
   /**
-   * defines ppd info.
+   * 定义打印机所使用驱动的PPD文件信息的接口。
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 24 dynamic&static
    */
   interface PpdInfo {
     /**
-     * Manufacturer.
+     * 表示当前PPD文件内的打印机厂商名称。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4305,7 +4256,8 @@ declare namespace print {
     manufacturer: string;
 
     /**
-     * Nick name.
+     * 表示当前PPD文件内的打印机别名。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4313,7 +4265,8 @@ declare namespace print {
     nickName: string;
 
     /**
-     * Ppd name.
+     * 表示当前PPD文件的名称。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4322,7 +4275,8 @@ declare namespace print {
   }
 
   /**
-   * Query all printer ppds.
+   * 查询所有打印机ppd。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
    * @returns { Promise<PpdInfo[]> } - Promise that resolves with all printer ppd info.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
@@ -4335,14 +4289,14 @@ declare namespace print {
   function queryAllPrinterPpds(): Promise<PpdInfo[]>;
 
   /**
-   * Defines the callback type used in registering to listen for printerInfoQuery event.
-   * The value of printerInfo indicates the printer info.
-   * The value of ppdInfo indicates all the printer ppd info.
+   * 定义注册监听printInfoQuery事件的回调类型。
+   * printInfo的值表示打印机信息。
+   * ppdInfo的值表示所有打印机的ppd信息。
    *
-   * @param { PrinterInformation } printerInfo - the printer info
-   *     <br>Printer Information.
-   * @param { PpdInfo[] } ppdInfo - all the printer ppd info
-   *     <br>All the printer ppd info.
+   * @param { PrinterInformation } printerInfo - 打印机信息
+   *     <br>打印机信息。
+   * @param { PpdInfo[] } ppdInfo - 所有打印机ppd信息
+   *     <br>所有打印机ppd信息。
    * @syscap SystemCapability.Print.PrintFramework
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -4351,10 +4305,10 @@ declare namespace print {
   type PrinterInfoQueryCallback = (printerInfo: PrinterInformation, ppdInfo: PpdInfo[]) => void;
 
   /**
-   * Register event callback for the printer info queried.
+   * 为查询到的打印机信息注册事件回调。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrinterInfoQueryCallback } callback - The callback function for the printer info queried.
-   *     <br>The callback function for the printer info queried.
+   * @param { PrinterInfoQueryCallback } callback - 查询到的打印机信息的回调函数。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -4365,10 +4319,10 @@ declare namespace print {
   function onPrinterInfoQuery(callback: PrinterInfoQueryCallback): void;
 
   /**
-   * Unregister event callback for the printer info queried.
+   * 查询到的打印机信息的Unregister事件回调。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { PrinterInfoQueryCallback } [callback] - The callback function for the printer info queried.
-   *     <br>The callback function for the printer info queried.
+   * @param { PrinterInfoQueryCallback } [callback] - 查询到的打印机信息的回调函数。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
    * @syscap SystemCapability.Print.PrintFramework
@@ -4379,10 +4333,10 @@ declare namespace print {
   function offPrinterInfoQuery(callback?: PrinterInfoQueryCallback): void;
 
   /**
-   * Query printer info by ip.
+   * 根据ip查询打印机信息。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerIp - Indicates the printer IP.
-   *     <br>Indicates the printer IP.
+   * @param { string } printerIp - 打印机IP。
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4395,14 +4349,12 @@ declare namespace print {
   function queryPrinterInfoByIp(printerIp: string): Promise<void>;
 
   /**
-   * Connect a printer by the printer IP and ppd.
+   * 通过打印机IP和ppd连接打印机。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerIp - Indicates the printer IP.
-   *     <br>IP of the printer to be connected.
-   * @param { string } protocol - Indicates the protocol.
-   *     <br>Protocol of the printer to be connected.
-   * @param { string } ppdName - Indicates the ppd name.
-   *     <br>Ppd name of the printer to be connected.
+   * @param { string } printerIp - 打印机IP。
+   * @param { string } protocol - 协议类型。
+   * @param { string } ppdName - ppd名称。
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4415,12 +4367,11 @@ declare namespace print {
   function connectPrinterByIpAndPpd(printerIp: string, protocol: string, ppdName: string): Promise<void>;
 
   /**
-   * Save the pdf file for a print job.
+   * 保存打印作业的pdf文件。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } jobId - Indicates the print job ID.
-   *     <br>The print job ID to which the file to be saved belongs.
-   * @param { int } fd - Indicates the fd.
-   *     <br>Fd of the file to be saved.
+   * @param { string } jobId - 打印作业ID。
+   * @param { int } fd - 文件描述符。
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4434,10 +4385,10 @@ declare namespace print {
   function savePdfFileJob(jobId: string, fd: int): Promise<void>;
 
   /**
-   * Query recommend printer drivers by printer ID.
+   * 根据打印机ID查询推荐的打印机驱动程序。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates the printer ID.
-   *     <br>Indicates the printer ID.
+   * @param { string } printerId - 打印机ID。
    * @returns { Promise<PpdInfo[]> } - Promise that resolves with all ppd info of the printer.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4450,14 +4401,12 @@ declare namespace print {
   function queryRecommendDriversById(printerId: string): Promise<PpdInfo[]>;
 
   /**
-   * Query recommend printer drivers by printer ID.
+   * 根据打印机ID查询推荐的打印机驱动程序。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB
-   * @param { string } printerId - Indicates the printer ID.
-   *     <br>Printer ID of the printer to be connected.
-   * @param { string } protocol - Indicates the protocol.
-   *     <br>Protocol of the printer to be connected.
-   * @param { string } ppdName - Indicates the ppd name.
-   *     <br>Ppd name of the printer to be connected.
+   * @param { string } printerId - 打印机ID。
+   * @param { string } protocol - 协议类型。
+   * @param { string } ppdName - ppd名称。
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 202 - not system application.
@@ -4470,17 +4419,14 @@ declare namespace print {
   function connectPrinterByIdAndPpd(printerId: string, protocol: string, ppdName: string): Promise<void>;
 
   /**
-   * Add a printer to system.
+   * 添加打印机到系统中，使用Promise异步回调。
+   *
    * @permission ohos.permission.MANAGE_PRINT_JOB or ohos.permission.PRINTER_DRIVER
-   * @param { string } printerName - Indicates the printer name.
-   *     <br>Name of the printer to be added.
-   * @param { string } uri - Indicates the printer uri.
-   *     <br>Uri of the printer to be added.
-   * @param { string } [ppdName] - Indicates the ppd name.
-   *     <br>Ppd name of the printer to be added.
-   * @param { string } [options] - Indicates the options.
-   *     <br>Optional parameters when adding a printer.
-   * @returns { Promise<boolean> } the promise returned by the function.
+   * @param { string } printerName - 表示打印机名称。
+   * @param { string } uri - 表示打印机的URI。
+   * @param { string } [ppdName] - 表示打印机的PPD文件名称。
+   * @param { string } [options] - JSON对象字符串，表示打印机选项参数。
+   * @returns { Promise<boolean> } Promise对象，返回添加打印机成功与否的结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @throws { BusinessError } 13100003 - Add the printer to system failed.
    * @syscap SystemCapability.Print.PrintFramework
@@ -4490,14 +4436,16 @@ declare namespace print {
   function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise<boolean>;
 
   /**
-   * Watermark handling result.
+   * 强制水印处理结果的枚举。
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 24 dynamic&static
    */
   enum WatermarkHandleResult {
     /**
-     * Watermark handling success.
+     * 表示强制水印处理成功。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4505,7 +4453,8 @@ declare namespace print {
     WATERMARK_HANDLE_SUCCESS = 0,
 
     /**
-     * Watermark handling failure.
+     * 表示强制水印处理失败。
+     *
      * @syscap SystemCapability.Print.PrintFramework
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -4514,14 +4463,10 @@ declare namespace print {
   }
 
   /**
-   * Defines the callback type used in registering to listen for watermark handling.
-   * The value of jobId indicates the print job ID.
-   * The value of fd indicates the fd.
+   * 定义用来注册强制水印处理的监听事件时使用的回调类型。
    *
-   * @param { string } jobId - the print job ID
-   *     <br>Print job ID in preview.
-   * @param { int } fd - File Descriptor
-   *     <br>File descriptor in preview.
+   * @param { string } jobId - 表示当前打印任务的id。
+   * @param { int } fd - 表示当前文件的文件描述符。
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 24 dynamic&static
@@ -4529,11 +4474,10 @@ declare namespace print {
   type WatermarkCallback = (jobId: string, fd: int) => void;
 
   /**
-   * Register to listen for watermark handling.
+   * 注册强制水印处理的监听事件。
+   *
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { WatermarkCallback } callback - Indicates the callback type used in registering to
-   *     listen for watermark handling.
-   *     <br>Indicates the callback type used in registering to listen for watermark handling.
+   * @param { WatermarkCallback } callback - 表示注册强制水印处理的监听事件时使用的回调类型。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
@@ -4542,11 +4486,10 @@ declare namespace print {
   function registerWatermarkCallback(callback: WatermarkCallback): void;
 
   /**
-   * Unregister to listen for watermark handling.
+   * 注销强制水印处理的监听事件。
+   *
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { WatermarkCallback } [callback] - Indicates the callback type used in registering to
-   *     listen for watermark handling.
-   *     <br>Indicates the callback type used in registering to listen for watermark handling.
+   * @param { WatermarkCallback } [callback] - 表示注册监听强制水印处理时使用的回调类型。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
@@ -4555,12 +4498,11 @@ declare namespace print {
   function unregisterWatermarkCallback(callback?: WatermarkCallback): void;
 
   /**
-   * Notify watermark complete.
+   * 通知水印处理完成。
+   *
    * @permission ohos.permission.ENTERPRISE_MANAGE_PRINT
-   * @param { string } jobId - Indicates the job ID.
-   *     <br>Print job ID in preview.
-   * @param { WatermarkHandleResult } result - Indicates the result.
-   *     <br>Watermark processing results.
+   * @param { string } jobId - 表示打印任务ID。
+   * @param { WatermarkHandleResult } result - 表示水印处理结果。
    * @throws { BusinessError } 201 - the application does not have permission to call this function.
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
