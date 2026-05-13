@@ -1008,6 +1008,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600019 - Get all disks info failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -1024,9 +1025,9 @@ declare namespace volumeManager {
    * @returns { Promise<Disk> } Promise used to return the disk information of the current ID.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600020 - Get disk info by id failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -1044,9 +1045,9 @@ declare namespace volumeManager {
    * current disk ID.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600021 - Get partition table failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -1064,9 +1065,9 @@ declare namespace volumeManager {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600022 - Create partition failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -1084,9 +1085,9 @@ declare namespace volumeManager {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600023 - Delete partition failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -1105,10 +1106,10 @@ declare namespace volumeManager {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600025 - Format partition failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
