@@ -6773,8 +6773,7 @@ declare namespace media {
     /**
      * Gets the identifier of the media source.
      *
-     * @returns { string } Identifier of the media source.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @returns { string } Identifier of the media source. Empty string means call failed.
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @atomicservice
