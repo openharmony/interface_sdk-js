@@ -315,13 +315,11 @@ declare namespace dlpPermission {
      */
     function on(type: 'openDLPFile', listener: Callback<AccessedDLPFileInfo>): void;
     /**
-     * Unsubscribes from the DLP file open event. The application will not be notified when a DLP file is opened.
+     * 取消监听打开DLP文件。在当前应用的沙箱应用打开DLP文件时，取消通知当前应用。
      *
-     * @param { 'openDLPFile' } type - Event type. It has a fixed value of **openDLPFile**, which indicates the DLP file
-     *     open event.
-     * @param { Callback<AccessedDLPFileInfo> } listener - Callback for the DLP file open event. The application will
-     *     not be notified when a DLP file is opened. By default, this parameter is left blank, which unregisters all
-     *     callbacks for the file open event.
+     * @param { 'openDLPFile' } type - 监听事件类型。固定值为'openDLPFile'：打开DLP文件事件。
+     * @param { Callback<AccessedDLPFileInfo> } listener - DLP文件被打开的事件的回调。在当前应用的沙箱应用打开DLP文件时，取消通知当前应用。
+     *     默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -333,11 +331,9 @@ declare namespace dlpPermission {
      */
     function off(type: 'openDLPFile', listener?: Callback<AccessedDLPFileInfo>): void;
     /**
-     * Checks whether this application is running in a DLP sandbox environment. This API uses a promise to return the 
-     * result.
+     * 查询当前应用是否运行在DLP沙箱环境。使用Promise方式异步返回结果。
      *
-     * @returns { Promise<boolean> } Promise object. The value **true** means the application is running in a sandbox;
-     *     the value **false** means the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前应用运行在沙箱中，返回false表示当前应用不是运行在沙箱中。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -345,12 +341,10 @@ declare namespace dlpPermission {
      */
     function isInSandbox(): Promise<boolean>;
     /**
-     * Checks whether this application is running in a DLP sandbox environment. This API uses an asynchronous callback 
-     * to return the result.
+     * 查询当前应用是否运行在DLP沙箱环境。使用callback方式异步返回结果。
      *
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object. The value **true** means the application is
-     *     running in a sandbox; the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。返回true表示当前应用运行在沙箱中，返回false表示当前应用不是
+     *     运行在沙箱中。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -359,9 +353,9 @@ declare namespace dlpPermission {
      */
     function isInSandbox(callback: AsyncCallback<boolean>): void;
     /**
-     * Obtains the file name extension types that support DLP. This API uses a promise to return the result.
+     * 查询当前可支持权限设置和校验的文件扩展名类型列表。使用Promise方式异步返回结果。
      *
-     * @returns { Promise<Array<string>> } Promise used to return the file name extension types obtained.
+     * @returns { Promise<Array<string>> } Promise对象。返回当前可支持权限设置和校验的文件扩展名类型列表。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -369,11 +363,9 @@ declare namespace dlpPermission {
      */
     function getDLPSupportedFileTypes(): Promise<Array<string>>;
     /**
-     * Obtains the file name extension types that support DLP. This API uses an asynchronous callback to return the 
-     * result.
+     * 查询当前可支持权限设置和校验的文件扩展名类型列表。使用callback方式异步返回结果。
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -382,14 +374,10 @@ declare namespace dlpPermission {
      */
     function getDLPSupportedFileTypes(callback: AsyncCallback<Array<string>>): void;
     /**
-     * Sets the sandbox retention state. This API uses an asynchronous callback to return the result. A sandbox 
-     * application is automatically installed when a DLP file is opened, and automatically uninstalled when the DLP file
-     * is closed. Once the sandbox retention state is set for a DLP file, the sandbox application will not be 
-     * automatically uninstalled when the DLP file is closed. This API uses a promise to return the result.
+     * 打开DLP文件时自动安装沙箱，关闭DLP文件时自动卸载沙箱。设置沙箱保留状态时DLP文件关闭时自动卸载暂时失效。使用Promise方式异步返回结果。
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。Array不限长度，每个string不超过4095字节，否则返回null。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -401,16 +389,10 @@ declare namespace dlpPermission {
      */
     function setRetentionState(docUris: Array<string>): Promise<void>;
     /**
-     * Sets the sandbox retention state. This API uses an asynchronous callback to return the result. A sandbox 
-     * application is automatically installed when a DLP file is opened, and automatically uninstalled when the DLP file
-     * is closed. Once the sandbox retention state is set for a DLP file, the sandbox application will not be 
-     * automatically uninstalled when the DLP file is closed. This API uses an asynchronous callback to return the 
-     * result.
+     * 打开DLP文件时自动安装沙箱，关闭DLP文件时自动卸载沙箱。设置沙箱保留状态时DLP文件关闭时自动卸载暂时失效。使用callback方式异步返回结果。
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4095 bytes.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。Array不限长度，每个string不超过4095字节。
+     * @param { AsyncCallback<void> } callback - 回调函数。err为undefined时表示设置成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -422,12 +404,10 @@ declare namespace dlpPermission {
      */
     function setRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
     /**
-     * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
-     * the DLP file is closed. This API uses a promise to return the result.
+     * 取消沙箱保留状态即恢复DLP文件关闭时自动卸载沙箱策略。使用Promise方式异步返回结果。
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。Array不限长度，每个string不超过4095字节，否则返回null。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -437,13 +417,10 @@ declare namespace dlpPermission {
      */
     function cancelRetentionState(docUris: Array<string>): Promise<void>;
     /**
-     * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
-     * the DLP file is closed. This API uses an asynchronous callback to return the result.
+     * 取消沙箱保留状态即恢复DLP文件关闭时自动卸载沙箱策略。使用callback方式异步返回结果。
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。Array不限长度，每个string不超过4095字节，否则返回null。
+     * @param { AsyncCallback<void> } callback - 回调函数。err为undefined时表示设置成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -453,14 +430,10 @@ declare namespace dlpPermission {
      */
     function cancelRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
     /**
-     * Obtains the sandbox applications in the retention state of an application. This API uses a promise to return the 
-     * result.
+     * 查询指定应用的保留沙箱信息列表。使用Promise方式异步返回结果。
      *
-     * @param { string } [bundleName] - Bundle name of the application. By default, this parameter is left empty, which
-     *     obtains the sandbox retention information about the current application. The value contains 7 to 128 bytes.
-     *     If the value exceeds this range, **null** is returned.
-     * @returns { Promise<Array<RetentionSandboxInfo>> } Promise used to return the sandbox retention information
-     *     obtained.
+     * @param { string } [bundleName] - 指定应用包名。默认为空，查询当前应用的保留沙箱信息列表。最小7字节，最大128字节，超出此范围返回null。
+     * @returns { Promise<Array<RetentionSandboxInfo>> } Promise对象。返回查询的沙箱信息列表。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -471,13 +444,10 @@ declare namespace dlpPermission {
      */
     function getRetentionSandboxList(bundleName?: string): Promise<Array<RetentionSandboxInfo>>;
     /**
-     * Obtains the sandbox applications in the retention state of an application. This API uses an asynchronous callback
-     * to return the result.
+     * 查询指定应用的保留沙箱信息列表。使用callback异步回调。
      *
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value
-     *     exceeds this range, **null** is returned.
-     * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
-     *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { string } bundleName - 指定应用包名。最小7字节，最大128字节，超出此范围返回null。
+     * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -488,11 +458,9 @@ declare namespace dlpPermission {
      */
     function getRetentionSandboxList(bundleName: string, callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
     /**
-     * Obtains the sandbox applications in the retention state of an application. This API uses an asynchronous callback
-     * to return the result.
+     * 查询当前应用的保留沙箱信息列表。使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
-     *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -503,10 +471,9 @@ declare namespace dlpPermission {
      */
     function getRetentionSandboxList(callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
     /**
-     * Obtains the list of DLP files that are accessed recently. This API uses a promise to return the result.
+     * 查询最近访问的DLP文件列表。使用Promise方式异步返回结果。
      *
-     * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed files
-     *     obtained.
+     * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise对象。返回最近访问的DLP文件列表。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
      *     which is available only for non-DLP sandbox applications.
@@ -516,11 +483,9 @@ declare namespace dlpPermission {
      */
     function getDLPFileAccessRecords(): Promise<Array<AccessedDLPFileInfo>>;
     /**
-     * Obtains the list of DLP files that are accessed recently. This API uses an asynchronous callback to return the 
-     * result.
+     * 查询最近访问的DLP文件列表。使用callback方式异步返回结果。
      *
-     * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Callback used to return the result. If the
-     *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -531,7 +496,7 @@ declare namespace dlpPermission {
      */
     function getDLPFileAccessRecords(callback: AsyncCallback<Array<AccessedDLPFileInfo>>): void;
     /**
-     * Represents information about the trigger of the DLP manager application.
+     * 表示打开DLP权限管理应用的结果。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @StageModelOnly
@@ -539,7 +504,7 @@ declare namespace dlpPermission {
      */
     export interface DLPManagerResult {
         /**
-         * Result code returned after the DLP manager application is started and exits. The value ranges from 0 to 3.
+         * 表示打开DLP权限管理应用并退出后返回的结果码。取值范围为0到3。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @StageModelOnly
@@ -547,7 +512,7 @@ declare namespace dlpPermission {
          */
         resultCode: number;
         /**
-         * Data returned after the DLP manager application is started and exits.
+         * 表示打开DLP权限管理应用并退出后返回的数据。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @StageModelOnly
@@ -556,17 +521,17 @@ declare namespace dlpPermission {
         want: Want;
     }
     /**
-     * Starts the DLP manager application on the current 
-     * [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} page in borderless mode. This API uses a promise to return the result.
+     * 在当前[UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility}界面以无边框形式打开DLP权限管理应
+     * 用。使用Promise方式异步返回结果。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > This API can be called only by domain accounts.
+     * > 该接口仅支持域账号调用。
      *
-     * @param { common.UIAbilityContext } context -
-     *     [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} context.
-     * @param { Want } want - Object that requests the start of the DLP manager application.
-     * @returns { Promise<DLPManagerResult> } Promise used to return the **DLPManagerResult** object.
+     * @param { common.UIAbilityContext } context - 当前窗口
+     *     [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} 上下文。
+     * @param { Want } want - 请求对象。
+     * @returns { Promise<DLPManagerResult> } romise对象。打开DLP权限管理应用并退出后的结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -579,9 +544,7 @@ declare namespace dlpPermission {
      */
     function startDLPManagerForResult(context: common.UIAbilityContext, want: Want): Promise<DLPManagerResult>;
     /**
-     * Enumerates the DLP sandbox gathering policy types. **GATHERING** allows the DLP files of the same permission type
-     * to be opened in a sandbox. For example, open different tab pages in a sandbox. **NON_GATHERING** allows different
-     * DLP files to be opened in different sandboxes.
+     * DLP沙箱聚合策略类型的枚举。沙箱聚合表示同一权限类型的DLP文件，在同一个沙箱内打开，例如在同一个沙箱内使用不同tab页打开；沙箱非聚合表示不同DLP文件在不同沙箱打开。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -589,8 +552,7 @@ declare namespace dlpPermission {
      */
     export enum GatheringPolicyType {
         /**
-         * Allows the DLP files of the same permission type to be opened in a sandbox. For example, the files of the 
-         * same permission type can be opened in tab pages of a window.
+         * 表示沙箱聚合。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -598,7 +560,7 @@ declare namespace dlpPermission {
          */
         GATHERING = 1,
         /**
-         * Allows the DLP files of different permission types to be opened in different sandboxes.
+         * 表示沙箱非聚合。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -607,10 +569,10 @@ declare namespace dlpPermission {
         NON_GATHERING = 2
     }
     /**
-     * Obtains the DLP sandbox gathering policy. This API uses a promise to return the result.
+     * 查询DLP沙箱聚合策略。使用Promise方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @returns { Promise<GatheringPolicyType> } Promise used to return the DLP sandbox gathering policy obtained.
+     * @returns { Promise<GatheringPolicyType> } Promise对象。返回当前DLP沙箱聚合策略。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -621,11 +583,10 @@ declare namespace dlpPermission {
      */
     function getDLPGatheringPolicy(): Promise<GatheringPolicyType>;
     /**
-     * Obtains the DLP sandbox gathering policy. This API uses an asynchronous callback to return the result.
+     * 查询DLP沙箱聚合策略。使用callback方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { AsyncCallback<GatheringPolicyType> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<GatheringPolicyType> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -637,7 +598,7 @@ declare namespace dlpPermission {
      */
     function getDLPGatheringPolicy(callback: AsyncCallback<GatheringPolicyType>): void;
     /**
-     * Represents the DLP sandbox information.
+     * 表示DLP沙箱的信息。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -645,7 +606,7 @@ declare namespace dlpPermission {
      */
     export interface DLPSandboxInfo {
         /**
-         * Index of the DLP sandbox application.
+         * 表示DLP沙箱应用索引。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -653,7 +614,7 @@ declare namespace dlpPermission {
          */
         appIndex: number;
         /**
-         * Token ID of the DLP sandbox application.
+         * 表示DLP沙箱应用的tokenID。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -661,7 +622,9 @@ declare namespace dlpPermission {
          */
         tokenID: number;
         /**
-         * Index of the DLP sandbox application to be bound. **Model restriction**: This API can be used only in the stage model.
+         * 表示被绑定的DLP沙箱应用的应用索引。
+         * 
+         * **模型约束**：此接口仅可在Stage模型下使用。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
