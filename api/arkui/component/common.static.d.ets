@@ -15682,6 +15682,19 @@ export declare interface EditModeOptions {
      * @since 26.0.0 static
      */
     useDefaultMultiSelectStyle?: boolean;
+
+    /**
+     * Enable two-finger swipe multi-selection.
+     * {@code true} indicates that two-finger swiping can enter edit mode and perform multi-selection.
+     * {@code false} indicates that two-finger swiping cannot perform multi-selection.
+     *
+     * @type { ?boolean }
+     * @default true
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    enableTwoFingerMultiSelect?: boolean;
 }
 
 /**
