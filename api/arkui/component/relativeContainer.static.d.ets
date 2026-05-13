@@ -276,7 +276,7 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
     default barrier(barrierStyle: Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined): this;
     /**
      * Set RelativeContainer options.
-     *
+     * @returns { RelativeContainerAttribute } Returns the instance of the RelativeContainerAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 staticonly

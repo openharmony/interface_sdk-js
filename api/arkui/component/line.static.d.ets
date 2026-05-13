@@ -134,7 +134,6 @@ export declare function Line(
  * Defines Line Component.
  *
  * @param { CustomBuilderT<LineAttribute> } style - the callback to set up component's attributes.
- * @param { CustomBuilder } [content_] - container
  * @returns { LineAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

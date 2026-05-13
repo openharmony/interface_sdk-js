@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { Length, ResourceStr } from './units';
 
 /**
@@ -76,6 +76,16 @@ export declare interface PathAttribute extends CommonShapeMethod {
      */
     default commands(value: ResourceStr | undefined): this;
     /**
+ 	 * Set Path options.
+ 	 *
+ 	 * @param { PathOptions } [options] - Path constructor options
+ 	 * @returns { PathAttribute } Returns the instance of the PathAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setPathOptions(options?: PathOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<PathAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -100,4 +110,19 @@ export declare interface PathAttribute extends CommonShapeMethod {
 @ComponentBuilder
 export declare function Path(
     options?: PathOptions
+): PathAttribute;
+
+/**
+ * Defines Path Component.
+ *
+ * @param { CustomBuilderT<PathAttribute> } style - the callback to set up component's attributes.
+ * @returns { PathAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Path(
+    style: CustomBuilderT<PathAttribute>,
 ): PathAttribute;

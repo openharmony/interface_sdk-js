@@ -43,6 +43,7 @@ export declare interface RowSplitAttribute extends CommonMethod {
     /**
      * Set RowSplit options.
      *
+     * @returns { RowSplitAttribute } Returns the instance of the RowSplitAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 staticonly

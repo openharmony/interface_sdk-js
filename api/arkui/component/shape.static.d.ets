@@ -20,7 +20,7 @@ import { CommonMethod, PixelMap, AttributeModifier } from "./common";
 import { ResourceColor, Length } from "./units";
 import { Resource } from '../../global/resource';
 import { LineCapStyle, LineJoinStyle } from "./enums";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 
 /**
  * Viewport bounding box.
@@ -211,6 +211,16 @@ export declare interface ShapeAttribute extends CommonMethod {
      */
     default mesh(value: Array<double> | undefined, column: int | undefined, row: int | undefined): this;
     /**
+     * Set Shape options.
+     *
+     * @param { PixelMap } [value] - Shape constructor options
+     * @returns { ShapeAttribute } Returns the instance of the ShapeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setShapeOptions(value?: PixelMap): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<ShapeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -237,3 +247,20 @@ export declare function Shape(
     value?: PixelMap, 
     content_?: CustomBuilder,
 ): ShapeAttribute
+
+/**
+ * Defines Shape Component.
+ *
+ * @param { CustomBuilderT<ShapeAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ShapeAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Shape(
+    style: CustomBuilderT<ShapeAttribute>,
+    content_?: CustomBuilder,
+): ShapeAttribute;
