@@ -123,4 +123,12 @@ declare class DriverExtensionAbility {
    */
   onDump(params: Array<string>): Array<string>;
 }
+
+/** 
+ * class of driver extension ability. 
+ * @syscap SystemCapability.Driver.ExternalDevice 
+ * @stagemodelonly 
+ * @since 10 dynamic 
+ * @since 23 static 
+ */
 export default DriverExtensionAbility;
