@@ -171,7 +171,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
-   * @since 23 static
    */
   function on(type: 'networkStateChange', callback: Callback<NetworkState>): void;
 
@@ -228,7 +227,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'networkStateChange', options: ObserverOptions, callback: Callback<NetworkState>): void;
 
@@ -265,7 +263,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
-   * @since 23 static
    */
   function off(type: 'networkStateChange', callback?: Callback<NetworkState>): void;
 
@@ -298,8 +295,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
-   * @since 6 dynamic
-   * @since 23 static
    */
   function on(type: 'signalInfoChange', callback: Callback<Array<SignalInformation>>): void;
 
@@ -350,7 +345,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array<SignalInformation>>): void;
 
@@ -385,7 +379,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 6 dynamic
-   * @since 23 static
    */
   function off(type: 'signalInfoChange', callback?: Callback<Array<SignalInformation>>): void;
 
@@ -423,7 +416,6 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function on(type: 'cellInfoChange', callback: Callback<Array<CellInformation>>): void;
 
@@ -486,7 +478,6 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'cellInfoChange', options: ObserverOptions, callback: Callback<Array<CellInformation>>): void;
 
@@ -527,7 +518,6 @@ declare namespace observer {
    * @syscap SystemCapability.Telephony.StateRegistry
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
-   * @since 23 static
    */
   function off(type: 'cellInfoChange', callback?: Callback<Array<CellInformation>>): void;
 
@@ -1077,7 +1067,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
-   * @since 23 static
    */
   function on(type: 'simStateChange', callback: Callback<SimStateData>): void;
 
@@ -1126,7 +1115,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 11 dynamic
-   * @since 23 static
    */
   function on(type: 'simStateChange', options: ObserverOptions, callback: Callback<SimStateData>): void;
 
@@ -1159,7 +1147,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 7 dynamic
-   * @since 23 static
    */
   function off(type: 'simStateChange', callback?: Callback<SimStateData>): void;
 
@@ -1193,7 +1180,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 10 dynamic
-   * @since 23 static
    */
   function on(type: 'iccAccountInfoChange', callback: Callback<void>): void;
 
@@ -1228,7 +1214,6 @@ declare namespace observer {
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.StateRegistry
    * @since 10 dynamic
-   * @since 23 static
    */
   function off(type: 'iccAccountInfoChange', callback?: Callback<void>): void;
 
