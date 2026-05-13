@@ -1510,6 +1510,7 @@ declare namespace dlpPermission {
     /**
      * Enumerates the actions to be performed when the file's permission expiration time is reached. The default value 
      * is **NOT_OPEN**.
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 20 - 20]
      * @publicapi [since 21]
