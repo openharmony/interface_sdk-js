@@ -20,100 +20,96 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type common from './@ohos.app.ability.common';
 import type Want from './@ohos.app.ability.Want';
 /**
- * Data loss prevention (DLP) is a system solution provided to prevent data disclosure. This module provides APIs for 
- * cross-device file access management, encrypted storage, and access authorization.
+ * 数据防泄漏（Data Loss Prevention，DLP）是系统提供的系统级的数据防泄漏解决方案，提供跨设备的文件的权限管理、加密存储、授权访问等能力。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > The kit to which **@ohos.dlpPermission** belongs has been changed from `DataLossPreventionKit` to `
- * > DataProtectionKit`. You are advised to use the new module name `@kit.DataProtectionKit` to import the module. If `@
- * > kit.DataLossPreventionKit` is imported, only the APIs before the change can be called and the APIs after the change
- * > cannot be used.
+ * > - @ohos.dlpPermission归属的Kit已由`DataLossPreventionKit`变更为`DataProtectionKit`，建议开发者使用新模块名`@kit.DataProtectionKit`完成模块导
+ * > 入。如果使用`@kit.DataLossPreventionKit`导入，仅能调用改名前的接口，无法使用新增接口。
  *
  * @syscap SystemCapability.Security.DataLossPrevention
  * @since 10
  */
 declare namespace dlpPermission {
     /**
-     * Enumerates the operations that can be performed on a DLP file. For example, the DLP sandbox application can dim 
-     * its button based on this parameter.
+     * 可以对DLP文件进行的操作类型枚举。例如：DLP沙箱应用可以根据是否具有操作权限，对其按钮进行置灰。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     export enum ActionFlagType {
         /**
-         * View the file.
+         * 表示文件的查看权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_VIEW = 0x00000001,
         /**
-         * Save the file.
+         * 表示文件的保存权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_SAVE = 0x00000002,
         /**
-         * Save the file as another file.
+         * 表示文件的另存为权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_SAVE_AS = 0x00000004,
         /**
-         * Edit the file.
+         * 表示文件的编辑权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_EDIT = 0x00000008,
         /**
-         * Capture screenshots of the file.
+         * 表示文件的截屏权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_SCREEN_CAPTURE = 0x00000010,
         /**
-         * Share the screen of the file.
+         * 表示文件的共享屏幕权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_SCREEN_SHARE = 0x00000020,
         /**
-         * Record the screen on which the file is open.
+         * 表示文件的录屏权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_SCREEN_RECORD = 0x00000040,
         /**
-         * Copy the file.
+         * 表示文件的复制权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_COPY = 0x00000080,
         /**
-         * Print the file.
+         * 表示文件的打印权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_PRINT = 0x00000100,
         /**
-         * Export the file.
+         * 表示文件的导出权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         ACTION_EXPORT = 0x00000200,
         /**
-         * Modify the permissions on the file.
+         * 表示文件的修改文件权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -121,35 +117,35 @@ declare namespace dlpPermission {
         ACTION_PERMISSION_CHANGE = 0x00000400
     }
     /**
-     * Enumerates the permissions on a DLP file.
+     * DLP文件授权类型的枚举。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     export enum DLPFileAccess {
         /**
-         * The user has no permission on the file.
+         * 表示无文件权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         NO_PERMISSION = 0,
         /**
-         * The user has only the permission to read the file.
+         * 表示文件的只读权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         READ_ONLY = 1,
         /**
-         * Edit the file.
+         * 表示文件的编辑权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         CONTENT_EDIT = 2,
         /**
-         * The user has full control on the file.
+         * 表示文件的完全控制权限。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -157,22 +153,21 @@ declare namespace dlpPermission {
         FULL_CONTROL = 3
     }
     /**
-     * Represents the permission information about a DLP file.
+     * 表示DLP文件的权限信息。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     export interface DLPPermissionInfo {
         /**
-         * User permission on the DLP file, for example, read-only.
+         * 表示DLP文件针对用户的授权类型，例如：只读。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         dlpFileAccess: DLPFileAccess;
         /**
-         * Operations that can be performed on the DLP file. It is a combination of different 
-         * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}.
+         * 表示DLP文件的详细操作权限，是不同[ActionFlagTypes]{@link dlpPermission.ActionFlagType}的组合。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -180,21 +175,21 @@ declare namespace dlpPermission {
         flags: number;
     }
     /**
-     * Represents the information about a DLP file opened.
+     * 表示被打开的DLP文件的信息。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     export interface AccessedDLPFileInfo {
         /**
-         * URI of the DLP file. The value contains up to 4095 bytes.
+         * 表示DLP文件的uri。不超过4095字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         uri: string;
         /**
-         * Time when the file was last opened. The value must be greater than or equal to 0.
+         * 表示DLP文件最近打开时间。取值范围大于等于0。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -202,28 +197,28 @@ declare namespace dlpPermission {
         lastOpenTime: number;
     }
     /**
-     * Represents the sandbox retention information.
+     * 保留沙箱的沙箱信息。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     export interface RetentionSandboxInfo {
         /**
-         * Index of the DLP sandbox application. The value ranges from 1001 to 1100.
+         * 表示DLP沙箱应用索引。取值范围为1001到1100。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         appIndex: number;
         /**
-         * Bundle name of the application. The value contains 7 to 128 bytes.
+         * 表示应用包名。最小7字节，最大128字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         bundleName: string;
         /**
-         * URI list of the DLP files. The array has no length limit, but each string cannot exceed 4095 bytes.
+         * 表示DLP文件的URI列表。Array不限长度，每个string不超过4095字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -231,12 +226,11 @@ declare namespace dlpPermission {
         docUris: Array<string>;
     }
     /**
-     * Checks whether a file is a DLP file based on the FD. This API uses a promise to return the result.
+     * 根据文件的fd，查询该文件是否是DLP文件。使用Promise方式异步返回结果。
      *
-     * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
-     * @returns { Promise<boolean> } Returns {@code true} if {@link fd} is a DLP file; returns {@code false} otherwise.
+     * @param { number } fd - 待查询文件的fd（文件描述符）。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回false；当fd大于2<sup>31</sup>-1时，fd的值被截
+     *     断。
+     * @returns { Promise<boolean> } 回调函数。返回true表示是DLP文件，返回false表示非DLP文件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -246,11 +240,10 @@ declare namespace dlpPermission {
      */
     function isDLPFile(fd: number): Promise<boolean>;
     /**
-     * Checks whether a file is a DLP file based on the FD. This API uses an asynchronous callback to return the result.
+     * 根据文件的fd，查询该文件是否是DLP文件。使用callback方式异步返回结果。
      *
-     * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     * @param { number } fd - 待查询文件的fd（文件描述符）。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回false；当fd大于2<sup>31</sup>-1时，fd的值被截
+     *     断。
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means the
      *     file is a DLP file; the value **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -262,10 +255,9 @@ declare namespace dlpPermission {
      */
     function isDLPFile(fd: number, callback: AsyncCallback<boolean>): void;
     /**
-     * Obtains the permission information of this DLP file. This API uses a promise to return the result.
+     * 查询当前DLP沙箱的权限信息。使用Promise方式异步返回结果。
      *
-     * @returns { Promise<DLPPermissionInfo> } Promise used to return the permission information about the DLP file. The
-     *     operation is successful if no error is reported.
+     * @returns { Promise<DLPPermissionInfo> } Promise对象。返回查询的DLP文件的权限信息，无异常则表明查询成功。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100006 - No permission to call this API,
      *     which is available only for DLP sandbox applications.
@@ -275,10 +267,9 @@ declare namespace dlpPermission {
      */
     function getDLPPermissionInfo(): Promise<DLPPermissionInfo>;
     /**
-     * Obtains the permission information of this DLP file. This API uses an asynchronous callback to return the result.
+     * 查询当前DLP沙箱的权限信息。使用callback方式异步返回结果。
      *
-     * @param { AsyncCallback<DLPPermissionInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<DLPPermissionInfo> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100006 - No permission to call this API,
@@ -289,12 +280,10 @@ declare namespace dlpPermission {
      */
     function getDLPPermissionInfo(callback: AsyncCallback<DLPPermissionInfo>): void;
     /**
-     * Obtains the original file name of a DLP file. This API returns the result synchronously.
+     * 获取指定DLP文件名的原始文件名。接口为同步接口。
      *
-     * @param { string } fileName - Name of the target file. The value contains up to 255 bytes. Otherwise, **null** is
-     *     returned.
-     * @returns { string } Original name of the DLP file obtained. For example, if the DLP file name is **test.txt.dlp**
-     *     , the original file name returned is **test.txt**. The value contains up to 255 bytes.
+     * @param { string } fileName - 指定要查询的文件名。不超过255字节，否则返回null。
+     * @returns { string } 返回DLP文件的原始文件名。例如：DLP文件名为test.txt.dlp，则返回的原始文件名为test.txt。不超过255字节。
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -302,22 +291,19 @@ declare namespace dlpPermission {
      */
     function getOriginalFileName(fileName: string): string;
     /**
-     * Obtains the DLP file name extension. This API returns the result synchronously.
+     * 获取DLP文件扩展名。接口为同步接口。
      *
-     * @returns { string } DLP file name extension obtained. For example, if the original file name is **text.txt**, the
-     *     encrypted DLP file name is **test.txt.dlp**, and the returned extension is **.dlp**.
+     * @returns { string } 返回DLP文件扩展名。例如：原文件"text.txt"，加密后的DLP文件名为"test.txt.dlp"，返回扩展名为".dlp"。
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
      */
     function getDLPSuffix(): string;
     /**
-     * Subscribes to a DLP file open event. The application will be notified when the DLP file is opened.
+     * 监听打开DLP文件。在当前应用的沙箱应用打开DLP文件时，通知当前应用。
      *
-     * @param { 'openDLPFile' } type - Event type. It has a fixed value of **openDLPFile**, which indicates the DLP file
-     *     open event.
-     * @param { Callback<AccessedDLPFileInfo> } listener - Callback invoked when a DLP file is opened. The application
-     *     will be notified when the DLP file is opened.
+     * @param { 'openDLPFile' } type - 监听事件类型。固定值为'openDLPFile'：打开DLP文件事件。
+     * @param { Callback<AccessedDLPFileInfo> } listener - DLP文件打开事件的回调。在当前应用的沙箱应用打开DLP文件时，通知当前应用。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
