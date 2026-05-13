@@ -3963,6 +3963,19 @@ declare namespace audio {
     getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
 
     /**
+     * Obtains an {@link AudioDebugManager} instance.
+     * <p><strong>NOTE</strong>:
+     * The {@link AudioDebugManager} instance is a singleton.
+     * </p>
+     *
+     * @returns { AudioDebugManager } this {@link AudioDebugManager} object.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    getDebugManager(): AudioDebugManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -9327,6 +9340,70 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
+  }
+
+  /**
+   * Provides audio debug management capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioDebugManager {
+    /**
+     * Show Single App Audio Runtime Snapshot
+     * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
+     * If the fd is less than 0, the snapshot information is stored in the pipeline log.
+     * Otherwise, the snapshot is stored in the file pointed to by the fd handle.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    showAppInfo(fd: int): void;
+    /**
+     * Show AudioRenderer Runtime Snapshot
+     * @param { AudioRenderer } renderer - renderer is a pointer. Pointer to the AudioRenderer whose runtime snapshot needs to be displayed.
+     * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
+     * If the fd is less than 0, the snapshot information is stored in the pipeline log.
+     * Otherwise, the snapshot is stored in the file pointed to by the fd handle.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    showRendererInfo(renderer: AudioRenderer, fd: int): void;
+    /**
+     * Show AudioCapturer Runtime Snapshot
+     * @param { AudioCapturer } capturer - capturer is a pointer. Pointer to the AudioCapturer whose runtime snapshot needs to be displayed.
+     * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
+     * If the fd is less than 0, the snapshot information is stored in the pipeline log.
+     * Otherwise, the snapshot is stored in the file pointed to by the fd handle.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    showCapturerInfo(capturer: AudioCapturer, fd: int): void;
+    /**
+     * Show AudioLoopback Runtime Snapshot
+     * @param { AudioLoopback } loopback - loopback is a pointer. Pointer to the AudioLoopback whose runtime snapshot needs to be displayed.
+     * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
+     * If the fd is less than 0, the snapshot information is stored in the pipeline log.
+     * Otherwise, the snapshot is stored in the file pointed to by the fd handle.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    showLoopbackInfo(loopback: AudioLoopback, fd: int): void;
+    /**
+     * Show AudioSession Runtime Snapshot
+     * @param { AudioSessionManager } session - session is a pointer. Pointer to the AudioSessionManager whose runtime snapshot needs to be displayed.
+     * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
+     * If the fd is less than 0, the snapshot information is stored in the pipeline log.
+     * Otherwise, the snapshot is stored in the file pointed to by the fd handle.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    showSessionInfo(session: AudioSessionManager, fd: int): void;
   }
 
   /**
