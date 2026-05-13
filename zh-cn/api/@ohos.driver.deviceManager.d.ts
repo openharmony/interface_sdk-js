@@ -22,8 +22,7 @@ import type { AsyncCallback } from './@ohos.base';
 import type rpc from './@ohos.rpc';
 
 /**
- * The **deviceManager** module provides APIs for managing peripheral devices, including querying the peripheral device
- * list and binding or unbinding a peripheral device.
+ * 本模块主要提供管理外部设备的相关功能，包括查询设备列表、绑定设备和解除绑定设备。
  *
  * @syscap SystemCapability.Driver.ExternalDevice
  * @since 10 dynamic
@@ -31,13 +30,11 @@ import type rpc from './@ohos.rpc';
  */
 declare namespace deviceManager {
   /**
-   * Queries the list of peripheral devices. If the device has no peripheral device connected, an empty list is
-   * returned.
+   * 获取接入主设备的外部设备列表。如果没有设备接入，那么将会返回一个空的列表。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { int } busType - Device bus type specified by [BusType]{@link deviceManager.BusType}. If this parameter is
-   *     left empty, all types of devices are searched.
-   * @returns { Array<Readonly<Device>> } List of peripheral devices obtained.
+   * @param { int } busType - 由[BusType]{@link deviceManager.BusType}约定的设备总线类型，不填则查找所有类型设备。
+   * @returns { Array<Readonly<Device>> } 设备信息列表。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception or busType parameter error.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -47,18 +44,14 @@ declare namespace deviceManager {
   function queryDevices(busType?: int): Array<Readonly<Device>>;
 
   /**
-   * Binds a peripheral device based on the device information returned by **queryDevices()**.
-   * You need to use [deviceManager.queryDevices()]{@link deviceManager.queryDevices} to obtain the peripheral device
-   * information and device.
+   * 根据queryDevices()返回的设备信息绑定设备。
+   * 需要调用[deviceManager.queryDevices()]{@link deviceManager.queryDevices}获取设备信息以及device。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
-   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
-   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
-   *     Otherwise, **err** is an error object.
-   * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - Callback used to return the
-   *     result. When the device is bound successfully, **err** is **undefined**, and **data** contains the device ID
-   *     and the bound device driver communication object. Otherwise, **err** is an error object.
+   * @param { number } deviceId - 设备ID，通过queryDevices获得。
+   * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
+   * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - 回调函数。当绑定设备成功时，err为undefined，
+   *     data包含设备ID和绑定设备驱动通信对象；否则为错误对象。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
    *     .Incorrect parameter types.
@@ -73,19 +66,14 @@ declare namespace deviceManager {
     callback: AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}>): void;
 
   /**
-   * Binds a peripheral device based on the device information returned by **queryDevices()**.
-   * You need to use [deviceManager.queryDevices()]{@link deviceManager.queryDevices} to obtain the peripheral device
-   * information and device.
+   * 根据queryDevices()返回的设备信息绑定设备。
+   * 需要调用[deviceManager.queryDevices()]{@link deviceManager.queryDevices}获取设备信息以及device。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
-   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
-   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
-   *     Otherwise, **err** is an error object.
-   * @param { AsyncCallback<RemoteDeviceDriver> } callback - Callback used to return the result. When the device driver
-   *     is successfully bound, **err** is **undefined** and **data** is a
-   *     [RemoteDeviceDriver]{@link deviceManager.RemoteDeviceDriver} object that contains the device ID and remote
-   *     object. Otherwise, **err** is an error object.
+   * @param { number } deviceId - 设备ID，通过queryDevices获得。
+   * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
+   * @param { AsyncCallback<RemoteDeviceDriver> } callback - 回调函数。当绑定设备驱动成功时，err为undefined，data为包括设备ID和远程对象的
+   *     [RemoteDeviceDriver]{@link deviceManager.RemoteDeviceDriver}对象；否则为错误对象。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
@@ -100,16 +88,12 @@ declare namespace deviceManager {
     callback: AsyncCallback<RemoteDeviceDriver>): void;
 
   /**
-   * Binds a peripheral device based on the device information returned by **queryDevices()**. This API uses a promise
-   * to return the result.
-   * You need to use [deviceManager.queryDevices]{@link deviceManager.queryDevices} to obtain the peripheral device
-   * information and device.
+   * 根据queryDevices()返回的设备信息绑定设备。
+   * 需要调用[deviceManager.queryDevices]{@link deviceManager.queryDevices}获取设备信息以及device。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
-   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
-   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
-   *     Otherwise, **err** is an error object.
+   * @param { number } deviceId - 设备ID，通过queryDevices获得。
+   * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
    * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Promise used to return an object containing
    *     the device ID and **IRemoteObject**.
    * @throws { BusinessError } 201 - The permission check failed.
@@ -126,17 +110,13 @@ declare namespace deviceManager {
     remote: rpc.IRemoteObject;}>;
 
   /**
-   * Binds a peripheral device based on the device information returned by **queryDevices()**. This API uses a promise
-   * to return the result.
-   * You need to use [deviceManager.queryDevices]{@link deviceManager.queryDevices} to obtain the peripheral device
-   * information and device.
+   * 根据queryDevices()返回的设备信息绑定设备。
+   * 需要调用[deviceManager.queryDevices]{@link deviceManager.queryDevices}获取设备信息以及device。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
-   * @param { AsyncCallback<number> } onDisconnect - Callback used to return the result. When the bound device is
-   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
-   *     Otherwise, **err** is an error object.
-   * @returns { Promise<RemoteDeviceDriver> } Promise used to return a **RemoteDeviceDriver** object.
+   * @param { number } deviceId - 设备ID，通过queryDevices获得。
+   * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
+   * @returns { Promise<RemoteDeviceDriver> } Promise对象，返回RemoteDeviceDriver对象。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
@@ -150,13 +130,11 @@ declare namespace deviceManager {
   function bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback<number>): Promise<RemoteDeviceDriver>;
 
   /**
-   * Unbinds a peripheral device.
+   * 解除设备绑定。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result. When the bound device is
-   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
-   *     Otherwise, **err** is an error object.
+   * @param { number } deviceId - 设备ID，通过queryDevices获得。
+   * @param { AsyncCallback<number> } callback - 回调函数。当解绑设备成功时，err为undefined，data为设备ID；否则为错误对象。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
@@ -169,11 +147,11 @@ declare namespace deviceManager {
   function unbindDevice(deviceId: number, callback: AsyncCallback<number>): void;
 
   /**
-   * Unbinds a peripheral device. This API uses a promise to return the result.
+   * 解除设备绑定。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
-   * @returns { Promise<number> } Promise used to return the ID of the unbound device.
+   * @param { number } deviceId - 设备ID，通过queryDevices获得。
+   * @returns { Promise<number> } Promise对象，返回解除绑定的设备ID。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
@@ -187,15 +165,12 @@ declare namespace deviceManager {
   function unbindDevice(deviceId: number): Promise<number>;
 
   /**
-   * Obtains the list of detailed information about peripherals. If the device has no peripheral device connected, an
-   * empty list is returned.
+   * 查询扩展外设详细信息列表。如果没有设备接入，那么将会返回一个空的列表。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { long } deviceId - Device ID, which is obtained through
-   *     [queryDevices]{@link @ohos.driver.deviceManager:deviceManager.queryDevices}. If no device ID is passed, all
-   *     device information is obtained by default. If no external device is connected and no device ID is passed, an
-   *     empty array is returned.
-   * @returns { Array<Readonly<DeviceInfo>> } List of detailed information about peripherals.
+   * @param { long } deviceId - 设备ID，通过[queryDevices]{@link @ohos.driver.deviceManager:deviceManager.queryDevices}获得。
+   *     如果不传入设备ID，则默认获取所有的设备信息；如果没有外接设备，且没有传入设备ID则会返回空数组。
+   * @returns { Array<Readonly<DeviceInfo>> } 扩展外设详细信息列表。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
@@ -208,12 +183,11 @@ declare namespace deviceManager {
   function queryDeviceInfo(deviceId?: long): Array<Readonly<DeviceInfo>>;
 
   /**
-   * Obtains the list of detailed information about peripheral drivers. If the device has no peripheral device
-   * connected, an empty list is returned.
+   * 查询扩展外设驱动详细信息列表。如果没有设备接入，那么将会返回一个空的列表。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { string } driverUid - Driver UID, which can be obtained by using **queryDeviceInfo**.
-   * @returns { Array<Readonly<DriverInfo>> } List of detailed information about peripheral drivers.
+   * @param { string } driverUid - 驱动UID，通过queryDeviceInfo获得。
+   * @returns { Array<Readonly<DriverInfo>> } 扩展外设驱动详细信息列表。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
@@ -226,17 +200,13 @@ declare namespace deviceManager {
   function queryDriverInfo(driverUid?: string): Array<Readonly<DriverInfo>>;
 
   /**
-   * Binds a peripheral device based on the device information returned by **queryDevices()**. This API uses a promise
-   * to return the result.
-   * You need to use [deviceManager.queryDevices]{@link deviceManager.queryDevices} to obtain the peripheral device
-   * list.
+   * 根据queryDevices()返回的设备信息绑定设备。使用Promise异步回调。
+   * 需要调用[deviceManager.queryDevices]{@link deviceManager.queryDevices}获取设备信息列表。
    *
    * @permission ohos.permission.ACCESS_DDK_DRIVERS
-   * @param { long } deviceId - Device ID, which can be obtained via **queryDevices()**.
-   * @param { AsyncCallback<long> } onDisconnect - Callback used to return the result. When the bound device is
-   *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
-   *     Otherwise, **err** is an error object.
-   * @returns { Promise<RemoteDeviceDriver> } Promise used to return a **RemoteDeviceDriver** object.
+   * @param { long } deviceId - 设备ID，通过queryDevices获得。
+   * @param { AsyncCallback<long> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
+   * @returns { Promise<RemoteDeviceDriver> } Promise对象，返回RemoteDeviceDriver对象。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
@@ -247,11 +217,11 @@ declare namespace deviceManager {
   function bindDriverWithDeviceId(deviceId: long, onDisconnect: AsyncCallback<long>): Promise<RemoteDeviceDriver>;
 
   /**
-   * Unbinds a peripheral device. This API uses a promise to return the result.
+   * 解除设备绑定。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_DDK_DRIVERS
-   * @param { long } deviceId - Device ID, which can be obtained via [queryDevices]{@link deviceManager.queryDevices}.
-   * @returns { Promise<int> } Promise used to return the ID of the unbound device.
+   * @param { long } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。
+   * @returns { Promise<int> } Promise对象，返回解除绑定的设备ID。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300003 - There is no binding relationship.
@@ -262,7 +232,7 @@ declare namespace deviceManager {
   function unbindDriverWithDeviceId(deviceId: long): Promise<int>;
 
   /**
-   * Enumerates the device bus types.
+   * 设备总线类型。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
@@ -270,7 +240,7 @@ declare namespace deviceManager {
    */
   export enum BusType {
     /**
-     * USB bus.
+     * USB总线类型。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
@@ -280,7 +250,7 @@ declare namespace deviceManager {
   }
 
   /**
-   * Represents the peripheral device information.
+   * 外设信息。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
@@ -288,7 +258,7 @@ declare namespace deviceManager {
    */
   interface Device {
     /**
-     * Bus type.
+     * 总线类型。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
@@ -297,7 +267,7 @@ declare namespace deviceManager {
     busType: BusType;
 
     /**
-     * ID of the peripheral device.
+     * 设备ID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
@@ -306,7 +276,7 @@ declare namespace deviceManager {
     deviceId: long;
 
     /**
-     * Description of the peripheral device.
+     * 设备描述。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
@@ -316,7 +286,7 @@ declare namespace deviceManager {
   }
 
   /**
-   * USB device information, which is inherited from [Device]{@link deviceManager.queryDevices}.
+   * USB设备信息，继承自[Device]{@link deviceManager.queryDevices}。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
@@ -324,7 +294,7 @@ declare namespace deviceManager {
    */
   interface USBDevice extends Device {
     /**
-     * Vendor ID of the USB device.
+     * USB设备Vendor ID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
@@ -333,7 +303,7 @@ declare namespace deviceManager {
     vendorId: int;
 
     /**
-     * Product ID of the USB device.
+     * USB设备Product ID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 10 dynamic
@@ -343,7 +313,7 @@ declare namespace deviceManager {
   }
 
   /**
-   * Represents information about a remote device driver.
+   * 远程设备驱动。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 11 dynamic
@@ -351,7 +321,7 @@ declare namespace deviceManager {
    */
   interface RemoteDeviceDriver {
     /**
-     * ID of the peripheral device.
+     * 设备ID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11 dynamic
@@ -360,7 +330,7 @@ declare namespace deviceManager {
     deviceId: long;
 
     /**
-     * Remote driver object.
+     * 远程驱动程序对象。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @since 11 dynamic
@@ -370,7 +340,7 @@ declare namespace deviceManager {
   }
 
   /**
-   * Defines the interface descriptor of a USB device.
+   * USB设备接口描述符。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
@@ -379,7 +349,7 @@ declare namespace deviceManager {
    */
   interface USBInterfaceDesc {
     /**
-     * Interface ID.
+     * 接口编号。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -389,7 +359,7 @@ declare namespace deviceManager {
     bInterfaceNumber: int;
 
     /**
-     * Interface class.
+     * 类型代码。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -399,7 +369,7 @@ declare namespace deviceManager {
     bClass: int;
 
     /**
-     * Interface subclass.
+     * 子类型代码。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -409,7 +379,7 @@ declare namespace deviceManager {
     bSubClass: int;
 
     /**
-     * Interface protocol.
+     * 协议代码。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -421,7 +391,7 @@ declare namespace deviceManager {
 
 
   /**
-   * Defines the detailed information about a device.
+   * 设备详细信息。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
@@ -430,7 +400,7 @@ declare namespace deviceManager {
    */
   interface DeviceInfo {
     /**
-     * Device ID.
+     * 设备ID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -440,8 +410,7 @@ declare namespace deviceManager {
     deviceId: long;
 
     /**
-     * Whether the device matches the driver. The value `true` indicates the device matches the driver, and the value
-     * `false` indicates the opposite.
+     * 设备是否匹配到驱动。`true`：匹配到驱动；`false`：未匹配到驱动。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -451,7 +420,7 @@ declare namespace deviceManager {
     isDriverMatched: boolean;
 
     /**
-     * UID of the driver matching the device.
+     * 设备匹配的驱动UID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -462,8 +431,7 @@ declare namespace deviceManager {
   }
 
   /**
-   * Defines detailed information about the USB device. It is inherited from
-   * [DeviceInfo]{@link deviceManager.DeviceInfo}.
+   * USB设备详细信息，继承自[DeviceInfo]{@link deviceManager.DeviceInfo}。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
@@ -472,7 +440,7 @@ declare namespace deviceManager {
    */
   interface USBDeviceInfo extends DeviceInfo {
     /**
-     * Vendor ID of the USB device.
+     * USB设备Vendor ID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -482,7 +450,7 @@ declare namespace deviceManager {
     vendorId: int;
 
     /**
-     * Product ID of the USB device.
+     * USB设备Product ID。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -492,7 +460,7 @@ declare namespace deviceManager {
     productId: int;
 
     /**
-     * List of interface descriptors of the USB device.
+     * USB设备接口描述符列表。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -503,7 +471,7 @@ declare namespace deviceManager {
   }
 
   /**
-   * Defines detailed information about a driver.
+   * 驱动详细信息。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
@@ -512,7 +480,7 @@ declare namespace deviceManager {
    */
   interface DriverInfo {
     /**
-     * Bus type.
+     * 总线类型。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -522,7 +490,7 @@ declare namespace deviceManager {
     busType: BusType;
 
     /**
-     * Driver UID.
+     * 驱动Uid。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -532,7 +500,7 @@ declare namespace deviceManager {
     driverUid: string;
 
     /**
-     * Driver name.
+     * 驱动名称。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -542,7 +510,7 @@ declare namespace deviceManager {
     driverName: string;
 
     /**
-     * Driver version.
+     * 驱动版本。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -552,7 +520,7 @@ declare namespace deviceManager {
     driverVersion: string;
 
     /**
-     * Driver size, in bytes.
+     * 驱动大小(单位为Byte)。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -562,7 +530,7 @@ declare namespace deviceManager {
     driverSize: string;
 
     /**
-     * Driver description.
+     * 驱动描述。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -573,8 +541,7 @@ declare namespace deviceManager {
   }
 
   /**
-   * Defines detailed information about the USB device driver. It is inherited from
-   * [DriverInfo]{@link deviceManager.DriverInfo}.
+   * USB设备驱动详细信息，继承自[DriverInfo]{@link deviceManager.DriverInfo}。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @systemapi
@@ -583,7 +550,7 @@ declare namespace deviceManager {
    */
   interface USBDriverInfo extends DriverInfo {
     /**
-     * Product ID list of the USB devices supported by the driver.
+     * 驱动支持的USB设备product ID列表。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi
@@ -593,7 +560,7 @@ declare namespace deviceManager {
     productIdList: Array<int>;
 
     /**
-     * Vendor ID list of the USB devices supported by the driver.
+     * 驱动支持的USB设备vendor ID列表。
      *
      * @syscap SystemCapability.Driver.ExternalDevice
      * @systemapi

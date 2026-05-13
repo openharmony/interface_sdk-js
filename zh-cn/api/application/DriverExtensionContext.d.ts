@@ -21,13 +21,11 @@
 import ExtensionContext from './ExtensionContext';
 
 /**
- * The **DriverExtensionContext** module provides the context of **DriverExtensionAbility**. It inherits from
- * **ExtensionContext**.
- * The **DriverExtensionContext** module provides the operations that need to be actively initiated in the
- * **DriverExtensionAbility** implementation.
- *
- * > **NOTE**
- * > - The APIs of this module can be used only in the stage model.
+ * DriverExtensionContext模块是DriverExtensionAbility的上下文环境，继承自ExtensionContext。
+ * DriverExtensionContext模块提供DriverExtensionAbility实现中需要主动发起的操作。
+ * 
+ * > **说明：**
+ * > - 本模块接口仅可在Stage模型下使用。
  *
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
@@ -36,7 +34,7 @@ import ExtensionContext from './ExtensionContext';
  */
 declare class DriverExtensionContext extends ExtensionContext {
   /**
-   * Updates the driver state. This interface is reserved and does not provide specific functionality currently.
+   * 驱动状态上报。预留接口，暂不提供具体功能。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
