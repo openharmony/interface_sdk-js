@@ -26,8 +26,7 @@ import type { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * The **osAccount** module provides basic capabilities for managing system (OS) accounts, including adding, deleting,
- * querying, setting, subscribing to, and enabling an OS account.
+ * 本模块提供管理系统账号的基础能力，包括系统账号的添加、删除、查询、设置、订阅、启动等功能。
  *
  * @syscap SystemCapability.Account.OsAccount
  * @since 7 dynamic
@@ -35,9 +34,9 @@ import type { RecordData } from './@ohos.base';
  */
 declare namespace osAccount {
   /**
-   * Obtains an **AccountManager** instance.
+   * 获取系统账号管理对象。
    *
-   * @returns { AccountManager } **AccountManager** instance obtained.
+   * @returns { AccountManager } 系统账号管理对象。
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
    * @since 23 static
@@ -45,9 +44,9 @@ declare namespace osAccount {
   function getAccountManager(): AccountManager;
 
   /**
-   * Obtains this OS account authorization manager.
+   * 获取系统账号授权管理器。
    *
-   * @returns { AuthorizationManager } Instance object of the OS account authorization manager.
+   * @returns { AuthorizationManager } 返回系统账号授权管理的实例对象。
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -57,10 +56,9 @@ declare namespace osAccount {
   function getAuthorizationManager(): AuthorizationManager;
 
   /**
-   * Checks whether this domain account is supported. This API uses a promise to return the result.
+   * 检查是否支持域账号。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means this domain account is 
-   *     supported; the value **false** means the opposite.
+   * @returns { Promise<boolean> } Promise对象。返回true表示支持域账号；返回false表示不支持。
    * @throws { BusinessError } 12300001 - The system service works abnormally.
    * @syscap SystemCapability.Account.OsAccount
    * @stagemodelonly
@@ -69,7 +67,7 @@ declare namespace osAccount {
   function isDomainAccountSupported(): Promise<boolean>;
 
   /**
-   * Provides APIs for managing OS accounts.
+   * 系统账号管理类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
@@ -77,12 +75,11 @@ declare namespace osAccount {
    */
   interface AccountManager {
     /**
-     * Activates an OS account. This API uses an asynchronous callback to return the result.
+     * 激活指定系统账号。使用callback异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { int } localId - ID of the target OS account.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **null**. Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { AsyncCallback<void> } callback - 回调函数。当账号激活成功时，err为null，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -101,11 +98,11 @@ declare namespace osAccount {
     activateOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
     /**
-     * Activates an OS account. This API uses a promise to return the result.
+     * 激活指定系统账号。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -124,15 +121,13 @@ declare namespace osAccount {
     activateOsAccount(localId: int): Promise<void>;
 
     /**
-     * Activates (Starts on the foreground or switches to) the target OS account on the specified logical display.
-     * This API uses a promise to return the result.
-     * Currently, cross-logical-display activation is not supported. That is, you cannot activate an OS account that
-     * is already running on the foreground of another logical display on the specified logical display.
+     * 在指定逻辑屏激活（前台启动或切换）目标系统账号。使用Promise异步回调。
+     * 当前不支持跨逻辑屏激活，即在指定逻辑屏上激活另一个已在逻辑屏前台运行的系统账号。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { int } localId - ID of the target OS account.
-     * @param { long } displayId - Logical display ID.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @param { long } displayId - 逻辑屏ID。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -150,11 +145,11 @@ declare namespace osAccount {
     activateOsAccount(localId: int, displayId: long): Promise<void>;
 
     /**
-     * Deactivates (logs out of) an OS account. This API uses a promise to return the result.
+     * 注销（退出登录）指定系统账号。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -171,18 +166,15 @@ declare namespace osAccount {
     deactivateOsAccount(localId: int): Promise<void>;
 
     /**
-     * Checks whether multiple OS accounts are supported. This API uses an asynchronous callback to return the
-     * result.
-     *
-     * > **NOTE**
+     * 判断是否支持多系统账号。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [checkMultiOsAccountEnabled]{@link osAccount.AccountManager.checkMultiOsAccountEnabled(callback: AsyncCallback<boolean>)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-     *     The value **true** means multiple OS accounts are supported;
-     *     the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示支持多系统账号；返回false表示不支持。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -191,15 +183,14 @@ declare namespace osAccount {
     isMultiOsAccountEnable(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether multiple OS accounts are supported. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 判断是否支持多系统账号。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [checkMultiOsAccountEnabled]{@link osAccount.AccountManager.checkMultiOsAccountEnabled()} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [checkMultiOsAccountEnabled]{@link osAccount.AccountManager.checkMultiOsAccountEnabled()}替代。
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     multiple OS accounts are supported; the value **false** means the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示支持多系统账号；返回false表示不支持。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -208,12 +199,9 @@ declare namespace osAccount {
     isMultiOsAccountEnable(): Promise<boolean>;
 
     /**
-     * Checks whether multiple OS accounts are supported. This API uses an asynchronous callback to return the
-     * result.
+     * 判断是否支持多系统账号。使用callback异步回调。
      *
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value
-     *     **true** means multiple OS accounts are supported;
-     *     the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示支持多系统账号；返回false表示不支持。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -224,11 +212,9 @@ declare namespace osAccount {
     checkMultiOsAccountEnabled(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether multiple OS accounts are supported. This API uses a promise to return the result.
+     * 判断是否支持多系统账号。使用Promise异步回调。
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value
-     *     **true** means multiple OS accounts are supported;
-     *     the value **false** means the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示支持多系统账号；返回false表示不支持。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -237,17 +223,15 @@ declare namespace osAccount {
     checkMultiOsAccountEnabled(): Promise<boolean>;
 
     /**
-     * Checks whether an OS account is activated. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否处于激活状态。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value
-     *     **true** means the account is activated; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示账号已激活；返回false表示账号未激活。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -256,17 +240,15 @@ declare namespace osAccount {
     isOsAccountActived(localId: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether an OS account is activated. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否处于激活状态。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the account is activated; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @returns { Promise<boolean> } Promise对象。返回true表示账号已激活；返回false表示账号未激活。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -275,17 +257,15 @@ declare namespace osAccount {
     isOsAccountActived(localId: number): Promise<boolean>;
 
     /**
-     * Checks whether an OS account is activated. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否处于激活状态。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true**
-     *     means the account is activated; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示账号已激活；返回false表示账号未激活。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -299,17 +279,15 @@ declare namespace osAccount {
     checkOsAccountActivated(localId: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether an OS account is activated. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否处于激活状态。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the account is activated; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @returns { Promise<boolean> } Promise对象。返回true表示账号已激活；返回false表示账号未激活。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -323,12 +301,11 @@ declare namespace osAccount {
     checkOsAccountActivated(localId: number): Promise<boolean>;
 
     /**
-     * Checks whether an OS account is activated. This API uses a promise to return the result.
+     * 判断指定系统账号是否处于激活状态。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the account is activated; the value **false** means the opposite.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<boolean> } Promise对象。返回true表示账号已激活；返回false表示账号未激活。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -343,20 +320,16 @@ declare namespace osAccount {
     isOsAccountActivated(localId: int): Promise<boolean>;
 
     /**
-     * Checks whether the specified constraint is enabled for an OS account. This API uses an asynchronous callback
-     * to return the result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否具有指定约束。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to check.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true**
-     *     means the specified constraint is enabled; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { string } constraint - 指定的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示已使能指定的约束；返回false表示未使能指定的约束。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -365,20 +338,16 @@ declare namespace osAccount {
     isOsAccountConstraintEnable(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether the specified constraint is enabled for an OS account. This API uses a promise to return the
-     * result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否具有指定约束。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to check.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the specified constraint is enabled; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { string } constraint - 指定的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @returns { Promise<boolean> } Promise对象。返回true表示已使能指定的约束；返回false表示未使能指定的约束。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -387,20 +356,16 @@ declare namespace osAccount {
     isOsAccountConstraintEnable(localId: number, constraint: string): Promise<boolean>;
 
     /**
-     * Checks whether the specified constraint is enabled for an OS account. This API uses an asynchronous callback
-     * to return the result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否具有指定约束。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to check.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value
-     *     **true** means the specified constraint is enabled; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { string } constraint - 指定的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示已使能指定的约束；返回false表示未使能指定的约束。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -414,20 +379,16 @@ declare namespace osAccount {
     checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether the specified constraint is enabled for an OS account. This API uses a promise to return the
-     * result.
-     *
-     * > **NOTE**
+     * 判断指定系统账号是否具有指定约束。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to check.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the specified constraint is enabled; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { string } constraint - 指定的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @returns { Promise<boolean> } Promise对象。返回true表示已使能指定的约束；返回false表示未使能指定的约束。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -441,12 +402,10 @@ declare namespace osAccount {
     checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise<boolean>;
 
     /**
-     * Checks whether a constraint is enabled for this OS account. This API uses a promise to return the result.
+     * 判断当前系统账号是否使能指定约束。使用Promise异步回调。
      *
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to check.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the specified constraint is enabled; the value **false** means the opposite.
+     * @param { string } constraint - 指定的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @returns { Promise<boolean> } Promise对象。返回true表示已使能指定的约束；返回false表示未使能指定的约束。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -457,14 +416,12 @@ declare namespace osAccount {
     isOsAccountConstraintEnabled(constraint: string): Promise<boolean>;
 
     /**
-     * Checks whether a constraint is enabled for an OS account. This API uses a promise to return the result.
+     * 判断指定系统账号是否使能指定约束。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to check.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the specified constraint is enabled; the value **false** means the opposite.
+     * @param { int } localId - 系统账号ID。
+     * @param { string } constraint - 指定的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @returns { Promise<boolean> } Promise对象。返回true表示已使能指定的约束；返回false表示未使能指定的约束。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -479,17 +436,15 @@ declare namespace osAccount {
     isOsAccountConstraintEnabled(localId: int, constraint: string): Promise<boolean>;
 
     /**
-     * Checks whether this OS account is a test account. This API uses an asynchronous callback to return the
-     * result.
-     *
-     * > **NOTE**
+     * 检查当前系统账号是否为测试账号。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [checkOsAccountTestable]{@link osAccount.AccountManager.checkOsAccountTestable(callback: AsyncCallback<boolean>)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value
-     *     **true** means the account is a test account; the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示当前账号为测试账号；返回false表示当前账号非测试账号。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -498,15 +453,14 @@ declare namespace osAccount {
     isTestOsAccount(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether this OS account is a test account. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 检查当前系统账号是否为测试账号。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [checkOsAccountTestable]{@link osAccount.AccountManager.checkOsAccountTestable()} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [checkOsAccountTestable]{@link osAccount.AccountManager.checkOsAccountTestable()}替代。
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the account is a test account; the value **false** means the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前账号为测试账号；返回false表示当前账号非测试账号。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -515,12 +469,9 @@ declare namespace osAccount {
     isTestOsAccount(): Promise<boolean>;
 
     /**
-     * Checks whether this OS account is a test account. This API uses an asynchronous callback to return the
-     * result.
+     * 检查当前系统账号是否为测试账号。使用callback异步回调。
      *
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value
-     *     **true** means the account is a test account; the value **false** means the opposite;
-     *     the default value is **false**.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示当前账号为测试账号；返回false表示当前账号非测试账号；默认为false。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -531,11 +482,9 @@ declare namespace osAccount {
     checkOsAccountTestable(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether this OS account is a test account. This API uses a promise to return the result.
+     * 检查当前系统账号是否为测试账号。使用Promise异步回调。
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true**
-     *     means the account is a test account; the value **false** means the opposite;
-     *     the default value is **false**.
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前账号为测试账号；返回false表示当前账号非测试账号；默认为false。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -544,17 +493,16 @@ declare namespace osAccount {
     checkOsAccountTestable(): Promise<boolean>;
 
     /**
-     * Checks whether an OS account has been verified. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 检查当前系统账号是否已验证。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [checkOsAccountVerified]{@link osAccount.AccountManager.checkOsAccountVerified(callback: AsyncCallback<boolean>)}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value
-     *     **true** means the OS account has been verified; the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示指定账号已验证；返回false表示指定账号未验证。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -563,17 +511,15 @@ declare namespace osAccount {
     isOsAccountVerified(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether an OS account has been verified. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 检查指定系统账号是否已验证。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value
-     *     **true** means the OS account has been verified; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示指定账号已验证；返回false表示指定账号未验证。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -582,18 +528,15 @@ declare namespace osAccount {
     isOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether an OS account has been verified. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 检查指定系统账号是否已验证。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account. If this parameter is not specified,
-     *     this API checks whether the current OS account has been verified. The default value is **-1**.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the
-     *     OS account has been verified; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。不填则检查当前系统账号是否已验证，默认为-1。
+     * @returns { Promise<boolean> } Promise对象。返回true表示指定账号已验证；返回false表示指定账号未验证。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -602,15 +545,14 @@ declare namespace osAccount {
     isOsAccountVerified(localId?: number): Promise<boolean>;
 
     /**
-     * Checks whether this OS account is unlocked. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 检查当前系统账号是否已认证解锁。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. You are advised to use
-     * > [isOsAccountUnlocked]{@link osAccount.AccountManager.isOsAccountUnlocked()} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃。建议使用
+     * > [isOsAccountUnlocked]{@link osAccount.AccountManager.isOsAccountUnlocked()}替代。
      *
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true**
-     *     means the OS account has been verified; the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamiconly
@@ -620,15 +562,14 @@ declare namespace osAccount {
     checkOsAccountVerified(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether this OS account has been verified. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 检查当前系统账号是否已认证解锁。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. You are advised to use
-     * > [isOsAccountUnlocked]{@link osAccount.AccountManager.isOsAccountUnlocked()} instead.
+     * > 从API version 9开始支持，从API version 11开始废弃。建议使用
+     * > [isOsAccountUnlocked]{@link osAccount.AccountManager.isOsAccountUnlocked()}替代。
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the
-     *     OS account has been verified; the value **false** means the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamiconly
@@ -638,17 +579,15 @@ declare namespace osAccount {
     checkOsAccountVerified(): Promise<boolean>;
 
     /**
-     * Checks whether an OS account has been verified. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 检查指定系统账号是否已验证。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true**
-     *     means the OS account has been verified; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -662,18 +601,15 @@ declare namespace osAccount {
     checkOsAccountVerified(localId: number, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether an OS account has been verified. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 检查指定系统账号是否已验证。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account. If this parameter is not specified,
-     *     this API checks whether the current OS account has been verified.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the
-     *     OS account has been verified; the value **false** means the opposite.
+     * @param { number } localId - 系统账号ID。不填则检查当前系统账号是否已验证。
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -687,10 +623,9 @@ declare namespace osAccount {
     checkOsAccountVerified(localId: number): Promise<boolean>;
 
     /**
-     * Checks whether this OS account is unlocked. This API uses a promise to return the result.
+     * 检查当前系统账号是否已认证解锁。使用Promise异步回调。
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the OS account has been verified; the value **false** means the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 11 dynamic
@@ -699,13 +634,11 @@ declare namespace osAccount {
     isOsAccountUnlocked(): Promise<boolean>;
 
     /**
-     * Checks whether an OS account has been verified. This API uses a promise to return the result.
+     * 检查指定系统账号是否已验证。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account. If this parameter is not specified,
-     *     this API checks whether the current OS account has been verified.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
-     *     the OS account has been verified; the value **false** means the opposite.
+     * @param { int } localId - 系统账号ID。不填则检查当前系统账号是否已验证。
+     * @returns { Promise<boolean> } Promise对象。返回true表示当前账号已认证解锁；返回false表示当前账号未认证解锁。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -720,12 +653,11 @@ declare namespace osAccount {
     isOsAccountUnlocked(localId: int): Promise<boolean>;
 
     /**
-     * Removes an OS account. This API uses an asynchronous callback to return the result.
+     * 删除指定系统账号。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null**. Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果删除账号成功，err为null，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -744,11 +676,11 @@ declare namespace osAccount {
     removeOsAccount(localId: int, callback: AsyncCallback<void>): void;
 
     /**
-     * Removes an OS account. This API uses a promise to return the result.
+     * 删除指定系统账号。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -767,13 +699,12 @@ declare namespace osAccount {
     removeOsAccount(localId: int): Promise<void>;
 
     /**
-     * Removes a specified OS account based on the options. This API uses a promise to return the result.
+     * 根据删除选项，删除指定系统账号。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     *     <br>The value should be an integer.
-     * @param { RemoveOsAccountOptions } options - Options for removing an OS account.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @param { RemoveOsAccountOptions } options - 删除系统账号的选项。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -791,16 +722,14 @@ declare namespace osAccount {
     removeOsAccount(localId: int, options: RemoveOsAccountOptions): Promise<void>;
 
     /**
-     * Sets or removes constraints for an OS account. This API uses an asynchronous callback to return the result.
+     * 为指定系统账号设置/删除约束。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { Array<string> } constraints -
-     *     [Constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to set or remove.
-     * @param { boolean } enable - Whether to set or remove constraints. The value **true** means to
-     *     set constraints, and **false** means to remove constraints.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null**. Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { Array<string> } constraints - 待设置/删除的
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)列表。
+     * @param { boolean } enable - 设置(true)/删除(false) 。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果设置成功，err为null，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -817,15 +746,14 @@ declare namespace osAccount {
     setOsAccountConstraints(localId: int, constraints: Array<string>, enable: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets or removes constraints for an OS account. This API uses a promise to return the result.
+     * 为指定系统账号设置/删除约束。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { Array<string> } constraints -
-     *     [Constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) to set or remove.
-     * @param { boolean } enable - Set or remove constraints. The value **true** means to set constraints,
-     *     and **false** means to remove constraints.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @param { Array<string> } constraints - 待设置/删除的
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)列表。
+     * @param { boolean } enable - 设置(true)/删除(false)。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -842,13 +770,12 @@ declare namespace osAccount {
     setOsAccountConstraints(localId: int, constraints: Array<string>, enable: boolean): Promise<void>;
 
     /**
-     * Sets the name of an OS account. This API uses an asynchronous callback to return the result.
+     * 设置指定系统账号的账号名。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { string } localName - Account name to set. The value cannot exceed 1024 characters.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null**. Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { string } localName - 账号名，最大长度为1024个字符。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果设置成功，err为null，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -865,12 +792,12 @@ declare namespace osAccount {
     setOsAccountName(localId: int, localName: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the name of an OS account. This API uses a promise to return the result.
+     * 设置指定系统账号的账号名。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { string } localName - Account name to set. The value cannot exceed 1024 characters.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @param { string } localName - 账号名，最大长度为1024个字符。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -887,9 +814,9 @@ declare namespace osAccount {
     setOsAccountName(localId: int, localName: string): Promise<void>;
 
     /**
-     * Obtains the name of the OS account of the caller. This API uses a promise to return the result.
+     * 查询调用方所属系统账号的名称。使用Promise异步回调。
      *
-     * @returns { Promise<string> } Promise used to return the OS account name obtained.
+     * @returns { Promise<string> } Promise对象，返回调用方所属系统账号的名称。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 12 dynamic
@@ -898,11 +825,11 @@ declare namespace osAccount {
     getOsAccountName(): Promise<string>;
 
     /**
-     * Obtains the name of an OS account based on its local ID. This API uses a promise to return the result.
+     * 根据系统账号的本地ID获取系统账号的名称。使用Promise异步回调。
      *
      * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
-     * @param { int } localId - Local ID of the target OS account.
-     * @returns { Promise<string> } Promise used to return the name of the target OS account.
+     * @param { int } localId - 目标系统账号的本地ID。
+     * @returns { Promise<string> } Promise对象，返回目标系统账号的名称。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -914,17 +841,15 @@ declare namespace osAccount {
     getOsAccountNameByLocalId(localId: int): Promise<string>;
 
     /**
-     * Obtains the number of OS accounts created. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 获取已创建的系统账号数量。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [getOsAccountCount]{@link osAccount.AccountManager.getOsAccountCount(callback: AsyncCallback<int>)} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [getOsAccountCount]{@link osAccount.AccountManager.getOsAccountCount(callback: AsyncCallback<int>)}替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the number of created OS accounts.
-     *     If the operation fails, **err** is an error object.
+     * @param { AsyncCallback<number> } callback - 回调函数。如果获取成功，err为null，data为已创建的系统账号的数量；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -933,15 +858,15 @@ declare namespace osAccount {
     getCreatedOsAccountsCount(callback: AsyncCallback<number>): void;
 
     /**
-     * Obtains the number of OS accounts created. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 获取已创建的系统账号数量。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [getOsAccountCount]{@link osAccount.AccountManager.getOsAccountCount()} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [getOsAccountCount]{@link osAccount.AccountManager.getOsAccountCount()}替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<number> } Promise used to return the number of created OS accounts.
+     * @returns { Promise<number> } Promise对象，返回已创建的系统账号的数量。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -950,13 +875,11 @@ declare namespace osAccount {
     getCreatedOsAccountsCount(): Promise<number>;
 
     /**
-     * Obtains the number of OS accounts created. This API uses an asynchronous callback to return the result.
-     * This API can be called only by system applications.
+     * 获取已创建的系统账号数量。使用callback异步回调。
+     * 该接口仅限系统应用调用。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the number of created OS accounts.
-     *     If the operation fails, **err** is an error object.
+     * @param { AsyncCallback<int> } callback - 回调函数。如果获取成功，err为null，data为已创建的系统账号的数量；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -968,11 +891,11 @@ declare namespace osAccount {
     getOsAccountCount(callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the number of OS accounts created. This API uses a promise to return the result.
-     * This API can be called only by system applications.
+     * 获取已创建的系统账号数量。使用Promise异步回调。
+     * 该接口仅限系统应用调用。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<int> } Promise used to return the number of created OS accounts.
+     * @returns { Promise<int> } Promise对象，返回已创建的系统账号的数量。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -982,18 +905,14 @@ declare namespace osAccount {
     getOsAccountCount(): Promise<int>;
 
     /**
-     * Obtains the ID of the OS account to which the current process belongs. This API uses an asynchronous callback
-     *  to return the result.
-     *
-     * > **NOTE**
+     * 获取当前进程所属的系统账号ID。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [getOsAccountLocalId]{@link osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-     * > instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [getOsAccountLocalId]{@link osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}替代。
      *
-     * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the OS account ID obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<number> } callback - 回调函数。如果获取成功，err为null，data为当前进程所属的系统账号ID；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1002,15 +921,14 @@ declare namespace osAccount {
     getOsAccountLocalIdFromProcess(callback: AsyncCallback<number>): void;
 
     /**
-     * Obtains the ID of the OS account to which the current process belongs. This API uses a promise to return the
-     * result.
-     *
-     * > **NOTE**
+     * 获取当前进程所属的系统账号ID。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [getOsAccountLocalId]{@link osAccount.AccountManager.getOsAccountLocalId()} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [getOsAccountLocalId]{@link osAccount.AccountManager.getOsAccountLocalId()}替代。
      *
-     * @returns { Promise<number> } Promise used to return the OS account ID obtained.
+     * @returns { Promise<number> } Promise对象，返回当前进程所属的系统账号ID。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1019,12 +937,9 @@ declare namespace osAccount {
     getOsAccountLocalIdFromProcess(): Promise<number>;
 
     /**
-     * Obtains the ID of the OS account to which the current process belongs. This API uses an asynchronous callback
-     *  to return the result.
+     * 获取当前进程所属的系统账号ID。使用callback异步回调。
      *
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the OS account ID obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<int> } callback - 回调函数。如果获取成功，err为null，data为当前进程所属的系统账号ID；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1035,10 +950,9 @@ declare namespace osAccount {
     getOsAccountLocalId(callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the ID of the OS account to which the current process belongs. This API uses a promise to return the
-     * result.
+     * 获取当前进程所属的系统账号ID。使用Promise异步回调。
      *
-     * @returns { Promise<int> } Promise used to return the OS account ID obtained.
+     * @returns { Promise<int> } Promise对象，返回当前进程所属的系统账号ID。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -1047,11 +961,10 @@ declare namespace osAccount {
     getOsAccountLocalId(): Promise<int>;
 
     /**
-     * Obtains the local IDs of all non-system-level OS accounts. Non-system-level OS accounts are visible to 
-     * users and are usually used for operations such as login. This API uses a promise to return the result.
+     * 获取所有非系统级的操作系统账号的本地ID。非系统级的操作系统账号对用户可见，通常用于登录等操作。使用Promise异步回调。
      *
      * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
-     * @returns { Promise<int[]> } Promise used to return the local IDs of all non-system-level OS accounts.
+     * @returns { Promise<int[]> } Promise对象，返回所有非系统级的操作系统账号的本地ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -1061,19 +974,16 @@ declare namespace osAccount {
     getOsAccountLocalIds(): Promise<int[]>;
 
     /**
-     * Obtains the OS account ID based on the process UID. This API uses an asynchronous callback to return the
-     * result.
-     *
-     * > **NOTE**
+     * 根据uid查询对应的系统账号ID。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [getOsAccountLocalIdForUid]{@link osAccount.AccountManager.getOsAccountLocalIdForUid(uid: int, callback: AsyncCallback<int>)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { number } uid - Process UID.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the OS account ID obtained.
-     *     Otherwise, **data** is an error object.
+     * @param { number } uid - 进程uid。
+     * @param { AsyncCallback<number> } callback - 回调函数。如果查询成功，err为null，data为对应的系统账号ID；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1082,15 +992,15 @@ declare namespace osAccount {
     getOsAccountLocalIdFromUid(uid: number, callback: AsyncCallback<number>): void;
 
     /**
-     * Obtains the OS account ID based on the process UID. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 根据uid查询对应的系统账号ID。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [getOsAccountLocalIdForUid]{@link osAccount.AccountManager.getOsAccountLocalIdForUid(uid: int)} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [getOsAccountLocalIdForUid]{@link osAccount.AccountManager.getOsAccountLocalIdForUid(uid: int)}替代。
      *
-     * @param { number } uid - Process UID.
-     * @returns { Promise<number> } Promise used to return the OS account ID obtained.
+     * @param { number } uid - 进程uid。
+     * @returns { Promise<number> } Promise对象，返回uid对应的系统账号ID。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1099,13 +1009,10 @@ declare namespace osAccount {
     getOsAccountLocalIdFromUid(uid: number): Promise<number>;
 
     /**
-     * Obtains the OS account ID based on the process UID. This API uses an asynchronous callback to return the
-     * result.
+     * 根据uid查询对应的系统账号ID。使用callback异步回调。
      *
-     * @param { int } uid - Process UID.
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the OS account ID obtained.
-     *     Otherwise, **data** is an error object.
+     * @param { int } uid - 进程uid。
+     * @param { AsyncCallback<int> } callback - 回调函数。如果查询成功，err为null，data为对应的系统账号ID；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1117,10 +1024,10 @@ declare namespace osAccount {
     getOsAccountLocalIdForUid(uid: int, callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the OS account ID based on the process UID. This API uses a promise to return the result.
+     * 根据uid查询对应的系统账号ID。使用Promise异步回调。
      *
-     * @param { int } uid - Process UID.
-     * @returns { Promise<int> } Promise used to return the OS account ID obtained.
+     * @param { int } uid - 进程uid。
+     * @returns { Promise<int> } Promise对象，返回指定uid对应的系统账号ID。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1132,10 +1039,10 @@ declare namespace osAccount {
     getOsAccountLocalIdForUid(uid: int): Promise<int>;
 
     /**
-     * Obtains the OS account ID based on the process UID. The API returns the result synchronously.
+     * 根据uid查询对应的系统账号ID。使用同步方式返回结果。
      *
-     * @param { int } uid - Process UID.
-     * @returns { int } OS account ID obtained.
+     * @param { int } uid - 进程uid。
+     * @returns { int } 返回指定uid对应的系统账号ID。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300002 - Invalid uid.
@@ -1146,20 +1053,17 @@ declare namespace osAccount {
     getOsAccountLocalIdForUidSync(uid: int): int;
 
     /**
-     * Obtains the OS account ID based on the domain account information. This API uses an asynchronous callback to
-     * return the result.
-     *
-     * > **NOTE**
+     * 根据域账号信息，获取与其关联的系统账号的账号ID。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getOsAccountLocalIdForDomain]{@link osAccount.AccountManager.getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<int>)}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainInfo - Domain account information.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the OS account ID obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { DomainAccountInfo } domainInfo - 域账号信息。
+     * @param { AsyncCallback<number> } callback - 回调函数，如果获取成功，err为null，data为域账号关联的系统账号ID；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1168,19 +1072,17 @@ declare namespace osAccount {
     getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<number>): void;
 
     /**
-     * Obtains the OS account ID based on the domain account information. This API uses a promise to return the
-     * result.
-     *
-     * > **NOTE**
+     * 根据域账号信息，获取与其关联的系统账号的账号ID。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getOsAccountLocalIdForDomain]{@link osAccount.AccountManager.getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo)}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainInfo - Domain account information.
-     * @returns { Promise<number> } Promise used to return the ID of the OS account associated
-     *     with the domain account.
+     * @param { DomainAccountInfo } domainInfo - 域账号信息。
+     * @returns { Promise<number> } Promise对象，返回域账号关联的系统账号ID。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1189,15 +1091,12 @@ declare namespace osAccount {
     getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo): Promise<number>;
 
     /**
-     * Obtains the OS account ID based on the domain account information. This API uses an asynchronous callback to
-     * return the result.
-     * This API can be called only by system applications.
+     * 根据域账号信息，获取与其关联的系统账号ID。使用callback异步回调。
+     * 该接口仅限系统应用调用。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainInfo - Domain account information.
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the ID of the OS account associated with
-     *     the domain account. Otherwise, **err** is an error object.
+     * @param { DomainAccountInfo } domainInfo - 域账号信息。
+     * @param { AsyncCallback<int> } callback - 回调函数。如果查询成功，err为null，data为域账号关联的系统账号ID；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1210,13 +1109,12 @@ declare namespace osAccount {
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the OS account ID based on the domain account information. This API uses a promise to return the
-     * result.
-     * This API can be called only by system applications.
+     * 根据域账号信息，获取与其关联的系统账号的账号ID。使用Promise异步回调。
+     * 该接口仅限系统应用调用。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainInfo - Domain account information.
-     * @returns { Promise<int> } Promise used to return the ID of the OS account associated with the domain account.
+     * @param { DomainAccountInfo } domainInfo - 域账号信息。
+     * @returns { Promise<int> } Promise对象，返回域账号关联的系统账号ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1229,12 +1127,9 @@ declare namespace osAccount {
     getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise<int>;
 
     /**
-     * Queries the maximum number of OS accounts that can be created. This API uses an asynchronous callback to
-     * return the result.
+     * 查询允许创建的系统账号的最大数量。使用callback异步回调。
      *
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is the maximum number of OS accounts
-     *     that can be created. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<int> } callback - 回调函数，如果查询成功，err为null，data为允许创建的系统账号的最大数量；否则为错误对象。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1247,9 +1142,9 @@ declare namespace osAccount {
     queryMaxOsAccountNumber(callback: AsyncCallback<int>): void;
 
     /**
-     * Queries the maximum number of OS accounts that can be created. This API uses a promise to return the result.
+     * 查询允许创建的系统账号的最大数量。使用Promise异步回调。
      *
-     * @returns { Promise<int> } Promise used to return the result.
+     * @returns { Promise<int> } Promise对象，返回允许创建的系统账号的最大数量。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -1260,10 +1155,9 @@ declare namespace osAccount {
     queryMaxOsAccountNumber(): Promise<int>;
 
     /**
-     * Queries the maximum number of OS accounts allowed to log in to the system. This API uses a promise to return
-     * the result.
+     * 查询允许同时登录的系统账号的最大数量。使用Promise异步回调。
      *
-     * @returns { Promise<int> } Promise used to return the result.
+     * @returns { Promise<int> } Promise对象，返回允许登录的系统账号的最大数量。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -1274,20 +1168,16 @@ declare namespace osAccount {
     queryMaxLoggedInOsAccountNumber(): Promise<int>;
 
     /**
-     * Obtains all constraints enabled for an OS account. This API uses an asynchronous callback to return the
-     * result.
-     *
-     * > **NOTE**
+     * 获取指定系统账号的全部约束。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null** and **data** is a list of all
-     *     [constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) enabled
-     *     for the OS account. Otherwise, **err** is an error object.
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数。如果获取成功，err为null，data为指定系统账号的全部
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1296,18 +1186,16 @@ declare namespace osAccount {
     getOsAccountAllConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains all constraints enabled for an OS account. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 获取指定系统账号的全部约束。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @returns { Promise<Array<string>> } Promise used to return all the
-     *     [constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) enabled
-     *     for the OS account.
+     * @param { number } localId - 系统账号ID。
+     * @returns { Promise<Array<string>> } Promise对象，返回指定系统账号的全部
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1316,20 +1204,16 @@ declare namespace osAccount {
     getOsAccountAllConstraints(localId: number): Promise<Array<string>>;
 
     /**
-     * Obtains all constraints enabled for an OS account. This API uses an asynchronous callback to return the
-     * result.
-     *
-     * > **NOTE**
+     * 获取指定系统账号的全部约束。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is all
-     *     [constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数，如果获取成功，err为null，data为该系统账号的全部
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1343,18 +1227,16 @@ declare namespace osAccount {
     getOsAccountConstraints(localId: number, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Obtains all constraints enabled for an OS account. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 获取指定系统账号的全部约束。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @returns { Promise<Array<string>> } Promise used to return all the
-     *     [constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) enabled
-     *     for the OS account.
+     * @param { number } localId - 系统账号ID。
+     * @returns { Promise<Array<string>> } Promise对象，返回指定系统账号的全部
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1368,13 +1250,12 @@ declare namespace osAccount {
     getOsAccountConstraints(localId: number): Promise<Array<string>>;
 
     /**
-     * Obtains all the enabled constraints of an OS account. This API uses a promise to return the result.
+     * 获取指定系统账号已使能的全部约束。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<Array<string>> } Promise used to return all the enabled
-     *     [constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints)
-     *     of the OS account.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<Array<string>> } Promise对象，返回指定系统账号已使能的全部
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1389,13 +1270,10 @@ declare namespace osAccount {
     getEnabledOsAccountConstraints(localId: int): Promise<Array<string>>;
 
     /**
-     * Queries information about all the OS accounts created. This API uses an asynchronous callback to return the
-     * result.
+     * 查询已创建的所有系统账号的信息列表。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<Array<OsAccountInfo>> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is a list of all created OS accounts.
-     *     Otherwise, **data** is an error object.
+     * @param { AsyncCallback<Array<OsAccountInfo>> } callback - 回调函数。如果查询成功，err为null，data为已创建的所有系统账号的信息列表；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1409,11 +1287,10 @@ declare namespace osAccount {
     queryAllCreatedOsAccounts(callback: AsyncCallback<Array<OsAccountInfo>>): void;
 
     /**
-     * Queries information about all the OS accounts created. This API uses a promise to return the result.
+     * 查询已创建的所有系统账号的信息列表。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<Array<OsAccountInfo>> } Promise used to return the information about
-     *     all the OS accounts created.
+     * @returns { Promise<Array<OsAccountInfo>> } Promise对象，返回已创建的所有系统账号的信息列表。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1425,18 +1302,15 @@ declare namespace osAccount {
     queryAllCreatedOsAccounts(): Promise<Array<OsAccountInfo>>;
 
     /**
-     * Obtains information about all activated OS accounts. This API uses an asynchronous callback to return the
-     * result.
-     *
-     * > **NOTE**
+     * 查询当前处于激活状态的系统账号的ID列表。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getActivatedOsAccountLocalIds]{@link osAccount.AccountManager.getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<int>>)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { AsyncCallback<Array<number>> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is a list of activated OS accounts.
-     *     Otherwise, **data** is an error object.
+     * @param { AsyncCallback<Array<number>> } callback - 回调函数。如果查询成功，err为null，data为当前处于激活状态的系统账号的ID列表；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1445,14 +1319,14 @@ declare namespace osAccount {
     queryActivatedOsAccountIds(callback: AsyncCallback<Array<number>>): void;
 
     /**
-     * Obtains information about all activated OS accounts. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 查询当前处于激活状态的系统账号的ID列表。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-     * > [getActivatedOsAccountLocalIds]{@link osAccount.AccountManager.getActivatedOsAccountLocalIds()} instead.
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
+     * > [getActivatedOsAccountLocalIds]{@link osAccount.AccountManager.getActivatedOsAccountLocalIds()}替代。
      *
-     * @returns { Promise<Array<number>> } Promise used to return the information about all activated OS accounts.
+     * @returns { Promise<Array<number>> } Promise对象，返回当前处于激活状态的系统账号的ID列表。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1461,12 +1335,9 @@ declare namespace osAccount {
     queryActivatedOsAccountIds(): Promise<Array<number>>;
 
     /**
-     * Obtains information about all activated OS accounts. This API uses an asynchronous callback to return the
-     * result.
+     * 查询当前处于激活状态的系统账号的ID列表。使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is a list of activated OS accounts.
-     *     Otherwise, **data** is an error object.
+     * @param { AsyncCallback<Array<int>> } callback - 回调函数。如果查询成功，err为null，data为当前处于激活状态的系统账号的ID列表；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1477,9 +1348,9 @@ declare namespace osAccount {
     getActivatedOsAccountLocalIds(callback: AsyncCallback<Array<int>>): void;
 
     /**
-     * Obtains information about all activated OS accounts. This API uses a promise to return the result.
+     * 查询当前处于激活状态的系统账号的ID列表。使用Promise异步回调。
      *
-     * @returns { Promise<Array<int>> } Promise used to return the information about all activated OS accounts.
+     * @returns { Promise<Array<int>> } Promise对象，返回当前处于激活状态的系统账号的ID列表。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -1488,9 +1359,9 @@ declare namespace osAccount {
     getActivatedOsAccountLocalIds(): Promise<Array<int>>;
 
     /**
-     * Obtains the ID of the foreground OS account. This API uses a promise to return the result.
+     * 获取前台系统账号的ID。使用Promise异步回调。
      *
-     * @returns { Promise<int> } Promise used to return the ID of the foreground OS account.
+     * @returns { Promise<int> } Promise对象。返回前台系统账号的ID。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 15 dynamic
@@ -1499,12 +1370,11 @@ declare namespace osAccount {
     getForegroundOsAccountLocalId(): Promise<int>;
 
     /**
-     * Obtains the ID of the foreground OS account running on a specified logical display. This API uses a promise
-     * to return the result.
+     * 获取指定逻辑屏上运行的前台系统账号ID。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { long } displayId - Logical display ID.
-     * @returns { Promise<int> } Promise used to return the OS account ID.
+     * @param { long } displayId - 逻辑屏ID。
+     * @returns { Promise<int> } Promise对象，返回系统账号ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1516,12 +1386,11 @@ declare namespace osAccount {
     getForegroundOsAccountLocalId(displayId: long): Promise<int>;
 
     /**
-     * Obtains the logical display ID of the specified foreground OS account. This API uses a promise to return the
-     * result.
+     * 获取指定前台系统账号所运行的逻辑屏ID。使用Promise异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<long> } Promise used to return the logical display ID.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<long> } Promise对象，返回逻辑屏ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1533,14 +1402,12 @@ declare namespace osAccount {
     getForegroundOsAccountDisplayId(localId: int): Promise<long>;
 
     /**
-     * Creates an OS account. This API uses an asynchronous callback to return the result.
+     * 创建一个系统账号。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { string } localName - Name of the OS account to create.
-     * @param { OsAccountType } type - Type of the OS account to create.
-     * @param { AsyncCallback<OsAccountInfo> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the created OS account.
-     *     Otherwise, **err** is an error object.
+     * @param { string } localName - 创建的系统账号的名称。
+     * @param { OsAccountType } type - 创建的系统账号的类型。
+     * @param { AsyncCallback<OsAccountInfo> } callback - 回调函数。如果创建成功，err为null，data为新创建的系统账号的信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -1562,14 +1429,13 @@ declare namespace osAccount {
     createOsAccount(localName: string, type: OsAccountType, callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
-     * Creates an OS account. This API uses a promise to return the result.
+     * 创建一个系统账号。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { string } localName - Name of the OS account to create.
-     * @param { OsAccountType } type - Type of the OS account to create.
-     * @param { CreateOsAccountOptions } [options] - Options for creating an OS account.
-     *     By default, this parameter is left blank.<br>This parameter is supported since API version 12. [since 12]
-     * @returns { Promise<OsAccountInfo> } Promise used to return the information about the created OS account.
+     * @param { string } localName - 创建的系统账号的名称。
+     * @param { OsAccountType } type - 创建的系统账号的类型。
+     * @param { CreateOsAccountOptions } [options] - 创建系统账号的选项，默认为空。<br/>从API version 12开始支持该可选参数。
+     * @returns { Promise<OsAccountInfo> } Promise对象，返回新创建的系统账号的信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -1592,15 +1458,12 @@ declare namespace osAccount {
     createOsAccount(localName: string, type: OsAccountType, options?: CreateOsAccountOptions): Promise<OsAccountInfo>;
 
     /**
-     * Creates an OS account and associates it with the specified domain account. This API uses an asynchronous
-     * callback to return the result.
+     * 根据域账号信息，创建一个系统账号并将其与域账号关联。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { OsAccountType } type - Type of the OS account to create.
-     * @param { DomainAccountInfo } domainInfo - Domain account information.
-     * @param { AsyncCallback<OsAccountInfo> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the created OS account.
-     *     Otherwise, **err** is an error object.
+     * @param { OsAccountType } type - 创建的系统账号的类型。
+     * @param { DomainAccountInfo } domainInfo - 域账号信息。
+     * @param { AsyncCallback<OsAccountInfo> } callback - 回调函数。如果创建成功，err为null，data为新创建的系统账号的信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -1627,15 +1490,13 @@ declare namespace osAccount {
     ): void;
 
     /**
-     * Creates an OS account and associates it with the specified domain account. This API uses a promise to return
-     * the result.
+     * 根据传入的域账号信息，创建与其关联的系统账号。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { OsAccountType } type - Type of the OS account to create.
-     * @param { DomainAccountInfo } domainInfo - Domain account information.
-     * @param { CreateOsAccountForDomainOptions } [options] - Optional parameters for creating the account.
-     *     By default, this parameter is left blank.<br>This parameter is supported since API version 12. [since 12]
-     * @returns { Promise<OsAccountInfo> } Promise used to return the information about the created OS account.
+     * @param { OsAccountType } type - 创建的系统账号的类型。
+     * @param { DomainAccountInfo } domainInfo - 域账号信息。
+     * @param { CreateOsAccountForDomainOptions } [options] - 创建账号的可选参数，默认为空。 <br/>从API version 12开始支持该可选参数。
+     * @returns { Promise<OsAccountInfo> } Promise对象，返回新创建的系统账号的信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -1659,18 +1520,14 @@ declare namespace osAccount {
     createOsAccountForDomain(type: OsAccountType, domainInfo: DomainAccountInfo, options?: CreateOsAccountForDomainOptions): Promise<OsAccountInfo>;
 
     /**
-     * Obtains information about the OS account to which the current process belongs. This API uses an asynchronous
-     * callback to return the result.
-     *
-     * > **NOTE**
+     * 查询当前进程所属的系统账号的信息。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<OsAccountInfo> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the OS account information obtained.
-     *     Otherwise, **data** is an error object.
+     * @param { AsyncCallback<OsAccountInfo> } callback - 回调函数。如果查询成功，err为null，data为当前进程所属的系统账号信息；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1679,16 +1536,14 @@ declare namespace osAccount {
     queryCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
-     * Obtains information about the OS account to which the current process belongs. This API uses a promise to
-     * return the result.
-     *
-     * > **NOTE**
+     * 查询当前进程所属的系统账号的信息。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. The substitute API is available
-     * > only to system applications.
+     * > 从API version 7开始支持，从API version 9开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<OsAccountInfo> } Promise used to return the OS account information obtained.
+     * @returns { Promise<OsAccountInfo> } Promise对象，返回当前进程所属的系统账号信息。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1697,19 +1552,15 @@ declare namespace osAccount {
     queryCurrentOsAccount(): Promise<OsAccountInfo>;
 
     /**
-     * Obtains information about the OS account to which the current process belongs. This API uses an asynchronous
-     * callback to return the result.
-     *
-     * > **NOTE**
+     * 查询当前进程所属的系统账号的信息。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS [since 9 - 9]
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS [since 10]
-     * @param { AsyncCallback<OsAccountInfo> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the OS account information obtained.
-     *     Otherwise, **data** is an error object.
+     * @param { AsyncCallback<OsAccountInfo> } callback - 回调函数。如果查询成功，err为null，data为当前进程所属的系统账号信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -1719,17 +1570,15 @@ declare namespace osAccount {
     getCurrentOsAccount(callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
-     * Obtains information about the OS account to which the current process belongs. This API uses a promise to
-     * return the result.
-     *
-     * > **NOTE**
+     * 查询当前进程所属的系统账号的信息。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 9 and deprecated since API version 11. The substitute API is available
-     * > only to system applications.
+     * > 从API version 9开始支持，从API version 11开始废弃。替代方法仅向系统应用开放。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS [since 9 - 9]
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS [since 10]
-     * @returns { Promise<OsAccountInfo> } Promise used to return the OS account information obtained.
+     * @returns { Promise<OsAccountInfo> } Promise对象，返回当前进程所属的系统账号信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -1739,11 +1588,10 @@ declare namespace osAccount {
     getCurrentOsAccount(): Promise<OsAccountInfo>;
 
     /**
-     * Obtains information about the OS account to which the current process belongs. This API uses a promise to
-     * return the result.
+     * 查询当前进程所属的系统账号的信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.GET_LOCAL_ACCOUNTS
-     * @returns { Promise<OsAccountInfo> } Promise used to return the OS account information obtained.
+     * @returns { Promise<OsAccountInfo> } Promise对象，返回当前进程所属的系统账号信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1755,14 +1603,11 @@ declare namespace osAccount {
     queryOsAccount(): Promise<OsAccountInfo>;
 
     /**
-     * Queries information about the OS account of the given ID. This API uses an asynchronous callback to return
-     * the result.
+     * 查询指定系统账号的信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { int } localId - ID of the target OS account.
-     * @param { AsyncCallback<OsAccountInfo> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the OS account information obtained.
-     *     Otherwise, **data** is an error object.
+     * @param { int } localId - 要查询的系统账号的ID。
+     * @param { AsyncCallback<OsAccountInfo> } callback - 回调函数。如果查询成功，err为null，data为查到的系统账号的信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1778,11 +1623,11 @@ declare namespace osAccount {
     queryOsAccountById(localId: int, callback: AsyncCallback<OsAccountInfo>): void;
 
     /**
-     * Queries information about the OS account of the given ID. This API uses a promise to return the result.
+     * 查询指定系统账号的信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<OsAccountInfo> } Promise used to return the OS account information obtained.
+     * @param { int } localId - 要查询的系统账号的ID。
+     * @returns { Promise<OsAccountInfo> } Promise对象，返回查到的系统账号的信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1798,12 +1643,11 @@ declare namespace osAccount {
     queryOsAccountById(localId: int): Promise<OsAccountInfo>;
 
     /**
-     * Obtains the domain account information associated with a specified OS account. This API uses a promise to
-     * return the result.
+     * 获取指定系统账号关联的域账号信息。使用Promise异步回调。
      *
      * @permission ohos.permission.GET_DOMAIN_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { number } localId - ID of the target OS account.
-     * @returns { Promise<DomainAccountInfo> } Promise used to return the domain account information obtained.
+     * @param { number } localId - 系统账号ID。
+     * @returns { Promise<DomainAccountInfo> } Promise对象。返回与指定系统账号关联的域账号信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1815,12 +1659,11 @@ declare namespace osAccount {
     getOsAccountDomainInfo(localId: number): Promise<DomainAccountInfo>;
 
     /**
-     * Obtains the domain account information associated with a specified OS account. This API uses a promise to
-     * return the result.
+     * 获取指定系统账号关联的域账号信息。使用Promise异步回调。
      *
      * @permission ohos.permission.GET_DOMAIN_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<DomainAccountInfo | null> } Promise used to return the result.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<DomainAccountInfo | null> } Promise对象。返回与指定系统账号关联的域账号信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300003 - OS account not found.
@@ -1830,18 +1673,14 @@ declare namespace osAccount {
     getOsAccountDomainInfo(localId: int): Promise<DomainAccountInfo | null>;
 
     /**
-     * Obtains the type of the account to which the current process belongs. This API uses an asynchronous callback to
-     * return the result.
-     *
-     * > **NOTE**
+     * 查询当前进程所属的系统账号的账号类型。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [getOsAccountType]{@link osAccount.AccountManager.getOsAccountType(callback: AsyncCallback<OsAccountType>)}
-     * > instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [getOsAccountType]{@link osAccount.AccountManager.getOsAccountType(callback: AsyncCallback<OsAccountType>)}替代。
      *
-     * @param { AsyncCallback<OsAccountType> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the OS account type obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<OsAccountType> } callback - 回调函数。如果查询成功，err为null，data为当前进程所属的系统账号的账号类型；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1850,15 +1689,14 @@ declare namespace osAccount {
     getOsAccountTypeFromProcess(callback: AsyncCallback<OsAccountType>): void;
 
     /**
-     * Obtains the type of the account to which the current process belongs. This API uses a promise to return the
-     * result.
-     *
-     * > **NOTE**
+     * 查询当前进程所属的系统账号的账号类型。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [getOsAccountType]{@link osAccount.AccountManager.getOsAccountType()} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用[getOsAccountType]{@link osAccount.AccountManager.getOsAccountType()}
+     * > 替代。
      *
-     * @returns { Promise<OsAccountType> } Promise used to return the OS account type obtained.
+     * @returns { Promise<OsAccountType> } Promise对象，返回当前进程所属的系统账号的账号类型。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1867,12 +1705,9 @@ declare namespace osAccount {
     getOsAccountTypeFromProcess(): Promise<OsAccountType>;
 
     /**
-     * Obtains the type of the account to which the current process belongs. This API uses an asynchronous callback to
-     * return the result.
+     * 查询当前进程所属的系统账号的账号类型。使用callback异步回调。
      *
-     * @param { AsyncCallback<OsAccountType> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the OS account type obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<OsAccountType> } callback - 回调函数。如果查询成功，err为null，data为当前进程所属的系统账号的账号类型；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -1883,10 +1718,9 @@ declare namespace osAccount {
     getOsAccountType(callback: AsyncCallback<OsAccountType>): void;
 
     /**
-     * Obtains the type of the account to which the current process belongs. This API uses a promise to return the
-     * result.
+     * 查询当前进程所属的系统账号的账号类型。使用Promise异步回调。
      *
-     * @returns { Promise<OsAccountType> } Promise used to return the OS account type obtained.
+     * @returns { Promise<OsAccountType> } Promise对象，返回当前进程所属的系统账号的账号类型。
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
@@ -1895,11 +1729,11 @@ declare namespace osAccount {
     getOsAccountType(): Promise<OsAccountType>;
 
     /**
-     * Obtains the type of a specified OS account. This API uses a promise to return the result.
+     * 查询指定系统账号的类型。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<OsAccountType> } Promise used to return the type of the OS account obtained.
+     * @param { int } localId - 要查询的系统账号ID。
+     * @returns { Promise<OsAccountType> } Promise对象，返回指定系统账号的类型。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1914,16 +1748,13 @@ declare namespace osAccount {
     getOsAccountType(localId: int): Promise<OsAccountType>;
 
     /**
-     * Sets the type of a specified OS account. This API uses a promise to return the result.
+     * 设置指定系统账号的账号类型。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     *     <br>The value should be an integer.
-     * @param { OsAccountType } type - Type of the OS account.
-     * @param { SetOsAccountTypeOptions } [options] - Options for setting the OS account type. This parameter is
-     *     left empty
-     *     by default.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @param { OsAccountType } type - 系统账号类型。
+     * @param { SetOsAccountTypeOptions } [options] - 设置系统账号类型的选项。默认为空。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
@@ -1942,18 +1773,16 @@ declare namespace osAccount {
     setOsAccountType(localId: int, type: OsAccountType, options?: SetOsAccountTypeOptions): Promise<void>;
 
     /**
-     * Obtains the ID of a distributed virtual device. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 获取分布式虚拟设备ID。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
      * > [queryDistributedVirtualDeviceId]{@link osAccount.AccountManager.queryDistributedVirtualDeviceId(callback: AsyncCallback<string>)}
-     * >  instead.
+     * > 替代。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<string> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the distributed virtual
-     *     device ID obtained. Otherwise, **data** is an error object.
+     * @param { AsyncCallback<string> } callback - 回调函数。如果获取成功，err为null，data为分布式虚拟设备ID；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1962,15 +1791,15 @@ declare namespace osAccount {
     getDistributedVirtualDeviceId(callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the ID of this distributed virtual device. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 获取分布式虚拟设备ID。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-     * > [queryDistributedVirtualDeviceId]{@link osAccount.AccountManager.queryDistributedVirtualDeviceId()} instead.
+     * > 从API version 7开始支持，从API version 9开始废弃。建议使用
+     * > [queryDistributedVirtualDeviceId]{@link osAccount.AccountManager.queryDistributedVirtualDeviceId()}替代。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<string> } Promise used to return the distributed virtual device ID obtained.
+     * @returns { Promise<string> } Promise对象，返回分布式虚拟设备ID。
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1979,12 +1808,10 @@ declare namespace osAccount {
     getDistributedVirtualDeviceId(): Promise<string>;
 
     /**
-     * Queries the ID of a distributed virtual device. This API uses an asynchronous callback to return the result.
+     * 获取分布式虚拟设备ID。使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<string> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the distributed virtual device ID
-     *     obtained. Otherwise, **data** is an error object.
+     * @param { AsyncCallback<string> } callback - 回调函数。如果获取成功，err为null，data为分布式虚拟设备ID；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -1996,10 +1823,10 @@ declare namespace osAccount {
     queryDistributedVirtualDeviceId(callback: AsyncCallback<string>): void;
 
     /**
-     * Queries the ID of this distributed virtual device. This API uses a promise to return the result.
+     * 获取分布式虚拟设备ID。使用Promise异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC or ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<string> } Promise used to return the distributed virtual device ID obtained.
+     * @returns { Promise<string> } Promise对象，返回分布式虚拟设备ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -2009,13 +1836,11 @@ declare namespace osAccount {
     queryDistributedVirtualDeviceId(): Promise<string>;
 
     /**
-     * Obtains the profile photo of an OS account. This API uses an asynchronous callback to return the result.
+     * 获取指定系统账号的头像信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { AsyncCallback<string> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the profile photo information
-     *     obtained. Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { AsyncCallback<string> } callback - 回调函数。如果获取成功，err为null，data为指定系统账号的头像信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2031,11 +1856,11 @@ declare namespace osAccount {
     getOsAccountProfilePhoto(localId: int, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the profile photo of an OS account. This API uses a promise to return the result.
+     * 获取指定系统账号的头像信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<string> } Promise used to return the profile photo information obtained.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<string> } Promise对象，返回指定系统账号的头像信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2051,13 +1876,12 @@ declare namespace osAccount {
     getOsAccountProfilePhoto(localId: int): Promise<string>;
 
     /**
-     * Sets a profile photo for an OS account. This API uses an asynchronous callback to return the result.
+     * 为指定系统账号设置头像信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { string } photo - Profile photo information.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null**. Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { string } photo - 头像信息。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果设置成功，err为null，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2074,12 +1898,12 @@ declare namespace osAccount {
     setOsAccountProfilePhoto(localId: int, photo: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets a profile photo for an OS account. This API uses a promise to return the result.
+     * 为指定系统账号设置头像信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { string } photo - Profile photo information.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 系统账号ID。
+     * @param { string } photo - 头像信息。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2096,18 +1920,16 @@ declare namespace osAccount {
     setOsAccountProfilePhoto(localId: int, photo: string): Promise<void>;
 
     /**
-     * Obtains the OS account ID based on the SN. This API uses an asynchronous callback to return the result.
-     *
-     * > **NOTE**
+     * 通过SN码查询与其关联的系统账号的账号ID。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getOsAccountLocalIdForSerialNumber]{@link osAccount.AccountManager.getOsAccountLocalIdForSerialNumber(serialNumber: long, callback: AsyncCallback<int>)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { number } serialNumber - Account SN.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the OS account ID obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { number } serialNumber - 账号SN码。
+     * @param { AsyncCallback<number> } callback - 回调函数。如果查询成功，err为null，data为与SN码关联的系统账号的账号ID；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2116,16 +1938,16 @@ declare namespace osAccount {
     getOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback<number>): void;
 
     /**
-     * Obtains the OS account ID based on the SN. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 通过SN码查询与其关联的系统账号的账号ID。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getOsAccountLocalIdForSerialNumber]{@link osAccount.AccountManager.getOsAccountLocalIdForSerialNumber(serialNumber: long)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { number } serialNumber - Account SN.
-     * @returns { Promise<number> } Promise used to return the OS account ID obtained.
+     * @param { number } serialNumber - 账号SN码。
+     * @returns { Promise<number> } Promise对象，返回与SN码关联的系统账号的账号ID。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2134,12 +1956,10 @@ declare namespace osAccount {
     getOsAccountLocalIdBySerialNumber(serialNumber: number): Promise<number>;
 
     /**
-     * Obtains the OS account ID based on the SN. This API uses an asynchronous callback to return the result.
+     * 通过SN码查询与其关联的系统账号的账号ID。使用callback异步回调。
      *
-     * @param { long } serialNumber - Account SN.
-     * @param { AsyncCallback<int> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the OS account ID obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { long } serialNumber - 账号SN码。
+     * @param { AsyncCallback<int> } callback - 回调函数。如果成功，err为null，data为与SN码关联的系统账号的账号ID；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2152,10 +1972,10 @@ declare namespace osAccount {
     getOsAccountLocalIdForSerialNumber(serialNumber: long, callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the OS account ID based on the SN. This API uses a promise to return the result.
+     * 通过SN码查询与其关联的系统账号的账号ID。使用Promise异步回调。
      *
-     * @param { long } serialNumber - Account SN.
-     * @returns { Promise<int> } Promise used to return the OS account ID obtained.
+     * @param { long } serialNumber - 账号SN码。
+     * @returns { Promise<int> } Promise对象，返回与SN码关联的系统账号的账号ID。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2168,19 +1988,16 @@ declare namespace osAccount {
     getOsAccountLocalIdForSerialNumber(serialNumber: long): Promise<int>;
 
     /**
-     * Obtains the SN of an OS account based on the account ID. This API uses an asynchronous callback to return the
-     * result.
-     *
-     * > **NOTE**
+     * 通过系统账号ID获取与该系统账号关联的SN码。使用callback异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getSerialNumberForOsAccountLocalId]{@link osAccount.AccountManager.getSerialNumberForOsAccountLocalId(localId: int, callback: AsyncCallback<long>)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<number> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the SN obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<number> } callback - 回调函数。如果获取成功，err为null，data为与该系统账号关联的SN码；否则为错误对象。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2189,16 +2006,16 @@ declare namespace osAccount {
     getSerialNumberByOsAccountLocalId(localId: number, callback: AsyncCallback<number>): void;
 
     /**
-     * Obtains the SN of an OS account based on the account ID. This API uses a promise to return the result.
-     *
-     * > **NOTE**
+     * 通过系统账号ID获取与该系统账号关联的SN码。使用Promise异步回调。
+     * 
+     * > **说明：**
      * >
-     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > 从API version 8开始支持，从API version 9开始废弃。建议使用
      * > [getSerialNumberForOsAccountLocalId]{@link osAccount.AccountManager.getSerialNumberForOsAccountLocalId(localId: int)}
-     * >  instead.
+     * > 替代。
      *
-     * @param { number } localId - ID of the target OS account.
-     * @returns { Promise<number> } Promise used to return the SN obtained.
+     * @param { number } localId - 系统账号ID。
+     * @returns { Promise<number> } Promise对象，返回与该系统账号关联的SN码。
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2207,13 +2024,10 @@ declare namespace osAccount {
     getSerialNumberByOsAccountLocalId(localId: number): Promise<number>;
 
     /**
-     * Obtains the SN of an OS account based on the account ID. This API uses an asynchronous callback to return the
-     * result.
+     * 通过系统账号ID获取与该系统账号关联的SN码。使用callback异步回调。
      *
-     * @param { int } localId - ID of the target OS account.
-     * @param { AsyncCallback<long> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the SN obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { int } localId - 系统账号ID。
+     * @param { AsyncCallback<long> } callback - 回调函数。如果获取成功，err为null，data为与该系统账号关联的SN码；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2226,10 +2040,10 @@ declare namespace osAccount {
     getSerialNumberForOsAccountLocalId(localId: int, callback: AsyncCallback<long>): void;
 
     /**
-     * Obtains the SN of an OS account based on the account ID. This API uses a promise to return the result.
+     * 通过系统账号ID获取与该系统账号关联的SN码。使用Promise异步回调。
      *
-     * @param { int } localId - ID of the target OS account.
-     * @returns { Promise<long> } Promise used to return the SN obtained.
+     * @param { int } localId - 系统账号ID。
+     * @returns { Promise<long> } Promise对象，返回与该系统账号关联的SN码。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2242,17 +2056,12 @@ declare namespace osAccount {
     getSerialNumberForOsAccountLocalId(localId: int): Promise<long>;
 
     /**
-     * Subscribes to the OS account activation states, including the states of the account being activated and the
-     * account with activation completed. This API uses an asynchronous callback to return the result.
+     * 订阅系统账号的激活完成与激活中的事件。使用callback异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { 'activate' | 'activating' } type - Type of the event to subscribe to.
-     *     The value **activate** indicates that an OS account is activated, and **activating**
-     *     indicates that an OS account is being activated.
-     * @param { string } name - Subscription name, which can be customized.
-     *     The value cannot be empty or exceed 1024 bytes.
-     * @param { Callback<int> } callback - Callback used to return the ID of the OS account
-     *     being activated or activated.
+     * @param { 'activate' | 'activating' } type - 订阅类型，activate表示订阅的是账号已激活完成的事件，activating表示订阅的是账号正在激活的事件。
+     * @param { string } name - 订阅名称，可自定义，要求非空且长度不超过1024字节。
+     * @param { Callback<int> } callback - 订阅系统账号激活完成与激活中的事件回调，表示激活完成后或正在激活中的系统账号ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2266,17 +2075,12 @@ declare namespace osAccount {
     on(type: 'activate' | 'activating', name: string, callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from the OS account activation states, including the states of the account being activated and
-     * the account with activation completed. This API uses an asynchronous callback to return the result.
+     * 取消订阅系统账号的激活完成与激活中的事件。使用callback异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { 'activate' | 'activating' } type - Type of the event to unsubscribe from. The value
-     *     **activate** indicates that an OS account is activated, and
-     *     **activating** indicates that an OS account is being activated.
-     * @param { string } name - Subscription name, which can be customized. The value cannot be empty or
-     *     exceed 1024 bytes, and must be the same as the value passed by **on()**.
-     * @param { Callback<int> } callback - Callback to unregister. By default, this parameter is left empty,
-     *     which unregisters all callbacks for the OS account activation states.
+     * @param { 'activate' | 'activating' } type - 取消订阅类型，activate表示取消订阅账号已激活完成的事件，activating取消订阅账号正在激活的事件。
+     * @param { string } name - 订阅名称，可自定义，要求非空且长度不超过1024字节，需要与订阅接口传入的值保持一致。
+     * @param { Callback<int> } callback - 取消订阅系统账号激活完成与激活中的事件回调，默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2290,17 +2094,13 @@ declare namespace osAccount {
     off(type: 'activate' | 'activating', name: string, callback?: Callback<int>): void;
 
     /**
-     * Subscribes to the switchover between a foreground OS account and a background OS account in progress.
-     * This API uses an asynchronous callback to return the result.
+     * 订阅系统账号的前后台正在切换事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS [since 12 - 22]
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 23]
-     * @param { 'switching' } type - Event type. The value **switching** indicates that the switchover
-     *     between a foreground OS account and a background account is being performed.
-     * @param { Callback<OsAccountSwitchEventData> } callback - Callback to be invoked when an OS account is
-     *     switching between the foreground and background. The source and target OS account IDs are
-     *     subscribed to.<br>Note: Since API version 23, the optional field **displayId** is available,
-     *     indicating the ID of the logical display where the switch event occurs.
+     * @param { 'switching' } type - 订阅类型，switching表示订阅的是系统账号的前后台正在切换事件。
+     * @param { Callback<OsAccountSwitchEventData> } callback - 订阅系统账号的前后台正在切换事件回调，包含切换来源和切换目标的系统账号ID。<br/>**说明：** 从API version
+     *     23开始，事件数据中新增可选字段displayId，表示发生切换事件的逻辑屏ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2312,15 +2112,12 @@ declare namespace osAccount {
     on(type: 'switching', callback: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Unsubscribes from the switchover between a foreground OS account and a background OS account in progress.
-     *  This API uses an asynchronous callback to return the result.
+     * 取消订阅系统账号的前后台正在切换事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS [since 12 - 22]
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 23]
-     * @param { 'switching' } type - Event type. The value **switching** indicates that the switchover
-     *     between a foreground OS account and a background account is being performed.
-     * @param { Callback<OsAccountSwitchEventData> } [callback] - Callback to unregister.
-     *     By default, this parameter is left empty, which unregisters all callbacks for the **switching** event.
+     * @param { 'switching' } type - 取消订阅类型，switching表示取消订阅的是系统账号的前后台正在切换事件。
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - 取消订阅系统账号的前后台正在切换事件回调，默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2332,17 +2129,13 @@ declare namespace osAccount {
     off(type: 'switching', callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Subscribes to the end of a switchover between a foreground OS account and a background OS account. This
-     * API uses an asynchronous callback to return the result.
+     * 订阅系统账号的前后台切换结束事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS [since 12 - 22]
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 23]
-     * @param { 'switched' } type - Event type. The value **switched** indicates that the switchover
-     *     between a foreground OS account and a background OS account is complete.
-     * @param { Callback<OsAccountSwitchEventData> } callback - Callback to be invoked when an OS account is
-     *     switched between the foreground and background. The source and target OS account IDs are subscribed to.
-     *     <br>Note: Since API version 23, the optional field **displayId** is available, indicating the ID of the
-     *     logical display where the switch event occurs.
+     * @param { 'switched' } type - 订阅类型，switched表示订阅的是系统账号的前后台切换结束事件。
+     * @param { Callback<OsAccountSwitchEventData> } callback - 订阅系统账号的前后台切换结束事件回调，包含切换来源和切换目标的系统账号ID。<br/>**说明：** 从API version
+     *     23开始，事件数据中新增可选字段displayId，表示发生切换事件的逻辑屏ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2354,15 +2147,12 @@ declare namespace osAccount {
     on(type: 'switched', callback: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Unsubscribes from the end of a switchover between a foreground OS account and a background OS account.
-     * This API uses an asynchronous callback to return the result.
+     * 取消订阅系统账号的前后台切换结束事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS [since 12 - 22]
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 23]
-     * @param { 'switched' } type - Event type. The value **switched** indicates that the switchover
-     *     between a foreground OS account and a background OS account is complete.
-     * @param { Callback<OsAccountSwitchEventData> } [callback] - Callback to unregister. By default, this parameter
-     *     is left empty, which unregisters all callbacks for the **switched** event.
+     * @param { 'switched' } type - 取消订阅类型，switched表示取消订阅的是系统账号的前后台切换结束事件。
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - 取消订阅系统账号的前后台切换结束事件回调，默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2374,11 +2164,11 @@ declare namespace osAccount {
     off(type: 'switched', callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Subscribes to the event indicating the completion of an OS account activation.
+     * 订阅系统账号的激活完成的事件。使用callback异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<int> } callback - Asynchronous callback interface.
+     * @param { string } name - 订阅名称，可自定义，要求非空且长度不超过1024字节。
+     * @param { Callback<int> } callback - 订阅系统账号激活完成的事件回调。表示激活完成后的系统账号ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2390,11 +2180,11 @@ declare namespace osAccount {
     onActivate(name: string, callback: Callback<int>): void;
 
     /**
-     * Subscribes to the event indicating that an OS account is being activated.
+     * 订阅系统账号的激活中的事件。使用callback异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<int> } callback - Asynchronous callback interface.
+     * @param { string } name - 订阅名称，可自定义，要求非空且长度不超过1024字节。
+     * @param { Callback<int> } callback - 订阅系统账号激活中的事件回调，表示正在激活中的系统账号ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2406,11 +2196,11 @@ declare namespace osAccount {
     onActivating(name: string, callback: Callback<int>): void;
 
     /**
-     * Unsubscribes from the event indicating the completion of an OS account activation.
+     * 取消订阅系统账号的激活完成的事件。使用callback异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<int> } [callback] - Asynchronous callback interface.
+     * @param { string } name - 订阅名称，可自定义，要求非空且长度不超过1024字节，需要与订阅接口传入的值保持一致。
+     * @param { Callback<int> } [callback] - 取消订阅系统账号激活完成的事件回调。默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2422,11 +2212,11 @@ declare namespace osAccount {
     offActivate(name: string, callback?: Callback<int>): void;
 
     /**
-     * Unsubscribes from the event indicating that an OS account is being activated.
+     * 取消订阅系统账号的激活中的事件。使用callback异步回调。
      *
      * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS_EXTENSION
-     * @param { string } name - Indicates the name of subscriber.
-     * @param { Callback<int> } [callback] - Asynchronous callback interface.
+     * @param { string } name - 订阅名称，可自定义，要求非空且长度不超过1024字节，需要与订阅接口传入的值保持一致。
+     * @param { Callback<int> } [callback] - 取消订阅系统账号激活中的事件回调。默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2438,10 +2228,10 @@ declare namespace osAccount {
     offActivating(name: string, callback?: Callback<int>): void;
 
     /**
-     * Subscribes to the OS account switching event.
+     * 订阅系统账号的前后台正在切换事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @param { Callback<OsAccountSwitchEventData> } callback - 订阅系统账号的前后台正在切换事件回调，包含切换来源和切换目标的系统账号ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2452,10 +2242,10 @@ declare namespace osAccount {
     onSwitching(callback: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Unsubscribes from the OS account switching event.
+     * 取消订阅系统账号的前后台正在切换事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - 取消订阅系统账号的前后台正在切换事件回调，默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2466,10 +2256,10 @@ declare namespace osAccount {
     offSwitching(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Subscribes to the OS account switched event.
+     * 订阅系统账号的前后台切换结束事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { Callback<OsAccountSwitchEventData> } callback - Indicates the callback for getting the event data.
+     * @param { Callback<OsAccountSwitchEventData> } callback - 订阅系统账号的前后台切换结束事件回调，包含切换来源和切换目标的系统账号ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2480,10 +2270,10 @@ declare namespace osAccount {
     onSwitched(callback: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Unsubscribes from the OS account switched event.
+     * 取消订阅系统账号的前后台切换结束事件。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { Callback<OsAccountSwitchEventData> } [callback] - Indicates the callback for getting the event data.
+     * @param { Callback<OsAccountSwitchEventData> } [callback] - 取消订阅系统账号的前后台切换结束事件回调，默认为空，表示取消该类型事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2494,13 +2284,11 @@ declare namespace osAccount {
     offSwitched(callback?: Callback<OsAccountSwitchEventData>): void;
 
     /**
-     * Subscribes to one or more constraint change events of the OS account to which the caller belongs. This API
-     * uses an asynchronous callback to return the result.
+     * 订阅调用方所属系统账号的一种或多种约束变更事件。使用callback异步回调。
      *
-     * @param { string[] } constraints - List of
-     *     [constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints)
-     *     to be subscribed to.
-     * @param { Callback<ConstraintChangeInfo> } callback - Callback used to listen for the constraint change events.
+     * @param { string[] } constraints - 表示待订阅的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)列
+     *     表。
+     * @param { Callback<ConstraintChangeInfo> } callback - 表示用于接收约束变更事件的回调函数。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - One or more constraints are invalid.
@@ -2511,13 +2299,10 @@ declare namespace osAccount {
     onConstraintChanged(constraints: string[], callback: Callback<ConstraintChangeInfo>): void;
 
     /**
-     * Unsubscribes from constraint change events associated with the specified callback. If no callback is specified,
-     * this API unsubscribes from all subscription records.
+     * 取消与指定回调关联的约束变更订阅记录。若未指定回调，则取消所有订阅记录。
      *
-     * @param { Callback<ConstraintChangeInfo> } [callback] - Callback for receiving constraint change information.
-     *     - Callback used to listen for the constraint change events.<br>The
-     *     default value is **undefined**, indicating that all subscription records are unsubscribed.<br>If this
-     *     parameter is not **undefined**, the subscription records associated with the callback are unsubscribed.
+     * @param { Callback<ConstraintChangeInfo> } [callback] - 表示用于接收约束变更事件的回调函数。<br>默认为undefined，表示清除所有订阅记录。<br>非undefined时，表示清
+     *     除与该回调函数关联的订阅记录。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @syscap SystemCapability.Account.OsAccount
@@ -2527,11 +2312,10 @@ declare namespace osAccount {
     offConstraintChanged(callback?: Callback<ConstraintChangeInfo>): void;
 
     /**
-     * Obtains the bundle ID based on the specified UID. This API uses an asynchronous callback to return the result.
+     * 通过uid查询对应的bundleId。使用callback异步回调。
      *
-     * @param { int } uid - Process UID.
-     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **null** and **data** is the bundle ID obtained. Otherwise, **data** is an error object.
+     * @param { int } uid - 进程uid。
+     * @param { AsyncCallback<int> } callback - 回调函数。如果查询成功，err为null，data为与uid对应的bundleId；否则为错误对象。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -2545,10 +2329,10 @@ declare namespace osAccount {
     getBundleIdForUid(uid: int, callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the bundle ID based on the specified UID. This API uses a promise to return the result.
+     * 通过uid查询对应的bundleId。使用Promise异步回调。
      *
-     * @param { int } uid - Process UID.
-     * @returns { Promise<int> } Promise used to return the bundle ID obtained.
+     * @param { int } uid - 进程uid。
+     * @returns { Promise<int> } Promise对象，返回与uid对应的bundleId。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -2562,10 +2346,10 @@ declare namespace osAccount {
     getBundleIdForUid(uid: int): Promise<int>;
 
     /**
-     * Obtains the bundle ID based on the specified UID. The API returns the result synchronously.
+     * 通过uid查询对应的bundleId。使用同步方式返回结果。
      *
-     * @param { int } uid - Process UID.
-     * @returns { int } Bundle ID obtained.
+     * @param { int } uid - 进程uid。
+     * @returns { int } 表示与进程uid对应的bundleId。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -2578,13 +2362,10 @@ declare namespace osAccount {
     getBundleIdForUidSync(uid: int): int;
 
     /**
-     * Checks whether the current process belongs to the main OS account. This API uses an asynchronous callback to
-     * return the result.
+     * 查询当前进程是否处于主用户。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If **true** is returned,
-     *     the current process belongs to the main OS account. If **false** is returned, the current process
-     *     does not belong to the main OS account.
+     * @param { AsyncCallback<boolean> } callback - 回调函数，返回true表示当前账号为主账号，返回false表示当前账号非主账号。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2598,13 +2379,10 @@ declare namespace osAccount {
     isMainOsAccount(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether the current process belongs to the main OS account. This API uses a promise to return the
-     * result.
+     * 查询当前进程是否处于主用户。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @returns { Promise<boolean> } Promise used to return the result. If **true** is returned, the current process
-     *     belongs to the main OS account. If **false** is returned, the current process does not belong to
-     *     the main OS account.
+     * @returns { Promise<boolean> } Promise对象，返回true表示当前账号为主账号，返回false表示当前账号非主账号。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -2616,18 +2394,13 @@ declare namespace osAccount {
     isMainOsAccount(): Promise<boolean>;
 
     /**
-     * Obtains the constraint source information of an OS account. This API uses an asynchronous callback to return
-     * the result.
+     * 查询指定系统账号的指定约束来源信息。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) whose
-     *     source information is to be obtained.
-     * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - Callback used to return the result. If the
-     *     operation is successful, **err** is **null** and **data** is the
-     *     [constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) source
-     *     information obtained. Otherwise, **err** is an error object.
+     * @param { int } localId - 要查询的系统账号ID。
+     * @param { string } constraint - 要查询的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @param { AsyncCallback<Array<ConstraintSourceTypeInfo>> } callback - 回调函数。如果成功，err为null，data为指定系统账号的指定
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)来源信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2643,15 +2416,13 @@ declare namespace osAccount {
     getOsAccountConstraintSourceTypes(localId: int, constraint: string, callback: AsyncCallback<Array<ConstraintSourceTypeInfo>>): void;
 
     /**
-     * Obtains the constraint source information of an OS account. This API uses a promise to return the result.
+     * 查询指定系统账号的指定约束来源信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { string } constraint -
-     *     [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) whose
-     *     source information is to be obtained.
-     * @returns { Promise<Array<ConstraintSourceTypeInfo>> } Promise used to return the source information of
-     *     the specified [constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints).
+     * @param { int } localId - 要查询的系统账号ID。
+     * @param { string } constraint - 要查询的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)名称。
+     * @returns { Promise<Array<ConstraintSourceTypeInfo>> } Promise对象，返回指定系统账号的指定
+     *     [约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)来源信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2667,12 +2438,12 @@ declare namespace osAccount {
     getOsAccountConstraintSourceTypes(localId: int, constraint: string): Promise<Array<ConstraintSourceTypeInfo>>;
 
     /**
-     * Binds a domain account to an OS account. This API uses a promise to return the result.
+     * 在指定系统账号上绑定指定域账号。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { int } localId - ID of the target OS account.
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } localId - 要查询的系统账号ID。
+     * @param { DomainAccountInfo } domainAccountInfo - 域账号信息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -2693,7 +2464,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents information about an OS account.
+   * 表示系统账号信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
@@ -2701,7 +2472,7 @@ declare namespace osAccount {
    */
   interface OsAccountInfo {
     /**
-     * ID of the target OS account.
+     * 系统账号ID。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -2710,7 +2481,7 @@ declare namespace osAccount {
     localId: int;
 
     /**
-     * Name of the OS account.
+     * 系统账号名称。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -2719,9 +2490,9 @@ declare namespace osAccount {
     localName: string;
 
     /**
-     * Short name of the OS account.
-     *
-     * This is a system API and is left blank by default.
+     * 系统账号的短名称。
+     * 
+     * 此接口为系统接口，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2731,7 +2502,7 @@ declare namespace osAccount {
     shortName?: string;
 
     /**
-     * Type of the OS account.
+     * 系统账号类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -2740,8 +2511,7 @@ declare namespace osAccount {
     type: OsAccountType;
 
     /**
-     * [Constraints](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) of the system
-     * account. By default, no value is passed in.
+     * 系统账号[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -2750,11 +2520,9 @@ declare namespace osAccount {
     constraints: Array<string>;
 
     /**
-     * Whether the account has been verified. The value **true** means the specified account has been verified; the
-     * value **false** means the opposite.
-     *
-     * Note: This parameter is supported since API version 7 and deprecated since API version 11. You are advised to use
-     *  **isUnlocked** instead.
+     * 账号是否验证。true表示指定账号已验证；false表示指定账号未验证。
+     * 
+     * **说明：**从API version 7开始支持，从API version 11开始废弃，建议使用isUnlocked。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
@@ -2764,8 +2532,7 @@ declare namespace osAccount {
     isVerified: boolean;
 
     /**
-     * Whether the account is unlocked (whether the **el2/** directory is decrypted). The value **true** means the
-     * specified account is unlocked; the value **false** means the opposite.
+     * 账号是否已解锁（EL2级别目录是否解密）。true表示指定账号已解锁；false表示指定账号未解锁。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 11 dynamic
@@ -2774,7 +2541,7 @@ declare namespace osAccount {
     isUnlocked: boolean;
 
     /**
-     * Avatar of the OS account. By default, no value is passed in.
+     * 系统账号头像，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -2783,7 +2550,7 @@ declare namespace osAccount {
     photo: string;
 
     /**
-     * OS account creation time. The value is a Unix timestamp (in seconds).
+     * 系统账号创建时间，以Unix时间戳格式表示，单位为s。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -2792,7 +2559,7 @@ declare namespace osAccount {
     createTime: long;
 
     /**
-     * Last login time of the OS account. The value is a Unix timestamp (in seconds).
+     * 系统账号最后一次登录时间，以Unix时间戳格式表示，单位为s。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -2801,7 +2568,7 @@ declare namespace osAccount {
     lastLoginTime: long;
 
     /**
-     * SN of the OS account.
+     * 系统账号SN码。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -2810,11 +2577,9 @@ declare namespace osAccount {
     serialNumber: long;
 
     /**
-     * Whether the OS account is activated. The value **true** means the specified account is activated; the value
-     * **false** means the opposite.
-     *
-     * Note: This parameter is supported since API version 7 and deprecated since API version 11. You are advised to use
-     *  **isActivated** instead.
+     * 系统账号激活状态。true表示指定账号处于激活状态；false表示指定账号处于未激活状态。
+     * 
+     * **说明：**从API version 7开始支持，从API version 11开始废弃，建议使用isActivated。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamiconly
@@ -2824,8 +2589,7 @@ declare namespace osAccount {
     isActived: boolean;
 
     /**
-     * Whether the OS account is activated. The value **true** means the specified account is activated; the value
-     * **false** means the opposite.
+     * 系统账号是否激活。true表示指定账号已激活；false表示指定账号未激活。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 11 dynamic
@@ -2834,10 +2598,9 @@ declare namespace osAccount {
     isActivated: boolean;
 
     /**
-     * Whether the OS account is logged in. The value **true** means that the OS account has logged in; the
-     * value **false** means the opposite.
-     *
-     * This is a system API. The default value is **false**.
+     * 是否登录。true表示已登录；false表示未登录。
+     * 
+     * 此接口为系统接口，默认为false。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2847,8 +2610,7 @@ declare namespace osAccount {
     isLoggedIn?: boolean;
 
     /**
-     * Whether the OS account information is complete. The value **true** means the specified account is complete;
-     * the value **false** means the opposite.
+     * 系统账号创建是否完整。true表示指定账号已创建完整；false表示指定账号未创建完整。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -2857,7 +2619,7 @@ declare namespace osAccount {
     isCreateCompleted: boolean;
 
     /**
-     * Distributed account information. By default, no value is passed in.
+     * 分布式账号信息，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -2866,7 +2628,7 @@ declare namespace osAccount {
     distributedInfo: distributedAccount.DistributedInfo;
 
     /**
-     * Domain account information. By default, no value is passed in.
+     * 域账号信息，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -2876,7 +2638,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the event that indicates the start or end of a foreground-background OS account switchover.
+   * 表示系统账号前后台开始切换和结束切换事件的数据结构。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -2885,7 +2647,7 @@ declare namespace osAccount {
    */
   interface OsAccountSwitchEventData {
     /**
-     * ID of the source OS account.
+     * 切换来源系统账号ID。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2895,7 +2657,7 @@ declare namespace osAccount {
     fromAccountId: int;
 
     /**
-     * ID of the target OS account.
+     * 切换目标系统账号ID。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2905,7 +2667,7 @@ declare namespace osAccount {
     toAccountId: int;
 
     /**
-     * ID of the logical display where the switchover occurs. The default value is **0**.
+     * 切换事件发生的逻辑屏ID，默认值为0。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -2915,7 +2677,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the constraint change information.
+   * 表示约束变更信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -2923,7 +2685,7 @@ declare namespace osAccount {
    */
   interface ConstraintChangeInfo {
     /**
-     * [Constraint](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#constraints) that has been changed.
+     * 发生变更的[约束](docroot://reference/apis-basic-services-kit/js-apis-osAccount.md#系统账号约束列表)。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -2932,9 +2694,9 @@ declare namespace osAccount {
     constraint: string;
 
     /**
-     * Enabling state of the changed constraint. The default value is **false**.
-     *
-     * The value **true** indicates that the target constraint is enabled, and **false** indicates the opposite.
+     * 发生变更的约束的使能状态。默认：false。
+     * 
+     * true表示目标约束已使能；false表示目标约束未使能。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -2944,7 +2706,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents the optional parameter used to create an OS account.
+   * 表示用于创建系统账号的可选参数。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -2953,13 +2715,13 @@ declare namespace osAccount {
    */
   interface CreateOsAccountOptions {
     /**
-     * Short name of the account (used as the name of the personal folder).
-     *
-     * **The short name cannot**:
-     *
-     * 1. Contain any of the following characters: < >| : " * ? / \
-     * 2. Contain any of the following: . or ..
-     * 3. Exceed 255 characters.
+     * 表示账号短名称（用作个人文件夹目录）。 
+     * 
+     * **约束：** 
+     * 
+     * 1. 不允许出现的字符：< > | : " * ? / \
+     * 2. 不允许独立出现的字符串：.或..
+     * 3. 长度不超过255个字符。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2968,13 +2730,13 @@ declare namespace osAccount {
     shortName: string;
 
     /**
-     * Short name of the account (used as the name of the personal folder).
-     *
-     * **The short name cannot**:
-     *
-     * 1. Contain any of the following characters: < >| : " * ? / \
-     * 2. Contain any of the following: . or ..
-     * 3. Exceed 255 characters.
+     * 表示账号短名称（用作个人文件夹目录）。 
+     * 
+     * **约束：** 
+     * 
+     * 1. 不允许出现的字符：< > | : " * ? / \
+     * 2. 不允许独立出现的字符串：.或..
+     * 3. 长度不超过255个字符。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2983,8 +2745,7 @@ declare namespace osAccount {
     shortName?: string;
 
     /**
-     * Forbidden list of the preinstalled applications, which cannot be installed on the device. The value is left empty
-     *  by default.
+     * 表示预置应用禁止名单，名单中的应用不可被安装在设备上，默认为空列表。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -2994,8 +2755,7 @@ declare namespace osAccount {
     disallowedPreinstalledBundles?: Array<string>;
 
     /**
-     * Trustlist of the preinstalled applications, which can be installed on the device. The default value is **std::
-     * nullopt**.
+     * 表示预置应用允许名单，仅名单中的应用可以被安装在设备上，默认为std::nullopt。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3005,7 +2765,7 @@ declare namespace osAccount {
     allowedPreinstalledBundles?: Array<string>;
 
     /**
-     * Token obtained from the authentication management API. The value is left empty by default.
+     * 表示从认证管理接口获取的token，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3015,8 +2775,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents a set of optional parameters for creating an OS account bound to the specified domain account. It
-   * inherits from [CreateOsAccountOptions]{@link osAccount.CreateOsAccountOptions}.
+   * 表示用于创建与指定域账号绑定的系统账号的可选参数。继承自[CreateOsAccountOptions]{@link osAccount.CreateOsAccountOptions}。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -3026,7 +2785,7 @@ declare namespace osAccount {
   interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {}
 
   /**
-   * Represents the optional parameter used to remove an OS account.
+   * 表示用于删除系统账号的可选参数。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -3034,7 +2793,7 @@ declare namespace osAccount {
    */
   interface RemoveOsAccountOptions {
     /**
-     * Token obtained from the authentication management API. The value is left empty by default.
+     * 表示从认证管理接口获取的token，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3044,7 +2803,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the options for setting the OS account type.
+   * 设置系统账号类型的选项。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -3052,7 +2811,7 @@ declare namespace osAccount {
    */
   interface SetOsAccountTypeOptions {
     /**
-     * Token obtained from the authentication management API. The value is left empty by default.
+     * 表示从认证管理接口获取的token，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3062,7 +2821,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents the domain account information.
+   * 表示域账号信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 8 dynamic
@@ -3070,7 +2829,7 @@ declare namespace osAccount {
    */
   interface DomainAccountInfo {
     /**
-     * Domain name.
+     * 域名。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -3079,7 +2838,7 @@ declare namespace osAccount {
     domain: string;
 
     /**
-     * Domain account name.
+     * 域账号名。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
@@ -3088,9 +2847,9 @@ declare namespace osAccount {
     accountName: string;
 
     /**
-     * Domain account ID.
-     *
-     * This is a system API and is **undefined** by default.
+     * 域账号标识。
+     * 
+     * 此接口为系统接口，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3100,10 +2859,9 @@ declare namespace osAccount {
     accountId?: string;
 
     /**
-     * Whether the domain account has been authenticated. The value **true** means that the specified domain account has
-     *  been authenticated; the value **false** means the opposite.
-     *
-     * This is a system API. The default value is **false**.
+     * 指示域账号是否已认证。true表示指定的域账号已认证；false表示指定的域账号未认证。
+     * 
+     * 此接口为系统接口，默认为false。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3113,7 +2871,7 @@ declare namespace osAccount {
     isAuthenticated?: boolean;
 
     /**
-     * Domain account configuration ID, which is an empty string by default.
+     * 域账号配置ID，默认为空字符串。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 18 dynamic
@@ -3122,7 +2880,9 @@ declare namespace osAccount {
     serverConfigId?: string;
 
     /**
-     * Additional information about the domain account.
+     * 域账号附加信息。
+     * 
+     * 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @stagemodelonly
@@ -3131,7 +2891,9 @@ declare namespace osAccount {
     additionalInfo?: Record<string, Object>;
 
     /**
-     * Additional information about the domain account.
+     * 域账号附加信息。
+     * 
+     * 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @stagemodelonly
@@ -3141,7 +2903,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the OS account types.
+   * 表示系统账号类型的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
@@ -3149,7 +2911,7 @@ declare namespace osAccount {
    */
   enum OsAccountType {
     /**
-     * Administrator account.
+     * 管理员账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -3158,7 +2920,7 @@ declare namespace osAccount {
     ADMIN = 0,
 
     /**
-     * Normal account.
+     * 普通账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -3167,7 +2929,7 @@ declare namespace osAccount {
     NORMAL = 1,
 
     /**
-     * Guest account.
+     * 访客账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
@@ -3176,9 +2938,9 @@ declare namespace osAccount {
     GUEST = 2,
 
     /**
-     * Privacy account. Only one privacy account is allowed.
-     *
-     * This is a system API.
+     * 隐私账号。隐私账号只能有一个。
+     * 
+     * 此接口为系统接口。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3189,7 +2951,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the OS account authorization manager class.
+   * 系统账号授权管理类，用于管理系统账号授权。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -3198,14 +2960,14 @@ declare namespace osAccount {
    */
   interface AuthorizationManager {
     /**
-     * Acquires an authorization for a process.
+     * 为当前进程获取授权。
      *
      * @permission ohos.permission.ACQUIRE_LOCAL_ACCOUNT_AUTHORIZATION
-     * @param { string } privilege - Target permission. For details, see
-     *     [configuration file](https://gitcode.com/openharmony/account_os_account/blob/master/services/accountmgr/authorization_manager/config/privileges.json).
-     * @param { AcquireAuthorizationOptions } [options] - Authorization options.
-     *     This parameter is left empty by default.
-     * @returns { Promise<AcquireAuthorizationResult> } Promise used to return the authorization result.
+     * @param { string } privilege - 目标权限，详见
+     *     [配置文件](https://gitcode.com/openharmony/account_os_account/blob/master/services/accountmgr/authorization_manager/config/privileges.json)
+     *     。
+     * @param { AcquireAuthorizationOptions } [options] - 获取授权的选项，默认为空。
+     * @returns { Promise<AcquireAuthorizationResult> } Promise对象，返回获取授权的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -3218,11 +2980,12 @@ declare namespace osAccount {
     acquireAuthorization(privilege: string, options?: AcquireAuthorizationOptions): Promise<AcquireAuthorizationResult>;
 
     /**
-     * Releases the specified authorization for the current process.
+     * 为当前进程撤销指定特权的授权。
      *
-     * @param { string } privilege - Target permission. For details, see
-     *     [configuration file](https://gitcode.com/openharmony/account_os_account/blob/master/services/accountmgr/authorization_manager/config/privileges.json).
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } privilege - 目标权限，详见
+     *     [配置文件](https://gitcode.com/openharmony/account_os_account/blob/master/services/accountmgr/authorization_manager/config/privileges.json)
+     *     。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid privilege.
@@ -3234,12 +2997,12 @@ declare namespace osAccount {
     releaseAuthorization(privilege: string): Promise<void>;
 
     /**
-     * Checks whether the current process has specified authorization.
+     * 检查当前进程是否已获得指定特权的授权。
      *
-     * @param { string } privilege - Target permission. For details, see
-     *     [configuration file](https://gitcode.com/openharmony/account_os_account/blob/master/services/accountmgr/authorization_manager/config/privileges.json).
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that
-     *     the current process has specified authorization, and **false** indicates the opposite.
+     * @param { string } privilege - 目标权限，详见
+     *     [配置文件](https://gitcode.com/openharmony/account_os_account/blob/master/services/accountmgr/authorization_manager/config/privileges.json)
+     *     。
+     * @returns { Promise<boolean> } Promise对象，返回true表示已获得指定特权的授权；返回false表示未获得指定特权的授权。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid privilege.
@@ -3252,7 +3015,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the options for acquiring the authorization.
+   * 表示获取授权的选项。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -3261,8 +3024,7 @@ declare namespace osAccount {
    */
   interface AcquireAuthorizationOptions {
     /**
-     * Random challenge value, which prevents replay attacks. The value contains a maximum of 32 bytes. The default
-     * value is **undefined**.
+     * 随机挑战值，可用于防止重放攻击，长度不得超过32字节，默认为undefined。
      *
      * @default undefined
      * @syscap SystemCapability.Account.OsAccount
@@ -3273,10 +3035,9 @@ declare namespace osAccount {
     challenge?: Uint8Array;
 
     /**
-     * Whether to reuse the previous authorization. The default value is **true**.
-     *
-     * If the value is **true** and the authorization result is valid, the result will be reused. Otherwise, a new
-     * authorization will be executed.
+     * 是否需要重复用先前的授权，默认为true。
+     * 
+     * 如果为true且存在有效的授权结果，则将复用该结果；否则，将执行新的授权。
      *
      * @default true
      * @syscap SystemCapability.Account.OsAccount
@@ -3287,13 +3048,11 @@ declare namespace osAccount {
     isReuseNeeded?: boolean;
 
     /**
-     * Whether user interaction is allowed. The default value is **true**.
-     *
-     * If the value is **true**, the authorization dialog box can be displayed in the interaction context. If the value
-     * is **false**, the authorization dialog box cannot be displayed.
-     *
-     * Note: This option is valid only when the caller is in the foreground. If the caller is in the background, user
-     * interaction is not allowed.
+     * 是否允许用户交互，默认为true 。
+     * 
+     * 如果为true，则允许在交互上下文中显示授权对话框；如果为false，则不允许显示授权对话框。
+     * 
+     * **注意**：此选项仅在调用者位于前台时生效。如果调用者在后台，则不允许用户交互。
      *
      * @default true
      * @syscap SystemCapability.Account.OsAccount
@@ -3304,15 +3063,14 @@ declare namespace osAccount {
     isInteractionAllowed?: boolean;
 
     /**
-     * User interaction context configuration. The default value is **undefined**.
-     *
-     * - If no context is specified, the authorization dialog box is displayed in modal system mode.
-     * - If [UIAbilityContext](../apis-ability-kit/js-apis-inner-application-uiAbilityContext.md) or
-     * [UIExtensionContext](../apis-ability-kit/js-apis-inner-application-uiExtensionContext.md) is specified, the
-     * authorization dialog box is displayed in modal application mode.
-     * - If no valid context is provided, the authorization dialog box cannot be displayed.
-     *
-     * Note: This parameter is valid only when **isInteractionAllowed** is set to **true**.
+     * 用户交互上下文配置，默认为undefined。
+     * 
+     * - 未指定上下文时，授权对话框以模态系统模式显示。
+     * - 指定[UIAbilityContext](../apis-ability-kit/js-apis-inner-application-uiAbilityContext.md)或
+     * [UIExtensionContext](../apis-ability-kit/js-apis-inner-application-uiExtensionContext.md)时，以模态应用模式显示。
+     * - 未提供有效上下文时，授权对话框无法显示。
+     * 
+     * **注意**：仅当isInteractionAllowed为true时生效。
      *
      * @default undefined, which means the authorization dialog will be displayed in modal system mode.
      * @syscap SystemCapability.Account.OsAccount
@@ -3324,7 +3082,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates authorization result codes.
+   * 表示授权结果码的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -3333,7 +3091,7 @@ declare namespace osAccount {
    */
   enum AuthorizationResultCode {
     /**
-     * The authorization is successful.
+     * 表示授权成功。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3343,7 +3101,7 @@ declare namespace osAccount {
     AUTHORIZATION_SUCCESS = 0,
 
     /**
-     * The authorization is canceled.
+     * 表示授权已取消。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3353,13 +3111,13 @@ declare namespace osAccount {
     AUTHORIZATION_CANCELED = 12300301,
 
     /**
-     * The authorization is rejected because user interaction is not allowed.
-     *
-     * Possible causes:
-     *
-     * 1. The caller is in the background.
-     * 2. The value of **isInteractionAllowed** is **false**.
-     * 3. The specified interaction context is invalid.
+     * 表示服务因不允许用户交互而拒绝授权。
+     * 
+     * 可能原因：
+     * 
+     * 1. 调用者位于后台；
+     * 2. isInteractionAllowed选项的值为false；
+     * 3. 指定的交互上下文无效。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3369,8 +3127,7 @@ declare namespace osAccount {
     AUTHORIZATION_INTERACTION_NOT_ALLOWED = 12300302,
 
     /**
-     * The authorization is rejected because the authorization rules are not met, for example, the account type is not
-     * an administrator or the device type is not supported.
+     * 表示因不符合授权规则，如账号类型不是管理员、设备类型不支持等原因而拒绝授权。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3380,9 +3137,9 @@ declare namespace osAccount {
     AUTHORIZATION_DENIED = 12300303,
 
     /**
-     * Authorization service is busy.
-     *
-     * Possible cause: Another authorization is being processed.
+     * 表示服务忙碌。
+     * 
+     * 可能原因：正在处理其他授权。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3393,7 +3150,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the result of the authorization.
+   * 表示获取授权的结果。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -3402,9 +3159,7 @@ declare namespace osAccount {
    */
   interface AcquireAuthorizationResult {
     /**
-     * Authorization result code.
-     * If the authorization is successful, AuthorizationResultCode#AUTHORIZATION_SUCCESS is returned.
-     * Otherwise, an error code is returned. For details, see AuthorizationResultCode.
+     * 授权结果码。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3414,7 +3169,7 @@ declare namespace osAccount {
     resultCode: AuthorizationResultCode;
 
     /**
-     * Permission associated with the authorization.
+     * 与授权关联的权限。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3424,9 +3179,9 @@ declare namespace osAccount {
     privilege: string;
 
     /**
-     * Whether the authorization result is reused. The default value is **undefined**.
-     *
-     * **true**: The authorization result is reused. **false**: The authorization result is not reused.
+     * 是否为复用的授权结果，默认为undefined。
+     * 
+     * true：表示是复用的授权结果。false：表示不是复用的授权结果。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3436,7 +3191,7 @@ declare namespace osAccount {
     isReused?: boolean;
 
     /**
-     * Validity period of the authorization, in seconds. The default value is **300**.
+     * 授权的有效期，默认值为300，单位为s。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3446,7 +3201,7 @@ declare namespace osAccount {
     validityPeriod?: int;
 
     /**
-     * Authorization token. The default value is **undefined**.
+     * 授权令牌，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -3457,7 +3212,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides APIs for user authentication.
+   * 用户认证类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -3467,7 +3222,7 @@ declare namespace osAccount {
    */
   class UserAuth {
     /**
-     * A constructor used to create an instance for user authentication.
+     * 创建用户认证的实例。
      *
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
@@ -3478,9 +3233,9 @@ declare namespace osAccount {
     constructor();
 
     /**
-     * Obtains this version number.
+     * 返回版本信息。
      *
-     * @returns { int } Version number obtained.
+     * @returns { int } 返回版本信息。
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3490,13 +3245,12 @@ declare namespace osAccount {
     getVersion(): int;
 
     /**
-     * Obtains the available status of the authentication capability corresponding to the specified authentication type
-     * and trust level.
+     * 获取指定认证类型和认证可信等级的认证能力的可用状态。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { AuthType } authType - Authentication credential type.
-     * @param { AuthTrustLevel } authTrustLevel - Trust level of the authentication.
-     * @returns { int } Available status of the authentication capability.
+     * @param { AuthType } authType - 认证类型。
+     * @param { AuthTrustLevel } authTrustLevel - 认证的可信等级。
+     * @returns { int } 返回认证能力的可用状态。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3512,14 +3266,11 @@ declare namespace osAccount {
     getAvailableStatus(authType: AuthType, authTrustLevel: AuthTrustLevel): int;
 
     /**
-     * Obtains the executor property based on the request. This API uses an asynchronous callback to return the result.
+     * 基于指定的请求信息获取属性。使用callback异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { GetPropertyRequest } request - Request information, including the authentication
-     *     credential type and property list.
-     * @param { AsyncCallback<ExecutorProperty> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the executor property information
-     *     obtained. Otherwise, **err** is an error object.
+     * @param { GetPropertyRequest } request - 请求信息，包括认证类型和属性类型列表。
+     * @param { AsyncCallback<ExecutorProperty> } callback - 回调函数。如果获取成功，err为null，data为执行器属性信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -3534,12 +3285,11 @@ declare namespace osAccount {
     getProperty(request: GetPropertyRequest, callback: AsyncCallback<ExecutorProperty>): void;
 
     /**
-     * Obtains the executor property based on the request. This API uses a promise to return the result.
+     * 基于指定的请求信息获取属性。使用Promise异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { GetPropertyRequest } request - Request information, including the authentication
-     *     credential type and property list.
-     * @returns { Promise<ExecutorProperty> } Promise used to return the executor property.
+     * @param { GetPropertyRequest } request - 请求信息，包括认证类型和属性类型列表。
+     * @returns { Promise<ExecutorProperty> } Promise对象，返回执行器属性信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -3554,13 +3304,12 @@ declare namespace osAccount {
     getProperty(request: GetPropertyRequest): Promise<ExecutorProperty>;
 
     /**
-     * Obtains the specified property information of the associated executor based on the credential ID. This API uses a
-     *  promise to return the result.
+     * 基于凭据id获取关联执行器的指定属性信息。使用Promise异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { Uint8Array } credentialId - Credential ID.
-     * @param { Array<GetPropertyType> } keys - Property type array to be queried.
-     * @returns { Promise<ExecutorProperty> } Promise used to return the executor attributes.
+     * @param { Uint8Array } credentialId - 指示凭据索引。
+     * @param { Array<GetPropertyType> } keys - 指示要查询的属性类型数组。
+     * @returns { Promise<ExecutorProperty> } Promise对象，返回执行器的属性信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -3575,13 +3324,11 @@ declare namespace osAccount {
     getPropertyByCredentialId(credentialId: Uint8Array, keys: Array<GetPropertyType>): Promise<ExecutorProperty>;
 
     /**
-     * Sets the property for the initialization algorithm. This API uses an asynchronous callback to return the result.
+     * 设置可用于初始化算法的属性。使用callback异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { SetPropertyRequest } request - Request information, including the authentication
-     *     credential type and the key value to set.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **null**. Otherwise, **err** is an error object.
+     * @param { SetPropertyRequest } request - 请求信息，包括认证类型和要设置的密钥值。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果设置成功，err为null，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3596,12 +3343,11 @@ declare namespace osAccount {
     setProperty(request: SetPropertyRequest, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the property for the initialization algorithm. This API uses a promise to return the result.
+     * 设置可用于初始化算法的属性。使用Promise异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { SetPropertyRequest } request - Request information, including the authentication
-     *     credential type and the key value to set.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { SetPropertyRequest } request - 请求信息，包括身份验证类型和要设置的密钥值。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3616,11 +3362,11 @@ declare namespace osAccount {
     setProperty(request: SetPropertyRequest): Promise<void>;
 
     /**
-     * Prepares for remote authentication. This API uses a promise to return the result.
+     * 准备远端认证。使用Promise异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { string } remoteNetworkId - Remote network ID.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } remoteNetworkId - 远端网络Id。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - System service exception.
@@ -3636,14 +3382,14 @@ declare namespace osAccount {
     prepareRemoteAuth(remoteNetworkId: string): Promise<void>;
 
     /**
-     * Performs authentication of the current user.
+     * 认证当前用户。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { Uint8Array } challenge - Challenge value, which is a random number used to improve security.
-     * @param { AuthType } authType - Authentication credential type.
-     * @param { AuthTrustLevel } authTrustLevel - Trust level of the authentication result.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
-     * @returns { Uint8Array } ID of the context for canceling the authentication.
+     * @param { Uint8Array } challenge - 指示挑战值，挑战值为一个随机数，用于提升安全性。
+     * @param { AuthType } authType - 指示认证类型。
+     * @param { AuthTrustLevel } authTrustLevel - 指示认证结果的信任级别。
+     * @param { IUserAuthCallback } callback - 回调对象，返回认证结果。
+     * @returns { Uint8Array } 返回取消的上下文ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -3679,18 +3425,15 @@ declare namespace osAccount {
     ): Uint8Array;
 
     /**
-     * Starts user authentication based on the specified challenge value, authentication type (PIN, facial, or
-     * fingerprint authentication), authentication trust level, and optional parameters (such as the account ID and
-     * authentication intent).
+     * 基于指定的挑战值、认证类型（如口令、人脸、指纹等）、认证可信等级以及可选参数（如账号标识、认证意图等）进行身份认证。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { Uint8Array } challenge - Challenge value, which is a random number used to prevent
-     *     replay attacks and improve security.
-     * @param { AuthType } authType - Authentication credential type.
-     * @param { AuthTrustLevel } authTrustLevel - Trust level of the authentication result.
-     * @param { AuthOptions } options - Optional parameters for the authentication.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
-     * @returns { Uint8Array } ID of the context for canceling the authentication.
+     * @param { Uint8Array } challenge - 指示挑战值，挑战值为一个随机数，用于防止重放攻击，提升安全性。
+     * @param { AuthType } authType - 指示认证类型。
+     * @param { AuthTrustLevel } authTrustLevel - 指示认证结果的信任级别。
+     * @param { AuthOptions } options - 指示认证用户的可选参数集合。
+     * @param { IUserAuthCallback } callback - 回调对象，返回认证结果。
+     * @returns { Uint8Array } 返回取消的上下文ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -3728,15 +3471,15 @@ declare namespace osAccount {
     ): Uint8Array;
 
     /**
-     * Performs authentication of the specified user. This API uses an asynchronous callback to return the result.
+     * 认证指定用户。使用callback异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { int } userId - User ID.
-     * @param { Uint8Array } challenge - Challenge value, which is a random number used to improve security.
-     * @param { AuthType } authType - Authentication credential type.
-     * @param { AuthTrustLevel } authTrustLevel - Trust level of the authentication result.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
-     * @returns { Uint8Array } ID of the context for canceling the authentication.
+     * @param { int } userId - 指示用户身份。
+     * @param { Uint8Array } challenge - 指示挑战值，挑战值为一个随机数，用于提升安全性。
+     * @param { AuthType } authType - 指示认证类型。
+     * @param { AuthTrustLevel } authTrustLevel - 指示认证结果的信任级别。
+     * @param { IUserAuthCallback } callback - 回调对象，返回认证结果。
+     * @returns { Uint8Array } 返回取消的上下文ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -3774,10 +3517,10 @@ declare namespace osAccount {
     ): Uint8Array;
 
     /**
-     * Cancels an authentication.
+     * 取消指定的认证操作。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { Uint8Array } contextID - ID of the authentication context. The context ID is dynamically generated.
+     * @param { Uint8Array } contextID - 指示身份验证上下文ID，此ID动态生成没有具体值。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3793,7 +3536,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides APIs for PIN authentication.
+   * PIN码认证基类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -3803,7 +3546,7 @@ declare namespace osAccount {
    */
   class PINAuth {
     /**
-     * Creates a PIN authentication instance.
+     * 创建PIN码认证的实例。
      *
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
@@ -3814,10 +3557,10 @@ declare namespace osAccount {
     constructor();
 
     /**
-     * Registers a PIN inputer.
+     * 注册PIN码输入器。
      *
      * @permission ohos.permission.ACCESS_PIN_AUTH
-     * @param { IInputer } inputer - PIN inputer, which is used to obtain the PIN.
+     * @param { IInputer } inputer - PIN码输入器，用于获取PIN码。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3833,7 +3576,7 @@ declare namespace osAccount {
     registerInputer(inputer: IInputer): void;
 
     /**
-     * Unregisters this PIN inputer.
+     * 解注册PIN码输入器。
      *
      * @permission ohos.permission.ACCESS_PIN_AUTH
      * @throws { BusinessError } 201 - Permission denied.
@@ -3847,7 +3590,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides APIs for managing credential inputers.
+   * 凭据输入管理器。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -3857,11 +3600,11 @@ declare namespace osAccount {
    */
   class InputerManager {
     /**
-     * Registers a credential inputer.
+     * 注册凭据输入器。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
-     * @param { AuthType } authType - Authentication credential type.
-     * @param { IInputer } inputer - Credential inputer to register.
+     * @param { AuthType } authType - 认证类型。
+     * @param { IInputer } inputer - 凭据输入器，用于获取凭据。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3878,10 +3621,10 @@ declare namespace osAccount {
     static registerInputer(authType: AuthType, inputer: IInputer): void;
 
     /**
-     * Unregisters a credential inputer.
+     * 解注册凭据输入器。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL or ohos.permission.MANAGE_USER_IDM
-     * @param { AuthType } authType - Authentication credential type.
+     * @param { AuthType } authType - 认证类型。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3896,7 +3639,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Presents the authentication status information.
+   * 表示认证状态信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -3905,7 +3648,7 @@ declare namespace osAccount {
    */
   interface AuthStatusInfo {
     /**
-     * Number of remaining times.
+     * 剩余次数。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3915,7 +3658,7 @@ declare namespace osAccount {
     remainTimes: int;
 
     /**
-     * Freezing time, in milliseconds.
+     * 冻结时间，单位为ms。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3926,7 +3669,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the options for obtaining a domain access token.
+   * 表示获取域访问令牌的选项。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -3935,7 +3678,7 @@ declare namespace osAccount {
    */
   interface GetDomainAccessTokenOptions {
     /**
-     * Domain account information.
+     * 域账号的信息。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3945,7 +3688,7 @@ declare namespace osAccount {
     domainAccountInfo: DomainAccountInfo;
 
     /**
-     * Token of the domain account.
+     * 域账号的令牌。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3955,7 +3698,7 @@ declare namespace osAccount {
     domainAccountToken: Uint8Array;
 
     /**
-     * Service parameters customized by the service party based on the request protocol.
+     * 业务参数，由业务方根据请求协议自定义。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3964,7 +3707,7 @@ declare namespace osAccount {
     businessParams: Record<string, Object>;
 
     /**
-     * Indicates the business parameters.
+     * 业务参数，由业务方根据请求协议自定义。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3973,7 +3716,7 @@ declare namespace osAccount {
     businessParams: Record<string, RecordData>;
 
     /**
-     * Unique identifier of the caller.
+     * 调用方唯一标识符。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -3984,7 +3727,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the options for obtaining domain account information.
+   * 表示查询域账号信息的选项。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -3993,7 +3736,7 @@ declare namespace osAccount {
    */
   interface GetDomainAccountInfoOptions {
     /**
-     * Domain account name.
+     * 域账号名。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -4003,7 +3746,7 @@ declare namespace osAccount {
     accountName: string;
 
     /**
-     * Domain name, which is **undefined** by default.
+     * 域名。默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -4013,7 +3756,7 @@ declare namespace osAccount {
     domain?: string;
 
     /**
-     * ID of the server to which the domain account belongs, which is **undefined** by default.
+     * 域账号所属服务器标识。默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -4024,9 +3767,8 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the options for the domain plug-in to obtain the domain account information. The
-   * **GetDomainAccountInfoPluginOptions** class inherits from
-   * [**GetDomainAccountInfoOptions**]{@link osAccount.GetDomainAccountInfoOptions}.
+   * 表示插件查询域账号信息的选项。GetDomainAccountInfoPluginOptions类继承
+   * [GetDomainAccountInfoOptions]{@link osAccount.GetDomainAccountInfoOptions}
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -4035,7 +3777,7 @@ declare namespace osAccount {
    */
   interface GetDomainAccountInfoPluginOptions extends GetDomainAccountInfoOptions {
     /**
-     * Unique identifier of the caller.
+     * 调用方唯一标识符。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -4046,11 +3788,11 @@ declare namespace osAccount {
   }
 
   /**
-   * Authenticates the specified domain account.
+   * 认证指定的域账号。
    *
-   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-   * @param { Uint8Array } credential - Indicates the credential for authentication.
-   * @param { IUserAuthCallback } callback - Indicates the authentication callback.
+   * @param { DomainAccountInfo } domainAccountInfo - 表示域账号信息。
+   * @param { Uint8Array } credential - 表示域账号的凭据。
+   * @param { IUserAuthCallback } callback - 表示认证结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4059,10 +3801,10 @@ declare namespace osAccount {
     credential: Uint8Array, callback: IUserAuthCallback) => void;
 
   /**
-   * Authenticates the specified domain account with a popup.
+   * 弹窗认证指定的域账号。
    *
-   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-   * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+   * @param { DomainAccountInfo } domainAccountInfo - 表示域账号信息。
+   * @param { IUserAuthCallback } callback - 表示认证结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4071,12 +3813,11 @@ declare namespace osAccount {
     callback: IUserAuthCallback) => void;
 
   /**
-   * Authenticates the specified domain account with an authorization token.
+   * 使用授权令牌认证指定的域账号。
    *
-   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-   * @param { Uint8Array } token - Indicates the authorization token generated when PIN or biometric authentication is
-   *     successful.
-   * @param { IUserAuthCallback } callback - Indicates the callback for notifying the authentication result.
+   * @param { DomainAccountInfo } domainAccountInfo - 表示域账号信息。
+   * @param { Uint8Array } token - 表示PIN码或生物识别认证成功时生成的授权令牌。
+   * @param { IUserAuthCallback } callback - 表示认证结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4085,12 +3826,10 @@ declare namespace osAccount {
     token: Uint8Array, callback: IUserAuthCallback) => void;
 
   /**
-   * Gets the domain account information with the specified options.
+   * 查询指定域账号的信息。
    *
-   * @param { GetDomainAccountInfoPluginOptions } options - Indicates the options for getting domain account
-   *     information.
-   * @param { AsyncCallback<DomainAccountInfo> } callback - Indicates the callback for notifying the domain account
-   *     information.
+   * @param { GetDomainAccountInfoPluginOptions } options - 表示域账号信息。
+   * @param { AsyncCallback<DomainAccountInfo> } callback - 表示查询结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4099,11 +3838,10 @@ declare namespace osAccount {
     callback: AsyncCallback<DomainAccountInfo>) => void;
 
   /**
-   * Gets the domain authentication property for the specified domain account.
+   * 查询指定域账号的认证状态信息。
    *
-   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information for authentication.
-   * @param { AsyncCallback<AuthStatusInfo> } callback - Indicates the callback for notifying the domain authentication
-   *     status information.
+   * @param { DomainAccountInfo } domainAccountInfo - 表示域账号信息。
+   * @param { AsyncCallback<AuthStatusInfo> } callback - 表示查询结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4112,12 +3850,11 @@ declare namespace osAccount {
     callback: AsyncCallback<AuthStatusInfo>) => void;
 
   /**
-   * Binds the specified domain account with an OS account.
+   * 绑定指定的域账号。
    *
-   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
-   * @param { int } localId - Indicates the local ID of the OS account.
-   *     <br>The value should be an integer.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the binding result.
+   * @param { DomainAccountInfo } domainAccountInfo - 表示域账号信息。
+   * @param { int } localId - 系统账号ID。
+   * @param { AsyncCallback<void> } callback - 表示绑定结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4126,10 +3863,10 @@ declare namespace osAccount {
     localId: int, callback: AsyncCallback<void>) => void;
 
   /**
-   * Unbind the specified domain account.
+   * 解绑指定的域账号。
    *
-   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for notifying the unbinding result.
+   * @param { DomainAccountInfo } domainAccountInfo - 表示域账号信息。
+   * @param { AsyncCallback<void> } callback - 表示绑定结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4138,11 +3875,11 @@ declare namespace osAccount {
     callback: AsyncCallback<void>) => void;
 
   /**
-   * Checks whether the token of specified domain account is valid.
+   * 检查指定的域账号令牌是否有效。
    *
-   * @param { DomainAccountInfo } domainAccountInfo - Indicates the domain account information.
-   * @param { Uint8Array } token - Indicates the account token.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for notifying the checking result.
+   * @param { DomainAccountInfo } domainAccountInfo - 表示域账号信息。
+   * @param { Uint8Array } token - 表示域账号令牌。
+   * @param { AsyncCallback<boolean> } callback - 表示检查结果回调。true表示指定的域账号令牌是有效的；false表示指定的域账号令牌是无效的。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4154,10 +3891,10 @@ declare namespace osAccount {
   ) => void;
 
   /**
-   * Gets the access token based on the specified options.
+   * 根据指定的选项获取域访问令牌。
    *
-   * @param { GetDomainAccessTokenOptions } options - Indicates the options for getting th access token.
-   * @param { AsyncCallback<Uint8Array> } callback - Indicates the callback for returning the access token.
+   * @param { GetDomainAccessTokenOptions } options - 表示获取域访问令牌的选项。
+   * @param { AsyncCallback<Uint8Array> } callback - 表示结果回调。
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
    * @since 23 static
@@ -4166,7 +3903,7 @@ declare namespace osAccount {
     callback: AsyncCallback<Uint8Array>) => void;
 
   /**
-   * Provides APIs for domain account authentication.
+   * 域插件，提供域账号认证功能。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -4175,11 +3912,11 @@ declare namespace osAccount {
    */
   interface DomainPlugin {
     /**
-     * Authenticates a domain account.
+     * 认证指定的域账号。
      *
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { Uint8Array } credential - Credentials of the domain account.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { Uint8Array } credential - 指示域账号的凭据。
+     * @param { IUserAuthCallback } callback - 指示认证结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -4187,7 +3924,7 @@ declare namespace osAccount {
     auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
 
     /**
-     * Authenticates the specified domain account.
+     * 认证指定的域账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4196,10 +3933,10 @@ declare namespace osAccount {
     auth: DomainPluginAuthFunc;
 
     /**
-     * Authenticates a domain account in a pop-up window.
+     * 弹窗认证指定的域账号。
      *
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { IUserAuthCallback } callback - 指示认证结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4207,7 +3944,7 @@ declare namespace osAccount {
     authWithPopup(domainAccountInfo: DomainAccountInfo, callback: IUserAuthCallback): void;
 
     /**
-     * Authenticates the specified domain account with a popup.
+     * 弹窗认证指定的域账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4216,12 +3953,11 @@ declare namespace osAccount {
     authWithPopup: DomainPluginAuthWithPopupFunc;
 
     /**
-     * Authenticates a domain account by the authorization token.
+     * 使用授权令牌认证指定的域账号。
      *
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { Uint8Array } token - Authorization token generated when the PIN or
-     *     biometric authentication is successful.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { Uint8Array } token - 指示PIN码或生物识别认证成功时生成的授权令牌。
+     * @param { IUserAuthCallback } callback - 指示认证结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4229,7 +3965,7 @@ declare namespace osAccount {
     authWithToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array, callback: IUserAuthCallback): void;
 
     /**
-     * Authenticates the specified domain account with an authorization token.
+     * 使用授权令牌认证指定的域账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4238,10 +3974,10 @@ declare namespace osAccount {
     authWithToken: DomainPluginAuthWithTokenFunc;
 
     /**
-     * Obtains information about a domain account. This API uses an asynchronous callback to return the result.
+     * 查询指定域账号的信息。使用callback异步回调。
      *
-     * @param { GetDomainAccountInfoPluginOptions } options - Domain account information.
-     * @param { AsyncCallback<DomainAccountInfo> } callback - Callback used to return the result.
+     * @param { GetDomainAccountInfoPluginOptions } options - 指示域账号信息。
+     * @param { AsyncCallback<DomainAccountInfo> } callback - 指示查询结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4249,7 +3985,7 @@ declare namespace osAccount {
     getAccountInfo(options: GetDomainAccountInfoPluginOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
     /**
-     * Gets the domain account information with the specified options.
+     * 查询指定域账号的信息。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4258,10 +3994,10 @@ declare namespace osAccount {
     getAccountInfo: DomainPluginGetAccountInfoFunc;
 
     /**
-     * Obtains the authentication status of a domain account.
+     * 查询指定域账号的认证状态信息。
      *
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { AsyncCallback<AuthStatusInfo> } callback - Callback used to return the result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { AsyncCallback<AuthStatusInfo> } callback - 指示查询结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4269,7 +4005,7 @@ declare namespace osAccount {
     getAuthStatusInfo(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<AuthStatusInfo>): void;
 
     /**
-     * Gets the domain authentication property for the specified domain account.
+     * 查询指定域账号的认证状态信息。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4278,11 +4014,11 @@ declare namespace osAccount {
     getAuthStatusInfo: DomainPluginGetAuthStatusInfoFunc;
 
     /**
-     * Binds a domain account.
+     * 绑定指定的域账号。
      *
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { number } localId - ID of the target OS account.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { number } localId - 系统账号ID。
+     * @param { AsyncCallback<void> } callback - 指示绑定结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4290,7 +4026,7 @@ declare namespace osAccount {
     bindAccount(domainAccountInfo: DomainAccountInfo, localId: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Binds the specified domain account with an OS account.
+     * 绑定指定的域账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4299,10 +4035,10 @@ declare namespace osAccount {
     bindAccount: DomainPluginBindAccountFunc;
 
     /**
-     * Unbinds a domain account.
+     * 解绑指定的域账号。
      *
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { AsyncCallback<void> } callback - 指示绑定结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4310,7 +4046,7 @@ declare namespace osAccount {
     unbindAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Unbind the specified domain account.
+     * 解绑指定的域账号。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4319,13 +4055,11 @@ declare namespace osAccount {
     unbindAccount: DomainPluginUnbindAccountFunc;
 
     /**
-     * Checks whether the specified domain account token is valid.
+     * 检查指定的域账号令牌是否有效。
      *
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { Uint8Array } token - Domain account token to check.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-     *     The value **true** means that the specified domain account token is valid;
-     *     the value **false** means the opposite.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { Uint8Array } token - 指示域账号令牌。
+     * @param { AsyncCallback<boolean> } callback - 指示检查结果回调。true表示指定的域账号令牌是有效的；false表示指定的域账号令牌是无效的。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4337,7 +4071,7 @@ declare namespace osAccount {
     ): void;
 
     /**
-     * Checks whether the token of specified domain account is valid.
+     * 检查指定的域账号令牌是否有效。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4346,11 +4080,10 @@ declare namespace osAccount {
     isAccountTokenValid: DomainPluginIsAccountTokenValidFunc;
 
     /**
-     * Obtains the domain access token based on the specified conditions. This API uses an asynchronous callback to
-     * return the result.
+     * 根据指定的选项获取域访问令牌。使用callback异步回调。
      *
-     * @param { GetDomainAccessTokenOptions } options - Options specified for obtaining the domain access token.
-     * @param { AsyncCallback<Uint8Array> } callback - Callback used to return the result.
+     * @param { GetDomainAccessTokenOptions } options - 指示获取域访问令牌的选项。
+     * @param { AsyncCallback<Uint8Array> } callback - 指示结果回调。
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -4358,7 +4091,7 @@ declare namespace osAccount {
     getAccessToken(options: GetDomainAccessTokenOptions, callback: AsyncCallback<Uint8Array>): void;
 
     /**
-     * Gets the access token based on the specified options.
+     * 根据指定的选项获取域访问令牌。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4368,7 +4101,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the options for domain account authentication.
+   * 表示域账号认证的选项。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -4376,7 +4109,7 @@ declare namespace osAccount {
    */
   interface DomainAccountAuthOptions {
     /**
-     * Configuration parameters of the domain account authentication server. which is **undefined** by default.
+     * 域账号认证服务器配置参数。默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4385,7 +4118,7 @@ declare namespace osAccount {
     serverParams?: Record<string, Object>;
 
     /**
-     * Indicates the server parameters.
+     * 域账号认证服务器配置参数。默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -4395,7 +4128,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides APIs for domain account management.
+   * 域账号管理类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 18 dynamic
@@ -4403,10 +4136,10 @@ declare namespace osAccount {
    */
   class DomainAccountManager {
     /**
-     * Registers a domain plug-in.
+     * 注册域插件。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainPlugin } plugin - Domain plug-in to register.
+     * @param { DomainPlugin } plugin - 指示域插件。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported. [since 18]
@@ -4419,7 +4152,7 @@ declare namespace osAccount {
     static registerPlugin(plugin: DomainPlugin): void;
 
     /**
-     * Unregisters this domain plug-in.
+     * 注销域插件。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
      * @throws { BusinessError } 201 - Permission denied.
@@ -4433,12 +4166,12 @@ declare namespace osAccount {
     static unregisterPlugin(): void;
 
     /**
-     * Authenticates a domain account.
+     * 认证指定的域账号。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { Uint8Array } credential - Credentials of the domain account.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { Uint8Array } credential - 指示域账号的凭据。
+     * @param { IUserAuthCallback } callback - 指示认证结果回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4464,14 +4197,13 @@ declare namespace osAccount {
     static auth(domainAccountInfo: DomainAccountInfo, credential: Uint8Array, callback: IUserAuthCallback): void;
 
     /**
-     * Authenticates a specified domain account. You can specify authentication options, such as server parameters. This
-     *  API uses an asynchronous callback to return the result.
+     * 认证指定的域账号，支持指定认证选项，如服务器参数。使用callback异步回调。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { Uint8Array } credential - Credentials of the domain account.
-     * @param { DomainAccountAuthOptions } options - Options for domain account authentication.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { Uint8Array } credential - 指示域账号的凭据。
+     * @param { DomainAccountAuthOptions } options - 表示域账号认证的选项。
+     * @param { IUserAuthCallback } callback - 指示认证结果回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4498,10 +4230,10 @@ declare namespace osAccount {
       callback: IUserAuthCallback): void;
 
     /**
-     * Authenticates a domain account in a pop-up window.
+     * 弹框认证指定的域账号。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL [since 10 - 10]
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
+     * @param { IUserAuthCallback } callback - 指示认证结果回调。
      * @throws { BusinessError } 201 - Permission denied. [since 10 - 10]
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4524,11 +4256,11 @@ declare namespace osAccount {
     static authWithPopup(callback: IUserAuthCallback): void;
 
     /**
-     * Authenticates a domain account in a pop-up window.
+     * 弹框认证指定的域账号。
      *
      * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL [since 10 - 10]
-     * @param { int } localId - Local ID of the OS account bound to the domain account.
-     * @param { IUserAuthCallback } callback - Callback used to return the authentication result.
+     * @param { int } localId - 指示绑定域账号的系统账号的本地标识。
+     * @param { IUserAuthCallback } callback - 指示认证结果回调。
      * @throws { BusinessError } 201 - Permission denied. [since 10 - 10]
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -4552,12 +4284,11 @@ declare namespace osAccount {
     static authWithPopup(localId: int, callback: IUserAuthCallback): void;
 
     /**
-     * Checks whether a domain account exists. This API uses an asynchronous callback to return the result.
+     * 检查是否存在指定的域账号。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-     *     The value **true** means that the specified domain account exists; the value **false** means the opposite.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { AsyncCallback<boolean> } callback - 指示检查结果回调。true表示指定的域账号已存在；false表示指定的域账号不存在。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4578,12 +4309,11 @@ declare namespace osAccount {
     static hasAccount(domainAccountInfo: DomainAccountInfo, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether a domain account exists. This API uses a promise to return the result.
+     * 检查是否存在指定的域账号。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @returns { Promise<boolean> } Promise used to return the result.
-     *     The value **true** means that the specified domain account exists; the value **false** means the opposite.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @returns { Promise<boolean> } Promise对象。返回true表示指定的域账号已存在；返回false表示指定的域账号不存在。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4604,14 +4334,12 @@ declare namespace osAccount {
     static hasAccount(domainAccountInfo: DomainAccountInfo): Promise<boolean>;
 
     /**
-     * Updates the token of a domain account. An empty token means an invalid token. This API uses an asynchronous
-     * callback to return the result.
+     * 更新指定域账号的令牌，空令牌表示目标域账号的令牌失效。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { Uint8Array } token - New domain account token.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null**. Otherwise, **err** is an error object.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { Uint8Array } token - 指示域账号的令牌。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果更新成功，err为null，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4631,13 +4359,12 @@ declare namespace osAccount {
     ): void;
 
     /**
-     * Updates the token of a domain account. An empty token means an invalid token. This API uses a promise to return
-     * the result.
+     * 更新指定域账号的令牌，空令牌表示目标域账号的令牌失效。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @param { Uint8Array } token - New domain account token.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @param { Uint8Array } token - 指示域账号的令牌。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4653,12 +4380,12 @@ declare namespace osAccount {
     static updateAccountToken(domainAccountInfo: DomainAccountInfo, token: Uint8Array): Promise<void>;
 
     /**
-     * Updates information of a domain account. This API uses a promise to return the result.
+     * 修改指定域账号信息。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.MANAGE_DOMAIN_ACCOUNTS
-     * @param { DomainAccountInfo } oldAccountInfo - Domain account information.
-     * @param { DomainAccountInfo } newAccountInfo - New domain account information.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { DomainAccountInfo } oldAccountInfo - 表示旧域账号信息。
+     * @param { DomainAccountInfo } newAccountInfo - 表示新域账号信息。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4672,12 +4399,11 @@ declare namespace osAccount {
     static updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise<void>;
 
     /**
-     * Obtains information about a specified domain account. This API uses an asynchronous callback to return the
-     * result.
+     * 查询指定的域账号信息。使用callback异步回调。
      *
      * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
-     * @param { GetDomainAccountInfoOptions } options - Domain account information.
-     * @param { AsyncCallback<DomainAccountInfo> } callback - Callback used to return the result.
+     * @param { GetDomainAccountInfoOptions } options - 指示域账号信息。
+     * @param { AsyncCallback<DomainAccountInfo> } callback - 指示查询结果回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4698,11 +4424,11 @@ declare namespace osAccount {
     static getAccountInfo(options: GetDomainAccountInfoOptions, callback: AsyncCallback<DomainAccountInfo>): void;
 
     /**
-     * Obtains information about a specified domain account. This API uses a promise to return the result.
+     * 查询指定的域账号信息。使用Promise异步回调。
      *
      * @permission ohos.permission.GET_DOMAIN_ACCOUNTS
-     * @param { GetDomainAccountInfoOptions } options - Domain account information.
-     * @returns { Promise<DomainAccountInfo> } Promise used to return the domain account information obtained.
+     * @param { GetDomainAccountInfoOptions } options - 指示域账号信息。
+     * @returns { Promise<DomainAccountInfo> } Promise对象，返回指定的域账号信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4723,13 +4449,10 @@ declare namespace osAccount {
     static getAccountInfo(options: GetDomainAccountInfoOptions): Promise<DomainAccountInfo>;
 
     /**
-     * Obtains the service access token of a domain account. This API uses an asynchronous callback to return the
-     * result.
+     * 获取当前域账号的业务访问令牌。使用callback异步回调。
      *
-     * @param { Record<string, Object> } businessParams - Service parameters.
-     *     The specific formats vary depending on the domain plug-in.
-     * @param { AsyncCallback<Uint8Array> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null**. Otherwise, an error object is returned.
+     * @param { Record<string, Object> } businessParams - 指示业务参数，具体格式取决于域插件的实现要求。
+     * @param { AsyncCallback<Uint8Array> } callback - 指示结果回调。如果获取成功，err返回null，否则为错误对象。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -4749,10 +4472,10 @@ declare namespace osAccount {
     static getAccessToken(businessParams: Record<string, Object>, callback: AsyncCallback<Uint8Array>): void;
 
     /**
-     * Gets the business access token of the current domain account.
+     * 获取当前域账号的业务访问令牌，使用callback异步回调。
      *
-     * @param { Record<string, RecordData> } businessParams - Indicates the business parameters.
-     * @param { AsyncCallback<Uint8Array> } callback - Indicates the result callback.
+     * @param { Record<string, RecordData> } businessParams - 指示业务参数，具体格式取决于域插件的实现要求。
+     * @param { AsyncCallback<Uint8Array> } callback - 指示结果回调。如果获取成功，err返回null，否则为错误对象。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4770,11 +4493,10 @@ declare namespace osAccount {
     static getAccessToken(businessParams: Record<string, RecordData>, callback: AsyncCallback<Uint8Array>): void;
 
     /**
-     * Obtains the service access token of a domain account. This API uses a promise to return the result.
+     * 查询当前域账号的业务访问令牌。使用Promise异步回调。
      *
-     * @param { Record<string, Object> } businessParams - Service parameters.
-     *     The specific formats vary depending on the domain plug-in.
-     * @returns { Promise<Uint8Array> } Promise used to return the service access token obtained.
+     * @param { Record<string, Object> } businessParams - 指示业务参数，具体格式取决于域插件的实现要求。
+     * @returns { Promise<Uint8Array> } Promise对象，返回业务访问令牌。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -4794,10 +4516,10 @@ declare namespace osAccount {
     static getAccessToken(businessParams: Record<string, Object>): Promise<Uint8Array>;
 
     /**
-     * Gets the business access token for the current domain account.
+     * 查询当前域账号的业务访问令牌。使用Promise异步回调。
      *
-     * @param { Record<string, RecordData> } businessParams - Indicates the business parameters.
-     * @returns { Promise<Uint8Array> } The promise returned by the function.
+     * @param { Record<string, RecordData> } businessParams - 指示业务参数，具体格式取决于域插件的实现要求。
+     * @returns { Promise<Uint8Array> } Promise对象，返回业务访问令牌。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4815,12 +4537,11 @@ declare namespace osAccount {
     static getAccessToken(businessParams: Record<string, RecordData>): Promise<Uint8Array>;
 
     /**
-     * Checks whether the authentication of a domain account has expired. This API uses a promise to return the result.
+     * 判断指定域账号是否登录超期。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { DomainAccountInfo } domainAccountInfo - Domain account information.
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that
-     *     the specified domain account has expired; the value **false** means the opposite.
+     * @param { DomainAccountInfo } domainAccountInfo - 指示域账号信息。
+     * @returns { Promise<boolean> } Promise对象。返回true表示指定的域账号已登录超期；返回false表示指定的域账号未登录超期。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -4837,7 +4558,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents the configuration of a domain server.
+   * 域服务器配置。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 18 dynamic
@@ -4845,7 +4566,7 @@ declare namespace osAccount {
    */
   interface DomainServerConfig {
     /**
-     * Server configuration parameters.
+     * 服务器配置参数。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 18 dynamic
@@ -4853,7 +4574,7 @@ declare namespace osAccount {
     parameters: Record<string, Object>;
 
     /**
-     * Server configuration parameters.
+     * 服务器配置参数。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 23 static
@@ -4861,7 +4582,7 @@ declare namespace osAccount {
     parameters: Record<string, RecordData>;
 
     /**
-     * Server configuration ID.
+     * 服务器配置标识。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 18 dynamic
@@ -4870,7 +4591,7 @@ declare namespace osAccount {
     id: string;
 
     /**
-     * Domain to which the server belongs.
+     * 服务器所属的域。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 18 dynamic
@@ -4880,7 +4601,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides APIs for domain server configuration and management.
+   * 域服务器配置管理类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @since 18 dynamic
@@ -4888,12 +4609,11 @@ declare namespace osAccount {
    */
   class DomainServerConfigManager {
     /**
-     * Adds domain server configuration. This API uses a promise to return the result.
+     * 添加域服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { Record<string, Object> } parameters - Configuration parameters of the domain server.
-     * @returns { Promise<DomainServerConfig> } Promise used to return the configuration of
-     *     the newly added domain server.
+     * @param { Record<string, Object> } parameters - 表示域服务器配置参数。
+     * @returns { Promise<DomainServerConfig> } Promise对象，返回新添加的域服务器配置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4907,12 +4627,11 @@ declare namespace osAccount {
     static addServerConfig(parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
     /**
-     * Adds domain server configuration. This API uses a promise to return the result.
+     * 添加域服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { Record<string, RecordData> } parameters - Configuration parameters of the domain server.
-     * @returns { Promise<DomainServerConfig> } Promise used to return the configuration of
-     *     the newly added domain server.
+     * @param { Record<string, RecordData> } parameters - 表示域服务器配置参数。
+     * @returns { Promise<DomainServerConfig> } Promise对象，返回新添加的域服务器配置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4926,11 +4645,11 @@ declare namespace osAccount {
     static addServerConfig(parameters: Record<string, RecordData>): Promise<DomainServerConfig>;
 
     /**
-     * Removes domain server configuration. This API uses a promise to return the result.
+     * 删除域服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { string } configId - Server configuration ID.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } configId - 表示服务器配置标识。
+     * @returns { Promise<void> } Promise对象，无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4943,12 +4662,12 @@ declare namespace osAccount {
     static removeServerConfig(configId: string): Promise<void>;
 
     /**
-     * Updates the domain server configuration. This API uses a promise to return the result.
+     * 更新域服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { string } configId - Server configuration ID.
-     * @param { Record<string, Object> } parameters - Configuration parameters of the domain server.
-     * @returns { Promise<DomainServerConfig> } Promise used to return the updated domain server configuration.
+     * @param { string } configId - 表示服务器配置标识。
+     * @param { Record<string, Object> } parameters - 表示域服务器配置参数。
+     * @returns { Promise<DomainServerConfig> } Promise对象，返回更新后的域服务器配置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4963,12 +4682,12 @@ declare namespace osAccount {
     static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise<DomainServerConfig>;
 
     /**
-     * Updates the domain server configuration. This API uses a promise to return the result.
+     * 更新域服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { string } configId - Server configuration ID.
-     * @param { Record<string, RecordData> } parameters - Configuration parameters of the domain server.
-     * @returns { Promise<DomainServerConfig> } Promise used to return the updated domain server configuration.
+     * @param { string } configId - 表示服务器配置标识。
+     * @param { Record<string, RecordData> } parameters - 表示域服务器配置参数。
+     * @returns { Promise<DomainServerConfig> } Promise对象，返回更新后的域服务器配置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4983,11 +4702,11 @@ declare namespace osAccount {
     static updateServerConfig(configId: string, parameters: Record<string, RecordData>): Promise<DomainServerConfig>;
 
     /**
-     * Obtains the domain server configuration. This API uses a promise to return the result.
+     * 获取域服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { string } configId - Server configuration ID.
-     * @returns { Promise<DomainServerConfig> } Promise used to return the domain server configuration obtained.
+     * @param { string } configId - 表示服务器配置标识。
+     * @returns { Promise<DomainServerConfig> } Promise对象，返回获取的域服务器配置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -4999,10 +4718,10 @@ declare namespace osAccount {
     static getServerConfig(configId: string): Promise<DomainServerConfig>;
 
     /**
-     * Obtains the configurations of all domain servers. This API uses a promise to return the result.
+     * 获取所有域服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @returns { Promise<Array<DomainServerConfig>> } Promise used to return the domain server configuration obtained.
+     * @returns { Promise<Array<DomainServerConfig>> } Promise对象，返回获取的所有域服务器配置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5013,11 +4732,11 @@ declare namespace osAccount {
     static getAllServerConfigs(): Promise<Array<DomainServerConfig>>;
 
     /**
-     * Obtains the server configuration of a domain account. This API uses a promise to return the result.
+     * 获取目标域账号的服务器配置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_DOMAIN_ACCOUNT_SERVER_CONFIGS
-     * @param { DomainAccountInfo } domainAccountInfo - Information of the domain account.
-     * @returns { Promise<DomainServerConfig> } Promise used to return the domain server configuration of the account.
+     * @param { DomainAccountInfo } domainAccountInfo - 表示目标域账号信息。
+     * @returns { Promise<DomainServerConfig> } Promise对象，返回目标账号的域服务器配置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5030,7 +4749,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides APIs for user IDM.
+   * 获取用户身份管理类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5040,7 +4759,7 @@ declare namespace osAccount {
    */
   class UserIdentityManager {
     /**
-     * A **constructor()** used to create an instance for user IDM.
+     * 用户身份管理类的默认构造函数。
      *
      * @throws { BusinessError } 202 - Not system application.
      * @syscap SystemCapability.Account.OsAccount
@@ -5051,12 +4770,10 @@ declare namespace osAccount {
     constructor();
 
     /**
-     * Opens a session to obtain the challenge value. This API uses an asynchronous callback to return the result.
+     * 打开会话，获取挑战值。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { AsyncCallback<Uint8Array> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the challenge value obtained.
-     *     Otherwise, **err** is an error object.
+     * @param { AsyncCallback<Uint8Array> } callback - 回调函数。如果打开会话成功，err为null，data为挑战值；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5070,13 +4787,11 @@ declare namespace osAccount {
     openSession(callback: AsyncCallback<Uint8Array>): void;
 
     /**
-     * Opens a session. This API returns a challenge value, which can be used to determine whether the subsequent
-     * identity authentication is in this session. This can prevent replay attacks. This API uses a promise to return
-     * the result.
+     * 打开会话，获取挑战值（用于判断后续的身份认证场景是否处于该会话下，防止重放攻击）。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { int } [accountId] - OS account ID, which is left blank by default.
-     * @returns { Promise<Uint8Array> } Promise used to return the challenge value obtained.
+     * @param { int } [accountId] - 系统账号标识，默认为空。
+     * @returns { Promise<Uint8Array> } Promise对象，返回挑战值。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5090,12 +4805,11 @@ declare namespace osAccount {
     openSession(accountId?: int): Promise<Uint8Array>;
 
     /**
-     * Adds credential information, including the credential type, subtype, and token (if a non-PIN credential is added)
-     * .
+     * 添加凭据，添加用户凭据信息，传入凭据添加方法和凭据信息（凭据类型，子类，如果添加用户的非密码凭据，则传入密码身份验证令牌），并获取结果/获取信息。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { CredentialInfo } credentialInfo - Credential information to add.
-     * @param { IIdmCallback } callback - Callback used to return the result.
+     * @param { CredentialInfo } credentialInfo - 指示凭据信息。
+     * @param { IIdmCallback } callback - 回调对象，返回添加凭据的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5119,11 +4833,11 @@ declare namespace osAccount {
     addCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
     /**
-     * Updates credential information. This API uses an asynchronous callback to return the result.
+     * 更新凭据。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { CredentialInfo } credentialInfo - Credential information to add.
-     * @param { IIdmCallback } callback - Callback used to return the result.
+     * @param { CredentialInfo } credentialInfo - 指示凭据信息。
+     * @param { IIdmCallback } callback - 回调对象，返回更新凭据的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5143,10 +4857,10 @@ declare namespace osAccount {
     updateCredential(credentialInfo: CredentialInfo, callback: IIdmCallback): void;
 
     /**
-     * Closes this session to terminate IDM.
+     * 关闭会话，结束IDM操作。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { int } [accountId] - OS account ID, which is left blank by default.
+     * @param { int } [accountId] - 系统账号标识，默认为空。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types. [since 12]
@@ -5161,10 +4875,10 @@ declare namespace osAccount {
     closeSession(accountId?: int): void;
 
     /**
-     * Cancels an entry based on the challenge value.
+     * 根据挑战值取消条目。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { Uint8Array } challenge - Challenge value.
+     * @param { Uint8Array } challenge - 挑战值。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5179,11 +4893,11 @@ declare namespace osAccount {
     cancel(challenge: Uint8Array): void;
 
     /**
-     * Deletes a user with an authentication token. This API uses an asynchronous callback to return the result.
+     * 删除具有身份验证令牌的用户。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { Uint8Array } token - Authentication token.
-     * @param { IIdmCallback } callback - Callback used to return the result.
+     * @param { Uint8Array } token - 身份验证令牌。
+     * @param { IIdmCallback } callback - 回调对象，返回删除用户的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5198,12 +4912,12 @@ declare namespace osAccount {
     delUser(token: Uint8Array, callback: IIdmCallback): void;
 
     /**
-     * Deletes user credential information.
+     * 删除用户凭据信息。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
-     * @param { Uint8Array } credentialId - Credential ID.
-     * @param { Uint8Array } token - Authentication token.
-     * @param { IIdmCallback } callback - Callback used to return the result.
+     * @param { Uint8Array } credentialId - 凭证索引。
+     * @param { Uint8Array } token - 身份验证令牌。
+     * @param { IIdmCallback } callback - 回调对象，返回删除凭据的结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -5220,12 +4934,10 @@ declare namespace osAccount {
     delCred(credentialId: Uint8Array, token: Uint8Array, callback: IIdmCallback): void;
 
     /**
-     * Obtains authentication information. This API uses an asynchronous callback to return the result.
+     * 获取认证信息。使用callback异步回调。
      *
      * @permission ohos.permission.USE_USER_IDM
-     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is information about all registered
-     *     credentials of the user. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - 回调函数。如果成功，err为null，data为当前用户的所有已注册凭据信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5238,14 +4950,11 @@ declare namespace osAccount {
     getAuthInfo(callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
     /**
-     * Obtains authentication information of the specified type. This API uses an asynchronous callback to return the
-     * result.
+     * 获取指定类型的认证信息。使用callback异步回调。
      *
      * @permission ohos.permission.USE_USER_IDM
-     * @param { AuthType } authType - Authentication credential type.
-     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **null** and **data** is the information about
-     *     all enrolled credentials of the specified type. Otherwise, **err** is an error object.
+     * @param { AuthType } authType - 认证类型。
+     * @param { AsyncCallback<Array<EnrolledCredInfo>> } callback - 回调函数，如果获取成功，err为null，data为当前用户指定类型的所有已注册凭据信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5259,13 +4968,11 @@ declare namespace osAccount {
     getAuthInfo(authType: AuthType, callback: AsyncCallback<Array<EnrolledCredInfo>>): void;
 
     /**
-     * Obtains authentication information. This API uses a promise to return the result.
+     * 获取认证信息。使用Promise异步回调。
      *
      * @permission ohos.permission.USE_USER_IDM
-     * @param { AuthType } authType - Authentication type, which indicates that information about
-     *     all authentication types is obtained.
-     * @returns { Promise<Array<EnrolledCredInfo>> } Promise used to return the information about
-     *     all the enrolled credentials of the specified type.
+     * @param { AuthType } authType - 认证类型，表示查询所有认证类型的信息。
+     * @returns { Promise<Array<EnrolledCredInfo>> } Promise对象，返回当前用户指定类型的所有已注册凭据信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5279,14 +4986,11 @@ declare namespace osAccount {
     getAuthInfo(authType: AuthType): Promise<Array<EnrolledCredInfo>>;
 
     /**
-     * Obtains authentication information. This API uses a promise to return the result.
+     * 依据提供的可选参数，获取认证信息。使用Promise异步回调。
      *
      * @permission ohos.permission.USE_USER_IDM
-     * @param { GetAuthInfoOptions } [options] - Optional parameters for obtaining authentication information.
-     *     This parameter is left empty by default, indicating that all enrolled credential information of
-     *     the current user is obtained.
-     * @returns { Promise<Array<EnrolledCredInfo>> } Promise used to return the information about
-     *     all the enrolled credentials of the specified type.
+     * @param { GetAuthInfoOptions } [options] - 获取认证信息的可选参数集合。默认为空，表示查询当前用户所有已注册凭据信息。
+     * @returns { Promise<Array<EnrolledCredInfo>> } Promise对象，返回当前用户指定类型的所有已注册凭据信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5301,13 +5005,12 @@ declare namespace osAccount {
     getAuthInfo(options?: GetAuthInfoOptions): Promise<Array<EnrolledCredInfo>>;
 
     /**
-     * Obtains the ID of the enrolled credential based on the credential type and account ID (optional). This API uses a
-     *  promise to return the result.
+     * 基于凭据类型，以及可选的账号标识，获取已注册的凭据ID。使用Promise异步回调。
      *
      * @permission ohos.permission.USE_USER_IDM
-     * @param { AuthType } authType - Credential type.
-     * @param { int } [accountId] - OS account ID, which is left blank by default.
-     * @returns { Promise<Uint8Array> } Promise used to return the credential ID obtained.
+     * @param { AuthType } authType - 认证凭据类型
+     * @param { int } [accountId] - 系统账号标识，默认为空。
+     * @returns { Promise<Uint8Array> } Promise对象，返回已注册的凭据ID。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5324,12 +5027,11 @@ declare namespace osAccount {
     getEnrolledId(authType: AuthType, accountId?: int): Promise<Uint8Array>;
 
     /**
-     * Subscribes to one or more credential change events. This API uses a callback to return the credential change
-     * information.
+     * 订阅一种或多种类型的凭据变更事件，通过回调函数获取凭据变更信息。
      *
      * @permission ohos.permission.USE_USER_IDM
-     * @param { AuthType[] } credentialTypes - Credential types subscribed.
-     * @param { Callback<CredentialChangeInfo> } callback - Callback used to listen for the credential change events.
+     * @param { AuthType[] } credentialTypes - 表示订阅的凭据类型集合。
+     * @param { Callback<CredentialChangeInfo> } callback - 表示用于接收凭据变更事件的回调函数。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5342,14 +5044,11 @@ declare namespace osAccount {
     onCredentialChanged(credentialTypes: AuthType[], callback: Callback<CredentialChangeInfo>): void;
 
     /**
-     * Unsubscribes from credential change events. If no callback is not specified, this API unsubscribes from all
-     * subscription records.
+     * 取消与指定回调关联的订阅记录，若未指定回调，则取消所有订阅记录。
      *
      * @permission ohos.permission.USE_USER_IDM
-     * @param { Callback<CredentialChangeInfo> } [callback] - Callback used to listen for the credential change events.
-     *     The default value is **undefined**, indicating that all subscription records are unregistered.
-     *     If the value is not undefined, only the subscription records related to the specified callback are
-     *     unregistered.
+     * @param { Callback<CredentialChangeInfo> } [callback] - 表示用于接收凭据变更事件的回调函数。默认为undefined，表示清除所有订阅记录；非undefined时，表示清除与该回调函数关
+     *     联的订阅记录。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
@@ -5361,7 +5060,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the credential change types.
+   * 表示凭据变更类型的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -5370,7 +5069,7 @@ declare namespace osAccount {
    */
   enum CredentialChangeType {
     /**
-     * A credential is added.
+     * 表示添加凭据的变更类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5380,7 +5079,7 @@ declare namespace osAccount {
     ADD_CREDENTIAL = 1,
 
     /**
-     * A credential is updated.
+     * 表示更新凭据的变更类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5390,7 +5089,7 @@ declare namespace osAccount {
     UPDATE_CREDENTIAL = 2,
 
     /**
-     * A credential is deleted.
+     * 表示删除凭据的变更类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5401,7 +5100,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the credential change information.
+   * 表示凭据变更信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -5410,7 +5109,7 @@ declare namespace osAccount {
    */
   interface CredentialChangeInfo {
     /**
-     * Credential change type.
+     * 表示凭据变更的类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5420,7 +5119,7 @@ declare namespace osAccount {
     changeType: CredentialChangeType;
 
     /**
-     * OS account ID.
+     * 表示系统账号标识。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5430,7 +5129,7 @@ declare namespace osAccount {
     accountId: int;
 
     /**
-     * Whether the change is silent. A silent change is automatically initiated by the system in the background.
+     * 表示是否为静默变更，静默变更表示变更由系统在后台自动地发起。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5440,7 +5139,7 @@ declare namespace osAccount {
     isSilent: boolean;
 
     /**
-     * Credential type.
+     * 表示凭据类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5450,7 +5149,7 @@ declare namespace osAccount {
     credentialType: AuthType;
 
     /**
-     * Credential ID. An ID is returned when a credential is added or updated. which is **undefined** by default.
+     * 表示添加的凭据ID，添加凭据和更新凭据操作都会返回该ID。默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5460,7 +5159,7 @@ declare namespace osAccount {
     addedCredentialId?: Uint8Array;
 
     /**
-     * Credential ID. An ID is returned when a credential is deleted or updated. which is **undefined** by default.
+     * 表示删除的凭据ID，删除凭据和更新凭据操作都会返回该ID。默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5471,8 +5170,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents a set of optional parameters for
-   * [GetAuthInfo]{@link osAccount.UserIdentityManager.getAuthInfo(options?: GetAuthInfoOptions)}.
+   * 表示[查询认证凭据信息]{@link osAccount.UserIdentityManager.getAuthInfo(options?: GetAuthInfoOptions)}的可选参数集合。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -5481,7 +5179,7 @@ declare namespace osAccount {
    */
   interface GetAuthInfoOptions {
     /**
-     * Authentication type, which is **undefined** by default.
+     * 认证类型，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5491,7 +5189,7 @@ declare namespace osAccount {
     authType?: AuthType;
 
     /**
-     * OS account ID, which is **undefined** by default.
+     * 系统账号标识，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5502,7 +5200,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the authentication intents.
+   * 表示认证意图的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -5511,7 +5209,7 @@ declare namespace osAccount {
    */
   enum AuthIntent {
     /**
-     * Unlock.
+     * 解锁意图。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5521,7 +5219,7 @@ declare namespace osAccount {
     UNLOCK = 1,
 
     /**
-     * Silent authentication.
+     * 静默认证意图。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5531,7 +5229,7 @@ declare namespace osAccount {
     SILENT_AUTH = 2,
 
     /**
-     * Security question authentication.
+     * 密保问题认证意图。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5541,9 +5239,7 @@ declare namespace osAccount {
     QUESTION_AUTH = 3,
 
     /**
-     * Abandoned PIN authentication. After a user changes the lock screen password, the old PIN is abandoned. If a user
-     * forgets the current password, the user can reset the lock screen password after passing the authentication with
-     * the abandoned PIN.
+     * 废弃PIN码认证意图。用户修改锁屏密码后，旧的PIN码被废弃。废弃PIN存在期间，用户如果忘记密码可以通过废弃PIN认证通过后重置锁屏密码。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5554,7 +5250,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents a set of optional parameters for remote authentication.
+   * 表示远程认证的可选参数集合。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -5563,7 +5259,7 @@ declare namespace osAccount {
    */
   interface RemoteAuthOptions {
     /**
-     * Network ID of the credential verifier, which is left blank by default.
+     * 凭据验证者的网络标识，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5573,7 +5269,7 @@ declare namespace osAccount {
     verifierNetworkId?: string;
 
     /**
-     * Network ID of the credential collector, which is left blank by default.
+     * 凭据收集者的网络标识，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5583,7 +5279,7 @@ declare namespace osAccount {
     collectorNetworkId?: string;
 
     /**
-     * Token ID of the credential collector, which is **undefined** by default.
+     * 凭据收集者的令牌标识，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5594,8 +5290,9 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents a set of optional parameters for
-   * [auth]{@link osAccount.UserAuth.auth( challenge: Uint8Array, authType: AuthType, authTrustLevel: AuthTrustLevel, options: AuthOptions, callback: IUserAuthCallback )}.
+   * 表示
+   * [认证用户]{@link osAccount.UserAuth.auth( challenge: Uint8Array, authType: AuthType, authTrustLevel: AuthTrustLevel, options: AuthOptions, callback: IUserAuthCallback )}
+   * 的可选参数集合。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi
@@ -5604,7 +5301,7 @@ declare namespace osAccount {
    */
   interface AuthOptions {
     /**
-     * OS account ID, which is **undefined** by default.
+     * 系统账号标识，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5614,7 +5311,7 @@ declare namespace osAccount {
     accountId?: int;
 
     /**
-     * Authentication intent, which is **undefined** by default.
+     * 认证意图，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5624,7 +5321,7 @@ declare namespace osAccount {
     authIntent?: AuthIntent;
 
     /**
-     * Remote authentication options, which is **undefined** by default.
+     * 远程认证选项，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5635,7 +5332,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides callbacks for PIN operations.
+   * 密码数据回调。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5644,11 +5341,11 @@ declare namespace osAccount {
    */
   interface IInputData {
     /**
-     * Called to notify the caller the data is set.
      *
-     * @param { AuthSubType } authSubType - Credential subtype.
-     * @param { Uint8Array } data - Data (credential) to set. The data is used for authentication and
-     *     operations for adding and modifying credentials.
+     * 通知设置数据。
+     *
+     * @param { AuthSubType } authSubType - 用于认证的凭据子类型。
+     * @param { Uint8Array } data - 要设置的数据是凭据，用来在认证、添加、修改凭据操作。
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
@@ -5662,8 +5359,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Represents a set of optional parameters for
-   * [onGetData](docroot://reference/apis-basic-services-kit/js-apis-osAccount-sys.md#ongetdata8).
+   * 表示[通知调用者获取数据](docroot://reference/apis-basic-services-kit/js-apis-osAccount-sys.md#ongetdata8)的可选参数集合。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5672,7 +5368,7 @@ declare namespace osAccount {
    */
   interface GetInputDataOptions {
     /**
-     * Challenge value, which is **undefined** by default.
+     * 挑战值，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5683,7 +5379,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides callbacks for credential inputers.
+   * 凭据输入器回调。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5692,7 +5388,7 @@ declare namespace osAccount {
    */
   interface IInputer {
     /**
-     * Called to notify the caller that data is obtained.
+     * 通知调用者获取数据的回调函数。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5703,7 +5399,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides callbacks for user authentication.
+   * 表示用户认证回调类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5712,7 +5408,7 @@ declare namespace osAccount {
    */
   interface IUserAuthCallback {
     /**
-     * Called to return the result code and authentication result.
+     * 身份认证结果回调函数，返回结果码和认证结果信息。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5722,7 +5418,7 @@ declare namespace osAccount {
     onResult: (result: int, extraInfo: AuthResult) => void;
 
     /**
-     * Called to acquire identity authentication information.
+     * 身份认证信息获取回调函数。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5733,7 +5429,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Provides callbacks for IDM.
+   * 表示身份管理回调类。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5742,7 +5438,7 @@ declare namespace osAccount {
    */
   interface IIdmCallback {
     /**
-     * Called to return the result code and request result information.
+     * 身份管理操作结果回调函数，返回结果码和请求结果信息。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5752,7 +5448,7 @@ declare namespace osAccount {
     onResult: (result: int, extraInfo: RequestResult) => void;
 
     /**
-     * Called to acquire IDM information.
+     * 身份管理信息获取回调函数。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5763,7 +5459,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the request for obtaining property information.
+   * 提供获取属性请求的信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5772,7 +5468,7 @@ declare namespace osAccount {
    */
   interface GetPropertyRequest {
     /**
-     * Authentication credential type.
+     * 身份验证凭据类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5782,7 +5478,7 @@ declare namespace osAccount {
     authType: AuthType;
 
     /**
-     * An array of the types of the properties to obtain.
+     * 指示要获取的属性类型数组。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5792,7 +5488,7 @@ declare namespace osAccount {
     keys: Array<GetPropertyType>;
 
     /**
-     * OS account ID, which is **undefined** by default.
+     * 系统账号标识，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5803,7 +5499,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the request for setting property information.
+   * 提供设置属性请求的信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5812,7 +5508,7 @@ declare namespace osAccount {
    */
   interface SetPropertyRequest {
     /**
-     * Authentication credential type.
+     * 身份验证凭据类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5822,7 +5518,7 @@ declare namespace osAccount {
     authType: AuthType;
 
     /**
-     * Type of the property to set.
+     * 指示要设置的属性类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5832,7 +5528,7 @@ declare namespace osAccount {
     key: SetPropertyType;
 
     /**
-     * Information to set.
+     * 指示要设置的信息。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5843,7 +5539,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the executor property.
+   * 提供执行器的属性。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5852,7 +5548,7 @@ declare namespace osAccount {
    */
   interface ExecutorProperty {
     /**
-     * Result.
+     * 指示结果。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5862,7 +5558,7 @@ declare namespace osAccount {
     result: int;
 
     /**
-     * Authentication credential subtype.
+     * 指示认证凭据子类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5872,7 +5568,7 @@ declare namespace osAccount {
     authSubType: AuthSubType;
 
     /**
-     * Number of remaining authentication times, which is **-1** by default.
+     * 指示剩余次数，默认为-1。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5882,7 +5578,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Freezing time, in milliseconds. The default value is **-1**.
+     * 指示冻结时间，单位为ms，默认为-1。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5892,7 +5588,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Next freezing time, in milliseconds. The default value is **undefined**.
+     * 指示下次冻结时间，单位为ms，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5902,7 +5598,7 @@ declare namespace osAccount {
     nextPhaseFreezingTime?: int;
 
     /**
-     * Enrollment progress, which is left blank by default.
+     * 指示录入进度，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5912,7 +5608,7 @@ declare namespace osAccount {
     enrollmentProgress?: string;
 
     /**
-     * Sensor information, which is left blank by default.
+     * 指示传感器信息，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5922,8 +5618,7 @@ declare namespace osAccount {
     sensorInfo?: string;
 
     /**
-     * Credential length, which is **undefined** by default. When credentials with indefinite-length attributes such as
-     * biometric information are queried, **undefined** is returned.
+     * 指示凭据长度，默认为undefined。查询生物信息等无定长属性的凭据时返回undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -5934,7 +5629,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the authentication result information.
+   * 表示认证结果的信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -5943,7 +5638,7 @@ declare namespace osAccount {
    */
   interface AuthResult {
     /**
-     * Authentication token, which is left blank by default.
+     * 指示认证令牌，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5953,7 +5648,7 @@ declare namespace osAccount {
     token?: Uint8Array;
 
     /**
-     * Number of remaining authentication times, which is **-1** by default.
+     * 指示剩余次数，默认为-1。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5963,7 +5658,7 @@ declare namespace osAccount {
     remainTimes?: int;
 
     /**
-     * Freezing time, in milliseconds. The default value is **-1**.
+     * 指示冻结时间，单位为ms，默认为-1。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5973,7 +5668,7 @@ declare namespace osAccount {
     freezingTime?: int;
 
     /**
-     * Next freezing time, in milliseconds. The default value is **undefined**.
+     * 指示下次冻结时间，单位为ms，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5983,7 +5678,7 @@ declare namespace osAccount {
     nextPhaseFreezingTime?: int;
 
     /**
-     * Credential ID, which is left blank by default.
+     * 指示凭据ID，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -5993,7 +5688,7 @@ declare namespace osAccount {
     credentialId?: Uint8Array;
 
     /**
-     * OS account ID, which is **undefined** by default.
+     * 指示系统账号标识，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6003,7 +5698,7 @@ declare namespace osAccount {
     accountId?: int;
 
     /**
-     * Authentication validity period, in milliseconds. The default value is **undefined**.
+     * 指示认证有效期，单位为ms，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6014,7 +5709,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the credential information.
+   * 表示凭证信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6023,7 +5718,7 @@ declare namespace osAccount {
    */
   interface CredentialInfo {
     /**
-     * Authentication credential type.
+     * 指示凭据类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6033,7 +5728,7 @@ declare namespace osAccount {
     credType: AuthType;
 
     /**
-     * Authentication credential subtype.
+     * 指示凭据子类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6043,7 +5738,7 @@ declare namespace osAccount {
     credSubType: AuthSubType;
 
     /**
-     * Authentication token, which is left blank by default.
+     * 指示认证令牌，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6053,7 +5748,7 @@ declare namespace osAccount {
     token: Uint8Array;
 
     /**
-     * OS account ID, which is **undefined** by default.
+     * 系统账号标识，默认为undefined。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6063,7 +5758,7 @@ declare namespace osAccount {
     accountId?: int;
 
     /**
-     * Additional information about the credential, which is an empty string by default.
+     * 凭据的附加信息，默认为空字符串。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6073,7 +5768,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the request result information.
+   * 表示请求结果的信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6082,7 +5777,7 @@ declare namespace osAccount {
    */
   interface RequestResult {
     /**
-     * Credential ID, which is left blank by default.
+     * 指示凭据索引，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6093,7 +5788,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines enrolled credential information.
+   * 表示已注册凭据的信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6102,7 +5797,7 @@ declare namespace osAccount {
    */
   interface EnrolledCredInfo {
     /**
-     * Credential ID, which is left blank by default.
+     * 指示凭据索引，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6112,7 +5807,7 @@ declare namespace osAccount {
     credentialId: Uint8Array;
 
     /**
-     * Authentication credential type.
+     * 身份验证凭据类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6122,7 +5817,7 @@ declare namespace osAccount {
     authType: AuthType;
 
     /**
-     * Authentication credential subtype.
+     * 指示认证凭据子类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6132,7 +5827,7 @@ declare namespace osAccount {
     authSubType: AuthSubType;
 
     /**
-     * Authentication credential template ID.
+     * 指示凭据模板ID。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6142,9 +5837,7 @@ declare namespace osAccount {
     templateId: Uint8Array;
 
     /**
-     * Whether the credential is abandoned. The abandoned credential may be stored as a backup credential for a period
-     * of time. The value **true** indicates that the credential is abandoned, and the value **false** indicates the
-     * opposite. The default value is **undefined**.
+     * 指示凭据是否废弃。废弃后的凭据可能作为备份凭据保存一段时间。true表示已废弃，false表示未废弃。默认为undefined，表示是否废弃未定义。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -6154,7 +5847,7 @@ declare namespace osAccount {
     isAbandoned?: boolean;
 
     /**
-     * Credential validity period, in milliseconds. The default value is **undefined**.
+     * 指示凭据有效期，单位为ms。默认为undefined，表示有效期未定义。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -6165,7 +5858,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the types of properties to obtain.
+   * 表示要获取的属性类型的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6174,7 +5867,7 @@ declare namespace osAccount {
    */
   enum GetPropertyType {
     /**
-     * Authentication credential subtype.
+     * 认证子类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6184,7 +5877,7 @@ declare namespace osAccount {
     AUTH_SUB_TYPE = 1,
 
     /**
-     * Number of remaining times.
+     * 剩余次数。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6194,7 +5887,7 @@ declare namespace osAccount {
     REMAIN_TIMES = 2,
 
     /**
-     * Freezing time.
+     * 冻结时间。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6204,7 +5897,7 @@ declare namespace osAccount {
     FREEZING_TIME = 3,
 
     /**
-     * Enrollment progress, which is left blank by default.
+     * 指示录入进度，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6214,7 +5907,7 @@ declare namespace osAccount {
     ENROLLMENT_PROGRESS = 4,
 
     /**
-     * Sensor information, which is left blank by default.
+     * 指示传感器信息，默认为空。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6224,7 +5917,7 @@ declare namespace osAccount {
     SENSOR_INFO = 5,
 
     /**
-     * Next freezing time.
+     * 下次冻结时间。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6234,7 +5927,7 @@ declare namespace osAccount {
     NEXT_PHASE_FREEZING_TIME = 6,
 
     /**
-     * Credential length.
+     * 凭据长度。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
@@ -6245,7 +5938,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the types of properties to set.
+   * 表示要设置的属性类型的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6254,7 +5947,7 @@ declare namespace osAccount {
    */
   enum SetPropertyType {
     /**
-     * Initialization algorithm.
+     * 初始化算法。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6265,7 +5958,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the authentication credential types.
+   * 表示身份验证的凭据类型的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6274,7 +5967,7 @@ declare namespace osAccount {
    */
   enum AuthType {
     /**
-     * PIN authentication.
+     * 表示PIN认证类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6284,7 +5977,7 @@ declare namespace osAccount {
     PIN = 1,
 
     /**
-     * Facial authentication.
+     * 表示脸部认证类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6294,7 +5987,7 @@ declare namespace osAccount {
     FACE = 2,
 
     /**
-     * Fingerprint authentication.
+     * 表示指纹认证类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6304,7 +5997,7 @@ declare namespace osAccount {
     FINGERPRINT = 4,
 
     /**
-     * Key recovery type.
+     * 表示键恢复类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6314,7 +6007,7 @@ declare namespace osAccount {
     RECOVERY_KEY = 8,
 
     /**
-     * Private PIN type.
+     * 表示隐私PIN类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6324,7 +6017,7 @@ declare namespace osAccount {
     PRIVATE_PIN = 16,
 
     /**
-     * Companion device authentication.
+     * 表示伴随设备认证类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6333,7 +6026,7 @@ declare namespace osAccount {
     COMPANION_DEVICE = 64,
 
     /**
-     * Domain authentication.
+     * 表示域认证类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6344,7 +6037,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the authentication credential subtypes.
+   * 表示用于认证的凭据子类型的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6353,7 +6046,7 @@ declare namespace osAccount {
    */
   enum AuthSubType {
     /**
-     * Six-digit PIN.
+     * 表示6位凭证。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6363,7 +6056,7 @@ declare namespace osAccount {
     PIN_SIX = 10000,
 
     /**
-     * Custom PIN.
+     * 表示自定义数字凭证。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6373,7 +6066,7 @@ declare namespace osAccount {
     PIN_NUMBER = 10001,
 
     /**
-     * Custom mixed credentials.
+     * 表示自定义混合凭据。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6383,7 +6076,7 @@ declare namespace osAccount {
     PIN_MIXED = 10002,
 
     /**
-     * 4-digit credential.
+     * 表示4位凭证。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6393,7 +6086,7 @@ declare namespace osAccount {
     PIN_FOUR = 10003,
 
     /**
-     * Pattern credential.
+     * 表示图案凭据。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6403,7 +6096,7 @@ declare namespace osAccount {
     PIN_PATTERN = 10004,
 
     /**
-     * Security question credential.
+     * 表示密保问题凭据。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6413,7 +6106,7 @@ declare namespace osAccount {
     PIN_QUESTION = 10005,
 
     /**
-     * 2D face credential.
+     * 表示2D 人脸凭证。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6423,7 +6116,7 @@ declare namespace osAccount {
     FACE_2D = 20000,
 
     /**
-     * 3D face credential.
+     * 表示3D 人脸凭证。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6433,7 +6126,7 @@ declare namespace osAccount {
     FACE_3D = 20001,
 
     /**
-     * Capacitive fingerprint.
+     * 表示电容式指纹。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6443,7 +6136,7 @@ declare namespace osAccount {
     FINGERPRINT_CAPACITIVE = 30000,
 
     /**
-     * Optical fingerprint.
+     * 表示光学指纹。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6453,7 +6146,7 @@ declare namespace osAccount {
     FINGERPRINT_OPTICAL = 30001,
 
     /**
-     * Ultrasonic fingerprint.
+     * 表示超声波指纹。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6463,7 +6156,7 @@ declare namespace osAccount {
     FINGERPRINT_ULTRASONIC = 30002,
 
     /**
-     * Mixed domain authentication credentials.
+     * 表示域认证混合凭证。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6474,7 +6167,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the trust levels of the authentication result.
+   * 表示认证结果的受信任级别的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6483,7 +6176,7 @@ declare namespace osAccount {
    */
   enum AuthTrustLevel {
     /**
-     * Trust level 1.
+     * 信任级别 1。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6493,7 +6186,7 @@ declare namespace osAccount {
     ATL1 = 10000,
 
     /**
-     * Trust level 2.
+     * 信任级别 2。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6503,7 +6196,7 @@ declare namespace osAccount {
     ATL2 = 20000,
 
     /**
-     * Trust level 3.
+     * 信任级别 3。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6513,7 +6206,7 @@ declare namespace osAccount {
     ATL3 = 30000,
 
     /**
-     * Trust level 4.
+     * 信任级别 4。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6524,7 +6217,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the modules from which information is obtained.
+   * 表示获取信息的模块的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6533,7 +6226,7 @@ declare namespace osAccount {
    */
   enum Module {
     /**
-     * Facial authentication module.
+     * 表示从人脸认证获取的信息。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6544,7 +6237,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the authentication result codes.
+   * 表示身份验证结果码。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6553,7 +6246,7 @@ declare namespace osAccount {
    */
   enum ResultCode {
     /**
-     * The authentication is successful or the authentication feature is supported.
+     * 表示身份验证成功或支持此功能。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6563,7 +6256,7 @@ declare namespace osAccount {
     SUCCESS = 0,
 
     /**
-     * The authentication executor failed to identify the user.
+     * 表示验证器无法识别用户。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6573,7 +6266,7 @@ declare namespace osAccount {
     FAIL = 1,
 
     /**
-     * Other errors.
+     * 表示其他错误。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6583,7 +6276,7 @@ declare namespace osAccount {
     GENERAL_ERROR = 2,
 
     /**
-     * The authentication is canceled.
+     * 表示身份验证已取消。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6593,7 +6286,7 @@ declare namespace osAccount {
     CANCELED = 3,
 
     /**
-     * The authentication timed out.
+     * 表示身份验证已超时。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6603,7 +6296,7 @@ declare namespace osAccount {
     TIMEOUT = 4,
 
     /**
-     * The authentication credential type is not supported.
+     * 表示不支持此身份验证类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6613,7 +6306,7 @@ declare namespace osAccount {
     TYPE_NOT_SUPPORT = 5,
 
     /**
-     * The authentication trust level is not supported.
+     * 表示不支持身份验证信任级别。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6623,7 +6316,7 @@ declare namespace osAccount {
     TRUST_LEVEL_NOT_SUPPORT = 6,
 
     /**
-     * The authentication executor is busy. Try again after a few seconds.
+     * 表示身份验证任务正忙。等待几秒钟，然后重试。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6633,7 +6326,7 @@ declare namespace osAccount {
     BUSY = 7,
 
     /**
-     * Incorrect parameters are detected.
+     * 表示参数不正确。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6643,7 +6336,7 @@ declare namespace osAccount {
     INVALID_PARAMETERS = 8,
 
     /**
-     * The authentication executor is locked.
+     * 指示身份验证器已锁定。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6653,7 +6346,7 @@ declare namespace osAccount {
     LOCKED = 9,
 
     /**
-     * The authentication executor is not enrolled.
+     * 表示用户尚未注册验证器。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6664,7 +6357,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the tip codes for facial authentication.
+   * 表示人脸验证过程中提示的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6673,7 +6366,7 @@ declare namespace osAccount {
    */
   enum FaceTipsCode {
     /**
-     * The obtained face image is too bright.
+     * 表示由于高照明，获得的面部图像太亮。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6683,7 +6376,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_BRIGHT = 1,
 
     /**
-     * The obtained face image is too dark.
+     * 表示由于照明度低，获得的面部图像太暗。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6693,7 +6386,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_DARK = 2,
 
     /**
-     * The face is too close to the device.
+     * 表示面部离设备太近。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6703,7 +6396,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_CLOSE = 3,
 
     /**
-     * The face is too far away from the device.
+     * 表示面部离设备太远。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6713,7 +6406,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_FAR = 4,
 
     /**
-     * Only the upper part of the face is captured because the device is angled too high.
+     * 表示设备太高，仅捕捉面部上部。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6723,7 +6416,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_HIGH = 5,
 
     /**
-     * Only the lower part of the face is captured because the device is angled too low.
+     * 表示设备太低，仅捕捉面部下部。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6733,7 +6426,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_LOW = 6,
 
     /**
-     * Only the right part of the face is captured because the device is angled too much to the right.
+     * 表示设备向右偏移，并且仅捕捉面部的右侧部分。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6743,7 +6436,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_RIGHT = 7,
 
     /**
-     * Only the left part of the face is captured because the device is angled too much to the left.
+     * 表示设备向左偏移，并且仅捕捉面部的左侧部分。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6753,7 +6446,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_LEFT = 8,
 
     /**
-     * The face moves too fast during facial information collection.
+     * 表示面部信息收集过程中面部移动过快。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6763,7 +6456,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_TOO_MUCH_MOTION = 9,
 
     /**
-     * The face is not facing the device.
+     * 表示面部未朝向设备。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6773,7 +6466,7 @@ declare namespace osAccount {
     FACE_AUTH_TIP_POOR_GAZE = 10,
 
     /**
-     * No face is detected.
+     * 表示未检测到人脸。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6784,7 +6477,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the tip codes for fingerprint authentication.
+   * 表示指纹身份验证过程中提示的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6793,7 +6486,7 @@ declare namespace osAccount {
    */
   enum FingerprintTips {
     /**
-     * The captured image is clear.
+     * 表示采集的图像良好。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6803,7 +6496,7 @@ declare namespace osAccount {
     FINGERPRINT_TIP_GOOD = 0,
 
     /**
-     * The fingerprint image has big noise due to dirt on the sensor.
+     * 表示由于传感器上可疑或检测到污垢，指纹图像噪声过大。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6813,7 +6506,7 @@ declare namespace osAccount {
     FINGERPRINT_TIP_IMAGER_DIRTY = 1,
 
     /**
-     * Failed to process the fingerprint image due to big noise.
+     * 表示由于检测到的情况，指纹图像噪声太大，无法处理。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6823,7 +6516,7 @@ declare namespace osAccount {
     FINGERPRINT_TIP_INSUFFICIENT = 2,
 
     /**
-     * Only part of the fingerprint image is detected.
+     * 表示仅检测到部分指纹图像。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6833,7 +6526,7 @@ declare namespace osAccount {
     FINGERPRINT_TIP_PARTIAL = 3,
 
     /**
-     * The fingerprint image is incomplete due to quick motion.
+     * 表示指纹图像由于快速运动而不完整。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6843,7 +6536,7 @@ declare namespace osAccount {
     FINGERPRINT_TIP_TOO_FAST = 4,
 
     /**
-     * Failed to read the fingerprint image due to lack of motion.
+     * 表示由于缺少运动，指纹图像无法读取。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6853,7 +6546,7 @@ declare namespace osAccount {
     FINGERPRINT_TIP_TOO_SLOW = 5,
 
     /**
-     * Press your finger.
+     * 表示手指落下。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6863,7 +6556,7 @@ declare namespace osAccount {
     FINGERPRINT_TIP_FINGER_DOWN = 6,
 
     /**
-     * Lift your finger.
+     * 表示手指抬起。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6874,7 +6567,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Enumerates the constraint sources.
+   * 表示约束来源类型的枚举。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6883,7 +6576,7 @@ declare namespace osAccount {
    */
   enum ConstraintSourceType {
     /**
-     * The constraint does not exist.
+     * 约束不存在。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6893,7 +6586,7 @@ declare namespace osAccount {
     CONSTRAINT_NOT_EXIST = 0,
 
     /**
-     * Constraint from system settings.
+     * 约束源自系统设置。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6903,7 +6596,7 @@ declare namespace osAccount {
     CONSTRAINT_TYPE_BASE = 1,
 
     /**
-     * Constraint from the device owners' settings.
+     * 约束源自设备所有者设置。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6913,7 +6606,7 @@ declare namespace osAccount {
     CONSTRAINT_TYPE_DEVICE_OWNER = 2,
 
     /**
-     * Constraint from the profile owners' settings.
+     * 约束源自资料所有者设置。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6924,7 +6617,7 @@ declare namespace osAccount {
   }
 
   /**
-   * Defines the constraint source type.
+   * 表示约束来源类型信息。
    *
    * @syscap SystemCapability.Account.OsAccount
    * @systemapi Hide this for inner system use.
@@ -6933,7 +6626,7 @@ declare namespace osAccount {
    */
   interface ConstraintSourceTypeInfo {
     /**
-     * ID of the target OS account.
+     * 系统账号ID
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
@@ -6943,7 +6636,7 @@ declare namespace osAccount {
     localId: int;
 
     /**
-     * Type of the constraint source.
+     * 约束来源类型。
      *
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
