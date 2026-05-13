@@ -373,8 +373,7 @@ declare namespace dlpPermission {
    */
   function isInSandbox(callback: AsyncCallback<boolean>): void;
   /**
-   * Obtains the file name extension types that support DLP. This API uses a promise to return the
-   * result.
+   * Obtains the file name extension types that support DLP. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<string>> } Promise used to return the file name extension types obtained.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -384,7 +383,8 @@ declare namespace dlpPermission {
    */
   function getDLPSupportedFileTypes(): Promise<Array<string>>;
   /**
-   * Obtains the file name extension types that support DLP. This API uses an asynchronous callback to return the result.
+   * Obtains the file name extension types that support DLP. This API uses an asynchronous callback to return the
+   * result.
    *
    * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
@@ -1376,7 +1376,7 @@ declare namespace dlpPermission {
    *
    * @permission ohos.permission.ACCESS_DLP_FILE
    * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
-   * @param { number } ciphertextFd - FD of the encrypted file
+   * @param { number } ciphertextFd - FD of the encrypted file.
    * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
    *     account, and contact account information.
    * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
