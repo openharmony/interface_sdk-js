@@ -7600,16 +7600,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Enumerates fragment map information types of an image.
+   * Enumerates the fragment map information.
    *
-   * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   enum FragmentMapPropertyKey {
     /**
-     * The x-coordinate of the top left corner of the mark cup map in the original image.
+     * X coordinate of the top-left corner of the fragment map in the original image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7618,7 +7617,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     X_IN_ORIGINAL = 'XInOriginal',
 
     /**
-     * The y-coordinate of the top left corner of the mark cup map in the original image.
+     * Y coordinate of the top-left corner of the fragment map in the original image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7627,7 +7626,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     Y_IN_ORIGINAL = 'YInOriginal',
 
     /**
-     * Mark cut map width.
+     * Width of the fragment map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7636,7 +7635,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     WIDTH = 'FragmentImageWidth',
 
     /**
-     * Mark cut map height.
+     * Height of the fragment map.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
@@ -7646,15 +7645,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Enumerates the properties available for the metadata of a GIF image.
-   * @enum { string }
+   * Enumerates the GIF image information.
+   *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 20 dynamic
    * @since 23 static
    */
   enum GifPropertyKey {
     /**
-     * Delay of each frame in the image.
+     * Duration for playing each frame of a GIF image, in milliseconds.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 20 dynamic
@@ -7663,7 +7662,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     GIF_DELAY_TIME = 'GifDelayTime',
 
     /**
-     * Disposal type of each frame in the image.
+     * Disposal type of each frame in a GIF image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 20 dynamic
@@ -7715,18 +7714,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     GIF_UNCLAMPED_DELAY_TIME = 'GifUnclampedDelayTime'
+
   }
 
   /**
    * Enumerates the properties available for the metadata of a HEIFS image.
-   * @enum { string }
+   *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   enum HeifsPropertyKey {
     /**
-     * Delay of each frame in milliseconds.
+     * Playback duration of each frame in an HEIF image sequence, in milliseconds.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -8575,15 +8576,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  enum TiffPropertyKey {
+  enum TiffPropertyKey {    
     /**
-     * Name of the document or image.
+     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    DOCUMENT_NAME = 'TiffDocumentName',
+    COMPRESSION = 'TiffCompression',
 
     /**
      * Defines how pixel colors are interpreted (e.g., RGB, grayscale).
@@ -8595,6 +8596,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     PHOTOMETRIC_INTERPRETATION = 'TiffPhotometricInterpretation',
 
     /**
+     * Tone transfer curve mapping pixel values to output intensity.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TRANSFER_FUNCTION = 'TiffTransferFunction',
+
+    /**
      * Indicates image orientation for correct display rotation/flip.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8604,6 +8614,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     ORIENTATION = 'TiffOrientation',
 
     /**
+     * Horizontal resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    X_RESOLUTION = 'TiffXResolution',
+
+    /**
+     * Vertical resolution (pixels per resolution unit).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    Y_RESOLUTION = 'TiffYResolution',
+
+    /**
      * Unit for X/Y resolution.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8611,6 +8639,69 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     RESOLUTION_UNIT = 'TiffResolutionUnit',
+
+    /**
+     * Chromaticity coordinates of the reference white point.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WHITE_POINT = 'TiffWhitePoint',
+
+    /**
+     * Chromaticity coordinates of the RGB primaries.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PRIMARY_CHROMATICITIES = 'TiffPrimaryChromaticities',
+
+    /**
+     * Height of each image tile in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TILE_LENGTH = 'TiffTileLength',
+
+    /**
+     * Width of each image tile in pixels.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TILE_WIDTH = 'TiffTileWidth',
+
+    /**
+     * Name of the document or image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DOCUMENT_NAME = 'TiffDocumentName',
+
+    /**
+     * Description of the image content.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    IMAGE_DESCRIPTION = 'TiffImageDescription',
+
+    /**
+     * Name of the image creator or artist.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ARTIST = 'TiffArtist',
 
     /**
      * Copyright notice for the image.
@@ -8631,69 +8722,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     DATE_TIME = 'TiffDateTime',
 
     /**
-     * Description of the image content.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    IMAGE_DESCRIPTION = 'TiffImageDescription',
-
-    /**
-     * Vertical resolution (pixels per resolution unit).
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    Y_RESOLUTION = 'TiffYResolution',
-
-    /**
-     * Horizontal resolution (pixels per resolution unit).
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    X_RESOLUTION = 'TiffXResolution',
-
-    /**
-     * Chromaticity coordinates of the reference white point.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    WHITE_POINT = 'TiffWhitePoint',
-
-    /**
-     * Height of each image tile in pixels.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TILE_LENGTH = 'TiffTileLength',
-
-    /**
-     * Tone transfer curve mapping pixel values to output intensity.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TRANSFER_FUNCTION = 'TiffTransferFunction',
-
-    /**
-     * Width of each image tile in pixels.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    TILE_WIDTH = 'TiffTileWidth',
-
-    /**
      * Manufacturer of the capture device.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8712,24 +8740,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     MODEL = 'TiffModel',
 
     /**
-     * Host computer/system used for image processing.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    HOST_COMPUTER = 'TiffHostComputer',
-
-    /**
-     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    COMPRESSION = 'TiffCompression',
-
-    /**
      * Software used to create or process the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8739,22 +8749,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     SOFTWARE = 'TiffSoftware',
 
     /**
-     * Chromaticity coordinates of the RGB primaries.
+     * Host computer/system used for image processing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    PRIMARY_CHROMATICITIES = 'TiffPrimaryChromaticities',
-
-    /**
-     * Name of the image creator or artist.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    ARTIST = 'TiffArtist'
+    HOST_COMPUTER = 'TiffHostComputer'
   }
 
   /**
@@ -8764,16 +8765,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  enum JfifPropertyKey {
-    /**
-     * JFIF density unit.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    DENSITY_UNIT = 'JfifDensityUnit',
-
+  enum JfifPropertyKey {  
     /**
      * JFIF x density.
      *
@@ -8791,6 +8783,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     Y_DENSITY = 'JfifYDensity',
+
+    /**
+     * JFIF density unit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DENSITY_UNIT = 'JfifDensityUnit',
 
     /**
      * JFIF version.
@@ -8818,7 +8819,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  enum PngPropertyKey {
+  enum PngPropertyKey {  
     /**
      * PNG x pixels per meter.
      *
@@ -8829,78 +8830,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     X_PIXELS_PER_METER = 'PngXPixelsPerMeter',
 
     /**
-     * PNG modification time.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    MODIFICATION_TIME = 'PngModificationTime',
-      
-    /**
-     * PNG software.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SOFTWARE = 'PngSoftware',
-      
-    /**
-     * PNG copyright.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    COPYRIGHT = 'PngCopyright',
-      
-    /**
-     * PNG creation time.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    CREATION_TIME = 'PngCreationTime',
-      
-    /**
-     * PNG sRGB rendering intent.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SRGB_INTENT = 'PngSRGBIntent',
-      
-    /**
-     * PNG author.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    AUTHOR = 'PngAuthor',
-      
-    /**
-     * PNG interlacing mode.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    INTERLACE_TYPE = 'PngInterlaceType',
-      
-    /**
-     * PNG warning.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    WARNING = 'PngWarning',
-      
-    /**
      * PNG y pixels per meter.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8908,7 +8837,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     Y_PIXELS_PER_METER = 'PngYPixelsPerMeter',
-      
+	
     /**
      * PNG gamma.
      *
@@ -8919,6 +8848,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     GAMMA = 'PngGamma',
 
     /**
+     * PNG interlacing mode.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INTERLACE_TYPE = 'PngInterlaceType',
+	
+    /**
+     * PNG sRGB rendering intent.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SRGB_INTENT = 'PngSRGBIntent',
+	
+    /**
      * PNG color primary/white-point coordinates.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -8926,16 +8873,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     CHROMATICITIES = 'PngChromaticities',
-
-    /**
-     * PNG description.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    DESCRIPTION = 'PngDescription',
-
+	
     /**
      * PNG title.
      *
@@ -8944,7 +8882,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     TITLE = 'PngTitle',
-
+	
+    /**
+     * PNG description.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DESCRIPTION = 'PngDescription',
+	
     /**
      * PNG comment.
      *
@@ -8953,7 +8900,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     COMMENT = 'PngComment',
-
+	
     /**
      * PNG disclaimer.
      *
@@ -8961,23 +8908,76 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    DISCLAIMER = 'PngDisclaimer'
+    DISCLAIMER = 'PngDisclaimer',
+	
+    /**
+     * PNG warning.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WARNING = 'PngWarning',
+	
+    /**
+     * PNG author.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AUTHOR = 'PngAuthor',
+	
+    /**
+     * PNG copyright.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COPYRIGHT = 'PngCopyright',
+	
+    /**
+     * PNG creation time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CREATION_TIME = 'PngCreationTime',
+	
+    /**
+     * PNG modification time.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODIFICATION_TIME = 'PngModificationTime',
+	
+    /**
+     * PNG software.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SOFTWARE = 'PngSoftware',
   }
 
   /**
-   * Heifs metadata.
+   * HeifsMetadata implements Metadata
+   * 
+   * HEIF image sequence metadata.
    *
-   * @implements Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   class HeifsMetadata implements Metadata {  
     /**
-     * Delay of each frame in milliseconds.
+     * Playback duration of each frame in an HEIF image sequence, in ms.
      *
-     * @type { ?int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -8986,7 +8986,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Canvas height.
-     * The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -8996,7 +8995,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Canvas width.
-     * The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9005,8 +9003,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly heifsCanvasWidth?: int;
 
     /**
-     * Unclamped delay of each frame in milliseconds.
-     * The value should be an integer.
+     * Unclamped delay of each frame in ms.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9015,10 +9012,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly heifsUnclampedDelayTime?: int;
 
     /**
-     * Create an empty instance of HeifsMetadata.
+     * Creates an empty [HeifsMetadata]{@link @ohos.multimedia.image:image.HeifsMetadata} instance.
      *
-     * @returns { HeifsMetadata } Returns an empty instance of HeifsMetadata.
-     * @static
+     * @returns { HeifsMetadata } Empty **HeifsMetadata** instance.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9026,10 +9022,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     static createInstance(): HeifsMetadata;
 
     /**
-     * Obtains the value of properties in an image. This method uses a promise to return the property values in records.
+     * Obtains the property values of image metadata. This API returns the result asynchronously through a promise.
      *
-     * @param { Array<string> } key Name of the properties whose value is to be obtained.
-     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @param { Array<string> } key - Names of the properties to query.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the property values. If the operation
+     *     fails, an error code is returned.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9038,10 +9035,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getProperties(key: Array<string>): Promise<Record<string, string | null>>;
 
     /**
-     * Set the value of properties in an image with the specified keys.
+     * Sets the values of specified properties in image metadata in batches. This API returns the result asynchronously 
+     * through a promise.
+     * 
+     * For details about the properties, see 
+     * [HeifsPropertyKey]{@link @ohos.multimedia.image:image.HeifsPropertyKey}.
      *
-     * @param { Record<string, string | null> } records Property records whose values are to be set.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @param { Record<string, string | null> } records - Set of key-value pairs representing the **HeifsMetadata**
+     *     properties and corresponding values.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9050,10 +9052,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setProperties(records: Record<string, string | null>): Promise<void>;
 
     /**
-     * Obtains the value of all properties in an image. This method uses a promise to return the property values
-     * in record.
+     * Obtains all properties and their values from the image metadata. This API returns the result asynchronously 
+     * through a promise.
+     * 
+     * For details about the properties, see 
+     * [HeifsPropertyKey]{@link @ohos.multimedia.image:image.HeifsPropertyKey}.
      *
-     * @returns { Promise<Record<string, string | null>> } Record instance used to return the property values.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the values of all properties.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9061,9 +9066,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getAllProperties(): Promise<Record<string, string | null>>;
 
     /**
-     * Obtains a clone of metadata. This method uses a promise to return the metadata.
+     * Clones the HEIFS metadata. This API returns the result asynchronously through a promise.
      *
-     * @returns { Promise<HeifsMetadata> } A Promise instance used to return the metadata.
+     * @returns { Promise<HeifsMetadata> } Promise used to return the HEIFS metadata instance.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9071,9 +9076,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     clone(): Promise<HeifsMetadata>;
 
     /**
-     * Obtains the metadata as a blob.
+     * Obtains the metadata in binary format. This API uses a promise to return the result.
      *
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @returns { Promise<ArrayBuffer> } Promise that returns the binary data of the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9081,10 +9086,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getBlob(): Promise<ArrayBuffer>;
 
     /**
-     * Set a blob into the metadata.
+     * Replaces the current metadata with binary data. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } blob - blob data.
-     * @returns { Promise<void> } Returns void.
+     * @param { ArrayBuffer } blob - Binary data used to replace the metadata.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9100,17 +9105,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  class JfifMetadata {
-    /**
-     * JFIF density unit.
-     * The value should be an integer.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly densityUnit?: int;
-
+  class JfifMetadata {  
     /**
      * JFIF x density.
      * The value should be an integer.
@@ -9132,12 +9127,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly yDensity?: int;
 
     /**
-     * whether the JFIF image is progressive.
+     * JFIF density unit.
+     * The value should be an integer.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly isProgressive?: boolean;
+    readonly densityUnit?: int;
 
     /**
      * JFIF version.
@@ -9147,6 +9144,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     readonly version?: int[];
+
+    /**
+     * whether the JFIF image is progressive.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly isProgressive?: boolean;
   }
 
   /**
@@ -9159,7 +9164,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   class GifMetadata {
     /**
      * Delay of each frame in milliseconds.
-     * The value should be an integer.
+     * Unit: ms, The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9169,7 +9174,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Unclamped delay of each frame in milliseconds.
-     * The value should be an integer.
+     * Unit: ms, The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9188,7 +9193,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Loop count.
-     * The value should be an integer.
+     * The value range is all integers.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9202,7 +9207,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * 1 - Do not dispose.
      * 2 - Restore to background color.
      * 3 - Restore to previous.
-     * The value should be an integer.
+     * The value range is all integers.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9212,6 +9217,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Canvas height.
+     * Unit: px, The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9221,6 +9227,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Canvas width.
+     * Unit: px, The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -9237,53 +9244,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  class TiffMetadata {
+  class TiffMetadata {  
     /**
-     * Chromaticity coordinates of the RGB primaries.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly primaryChromaticities?: double[];
-
-    /**
-     * Width of each image tile in pixels.
+     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
      * The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly tileWidth?: int;
-
-    /**
-     * Height of each image tile in pixels.
-     * The value should be an integer.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly tileLength?: int;
-
-    /**
-     * Date and time associated with the image (typically last modification).
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly dateTime?: string;
-
-    /**
-     * Manufacturer of the capture device.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly make?: string;
+    readonly compression?: int;
 
     /**
      * Defines how pixel colors are interpreted (e.g., RGB, grayscale).
@@ -9296,41 +9266,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly photometricInterpretation?: int;
 
     /**
-     * Chromaticity coordinates of the reference white point.
+     * Tone transfer curve mapping pixel values to output intensity.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly whitePoint?: double[];
+    readonly transferFunction?: string;
 
     /**
-     * Name of the document or image.
+     * Indicates image orientation for correct display rotation/flip.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly documentName?: string;
-
-    /**
-     * Description of the image content.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly imageDescription?: string;
-
-    /**
-     * Software used to create or process the image.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly software?: string;
-
+    readonly orientation?: Orientation;
 
     /**
      * Horizontal resolution (pixels per resolution unit).
@@ -9351,22 +9302,70 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly yResolution?: double;
 
     /**
-     * Host computer/system used for image processing.
+     * Unit for X/Y resolution.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly hostComputer?: string;
+    readonly resolutionUnit?: int;
 
     /**
-     * Tone transfer curve mapping pixel values to output intensity.
+     * Chromaticity coordinates of the reference white point.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly transferFunction?: string;
+    readonly whitePoint?: double[];
+
+    /**
+     * Chromaticity coordinates of the RGB primaries.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly primaryChromaticities?: double[];
+
+    /**
+     * Height of each image tile in pixels.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly tileLength?: int;
+
+    /**
+     * Width of each image tile in pixels.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly tileWidth?: int;
+
+    /**
+     * Name of the document or image.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly documentName?: string;
+
+    /**
+     * Description of the image content.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly imageDescription?: string;
 
     /**
      * Name of the image creator or artist.
@@ -9378,13 +9377,31 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly artist?: string;
 
     /**
-     * Indicates image orientation for correct display rotation/flip.
+     * Copyright notice for the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly orientation?: Orientation;
+    readonly copyright?: string;
+
+    /**
+     * Date and time associated with the image (typically last modification).
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly dateTime?: string;
+
+    /**
+     * Manufacturer of the capture device.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly make?: string;
 
     /**
      * Model name/number of the capture device.
@@ -9396,33 +9413,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly model?: string;
 
     /**
-     * Unit for X/Y resolution.
-     * The value should be an integer.
+     * Software used to create or process the image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly resolutionUnit?: int;
+    readonly software?: string;
 
     /**
-     * Compression scheme used for image data (e.g., None, LZW, JPEG, Deflate).
-     * The value should be an integer.
+     * Host computer/system used for image processing.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly compression?: int;
-
-    /**
-     * Copyright notice for the image.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly copyright?: string;
+    readonly hostComputer?: string;
   }
 
   /**
@@ -9434,47 +9440,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   class PngMetadata {
     /**
-     *PNG x pixels per meter.
-     *The value should be an integer.
+     * PNG x pixels per meter.
+     * The value should be an integer.
      *
-     *@syscap SystemCapability.Multimedia.Image.Core
-     *@stagemodelonly
-     *@since 26.0.0 dynamic&static
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     readonly xPixelsPerMeter?: int;
-
+	
     /**
-     * PNG software.
+     * PNG y pixels per meter.
+     * The value should be an integer.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly software?: string;
-
+    readonly yPixelsPerMeter?: int;
+	
     /**
-     * PNG disclaimer.
+     * PNG gamma.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly disclaimer?: string;
-
-    /**
-     * PNG description.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly description?: string;
-
-    /**
-     * PNG copyright.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly copyright?: string;
-
+    readonly gamma?: double;
+	
     /**
      * PNG interlacing mode.
      * The value should be an integer.
@@ -9484,7 +9477,41 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     readonly interlaceType?: int;
-
+	
+    /**
+     * PNG sRGB rendering intent.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly sRGBIntent?: int;
+	
+    /**
+     * PNG color primary/white-point coordinates.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly chromaticities?: double[];
+	
+    /**
+     * PNG title.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly title?: string;
+	
+    /**
+     * PNG description.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly description?: string;
+	
     /**
      * PNG comment.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9492,7 +9519,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     readonly comment?: string;
-
+	
+    /**
+     * PNG disclaimer.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly disclaimer?: string;
+	
+    /**
+     * PNG warning.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly warning?: string;
+	
     /**
      * PNG author.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -9500,6 +9543,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     readonly author?: string;
+
+    /**
+     * PNG copyright.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly copyright?: string;
 
     /**
      * PNG creation time.
@@ -9518,63 +9569,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly modificationTime?: string;
 
     /**
-     * PNG gamma.
-     *
+     * PNG software.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    readonly gamma?: double;
-
-    /**
-     * PNG y pixels per meter.
-     * The value should be an integer.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly yPixelsPerMeter?: int;
-
-    /**
-     * PNG sRGB rendering intent.
-     * The value should be an integer.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly sRGBIntent?: int;
-
-    /**
-     * PNG color primary/white-point coordinates.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly chromaticities?: double[];
-
-    /**
-     * PNG title.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly title?: string;
-
-    /**
-     * PNG warning.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    readonly warning?: string;
+    readonly software?: string;
   }
 
   /**
    * Enumerates image orientation.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -9654,18 +9659,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Exif metadata.
+   * ExifMetadata implements Metadata
+   * 
+   * Exchangeable Image File Format (Exif) metadata.
    *
-   * @implements Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   class ExifMetadata implements Metadata {  
     /**
-     * This tag provides a broad description of the data type in this subfile.
+     * Data type of a subfile (for example, basic types such as text or image, rather than specific storage formats).
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9673,9 +9679,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     newSubfileType?: int;
 
     /**
-     * This deprecated tag indicates the data type in this subfile. Use NewSubfileType instead.
+     * Data type of a subfile. It has been deprecated. Use **newSubfileType** instead.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9683,10 +9689,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subfileType?: int;
  
     /**
-     * Image width.
-     * <br>Unit:px.
+     * Image width. The unit is px.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9694,10 +9698,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     imageWidth?: int;
 
     /**
-     * Image length.
-     * <br>Unit:px.
+     * Image length. The unit is px.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9705,9 +9707,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     imageLength?: int;
 
     /**
-     * The number of bits per image component.
+     * Number of bits for each pixel component. For example, RGB has 3 components with a format of 8,8,8.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9715,9 +9716,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     bitsPerSample?: int[];
 
     /**
-     * The scheme used for image compression.
+     * Algorithm standard for image compression.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9725,9 +9726,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     compression?: int;
 
     /**
-     * Pixel composition, such as RGB or YCbCr.
+     * Pixel composition, such as RGB (Red, Green, Blue) and YCbCr (Luma, Blue-difference Chroma, Red-difference Chroma)
+     * .
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9737,7 +9739,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image description.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9745,9 +9746,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     imageDescription?: string;
 
     /**
-     * Make.
+     * Manufacturer name of the capture device.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9755,9 +9755,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     make?: string;
 
     /**
-     * Model.
+     * Camera model.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9765,9 +9764,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     model?: string;
 
     /**
-     * Byte offset of each strip.
+     * Strip storage offset of the image data, in bytes.
+     * To improve the efficiency of large image access, the original pixel data is divided into multiple contiguous
+     * blocks (called strips).
+     * This property stores the starting offset of each strip in the file sequentially.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9777,7 +9778,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image orientation.
      *
-     * @type { ?Orientation }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9785,10 +9785,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     orientation?: Orientation;
 
     /**
-     * The number of components per pixel. As the standard applies to both RGB and YCbCr images, the tag value is set
-     * to 3. For JPEG-compressed images, this tag is replaced by corresponding JPEG markers.
+     * Number of color components per pixel, applicable to RGB and YCbCr color models.
+     * Since both the models are three-component models (three color channels, or one luminance component plus two
+     * chroma components), the standard value for this property is 3.
+     * For JPEG-compressed images, this property will be replaced by the corresponding JPEG marker.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9796,9 +9798,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     samplesPerPixel?: int;
 
     /**
-     * The number of rows per strip of image data.
+     * Number of rows per image strip.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9808,7 +9810,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Number of bytes in each strip after compression.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9816,9 +9817,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     stripByteCounts?: int[];
 
     /**
-     * The image resolution in the width direction.
+     * Image resolution in the width direction.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9826,9 +9826,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     xResolution?: double;
 
     /**
-     * The image resolution in the height direction.
+     * Image resolution in the height direction.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9836,9 +9835,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     yResolution?: double;
 
     /**
-     * Indicates whether pixel components are recorded in a chunky or planar format.
+     * Whether the pixel components are recorded in chunked or planar format.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9846,9 +9845,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     planarConfiguration?: int;
 
     /**
-     * The unit used to measure XResolution and YResolution.
+     * Unit of the image resolution in the width and height directions.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9856,9 +9855,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     resolutionUnit?: int;
 
     /**
-     * The transfer function for the image, typically used for color correction.
+     * Transfer function for the image, which is usually used for color correction.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9866,9 +9864,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     transferFunction?: string;
 
     /**
-     * The name and version of the software used to generate the image.
+     * Name and version number of the software used to create the image.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9876,10 +9873,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     software?: string;
 
     /**
-     * The date and time of image creation. In this standard it is the date and time the file was changed. The format
-     * is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     * Date and time when the image is created.
+     * In this standard, it refers to the file date and time. The value format is *YYYY:MM:DD HH:MM:SS* (24-hour clock).
+     * For example, 2025:12:15 18:44:59.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9887,9 +9884,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     dateTime?: string;
 
     /**
-     * The name of the person who created the image.
+     * Name of the person who creates the image.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9897,9 +9893,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     artist?: string;
 
     /**
-     * The chromaticity of the white point of the image.
+     * Chromaticity of the image white point.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9907,9 +9902,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     whitePoint?: double[];
 
     /**
-     * The chromaticity of the primary colors of the image.
+     * Chromaticity of the image primaries.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9917,9 +9911,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     primaryChromaticities?: double[];
 
     /**
-     * Photo mode.
+     * Image mode.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9927,9 +9921,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     photoMode?: int;
 
     /**
-     * Offset of the SOI marker of a JPEG interchange format bitstream.
+     * Start of Image (SOI) marker of the JPEG bitstream in interchange format.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9937,9 +9931,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     jpegInterchangeFormat?: int;
 
     /**
-     * Number of bytes of the JPEG stream.
+     * Number of bytes in the JPEG stream.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9947,9 +9941,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     jpegInterchangeFormatLength?: int;
 
     /**
-     * The matrix coefficients for transformation from RGB to YCbCr image data.
+     * Transformation matrix coefficients for converting RGB image data to YCbCr image data.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9957,9 +9950,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     yCbCrCoefficients?: double[];
      
     /**
-     * The sampling ratio of chrominance components to the luminance component.
+     * Sampling ratios of the chroma components and luminance component.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9967,9 +9959,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     yCbCrSubSampling?: int[];
 
     /**
-     * The position of chrominance components in relation to the luminance component.
+     * Position of chroma components relative to the luminance component.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9977,9 +9969,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     yCbCrPositioning?: int;
 
     /**
-     * The reference black point value and reference white point value.
+     * Reference black point value and white point value.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9987,9 +9978,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     referenceBlackWhite?: double[];
 
     /**
-     * Copyright information for the image.
+     * Copyright notice of the image.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -9997,9 +9987,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     copyright?: string;
 
     /**
-     * Exposure time
+     * Exposure time.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10007,9 +9996,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     exposureTime?: double;
 
     /**
-     * Aperture value, such as f/1.8.
+     * F number, for example, f/1.8.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10017,9 +10005,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     fNumber?: double;
 
     /**
-     * The class of the program used by the camera to set exposure when the picture is taken.
+     * Class used for exposure setting when the camera captures a photo.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10027,9 +10015,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     exposureProgram?: int;
     
     /**
-     * Indicates the spectral sensitivity of each channel of the camera used.
+     * Spectral sensitivity of each channel of the camera.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10037,9 +10024,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     spectralSensitivity?: string;
 
     /**
-     * The version of the GPSInfoIFD.
+     * GPS information format version identifier.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10047,9 +10033,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsVersionID?: int[];
 
     /**
-     * GPS latitude reference. For example, N indicates north latitude and S indicates south latitude.
+     * GPS latitude reference. For example, **N** indicates north latitude, and **S** indicates south latitude.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10057,12 +10042,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsLatitudeRef?: string;
 
     /**
-     * GPS latitude. The latitude is expressed as three RATIONAL values giving the degrees, minutes, and
-     * seconds, respectively. If latitude is expressed as degrees, minutes and seconds, a typical format
-     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
-     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
+     * GPS latitude.
+     * The latitude is represented by three RATIONAL values (numeric values stored in fractional form), corresponding to
+     * degrees, minutes, and seconds, in the **dd/1, mm/1, ss/1** format.
+     * When using degrees and minutes, the minutes are stored with up to two decimal places, in the
+     * **dd/1, mmmm/100, 0/1** format.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10070,9 +10055,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsLatitude?: double[];
 
     /**
-     * GPS longitude reference. For example, E indicates east longitude and W indicates west longitude.
+     * GPS longitude reference. For example, **E** indicates east longitude, and **W** indicates west longitude.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10080,12 +10064,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsLongitudeRef?: string;
 
     /**
-     * GPS longitude. The longitude is expressed as three RATIONAL values giving the degrees, minutes, and
-     * seconds, respectively. If longitude is expressed as degrees, minutes and seconds, a typical format
-     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
-     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
+     * GPS longitude.
+     * The longitude is represented by three RATIONAL values (numeric values stored in fractional form), corresponding
+     * to degrees, minutes, and seconds, in the **dd/1, mm/1, ss/1** format.
+     * When using degrees and minutes, the minutes are stored with up to two decimal places, in the
+     * **dd/1, mmmm/100, 0/1** format.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10093,9 +10077,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsLongitude?: double[];
 
     /**
-     * Reference altitude used for GPS altitude.
+     * GPS altitude reference.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10103,9 +10087,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsAltitudeRef?: int;
 
     /**
-     * The altitude based on the reference in GPSAltitudeRef.
+     * GPS altitude based on **GPSAltitudeRef**.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10115,7 +10098,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * GPS timestamp.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10123,9 +10105,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsTimestamp?: double[];
 
     /**
-     * The GPS satellites used for measurements.
+     * GPS satellite used for measurement. Generally, the value is the GPS satellite's pseudo-random noise (PRN) number.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10133,9 +10114,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsSatellites?: string;
 
     /**
-     * The status of the GPS receiver when the image is recorded.
+     * Status of the GPS receiver when the image is recorded.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10143,9 +10123,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsStatus?: string;
 
     /**
-     * The GPS measurement mode.
+     * GPS measurement mode.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10153,9 +10132,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsMeasureMode?: string;
 
     /**
-     * The GPS DOP (data degree of precision).
+     * Dilution of Precision (DOP) of the GPS data.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10163,9 +10141,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDop?: double;
 
     /**
-     * The unit used to express the GPS receiver speed of movement.
+     * Speed unit of the GPS receiver.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10173,9 +10150,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsSpeedRef?: string;
 
     /**
-     * The speed of GPS receiver movement.
+     * Speed of the GPS receiver.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10183,9 +10159,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsSpeed?: double;
 
     /**
-     * The reference for giving the direction of GPS receiver movement.
+     * Reference for the GPS receiver movement direction.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10193,10 +10168,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsTrackRef?: string;
 
     /**
-     * The direction of GPS receiver movement.
-     * <br>Unit:deg.
+     * Movement direction of the GPS receiver.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10204,9 +10177,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsTrack?: double;
 
     /**
-     * The reference for the image's direction.
+     * Reference of the image orientation.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10214,10 +10186,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsImgDirectionRef?: string;
 
     /**
-     * The direction of the image when captured.
-     * <br>Unit:deg.
+     * Image orientation at the time of capture.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10225,9 +10195,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsImgDirection?: double;
 
     /**
-     * Geodetic survey data used by the GPS receiver.
+     * Geodetic data used by the GPS receiver.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10235,9 +10204,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsMapDatum?: string;
 
     /**
-     * Indicates the latitude reference of the destination point.
+     * Latitude reference of the destination.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10245,9 +10213,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestLatitudeRef?: string;
 
     /**
-     * The latitude of the destination point.
+     * Latitude of the destination.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10255,9 +10222,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestLatitude?: double[];
 
     /**
-     * Indicates the longitude reference of the destination point.
+     * Longitude reference of the destination.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10265,9 +10231,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestLongitudeRef?: string;
 
     /**
-     * The longitude of the destination point.
+     * Longitude of the destination.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10275,9 +10240,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestLongitude?: double[];
 
     /**
-     * The reference for the bearing to the destination point.
+     * Bearing reference to the destination.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10285,9 +10249,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestBearingRef?: string;
     
     /**
-     * The bearing to the destination point.
+     * Bearing to the destination.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10295,9 +10258,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestBearing?: double;
 
     /**
-     * The measurement unit for the distance to the target point.
+     * Unit used to express the distance to the destination.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10305,9 +10267,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestDistanceRef?: string;
     
     /**
-     * The distance to the destination point.
+     * Distance to the destination.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10315,9 +10276,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDestDistance?: double;
 
     /**
-     * A character string recording the name of the method used for location finding.
+     * Name of the positioning method.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10325,9 +10285,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsProcessingMethod?: string;
 
     /**
-     * A character string recording the name of the GPS area.
+     * String of the GPS area name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10337,7 +10296,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * GPS date stamp.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10345,9 +10303,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDateStamp?: string;
 
     /**
-     * This field denotes if differential correction was applied to GPS data, crucial for precise location accuracy.
+     * Whether differential correction has been applied to the GPS data, which is crucial for precise positioning
+     * accuracy.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10355,10 +10314,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsDifferential?: int;
 
     /**
-     * This tag indicates horizontal positioning errors.
-     * <br>Unit:m.
+     * Horizontal positioning error, in meters.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10366,9 +10323,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gpsHPositioningError?: double;
 
     /**
-     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
+     * ISO speed and latitude of the camera or input device, which are specified in ISO 12232.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10376,9 +10333,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isoSpeedRatings?: int;
 
     /**
-     * This tag indicates the sensitivity of the camera or input device when the image was shot.
+     * Sensitivity of the camera or input device during image capture.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10386,9 +10342,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     photographicSensitivity?: int[];
 
     /**
-     * Indicates the Opto-Electric Conversion Function (OECF) specified in ISO 14524.
+     * Opto-Electric Conversion Function (OECF) specified in ISO 14524.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10396,9 +10351,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     oecf?: ArrayBuffer;
 
     /**
-     * Sensitivity type
+     * Sensitivity type.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10407,8 +10362,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Standard output sensitivity.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10416,9 +10371,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     standardOutputSensitivity?: int;
 
     /**
-     * Recommended exposure index.
+     * GPS measurement mode.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10426,10 +10381,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     recommendedExposureIndex?: int;
 
     /**
-     * ISO speed latitude yyy value of the camera or input device, which is defined in ISO 12232.
-     * <br>Unit:EV.
+     * Maximum dynamic range recordable by the camera sensor in a single exposure. The unit is EV.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10437,10 +10391,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isoSpeedLatitudeyyy?: int;
 
     /**
-     * ISO speed latitude zzz value of the camera or input device, which is defined in ISO 12232.
-     * <br>Unit:EV.
+     * Highlight retention capacity of the camera sensor in overexposure. The unit is EV.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10450,7 +10403,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Version of the supported Exif standard.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10458,10 +10410,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     exifVersion?: string;
 
     /**
-     * The date and time when the original image data was generated. For a DSC the date and time the picture was taken
-     * are recorded. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     * Date and time when the original image data is generated.
+     * For a digital still camera (DSC), the date and time when a photo is taken are recorded. The value format is *YYYY
+     * :MM:DD HH:MM:SS* (24-hour clock).
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10469,11 +10421,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     dateTimeOriginal?: string;
 
     /**
-     * The date and time when the image was stored as digital data. If, for example, an image was captured by DSC and
-     * at the same time the file was recorded, then the DateTimeOriginal and DateTimeDigitized will have the same
-     * contents. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     * Date and time when the image is stored as digital data.
+     * For example, if a DSC captures an image and records the file at the same time, the values of **DateTimeOriginal**
+     * and **DateTimeDigitized** are the same. The value format is *YYYY:MM:DD HH:MM:SS* (24-hour clock).
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10481,9 +10432,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     dateTimeDigitized?: string;
 
     /**
-     * This tag records the UTC offset for the DateTime tag, ensuring accurate timestamps regardless of location.
+     * Geographical time zone of the device.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10491,9 +10441,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     offsetTime?: string;
 
     /**
-     * This tag records the UTC offset for the DateTime tag, ensuring accurate timestamps regardless of location.
+     * Geographical time zone of the device.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10501,9 +10450,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     offsetTimeOriginal?: string;
 
     /**
-     * This tag records the UTC offset when the image was digitized, aiding in accurate timestamp adjustment.
+     * Coordinated Universal Time (UTC) offset at the time of image digitization, which helps to precisely adjust the
+     * timestamp.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10511,9 +10460,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     offsetTimeDigitized?: string;
 
     /**
-     * Specific information about compressed data.
+     * Information about the compressed data.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10521,10 +10469,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     componentsConfiguration?: string;
 
     /**
-     * The compression mode used for a compressed image.
-     * <br>Unit:bits per pixel.
+     * Image compression scheme. The unit is bit/pixel.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10532,9 +10478,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     compressedBitsPerPixel?: double;
 
     /**
-     * The shutter speed, expressed as an APEX (Additive System of Photographic Exposure) value.
+     * Shutter speed, expressed as an Additive System of Photographic Exposure (APEX) value.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10542,9 +10487,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     shutterSpeedValue?: double;
 
     /**
-     * The lens aperture, expressed as an APEX (Additive System of Photographic Exposure) value.
+     * Lens aperture. The unit is APEX.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10552,9 +10496,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     apertureValue?: double;
 
     /**
-     * The brightness value of the image, expressed as an APEX (Additive System of Photographic Exposure) value.
+     * Image brightness. The unit is APEX.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10562,9 +10505,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     brightnessValue?: double;
 
     /**
-     * Exposure bias value.
+     * Exposure bias.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10572,9 +10514,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     exposureBiasValue?: double;
 
     /**
-     * The smallest F number of lens.
+     * Minimum aperture value of the lens.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10582,10 +10523,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     maxApertureValue?: double;
 
     /**
-     * The distance to the subject.
-     * <br>Unit:m.
+     * Distance from the capture device to the photographed object, in meters.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10593,9 +10532,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subjectDistance?: double;
 
     /**
-     * Metering mode
+     * Metering mode.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10603,9 +10542,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     meteringMode?: int;
 
     /**
-     * Light source
+     * Light source.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10613,9 +10552,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     lightSource?: int;
 
     /**
-     * Flash
+     * Flash.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10623,10 +10562,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     flash?: int;
 
     /**
-     * Focal length 
-     * <br>Unit:mm.
+     * Focal length of the lens, in milliseconds.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10634,9 +10571,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     focalLength?: double;
     
     /**
-     * This tag indicate the location and area of the main subject in the overall scene.
+     * Location and area of the main object in the entire scene.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10644,9 +10580,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subjectArea?: int[];
     
     /**
-     * A tag for manufacturers of Exif/DCF writers to record any desired information.
+     * Information required by the Exif/Design rule for Camera File system (DCF) writer manufacturer.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10656,7 +10591,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * User comments.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10664,9 +10598,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     userComment?: string;
 
     /**
-     * A tag for record fractions of seconds for the DateTime tag.
+     * Second fraction of **DateTime**.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10674,9 +10607,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subsecTime?: string;
 	
     /**
-     * A tag used to record fractions of seconds for the DateTimeOriginal tag.
+     * Second of **DateTimeOriginal**.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10684,9 +10616,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subsecTimeOriginal?: string;
 	
     /**
-     * A tag used to record fractions of seconds for the DateTimeDigitized tag.
+     * Second of **DateTimeDigitized**.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10694,9 +10625,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subsecTimeDigitized?: string;
 	
     /**
-     * FlashPix format version supported by an FPXR file. It is used to enhance device compatibility.
+     * FlashPix format version supported by the FlashPix Extension Resource (FPXR), which is used to enhance device
+     * compatibility.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10704,9 +10635,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     flashpixVersion?: string;
 	
     /**
-     * The color space information tag, often recorded as the color space specifier.
+     * Color space information, which is usually recorded as a color space descriptor.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10714,9 +10645,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     colorSpace?: int;
 	
     /**
-     * Pixel X dimension.
+     * Image size on the X axis (horizontal axis in a two-dimensional coordinate system).
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10724,9 +10655,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     pixelXDimension?: int;
 	
     /**
-     * Pixel Y dimension.
+     * Image size on the Y axis (vertical axis in a two-dimensional coordinate system).
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10734,9 +10665,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     pixelYDimension?: int;
 	
     /**
-     * The name of an audio file related to the image data.
+     * Name of the audio file related to the image data.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10744,10 +10674,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     relatedSoundFile?: string;
 	
     /**
-     * Strobe energy at image capture.
-     * <br>Unit:BCPS.
+     * Flash energy at the time the image is captured. The unit is beam candlepower seconds (BCPS).
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10755,9 +10683,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     flashEnergy?: double;
 	
     /**
-     * Camera or input device spatial frequency table.
+     * Spatial frequency table of the camera or input device.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10765,9 +10692,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     spatialFrequencyResponse?: ArrayBuffer;
 	
     /**
-     * Pixels per FocalPlaneResolutionUnit in the image width.
+     * Number of pixels per unit physical length in the X-axis of the sensor's physical plane.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10775,9 +10701,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     focalPlaneXResolution?: double;
 	
     /**
-     * Pixels per FocalPlaneResolutionUnit in the image height.
+     * Number of pixels per unit physical length in the Y-axis of the sensor's physical plane.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10785,9 +10710,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     focalPlaneYResolution?: double;
 	
     /**
-     * Unit for measuring FocalPlaneXResolution and FocalPlaneYResolution.
+     * Measurement unit of **FocalPlaneXResolution** and **FocalPlaneYResolution**.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10795,9 +10720,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     focalPlaneResolutionUnit?: int;
 
     /**
-     * Location of the main subject, relative to the left edge.
+     * Pixel coordinates of the primary object in the image (based on the origin in the upper left corner).
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10805,9 +10729,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subjectLocation?: int[];
 	
     /**
-     * Selected exposure index at capture.
+     * Exposure index selected at the time the image is captured.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10815,9 +10738,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     exposureIndex?: double;
 	
     /**
-     * Image sensor type on the camera.
+     * Type of the image sensor on the camera.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10825,9 +10748,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     sensingMethod?: int;
 	
     /**
-     * Indicates the image source.
+     * Image source.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10835,9 +10757,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     fileSource?: ArrayBuffer;
 	
     /**
-     * Scene type
+     * Scene type.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10847,7 +10768,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Color filter array (CFA) geometric pattern of the image sensor.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10855,9 +10775,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     cfaPattern?: ArrayBuffer;
 	
     /**
-     * Indicates special processing on image data.
+     * Special processing of image data, such as HDR composition and AI scene enhancement.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10865,9 +10785,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     customRendered?: int;
 	
     /**
-     * Exposure mode set when the image was shot.
+     * Exposure mode.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10876,8 +10796,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 	
     /**
      * White balance.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10885,9 +10805,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     whiteBalance?: int;
 	
     /**
-     * Digital zoom ratio at the time of capture.
+     * Digital zoom ratio used when the image is captured.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10895,10 +10814,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     digitalZoomRatio?: double;
 	
     /**
-     * Focal length in 35mm film.
-     * <br>Unit:mm.
+     * Focal length of the 35 mm film.
+     * The value should be an integer.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10906,9 +10824,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     focalLengthIn35mmFilm?: int;
 
     /**
-     * Type of scene captured.
+     * Type of the scene that is captured.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10917,8 +10835,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 	
     /**
      * Degree of overall image gain adjustment.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10926,9 +10844,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gainControl?: int;
 	
     /**
-     * Direction of contrast processing applied by the camera.
+     * Contrast optimization policy applied by the camera. For example, standard processing and contrast reduction.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10936,9 +10854,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     contrast?: int;
 	
     /**
-     * Direction of saturation processing applied by the camera.
+     * Color saturation adjustment policy applied by the camera. For example, standard processing and saturation
+     * reduction.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10946,9 +10865,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     saturation?: int;
 	
     /**
-     * The direction of sharpness processing applied by the camera.
+     * Edge enhancement processing method applied by the camera. For example, weak sharpening and standard sharpening.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10956,9 +10875,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     sharpness?: int;
 	
     /**
-     * Information on picture-taking conditions for a specific camera model.
+     * Capture condition information of a specific camera model.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10966,9 +10884,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     deviceSettingDescription?: ArrayBuffer;
 	
     /**
-     * Indicates the distance range to the subject.
+     * Distance range to the object.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10976,9 +10894,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     subjectDistanceRange?: int;
 	
     /**
-     * An identifier uniquely assigned to each image.
+     * Unique ID assigned to each image.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10986,9 +10903,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     imageUniqueId?: string;
 	
     /**
-     * The name of the camera owner.
+     * Name of the camera owner.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -10996,9 +10912,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     cameraOwnerName?: string;
 	
     /**
-     * The serial number of the camera body.
+     * Serial number of the camera body.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11006,9 +10921,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     bodySerialNumber?: string;
 	
     /**
-     * Specifications of the lens used.
+     * Specifications of the lens.
      *
-     * @type { ?double[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11016,9 +10930,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     lensSpecification?: double[];
 	
     /**
-     * The manufacturer of the lens.
+     * Manufacturer of the lens.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11026,9 +10939,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     lensMake?: string;
 	
     /**
-     * The model name of the lens.
+     * Model of the lens.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11036,9 +10948,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     lensModel?: string;
 
     /**
-     * The serial number of the lens.
+     * Serial number of the lens.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11046,9 +10957,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     lensSerialNumber?: string;
 
     /**
-     * Indicates whether the image is a composite image.
+     * Whether the image is a composite image.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11056,9 +10967,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     compositeImage?: int;
 
     /**
-     * The number of source images used for a composite image.
+     * Number of source images of the composite image.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11066,9 +10976,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     sourceImageNumberOfCompositeImage?: int[];
 
     /**
-     * Exposure times of source images for a composite image, such as 1/33 sec.
+     * Exposure time of source images for the composite image, for example, 1/33 s.
      *
-     * @type { ?ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11076,9 +10985,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     sourceExposureTimesOfCompositeImage?: ArrayBuffer;
 
     /**
-     * The per-component gamma values.
+     * Gamma value of each component.
      *
-     * @type { ?double }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11086,10 +10994,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     gamma?: double;
 
     /**
-     * Creates an empty ExifMetadata instance.
+     * Creates an empty [ExifMetadata]{@link @ohos.multimedia.image:image.ExifMetadata} instance.
      *
-     * @returns { ExifMetadata } Empty ExifMetadata instance.
-     * @static
+     * @returns { ExifMetadata } Empty **ExifMetadata** instance.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11097,11 +11004,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     static createInstance(): ExifMetadata;
 
     /**
-     * Obtains the values of metadata properties of the image. This API uses a promise to return the result.
+     * Obtains the property values from image metadata. This API returns the result asynchronously through a promise.
+     * 
+     * For details about the properties, see [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}.
      *
-     * @param { Array<string> } key Array of properties.
-     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
-     *     values in key-value pairs.
+     * @param { Array<string> } key - Names of the properties to query.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the obtained image metadata property
+     *     values.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -11110,9 +11019,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getProperties(key: Array<string>): Promise<Record<string, string | null>>;
 
     /**
-     * Sets the values of metadata properties for the image.
+     * Sets the values of specified properties in image metadata in batches. This API returns the result asynchronously 
+     * through a promise.
+     * 
+     * For details about the properties, see [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}.
      *
-     * @param { Record<string, string | null> } records Array of properties in key-value pair format.
+     * @param { Record<string, string | null> } records - Set of key-value pairs representing properties and
+     *     corresponding values of the **ExifMetadata** object.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -11122,10 +11035,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setProperties(records: Record<string, string | null>): Promise<void>;
 
     /**
-     * Obtains all properties and their values of the metadata. This API uses a promise to return the result.
+     * Obtains all properties and their values from the image metadata. This API returns the result asynchronously 
+     * through a promise.
      *
-     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
-     *     values in key-value pairs.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the values of all properties.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11133,9 +11046,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getAllProperties(): Promise<Record<string, string | null>>;
 
     /**
-     * Clones the metadata. This API uses a promise to return the result.
+     * Clones the Exif metadata. This API returns the result asynchronously through a promise.
      *
-     * @returns { Promise<ExifMetadata> } Promise used to return the metadata.
+     * @returns { Promise<ExifMetadata> } Promise used to return the Exif metadata instance if the operation is
+     *     successful.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11143,9 +11057,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     clone(): Promise<ExifMetadata>;
 
     /**
-     * Obtains the metadata as a blob.
+     * Obtains the metadata in binary format. This API uses a promise to return the result.
      *
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @returns { Promise<ArrayBuffer> } Promise that returns the binary data of the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11153,10 +11067,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getBlob(): Promise<ArrayBuffer>;
 	
     /**
-     * Set a blob into the metadata.
+     * Replaces the current metadata with binary data. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } blob - blob data.
-     * @returns { Promise<void> } Returns void.
+     * @param { ArrayBuffer } blob - Binary data used to replace the metadata.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -11168,7 +11082,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * The XMAGE watermark is at the bottom of the photo.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11178,7 +11091,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * The XMAGE watermark is around the edges of the photo.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11188,7 +11100,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: professional.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11198,7 +11109,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: night view with front lens.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11207,7 +11117,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * Capture mode: panorama.
-   * @constant
+   *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11217,7 +11127,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: tail light.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11227,7 +11136,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: light graffiti.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11237,7 +11145,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: silky water.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11247,7 +11154,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: star track.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11257,7 +11163,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: wide aperture.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11267,7 +11172,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: moving photos.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11277,7 +11181,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: portrait.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11287,7 +11190,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: night view with rear lens.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11297,7 +11199,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: super macro.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11307,7 +11208,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Capture mode: snap shot.
    *
-   * @constant
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11317,7 +11217,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Enumerates the focus modes.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11363,7 +11262,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Enumerates the XMAGE color modes.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -11407,18 +11305,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Photo metadata defined by Huawei Camera.
+   * MakerNoteHuaweiMetadata implements Metadata
+   * 
+   * Photo metadata from Huawei cameras.
    *
-   * @implements Metadata
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
    */
   class MakerNoteHuaweiMetadata implements Metadata {  
     /**
-     * Whether XMAGE watermark is supported.
+     * Whether XMAGE is supported. **true** indicates yes; **false** indicates no.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11426,10 +11324,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isXmageSupported?: boolean;
 
     /**
-     * Xmage Watermark Mode, for possible values see {@link XMAGE_WATERMARK_MODE_AT_THE_BOTTOM}
-     *     and {@link XMAGE_WATERMARK_MODE_AT_THE_BOTTOM}.
-     * 
-     * @type { ?int }
+     * XMAGE watermark mode. For details, see [Constants]{@link @ohos.multimedia.image:image.Constants}.
+     * The value range is all integers.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11437,9 +11334,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     xmageWatermarkMode?: int;
 
     /**
-     * X coordinate of the top-left corner of the content area of a photo with the XMAGE watermark.
+     * Horizontal coordinate of the left boundary of the effective content area (excluding the watermark coverage area)
+     * on the original image, relative to the top-left origin of the image. The unit is px.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11447,9 +11345,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     xmageLeft?: int;
 
     /**
-     * Y coordinate of the top-left corner of the content area of a photo with the XMAGE watermark.
+     * Vertical coordinate of the top boundary of the effective content area (excluding the watermark coverage area) on
+     * the original image, relative to the top-left origin of the image. The unit is px.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11457,9 +11356,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     xmageTop?: int;
 
     /**
-     * X coordinate of the right-bottom corner of the content area of a photo with the XMAGE watermark.
+     * Horizontal coordinate of the right boundary of the effective content area (excluding the watermark coverage area)
+     * on the original image, relative to the top-left origin of the image. The unit is px.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11467,9 +11367,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     xmageRight?: int;
 
     /**
-     * Y coordinate of the right-bottom corner of the content area of a photo with the XMAGE watermark.
+     * Vertical coordinate of the bottom boundary of the effective content area (excluding the watermark coverage area)
+     * on the original image, relative to the top-left origin of the image. The unit is px.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11479,7 +11380,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * XMAGE color mode.
      *
-     * @type { ?XmageColorMode }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11487,9 +11387,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     xmageColorMode?: XmageColorMode;
 
     /**
-     * Whether the image is enhanced on the cloud.
+     * Whether the image has been cloud-enhanced. **true** indicates yes; **false** indicates no.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11499,7 +11398,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Cloud enhancement label.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11507,9 +11405,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     cloudLabel?: string;
 
     /**
-     * Whether a rapid snapshot is enabled.
+     * Whether the wind snapshot mode is used. **true** indicates yes; **false** indicates no.
+     * This mode is a specialized photography mode designed for capturing fast-moving subjects or scenes prone to
+     * blurring, such as in windy conditions or when photographing moving objects.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11517,9 +11416,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isWindSnapshot?: boolean;
 
     /**
-     * Scene version.
+     * Version number of the scene recognition algorithm.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11528,8 +11427,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: food confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11537,9 +11436,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     sceneFoodConfidence?: int;
 
     /**
-     * Capture scene: stage confidence.
+     * Capture scene: stage performance confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11548,8 +11447,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: blue sky confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11558,8 +11457,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: green plant confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11568,8 +11467,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: beach confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11578,8 +11477,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: snow confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11588,8 +11487,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: sunset confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11598,8 +11497,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: flower confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11607,9 +11506,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     sceneFlowersConfidence?: int;
 
     /**
-     * Capture scene: night confidence.
+     * Capture scene: night scene confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11618,8 +11517,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture scene: text confidence.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11628,8 +11527,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Number of faces.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11637,8 +11536,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     faceCount?: int;
 
     /**
-     * Confidence for a specified number of faces.
-     * @type { ?int[] }
+     * Confidences of a specified number of faces.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11646,9 +11545,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     faceConfidences?: int[];
 
     /**
-     * Smile score for a specified number of faces.
+     * Smile scores of a specified number of faces.
      *
-     * @type { ?int[] }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11657,8 +11555,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Capture mode.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11666,9 +11564,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     captureMode?: int;
 
     /**
-     * Number of continuous shots.
+     * Number of burst shots.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11676,9 +11574,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     burstNumber?: int;
 
     /**
-     * Whether the front camera is in use.
+     * Whether to use the front camera. **true** indicates yes; **false** indicates no.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11686,9 +11583,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isFrontCamera?: boolean;
 
     /**
-     * Roll angle.
+     * Horizontal pan angle.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11697,8 +11594,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Pitch angle.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11706,9 +11603,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     pitchAngle?: int;
 
     /**
-     * Physical aperture.
+     * Physical aperture, in fNumber.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11716,9 +11613,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     physicalAperture?: int;
 
     /**
-     * Focus mode.
+     * Lens focus control policy, which determines how the camera adjusts the focal length.
      *
-     * @type { ?FocusMode }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11726,10 +11622,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     focusMode?: FocusMode;
 
     /**
-     * Creates an empty MakerNoteHuaweiMetadata instance.
+     * Returns an empty [MakerNoteHuaweiMetadata]{@link @ohos.multimedia.image:image.MakerNoteHuaweiMetadata} instance.
      *
-     * @returns { MakerNoteHuaweiMetadata } Empty MakerNoteHuaweiMetadata instance.
-     * @static
+     * @returns { MakerNoteHuaweiMetadata } Empty **MakerNoteHuaweiMetadata** instance.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11737,11 +11632,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     static createInstance(): MakerNoteHuaweiMetadata;
 
     /**
-     * Obtains the values of metadata properties of the image. This API uses a promise to return the result.
+     * Obtains the property values from image metadata. This API returns the result asynchronously through a promise.
      *
-     * @param { Array<string> } key Array of properties.
-     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
-     *     values in key-value pairs.
+     * @param { Array<string> } key - Names of the properties to query.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the obtained image metadata property
+     *     values.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -11750,9 +11645,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getProperties(key: Array<string>): Promise<Record<string, string | null>>;
 
     /**
-     * Sets the values of metadata properties for the image. This API uses a promise to return the result.
+     * Sets the values of specified properties in image metadata in batches. This API returns the result asynchronously 
+     * through a promise.
+     * 
+     * For details about the properties, see [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}.
      *
-     * @param { Record<string, string | null> } records Array of properties in key-value pair format.
+     * @param { Record<string, string | null> } records - Array containing key-value pairs representing properties and
+     *     their corresponding values of the **MakerNoteHuaweiMetadata** object to be modified.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7600202 - Unsupported metadata. Possible causes: unsupported metadata type.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -11762,10 +11661,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setProperties(records: Record<string, string | null>): Promise<void>;
 
     /**
-     * Obtains all properties and their values of the metadata. This API uses a promise to return the result.
+     * Obtains all properties and their values from the image metadata. This API returns the result asynchronously 
+     * through a promise.
      *
-     * @returns { Promise<Record<string, string | null>> } Promise used to return an array of properties and their
-     *     values in key-value pairs.
+     * @returns { Promise<Record<string, string | null>> } Promise used to return the values of all properties.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11773,9 +11672,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getAllProperties(): Promise<Record<string, string | null>>;
 
     /**
-     * Clones the metadata. This API uses a promise to return the result.
+     * Clones [MakerNoteHuaweiMetadata]{@link @ohos.multimedia.image:image.MakerNoteHuaweiMetadata} metadata. This API returns the result 
+     * asynchronously through a promise.
      *
-     * @returns { Promise<MakerNoteHuaweiMetadata> } Promise used to return the metadata.
+     * @returns { Promise<MakerNoteHuaweiMetadata> } Promise used to return the **MakerNoteHuaweiMetadata** metadata
+     *     instance if metadata is successfully obtained.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11783,9 +11684,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     clone(): Promise<MakerNoteHuaweiMetadata>;
 
     /**
-     * Obtains the metadata as a blob.
+     * Obtains the metadata in binary format. This API uses a promise to return the result.
      *
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the blob's ArrayBuffer.
+     * @returns { Promise<ArrayBuffer> } Promise that returns the binary data of the metadata.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -11793,10 +11694,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getBlob(): Promise<ArrayBuffer>;
 	
     /**
-     * Set a blob into the metadata.
+     * Replaces the current metadata with binary data. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } blob - blob data.
-     * @returns { Promise<void> } Returns void.
+     * @param { ArrayBuffer } blob - Binary data used to replace the metadata.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7600206 - Invalid parameter. Possible causes: The blob is empty or has a length of 0.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -11805,7 +11706,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setBlob(blob: ArrayBuffer): Promise<void>;
   }
 
-/**
+  /**
    * DNG metadata.
    *
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -12634,7 +12535,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Canvas Height.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -12643,7 +12544,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Delay of each frame in milliseconds.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -12652,7 +12553,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Unclamped delay of each frame in milliseconds.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -12661,7 +12562,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Loop count.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -12671,7 +12572,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
   /**
    * WebP metadata.
-   * 
+   *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 24 dynamic&static
@@ -12679,7 +12580,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   class WebPMetadata {
     /**
      * Canvas Width.
-     * <br>Unit:px.
+     * Unit: px, The value should be an integer.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
@@ -12689,8 +12590,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Canvas Height.
-     * <br>Unit:px.
-     * 
+     * Unit: px, The value should be an integer.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -12699,8 +12600,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Delay of each frame.
-     * <br>Unit:ms.
-     * 
+     * Unit: ms, The value should be an integer.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -12709,8 +12610,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Unclamped delay of each frame.
-     * <br>Unit:ms.
-     * 
+     * Unit: ms, The value should be an integer.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -12719,7 +12620,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Loop count.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
