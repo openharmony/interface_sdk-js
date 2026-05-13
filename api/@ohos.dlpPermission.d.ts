@@ -1075,7 +1075,7 @@ declare namespace dlpPermission {
         dlpProperty: DLPProperty;
         /**
          * Adds a link file to the Filesystem in Userspace (FUSE). The link file is a virtual file mapped to the 
-         * ciphertext in the FUSE. The read and write operations on the link file will be synchronized to the DLP file.
+         * ciphertext in the FUSE. The read and write operations on the link file will be synchronized to the DLP file. 
          * This API uses a promise to return the result.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
@@ -1495,12 +1495,12 @@ declare namespace dlpPermission {
     /**
      * Queries whether the current system provides the data encryption feature. This API uses a promise to return the 
      * result.
-     *
-     * >**NOTE**
+     * 
+     * > **NOTE**
      * >
      * > This API is enabled by the [MDM](docroot://mdm/mdm-kit-intro.md) kit and is used for enterprise devices. For 
      * > other devices (such as consumer devices), this API is inapplicable. Calling it returns **false**.
-     * 
+     *
      * @returns { Promise<boolean> } Promise used to return the result.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -1546,7 +1546,7 @@ declare namespace dlpPermission {
      */
     export interface CustomProperty {
         /**
-         * JSON string of an enterprise custom policy. The length cannot exceed 4 MB. If the value exceeds this range,
+         * JSON string of an enterprise custom policy. The length cannot exceed 4 MB. If the value exceeds this range, 
          * **null** is returned.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
