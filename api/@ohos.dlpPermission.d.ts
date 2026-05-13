@@ -19,12 +19,12 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type common from './@ohos.app.ability.common';
 import type Want from './@ohos.app.ability.Want';
-
 /**
  * Data loss prevention (DLP) is a system solution provided to prevent data disclosure. This module provides APIs for 
  * cross-device file access management, encrypted storage, and access authorization.
  *
  * > **NOTE**
+ * >
  * > The kit to which **@ohos.dlpPermission** belongs has been changed from `DataLossPreventionKit` to `
  * > DataProtectionKit`. You are advised to use the new module name `@kit.DataProtectionKit` to import the module. If `@
  * > kit.DataLossPreventionKit` is imported, only the APIs before the change can be called and the APIs after the change
@@ -35,7 +35,7 @@ import type Want from './@ohos.app.ability.Want';
  */
 declare namespace dlpPermission {
   /**
-   * Enumerates the types of actions that can be performed on a DLP file. For example, the DLP sandbox application can dim 
+   * Enumerates the operations that can be performed on a DLP file. For example, the DLP sandbox application can dim
    * its button based on this parameter.
    *
    * @syscap SystemCapability.Security.DataLossPrevention
@@ -223,7 +223,7 @@ declare namespace dlpPermission {
      */
     bundleName: string;
     /**
-     * URI list of the DLP files. The array has no length limit, but each string cannot exceed 4095 bytes
+     * URI list of the DLP files. The array has no length limit, but each string cannot exceed 4095 bytes.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 10
@@ -231,7 +231,7 @@ declare namespace dlpPermission {
     docUris: Array<string>;
   }
   /**
-   * Checks whether a file is a DLP file. This method uses a promise to return the result.
+   * Checks whether a file is a DLP file based on the FD. This API uses a promise to return the result.
    *
    * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
    *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
@@ -350,7 +350,7 @@ declare namespace dlpPermission {
    * Checks whether this application is running in a DLP sandbox environment. This API uses a promise to return the
    * result.
    *
-   * @returns { Promise<boolean> } Returns {@code true} Promise object. The value **true** means the application is running in a sandbox;
+   * @returns { Promise<boolean> } Promise object. The value **true** means the application is running in a sandbox;
    *     the value **false** means the opposite.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -373,7 +373,8 @@ declare namespace dlpPermission {
    */
   function isInSandbox(callback: AsyncCallback<boolean>): void;
   /**
-   * Obtains the file name extension types that support DLP. This API uses a promise to return the result.
+   * Obtains the file name extension types that support DLP. This API uses a promise to return the
+   * result.
    *
    * @returns { Promise<Array<string>> } Promise used to return the file name extension types obtained.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -517,9 +518,9 @@ declare namespace dlpPermission {
   function getRetentionSandboxList(callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
   /**
    * Obtains the list of DLP files that are accessed recently. This API uses a promise to return the result.
-   *i
+   * 
    * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed files
-   *     obtaned.
+   *     obtained.
    * @throws { BusinessError } 19100001 - Invalid parameter value.
    * @throws { BusinessError } 19100007 - No permission to call this API,
    *     which is available only for non-DLP sandbox applications.
@@ -650,7 +651,7 @@ declare namespace dlpPermission {
    */
   function getDLPGatheringPolicy(callback: AsyncCallback<GatheringPolicyType>): void;
   /**
-   * Represents the installed DLP sandbox application info.
+   * Represents the DLP sandbox information.
    *
    * @syscap SystemCapability.Security.DataLossPrevention
    * @systemapi Hide this for inner system use.
@@ -658,7 +659,7 @@ declare namespace dlpPermission {
    */
   export interface DLPSandboxInfo {
     /**
-     * Index of the DLP sandbox application
+     * Index of the DLP sandbox application.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -780,7 +781,7 @@ declare namespace dlpPermission {
    */
   export interface DLPSandboxState {
     /**
-     * Bundle name of the application. The value contains 7 to 128 bytes
+     * Bundle name of the application. The value contains 7 to 128 bytes.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -820,7 +821,7 @@ declare namespace dlpPermission {
    * @permission ohos.permission.ACCESS_DLP_FILE
    * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which indicates the
    *     DLP sandbox application uninstall event.
-   * @param { Callback<DLPSandboxState> } listener - Callback used when a sandbox application is uninstalled. By default, this
+   * @param { Callback<DLPSandboxState> } [listener] - Callback used when a sandbox application is uninstalled. By default, this
    *     parameter is left blank, which unregisters all callbacks for the sandbox uninstall event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -994,7 +995,7 @@ declare namespace dlpPermission {
      * greater than or equal to 0. If the value is not within the range, **null** is returned.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @systemapi Hide this for inner system use. [since 10 - 20]
+     * @systemapi Hide this for inner system use. [since 11 - 20]
      * @publicapi [since 21]
      * @since 11
      */
@@ -1376,8 +1377,8 @@ declare namespace dlpPermission {
    * @permission ohos.permission.ACCESS_DLP_FILE
    * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
    * @param { number } ciphertextFd - FD of the encrypted file
-   * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner account, and contact account
-   *     information.
+   * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
+   *     account, and contact account information.
    * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1602,7 +1603,7 @@ declare namespace dlpPermission {
    * result.
    * 
    * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-   * @param { number } FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
+   * @param { number } dlpFd - FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
    *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
    *     value is truncated.
    * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed 4
@@ -1658,9 +1659,8 @@ declare namespace dlpPermission {
    */
   function decryptDlpFile(dlpFd: number, plaintextFd: number): Promise<void>;
   /**
-   * Customization policy for enterprise Application settings.
+   * Represents an enterprise custom policy.
    *
-   * @interface EnterprisePolicy
    * @syscap SystemCapability.Security.DataLossPrevention
    * @since 21
    */
@@ -1692,7 +1692,7 @@ declare namespace dlpPermission {
    * > **NOTE**
    * >
    * > [registerPlugin]{@link dlpPermission.DlpConnManager.registerPlugin} requires identical parameters to this API.
-   * > [connectServer]{@link dlpPermission.DlpConnManager.connectServer} is called by the SA and the parameters are
+   * > [connectServer]{@link dlpPermission.DlpConnPlugin.connectServer} is called by the SA and the parameters are
    * > returned through the callback.
    * 
    * @syscap SystemCapability.Security.DataLossPrevention
