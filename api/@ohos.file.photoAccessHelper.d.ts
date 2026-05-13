@@ -6052,6 +6052,30 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     getFusionAssetsInfo(): Promise<FusionAssetsInfo[]>;
+
+    /**
+     * Gets album attribute info.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AlbumAttribute[] } attrs - attributes to get for the album. The maximum length is 20 and cannot be empty.
+     * @returns { Promise<Record<AlbumAttribute, AlbumAttributeInfo>> } Returns a record of attributes and their values.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Unsupported attribute;
+     *     <br>2. The attrs size exceed 20;
+     *     <br>3. Empty or duplicate attribute;
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs
+     *     Possible causes:
+     *     <br>1. Database corrupted.
+     *     <br>2. The file system is abnormal.
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getAttribute(attrs: AlbumAttribute[]): Promise<Record<AlbumAttribute, AlbumAttributeInfo>>;
   }
 
   /**
@@ -16443,6 +16467,16 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     NICK_NAME_ATTR = 'nickname',
+
+    /**
+     * The album extra_info operation attribute.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    EXTRA_INFO_ATTR = 'extra_info',
     /**
      * The album is_removed operation attribute.
      *
@@ -16529,6 +16563,26 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     values: string[];
+  }
+
+  /**
+   * Album attribute info.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AlbumAttributeInfo {
+    /**
+     * The album attribute value.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    attrValue?: string;
   }
 }
 
