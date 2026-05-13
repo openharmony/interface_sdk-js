@@ -253,6 +253,149 @@ declare namespace bundle {
   }
 
   /**
+   * ModuleRemoveFlag
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum ModuleRemoveFlag {
+    /**
+     * Indicates the module is not used by the form.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_NOT_USED_BY_FORM = 0,
+    /**
+     * Indicates the module is used by the form.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_USED_BY_FORM = 1,
+    /**
+     * Indicates the module is not used by the shortcut.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_NOT_USED_BY_SHORTCUT = 2,
+    /**
+     * Indicates the module is used by the shortcut.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_USED_BY_SHORTCUT = 3
+  }
+
+  /**
+   * SignatureCompareResult
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum SignatureCompareResult {
+    /**
+     * Indicates the signatures match.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_MATCHED = 0,
+    /**
+     * Indicates the signatures do not match.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_NOT_MATCHED = 1,
+    /**
+     * Indicates the bundle is unknown during signature comparison.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_UNKNOWN_BUNDLE = 2
+  }
+
+  /**
+   * ShortcutExistence
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum ShortcutExistence {
+    /**
+     * Indicates the shortcut exists.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_EXISTS = 0,
+    /**
+     * Indicates the shortcut does not exist.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_NOT_EXISTS = 1,
+    /**
+     * Indicates the shortcut existence is unknown.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_UNKNOW = 2
+  }
+
+  /**
+   * QueryShortCutFlag
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum QueryShortCutFlag {
+    /**
+     * Indicates query shortcut home.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    QUERY_SHORTCUT_HOME = 0
+  }
+
+  /**
    * > **NOTE**
    * >
    * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
@@ -860,6 +1003,57 @@ declare namespace bundle {
   function queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
+   * Obtains BundleInfo of all bundles available in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
+   *     in the BundleInfo that will be returned.
+   * @param { number } userId - Indicates the user ID.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - When obtaining the array of BundleInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of BundleInfo objects;
+   *     otherwise, the outcome is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+
+  /**
+   * Obtains BundleInfo of all bundles available in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
+   *     in the BundleInfo that will be returned.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - When obtaining the array of BundleInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of BundleInfo objects;
+   *     otherwise, the outcome is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
+
+  /**
+   * Obtains BundleInfo of all bundles available in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
+   *     in the BundleInfo that will be returned.
+   * @param { number } [userId] - Indicates the user ID.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return a list of BundleInfo objects.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
+
+  /**
    * Obtains the information of all bundles of the specified user. This API uses an asynchronous callback to return the
    * result.
    *
@@ -903,6 +1097,58 @@ declare namespace bundle {
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
+
+  /**
+   * Obtains information about all installed applications of a specified user.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained
+   *     in the ApplicationInfo objects that will be returned.
+   * @param { number } userId - Indicates the user ID.
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - When obtaining the array of ApplicationInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of ApplicationInfo objects;
+   *     otherwise, the outcome is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
+   */
+  function getApplicationInfos(bundleFlags: number,
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+
+  /**
+   * Obtains information about all installed applications of a specified user.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained
+   *     in the ApplicationInfo objects that will be returned.
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - When obtaining the array of ApplicationInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of ApplicationInfo objects;
+   *     otherwise, the outcome is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
+   */
+  function getApplicationInfos(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+
+  /**
+   * Obtains information about all installed applications of a specified user.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Indicates the flag used to specify information contained
+   *     in the ApplicationInfo objects that will be returned.
+   * @param { number } [userId] - Indicates the user ID or do not pass user ID.
+   * @returns { Promise<Array<ApplicationInfo>> } Promise used to return a list of ApplicationInfo objects.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
+   */
+  function getApplicationInfos(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
   /**
    * Obtains the information about all applications. This API uses an asynchronous callback to return the result.
