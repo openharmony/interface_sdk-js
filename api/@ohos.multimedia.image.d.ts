@@ -3565,20 +3565,20 @@ declare namespace image {
    * Describes the options for image encoding.
    *
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform [since 10]	 
-   * @atomicservice [since 11]	 
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 6 dynamic
    * @since 23 static
    */
   interface PackingOption {
     /**
-     * Format of the packed image.	 
-     *  
-     * Currently, only the following formats are supported: image/jpeg, image/webp, image/png, image/heic (or image/heif 
-     * )<sup>12+</sup>, image/sdr_astc_4x4<sup>18+</sup>, image/sdr_sut_superfast_4x4<sup>18+</sup> (depending on the  
-     * hardware), and image/hdr_astc_4x4<sup>20+</sup>. 
-     *  
-     * **NOTE**: The JPEG format does not support the alpha channel. If the JPEG format with the alpha channel is used  
+     * Format of the packed image.
+     *
+     * Currently, only the following formats are supported: image/jpeg, image/webp, image/png, image/heic (or image/heif
+     * )<sup>12+</sup>, image/sdr_astc_4x4<sup>18+</sup>, image/sdr_sut_superfast_4x4<sup>18+</sup> (depending on the
+     * hardware), and image/hdr_astc_4x4<sup>20+</sup>.
+     *
+     * **NOTE**: The JPEG format does not support the alpha channel. If the JPEG format with the alpha channel is used
      * for data encoding, the transparent color turns black.
      *
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
@@ -3655,6 +3655,15 @@ declare namespace image {
      */
     maxEmbedThumbnailDimension?: int;
 
+    /**	 
+     * Options for tiff image packing.	 
+     *	 
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker	 
+     * @stagemodelonly	 
+     * @since 26.0.0 dynamic&static	 
+     */	 
+     tiffPackingOptions?: PackingOptionsForTiff;
+
     /**
      * The background color used when the image pixels are in RGBA format but the target encoding format does not
      * support transparency, such as "image/jpeg" or "image/heif".
@@ -3686,15 +3695,6 @@ declare namespace image {
      * @since 26.0.0 dynamic&static
      */
     sizeLimit?: PackingSizeLimit;
-
-    /**	 
-     * Options for tiff image packing.	 
-     *	 
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker	 
-     * @stagemodelonly	 
-     * @since 26.0.0 dynamic&static	 
-     */	 
-    tiffPackingOptions?: PackingOptionsForTiff;
   }
 
   /**
