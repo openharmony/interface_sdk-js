@@ -43,13 +43,13 @@ declare class DriverExtensionContext extends ExtensionContext {
    */
   updateDriverState(): void;
 }
-/**	 
- * Define a DriverExtensionContext. 
- * 
- * @typedef { DriverExtensionContext } 
- * @syscap SystemCapability.Driver.ExternalDevice 
- * @stagemodelonly 
- * @since 10 dynamic 
- * @since 23 static 
+/**
+ * Define a DriverExtensionContext.
+ *
+ * @typedef { DriverExtensionContext }
+ * @syscap SystemCapability.Driver.ExternalDevice
+ * @stagemodelonly
+ * @since 10 dynamic
+ * @since 23 static
  */
 export default DriverExtensionContext;
