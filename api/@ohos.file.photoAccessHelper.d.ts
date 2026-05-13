@@ -8562,6 +8562,53 @@ declare namespace photoAccessHelper {
     checkPhotoUrisReadPermission(uris: string[]): Promise<Map<string, MediaAssetPermissionState>>;
 
     /**
+     * move assets of medialibrary sandbox to directory of filemanager.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string[] } assets - Assets URI from medialibrary sandbox.
+     * @param { string } target - Target directory of filemanager.
+     * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets.
+     *    <br>Options for bulk operations
+     * @returns { Promise<string[]> } Return the paths to the asset
+     * @throws { BusinessError } 201 - permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The Scenario parameter verification fails. Possible causes:
+     *    <br>1. Moving to the target directory is not supported;
+     *    <br>2. Assets to be moved does not exist.
+     *    <br>3. Automatic renaming is not supported.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *    <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    moveAssetsToDir(assets: string[], target: string, option?: BatchOperationOptions): Promise<string[]>;
+
+    /**
+     * move assets of filemanager to Album.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string[] } assets - Assets path from filemanager(e.g., "/Download/test.jpg").
+     * @param { Album } target - Target Album.
+     * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets.
+     * @returns { Promise<string[]> } Return successed assets URIS.
+     * @throws { BusinessError } 201 - permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The Scenario parameter verification fails. Possible causes:
+     *    <br>1. Moving to the target Album is not supported;
+     *    <br>2. Assets to be moved does not exist.
+     *    <br>3. Automatic renaming is not supported.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *    <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    moveAssetsByPath(assets: string[], target: Album, option?: BatchOperationOptions): Promise<string[]>;
+
+    /**
      * clone assets to Album.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
