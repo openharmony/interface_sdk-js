@@ -603,7 +603,7 @@ declare namespace dlpPermission {
      */
     export enum GatheringPolicyType {
         /**
-         * Allows the DLP files of the same permission type to be opened in a sandbox. For example, the files of the
+         * Allows the DLP files of the same permission type to be opened in a sandbox. For example, the files of the 
          * same permission type can be opened in tab pages of a window.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -914,7 +914,7 @@ declare namespace dlpPermission {
          * @since 10
          */
         permExpiryTime: number;
-    }  
+    }
     /**
      * Represents the authorization information.
      *
@@ -925,7 +925,7 @@ declare namespace dlpPermission {
      */
     export interface DLPProperty {
         /**
-         * Account of the owner who can set the permission. The value contains up to 255 bytes. If the value exceeds
+         * Account of the owner who can set the permission. The value contains up to 255 bytes. If the value exceeds 
          * this range, **null** is returned.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -935,7 +935,7 @@ declare namespace dlpPermission {
          */
         ownerAccount: string;
         /**
-         * Account ID of the owner. The value contains up to 255 bytes. If the value exceeds this range, **null** is
+         * Account ID of the owner. The value contains up to 255 bytes. If the value exceeds this range, **null** is 
          * returned.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -954,7 +954,7 @@ declare namespace dlpPermission {
          */
         ownerAccountType: AccountType;
         /**
-         *  List of users who are authorized to access the DLP file. By default, this parameter is left blank.
+         * List of users who are authorized to access the DLP file. By default, this parameter is left blank.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -963,7 +963,7 @@ declare namespace dlpPermission {
          */
         authUserList?: Array<AuthUser>;
         /**
-         * Account of the contact. The value contains up to 255 bytes. If the value exceeds this range, **null** is
+         * Account of the contact. The value contains up to 255 bytes. If the value exceeds this range, **null** is 
          * returned.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -991,7 +991,7 @@ declare namespace dlpPermission {
          */
         everyoneAccessList?: Array<DLPFileAccess>;
         /**
-         * Timestamp when the file permission has expired. This parameter is left blank by default. The value must be
+         * Timestamp when the file permission has expired. This parameter is left blank by default. The value must be 
          * greater than or equal to 0. If the value is not within the range, **null** is returned.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -1001,9 +1001,9 @@ declare namespace dlpPermission {
          */
         expireTime?: number;
         /**
-         * Whether the file can be opened after the permission expires (with the editing permission). This parameter is
+         * Whether the file can be opened after the permission expires (with the editing permission). This parameter is 
          * valid only when **expireTime** is not empty. This parameter is left empty by default.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
          * @publicapi [since 21]
@@ -1011,43 +1011,43 @@ declare namespace dlpPermission {
          */
         actionUponExpiry?: ActionType;
         /**
-         * System account ID. This parameter is left empty by default. The value contains up to 255 bytes. If the value
+         * System account ID. This parameter is left empty by default. The value contains up to 255 bytes. If the value 
          * exceeds this range, **null** is returned.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         fileId?: string;
         /**
-         * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or
+         * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or 
          * equal to 0. If the value is not within the range, **null** is returned.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         allowedOpenCount?: number;
         /**
          * Whether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 23
          */
         waterMarkConfig?: boolean;
         /**
-         * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically
-         * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value
+         * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically 
+         * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value 
          * is not within the range, **null** is returned. **Model restriction**: This API can be used only in the stage
          * model.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
          * @since 23
          */
         countdown?: number;
         /**
-         * Extended attribute of a DLP file. This parameter is left empty by default. **Model restriction**: This API
+         * Extended attribute of a DLP file. This parameter is left empty by default. **Model restriction**: This API 
          * can be used only in the stage model.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
          * @since 24
@@ -1074,7 +1074,7 @@ declare namespace dlpPermission {
          */
         dlpProperty: DLPProperty;
         /**
-         * Adds a link file to the Filesystem in Userspace (FUSE). The link file is a virtual file mapped to the
+         * Adds a link file to the Filesystem in Userspace (FUSE). The link file is a virtual file mapped to the 
          * ciphertext in the FUSE. The read and write operations on the link file will be synchronized to the DLP file.
          * This API uses a promise to return the result.
          *
@@ -1236,7 +1236,7 @@ declare namespace dlpPermission {
          * Deletes a link file. This API uses an asynchronous callback to return the result.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName -  Name of the link file. The value contains up to 255 bytes.
+         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
          * @param { AsyncCallback<void> } callback - Callback used to return the result.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1493,19 +1493,19 @@ declare namespace dlpPermission {
      */
     function getSandboxAppConfig(): Promise<string>;
     /**
-    * Queries whether the current system provides the data encryption feature. This API uses a promise to return the 
-    * result.
-    *
-    * >**NOTE**
-    * >
-    * > This API is enabled by the [MDM](docroot://mdm/mdm-kit-intro.md) kit and is used for enterprise devices. For 
-    * > other devices (such as consumer devices), this API is inapplicable. Calling it returns **false**.
-    * 
-    * @returns { Promise<boolean> } Promise used to return the result.
-    * @throws { BusinessError } 19100011 - The system ability works abnormally.
-    * @syscap SystemCapability.Security.DataLossPrevention
-    * @since 12
-    */
+     * Queries whether the current system provides the data encryption feature. This API uses a promise to return the 
+     * result.
+     *
+     * >**NOTE**
+     * >
+     * > This API is enabled by the [MDM](docroot://mdm/mdm-kit-intro.md) kit and is used for enterprise devices. For 
+     * > other devices (such as consumer devices), this API is inapplicable. Calling it returns **false**.
+     * 
+     * @returns { Promise<boolean> } Promise used to return the result.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @since 12
+     */
     function isDLPFeatureProvided(): Promise<boolean>;
     /**
      * Enumerates the actions to be performed when the file's permission expiration time is reached. The default value 
@@ -1518,7 +1518,7 @@ declare namespace dlpPermission {
     export enum ActionType {
         /**
          * Users are not allowed to open the DLP file when the file's permission expiration time is reached.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
          * @publicapi [since 21]
@@ -1528,7 +1528,7 @@ declare namespace dlpPermission {
     
         /**
          * Logged-in users are allowed to edit the DLP file when the file's permission expiration time is reached.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
          * @publicapi [since 21]
@@ -1548,7 +1548,7 @@ declare namespace dlpPermission {
         /**
          * JSON string of an enterprise custom policy. The length cannot exceed 4 MB. If the value exceeds this range,
          * **null** is returned.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
          * @publicapi [since 21]
@@ -1573,7 +1573,7 @@ declare namespace dlpPermission {
      * > servers. This API generates a DLP file, which is an encrypted file that can be accessed only by accounts 
      * > authorized by the enterprise server.
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { number } plaintextFd -  FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
+     * @param { number } plaintextFd - FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
      *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
      *     value is truncated.
      * @param { number } dlpFd - FD of an encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value of
@@ -1691,7 +1691,7 @@ declare namespace dlpPermission {
      * 
      * > **NOTE**
      * >
-     * > [registerPlugin]{@link dlpPermission.DlpConnManager.registerPlugin} requires identical parameters to this API.
+     * > [registerPlugin]{@link dlpPermission.DlpConnManager.registerPlugin} requires identical parameters to this API. 
      * > [connectServer]{@link dlpPermission.DlpConnPlugin.connectServer} is called by the SA and the parameters are 
      * > returned through the callback.
      *
@@ -1700,19 +1700,19 @@ declare namespace dlpPermission {
      */
     export interface DlpConnPlugin {
         /**
-         * This API is called by the SA. After processing the cloud connection capability, it will be called as a
+         * This API is called by the SA. After processing the cloud connection capability, it will be called as a 
          * callback in the SA.
          * 
          * > **NOTE**
          * >
          * > **connectServer** indicates a call from the system capability side to the frontend.
-         * 
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
+         *
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @param { string } requestId - ID of the request transferred by the SA. No value range restriction is
          *     specified.
          * @param { string } requestData - Data transferred by the SA. No value range restriction is specified.
-         * @param { Callback<string> } callback -  API transferred by the SA, which is used for callback. No value range
+         * @param { Callback<string> } callback -  API transferred by the SA, which is used for callback. No value range 
          *     restriction is specified.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1726,18 +1726,18 @@ declare namespace dlpPermission {
      * 
      * > **NOTE**
      * >
-     * > **registerPlugin** registers callback capabilities in the SA, and **unregisterPlugin** unregisters callback
+     * > **registerPlugin** registers callback capabilities in the SA, and **unregisterPlugin** unregisters callback 
      * > capabilities from the SA.
-     * 
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     export class DlpConnManager {
         /**
          * Represents a constructor for instantiating [DlpConnManager]{@link dlpPermission.DlpConnManager}.
-         * 
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
+         *
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @throws { BusinessError } 201 - Permission denied.
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1749,9 +1749,9 @@ declare namespace dlpPermission {
          * > **NOTE**
          * >
          * > **registerPlugin** registers the callback with the SA.
-         * 
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
+         *
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @param { DlpConnPlugin } plugin - Callback capability.
          * @returns { number } Registration result, which indicates the ID of the callback. The value range is
          *     [0, 2<sup>64</sup>-1].
@@ -1770,9 +1770,9 @@ declare namespace dlpPermission {
          * > **NOTE**
          * >
          * > **unregisterPlugin** unregisters a plug-in from the SA.
-         * 
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE[since 21 - 24]
-         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE[since 26.0.0]
+         *
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
+         * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
@@ -1820,7 +1820,7 @@ declare namespace dlpPermission {
      * @stagemodelonly
      * @since 26.0.0
      */
-    export interface DlpFileQueryOptions {  
+    export interface DlpFileQueryOptions {
         /**
          * User-defined classification label for an enterprise DLP file.
          *
