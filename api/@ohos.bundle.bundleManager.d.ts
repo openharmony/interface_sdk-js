@@ -2979,6 +2979,27 @@ declare namespace bundleManager {
   function setApplicationEnabled(bundleName: string, appIndex: int, isEnabled: boolean): Promise<void>;
 
   /**
+   * Set whether an application is enabled or disabled, with control over whether the process is killed when disabled.
+   *
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @param { string } bundleName - Indicates the bundle name.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @param { boolean } isEnabled - The value true means to enable the application, and the value false means to disable the application.
+   * @param { boolean } killProcess - The value true indicates that the application process will be killed when disabled,
+   * while the value false indicates that the application process will not be killed when disabled.
+   * @returns { Promise<void> } set app enabled result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setApplicationEnabled(bundleName: string, appIndex: int, isEnabled: boolean, killProcess: boolean): Promise<void>;
+
+  /**
    * Sets whether to enable a specified application.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
@@ -3030,6 +3051,26 @@ declare namespace bundleManager {
    * @since 23 static
    */
   function setApplicationEnabledSync(bundleName: string, isEnabled: boolean): void;
+
+  /**
+   * Set whether an application is enabled or disabled, with control over whether the process is killed when disabled.
+   *
+   * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
+   * @param { string } bundleName - Indicates the bundle name.
+   * @param { int } appIndex - Indicates the index of clone app.
+   * @param { boolean } isEnabled - The value true means to enable the application, and the value false means to disable the application.
+   * @param { boolean } killProcess - The value true indicates that the application process will be killed when disabled,
+   * while the value false indicates that the application process will not be killed when disabled.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setApplicationEnabledSync(bundleName: string, appIndex: int, isEnabled: boolean, killProcess: boolean): void;
 
   /**
    * Sets whether to enable a specified ability.
