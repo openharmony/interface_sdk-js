@@ -416,12 +416,14 @@ declare namespace inputEventClient {
      *
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { int } displayId - The target display id.
-     *     The value should be an integer.
+     *     The value should be an integer, If the value exceeds the valid display range,
+     *     the actual coordinate will be clamped to the valid range [0, display width - 1].
      * @param { int } displayX - The X coordinate of the target position relative to the left edge of the display.
      *     The value should be an integer.
      *     <br>Unit:px.
      * @param { int } displayY - The Y coordinate of the target position relative to the top edge of the display.
-     *     The value should be an integer.
+     *     The value should be an integer, If the value exceeds the valid display range,
+     *     the actual coordinate will be clamped to the valid range [0, display height - 1].
      *     <br>Unit:px.
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
