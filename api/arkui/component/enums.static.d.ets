@@ -4527,7 +4527,7 @@ export declare enum DividerMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum EventQueryType {
   /**
@@ -4535,7 +4535,7 @@ export declare enum EventQueryType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ON_CLICK = 0
 }
@@ -4601,7 +4601,7 @@ export declare enum DialogDisplayMode {
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum FocusWrapMode {
   /**
@@ -4609,7 +4609,7 @@ export declare enum FocusWrapMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   DEFAULT = 0,
 
@@ -4618,7 +4618,7 @@ export declare enum FocusWrapMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WRAP_WITH_ARROW = 1
 }

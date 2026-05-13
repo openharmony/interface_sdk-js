@@ -25,7 +25,6 @@ import certificateManager from '@ohos.security.certManager';
 /**
  * Enum for crypto extension ability result code, used by HuksCryptoExtensionResult.resultCode.
  *
- * @enum { int }
  * @syscap SystemCapability.Security.Huks.CryptoExtension
  * @stagemodelonly
  * @since 22
@@ -33,6 +32,7 @@ import certificateManager from '@ohos.security.certManager';
 export const enum HuksCryptoExtensionResultCode {
   /**
    * An error occurred in the crypto extension. Possible causes:
+   *
    * 1. The input parameter is invalid.
    * 2. The crypto extension encountered an unresolvable error state.
    *
@@ -43,6 +43,7 @@ export const enum HuksCryptoExtensionResultCode {
   HUKS_CRYPTO_EXTENSION_ERR_EXTENSION_FAIL = 34800000,
   /**
    * The UKey does not exist. Possible causes:
+   *
    * 1. The UKey has been removed.
    * 2. The crypto extension maintained an error UKey state.
    *
@@ -69,6 +70,7 @@ export const enum HuksCryptoExtensionResultCode {
   HUKS_CRYPTO_EXTENSION_ERR_PIN_NO_AUTH = 34800003,
   /**
    * The handle does not exist. Possible causes:
+   *
    * 1. The handle you entered is invalid.
    * 2. The states of huks service and crypto extension are inconsistent. Due to an exception,
    * the handle held by huks service was not released.
@@ -107,7 +109,6 @@ export const enum HuksCryptoExtensionResultCode {
 /**
  * Represents the information of certificate.
  *
- * @typedef HuksCryptoExtensionCertInfo
  * @syscap SystemCapability.Security.Huks.CryptoExtension
  * @since 22
  */
@@ -115,7 +116,6 @@ export interface HuksCryptoExtensionCertInfo {
   /**
    * The type of the certificate, sign or encrypt.
    *
-   * @type { certificateManager.CertificatePurpose }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -123,7 +123,6 @@ export interface HuksCryptoExtensionCertInfo {
   /**
    * The resource index of the certificate.
    *
-   * @type { string }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -131,7 +130,6 @@ export interface HuksCryptoExtensionCertInfo {
   /**
    * The content of the certificate.
    *
-   * @type { Uint8Array }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -141,7 +139,6 @@ export interface HuksCryptoExtensionCertInfo {
 /**
  * Represents the operation result of crypto extension.
  *
- * @typedef HuksCryptoExtensionResult
  * @syscap SystemCapability.Security.Huks.CryptoExtension
  * @since 22
  */
@@ -149,7 +146,6 @@ export interface HuksCryptoExtensionResult {
   /**
    * Returned code.
    *
-   * @type { int }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -157,7 +153,6 @@ export interface HuksCryptoExtensionResult {
   /**
    * The provider resource handle.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -165,7 +160,6 @@ export interface HuksCryptoExtensionResult {
   /**
    * Auth state.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -173,7 +167,6 @@ export interface HuksCryptoExtensionResult {
   /**
    * The remaining retry count when the PIN is incorrect.
    *
-   * @type { ?int }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -181,7 +174,6 @@ export interface HuksCryptoExtensionResult {
   /**
    * The cert array.
    *
-   * @type { ?Array<HuksCryptoExtensionCertInfo> }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -189,7 +181,6 @@ export interface HuksCryptoExtensionResult {
   /**
    * Returned property info.
    *
-   * @type { ?Array<huksExternalCrypto.HuksExternalCryptoParam> }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -197,12 +188,10 @@ export interface HuksCryptoExtensionResult {
   /**
    * Returned data.
    *
-   * @type { ?Uint8Array }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   outData?: Uint8Array;
-
   /**
    * The returned resource ID.
    *
@@ -211,6 +200,14 @@ export interface HuksCryptoExtensionResult {
    * @since 26.0.0
    */
   resourceId?: string;
+  /**
+   * The detailed error information returned.
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  errInfo?: huksExternalCrypto.HuksExternalErrorInfo;
 }
 
 /**
@@ -221,7 +218,7 @@ export interface HuksCryptoExtensionResult {
  */
 declare class CryptoExtensionAbility {
   /**
-   *  Callback to get the resource ID of the crypto extension.
+   * Callback to get the resource ID of the crypto extension.
    *
    * @param { huksExternalCrypto.HuksExternalCryptoParam[] } params - Indicates the needed properties of
    *     the get resource ID operation.
@@ -231,8 +228,8 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful.
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0
@@ -274,15 +271,15 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -301,23 +298,51 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800003 - The UKey PIN is not authenticated. Please verify the UKey PIN first.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    *     34800007 - The UKey PIN is locked because the maximum allowed number of attempts has been exceeded.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   onGetProperty(handle: string, propertyId: string,
       params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
-      
+  /**
+   * Callback to perform set operations of the provider.
+   *
+   * @param { string } handle - Indicates the resource handle for the set operation.
+   * @param { string } propertyId - Indicates the ID of the property needed to set.
+   *     Currently supports part of the method names defined in GMT 0016-2023 and self-defined methods.
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - Indicates the operation parameters.
+   *     This parameter contains parameters related to the property ID needed to set.
+   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
+   *     HuksCryptoExtensionResult.resultCode may have the following values:
+   *     0 - The operation is successful.
+   *     34800000 - An error occurred in the crypto extension. Possible causes:
+   *               1. The input parameter is invalid.
+   *               2. The crypto extension encountered an unresolvable error state.
+   *     34800002 - Failed to call the UKey driver interface. Please check the UKey connection and driver status.
+   *     34800003 - The UKey PIN is not authenticated. Please verify the UKey PIN first.
+   *     34800004 - The handle does not exist. Possible causes:
+   *               1. The handle you entered is invalid.
+   *               2. The states of HUKS service and crypto extension are inconsistent. Due to an exception,
+   *               the handle held by HUKS service was not released.
+   *     34800005 - The handle is unavailable, possibly due to an inconsistent state
+   *               between the crypto extension and the UKey.
+   *     34800007 - The UKey PIN is locked because the maximum allowed number of attempts has been exceeded.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  onSetProperty(handle: string, propertyId: string,
+      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
   /**
    * Callback to be called to verify PIN of the provider handle.
    *
@@ -355,15 +380,15 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -380,15 +405,15 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -404,16 +429,16 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800003 - The UKey PIN is not authenticated. Please verify the UKey PIN first.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    *     34800007 - The UKey PIN is locked because the maximum allowed number of attempts has been exceeded.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
@@ -428,16 +453,16 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800003 - The UKey PIN is not authenticated. Please verify the UKey PIN first.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    *     34800007 - The UKey PIN is locked because the maximum allowed number of attempts has been exceeded.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
@@ -453,16 +478,16 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800003 - The UKey PIN is not authenticated. Please verify the UKey PIN first.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    *     34800007 - The UKey PIN is locked because the maximum allowed number of attempts has been exceeded.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
@@ -479,14 +504,14 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800001 - The UKey does not exist. Possible causes:
-   *                1. The UKey has been removed.
-   *                2. The crypto extension maintained an error UKey state.
+   *     1. The UKey has been removed.
+   *     2. The crypto extension maintained an error UKey state.
    *     34800002 - The UKey driver error. This means an unknown error has occurred in the UKey driver.
    *     34800004 - The resourceId does not exist. This indicates that the resourceId has
-   *                an incorrect device name, application name, or container name.
+   *     an incorrect device name, application name, or container name.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
@@ -506,15 +531,15 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values.
    *     0 - The operation is successful.
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0
@@ -531,11 +556,11 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful.
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800001 - The UKey does not exist. Possible causes:
-   *                1. The UKey has been removed.
-   *                2. The crypto extension maintained an error UKey state.
+   *     1. The UKey has been removed.
+   *     2. The crypto extension maintained an error UKey state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
@@ -551,15 +576,15 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful.
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0
@@ -577,15 +602,15 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values.
    *     0 - The operation is successful.
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of huks service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by huks service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of huks service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by huks service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0
@@ -596,7 +621,7 @@ declare class CryptoExtensionAbility {
    * Callback to import the wrapped key pair specified by the resource handle.
    *
    * @param { string } handle - Indicates the resource handle of the wrapped key to be imported.
-   * @param { string } wrappedHandle - Indicates the resource handle of the key used to unwrap the imported key.
+   * @param { string } wrappingHandle - Indicates the resource handle of the key used to unwrap the imported key.
    * @param { huks.HuksParam[] } params - Indicates the needed properties for the import wrapped key operation.
    * @param { Uint8Array } wrappedKey - Indicates the wrapped key data, which format is defined by the crypto extension.
    * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
@@ -605,20 +630,20 @@ declare class CryptoExtensionAbility {
    *     HuksCryptoExtensionResult.resultCode may have the following values:
    *     0 - The operation is successful.
    *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *                1. The input parameter is invalid.
-   *                2. The crypto extension encountered an unresolvable error state.
+   *     1. The input parameter is invalid.
+   *     2. The crypto extension encountered an unresolvable error state.
    *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
    *     34800004 - The handle does not exist. Possible causes:
-   *                1. The handle you entered is invalid.
-   *                2. The states of HUKS service and crypto extension are inconsistent. Due to an exception,
-   *                the handle held by HUKS service was not released.
+   *     1. The handle you entered is invalid.
+   *     2. The states of HUKS service and crypto extension are inconsistent. Due to an exception,
+   *     the handle held by HUKS service was not released.
    *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *                between the crypto extension and the UKey.
+   *     between the crypto extension and the UKey.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0
    */
-  onImportWrappedKeyItem(handle: string, wrappedHandle: string, params: huks.HuksParam[],
+  onImportWrappedKeyItem(handle: string, wrappingHandle: string, params: huks.HuksParam[],
       wrappedKey: Uint8Array): Promise<HuksCryptoExtensionResult>;
 }
 

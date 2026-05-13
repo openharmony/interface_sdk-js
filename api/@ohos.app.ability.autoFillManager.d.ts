@@ -127,8 +127,6 @@ declare namespace autoFillManager {
     /**
      * Called when auto-save is successful.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * **NOTE**
      *
      * Starting from API version 23, the original **onSuccess()** API is changed to a property, but its usage remains
@@ -153,8 +151,6 @@ declare namespace autoFillManager {
 
     /**
      * Called when auto-save fails.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * **NOTE**
      *

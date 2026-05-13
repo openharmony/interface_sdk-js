@@ -234,7 +234,7 @@ declare namespace dragController {
          * @type { ?unifiedDataChannel.DataLoadParams }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
          dataLoadParams?: unifiedDataChannel.DataLoadParams;
     }
@@ -368,7 +368,7 @@ declare namespace dragController {
      * @enum { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     export const enum DragSpringLoadingState {
         /**
@@ -377,7 +377,7 @@ declare namespace dragController {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         BEGIN = 0,
         /**
@@ -387,7 +387,7 @@ declare namespace dragController {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         UPDATE = 1,
         /**
@@ -396,7 +396,7 @@ declare namespace dragController {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         END = 2,
         /**
@@ -406,7 +406,7 @@ declare namespace dragController {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         CANCEL = 3
     }
@@ -419,7 +419,7 @@ declare namespace dragController {
      * @typedef { DragSpringLoadingConfiguration }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     export interface DragSpringLoadingConfiguration {
         /**
@@ -428,7 +428,7 @@ declare namespace dragController {
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         stillTimeLimit?: int;
 
@@ -438,7 +438,7 @@ declare namespace dragController {
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         updateInterval?: int;
 
@@ -448,7 +448,7 @@ declare namespace dragController {
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         updateNotifyCount?: int;
 
@@ -458,7 +458,7 @@ declare namespace dragController {
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         updateToFinishInterval?: int;
     }
@@ -471,7 +471,7 @@ declare namespace dragController {
      * @typedef { SpringLoadingDragInfos }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     export interface SpringLoadingDragInfos {
         /**
@@ -480,7 +480,7 @@ declare namespace dragController {
          * @type { ?unifiedDataChannel.Summary }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         dataSummary?: unifiedDataChannel.Summary;
         /**
@@ -490,7 +490,7 @@ declare namespace dragController {
          * @type { ?string }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         extraInfos?: string;
     }
@@ -502,7 +502,7 @@ declare namespace dragController {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     export class SpringLoadingContext {
         /**
@@ -511,7 +511,7 @@ declare namespace dragController {
          * @type { DragSpringLoadingState }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         state: DragSpringLoadingState;
         /**
@@ -521,7 +521,7 @@ declare namespace dragController {
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         currentNotifySequence: int;
         /**
@@ -530,7 +530,7 @@ declare namespace dragController {
          * @type { ?SpringLoadingDragInfos }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         dragInfos?: SpringLoadingDragInfos;
         /**
@@ -539,7 +539,7 @@ declare namespace dragController {
          * @type { ?DragSpringLoadingConfiguration }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         currentConfig?: DragSpringLoadingConfiguration;
         /**
@@ -548,7 +548,7 @@ declare namespace dragController {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         abort(): void;
         /**
@@ -561,7 +561,7 @@ declare namespace dragController {
          * @param { DragSpringLoadingConfiguration } The spring loading detection configuration
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         updateConfiguration(config: DragSpringLoadingConfiguration): void;
     }

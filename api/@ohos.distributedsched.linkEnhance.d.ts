@@ -137,8 +137,10 @@ declare namespace linkEnhance {
      * the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { 'connectionAccepted' } type - Type of the server is connected event to listen for.
-     * @param { Callback<Connection> } callback - Callback used to listen for the server is connected event.
+     * @param { 'connectionAccepted' } type - Event type, which is **connectionAccepted**. This event is triggered when
+     *     a connection from the peer end is received.
+     * @param { Callback<Connection> } callback - Registered callback, which is used to return the
+     *     [Connection]{@link linkEnhance.Connection} object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 32390206 - Parameter invalid.
      * @syscap SystemCapability.DistributedSched.AppCollaboration

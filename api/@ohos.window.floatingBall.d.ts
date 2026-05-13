@@ -267,6 +267,40 @@ declare namespace floatingBall {
     offClick(callback?: Callback<void>): void;
 
     /**
+     * Register floating ball destroy event listener.
+     *
+     * @param { Callback<string> } callback - Used to handle {'destroy'} command.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible cause:
+     *     Callback is null or not callable.
+     * @throws { BusinessError } 1300022 - Repeated floating ball operation.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     The floating ball controller is null.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball window has not been created or has been destroyed.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onDestroy(callback: Callback<string>): void;
+
+    /**
+     * Unregister floating ball destroy event listener.
+     *
+     * @param { Callback<string> } [callback] - Indicates the callback function. If not provided,
+     *     all callbacks for the given event type will be removed.
+     * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible cause:
+     *     Callback is null or not callable.
+     * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
+     *     The floating ball controller is null.
+     * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
+     *     The floating ball window has not been created or has been destroyed.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offDestroy(callback?: Callback<string>): void;
+
+    /**
      * Obtains the floating ball window information. This API uses a promise to return the result.
      *
      * @returns { Promise<FloatingBallWindowInfo> } Promise used to return the floating ball window information.

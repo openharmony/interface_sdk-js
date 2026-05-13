@@ -284,9 +284,8 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens a dialog box for installing a certificate. This API uses a promise to return the result. In API version 26.0.
-   * 0 and later versions, you can use [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to
-   * check whether the CA certificate management dialog box can be opened.
+   * Opens the Certificate Management Install Certificate dialog box, including installing CA certificates, user
+   * credentials, and system credentials. Use Promise asynchronous callback.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
@@ -307,9 +306,9 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700002 - The user cancels the installation operation.
    * @throws { BusinessError } 29700003 - The user install certificate failed in the certificate manager dialog, such as
    *     the certificate is in an invalid format.
-   * @throws { BusinessError } 29700004 - To ensure user security, the current device does not support this API.
-   *     When certType is set to CA_CERT, this API can be invoked only on 2in1 devices.
-   *     This error code is returned on other devices.
+   * @throws { BusinessError } 29700004 - For security purposes, the current device does not support this API.
+   *     You can use the [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to determine
+   *     whether the device supports opening the dialog box for installing a CA certificate with certType set to CA.
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the
    *     device does not allow users to manage the ca certificate of the global user. [since 18]
    * @syscap SystemCapability.Security.CertificateManagerDialog
@@ -345,10 +344,8 @@ declare namespace certificateManagerDialog {
   function openAuthorizeDialog(context: common.Context): Promise<string>;
 
   /**
-   * Opens the certificate management dialog box and displays the certificate details. This API uses a promise to return
-   * the result. In API version 26.0.0 and later versions, you can use
-   * [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to check whether the CA certificate
-   * management dialog box can be opened.
+   * Indicates that the certificate details are displayed in the Certificate Management dialog box. Use Promise
+   * asynchronous callbacks.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
@@ -372,13 +369,13 @@ declare namespace certificateManagerDialog {
   function openCertificateDetailDialog(context: common.Context,cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 
   /**
-   * Opens a dialog box for deleting a certificate. This API uses a promise to return the result. In API version 26.0.0
-   * and later versions, you can use [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to
-   * check whether the CA certificate management dialog box can be opened.
+   * Opens the Certificate Management Delete Certificate dialog box. Currently, only CA certificates can be deleted. Use
+   *  Promise asynchronous callback.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
-   * @param { CertificateType } certType - Type of the certificate to delete.
+   * @param { CertificateType } certType - Type of the certificate to delete
+   *     <br>Currently, only the CA_CERT type is supported.
    * @param { string } certUri - Unique identifier of the certificate to delete. The value contains up to 256 bytes.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -390,7 +387,9 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700002 - The user cancels the uninstallation operation.
    * @throws { BusinessError } 29700003 - The user uninstall certificate failed in the certificate manager dialog, such
    *     as the certificate uri is not exist.
-   * @throws { BusinessError } 29700004 - The API is not supported on this device.
+   * @throws { BusinessError } 29700004 - For security purposes, the current device does not support this API.
+   *     You can use the [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to determine
+   *     whether the device can open the dialog box for deleting a CA certificate with certType set to CA.
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the
    *     device does not allow users to manage the ca certificate of the global user.
    * @syscap SystemCapability.Security.CertificateManagerDialog
@@ -590,7 +589,11 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Checks whether the CA certificate management dialog box can be opened.
+   * Check whether the device supports the [openCertificateDetailDialog]{@link
+   * certificateManagerDialog.openCertificateDetailDialog}, [openInstallCertificateDialog]{@link
+   * certificateManagerDialog.openInstallCertificateDialog}, and [openUninstallCertificateDialog]{@link
+   * certificateManagerDialog.openUninstallCertificateDialog} interfaces to open the dialog box for managing CA
+   * certificates.
    *
    * @returns { boolean } Whether the CA certificate management dialog box can be opened. **true**: supported; **false**
    *     : not supported

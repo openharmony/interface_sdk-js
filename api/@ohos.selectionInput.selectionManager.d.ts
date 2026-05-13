@@ -96,7 +96,7 @@ declare namespace selectionManager {
   /**
    * Obtains this selected text content. This API uses a promise to return the result.
    *
-   * @returns { Promise<string> } Promise used to return the selected content.
+   * @returns { Promise<string> } Promise used to return the content of the selected text.
    * @throws { BusinessError } 33600001 - Selection service exception.
    * @throws { BusinessError } 33600004 - The interface is called too frequently.
    * @throws { BusinessError } 33600005 - The interface is called at the wrong time.

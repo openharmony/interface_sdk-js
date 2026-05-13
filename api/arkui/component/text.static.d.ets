@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
-import { CustomBuilder } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
 import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation } from "./textCommon";
@@ -1364,3 +1364,65 @@ export declare function Text(
     content?: string | Resource, value?: TextOptions, 
     content_?: CustomBuilder,
 ): TextAttribute
+
+/**
+ * Defines the Extendable Text.
+ *
+ * @implements TextAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableText implements TextAttribute {
+    /**
+     * Constructor of Extendable Text.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { string | Resource } [content]
+     * @param { TextOptions } [value]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableText>(
+        factory: ConstructorT<T>, 
+        content?: string | Resource, 
+        value?: TextOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Text.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableText>(
+        styles: CustomBuilderT<T>,  
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the Text Options.
+     *
+     * @param { string | Resource } [content]
+     * @param { TextOptions } [value]
+     * @returns { ExtendableText }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setTextOptions(
+        content?: string | Resource, 
+        value?: TextOptions
+    ): this;
+}

@@ -24,100 +24,124 @@ import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
 
 /**
- * @namespace image
- * @since 6
+ * # SVG Tags
+ * 
+ * The SVG tags are supported since API version 10. The used version is (SVG) 1.1, and the width and height of the SVG 
+ * tag must be set. An XML declaration can be added to an SVG file and start with **<?xml**. The following tags are 
+ * supported:
+ * 
+ * - a
+ * - circle
+ * - clipPath
+ * - defs
+ * - ellipse
+ * - feBlend
+ * - feColorMatrix
+ * - feComposite
+ * - feDiffuseLighting
+ * - feDisplacementMap
+ * - feDistantLight
+ * - feFlood
+ * - feGaussianBlur
+ * - feImage
+ * - feMorphology
+ * - feOffset
+ * - fePointLight
+ * - feSpecularLighting
+ * - feSpotLight
+ * - feTurbulence
+ * - filter
+ * - g
+ * - image
+ * - line
+ * - linearGradient
+ * - mask
+ * - path
+ * - pattern
+ * - polygon
+ * - polyline
+ * - radialGradient
+ * - rect
+ * - stop
+ * - svg
+ * - text
+ * - textPath
+ * - tspan
+ * - use
  */
 /**
- * This module provides the capability of image codec and access
- * @namespace image
- * @syscap SystemCapability.Multimedia.Image.Core
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * This module provides the capability of image codec and access
- * @namespace image
- * @syscap SystemCapability.Multimedia.Image.Core
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * The module provides capabilities for image decoding, encoding, editing, metadata processing, and image receiving.
+ * This module contains the following classes:
+ * 
+ * - [ImageSource]{@link @ohos.multimedia.image:image.ImageSource}: provides the capabilities of obtaining 
+ * [image information]{@link @ohos.multimedia.image:image.ImageInfo}, decoding images to PixelMaps or Pictures, and 
+ * reading and modifying [image properties]{@link @ohos.multimedia.image:image.PropertyKey}. 
+ * [Supported image formats for decoding]{@link @ohos.multimedia.image: image.ImageSource#supportedFormats}
+ * include png, jpeg, bmp, gif, webp, dng, and heic<sup>12+</sup>.
+ * - [ImagePacker]{@link @ohos.multimedia.image:image.ImagePacker}: provides the capability of encoding images into
+ * compressed data streams or files. Encoding requires the ImageSource, PixelMap, or Picture of an image as the input. 
+ * [Supported image formats for encoding]{@link @ohos.multimedia.image: image.ImagePacker#supportedFormats}
+ * include jpeg, webp, png, heic<sup>12+</sup>, and gif<sup>18+</sup>.
+ * - [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}: contains pixel data and 
+ * [image information]{@link @ohos.multimedia.image:image.ImageInfo}. It can be used for reading/writing pixel data and 
+ * performing operations such as cropping, scaling, translating, rotating, and mirroring. It can also be directly passed
+ * to the [Image component]{@link Image} for display. Additionally, it provides APIs for 
+ * obtaining and setting the color gamut and HDR metadata of images.
+ * - [Picture]{@link @ohos.multimedia.image:image.Picture}: a multi-picture object composed of a main picture,
+ * auxiliary pictures, and metadata. The main picture contains the primary image information; auxiliary pictures store
+ * additional information related to the main picture; metadata stores other information related to the image.
+ * Picture provides methods for obtaining the main picture, compositing HDR images, obtaining and setting auxiliary
+ * pictures, and obtaining and setting metadata.
+ * - [AuxiliaryPicture]{@link @ohos.multimedia.image:image.AuxiliaryPicture}: used to display special information
+ * alongside the main picture, enriching the overall content of the image. The supported types of auxiliary pictures
+ * can be found in [AuxiliaryPictureType]{@link @ohos.multimedia.image:image.AuxiliaryPictureType}.
+ * - [Metadata]{@link @ohos.multimedia.image:image.Metadata}: used to store image metadata. The supported metadata types
+ * can be found in [MetadataType]{@link @ohos.multimedia.image:image.MetadataType}. It includes Exif metadata and
+ * watermark cropping metadata, both stored in Key-Value pairs. The keys for Exif metadata can be found in
+ * [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}, and the keys for watermark cropping metadata can be
+ * found in [FragmentPropertyKey]{@link @ohos.multimedia.image:image.FragmentMapPropertyKey}.
+ * - [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver}: acts as a consumer of images, used for receiving
+ * and reading images from a surface.
+ * - [ImageCreator]{@link @ohos.multimedia.image:image.ImageCreator}: acts as a producer of images, used for writing
+ * images into a surface.
+ * - [Image]{@link @ohos.multimedia.image:image.Image}: used by ImageReceiver and ImageCreator for transferring image
+ * objects, with the actual content determined by the producer. For example, the Image object provided by
+ * a camera preview stream contains YUV data, whereas the Image object provided by a camera photo contains a JPEG file.
+ *
+ * @syscap SystemCapability.Multimedia.Image.Core [since 11]
+ * @crossplatform [since 11]
+ * @form [since 12]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  * @since 23 static
  */
 declare namespace image {
   /**
-   * Enumerates pixel map formats.
+   * Enumerates the pixel formats of images.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * Enumerates pixel map formats.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates pixel map formats.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enumerates pixel map formats.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   enum PixelMapFormat {
     /**
-     * Indicates an unknown format.
+     * Unknown format.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Indicates an unknown format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates an unknown format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates an unknown format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     UNKNOWN = 0,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
+     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits),
+     * B(8bits), A(8bits) and are stored from the higher-order to the lower-order bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
@@ -126,308 +150,117 @@ declare namespace image {
     ARGB_8888 = 1,
 
     /**
-     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
-     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
-     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
+     * The color information consists of three components: R (Red), G (Green), and B (Blue), which occupies five bits, 
+     * six bits, and five bits, respectively. The total length is 16 bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
-     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
-     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
-     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
-     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 16 bits. Only the R, G, and B components are encoded
-     * from the higher-order to the lower-order bits: red is stored with 5 bits of precision,
-     * green is stored with 6 bits of precision, and blue is stored with 5 bits of precision.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     RGB_565 = 2,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
+     * The color information consists of four components: R (Red), G (Green), B (Blue), and alpha. Each component 
+     * occupies 8 bits, and the total length is 32 bits. It corresponds to 
+     * [CAMERA_FORMAT_RGBA_8888 in CameraFormat]{@link @ohos.multimedia.camera:camera.CameraFormat}.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：R(8bits), G(8bits), B(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     RGBA_8888 = 3,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
+     * The color information consists of four components: B (Blue), G (Green), R (Red), and alpha. Each component 
+     * occupies 8 bits, and the total length is 32 bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     BGRA_8888 = 4,
 
     /**
-     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
-     * and are stored from the higher-order to the lower-order bits.
+     * The color information consists of three components: R (Red), G (Green), and B (Blue). Each component occupies 8 
+     * bits, and the total length is 24 bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 24 bits. Each pixel contains 3 components：R(8bits), G(8bits), B(8bits)
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     RGB_888 = 5,
 
     /**
-     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
-     * and is stored from the higher-order to the lower-order bits.
+     * The color information consists of only the alpha component, which occupies eight bits. Each row of pixels is 
+     * composed of one or more pixels, and the data for each row is aligned to 4 bytes. If the byte count of a row is 
+     * not a multiple of 4, blank bytes are padded at the end to ensure proper alignment.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
-     * and is stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
-     * and is stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 8 bits. Each pixel contains 1 component：ALPHA(8bits)
-     * and is stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     ALPHA_8 = 6,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits in F16.
+     * The color information consists of four components: R (Red), G (Green), B (Blue), and alpha. Each component
+     * occupies 16 bits, and the total length is 64 bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits in F16.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits in F16.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：B(8bits), G(8bits), R(8bits), A(8bits)
-     * and are stored from the higher-order to the lower-order bits in F16.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     RGBA_F16 = 7,
 
     /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
+     * YVU pixel arrangement, where the V component precedes the U component. The color information consists of the 
+     * luminance component Y and the interleaved chrominance components V and U. The Y component occupies 8 bits, and 
+     * the UV components occupy 4 bits on average due to 4:2:0 sampling. The total length is 12 bits on average. It 
+     * corresponds to [CAMERA_FORMAT_YUV_420_SP in CameraFormat]{@link @ohos.multimedia.camera:camera.CameraFormat}.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     NV21 = 8,
 
     /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
+     * YUV pixel arrangement, where the U component precedes the V component. The color information consists of the 
+     * luminance component Y and the interleaved chrominance components U and V. The Y component occupies 8 bits, and 
+     * the UV components occupy 4 bits on average due to 4:2:0 sampling. The total length is 12 bits on average.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 8 bits
-     * and are stored from the higher-order to the lower-order bits.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     NV12 = 9,
 
     /**
-     * Indicates that each pixel is stored on 32 bits. Each pixel contains 4 components：
-     * R(10bits), G(10bits), B(10bits), A(2bits) and are stored from the higher-order to the lower-order bits.
+     * The color information consists of four components: R (Red), G (Green), B (Blue), and alpha. R, G, and B each 
+     * occupy 10 bits, and alpha occupies 2 bits. The total length is 32 bits.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -436,8 +269,11 @@ declare namespace image {
     RGBA_1010102 = 10,
 
     /**
-     * Indicates that the storage order is to store Y first and then U V alternately each occupies 10 bits
-     * and are stored from the higher-order to the lower-order bits.
+     * The color information consists of the luminance component Y and the chrominance components Cb and Cr. Each 
+     * component has effective 10 bits. In storage, the Y plane uses 16 bits per pixel (10 of which are effective). The 
+     * UV plane is interleaved, with every four pixels taking up 32 bits of data (each chrominance component having 10 
+     * effective bits), resulting in an average of 15 effective bits overall. It corresponds to 
+     * [CAMERA_FORMAT_YCBCR_P010 in CameraFormat]{@link @ohos.multimedia.camera:camera.CameraFormat}.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -446,14 +282,26 @@ declare namespace image {
     YCBCR_P010 = 11,
 
     /**
-     * Indicates that the storage order is to store Y first and then V U alternately each occupies 10 bits
-     * and are stored from the higher-order to the lower-order bits.
+     * The color information consists of the luminance component Y and the chrominance components Cr and Cb. Each 
+     * component has effective 10 bits. In storage, the Y plane uses 16 bits per pixel (10 of which are effective). The 
+     * UV plane is interleaved, with every four pixels taking up 32 bits of data (each chrominance component having 10 
+     * effective bits), resulting in an average of 15 effective bits overall. It corresponds to 
+     * [CAMERA_FORMAT_YCRCB_P010 in CameraFormat]{@link @ohos.multimedia.camera:camera.CameraFormat}.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
      */
     YCRCB_P010 = 12,
+
+    /**
+    * Indicates that each pixel is stored on 8 bits, a YUV planar format comprised of Y plane only.
+    *
+    * @syscap SystemCapability.Multimedia.Image.Core
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    Y8 = 14,
 
     /**
      * Indicates that each pixel is stored on 8 bits, without 4-byte stride alignment.
@@ -493,9 +341,8 @@ declare namespace image {
   }
 
   /**
-   * Enumerates image resolution quality.
+   * Enumerates the image quality levels.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
    * @since 12 dynamic
@@ -503,8 +350,8 @@ declare namespace image {
    */
   enum ResolutionQuality {
     /**
-     * Low quality images, short decoding time.
-     * 
+     * Low image quality, requiring a short decoding time.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @since 12 dynamic
@@ -513,8 +360,8 @@ declare namespace image {
     LOW = 1,
 
     /**
-     * Medium quality images, moderate decoding time.
-     * 
+     * Medium image quality, requiring a medium decoding time
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @since 12 dynamic
@@ -523,8 +370,8 @@ declare namespace image {
     MEDIUM = 2,
 
     /**
-     * High quality images, longer decoding time.
-     * 
+     * High image quality, requiring a long decoding time.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @since 12 dynamic
@@ -536,390 +383,258 @@ declare namespace image {
   /**
    * Describes the size of an image.
    *
-   * @typedef Size
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 6
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes the size of an image.
-   *
-   * @typedef Size
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   interface Size {
     /**
      * Height
-     * <br>Unit:px.
      *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Height
-     * <br>Unit:px.
+     * Unit:px.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Height
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Height
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     height: int;
 
     /**
      * Width
-     * <br>Unit:px.
      *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Width
-     * <br>Unit:px.
+     * Unit:px.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Width
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Width
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     width: int;
   }
 
   /**
-   * Enumerates exchangeable image file format (Exif) information types of an image. This enumeration follows the EXIF
-   * standard. Please refer to the EXIF specification for more details.
+   * Enumerates the types of Exchangeable Image File Format (Exif) data of an image.
+   * 
+   * - The key in the format example is **image.PropertyKey.*XXX*** (where *XXX* is the name of an enumeration name, for
+   * example, **image.PropertyKey.NEW_SUBFILE_TYPE**).
+   * - The format example is used only to show how to modify values and read results. For details about how to use them,
+   * see 
+   * [modifyImageProperty]{@link @ohos.multimedia.image:image.ImageSource.modifyImageProperty(key: PropertyKey, value: string)}
+   * (to modify a single Exif field), 
+   * [modifyImageProperties]{@link @ohos.multimedia.image:image.ImageSource.modifyImageProperties(records: Record<PropertyKey, string|null>)}
+   * (to modify multiple Exif fields), 
+   * [getImageProperty]{@link @ohos.multimedia.image:image.ImageSource.getImageProperty(key: PropertyKey, options?: ImagePropertyOptions)}
+   * (to read a single Exif field), and 
+   * [getImageProperties]{@link @ohos.multimedia.image:image.ImageSource.getImageProperties(key: Array<PropertyKey>)} (
+   * to read multiple Exif fields).
    *
-   * @enum { string }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * Enumerates exchangeable image file format (Exif) information types of an image. This enumeration follows the EXIF
-   * standard. Please refer to the EXIF specification for more details.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
    * @since 23 static
    */
   enum PropertyKey {
     /**
-     * The number of bits per image component. In this standard each component of the image is 8 bits, so the value for 
-     * this tag is 8. In JPEG compressed data a JPEG marker is used instead of this tag.
+     * Number of bits per sample. For example, for RGB, which has three components, the format is 8,8,8.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * The number of bits per image component. In this standard each component of the image is 8 bits, so the value for 
-     * this tag is 8. In JPEG compressed data a JPEG marker is used instead of this tag.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     BITS_PER_SAMPLE = 'BitsPerSample',
 
     /**
      * Image orientation.
-     * 1. "Top-left"      - The image is not rotated.
-     * 2. "Top-right"     - The image is mirrored horizontally.
-     * 3. "Bottom-right"  - The image is rotated 180 degrees.
-     * 4. "Bottom-left"   - The image is mirrored vertically.
-     * 5. "Left-top"      - The image is mirrored horizontally, then rotated 270 degrees clockwise.
-     * 6. "Right-top"     - The image is rotated 90 degrees clockwise.
-     * 7. "Right-bottom"  - The image is mirrored horizontally, then rotated 90 degrees clockwise.
-     * 8. "Left-bottom"   - The image is rotated 270 degrees clockwise.
-     * If an undefined value is read, the result will be "Unknown Value <number>".
-     * When retrieving the Orientation property, the value is returned as a string.
-     * When setting the Orientation property, both numeric values (1–8) and string labels are supported.
+     * 
+     * 1: **Top-left**: The image is not rotated.
+     * 
+     * 2: **Top-right**: The image is flipped horizontally.
+     * 
+     * 3: **Bottom-right**: The image is rotated by 180°.
+     * 
+     * 4: **Bottom-left**: The image is flipped vertically.
+     * 
+     * 5: **Left-top**: The image is flipped horizontally and then rotated clockwise by 270°.
+     * 
+     * 6: **Right-top**: The image is rotated clockwise by 90°.
+     * 
+     * 7: **Right-bottom**: The image is vertically flipped and then rotated clockwise by 90°.
+     * 
+     * 8: **Left-bottom**: The image is rotated clockwise by 270°.
+     * 
+     * If an undefined value x is read, **Unknown Value x** is returned. The value of the property obtained is returned 
+     * as a string. When modifying the property, you can specify the property either in the form of a number or a 
+     * string.
+     * 
+     * For details about the image rotation angle, see 
+     * [Obtaining the Rotation Angle of an Image](docroot://media/image/image-faqs/image-rotate-faq.md).
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image orientation.
-     * 1. "Top-left"       - The image is not rotated.
-     * 2. "Top-right"      - The image is mirrored horizontally.
-     * 3. "Bottom-right"   - The image is rotated 180 degrees.
-     * 4. "Bottom-left"    - The image is mirrored vertically.
-     * 5. "Left-top"       - The image is mirrored horizontally, then rotated 270 degrees clockwise.
-     * 6. "Right-top"      - The image is rotated 90 degrees clockwise.
-     * 7. "Right-bottom"   - The image is mirrored horizontally, then rotated 90 degrees clockwise.
-     * 8. "Left-bottom"    - The image is rotated 270 degrees clockwise.
-     * If an undefined value is read, the result will be "Unknown Value <number>".
-     * When retrieving the Orientation property, the value is returned as a string.
-     * When setting the Orientation property, both numeric values (1–8) and string labels are supported.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     ORIENTATION = 'Orientation',
 
     /**
      * Image length.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image length.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     IMAGE_LENGTH = 'ImageLength',
 
     /**
      * Image width.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image width.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     IMAGE_WIDTH = 'ImageWidth',
 
     /**
-     * GPS latitude. The latitude is expressed as three RATIONAL values giving the degrees, minutes, and
-     * seconds, respectively. If latitude is expressed as degrees, minutes and seconds, a typical format 
-     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
-     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
+     * Image latitude. The value must be in the format of degree,minute,second, for example, 39,54,7.542.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS latitude. The latitude is expressed as three RATIONAL values giving the degrees, minutes, and
-     * seconds, respectively. If latitude is expressed as degrees, minutes and seconds, a typical format 
-     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
-     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     GPS_LATITUDE = 'GPSLatitude',
 
     /**
-     * GPS longitude. The longitude is expressed as three RATIONAL values giving the degrees, minutes, and
-     * seconds, respectively. If longitude is expressed as degrees, minutes and seconds, a typical format 
-     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
-     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
+     * Image longitude. The value must be in the format of degree,minute,second, for example, 116,19,42.16.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS longitude. The longitude is expressed as three RATIONAL values giving the degrees, minutes, and
-     * seconds, respectively. If longitude is expressed as degrees, minutes and seconds, a typical format 
-     * would be dd/1,mm/1,ss/1. When degrees and minutes are used and, for example, fractions of minutes
-     * are given up to two decimal places, the format would be dd/1,mmmm/100,0/1.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     GPS_LONGITUDE = 'GPSLongitude',
 
     /**
-     * GPS latitude reference. For example, N indicates north latitude and S indicates south latitude.
+     * Latitude reference (Northern or Southern Hemisphere) of the image capture location.
+     * 
+     * 78: "North".
+     * 
+     * 83: "South".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS latitude reference. For example, N indicates north latitude and S indicates south latitude.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     GPS_LATITUDE_REF = 'GPSLatitudeRef',
 
     /**
-     * GPS longitude reference. For example, E indicates east longitude and W indicates west longitude.
+     * Longitude reference (Eastern or Western Hemisphere) of the image capture location.
+     * 
+     * 69: "East".
+     * 
+     * 87: "West".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * GPS longitude reference. For example, E indicates east longitude and W indicates west longitude.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      * @since 23 static
      */
     GPS_LONGITUDE_REF = 'GPSLongitudeRef',
 
     /**
-     * The date and time when the original image data was generated. For a DSC the date and time the picture was taken
-     * are recorded. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     * Time when the original image data was generated, for example, 2022:09:06 15:48:00.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * The date and time when the original image data was generated. For a DSC the date and time the picture was taken
-     * are recorded. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     DATE_TIME_ORIGINAL = 'DateTimeOriginal',
 
     /**
-     * Exposure time
+     * Exposure time, for example, 1/33 seconds.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Exposure time
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     EXPOSURE_TIME = 'ExposureTime',
 
     /**
-     * Scene type
+     * Type of the scene, for example, portrait, scenery, motion, and night.
+     * 
+     * 1: "Directly photographed", indicating that the image is directly captured by the image sensor.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Scene type
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     SCENE_TYPE = 'SceneType',
 
     /**
-     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
+     * ISO sensitivity or ISO speed, for example, 400.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     ISO_SPEED_RATINGS = 'ISOSpeedRatings',
 
     /**
-     * Aperture value, such as f/1.8.
+     * F number, for example, f/1.8.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Aperture value, such as f/1.8.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     F_NUMBER = 'FNumber',
 
     /**
-     * The date and time of image creation. In this standard it is the date and time the file was changed. The format
-     * is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     * Date and time of image creation.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -928,7 +643,9 @@ declare namespace image {
     DATE_TIME = 'DateTime',
 
     /**
-     * GPS time stamp
+     * GPS timestamp.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -937,7 +654,9 @@ declare namespace image {
     GPS_TIME_STAMP = 'GPSTimeStamp',
  
     /**
-     * GPS date stamp
+     * GPS date stamp.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -946,7 +665,9 @@ declare namespace image {
     GPS_DATE_STAMP = 'GPSDateStamp',
  
     /**
-     * Image description
+     * Image description.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -955,7 +676,9 @@ declare namespace image {
     IMAGE_DESCRIPTION = 'ImageDescription',
  
     /**
-     * Make
+     * Manufacturer.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -964,7 +687,9 @@ declare namespace image {
     MAKE = 'Make',
  
     /**
-     * Model
+     * Device model.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -973,7 +698,9 @@ declare namespace image {
     MODEL = 'Model',
  
     /**
-     * Photo mode
+     * Photographing mode.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -982,7 +709,9 @@ declare namespace image {
     PHOTO_MODE = 'PhotoMode',
  
     /**
-     * Sensitivity type
+     * Sensitivity type.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -991,7 +720,9 @@ declare namespace image {
     SENSITIVITY_TYPE = 'SensitivityType',
  
     /**
-     * Standard output sensitivity
+     * Standard output sensitivity.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1000,7 +731,9 @@ declare namespace image {
     STANDARD_OUTPUT_SENSITIVITY = 'StandardOutputSensitivity',
  
     /**
-     * Recommended exposure index
+     * Recommended exposure index.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1009,7 +742,9 @@ declare namespace image {
     RECOMMENDED_EXPOSURE_INDEX = 'RecommendedExposureIndex',
  
     /**
-     * Indicates the ISO Speed and ISO Latitude of the camera or input device as specified in ISO 12232.
+     * ISO speed.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1018,7 +753,9 @@ declare namespace image {
     ISO_SPEED = 'ISOSpeedRatings',
  
     /**
-     * The lens aperture, expressed as an APEX (Additive System of Photographic Exposure) value.
+     * Lens aperture. An example in the correct format is 4/1.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1027,7 +764,9 @@ declare namespace image {
     APERTURE_VALUE = 'ApertureValue',
  
     /**
-     * Exposure bias value
+     * Exposure bias.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1036,7 +775,9 @@ declare namespace image {
     EXPOSURE_BIAS_VALUE = 'ExposureBiasValue',
  
     /**
-     * Metering mode
+     * Metering mode.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1045,7 +786,9 @@ declare namespace image {
     METERING_MODE = 'MeteringMode',
  
     /**
-     * Light source
+     * Light source. An example value is **Fluorescent**.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1054,7 +797,9 @@ declare namespace image {
     LIGHT_SOURCE = 'LightSource',
  
     /**
-     * Flash
+     * Flash status.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1063,7 +808,9 @@ declare namespace image {
     FLASH = 'Flash',
  
     /**
-     * Focal length
+     * Focal length of the lens.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1072,7 +819,9 @@ declare namespace image {
     FOCAL_LENGTH = 'FocalLength',
  
     /**
-     * User comment
+     * User comments.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1081,7 +830,9 @@ declare namespace image {
     USER_COMMENT = 'UserComment',
  
     /**
-     * Pixel x dimension
+     * Pixel X dimension.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1090,7 +841,9 @@ declare namespace image {
     PIXEL_X_DIMENSION = 'PixelXDimension',
  
     /**
-     * Pixel y dimension
+     * Pixel Y dimension.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1099,7 +852,13 @@ declare namespace image {
     PIXEL_Y_DIMENSION = 'PixelYDimension',
  
     /**
-     * White balance
+     * White balance.
+     * 
+     * 0: "Auto white balance."
+     * 
+     * 1: "Manual white balance."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1108,7 +867,9 @@ declare namespace image {
     WHITE_BALANCE = 'WhiteBalance',
  
     /**
-     * Focal length in 35mm film
+     * Focal length in 35mm film.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1117,7 +878,9 @@ declare namespace image {
     FOCAL_LENGTH_IN_35_MM_FILM = 'FocalLengthIn35mmFilm',
  
     /**
-     * Capture mode
+     * Capture mode.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1126,7 +889,9 @@ declare namespace image {
     CAPTURE_MODE = 'HwMnoteCaptureMode',
  
     /**
-     * Physical aperture
+     * Physical aperture.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 10 dynamic
@@ -1135,7 +900,9 @@ declare namespace image {
     PHYSICAL_APERTURE = 'HwMnotePhysicalAperture',
 
     /**
-     * Roll Angle
+     * Roll angle.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1145,7 +912,9 @@ declare namespace image {
     ROLL_ANGLE = 'HwMnoteRollAngle',
 
     /**
-     * Pitch Angle
+     * Pitch angle.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1155,7 +924,9 @@ declare namespace image {
     PITCH_ANGLE = 'HwMnotePitchAngle',
 
     /**
-     * Capture Scene: Food
+     * Photographing scene: food.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1165,7 +936,9 @@ declare namespace image {
     SCENE_FOOD_CONF = 'HwMnoteSceneFoodConf',
 
     /**
-     * Capture Scene: Stage
+     * Photographing scene: stage.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1175,7 +948,9 @@ declare namespace image {
     SCENE_STAGE_CONF = 'HwMnoteSceneStageConf',
 
     /**
-     * Capture Scene: Blue Sky
+     * Photographing scene: blue sky.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1185,7 +960,9 @@ declare namespace image {
     SCENE_BLUE_SKY_CONF = 'HwMnoteSceneBlueSkyConf',
 
     /**
-     * Capture Scene: Green Plant
+     * Photographing scene: green plant.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1195,7 +972,9 @@ declare namespace image {
     SCENE_GREEN_PLANT_CONF = 'HwMnoteSceneGreenPlantConf',
 
     /**
-     * Capture Scene: Beach
+     * Photographing scene: beach.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1205,7 +984,9 @@ declare namespace image {
     SCENE_BEACH_CONF = 'HwMnoteSceneBeachConf',
 
     /**
-     * Capture Scene: Snow
+     * Photographing scene: snow.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1215,7 +996,9 @@ declare namespace image {
     SCENE_SNOW_CONF = 'HwMnoteSceneSnowConf',
 
     /**
-     * Capture Scene: Sunset
+     * Photographing scene: sunset.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1225,7 +1008,9 @@ declare namespace image {
     SCENE_SUNSET_CONF = 'HwMnoteSceneSunsetConf',
 
     /**
-     * Capture Scene: Flowers
+     * Photographing scene: flowers.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1235,7 +1020,9 @@ declare namespace image {
     SCENE_FLOWERS_CONF = 'HwMnoteSceneFlowersConf',
 
     /**
-     * Capture Scene: Night
+     * Photographing scene: night.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1245,7 +1032,9 @@ declare namespace image {
     SCENE_NIGHT_CONF = 'HwMnoteSceneNightConf',
 
     /**
-     * Capture Scene: Text
+     * Photographing scene: text.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1255,7 +1044,9 @@ declare namespace image {
     SCENE_TEXT_CONF = 'HwMnoteSceneTextConf',
 
     /**
-     * Face Count
+     * Number of faces.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1265,7 +1056,9 @@ declare namespace image {
     FACE_COUNT = 'HwMnoteFaceCount',
 
     /**
-     * Focus Mode
+     * Focus mode.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1275,7 +1068,15 @@ declare namespace image {
     FOCUS_MODE = 'HwMnoteFocusMode',
   
     /**
-     * The scheme used for image compression.
+     * Compression scheme used on the image data.
+     * 
+     * 1: "Uncompressed".
+     * 
+     * 2: "CCITT RLE".
+     * 
+     * 3: "T4/Group 3 Fax".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1285,7 +1086,23 @@ declare namespace image {
     COMPRESSION = 'Compression',
 
     /**
-     * Pixel composition, such as RGB or YCbCr.
+     * Color space of the image data, for example, RGB or YCbCr.
+     * 
+     * 0: "Reversed mono".
+     * 
+     * 1: "Normal mono".
+     * 
+     * 2: "RGB".
+     * 
+     * 3: "Palette".
+     * 
+     * 5: "CMYK".
+     * 
+     * 6: "YCbCr".
+     * 
+     * 8: "CieLAB".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1295,7 +1112,9 @@ declare namespace image {
     PHOTOMETRIC_INTERPRETATION = 'PhotometricInterpretation',
 
     /**
-     * For each strip, the byte offset of that strip.
+     * Byte offset of each strip.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1305,8 +1124,10 @@ declare namespace image {
     STRIP_OFFSETS = 'StripOffsets',
 
     /**
-     * The number of components per pixel. As the standard applies to both RGB and YCbCr images, the tag value is set
-     * to 3. For JPEG-compressed images, this tag is replaced by corresponding JPEG markers.
+     * Number of components per pixel. The value is **3** for RGB and YCbCr images. The **JPEG** key is used in JPEG 
+     * compressed data.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1316,7 +1137,9 @@ declare namespace image {
     SAMPLES_PER_PIXEL = 'SamplesPerPixel',
 
     /**
-     * The number of rows per strip of image data.
+     * Number of rows per strip.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1326,7 +1149,9 @@ declare namespace image {
     ROWS_PER_STRIP = 'RowsPerStrip',
 
     /**
-     * The total number of bytes in each strip of image data.
+     * Number of bytes in each strip after compression.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1336,7 +1161,9 @@ declare namespace image {
     STRIP_BYTE_COUNTS = 'StripByteCounts',
 
     /**
-     * The image resolution in the width direction.
+     * Number of pixels per ResolutionUnit in the image width (X) direction.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1346,7 +1173,9 @@ declare namespace image {
     X_RESOLUTION = 'XResolution',
 
     /**
-     * The image resolution in the height direction.
+     * Number of pixels per ResolutionUnit in the image height (Y) direction.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1356,7 +1185,13 @@ declare namespace image {
     Y_RESOLUTION = 'YResolution',
 
     /**
-     * Indicates whether pixel components are recorded in a chunky or planar format.
+     * Storage format of components of each pixel, which can be chunky or planar.
+     * 
+     * 1: "Chunky format": chunky format.
+     * 
+     * 2: "Planar format": planar format.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1366,7 +1201,13 @@ declare namespace image {
     PLANAR_CONFIGURATION = 'PlanarConfiguration',
 
     /**
-     * The unit used to measure XResolution and YResolution.
+     * Unit of measurement for XResolution and YResolution, in inches or centimeters.
+     * 
+     * 2: "Inch": measured in inches.
+     * 
+     * 3: "Centimeter": measured in centimeters.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1376,7 +1217,9 @@ declare namespace image {
     RESOLUTION_UNIT = 'ResolutionUnit',
 
     /**
-     * The transfer function for the image, typically used for color correction.
+     * Transfer function for the image, which is usually used for color correction.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1386,7 +1229,9 @@ declare namespace image {
     TRANSFER_FUNCTION = 'TransferFunction',
 
     /**
-     * The name and version of the software used to generate the image.
+     * Name and version number of the software used to create the image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1396,7 +1241,9 @@ declare namespace image {
     SOFTWARE = 'Software',
 
     /**
-     * The name of the person who created the image.
+     * Person who created the image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1406,7 +1253,9 @@ declare namespace image {
     ARTIST = 'Artist',
 
     /**
-     * The chromaticity of the white point of the image.
+     * Chromaticity coordinates of the white point, the reference for "white", in the color space of the image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1416,7 +1265,9 @@ declare namespace image {
     WHITE_POINT = 'WhitePoint',
 
     /**
-     * The chromaticity of the primary colors of the image.
+     * Chromaticities of the primaries of the image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1426,7 +1277,9 @@ declare namespace image {
     PRIMARY_CHROMATICITIES = 'PrimaryChromaticities',
 
     /**
-     * The matrix coefficients for transformation from RGB to YCbCr image data.
+     * Coefficients for the conversion matrix that transforms image data from RGB to YCbCr.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1436,7 +1289,9 @@ declare namespace image {
     YCBCR_COEFFICIENTS = 'YCbCrCoefficients',
 
     /**
-     * The sampling ratio of chrominance components to the luminance component.
+     * Subsampling factors used for the chrominance components of a YCbCr image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1446,7 +1301,13 @@ declare namespace image {
     YCBCR_SUB_SAMPLING = 'YCbCrSubSampling',
 
     /**
-     * The position of chrominance components in relation to the luminance component.
+     * Positioning of subsampled chrominance components relative to luminance samples.
+     * 
+     * 1: "Centered": Cb/Cr chrominance components are centered relative to the luminance pixels (common practice).
+     * 
+     * 2: "Co-sited": Cb/Cr and Y sampling points align at the top-left corner.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1456,7 +1317,9 @@ declare namespace image {
     YCBCR_POSITIONING = 'YCbCrPositioning',
 
     /**
-     * The reference black point value and reference white point value.
+     * Reference values for black and white points.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1466,7 +1329,9 @@ declare namespace image {
     REFERENCE_BLACK_WHITE = 'ReferenceBlackWhite',
 
     /**
-     * Copyright information for the image.
+     * Copyright notice of the image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1476,7 +1341,9 @@ declare namespace image {
     COPYRIGHT = 'Copyright',
 
     /**
-     * The offset to the start byte (SOI) of JPEG compressed thumbnail data.
+     * Offset of the SOI marker of a JPEG interchange format bitstream.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1486,7 +1353,9 @@ declare namespace image {
     JPEG_INTERCHANGE_FORMAT = 'JPEGInterchangeFormat',
 
     /**
-     * The number of bytes of JPEG compressed thumbnail data.
+     * Number of bytes of the JPEG stream.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1496,7 +1365,27 @@ declare namespace image {
     JPEG_INTERCHANGE_FORMAT_LENGTH = 'JPEGInterchangeFormatLength',
 
     /**
-     * The class of the program used by the camera to set exposure when the picture is taken.
+     * Class of the program used by the camera to set exposure when the image was captured.
+     * 
+     * 0: "Not defined".
+     * 
+     * 1: "Manual".
+     * 
+     * 2: "Normal program".
+     * 
+     * 3: "Aperture priority".
+     * 
+     * 4: "Shutter priority".
+     * 
+     * 5: "Creative program (biased toward depth of field)".
+     * 
+     * 6: "Creative program (biased toward fast shutter speed)".
+     * 
+     * 7: "Portrait mode (for closeup photos with the background out of focus)".
+     * 
+     * 8: "Landscape mode (for landscape photos with the background in focus)".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1506,7 +1395,9 @@ declare namespace image {
     EXPOSURE_PROGRAM = 'ExposureProgram',
 
     /**
-     * Indicates the spectral sensitivity of each channel of the camera used.
+     * Spectral sensitivity of each channel of the camera.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1516,7 +1407,9 @@ declare namespace image {
     SPECTRAL_SENSITIVITY = 'SpectralSensitivity',
 
     /**
-     * Indicates the Opto-Electric Conversion Function (OECF) specified in ISO 14524.
+     * Opto-Electric Conversion Function (OECF) specified in ISO 14524.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1526,7 +1419,9 @@ declare namespace image {
     OECF = 'OECF',
 
     /**
-     * The version of the Exif standard supported.
+     * Version of the supported Exif standard.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1536,9 +1431,9 @@ declare namespace image {
     EXIF_VERSION = 'ExifVersion',
 
     /**
-     * The date and time when the image was stored as digital data. If, for example, an image was captured by DSC and
-     * at the same time the file was recorded, then the DateTimeOriginal and DateTimeDigitized will have the same
-     * contents. The format is "YYYY:MM:DD HH:MM:SS" with time shown in 24-hour format.
+     * Date and time when the image was stored as digital data, in the format of YYYY:MM:DD HH:mm:ss.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1548,7 +1443,9 @@ declare namespace image {
     DATE_TIME_DIGITIZED = 'DateTimeDigitized',
 
     /**
-     * Information specific to compressed data.
+     * Specific information about compressed data.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1558,7 +1455,9 @@ declare namespace image {
     COMPONENTS_CONFIGURATION = 'ComponentsConfiguration',
 
     /**
-     * The shutter speed, expressed as an APEX (Additive System of Photographic Exposure) value.
+     * Shutter speed, expressed in Additive System of Photographic Exposure (APEX) values.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1568,7 +1467,9 @@ declare namespace image {
     SHUTTER_SPEED = 'ShutterSpeedValue',
 
     /**
-     * The brightness value of the image, expressed as an APEX (Additive System of Photographic Exposure) value.
+     * Value of brightness, expressed in APEX values.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1578,7 +1479,9 @@ declare namespace image {
     BRIGHTNESS_VALUE = 'BrightnessValue',
 
     /**
-     * The smallest F number of lens.
+     * Smallest F number of the lens.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1588,7 +1491,9 @@ declare namespace image {
     MAX_APERTURE_VALUE = 'MaxApertureValue',
 
     /**
-     * The distance to the subject, measured in meters.
+     * Distance to the subject, in meters.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1598,7 +1503,9 @@ declare namespace image {
     SUBJECT_DISTANCE = 'SubjectDistance',
 
     /**
-     * This tag indicate the location and area of the main subject in the overall scene.
+     * Location and area of the main subject in the entire scene.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1608,7 +1515,11 @@ declare namespace image {
     SUBJECT_AREA = 'SubjectArea',
 
     /**
-     * A tag for manufacturers of Exif/DCF writers to record any desired information.
+     * Marker used by Exif/DCF manufacturers to record any required information.
+     * 
+     * This field is read-only in API versions 12 to 19 and is readable and writable in API version 20 and later.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1618,7 +1529,9 @@ declare namespace image {
     MAKER_NOTE = 'MakerNote',
 
     /**
-     * A tag for record fractions of seconds for the DateTime tag.
+     * Tag used to record fractions of seconds for the **DateTime** tag.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1628,7 +1541,9 @@ declare namespace image {
     SUBSEC_TIME = 'SubsecTime',
 
     /**
-     * A tag used to record fractions of seconds for the DateTimeOriginal tag.
+     * Tag used to record fractions of seconds for the **DateTimeOriginal** tag.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1638,7 +1553,9 @@ declare namespace image {
     SUBSEC_TIME_ORIGINAL = 'SubsecTimeOriginal',
 
     /**
-     * A tag used to record fractions of seconds for the DateTimeDigitized tag.
+     * Tag used to record fractions of seconds for the **DateTimeDigitized** tag.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1648,7 +1565,9 @@ declare namespace image {
     SUBSEC_TIME_DIGITIZED = 'SubsecTimeDigitized',
 
     /**
-     * This tag denotes the Flashpix format version supported by an FPXR file, enhancing device compatibility.
+     * FlashPix format version supported by an FPXR file. It is used to enhance device compatibility.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1658,7 +1577,16 @@ declare namespace image {
     FLASHPIX_VERSION = 'FlashpixVersion',
 
     /**
-     * The color space information tag, often recorded as the color space specifier.
+     * Color space information, which is usually recorded as a color space specifier.
+     * 
+     * 1: "sRGB", indicating the standard sRGB color space. It is the typical default value.
+     * 
+     * 2: "Adobe RGB", indicating the Adobe RGB color space. It is not formally defined in Exif, but commonly used in 
+     * practice.
+     * 
+     * 0xffff: "Uncalibrated", indicating that the color space is uncalibrated and unknown.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1668,7 +1596,9 @@ declare namespace image {
     COLOR_SPACE = 'ColorSpace',
 
     /**
-     * The name of an audio file related to the image data.
+     * Name of an audio file related to the image data.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1678,7 +1608,9 @@ declare namespace image {
     RELATED_SOUND_FILE = 'RelatedSoundFile',
 
     /**
-     * Strobe energy at image capture, in BCPS.
+     * Strobe energy at the time the image was captured, in Beam Candle Power Seconds (BCPS).
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1688,7 +1620,9 @@ declare namespace image {
     FLASH_ENERGY = 'FlashEnergy',
 
     /**
-     * Camera or input device spatial frequency table.
+     * Spatial frequency table of the camera or input device.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1698,7 +1632,9 @@ declare namespace image {
     SPATIAL_FREQUENCY_RESPONSE = 'SpatialFrequencyResponse',
 
     /**
-     * Pixels per FocalPlaneResolutionUnit in the image width.
+     * Number of pixels in the image width (X) direction per FocalPlaneResolutionUnit.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1708,7 +1644,9 @@ declare namespace image {
     FOCAL_PLANE_X_RESOLUTION = 'FocalPlaneXResolution',
 
     /**
-     * Pixels per FocalPlaneResolutionUnit in the image height.
+     * Number of pixels in the image height (Y) direction per FocalPlaneResolutionUnit.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1719,6 +1657,12 @@ declare namespace image {
 
     /**
      * Unit for measuring FocalPlaneXResolution and FocalPlaneYResolution.
+     * 
+     * 2: "Inch": measured in inches.
+     * 
+     * 3: "Centimeter": measured in centimeters.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1728,7 +1672,9 @@ declare namespace image {
     FOCAL_PLANE_RESOLUTION_UNIT = 'FocalPlaneResolutionUnit',
 
     /**
-     * Location of the main subject, relative to the left edge.
+     * Location of the main subject relative to the left edge.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1738,7 +1684,9 @@ declare namespace image {
     SUBJECT_LOCATION = 'SubjectLocation',
 
     /**
-     * Selected exposure index at capture.
+     * Exposure index selected at the time the image is captured.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1748,7 +1696,9 @@ declare namespace image {
     EXPOSURE_INDEX = 'ExposureIndex',
 
     /**
-     * Image sensor type on the camera.
+     * Type of the image sensor on the camera.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1758,7 +1708,9 @@ declare namespace image {
     SENSING_METHOD = 'SensingMethod',
 
     /**
-     * Indicates the image source.
+     * Image source.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1768,7 +1720,9 @@ declare namespace image {
     FILE_SOURCE = 'FileSource',
 
     /**
-     * Color filter array (CFA) geometric pattern of the image sensor.
+     * Color Filter Array (CFA) geometric pattern of the image sensor.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1778,7 +1732,13 @@ declare namespace image {
     CFA_PATTERN = 'CFAPattern',
 
     /**
-     * Indicates special processing on image data.
+     * Special processing on image data.
+     * 
+     * 0: "Normal process", indicating normal processing (no custom rendering).
+     * 
+     * 1: "Custom process", indicating custom processing (such as artistic effect, beauty, and HDR).
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1788,7 +1748,15 @@ declare namespace image {
     CUSTOM_RENDERED = 'CustomRendered',
 
     /**
-     * Exposure mode set when the image was shot.
+     * Exposure mode set when the image was captured.
+     * 
+     * 0: "Auto exposure."
+     * 
+     * 1: "Manual exposure."
+     * 
+     * 2: "Auto bracket."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1798,7 +1766,9 @@ declare namespace image {
     EXPOSURE_MODE = 'ExposureMode',
 
     /**
-     * Digital zoom ratio at the time of capture.
+     * Digital zoom ratio when the image was captured.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1808,7 +1778,17 @@ declare namespace image {
     DIGITAL_ZOOM_RATIO = 'DigitalZoomRatio',
 
     /**
-     * Type of scene captured.
+     * Type of the scene that was captured.
+     * 
+     * 0: "Standard."
+     * 
+     * 1: "Landscape."
+     * 
+     * 2: "Portrait."
+     * 
+     * 3: "Night scene."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1819,6 +1799,18 @@ declare namespace image {
 
     /**
      * Degree of overall image gain adjustment.
+     * 
+     * 0: "Normal", no gain control.
+     * 
+     * 1: "Low gain up."
+     * 
+     * 2: "High gain up."
+     * 
+     * 3: "Low gain down."
+     * 
+     * 4: "High gain down."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1828,7 +1820,15 @@ declare namespace image {
     GAIN_CONTROL = 'GainControl',
 
     /**
-     * Direction of contrast processing applied by the camera.
+     * Direction of contrast processing used by the camera.
+     * 
+     * 0: "Normal", normal contrast.
+     * 
+     * 1: "Soft", soft contrast.
+     * 
+     * 2: "Hard", hard contrast.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1838,7 +1838,15 @@ declare namespace image {
     CONTRAST = 'Contrast',
 
     /**
-     * Direction of saturation processing applied by the camera.
+     * Direction of saturation processing used by the camera.
+     * 
+     * 0:"Normal": normal saturation.
+     * 
+     * 1: "Low saturation."
+     * 
+     * 2: "High saturation."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1848,7 +1856,15 @@ declare namespace image {
     SATURATION = 'Saturation',
 
     /**
-     * The direction of sharpness processing applied by the camera.
+     * Direction of sharpness processing used by the camera.
+     * 
+     * 0:"Normal": normal sharpness.
+     * 
+     * 1: "Soft."
+     * 
+     * 2: "Hard."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1858,7 +1874,9 @@ declare namespace image {
     SHARPNESS = 'Sharpness',
 
     /**
-     * Information on picture-taking conditions for a specific camera model.
+     * Information about the photographing conditions of a specific camera model.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1868,7 +1886,17 @@ declare namespace image {
     DEVICE_SETTING_DESCRIPTION = 'DeviceSettingDescription',
 
     /**
-     * Indicates the distance range to the subject.
+     * Distance to the subject.
+     * 
+     * 0: "Unknown."
+     * 
+     * 1: "Macro."
+     * 
+     * 2: "Close view."
+     * 
+     * 3: "Distant view."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1878,7 +1906,9 @@ declare namespace image {
     SUBJECT_DISTANCE_RANGE = 'SubjectDistanceRange',
 
     /**
-     * An identifier uniquely assigned to each image.
+     * Unique identifier assigned to each image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1888,7 +1918,9 @@ declare namespace image {
     IMAGE_UNIQUE_ID = 'ImageUniqueID',
 
     /**
-     * The version of the GPSInfoIFD.
+     * GPS information version.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1898,7 +1930,13 @@ declare namespace image {
     GPS_VERSION_ID = 'GPSVersionID',
 
     /**
-     * Reference altitude used for GPS altitude.
+     * Whether the latitude is north or south latitude.
+     * 
+     * 0: Sea level, which is above sea level.
+     * 
+     * 1: "Sea level reference," which is below the sea level.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1908,7 +1946,9 @@ declare namespace image {
     GPS_ALTITUDE_REF = 'GPSAltitudeRef',
 
     /**
-     * The altitude based on the reference in GPSAltitudeRef.
+     * Altitude based on the reference in GPSAltitudeRef.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1918,7 +1958,9 @@ declare namespace image {
     GPS_ALTITUDE = 'GPSAltitude',
 
     /**
-     * The GPS satellites used for measurements.
+     * GPS satellites used for measurement.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1928,7 +1970,14 @@ declare namespace image {
     GPS_SATELLITES = 'GPSSatellites',
 
     /**
-     * The status of the GPS receiver when the image is recorded.
+     * Status of the GPS receiver when the image was recorded.
+     * 
+     * 'A': "Measurement in progress", GPS is working, satellite signals are locked, and location data is trustworthy.
+     * 
+     * 'V': "Measurement interrupted", GPS is not working, current positioning is unavailable, and location data may be 
+     * missing or incorrect.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1938,7 +1987,13 @@ declare namespace image {
     GPS_STATUS = 'GPSStatus',
 
     /**
-     * The GPS measurement mode.
+     * GPS measurement pmode. Whether the 2D (planar) or 3D (with height) measurement mode is used for GPS positioning.
+     * 
+     * 2: "2-dimensional measurement", (latitude+longitude).
+     * 
+     * 3: "3-dimensional measurement", (latitude + longitude + height).
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1948,7 +2003,10 @@ declare namespace image {
     GPS_MEASURE_MODE = 'GPSMeasureMode',
 
     /**
-     * The GPS DOP (data degree of precision).
+     * GPS Dilution of Precision (DOP), which reflects the precision of GPS measurements taken when the photo was 
+     * captured.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1958,7 +2016,15 @@ declare namespace image {
     GPS_DOP = 'GPSDOP',
 
     /**
-     * The unit used to express the GPS receiver speed of movement.
+     * Unit used to express the movement speed of the GPS receiver.
+     * 
+     * 'K': "km/h".
+     * 
+     * 'M': "mph".
+     * 
+     * 'N': "knots".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1968,7 +2034,9 @@ declare namespace image {
     GPS_SPEED_REF = 'GPSSpeedRef',
 
     /**
-     * The speed of GPS receiver movement.
+     * Movement speed of the GPS receiver.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1978,7 +2046,15 @@ declare namespace image {
     GPS_SPEED = 'GPSSpeed',
 
     /**
-     * The reference for giving the direction of GPS receiver movement.
+     * Which type of "North" is used as the reference for the direction angle.
+     * 
+     * 'T': "True direction", which is the geographic North Pole direction. This is the standard used for maps and 
+     * navigation systems.
+     * 
+     * 'M': "Magnetic direction", which is the direction pointed to by the Earth's magnetic field. Note that magnetic 
+     * declination varies by location and changes over time.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1988,7 +2064,10 @@ declare namespace image {
     GPS_TRACK_REF = 'GPSTrackRef',
 
     /**
-     * The direction of GPS receiver movement.
+     * Movement direction of the GPS receiver. Direction of movement (heading) of the camera at the moment the photo was
+     * taken, measured in degrees.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -1998,7 +2077,15 @@ declare namespace image {
     GPS_TRACK = 'GPSTrack',
 
     /**
-     * The reference for the image's direction.
+     * Reference of the direction of the image when it was captured.
+     * 
+     * 'T': "True direction", which is the geographic North Pole direction. This is the standard used for maps and 
+     * navigation systems.
+     * 
+     * 'M': "Magnetic direction", which is the direction pointed to by the Earth's magnetic field. Note that magnetic 
+     * declination varies by location and changes over time.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2008,7 +2095,9 @@ declare namespace image {
     GPS_IMG_DIRECTION_REF = 'GPSImgDirectionRef',
 
     /**
-     * The direction of the image when captured.
+     * Direction of the image when it was captured.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2019,6 +2108,8 @@ declare namespace image {
 
     /**
      * Geodetic survey data used by the GPS receiver.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2028,7 +2119,13 @@ declare namespace image {
     GPS_MAP_DATUM = 'GPSMapDatum',
 
     /**
-     * Indicates the latitude reference of the destination point.
+     * Whether the latitude of the destination point is north or south latitude.
+     * 
+     * 78: "North".
+     * 
+     * 83: "South".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2038,7 +2135,9 @@ declare namespace image {
     GPS_DEST_LATITUDE_REF = 'GPSDestLatitudeRef',
 
     /**
-     * The latitude of the destination point.
+     * Latitude of the destination point.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2048,7 +2147,13 @@ declare namespace image {
     GPS_DEST_LATITUDE = 'GPSDestLatitude',
 
     /**
-     * Indicates the longitude reference of the destination point.
+     * Whether the longitude of the destination point is east or west longitude.
+     * 
+     * 69: "East".
+     * 
+     * 87: "West".
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2058,7 +2163,9 @@ declare namespace image {
     GPS_DEST_LONGITUDE_REF = 'GPSDestLongitudeRef',
 
     /**
-     * The longitude of the destination point.
+     * Longitude of the destination point.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2068,7 +2175,15 @@ declare namespace image {
     GPS_DEST_LONGITUDE = 'GPSDestLongitude',
 
     /**
-     * The reference for the bearing to the destination point.
+     * Reference of the bearing to the destination point.
+     * 
+     * 'T': "True direction", which is the geographic North Pole direction. This is the standard used for maps and 
+     * navigation systems.
+     * 
+     * 'M': "Magnetic direction", which is the direction pointed to by the Earth's magnetic field. Note that magnetic 
+     * declination varies by location and changes over time.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2078,7 +2193,9 @@ declare namespace image {
     GPS_DEST_BEARING_REF = 'GPSDestBearingRef',
 
     /**
-     * The bearing to the destination point.
+     * Bearing to the destination point.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2088,7 +2205,15 @@ declare namespace image {
     GPS_DEST_BEARING = 'GPSDestBearing',
 
     /**
-     * The measurement unit for the distance to the target point.
+     * Unit used to express the distance to the destination point.
+     * 
+     * 'K': "km."
+     * 
+     * 'M': "miles."
+     * 
+     * 'N': "nautical miles."
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2098,7 +2223,9 @@ declare namespace image {
     GPS_DEST_DISTANCE_REF = 'GPSDestDistanceRef',
 
     /**
-     * The distance to the destination point.
+     * Distance to the destination point.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2108,7 +2235,9 @@ declare namespace image {
     GPS_DEST_DISTANCE = 'GPSDestDistance',
 
     /**
-     * A character string recording the name of the method used for location finding.
+     * String that records the name of the method used for positioning.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2118,7 +2247,9 @@ declare namespace image {
     GPS_PROCESSING_METHOD = 'GPSProcessingMethod',
 
     /**
-     * A character string recording the name of the GPS area.
+     * String that records the name of the GPS area.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2128,7 +2259,13 @@ declare namespace image {
     GPS_AREA_INFORMATION = 'GPSAreaInformation',
 
     /**
-     * This field denotes if differential correction was applied to GPS data, crucial for precise location accuracy.
+     * Whether differential correction is applied to the GPS receiver. It is critical to accurate location accuracy.
+     * 
+     * 0: "Without correction", which indicates that no differential correction is used.
+     * 
+     * 1:"Correction applied", which indicates that differential correction is used.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2138,7 +2275,9 @@ declare namespace image {
     GPS_DIFFERENTIAL = 'GPSDifferential',
 
     /**
-     * The serial number of the camera body.
+     * Serial number of the camera body.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2148,7 +2287,9 @@ declare namespace image {
     BODY_SERIAL_NUMBER = 'BodySerialNumber',
 
     /**
-     * The name of the camera owner.
+     * Name of the camera owner.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2158,7 +2299,9 @@ declare namespace image {
     CAMERA_OWNER_NAME = 'CameraOwnerName',
 
     /**
-     * Indicates whether the image is a composite image.
+     * Whether the image is a composite image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2168,7 +2311,9 @@ declare namespace image {
     COMPOSITE_IMAGE = 'CompositeImage',
 
     /**
-     * The compression mode used for a compressed image, in unit bits per pixel.
+     * Number of bits per pixel. It is specific to compressed data.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2178,7 +2323,9 @@ declare namespace image {
     COMPRESSED_BITS_PER_PIXEL = 'CompressedBitsPerPixel',
 
     /**
-     * The DNGVersion tag encodes the four-tier version number for DNG specification compliance.
+     * DNG version. It encodes the DNG 4-tier version number.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2188,7 +2335,10 @@ declare namespace image {
     DNG_VERSION = 'DNGVersion',
 
     /**
-     * DefaultCropSize specifies the final image size in raw coordinates, accounting for extra edge pixels.
+     * Size of the final image area, in raw image coordinates, taking into account extra pixels around the edges of the 
+     * final image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2198,7 +2348,9 @@ declare namespace image {
     DEFAULT_CROP_SIZE = 'DefaultCropSize',
 
     /**
-     * Indicates the value of coefficient gamma.
+     * Gamma value.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2208,7 +2360,9 @@ declare namespace image {
     GAMMA = 'Gamma',
 
     /**
-     * The tag indicate the ISO speed latitude yyy value of the camera or input device that is defined in ISO 12232.
+     * ISO speed latitude yyy value of the camera or input device, which is defined in ISO 12232.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2218,7 +2372,9 @@ declare namespace image {
     ISO_SPEED_LATITUDE_YYY = 'ISOSpeedLatitudeyyy',
 
     /**
-     * The tag indicate the ISO speed latitude zzz value of the camera or input device that is defined in ISO 12232.
+     * ISO speed latitude zzz value of the camera or input device, which is defined in ISO 12232.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2228,7 +2384,9 @@ declare namespace image {
     ISO_SPEED_LATITUDE_ZZZ = 'ISOSpeedLatitudezzz',
 
     /**
-     * The manufacturer of the lens.
+     * Manufacturer of the lens.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2238,7 +2396,9 @@ declare namespace image {
     LENS_MAKE = 'LensMake',
 
     /**
-     * The model name of the lens.
+     * Model of the lens.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2248,7 +2408,9 @@ declare namespace image {
     LENS_MODEL = 'LensModel',
 
     /**
-     * The serial number of the lens.
+     * Serial number of the lens.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2258,7 +2420,9 @@ declare namespace image {
     LENS_SERIAL_NUMBER = 'LensSerialNumber',
 
     /**
-     * Specifications of the lens used.
+     * Specifications of the lens.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2268,7 +2432,11 @@ declare namespace image {
     LENS_SPECIFICATION = 'LensSpecification',
 
     /**
-     * This tag provides a broad description of the data type in this subfile.
+     * Data type of a subfile, such as a full-resolution image, a thumbnail, or a part of a multi-frame image. The value
+     * is a bit mask. The value 0 indicates a full-resolution image, **1** indicates a thumbnail, and **2** indicates a 
+     * part of a multi-frame image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2278,7 +2446,9 @@ declare namespace image {
     NEW_SUBFILE_TYPE = 'NewSubfileType',
 
     /**
-     * This tag records the UTC offset for the DateTime tag, ensuring accurate timestamps regardless of location.
+     * Time with an offset from UTC when the image was captured.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2288,7 +2458,9 @@ declare namespace image {
     OFFSET_TIME = 'OffsetTime',
 
     /**
-     * This tag records the UTC offset when the image was digitized, aiding in accurate timestamp adjustment.
+     * Time with an offset from UTC when the image was digitized. It helps to accurately adjust the timestamp.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2298,7 +2470,9 @@ declare namespace image {
     OFFSET_TIME_DIGITIZED = 'OffsetTimeDigitized',
 
     /**
-     * This tag records the UTC offset when the original image was created, crucial for time-sensitive applications.
+     * Time with an offset from UTC when the original image was created. It is critical for time-sensitive applications.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2308,7 +2482,9 @@ declare namespace image {
     OFFSET_TIME_ORIGINAL = 'OffsetTimeOriginal',
 
     /**
-     * Exposure times of source images for a composite image, such as 1/33 sec.
+     * Exposure time of source images of the composite image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2318,7 +2494,9 @@ declare namespace image {
     SOURCE_EXPOSURE_TIMES_OF_COMPOSITE_IMAGE = 'SourceExposureTimesOfCompositeImage',
 
     /**
-     * The number of source images used for a composite image.
+     * Number of source images of the composite image.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2328,7 +2506,9 @@ declare namespace image {
     SOURCE_IMAGE_NUMBER_OF_COMPOSITE_IMAGE = 'SourceImageNumberOfCompositeImage',
 
     /**
-     * This deprecated tag indicates the data type in this subfile. Use NewSubfileType instead.
+     * Type of data contained in this subfile. This tag has been deprecated. Use **NewSubfileType** instead.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2338,7 +2518,9 @@ declare namespace image {
     SUBFILE_TYPE = 'SubfileType',
 
     /**
-     * This tag indicates horizontal positioning errors in meters.
+     * Horizontal positioning error, in meters.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2348,7 +2530,11 @@ declare namespace image {
     GPS_H_POSITIONING_ERROR = 'GPSHPositioningError',
 
     /**
-     * This tag indicates the sensitivity of the camera or input device when the image was shot.
+     * ISO sensitivity (ISO speed) used when the image was captured. It is the recommended field in Exif 2.3 and later. 
+     * The earlier field, ISOSpeedRatings (Tag 0x8827), has the same data type and meaning. However, if both fields are 
+     * present, the **PhotographicSensitivity** value should be used.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2358,7 +2544,9 @@ declare namespace image {
     PHOTOGRAPHIC_SENSITIVITY = 'PhotographicSensitivity',
 
     /**
-     * Burst Number
+     * Number of burst shooting times.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2368,7 +2556,9 @@ declare namespace image {
     BURST_NUMBER = 'HwMnoteBurstNumber',
 
     /**
-     * Face Conf
+     * Face confidence.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2378,7 +2568,9 @@ declare namespace image {
     FACE_CONF = 'HwMnoteFaceConf',
 
     /**
-     * Face Leye Center
+     * Left eye centered.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2388,7 +2580,9 @@ declare namespace image {
     FACE_LEYE_CENTER = 'HwMnoteFaceLeyeCenter',
 
     /**
-     * Face Mouth Center
+     * Mouth centered.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2398,7 +2592,9 @@ declare namespace image {
     FACE_MOUTH_CENTER = 'HwMnoteFaceMouthCenter',
 
     /**
-     * Face Pointer
+     * Face pointer.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2408,7 +2604,9 @@ declare namespace image {
     FACE_POINTER = 'HwMnoteFacePointer',
 
     /**
-     * Face Rect
+     * Face rectangle.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2418,7 +2616,9 @@ declare namespace image {
     FACE_RECT = 'HwMnoteFaceRect',
 
     /**
-     * Face Reye Center
+     * Right eye centered.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2428,7 +2628,9 @@ declare namespace image {
     FACE_REYE_CENTER = 'HwMnoteFaceReyeCenter',
 
     /**
-     * Face Smile Score
+     * Smile score of for faces.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2438,7 +2640,9 @@ declare namespace image {
     FACE_SMILE_SCORE = 'HwMnoteFaceSmileScore',
 
     /**
-     * Face Version
+     * Facial recognition algorithm version.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2448,7 +2652,9 @@ declare namespace image {
     FACE_VERSION = 'HwMnoteFaceVersion',
 
     /**
-     * Front Camera
+     * Whether the front camera is used to take a selfie.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2458,7 +2664,9 @@ declare namespace image {
     FRONT_CAMERA = 'HwMnoteFrontCamera',
 
     /**
-     * Scene Pointer
+     * Pointer to the scene.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2468,7 +2676,9 @@ declare namespace image {
     SCENE_POINTER = 'HwMnoteScenePointer',
 
     /**
-     * Scene Version
+     * Scene algorithm version.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2478,7 +2688,9 @@ declare namespace image {
     SCENE_VERSION = 'HwMnoteSceneVersion',
 
     /**
-     * Is Xmage Supported
+     * Whether XMAGE is supported.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2488,7 +2700,9 @@ declare namespace image {
     IS_XMAGE_SUPPORTED = 'HwMnoteIsXmageSupported',
 
     /**
-     * Xmage Mode
+     * XMAGE watermark mode.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2498,7 +2712,9 @@ declare namespace image {
     XMAGE_MODE = 'HwMnoteXmageMode',
 
     /**
-     * Xmage X1 Coordinate
+     * X1 coordinate of the watermark region.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2508,7 +2724,9 @@ declare namespace image {
     XMAGE_LEFT = 'HwMnoteXmageLeft',
 
     /**
-     * Xmage Y1 Coordinate
+     * Y1 coordinate of the watermark region.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2518,7 +2736,9 @@ declare namespace image {
     XMAGE_TOP = 'HwMnoteXmageTop',
 
     /**
-     * Xmage X2 Coordinate
+     * X2 coordinate of the watermark region.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2528,7 +2748,9 @@ declare namespace image {
     XMAGE_RIGHT = 'HwMnoteXmageRight',
 
     /**
-     * Xmage Y2 Coordinate
+     * Y2 coordinate of the watermark region.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2538,7 +2760,9 @@ declare namespace image {
     XMAGE_BOTTOM = 'HwMnoteXmageBottom',
 
     /**
-     * Cloud Enhancement Mode
+     * Cloud enhancement mode.
+     * 
+     * **Read/Write capability**: readable and writable.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2548,7 +2772,9 @@ declare namespace image {
     CLOUD_ENHANCEMENT_MODE = 'HwMnoteCloudEnhancementMode',
 
     /**
-     * Wind Snapshot Mode
+     * Motion snapshot mode.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2558,8 +2784,9 @@ declare namespace image {
     WIND_SNAPSHOT_MODE = 'HwMnoteWindSnapshotMode',
 
     /**
-     * GIF LOOP COUNT
-     * If infinite loop returns 0, other values represent the number of loops
+     * Number of GIF loops. The value **0** means an infinite loop, and other values means the number of loops.
+     * 
+     * **Read/Write capability**: read-only
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
@@ -2567,12 +2794,11 @@ declare namespace image {
      * @since 23 static
      */
     GIF_LOOP_COUNT = 'GIFLoopCount'
-  }
+  }  
 
   /**
-   * Enum for image formats.
+   * Enumerates the image formats.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9 dynamic
    * @since 23 static
@@ -2598,187 +2824,78 @@ declare namespace image {
   }
 
   /**
-   * Enumerates alpha types.
+   * Enumerates the alpha types of images.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
-   */
-  /**
-   * Enumerates alpha types.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates alpha types.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enumerates alpha types.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum AlphaType {
     /**
-     * Indicates an unknown alpha type.
+     * Unknown alpha type.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates an unknown alpha type.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates an unknown alpha type.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates an unknown alpha type.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     UNKNOWN = 0,
 
     /**
-     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
+     * There is no alpha or the image is opaque.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that the image has no alpha channel, or all pixels in the image are fully opaque.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     OPAQUE = 1,
 
     /**
-     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
+     * Premultiplied alpha.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     PREMUL = 2,
 
     /**
-     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
+     * RGB non-premultiplied alpha.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates that RGB components of each pixel in the image are independent of alpha and are not premultiplied by alpha.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     UNPREMUL = 3
   }
 
   /**
-   * Enumerates decoding dynamic range.
+   * Enumerates the desired dynamic range of an image during decoding.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
    */
   enum DecodingDynamicRange {
     /**
-     * Decoding according to the content of the image. If the image is an HDR image, it will be decoded as HDR content;
-     * otherwise, it will be decoded as SDR content.
-     * Imagesources created via {@link CreateIncrementalSource} will be decoded as SDR content.
+     * The image is decoded based on the format. If the image is in HDR format, it is decoded based on the HDR content; 
+     * otherwise, it is decoded based on the SDR content. The image source created by calling 
+     * [CreateIncrementalSource]{@link @ohos.multimedia.image:image.CreateIncrementalSource(buf: ArrayBuffer)} is 
+     * decoded into SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -2787,7 +2904,7 @@ declare namespace image {
     AUTO = 0,
 
     /**
-     * Decoding to standard dynamic range.
+     * The image is decoded according to the standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -2796,7 +2913,9 @@ declare namespace image {
     SDR = 1,
 
     /**
-     * Decoding to high dynamic range. Imagesources created via {@link CreateIncrementalSource} will be decoded as SDR content.
+     * The image is decoded according to the high dynamic range. The image source created by calling 
+     * [CreateIncrementalSource]{@link @ohos.multimedia.image:image.CreateIncrementalSource(buf: ArrayBuffer)} is 
+     * decoded into SDR content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -2806,17 +2925,17 @@ declare namespace image {
   }
 
   /**
-   * Enumerates packing dynamic range.
+   * Enumerates the desired dynamic range of an image during encoding.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
    */
   enum PackingDynamicRange {
     /**
-     * Packing according to the content of the image. If the image is an HDR image, it will be encoded as HDR content;
-     * otherwise, it will be encoded as SDR content.
+     * Adaptive. The [pixelmap]{@link @ohos.multimedia.image:image.PixelMap} is encoded based on the format. If the
+     * PixelMap is in HDR format, it is encoded based on the HDR content; otherwise, it is encoded based on the SDR
+     * content.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -2825,7 +2944,7 @@ declare namespace image {
     AUTO = 0,
 
     /**
-     * Packing to standard dynamic range.
+     * The image is decoded according to the standard dynamic range.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -2835,201 +2954,101 @@ declare namespace image {
   }
 
   /**
-   * Enumerates the anti-aliasing level.
+   * Enumerates the anti-aliasing levels.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 12
-   */
-  /**
-   * Enumerates the anti-aliasing level.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 12 dynamic
    * @since 23 static
    */
   enum AntiAliasingLevel {
     /**
-     * Nearest-neighbor interpolation algorithm.
+     * Nearest neighbor interpolation.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Nearest-neighbor interpolation algorithm.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 12 dynamic
      * @since 23 static
      */
     NONE = 0,
 
     /**
-     * Bilinear interpolation algorithm.
+     * Bilinear interpolation.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Bilinear interpolation algorithm.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 12 dynamic
      * @since 23 static
      */
     LOW = 1,
 
     /**
-     * Bilinear interpolation algorithm with mipmap linear filtering.
+     * Bilinear interpolation with mipmap enabled. You are advised to use this value when zooming out an image.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Bilinear interpolation algorithm with mipmap linear filtering.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 12 dynamic
      * @since 23 static
      */
     MEDIUM = 2,
 
     /**
-     * Cubic interpolation algorithm.
+     * Cubic interpolation.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 12
-     */
-    /**
-     * Cubic interpolation algorithm.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 12 dynamic
      * @since 23 static
      */
     HIGH = 3,
   }
 
   /**
-   * Enum for image scale mode.
+   * Enumerates the scale modes of images.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 9
-   */
-  /**
-   * Enum for image scale mode.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enum for image scale mode.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enum for image scale mode.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum ScaleMode {
     /**
-     * Indicates the effect that fits the image into the target size.
+     * Reduces the image size to the dimensions of the target.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates the effect that fits the image into the target size.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the effect that fits the image into the target size.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates the effect that fits the image into the target size.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     FIT_TARGET_SIZE = 0,
 
     /**
-     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
+     * Scales the image so that it fills the requested bounds of the target and crops the extra.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates the effect that scales an image to fill the target image area and center-crops the part outside the area.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     CENTER_CROP = 1
   }
 
   /**
-   * The component type of image.
+   * Enumerates the color component types of images.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 9 dynamic
    * @since 23 static
    */
   enum ComponentType {
     /**
-     * Luma info.
+     * Luminance component.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
@@ -3038,7 +3057,7 @@ declare namespace image {
     YUV_Y = 1,
 
     /**
-     * Chrominance info.
+     * Chrominance component.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
@@ -3047,7 +3066,7 @@ declare namespace image {
     YUV_U = 2,
 
     /**
-     * Chroma info.
+     * Chrominance component.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
@@ -3056,7 +3075,7 @@ declare namespace image {
     YUV_V = 3,
 
     /**
-     * Jpeg type.
+     * JPEG type.
      *
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
@@ -3066,16 +3085,15 @@ declare namespace image {
   }
 
   /**
-   * Enumerates the HDR metadata types that need to be stored in Pixelmap.
+   * Enumerates the keys of HDR metadata used by [pixelmap]{@link @ohos.multimedia.image:image.PixelMap}.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
    */
   enum HdrMetadataKey {
     /**
-     * Indicate the types of metadata that image needs to use.
+     * Metadata type used by [pixelmap]{@link @ohos.multimedia.image:image.PixelMap}.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -3084,7 +3102,7 @@ declare namespace image {
     HDR_METADATA_TYPE = 0,
 
     /**
-     * Static metadata key.
+     * Static metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -3093,7 +3111,7 @@ declare namespace image {
     HDR_STATIC_METADATA = 1,
 
     /**
-     * Dynamic metadata key.
+     * Dynamic metadata.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -3102,7 +3120,7 @@ declare namespace image {
     HDR_DYNAMIC_METADATA = 2,
 
     /**
-     * Gainmap metadata key.
+     * Metadata used by gain maps.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -3112,9 +3130,8 @@ declare namespace image {
   }
 
   /**
-   * Value for HDR_METADATA_TYPE.
+   * Enumerates the values available for **HDR_METADATA_TYPE** in [HdrMetadataKey]{@link image.HdrMetadataKey}.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamic
    * @since 23 static
@@ -3130,7 +3147,7 @@ declare namespace image {
     NONE = 0,
 
     /**
-     * Indicates that metadata will be used for the base image.
+     * Metadata used for base graphics.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -3139,7 +3156,7 @@ declare namespace image {
     BASE = 1,
 
     /**
-     * Indicates that metadata will be used for the gainmap image.
+     * Metadata used for gain maps.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -3148,7 +3165,7 @@ declare namespace image {
     GAINMAP = 2,
 
     /**
-     * Indicates that metadata will be used for the alternate image.
+     * Metadata used for synthesized HDR graphics.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
@@ -3158,16 +3175,15 @@ declare namespace image {
   }
 
   /**
-   * Type of allocator used to allocate memory of a PixelMap.
+   * Enumerates the types of the memory used for image decoding.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 15 dynamic
    * @since 23 static
    */
   enum AllocatorType {
     /**
-     * The system determines which memory to use to create the PixelMap.
+     * The system determines whether DMA memory or shared memory is used.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 15 dynamic
@@ -3176,7 +3192,7 @@ declare namespace image {
     AUTO = 0,
 
     /**
-     * Use DMA buffer to create the PixelMap.
+     * DMA memory is used.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 15 dynamic
@@ -3185,7 +3201,7 @@ declare namespace image {
     DMA = 1,
 
     /**
-     * Use share memory to create the PixelMap.
+     * Shared memory is used.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 15 dynamic
@@ -3195,156 +3211,48 @@ declare namespace image {
   }
 
   /**
-   * Describes region information.
+   * Describes the region information.
    *
-   * @typedef Region
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 8
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes region information.
-   *
-   * @typedef Region
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @since 23 static
    */
   interface Region {
     /**
-     * Image size.
+     * Region size.
      *
-     * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image size.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     size: Size;
 
     /**
-     * x-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
+     * X coordinate of the top-left corner of the region, in px.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * x-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     x: int;
 
     /**
-     * y-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
+     * Y coordinate of the top-left corner of the region, in px.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * y-coordinate at the upper left corner of the image.
-     * <br>Unit:px.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      * @since 23 static
      */
     y: int;
@@ -3353,72 +3261,22 @@ declare namespace image {
   /**
    * Describes area information in an image.
    *
-   * @typedef PositionArea
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 7
-   */
-  /**
-   * Describes area information in an image.
-   *
-   * @typedef PositionArea
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes area information in an image.
-   *
-   * @typedef PositionArea
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes area information in an image.
-   *
-   * @typedef PositionArea
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   interface PositionArea {
     /**
-     * Image data that will be read or written.
+     * Pixels of the image. Only pixel data in BGRA_8888 format is supported.
      *
-     * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Image data that will be read or written.
-     *
-     * @type { ArrayBuffer }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Image data that will be read or written.
-     *
-     * @type { ArrayBuffer }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Image data that will be read or written.
-     *
-     * @type { ArrayBuffer }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     pixels: ArrayBuffer;
@@ -3426,110 +3284,38 @@ declare namespace image {
     /**
      * Offset for data reading, in bytes.
      *
-     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Offset for data reading, in bytes.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Offset for data reading, in bytes.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Offset for data reading, in bytes.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     offset: int;
 
     /**
-     * Number of bytes to read.
+     * Number of bytes from one row of pixels in memory to the next row of pixels in memory. The value of **stride** 
+     * must be greater than or equal to the value of **region.size.width** multiplied by 4.
      *
-     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Number of bytes to read.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Number of bytes to read.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Number of bytes to read.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     stride: int;
 
     /**
-     * Region to read.
+     * Region to read or write. The width of the region to write plus the X coordinate cannot be greater than the width 
+     * of the original image. The height of the region to write plus the Y coordinate cannot be greater than the height 
+     * of the original image.
      *
-     * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 7
-     */
-    /**
-     * Region to read.
-     *
-     * @type { Region }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Region to read.
-     *
-     * @type { Region }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Region to read.
-     *
-     * @type { Region }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     region: Region;
@@ -3538,141 +3324,53 @@ declare namespace image {
   /**
    * Describes image information.
    *
-   * @typedef ImageInfo
    * @syscap SystemCapability.Multimedia.Image.Core
-   * @since 6
-   */
-  /**
-   * Describes image information.
-   *
-   * @typedef ImageInfo
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes image information.
-   *
-   * @typedef ImageInfo
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes image information.
-   *
-   * @typedef ImageInfo
-   * @syscap SystemCapability.Multimedia.Image.Core
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   interface ImageInfo {
     /**
-     * Indicates image dimensions specified by a {@link Size} interface.
+     * Image size.
      *
-     * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 6
-     */
-    /**
-     * Indicates image dimensions specified by a {@link Size} interface.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates image dimensions specified by a {@link Size} interface.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates image dimensions specified by a {@link Size} interface.
-     *
-     * @type { Size }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     size: Size;
 
     /**
-     * Indicates image default density.
-     * <br>Unit:ppi.
+     * Pixel density, in ppi.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 9
-     */
-    /**
-     * Indicates image default density.
-     * <br>Unit:ppi.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Indicates image default density.
-     * <br>Unit:ppi.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Indicates image default density.
-     * <br>Unit:ppi.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     density: int;
 
     /**
-     * The number of byte per row.
+     * Number of bytes from one row of pixels in memory to the next row of pixels in memory.stride >= region.size.width*
+     * 4 
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
+     * @form [since 12]
      * @atomicservice
-     * @since 11
-     */
-    /**
-     * The number of byte per row.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     stride: int;
 
     /**
-     * Indicates image format.
+     * Pixel format.
      *
-     * @type { PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -3683,9 +3381,8 @@ declare namespace image {
     pixelFormat: PixelMapFormat;
 
     /**
-     * Indicates image alpha type.
+     * Alpha type.
      *
-     * @type { AlphaType }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -3696,9 +3393,17 @@ declare namespace image {
     alphaType: AlphaType;
 
     /**
-     * Indicates image mime type.
+     * Actual image format (MIME type).
+     * 
+     * The supported formats for image decoding and image encoding are different. Do not directly use the actual image 
+     * format obtained after decoding as the value of **format** in [PackingOption]{@link image.PackingOption} during 
+     * image encoding.
+     * 
+     * You can use the **supportedFormats** property of 
+     * [ImageSource]{@link @ohos.multimedia.image: image.ImageSource#supportedFormats} and 
+     * [ImagePacker]{@link @ohos.multimedia.image: image.ImagePacker#supportedFormats} to view the 
+     * supported formats for decoding and encoding.
      *
-     * @type { string }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @since 12 dynamic
@@ -3707,9 +3412,11 @@ declare namespace image {
     mimeType: string;
 
     /**
-     * Indicates whether the image high dynamic range
+     * Whether the image is an HDR image. The value **true** means an HDR image, and **false** means an SDR image. For 
+     * [ImageSource]{@link @ohos.multimedia.image:image.ImageSource}, this parameter specifies whether the source image is in HDR 
+     * format. For [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}, this parameter specifies whether the decoded PixelMap
+     * is in HDR format.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -3718,16 +3425,97 @@ declare namespace image {
   }
 
   /**
-   * Enumerates the strategies for executing the cropping and scaling operations when both desiredSize and desiredRegion are specified.
+  * Describes the options for tiff image packing.
+  *
+  * @syscap SystemCapability.Multimedia.Image.ImagePacker
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  interface PackingOptionsForTiff {
+    /**
+    * Compression algorithm type: 3 (CCITT G3), 4 (CCITT G4), 5 (LZW).
+    * - For binary image: must be 3 (G3) or 4 (G4), automatically uses 4 (G4).
+    * - For Y8/RGB_888 format: automatically uses LZW (5), user setting is ignored.
+    * The value should be an integer, Currently, only 3, 4, and 5 are supported.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    compression?: int;
+
+    /**
+    * Image orientation.Default value is TOP_LEFT.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    orientation?: Orientation;
+
+    /**
+    * Horizontal resolution.
+    * The value must be greater than 0.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    xResolution?: double;
+
+    /**
+    * Vertical resolution.
+    * The value must be greater than 0.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    yResolution?: double;
+
+    /**
+    * Resolution unit: 1 (No unit), 2 (Inch), 3 (Centimeter).
+    * Currently, only 1, 2, and 3 are supported.
+    *
+    * @syscap SystemCapability.Multimedia.Image.ImagePacker
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    resolutionUnit?: int;
+  }
+
+  /**
+   * Enumerates the order of cropping and scaling.
+   * 
+   * If the **cropAndScaleStrategy** parameter is not specified in 
+   * [DecodingOptions]{@link @ohos.multimedia.image:image.DecodingOptions} and both **desiredRegion** and 
+   * **desiredSize** are set, the final decoding result may vary slightly due to differences in decoding algorithms used
+   * for different image formats.
+   * 
+   * For example, if the original image size is 200x200, and you specify 
+   * **desiredSize:{width: 150, height: 150}, desiredRegion:{x: 0, y: 0, width: 100, height: 100}**, the expectation is 
+   * to decode the top-left 1/4 region of the original image and then scale the pixelMap size to 150x150.
+   * 
+   * For JPEG and WebP images (as well as some DNG images that decode a JPEG preview within the file and therefore are 
+   * treated as JPEG format), the system first performs downsampling. For instance, it might downsample by 7/8 and then 
+   * crop the region based on a 175x175 image size. As a result, the final cropped region will be slightly larger than 
+   * the top-left 1/4 of the original image.
+   * 
+   * For SVG images, which are vector-based and can be scaled without losing clarity, the system scales the image based 
+   * on the ratio of **desiredSize** to the original image size and then crops the region. This results in a decoded 
+   * region that may differ from the exact 1/4 region of the original image.
+   * 
+   * To ensure consistent results when both **desiredRegion** and **desiredSize** are set, set the 
+   * **cropAndScaleStrategy** parameter to **CROP_FIRST**.
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 18 dynamic
    * @since 23 static
    */
   enum CropAndScaleStrategy {
     /**
-     * Scales and then crops the image.
+     * If both **desiredRegion** and **desiredSize** are specified, the image is first scaled based on **desiredSize** 
+     * and then cropped based on **desiredRegion**.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
@@ -3736,7 +3524,8 @@ declare namespace image {
     SCALE_FIRST = 1,
 
     /**
-     * Crops and then scales the image.
+     * If both **desiredRegion** and **desiredSize** are specified, the image is first cropped based on 
+     * **desiredRegion** and then scaled based on **desiredSize**.
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 18 dynamic
@@ -3746,122 +3535,97 @@ declare namespace image {
   }
 
   /**
-   * Describes the option for image packing.
+   * Packing image size limit.
    *
-   * @typedef PackingOption
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 6
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
    */
+  interface PackingSizeLimit {
+    /**
+     * Maximum packing size
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxSize: Size;
+
+    /**
+     * Specify the scaling algorithm during zooming.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    level: AntiAliasingLevel;
+  }
+
   /**
-   * Describes the option for image packing.
+   * Describes the options for image encoding.
    *
-   * @typedef PackingOption
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes the option for image packing.
-   *
-   * @typedef PackingOption
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   interface PackingOption {
     /**
-     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
+     * Format of the packed image.
+     * 
+     * Currently, only the following formats are supported: image/jpeg, image/webp, image/png, image/heic (or image/heif
+     * )<sup>12+</sup>, image/sdr_astc_4x4<sup>18+</sup>, image/sdr_sut_superfast_4x4<sup>18+</sup> (depending on the 
+     * hardware), and image/hdr_astc_4x4<sup>20+</sup>.
+     * 
+     * **NOTE**: The JPEG format does not support the alpha channel. If the JPEG format with the alpha channel is used 
+     * for data encoding, the transparent color turns black.
      *
-     * @type { string }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Multipurpose Internet Mail Extensions (MIME) format of the target image, for example, image/jpeg.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     format: string;
 
     /**
-     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
+     * Quality of the output image set. This parameter takes effect only for JPEG and HEIF images. The value range is 
+     * [0, 100]. The value **0** means the lowest quality, and **100** means the highest quality. The higher the quality
+     * , the larger the space occupied by the generated image. WebP and PNG images are lossless.
+     * 
+     * In the case of sdr_astc_4x4 encoding, the parameter can be set to **92** and **85**.
+     * 
+     * In the case of sut encoding, the parameter can be set to **92**.
+     * 
+     * (Available since API version 20) In the case of hdr_astc_4x4 encoding, the parameter can be set to **85**.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Quality of the target image. The value is an integer ranging from 0 to 100. A larger value indicates better.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      * @since 23 static
      */
     quality: int;
 
     /**
-     * BufferSize of the target image.
-     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     * <br>Unit:bytes.Default value:25MB.
-     * 
-     * @type { ?int }
+     * Size of the buffer for receiving the encoded data, in bytes. If this parameter is not set, the default value 25 
+     * MB is used. If the size of an image exceeds 25 MB, you must specify the size. The value of **bufferSize** must be
+     * greater than the size of the encoded image. The use of 
+     * [packToFile]{@link @ohos.multimedia.image:image.ImagePacker.packToFile(source: ImageSource, fd: int, options: PackingOption, callback: AsyncCallback<void>)}
+     * is not restricted by this parameter.
+     *
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 9
-     */
-    /**
-     * BufferSize of the target image.
-     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     * <br>Unit:bytes.Default value:25MB.
-     * 
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * BufferSize of the target image.
-     * If this bufferSize is less than or equal to 0, it will be converted to 10MB.
-     * <br>Unit:bytes.Default value:25MB.
-     * 
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     bufferSize?: int;
 
     /**
-     * The desired dynamic range of the target image.
+     * Desired dynamic range. The default value is **SDR**.
      *
-     * @type { ?PackingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 12 dynamic
      * @since 23 static
@@ -3869,15 +3633,15 @@ declare namespace image {
     desiredDynamicRange?: PackingDynamicRange;
 
     /**
-     * Whether the image properties can be saved, like Exif.
+     * Whether encoding image property information, for example, Exif, is required. **true** if required, **false** 
+     * otherwise. The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 12 dynamic
      * @since 23 static
      */
     needsPackProperties?: boolean;
-    
+
     /**
      * This parameter is valid only when needsPackProperties is set to true. It specifies the maximum width and height
      *     of the thumbnail generated during encoding. If this parameter is not specified, no thumbnail will be
@@ -3890,21 +3654,60 @@ declare namespace image {
      * @since 26.0.0 dynamic&static
      */
     maxEmbedThumbnailDimension?: int;
+
+    /**
+     * Options for tiff image packing.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+     tiffPackingOptions?: PackingOptionsForTiff;
+
+    /**
+     * The background color used when the image pixels are in RGBA format but the target encoding format does not
+     * support transparency, such as "image/jpeg" or "image/heif".
+     * The value must be a 24‑bit RGB integer expressed in hexadecimal notation (e.g., 0xRRGGBB).
+     * The alpha channel is ignored.
+     * Valid range: 0x000000 – 0xFFFFFF.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    backgroundColor?: int;
+
+    /**
+     * Indicates whether to carry GPS information when encoding the EXIF metadata.
+     * Default value: true.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needsPackGPS?: boolean;
+
+    /**
+     * Packing image size limit.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sizeLimit?: PackingSizeLimit;
   }
 
   /**
-   * Describes the options for image sequence packing.
+   * Defines the options for encoding animated images.
    *
-   * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @since 18 dynamic
    * @since 23 static
    */
   interface PackingOptionsForSequence {
     /**
-     * Specify the number of frames.
+     * Number of frames specified in GIF encoding.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic
      * @since 23 static
@@ -3912,10 +3715,13 @@ declare namespace image {
     frameCount: int;
 
     /**
-     * Specify the delay time for each frame of the dynamic image.
-     * If the length is less than frameCount, the missing parts will be filling with the last value
+     * Delay time of each frame in GIF encoding. The value must be greater than 0.
+     * 
+     * The unit is 10 milliseconds. For example, if this parameter is set to 10, the actual delay per frame is 100 ms.
+     * 
+     * If the array length is less than **frameCount**, the last value in the array will be used for the remaining 
+     * frames.
      *
-     * @type { Array<int> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic
      * @since 23 static
@@ -3923,9 +3729,14 @@ declare namespace image {
     delayTimeList: Array<int>;
 
     /**
-     * Specify the disposal types of each frame in the image sequence packing.
+     * Array that defines how each image frame transitions. If the array length is less than **frameCount**, the last 
+     * value in the array will be used for the remaining frames. The values can be:
+     * 
+     * - **0**: No operation is required.
+     * - **1**: Keeps the image unchanged.
+     * - **2**: Restores the background color.
+     * - **3**: Restores to the previous state.
      *
-     * @type { ?Array<int> }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic
      * @since 23 static
@@ -3933,10 +3744,10 @@ declare namespace image {
     disposalTypes?: Array<int>;
 
     /**
-     * Specify the number of times the loop should, the range is [0, 65535]
-     * If this loop is equal to 0, it will be infinite loop.
+     * Number of times that the output image in GIF encoding loops. The value range is [0, 65535].
+     * 
+     * The value **0** means an infinite loop. If this field is not carried, loop playback is not performed.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic
      * @since 23 static
@@ -3945,62 +3756,32 @@ declare namespace image {
   }
 
   /**
-   * Describes image properties.
+   * Describes the image properties.
    *
-   * @typedef GetImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 7
-   * @deprecated since 11
-   * @useinstead image.ImagePropertyOptions
-   */
-  /**
-   * Describes image properties.
-   *
-   * @typedef GetImagePropertyOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10 dynamiconly
+   * @crossplatform [since 10]
+   * @since 7 dynamiconly
    * @deprecated since 11
    * @useinstead image.ImagePropertyOptions
    */
   interface GetImagePropertyOptions {
     /**
-     * Index of an image.
+     * Index of the image. The default value is **0**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     * @deprecated since 11
-     * @useinstead image.ImagePropertyOptions#index
-     */
-    /**
-     * Index of an image.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamiconly
-     * @deprecated since 11
+     * @crossplatform [since 10]
+     * @since 7 dynamiconly
+     * @deprecated since 11  
      * @useinstead image.ImagePropertyOptions#index
      */
     index?: number;
 
     /**
-     * Default property value.
+     * Default property value. The default value is null.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     * @deprecated since 11
-     * @useinstead image.ImagePropertyOptions#defaultValue
-     */
-    /**
-     * Default property value.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamiconly
+     * @crossplatform [since 10]
+     * @since 7 dynamiconly
      * @deprecated since 11
      * @useinstead image.ImagePropertyOptions#defaultValue
      */
@@ -4008,9 +3789,8 @@ declare namespace image {
   }
 
   /**
-   * Describes image properties.
+   * Describes the image properties.
    *
-   * @typedef ImagePropertyOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @since 11 dynamic
@@ -4018,9 +3798,8 @@ declare namespace image {
    */
   interface ImagePropertyOptions {
     /**
-     * Index of an image.
+     * Index of the image. The default value is **0**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11 dynamic
@@ -4029,9 +3808,8 @@ declare namespace image {
     index?: int;
 
     /**
-     * Default property value.
+     * Default property value. The default value is null.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11 dynamic
@@ -4041,353 +3819,128 @@ declare namespace image {
   }
 
   /**
-   * Describes image decoding parameters.
+   * Describes the image decoding options.
    *
-   * @typedef DecodingOptions
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 7
-   */
-  /**
-   * Describes image decoding parameters.
-   *
-   * @typedef DecodingOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes image decoding parameters.
-   *
-   * @typedef DecodingOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes image decoding parameters.
-   *
-   * @typedef DecodingOptions
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    * @since 23 static
    */
   interface DecodingOptions {
     /**
-     * Number of image frames.
+     * Index of the image to decode. The default value is **0**, indicating the first image. If this parameter is set to
+     * N, the (N+1)th image is used. For single-frame images, the value is always **0**. For multi-frame images such as 
+     * animations, the value ranges from 0 to (Number of frames – 1).
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Number of image frames.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Number of image frames.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Number of image frames.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     index?: int;
 
     /**
-     * Sampling ratio of the image pixel map.
+     * Sampling size of the thumbnail. The default value is **1**. Currently, the value can only be **1**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Sampling ratio of the image pixel map.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Sampling ratio of the image pixel map.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Sampling ratio of the image pixel map.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     sampleSize?: int;
 
     /**
-     * Rotation angle of the image pixel map.
-     * <br>Value range:[0,360].Unit:deg.
+     * Rotation angle. The default value is **0**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Rotation angle of the image pixel map.
-     * <br>Value range:[0,360].Unit:deg.
-     * 
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Rotation angle of the image pixel map.
-     * <br>Value range:[0,360].Unit:deg.
-     * 
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Rotation angle of the image pixel map.
-     * <br>Value range:[0,360].Unit:deg.
-     * 
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     rotate?: int;
 
     /**
-     * Whether the image pixel map is editable.
+     * Whether the image is editable. **true** if editable, **false** otherwise. The default value is **false**. If this
+     * option is set to **false**, the image cannot be edited again, and operations such as writing pixels will fail.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Whether the image pixel map is editable.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Whether the image pixel map is editable.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Whether the image pixel map is editable.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     editable?: boolean;
 
     /**
-     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
-     * based on the original image size.
+     * Expected output size. The value must be a positive integer and defaults to the original image size. If the output
+     * size is different from the original size, the output is stretched or scaled to the specified size.
+     * 
+     * Note: If both **desiredSize** and **desiredRegion** are passed to the decoding API, you must also include 
+     * **cropAndScaleStrategy** to determine whether to crop or scale first. **CROP_FIRST** is recommended.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
-     * based on the original image size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
-     * based on the original image size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Width and height of the image pixel map. The value (0, 0) indicates that the pixels are decoded
-     * based on the original image size.
-     *
-     * @type { ?Size }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     desiredSize?: Size;
 
     /**
-     * Cropping region of the image pixel map.
+     * Rectangle specified by **Region** in the decoded image. When the original image is large and only a specific part
+     * of the image is required, you can set this parameter to improve performance. The default value is the original 
+     * image size.
+     * 
+     * Note: If both **desiredSize** and **desiredRegion** are passed to the decoding API, you must also include 
+     * **cropAndScaleStrategy** to determine whether to crop or scale first. **CROP_FIRST** is recommended.
      *
-     * @type { ?Region }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Cropping region of the image pixel map.
-     *
-     * @type { ?Region }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Cropping region of the image pixel map.
-     *
-     * @type { ?Region }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Cropping region of the image pixel map.
-     *
-     * @type { ?Region }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     desiredRegion?: Region;
 
     /**
-     * Data format of the image pixel map.
+     * Pixel format for decoding. The default value is **RGBA_8888**. Only RGBA_8888, BGRA_8888, and RGB_565 are 
+     * supported. RGB_565 is not supported for images with alpha channels, such as PNG, GIF, ICO, and WEBP.
      *
-     * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Data format of the image pixel map.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Data format of the image pixel map.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Data format of the image pixel map.
-     *
-     * @type { ?PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      * @since 23 static
      */
     desiredPixelFormat?: PixelMapFormat;
 
     /**
-     * The density for image pixel map.
-     * <br>Unit:ppi.
+     * Pixel density, in ppi. The default value is **0**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 9
-     */
-    /**
-     * The density for image pixel map.
-     * <br>Unit:ppi.
-     * 
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * The density for image pixel map.
-     * <br>Unit:ppi.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The density for image pixel map.
-     * <br>Unit:ppi.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      * @since 23 static
      */
     fitDensity?: int;
 
     /**
-     * Color space of the image pixel map.
+     * Target color space. The default value is **UNKNOWN**.
      *
-     * @type { ?colorSpaceManager.ColorSpaceManager }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 11 dynamic
@@ -4396,9 +3949,15 @@ declare namespace image {
     desiredColorSpace?: colorSpaceManager.ColorSpaceManager;
     
     /**
-     * The desired dynamic range of the image pixelmap.
+     * Desired dynamic range. The default value is **SDR**.
+     * 
+     * This property cannot be set for an image source created using 
+     * [CreateIncrementalSource]{@link @ohos.multimedia.image:image.CreateIncrementalSource(buf: ArrayBuffer)}. By 
+     * default, the image source is decoded as SDR content.
+     * 
+     * If the platform does not support HDR, the setting is invalid and the content is decoded as SDR content by 
+     * default.
      *
-     * @type { ?DecodingDynamicRange }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 12 dynamic
      * @since 23 static
@@ -4406,9 +3965,8 @@ declare namespace image {
     desiredDynamicRange?: DecodingDynamicRange;
 
     /**
-     * Resolution Quality of the image.
+     * Image quality.
      *
-     * @type { ?ResolutionQuality }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @systemapi
      * @since 12 dynamic
@@ -4417,9 +3975,10 @@ declare namespace image {
     resolutionQuality?: ResolutionQuality;
 
     /**
-     * Describes the strategy for executing the cropping and scaling operations when both desiredSize and desiredRegion are specified.
+     * If **desiredRegion** and **desiredSize** are both specified, the order of cropping and scaling is determined.
+     * 
+     * Only **SCALE_FIRST** and **CROP_FIRST** are supported.
      *
-     * @type { ?CropAndScaleStrategy }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 18 dynamic
      * @since 23 static
@@ -4428,19 +3987,16 @@ declare namespace image {
   }
 
   /**
-   * Describes image color components.
+   * Describes the color components of an image.
    *
-   * @typedef Component
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9 dynamic
    * @since 23 static
    */
   interface Component {
     /**
-     * Component type.
+     * Color component type.
      *
-     * @type { ComponentType }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -4448,11 +4004,10 @@ declare namespace image {
     readonly componentType: ComponentType;
 
     /**
-     * Row stride.
-     * <br>Unit:bytes.
+     * Row stride. The camera preview stream data needs to be read by stride. For details, see 
+     * [Solution to Screen Artifacts During Camera Preview](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-deal-stride-solution)
+     * .
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -4461,10 +4016,7 @@ declare namespace image {
 
     /**
      * Pixel stride.
-     * <br>Unit:bytes.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -4474,8 +4026,6 @@ declare namespace image {
     /**
      * Component buffer.
      *
-     * @type { ArrayBuffer }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15755,6 +15305,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Describes binary buffer info.
+   *
+   * @syscap SystemCapability.Multimedia.Image.ImagePacker
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface BinaryBufferInfo {
+    /**
+     * Describes binary buffer size.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    size: Size;
+
+    /**
+     * Describes binary buffer.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    data: ArrayBuffer;
+
+    /**
+     * Bytes per row.If it is not specified, it will be calculated as (width + 7) / 8.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bytesPerRow?: int;
+  }
+
+  /**
    * ImagePacker instance.
    *
    * @typedef ImagePacker
@@ -16179,6 +15766,38 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     packToFile(picture: Picture, fd: int, options: PackingOption): Promise<void>
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { BinaryBufferInfo } bufferInfo - image buffer info.
+     * @param { int } fd - ID of a file descriptor
+     *     <br>The value must be a positive integer.
+     * @param { PackingOptionsForTiff } [options] - Options for tiff image packing.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @throws { BusinessError } 7800202 - Invalid parameter. Possible causes: 1. Invalid FD; 2. Compression algorithm
+     *     mismatch.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    packBinaryImageToTiffFile(bufferInfo: BinaryBufferInfo, fd: int, options?: PackingOptionsForTiff): Promise<void>;
+
+    /**
+     * Compresses or packs an image into a file and uses a promise to return the result.
+     *
+     * @param { BinaryBufferInfo } bufferInfo - image buffer info.
+     * @param { PackingOptionsForTiff } [options] - Options for tiff image packing.
+     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @throws { BusinessError } 7800202 - Invalid parameter. Possible causes: 1. Invalid FD; 2. Compression algorithm
+     *     mismatch.
+     * @throws { BusinessError } 7800301 - Encode failed.
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    packBinaryImageToTiffData(bufferInfo: BinaryBufferInfo, options?: PackingOptionsForTiff): Promise<ArrayBuffer>;
 
     /**
      * Supported image formats.

@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { Alignment } from './enums';
-import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Options used to construct the stack.
@@ -140,3 +140,59 @@ export declare function Stack(
     style: CustomBuilderT<StackAttribute>,
     content_?: CustomBuilder,
 ): StackAttribute;
+
+/**
+ * Defines the Extendable Stack.
+ *
+ * @implements StackAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableStack implements StackAttribute {
+    /**
+     * Constructor of Extendable Stack.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { StackOptions } [options]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableStack>(
+        factory: ConstructorT<T>, 
+        options?: StackOptions,
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Stack.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableStack>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the Stack Options.
+     *
+     * @param { StackOptions } [options]
+     * @returns { ExtendableStack }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setStackOptions(options?: StackOptions): this;
+}

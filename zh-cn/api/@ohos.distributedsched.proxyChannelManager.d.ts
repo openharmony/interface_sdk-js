@@ -96,7 +96,8 @@ declare namespace proxyChannelManager {
    * @param { ArrayBuffer } data - 向对端发送的字节消息，长度最大为4096个字节。
    * @returns { Promise<void> } 无返回值的Promise的对象。
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.[since 26]
+   * @throws { BusinessError } 801 - Capability not supported because bluetooth proxy function has
+   *     been trimmed. [since 26.0.0]
    * @throws { BusinessError } 32390004 - ChannelId is invalid or unavailable.
    * @throws { BusinessError } 32390006 - Parameter error.
    * @throws { BusinessError } 32390100 - Internal error.

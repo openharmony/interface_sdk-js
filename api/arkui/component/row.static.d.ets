@@ -18,7 +18,7 @@
  */
 import { VerticalAlign, FlexAlign } from './enums';
 import { SpaceType } from './column';
-import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Define options used to construct a row.
@@ -168,3 +168,59 @@ export declare function Row(
     style: CustomBuilderT<RowAttribute>,
     content_?: CustomBuilder,
 ): RowAttribute;
+
+/**
+ * Defines the Extendable Row.
+ *
+ * @implements RowAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableRow implements RowAttribute {
+    /**
+     * Constructor of Extendable Row.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { RowOptions | RowOptionsV2 } [options]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableRow>(
+        factory: ConstructorT<T>, 
+        options?: RowOptions | RowOptionsV2,
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Row.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableRow>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the Row Options.
+     *
+     * @param { RowOptions | RowOptionsV2 } [options]
+     * @returns { ExtendableRow }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setRowOptions(options?: RowOptions | RowOptionsV2): this;
+}

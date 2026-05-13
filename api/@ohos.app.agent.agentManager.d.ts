@@ -215,6 +215,7 @@ declare namespace agentManager {
    * Registers an AgentCard.
    * If `agentCard.type` is not specified, it defaults to `agentConstant.AgentCardType.APP`.
    * When the type is `APP` or `LOW_CODE`, `appInfo` is validated, especially `bundleName` and `abilityName`.
+   * A maximum of 1000 AgentCards can be registered under one bundle.
    *
    * @permission ohos.permission.MODIFY_AGENT_CARD
    * @param { AgentCard } agentCard - The agent card information to register.
@@ -228,6 +229,7 @@ declare namespace agentManager {
    * @throws { BusinessError } 18500001 - The bundle does not exist or no patch has been applied.
    * @throws { BusinessError } 35600005 - The specified agent card version is invalid.
    * @throws { BusinessError } 35600006 - The specified agent card has already been registered. Use updateAgentCard instead.
+   * @throws { BusinessError } 35600008 - The number of AgentCards in the bundle reaches the limit.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly

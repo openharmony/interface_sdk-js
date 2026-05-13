@@ -1928,15 +1928,17 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.setDistributedEnabled(enable: boolean, deviceType: string)
    */
   function setDistributedEnable(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1950,15 +1952,17 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.setDistributedEnabled(enable: boolean, deviceType: string)
    */
   function setDistributedEnable(enable: boolean): Promise<void>;
 
@@ -1968,6 +1972,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示支持跨设备协同通知；返回false表示不支持跨设备协同通知；调用失败返回错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 26.0.0]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1975,6 +1980,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.isDistributedEnabled(deviceType: string)
    */
   function isDistributedEnabled(callback: AsyncCallback<boolean>): void;
 
@@ -1982,6 +1989,7 @@ declare namespace notificationManager {
    * 查询设备是否支持跨设备协同通知。使用Promise异步回调。
    *
    * @returns { Promise<boolean> } Promise对象。返回true表示支持跨设备协同通知；返回false表示不支持跨设备协同通知。
+   * @throws { BusinessError } 801 - Capability not supported. [since 26.0.0]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1989,6 +1997,8 @@ declare namespace notificationManager {
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.isDistributedEnabled(deviceType: string)
    */
   function isDistributedEnabled(): Promise<boolean>;
 
@@ -2003,16 +2013,18 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean)
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2027,16 +2039,18 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.setDistributedEnabledByBundle(bundle: BundleOption, deviceType: string, enable: boolean)
    */
   function setDistributedEnableByBundle(bundle: BundleOption, enable: boolean): Promise<void>;
 
@@ -2076,16 +2090,18 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string)
    */
   function isDistributedEnabledByBundle(bundle: BundleOption, callback: AsyncCallback<boolean>): void;
 
@@ -2099,16 +2115,18 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
+   * @useinstead notificationManager.isDistributedEnabledByBundle(bundle: BundleOption, deviceType: string)
    */
   function isDistributedEnabledByBundle(bundle: BundleOption): Promise<boolean>;
 
@@ -2217,14 +2235,15 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function getDeviceRemindType(callback: AsyncCallback<DeviceRemindType>): void;
 
@@ -2235,14 +2254,15 @@ declare namespace notificationManager {
    * @returns { Promise<DeviceRemindType> } Promise方式返回获取通知提醒方式的结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
@@ -2391,15 +2411,16 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -2414,15 +2435,16 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function setSyncNotificationEnabledWithoutApp(userId: int, enable: boolean): Promise<void>;
 
@@ -2436,6 +2458,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 26.0.0]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2444,6 +2467,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function getSyncNotificationEnabledWithoutApp(userId: int, callback: AsyncCallback<boolean>): void;
 
@@ -2457,6 +2481,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 26.0.0]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2465,6 +2490,7 @@ declare namespace notificationManager {
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function getSyncNotificationEnabledWithoutApp(userId: int): Promise<boolean>;
 

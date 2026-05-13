@@ -280,7 +280,7 @@ export declare class BuilderNode<T = undefined> {
    * @returns { boolean } - Returns true if the event has been successfully posted, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postInputEvent(event: InputEventType): boolean;
 
@@ -380,7 +380,7 @@ export declare class ReactiveBuilderNode {
    *     3. The event has been bound to the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postTouchEvent(event: TouchEvent): boolean;
 
@@ -472,7 +472,7 @@ export declare class ReactiveBuilderNode {
    * @returns { boolean } - Returns true if the TouchEvent has been successfully posted, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postInputEvent(event: InputEventType): boolean;
 
@@ -485,7 +485,7 @@ export declare class ReactiveBuilderNode {
    *    false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 }

@@ -1492,6 +1492,16 @@ declare namespace text {
      * @since 24 dynamic&static
      */
     fontEdging?: drawing.FontEdging;
+
+    /**
+     * Array of font typefaces
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    fontTypefaces?: Array<drawing.Typeface>;
   }
 
   /**
@@ -2020,18 +2030,18 @@ declare namespace text {
      * Punctuation range at the beginning of a line.
      * | Punctuation| Unicode Code Point| Unicode Name|
      * |---------|---------|-------------|
-     * | °∏| U+300C | LEFT CORNER BRACKET |
-     * | °∫| U+300E | LEFT WHITE CORNER BRACKET |
+     * | „Äå| U+300C | LEFT CORNER BRACKET |
+     * | „Äé| U+300E | LEFT WHITE CORNER BRACKET |
      * | " | U+201C | LEFT DOUBLE QUOTATION MARK |
      * | ' | U+2018 | LEFT SINGLE QUOTATION MARK |
-     * | £®| U+FF08 | FULLWIDTH LEFT PARENTHESIS |
-     * | °∂| U+300A | LEFT DOUBLE ANGLE BRACKET |
-     * | °¥| U+3008 | LEFT ANGLE BRACKET |
-     * | °æ| U+3010 | LEFT BLACK LENTICULAR BRACKET |
-     * | °º| U+3016 | LEFT WHITE LENTICULAR BRACKET |
-     * | °≤| U+3014 | LEFT TORTOISE SHELL BRACKET |
-     * | £€| U+FF3B | FULLWIDTH LEFT SQUARE BRACKET |
-     * | £˚| U+FF5B | FULLWIDTH LEFT CURLY BRACKET |
+     * | Ôºà| U+FF08 | FULLWIDTH LEFT PARENTHESIS |
+     * | „Ää| U+300A | LEFT DOUBLE ANGLE BRACKET |
+     * | „Äà| U+3008 | LEFT ANGLE BRACKET |
+     * | „Äê| U+3010 | LEFT BLACK LENTICULAR BRACKET |
+     * | „Äñ| U+3016 | LEFT WHITE LENTICULAR BRACKET |
+     * | „Äî| U+3014 | LEFT TORTOISE SHELL BRACKET |
+     * | Ôºª| U+FF3B | FULLWIDTH LEFT SQUARE BRACKET |
+     * | ÔΩõ| U+FF5B | FULLWIDTH LEFT CURLY BRACKET |
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @atomicservice
@@ -2099,6 +2109,16 @@ declare namespace text {
      * @since 26.0.0 dynamic&static
      */
     orphanCharOptimization?: boolean;
+
+    /**
+     * Whether to enable punctuation overflow.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    punctuationOverflow?: boolean;
   }
 
   /**
@@ -2710,6 +2730,26 @@ declare namespace text {
      * @since 23 dynamic&static
      */
     index?: int;
+
+    /**
+     * Font languages.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    languages?: Array<string>;
+
+    /**
+     * Font features.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    fontFeatures?: Array<string>;
   }
 
   /**
@@ -2965,7 +3005,7 @@ declare namespace text {
     /**
      * Obtains the height of a given line.
      *
-     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() ®C 1.
+     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() ‚Äì 1.
      * @returns { double } Line height, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -2978,7 +3018,7 @@ declare namespace text {
     /**
      * Obtains the width of a given line.
      *
-     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() ®C 1.
+     * @param { int } line - Index of the line. The value is an integer ranging from 0 to getLineCount() ‚Äì 1.
      * @returns { double } Line width, in physical pixels (px).
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -3018,7 +3058,7 @@ declare namespace text {
      *
      * @param { int } lineNumber - Line number of the text range, starting from 0. This API can only be used to obtain
      *     the bounds of existing lines. That is, the line number must start from 0, and the maximum line index is the
-     *     number of text lines ®C 1. The number of text lines can be obtained via the
+     *     number of text lines ‚Äì 1. The number of text lines can be obtained via the
      *     [getLineCount]{@link text.Paragraph.getLineCount} API.
      * @param { boolean } includeSpaces - Whether spaces are included. The value **true** means that spaces are
      *     contained, and **false** means the opposite.

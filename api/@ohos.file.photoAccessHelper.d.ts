@@ -191,7 +191,7 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      * @since 26.0.0 static
      */
-    time: number;
+    time: long;
 
     /**
      * Filename of the first fully visible photo in the last selection interface.
@@ -6052,6 +6052,30 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      */
     getFusionAssetsInfo(): Promise<FusionAssetsInfo[]>;
+
+    /**
+     * Gets album attribute info.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { AlbumAttribute[] } attrs - attributes to get for the album. The maximum length is 20 and cannot be empty.
+     * @returns { Promise<Record<AlbumAttribute, AlbumAttributeInfo>> } Returns a record of attributes and their values.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Unsupported attribute;
+     *     <br>2. The attrs size exceed 20;
+     *     <br>3. Empty or duplicate attribute;
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs
+     *     Possible causes:
+     *     <br>1. Database corrupted.
+     *     <br>2. The file system is abnormal.
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getAttribute(attrs: AlbumAttribute[]): Promise<Record<AlbumAttribute, AlbumAttributeInfo>>;
   }
 
   /**
@@ -8520,6 +8544,32 @@ declare namespace photoAccessHelper {
     getPreferredCompatibleMode(bundleName: string): Promise<PreferredCompatibleMode>;
 
     /**
+     * Obtain the URI list to be transcoded based on bundleName, photoAsset list, and compatibleFlag.
+     * compatibleFlags description. Bit 0 indicates a large image, and bit 1 indicates a Heif image.
+     *
+     * @param { string } bundleName - The app bundleName.
+     * @param { Array<PhotoAsset> } assets - Array of the assets.
+     * @param { int } [compatibleFlag] - Compatible configuration mask flag.
+     *     <br>The value should be an integer.
+     * @returns { Promise<Array<string>> } Promise used to return the media library file uri list that needs to be transcoded.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails.
+     *     Possible causes:
+     *     <br>1. The bundleName is invalid;
+     *     <br>2. The compatibleFlag is invalid;
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getAssetCompatibleUris(bundleName: string, assets: Array<PhotoAsset>, compatibleFlag?: int): Promise<Array<string>>;
+
+    /**
      * Query whether the assets exist and whether the invoker has read permission on the assets without permission.
      * @param { string[] } uris - Asset URI list.
      * @returns {Promise<Map<string, MediaAssetPermissionState>>} - Returns
@@ -8534,6 +8584,53 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     checkPhotoUrisReadPermission(uris: string[]): Promise<Map<string, MediaAssetPermissionState>>;
+
+    /**
+     * move assets of medialibrary sandbox to directory of filemanager.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string[] } assets - Assets URI from medialibrary sandbox.
+     * @param { string } target - Target directory of filemanager.
+     * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets.
+     *    <br>Options for bulk operations
+     * @returns { Promise<string[]> } Return the paths to the asset
+     * @throws { BusinessError } 201 - permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The Scenario parameter verification fails. Possible causes:
+     *    <br>1. Moving to the target directory is not supported;
+     *    <br>2. Assets to be moved does not exist.
+     *    <br>3. Automatic renaming is not supported.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *    <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    moveAssetsToDir(assets: string[], target: string, option?: BatchOperationOptions): Promise<string[]>;
+
+    /**
+     * move assets of filemanager to Album.
+     * 
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string[] } assets - Assets path from filemanager(e.g., "/Download/test.jpg").
+     * @param { Album } target - Target Album.
+     * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets.
+     * @returns { Promise<string[]> } Return successed assets URIS.
+     * @throws { BusinessError } 201 - permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The Scenario parameter verification fails. Possible causes:
+     *    <br>1. Moving to the target Album is not supported;
+     *    <br>2. Assets to be moved does not exist.
+     *    <br>3. Automatic renaming is not supported.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *    <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    moveAssetsByPath(assets: string[], target: Album, option?: BatchOperationOptions): Promise<string[]>;
 
     /**
      * clone assets to Album.
@@ -16370,6 +16467,16 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     NICK_NAME_ATTR = 'nickname',
+
+    /**
+     * The album extra_info operation attribute.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    EXTRA_INFO_ATTR = 'extra_info',
     /**
      * The album is_removed operation attribute.
      *
@@ -16456,6 +16563,26 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     values: string[];
+  }
+
+  /**
+   * Album attribute info.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AlbumAttributeInfo {
+    /**
+     * The album attribute value.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    attrValue?: string;
   }
 }
 

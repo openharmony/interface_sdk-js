@@ -313,7 +313,7 @@ export declare interface WaterFlowOptions {
  * @interface UIWaterFlowEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   /**
@@ -323,7 +323,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -333,7 +333,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -343,19 +343,19 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
 }
 /**
  * Defines the callback type used in onScrollIndex.
  *
- * @typedef {function} OnWaterFlowScrollIndexCallback
+ * @typedef {function}
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type OnWaterFlowScrollIndexCallback = (first: int, last: int) => void;
 
@@ -467,7 +467,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      * @returns { this } The attribute of the WaterFlow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**

@@ -109,7 +109,8 @@ export declare class WrappedBuilder<T> {
    * @stagemodelonly
    * @since 23 static
    */
-  @Builder public builder: T;
+  @Builder 
+  public builder: T;
 
   /**
    * Initialize builder.
@@ -154,3 +155,14 @@ export declare function makeBuilderParameterProxy<T>(instance: T, propertyGetter
  */
 @Retention({policy: "SOURCE"})
 export @interface ComponentBuilder {}
+
+/**
+ * Defines the object constructor type.
+ *
+ * @typedef { function }
+ * @returns { T }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export type ConstructorT<T> = (() => T);

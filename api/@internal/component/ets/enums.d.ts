@@ -8538,24 +8538,11 @@ declare enum CopyOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the hit test mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the hit test mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @FaAndStageModel
+ * @crossplatform [since 10]
+ * @form [since 26.0.0]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum HitTestMode {
   /**
@@ -8563,116 +8550,63 @@ declare enum HitTestMode {
    * but block hit test of the other nodes which is masked by this node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @form [since 26.0.0]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * Both self and children nodes respond to the hit test for touch events,
-   * but block hit test of the other nodes which is masked by this node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Both self and children nodes respond to the hit test for touch events,
-   * but block hit test of the other nodes which is masked by this node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Default,
+  Default = 0,
 
   /**
    * Self respond to the hit test for touch events,
    * but block hit test of children and other nodes which is masked by this node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @form [since 26.0.0]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * Self respond to the hit test for touch events,
-   * but block hit test of children and other nodes which is masked by this node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Self respond to the hit test for touch events,
-   * but block hit test of children and other nodes which is masked by this node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Block,
+  Block = 1,
 
   /**
    * Self and children respond to the hit test for touch events,
    * and allow hit test of other nodes which is masked by this node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @form [since 26.0.0]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * Self and children respond to the hit test for touch events,
-   * and allow hit test of other nodes which is masked by this node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Self and children respond to the hit test for touch events,
-   * and allow hit test of other nodes which is masked by this node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Transparent,
+  Transparent = 2,
 
   /**
    * Self not respond to the hit test for touch events,
    * but children respond to the hit test for touch events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @form [since 26.0.0]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
+  None = 3,
   /**
-   * Self not respond to the hit test for touch events,
-   * but children respond to the hit test for touch events.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Self not respond to the hit test for touch events,
-   * but children respond to the hit test for touch events.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  None,
-
-  /**
-   * Blocks all lower priority siblings and parents node from receiving the event.
+   * Blocks all lower-priority siblings and parent nodes from receiving the event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_HIERARCHY,
-
+  BLOCK_HIERARCHY = 4,
   /**
    * Self not respond to the hit test for touch events,
    * and all descendants (children, grandchildren, etc.) not respond to the hit test for touch events too.
@@ -8680,10 +8614,11 @@ declare enum HitTestMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_DESCENDANTS,
+  BLOCK_DESCENDANTS = 5
 }
 
 /**

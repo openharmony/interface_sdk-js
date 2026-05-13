@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.Applications.Settings.Core.Lite
  * @famodelonly
- * @since 24 dynamic&static
+ * @since 24
  */
 
 declare namespace settingsLite {
@@ -32,7 +32,7 @@ declare namespace settingsLite {
    *
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function openPinSettingPage(): void;
 
@@ -41,7 +41,7 @@ declare namespace settingsLite {
    *
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function openNfcSettingsPage(): void;
 
@@ -50,7 +50,7 @@ declare namespace settingsLite {
    *
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function openDoubleClickSettingsPage(): void;
 
@@ -59,17 +59,17 @@ declare namespace settingsLite {
    * application itself.
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   interface ClickCallback {
     /**
      * Called to determine whether the application can be started by double-pressing the function key.
      *
-     * @param { boolean } result The specified application is started by double-pressing the function key if true
-     *     is returned. Otherwise, an unexpected application is started.
+     * @param { boolean } result - The specified application is started by double-pressing the function key if
+     *     true is returned. Otherwise, an unexpected application is started.
      * @syscap SystemCapability.Applications.Settings.Core.Lite
      * @famodelonly
-     * @since 24 dynamic&static
+     * @since 24
      */
     onResult(result: boolean): void;
   }
@@ -78,10 +78,10 @@ declare namespace settingsLite {
    * 1. Checks whether the application started by double-pressing the function key is the application itself.
    * 2. This API is triggered to check whether double-pressing the function key starts the application itself.
    *
-   * @param { ClickCallback } callback Callback used to return the execution result.
+   * @param { ClickCallback } callback - Callback used to return the execution result.
    * @syscap SystemCapability.Applications.Settings.Core.Lite
    * @famodelonly
-   * @since 24 dynamic&static
+   * @since 24
    */
   function isDoubleClickAppForSelf(callback: ClickCallback): void;
 }

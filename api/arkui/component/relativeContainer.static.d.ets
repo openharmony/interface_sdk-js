@@ -18,7 +18,7 @@
  */
 import { Dimension } from './units';
 import { Axis } from './enums';
-import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Specifies the position of guideLine
@@ -327,3 +327,56 @@ export declare function RelativeContainer(
     style: CustomBuilderT<RelativeContainerAttribute>,
     content_?: CustomBuilder,
 ): RelativeContainerAttribute;
+
+/**
+ * Defines the Extendable RelativeContainer.
+ *
+ * @implements RelativeContainerAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableRelativeContainer implements RelativeContainerAttribute {
+    /**
+     * Constructor of Extendable RelativeContainer.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableRelativeContainer>(
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable RelativeContainer.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableRelativeContainer>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the RelativeContainer Options.
+     *
+     * @returns { ExtendableRelativeContainer }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setRelativeContainerOptions(): this;
+}

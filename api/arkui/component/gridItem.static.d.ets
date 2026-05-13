@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod, Bindable } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the grid item style.
@@ -173,3 +173,59 @@ export declare function GridItem(
     value?: GridItemOptions, 
     content_?: CustomBuilder,
 ): GridItemAttribute
+
+/**
+ * Defines the Extendable GridItem.
+ *
+ * @implements GridItemAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableGridItem implements GridItemAttribute {
+    /**
+     * Constructor of Extendable GridItem.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { GridItemOptions } [value]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableGridItem>(
+        factory: ConstructorT<T>, 
+        value?: GridItemOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable GridItem.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableGridItem>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the GridItem Options.
+     *
+     * @param { GridItemOptions } [value]
+     * @returns { ExtendableGridItem }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setGridItemOptions(value?: GridItemOptions): this;
+}
