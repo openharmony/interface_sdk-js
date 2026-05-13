@@ -210,7 +210,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    sizeBytes: number;
+    sizeBytes: long;
 
     /**
      * System path of the disk.
@@ -240,7 +240,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    diskType: number;
+    diskType: int;
 
     /**
      * Media type.
@@ -250,7 +250,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    mediaType: number;
+    mediaType: int;
 
     /**
      * Whether the disk is removable.
@@ -260,7 +260,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    removable: number;
+    removable: int;
 
     /**
      * Extra information of the disk.
@@ -290,7 +290,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    partitionNum: number;
+    partitionNum: int;
 
     /**
      * Disk ID.
@@ -310,7 +310,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    startSector: number;
+    startSector: long;
 
     /**
      * End sector of the partition.
@@ -320,7 +320,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    endSector: number;
+    endSector: long;
 
     /**
      * Partition size in bytes.
@@ -330,7 +330,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    sizeBytes: number;
+    sizeBytes: long;
 
     /**
      * File system type.
@@ -380,7 +380,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    partitionCount: number;
+    partitionCount: int;
 
     /**
      * Total number of sectors.
@@ -390,7 +390,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    totalSector: number;
+    totalSector: long;
 
     /**
      * Sector size in bytes.
@@ -400,7 +400,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    sectorSize: number;
+    sectorSize: int;
 
     /**
      * Alignment sector.
@@ -410,7 +410,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    alignSector: number;
+    alignSector: int;
 
     /**
      * Array of partition information.
@@ -440,7 +440,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    partitionNum: number;
+    partitionNum: int;
 
     /**
      * Start sector of the partition.
@@ -450,7 +450,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    startSector: number;
+    startSector: long;
 
     /**
      * End sector of the partition.
@@ -460,7 +460,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    endSector: number;
+    endSector: long;
 
     /**
      * Partition type code.
@@ -1093,7 +1093,7 @@ declare namespace volumeManager {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function deletePartition(diskId: string, partitionNum: number): Promise<void>;
+  function deletePartition(diskId: string, partitionNum: int): Promise<void>;
 
   /**
    * Formats a partition on a disk. This API uses a promise to return the result.
@@ -1115,7 +1115,7 @@ declare namespace volumeManager {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function formatPartition(diskId: string, partitionNum: number, options: FormatOptions): Promise<void>;
+  function formatPartition(diskId: string, partitionNum: int, options: FormatOptions): Promise<void>;
 }
 
 export default volumeManager;
