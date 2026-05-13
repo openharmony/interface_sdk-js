@@ -1510,7 +1510,7 @@ declare namespace dlpPermission {
     /**
      * Enumerates the actions to be performed when the file's permission expiration time is reached. The default value 
      * is **NOT_OPEN**.
-     * 
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 20 - 20]
      * @publicapi [since 21]
@@ -1572,6 +1572,7 @@ declare namespace dlpPermission {
      * > This API can be called only by enterprise accounts. Enterprises need to set up their own enterprise account 
      * > servers. This API generates a DLP file, which is an encrypted file that can be accessed only by accounts 
      * > authorized by the enterprise server.
+     *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
      *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
