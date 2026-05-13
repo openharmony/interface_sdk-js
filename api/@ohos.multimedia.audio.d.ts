@@ -3963,17 +3963,17 @@ declare namespace audio {
     getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
 
     /**
-     * Obtains an {@link AudioDebugManager} instance.
+     * Obtains an {@link AudioDebuggingManager} instance.
      * <p><strong>NOTE</strong>:
-     * The {@link AudioDebugManager} instance is a singleton.
+     * The {@link AudioDebuggingManager} instance is a singleton.
      * </p>
      *
-     * @returns { AudioDebugManager } this {@link AudioDebugManager} object.
+     * @returns { AudioDebuggingManager } this {@link AudioDebuggingManager} object.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @since 26.0.0 dynamic&static
      */
-    getDebugManager(): AudioDebugManager;
+    getDebugManager(): AudioDebuggingManager;
 
     /**
      * user disable the safe media volume state.
@@ -9349,7 +9349,7 @@ declare namespace audio {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface AudioDebugManager {
+  interface AudioDebuggingManager {
     /**
      * Print Single App Audio Runtime Snapshot
      * @param { int } fd - fd is a file handle, indicates the location where the snapshot information is stored.
