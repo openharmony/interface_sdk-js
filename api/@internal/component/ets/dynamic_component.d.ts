@@ -83,6 +83,15 @@ declare interface DynamicOptions {
      * @since 26.0.0 dynamic
      */
     allowCrossProcessNesting?: boolean;
+    /**
+     * Indicates allow keyboard avoidance inside the DynamicComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    allowOccupied?: boolean;
 }
 
 /**
