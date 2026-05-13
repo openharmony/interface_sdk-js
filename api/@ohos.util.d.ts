@@ -1859,7 +1859,7 @@ declare namespace util {
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
      * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
-     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding.
+     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
      * @returns { Uint8Array } Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -1920,7 +1920,7 @@ declare namespace util {
      *
      * @param { Uint8Array } src - Uint8Array object to encode.
      * @param { Type } [options] - Encoding format.<br>The following values are available:<br>- **util.Type.BASIC** (
-     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding.
+     *     default): Base64 encoding.<br>- **util.Type.BASIC_URL_SAFE**: Base64URL encoding. [since 12]
      * @returns { Promise<Uint8Array> } Promise used to return the Uint8Array object obtained.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
