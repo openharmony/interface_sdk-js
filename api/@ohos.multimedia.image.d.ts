@@ -3629,18 +3629,49 @@ declare namespace image {
     maxEmbedThumbnailDimension?: int;
 
     /**
-     * Options for tiff image packing.
+     * Background color for processing transparent pixels during encoding.
+     * Valid when the image has transparency and the target format does not support transparency (e.g. JPEG).
+     * Transparent pixels will be blended with this background color.
+     * The value format is 0xAARRGGBB, where AA is alpha, RR is red, GG is green, BB is blue.
+     * Default value is 0 (black).
      *
+     * @type { ?number }
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-     tiffPackingOptions?: PackingOptionsForTiff;
+    backgroundColor?: number;
+
+    /**
+     * Maximum size of the encoded image.
+     * If the source image exceeds this size, it will be scaled down proportionally.
+     * Set width or height to 0 or negative value to indicate no limit for that dimension.
+     * <br>Unit:px.
+     *
+     * @type { ?Size }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    maxSize?: Size;
+
+    /**
+     * Whether to pack GPS information into the encoded image.
+     * Default value is true.
+     * When set to false, GPS information will be removed from EXIF metadata during encoding.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needPackGPS?: boolean;
   }
 
   /**
-   * Defines the options for encoding animated images.
+   * Describes the options for image sequence packing.
    *
+   * @typedef PackingOptionsForSequence
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @since 18 dynamic
    * @since 23 static
