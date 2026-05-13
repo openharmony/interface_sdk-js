@@ -176,11 +176,12 @@ declare namespace cacheDownload {
     interface RetryOptions {
       /**
        * Maximum number of retry attempts.
-       * The default value is 3.
+       * The default value is 1.
        * The minimum value is 0.
        * The maximum value is 10.
        * When set to 0, no retries will be performed.
-       * 
+       * The value should be an interger.
+       *
        * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
