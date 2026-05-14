@@ -11512,7 +11512,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     Only main windows and subwindows are supported.
-     * @throws { BusinessError } 13000016 - Parameter error. Possible cause:
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. When called on a main window, the parameter should not only contain SPLIT.
      *     2. When called on a sub window, the parameter should not contain SPLIT.
      * @syscap SystemCapability.Window.SessionManager
