@@ -24,16 +24,13 @@ import type Want from './@ohos.app.ability.Want';
 import type { Callback } from './@ohos.base';
 
 /**
- * This module provides essential functionalities for floating balls. It lets you check whether the device supports
- * floating balls and create a controller to start, update, or stop them. It is ideal for tasks like comparing prices,
- * searching for answers, or grabbing orders. The floating ball appears as a floating widget above other application,
- * quickly showing important information.
+ * 该模块提供闪控球的基础功能，包括判断设备是否支持闪控球功能，以及创建闪控球控制器来启动、更新或停止闪控球。适用于跨应用的题目搜索、账单记录、商品比价、抢单、翻译场景，以及金融类应用的实时盯盘场景，以小窗模式呈现内容。闪控球以悬浮小组件
+ * 形式显示在其他应用之上，即时呈现应用的关键信息。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - For the system capability SystemCapability.Window.SessionManager, use
- * > [canIUse()]{@link canIUse} to check whether the device supports this system
- * > capability and the corresponding APIs.
+ * > - 针对系统能力SystemCapability.Window.SessionManager，请先使用
+ * > [canIUse()]{@link canIUse}接口判断当前设备是否支持此syscap及对应接口。
  *
  * @syscap SystemCapability.Window.SessionManager
  * @since 20 dynamic
@@ -41,9 +38,9 @@ import type { Callback } from './@ohos.base';
  */
 declare namespace floatingBall {
   /**
-   * Checks whether the device supports floating balls.
+   * 判断当前设备是否支持闪控球功能。
    *
-   * @returns { boolean } Check result for the support of floating balls. **true** if supported, **false** otherwise.
+   * @returns { boolean } 当前设备是否支持闪控球功能。true表示支持，false则表示不支持。
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
    * @since 23 static
@@ -51,11 +48,10 @@ declare namespace floatingBall {
   function isFloatingBallEnabled(): boolean;
 
   /**
-   * Creates a floating ball controller. This API uses a promise to return the result.
+   * 创建闪控球控制器，使用Promise异步回调。
    *
-   * @param { FloatingBallConfiguration } config - Parameters for creating the floating ball controller. This parameter
-   *     cannot be empty, and **context** that is used to construct this parameter cannot be empty.
-   * @returns { Promise<FloatingBallController> } Promise used to return the floating ball controller.
+   * @param { FloatingBallConfiguration } config - 创建闪控球控制器的参数。该参数不能为空，并且构造该参数的context不能为空。
+   * @returns { Promise<FloatingBallController> } Promise对象。返回当前创建的闪控球控制器。
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
@@ -67,7 +63,7 @@ declare namespace floatingBall {
   function create(config: FloatingBallConfiguration): Promise<FloatingBallController>;
 
   /**
-   * Describes the parameters for creating a floating ball controller.
+   * 创建闪控球控制器时需要提供的参数配置。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
@@ -75,7 +71,7 @@ declare namespace floatingBall {
    */
   interface FloatingBallConfiguration {
     /**
-     * Context environment.
+     * 表示上下文环境。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -85,11 +81,9 @@ declare namespace floatingBall {
   }
 
   /**
-   * Implements a floating ball controller instance, which is used to start, update, and stop floating balls, and
-   * register callbacks.
+   * 闪控球控制器实例，用于启动、更新、停止闪控球以及注册回调等操作。
    *
-   * Before calling any of the following APIs, you must use [floatingBall.create()]{@link floatingBall.create} to create
-   * a floating ball controller instance.
+   * 下列API示例中都需先使用[floatingBall.create()]{@link floatingBall.create}方法获取到闪控球控制器实例（即floatingBallController），再通过此实例调用对应方法。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
@@ -97,11 +91,11 @@ declare namespace floatingBall {
    */
   interface FloatingBallController {
     /**
-     * Starts the floating ball. This API uses a promise to return the result.
+     * 启动闪控球，使用Promise异步回调。
      *
      * @permission ohos.permission.USE_FLOAT_BALL
-     * @param { FloatingBallParams } params - Parameters for starting the floating ball.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { FloatingBallParams } params - 启动闪控球的参数。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300020 - Failed to create the floating ball window.
@@ -119,10 +113,10 @@ declare namespace floatingBall {
     startFloatingBall(params: FloatingBallParams): Promise<void>;
 
     /**
-     * Updates the floating ball. This API uses a promise to return the result.
+     * 更新闪控球，使用Promise异步回调。
      *
-     * @param { FloatingBallParams } params - Parameters for updating the floating ball.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { FloatingBallParams } params - 更新闪控球的参数。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -139,9 +133,9 @@ declare namespace floatingBall {
     updateFloatingBall(params: FloatingBallParams): Promise<void>;
 
     /**
-     * Stops the floating ball. This API uses a promise to return the result.
+     * 停止闪控球，使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
@@ -152,12 +146,10 @@ declare namespace floatingBall {
     stopFloatingBall(): Promise<void>;
 
     /**
-     * Registers a listener for lifecycle state changes of the floating ball. To prevent memory leaks, remember to
-     * unregister the listener when it is no longer needed.
+     * 注册闪控球生命周期状态变化的监听事件。不再使用时，取消监听以避免内存泄漏。
      *
-     * @param { 'stateChange' } type - Event type. The event **'stateChange'** is triggered when the floating ball
-     *     lifecycle state changes.
-     * @param { Callback<FloatingBallState> } callback - Callback used to return the floating ball lifecycle state.
+     * @param { 'stateChange' } type - 监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。
+     * @param { Callback<FloatingBallState> } callback - 回调函数。返回当前的闪控球生命周期状态。
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
@@ -181,13 +173,10 @@ declare namespace floatingBall {
     onStateChange(callback: Callback<FloatingBallState>): void;
 
     /**
-     * Unregisters the listener for lifecycle state changes of the floating ball.
+     * 取消闪控球生命周期状态变化的监听事件。
      *
-     * @param { 'stateChange' } type - Event type. The event **'stateChange'** is triggered when the floating ball
-     *     lifecycle state changes.
-     * @param { Callback<FloatingBallState> } [callback] - Callback used to return the floating ball lifecycle state. If
-     *     a value is passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions
-     *     to the specified event are canceled.
+     * @param { 'stateChange' } type - 监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。
+     * @param { Callback<FloatingBallState> } [callback] - 回调函数。返回当前的闪控球生命周期状态。若传入参数，则停止该监听。若未传入参数，则停止所有闪控球生命周期状态变化的监听。
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
@@ -210,12 +199,10 @@ declare namespace floatingBall {
     offStateChange(callback?: Callback<FloatingBallState>): void;
 
     /**
-     * Registers a listener for click events of the floating ball. To prevent memory leaks, remember to unregister the
-     * listener when it is no longer needed.
+     * 注册闪控球的点击监听事件，不使用时，取消监听以避免内存泄漏。
      *
-     * @param { 'click' } type - Event type. The event **'click'** is triggered when the floating ball is tapped.
-     * @param { Callback<void> } callback - Callback invoked when the floating ball is tapped. It does not return any
-     *     parameter.
+     * @param { 'click' } type - 监听事件，固定为'click'，即闪控球点击事件。
+     * @param { Callback<void> } callback - 回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
@@ -239,12 +226,10 @@ declare namespace floatingBall {
     onClick(callback: Callback<void>): void;
 
     /**
-     * Unregisters the listener for click events of the floating ball.
+     * 取消闪控球点击的监听事件。
      *
-     * @param { 'click' } type - Event type. The event **'click'** is triggered when the floating ball is tapped.
-     * @param { Callback<void> } [callback] - Callback invoked when the floating ball is tapped. It does not return any
-     *     parameter. If a value is passed in, the corresponding subscription is canceled. If no value is passed in, all
-     *     subscriptions to the specified event are canceled.
+     * @param { 'click' } type - 监听事件，固定为'click'，即闪控球点击事件。
+     * @param { Callback<void> } [callback] - 回调函数。当点击闪控球事件发生时的回调。该回调函数不返回任何参数。若传入参数，则关闭特定的监听。若未传入参数，则关闭所有闪控球点击的监听。
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball.
      * @throws { BusinessError } 1300023 - Floating ball internal error.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal.
@@ -267,9 +252,17 @@ declare namespace floatingBall {
     offClick(callback?: Callback<void>): void;
 
     /**
-     * Register floating ball destroy event listener.
+     * 注册闪控球销毁事件的监听。当闪控球销毁时，回调函数会接收到销毁原因的字符串。不再使用时，调用[offDestroy](#offdestroy)接口取消监听以避免内存泄漏。
      *
-     * @param { Callback<string> } callback - Used to handle {'destroy'} command.
+     * @param { Callback<string> } callback - 回调函数。返回闪控球停止的原因。停止原因包括：
+     *     <br>- "APP_STOP"：应用主动停止。
+     *     <br>- "DUMPSTER_STOP"：拖动到垃圾桶触发停止。
+     *     <br>- "LONG_PRESS_SINGLE_STOP"：长按单个闪控球触发停止。
+     *     <br>- "LONG_PRESS_ALL_STOP"：长按全部闪控球触发停止。
+     *     <br>- "MAIN_WINDOW_DESTROY_STOP"：context关联的主窗口被销毁后触发停止。
+     *     <br>- "SQUEEZE"：超出设备闪控球数量上限，被其他闪控球挤占停止。
+     *     <br>- "FLOAT_VIEW_STOP"：与标准悬浮窗绑定后，绑定状态下跟随标准悬浮窗停止。
+     *     <br>- "STOP_IN_SIDEBAR"：在侧边栏中被停止。
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible cause:
      *     Callback is null or not callable.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
@@ -284,10 +277,9 @@ declare namespace floatingBall {
     onDestroy(callback: Callback<string>): void;
 
     /**
-     * Unregister floating ball destroy event listener.
+     * 取消闪控球销毁事件的监听。
      *
-     * @param { Callback<string> } [callback] - Indicates the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<string> } [callback] - 回调函数。若传入参数，则取消该监听；若未传入参数，则取消所有闪控球销毁事件的监听。
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible cause:
      *     Callback is null or not callable.
      * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
@@ -301,9 +293,9 @@ declare namespace floatingBall {
     offDestroy(callback?: Callback<string>): void;
 
     /**
-     * Obtains the floating ball window information. This API uses a promise to return the result.
+     * 获得闪控球窗口信息，使用Promise异步回调。
      *
-     * @returns { Promise<FloatingBallWindowInfo> } Promise used to return the floating ball window information.
+     * @returns { Promise<FloatingBallWindowInfo> } Promise对象，返回闪控球窗口信息。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
@@ -317,14 +309,11 @@ declare namespace floatingBall {
     getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>;
 
     /**
-     * Restores the main window of the application and loads the specified page. This API uses a promise to return the
-     * result. This API can be called only after the floating ball is tapped. If the application has the
-     * **ohos.permission.AUTO_RESTORE_MAIN_WINDOW** permission, this API can be called directly without tapping the
-     * floating ball.
+     * 恢复应用主窗口并加载指定页面。使用Promise异步回调。仅支持在点击闪控球后调用；若应用拥有`ohos.permission.AUTO_RESTORE_MAIN_WINDOW`权限，可以无需点击直接调用该接口。
      *
      * @permission ohos.permission.USE_FLOAT_BALL
-     * @param { Want } want - Want used for loading the specified page.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Want } want - 加载指定页面的Want。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission verification failed, usually returned by VerifyAccessToken.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -344,21 +333,15 @@ declare namespace floatingBall {
     restoreMainWindow(want: Want): Promise<void>;
 
     /**
-     * Sets whether the floating ball is visible in the application. This API uses a promise to return the result.
+     * 设置闪控球在应用内是否可见。使用Promise异步回调。
      *
-     * - When the application is on the recent tasks screen (the
-     * [lifecycle state](docroot://windowmanager/window-overview.md#lifecycle-states) is **PAUSED**), the floating ball
-     * is invisible.
-     * - By default (when this API is not called) or when this API is called with the value **true** passed in, the
-     * floating ball is visible except on the recent tasks screen.
-     * - When this API is called with the value **false** passed in, the floating ball is invisible when the application
-     * is in the foreground (the [lifecycle state](docroot://windowmanager/window-overview.md#lifecycle-states) is
-     * **SHOWN** or **RESUMED**) and is visible when the application is in the background (the
-     * [lifecycle state](docroot://windowmanager/window-overview.md#lifecycle-states) is **HIDDEN**).
+     * - 当应用处于多任务界面时（[生命周期状态](docroot://windowmanager/window-overview.md#生命周期状态)为PAUSED），闪控球不可见。
+     * - 默认情况（即未调用此接口设置时）和调用此接口传入true时：除多任务界面外，闪控球均可见。
+     * - 调用此接口传入false时：当应用处于前台（[生命周期状态](docroot://windowmanager/window-overview.md#生命周期状态)为SHOWN或者RESUMED）时，闪控球不可见；当应用处于
+     *   后台（[生命周期状态](docroot://windowmanager/window-overview.md#生命周期状态)为HIDDEN）时，闪控球可见。
      *
-     * @param { boolean } isVisible - **true** indicates that the floating ball is visible in the application, and
-     *     **false** indicates the opposite.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { boolean } isVisible - true表示闪控球在应用内可见；false表示闪控球在应用内不可见。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      *     Possible cause: Internal IPC error.
      * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
@@ -373,7 +356,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * Describes the parameters for starting and updating the floating ball.
+   * 启动和更新闪控球的配置参数。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
@@ -381,7 +364,7 @@ declare namespace floatingBall {
    */
   interface FloatingBallParams {
     /**
-     * Floating ball template.
+     * 闪控球模板。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -390,28 +373,16 @@ declare namespace floatingBall {
     template: FloatingBallTemplate;
 
     /**
-     * Title of the floating ball. It cannot be an empty string and cannot exceed 64 bytes.
+     * 闪控球标题，不可为空字符串，大小不超过64字节。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
      * @since 23 static
      */
     title: string;
-    
-    /**
-     * Content of the floating ball. It cannot exceed 64 bytes. The default value is an empty string, and no content is
-     * displayed on the floating ball.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    content?: string;
 
     /**
-     * The color of the floating ball title, in hexadecimal format without opacity
-     * (e.g., **'#008EF5'** or **'#FF008EF5'**).
-     * Providing titleColor is not allowed if 'backgroundColor' is not provided.
+     * 闪控球标题颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'）。如果背景颜色没有指定，不允许指定标题颜色。
      *
      * @default Set different default values according to the 'backgroundColor'.
      *     - If 'backgroundColor' is provided, when 'backgroundColor' is light color, default value is '#E5FFFFFF',
@@ -422,11 +393,18 @@ declare namespace floatingBall {
      * @since 26.0.0 dynamic&static
      */
     titleColor?: string;
-    
+
     /**
-     * The color of the floating ball content, in hexadecimal format without opacity
-     * (e.g., **'#008EF5'** or **'#FF008EF5'**).
-     * Providing contentColor is not allowed if 'backgroundColor' is not provided.
+     * 闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    content?: string;
+
+    /**
+     * 闪控球内容颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'）。如果背景颜色没有指定，不允许指定内容颜色。
      *
      * @default Set different default values according to the 'backgroundColor'.
      *     - If 'backgroundColor' is provided, when 'backgroundColor' is light color, default value is '#99FFFFFF',
@@ -439,9 +417,7 @@ declare namespace floatingBall {
     contentColor?: string;
 
     /**
-     * Background color of the floating ball, in hexadecimal format without opacity (for example, **'#008EF5'** or
-     * **'#FF008EF5'**). If this parameter is not specified, the default background color of the system (light or dark
-     * mode) is used.
+     * 闪控球背景颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时闪控球跟随系统深浅色模式的默认背景色。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -450,9 +426,9 @@ declare namespace floatingBall {
     backgroundColor?: string;
 
     /**
-     * Icon of the floating ball. The total number of bytes of the icon pixels cannot exceed 192 KB (which is obtained
-     * through [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}). The recommended
-     * size is 128 px * 128 px. Actual display may vary based on the device capability and floating ball UI style.
+     * 闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过
+     * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取）。
+     * 建议图标像素宽高为128px*128px。实际显示效果依赖于设备能力和闪控球UI样式。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -461,8 +437,7 @@ declare namespace floatingBall {
     icon?: image.PixelMap;
 
     /**
-     * Animation type used when the floating ball text is updated. The default value is
-     * **FloatingBallTextUpdateAnimationType.ANIMATION_NONE**.
+     * 闪控球文本更新时的动画类型。默认为FloatingBallTextUpdateAnimationType.ANIMATION_NONE。
      *
      * @default FloatingBallTextUpdateAnimationType.ANIMATION_NONE
      * @syscap SystemCapability.Window.SessionManager
@@ -473,7 +448,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * Enumerates the lifecycle states of the floating ball.
+   * 闪控球生命周期状态的枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
@@ -481,7 +456,7 @@ declare namespace floatingBall {
    */
   enum FloatingBallState {
     /**
-     * The floating ball is started.
+     * 表示闪控球启动。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -490,7 +465,7 @@ declare namespace floatingBall {
     STARTED = 1,
 
     /**
-     * The floating ball is stopped.
+     * 表示闪控球停止。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -500,7 +475,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * Enumerates the types of the floating ball template.
+   * 闪控球模板类型的枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
@@ -508,8 +483,7 @@ declare namespace floatingBall {
    */
   enum FloatingBallTemplate {
     /**
-     * Static layout, which provides a title and an icon. When this template is used, the **title** and **icon**
-     * parameters in **FloatingBallParams** must be passed.
+     * 静态布局，支持标题和图标。使用此模板时，FloatingBallParams中的title参数和icon参数必传。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -518,8 +492,7 @@ declare namespace floatingBall {
     STATIC = 1,
 
     /**
-     * Standard text layout, which provides a title and content. When this template is used, the **title** parameter in
-     * **FloatingBallParams** must be passed.
+     * 普通文本布局，支持标题和内容。使用此模板时，FloatingBallParams中的title参数必传。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -528,8 +501,7 @@ declare namespace floatingBall {
     NORMAL = 2,
 
     /**
-     * Emphasized text layout, which provides an icon, a title, and content. When this template is used, the **title**
-     * parameter in **FloatingBallParams** must be passed.
+     * 强调文本布局，支持图标、标题和内容。使用此模板时，FloatingBallParams中的title参数必传。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -538,8 +510,7 @@ declare namespace floatingBall {
     EMPHATIC = 3,
 
     /**
-     * Plain text layout, which provides only a title. When this template is used, the **title** parameter in
-     * **FloatingBallParams** must be passed.
+     * 纯文本布局，只支持标题。使用此模板时，FloatingBallParams中的title参数必传。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -549,7 +520,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * Describes the floating ball window information.
+   * 闪控球窗口信息。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 20 dynamic
@@ -557,8 +528,8 @@ declare namespace floatingBall {
    */
   interface FloatingBallWindowInfo {
     /**
-     * ID of the floating ball window.
-     * The value range is all integers.
+     * 闪控球窗口ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 20 dynamic
@@ -568,7 +539,7 @@ declare namespace floatingBall {
   }
 
   /**
-   * Enumerates the animation types used when the floating ball text is updated.
+   * 闪控球文本更新动画类型的枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
@@ -576,7 +547,7 @@ declare namespace floatingBall {
    */
   enum FloatingBallTextUpdateAnimationType {
     /**
-     * No animation.
+     * 无动画。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -585,7 +556,7 @@ declare namespace floatingBall {
     ANIMATION_NONE = 0,
 
     /**
-     * Fade-in and fade-out animation.
+     * 淡入淡出动画。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly

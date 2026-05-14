@@ -29,19 +29,15 @@ import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
 /*** endif */
 
 /**
- * The module provides basic APIs for manipulating Picture in Picture (PiP). For example, you can use the APIs to check
- * whether the PiP feature is supported and create a PiP controller to start or stop a PiP window. PiP is mainly used in
- * video playback, video calls, or video meetings.
+ * 该模块提供画中画基础功能，包括判断当前系统是否支持画中画功能，以及创建画中画控制器用于启动或停止画中画等。适用于视频播放、视频通话或视频会议场景下，以小窗（画中画）模式呈现内容。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - Before <!--RP2-->OpenHarmony 6.0<!--RP2End-->, the PiP feature was supported only on phones and tablets. Starting
- * > from <!--RP2-->OpenHarmony 6.0<!--RP2End-->, the PiP feature is supported on phones, PCs/2-in-1 devices, tablets,
- * > but is unavailable on all other devices.
+ * > - 在<!--RP2-->OpenHarmony 6.0<!--RP2End-->之前，支持在Phone、Tablet设备使用画中画功能，其他设备不可用；从<!--RP2-->OpenHarmony 6.0<!--RP2End--
+ * > >开始，支持在Phone、PC/2in1、Tablet设备使用画中画功能，其他设备不可用。
  * >
- * > - For the system capability SystemCapability.Window.SessionManager, use
- * > [canIUse()]{@link canIUse} to check whether the device supports this system
- * > capability and the corresponding APIs.
+ * > - 针对系统能力SystemCapability.Window.SessionManager，请先使用
+ * > [canIUse()]{@link canIUse}接口判断当前设备是否支持此syscap及对应接口。
  *
  * @syscap SystemCapability.Window.SessionManager
  * @atomicservice [since 12]
@@ -50,10 +46,9 @@ import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
  */
 declare namespace PiPWindow {
   /**
-   * Checks whether the current device supports the PiP feature.
+   * 判断当前设备是否支持画中画功能。
    *
-   * @returns { boolean } Check result for whether the PiP feature is supported. **true** if supported, **false**
-   *     otherwise.
+   * @returns { boolean } 当前系统是否支持画中画功能。true表示支持，false则表示不支持。
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -62,14 +57,12 @@ declare namespace PiPWindow {
   function isPiPEnabled(): boolean;
 
   /**
-   * Creates a PiP controller. This API uses a promise to return the result.
+   * 创建画中画控制器，使用Promise异步回调。
    *
-   * @param { PiPConfiguration } config - Options for creating the PiP controller. This parameter cannot be empty, and
-   *     **context** and **componentController** that are used to construct this parameter cannot be empty. When
-   *     constructing this parameter, **templateType** (if specified) must be a value defined in
-   *     [PiPTemplateType]{@link PiPWindow.PiPTemplateType}, and **controlGroups** (if specified) must match the value
-   *     of **templateType**. For details, see [PiPControlGroup]{@link PiPWindow.PiPControlGroup}.
-   * @returns { Promise<PiPController> } Promise used to return the PiP controller.
+   * @param { PiPConfiguration } config - 创建画中画控制器的参数。该参数不能为空，并且构造该参数的context和componentController不能为空。构造该参数时，如果指定了
+   *     templateType，需保证templateType是[PiPTemplateType]{@link PiPWindow.PiPTemplateType}类型；如果指定了controlGroups，需保证
+   *     controlGroups与templateType匹配，详见[PiPControlGroup]{@link PiPWindow.PiPControlGroup}。
+   * @returns { Promise<PiPController> } Promise对象。返回当前创建的画中画控制器。
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -80,17 +73,13 @@ declare namespace PiPWindow {
   function create(config: PiPConfiguration): Promise<PiPController>;
 
   /**
-   * Creates a PiP controller. This API uses **typeNode** to add a custom UI node for PiP. This API uses a promise to
-   * return the result.
+   * 创建画中画控制器，使用typeNode为画中画添加自定义UI节点。使用Promise异步回调。
    *
-   * @param { PiPConfiguration } config - Options for creating the PiP controller. This parameter cannot be empty, and
-   *     **context** that is used to construct this parameter cannot be empty. When constructing this parameter,
-   *     **templateType** (if specified) must be a value defined in [PiPTemplateType]{@link PiPWindow.PiPTemplateType},
-   *     and **controlGroups** (if specified) must match the value of **templateType**. For details, see
-   *     [PiPControlGroup]{@link PiPWindow.PiPControlGroup}.
-   * @param { typeNode.XComponent } contentNode - Content to be rendered in the PiP window. The parameter value cannot
-   *     be empty.
-   * @returns { Promise<PiPController> } Promise used to return the PiP controller.
+   * @param { PiPConfiguration } config - 创建画中画控制器的参数。该参数不能为空，并且构造该参数的context不能为空。构造该参数时，如果指定了templateType，需保证
+   *     templateType是[PiPTemplateType]{@link PiPWindow.PiPTemplateType}类型；如果指定了controlGroups，需保证controlGroups与
+   *     templateType匹配，详见[PiPControlGroup]{@link PiPWindow.PiPControlGroup}。
+   * @param { typeNode.XComponent } contentNode - 用于渲染画中画窗口中的内容。该参数不能为空。
+   * @returns { Promise<PiPController> } Promise对象。返回当前创建的画中画控制器。
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -101,7 +90,7 @@ declare namespace PiPWindow {
   function create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>;
 
   /**
-   * Defines the parameters for creating a PiP controller.
+   * 创建画中画控制器时的参数。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
@@ -110,7 +99,7 @@ declare namespace PiPWindow {
    */
   interface PiPConfiguration {
     /**
-     * Context environment.
+     * 表示上下文环境。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -120,7 +109,7 @@ declare namespace PiPWindow {
     context: BaseContext;
 
     /**
-     * Original [XComponent]{@link XComponent} controller.
+     * 表示原始[XComponent]{@link ./@internal/component/ets/xcomponent}控制器。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -130,15 +119,14 @@ declare namespace PiPWindow {
     componentController: XComponentController;
 
     /**
-     * ID of the **Navigation** component. If no value is passed, the page does not need to be cached.
+     * navigation控件ID，不传值则默认不需要缓存页面。
      *
-     * 1. When the UIAbility uses [Navigation]{@link Navigation} to manage pages,
-     * set the ID of the **Navigation** component for the PiP controller.
-     * This ensures that the original page can be restored from the PiP window.
-     * 2. When the UIAbility uses [Router]{@link @ohos.router:router} to manage pages,
-     * you do not need to set the ID of the **Navigation** component for the PiP controller.
-     * 3. If the UIAbility has only one page, you do not need to set the navigation ID.
-     * The original page can be restored from the PiP window.
+     * 1、UIAbility使用[Navigation]{@link Navigation}管理页面时，需要设置Navigation控件的id属性，并将该id设置给画中画控制器，确
+     * 保还原场景下能够从画中画窗口恢复到原页面。
+     *
+     * 2、UIAbility使用[Router]{@link @ohos.router:router}管理页面时，无需设置navigationId。
+     *
+     * 3、UIAbility只有单页面时，无需设置navigationId，还原场景下也能够从画中画窗口恢复到原页面。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -148,15 +136,12 @@ declare namespace PiPWindow {
     navigationId?: string;
 
     /**
-     * ID of the subpage under the **Navigation** component. After the Full-screen Window button is touched,
-     * the specified page is restored. This parameter applies only in scenarios where the UIAbility
-     * uses [Navigation]{@link Navigation} to manage pages. It can be set to any subpage ID
-     * within the Navigation hierarchy. The default value is **-1**, indicating that the topmost page in the Navigation
-     * stack is restored. You are advised to use [getUniqueId()]{@link BaseCustomComponent#getUniqueId} to obtain the
-     * page ID. When you use page routing provided by [Navigation]{@link Navigation}, you are
-     * advised to use the [system routing table](docroot://ui/arkts-navigation-cross-package.md#system-routing-table).
-     * Otherwise, the page ID obtained by calling [getUniqueId()]{@link BaseCustomComponent#getUniqueId}
-     * may be incorrect.
+     * navigation控件下的子页面ID，点击"恢复全屏窗口"按钮后，恢复到指定的页面。
+     * 只适用于UIAbility使用[Navigation]{@link Navigation}管理页面的场景，可以设置为Navigation下的子页面ID。
+     * 默认为-1，恢复Navigation栈顶页面。推荐使用方法[getUniqueId()]{@link BaseCustomComponent#getUniqueId}获取页面ID。
+     * 使用[Navigation]{@link Navigation}模块内页面路由时，
+     * 推荐使用[系统路由表](docroot://ui/arkts-navigation-cross-package.md#系统路由表)，
+     * 否则可能会出现[getUniqueId()]{@link BaseCustomComponent#getUniqueId}获取页面ID不准确的情况。
      *
      * @default -1
      * @syscap SystemCapability.Window.SessionManager
@@ -167,8 +152,7 @@ declare namespace PiPWindow {
     handleId?: int;
 
     /**
-     * Template type, which is used to distinguish video playback, video call, video meeting, and live broadcast
-     * scenarios. If no value is passed, the video playback template is used by default.
+     * 模板类型，用以区分视频播放、视频通话、视频会议或视频直播，不传值则默认为视频播放模板。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -178,12 +162,10 @@ declare namespace PiPWindow {
     templateType?: PiPTemplateType;
 
     /**
-     * Width of the original content, in px. It is used to determine the aspect ratio of the PiP window. When the PiP
-     * controller is created in
-     * [typeNode mode]{@link PiPWindow.create(config: PiPConfiguration, contentNode: typeNode.XComponent)}, the default
-     * value is 1920. When the PiP controller is created
-     * [not in typeNode mode]{@link PiPWindow.create(config: PiPConfiguration)}, the default value is the width of the
-     * [XComponent]{@link XComponent}.
+     * 原始内容宽度，单位为px。用于确定画中画窗口比例。当
+     * [使用typeNode的方式]{@link PiPWindow.create(config: PiPConfiguration, contentNode: typeNode.XComponent)}创建
+     * PiPController时，不传值则默认为1920。当[不使用typeNode的方式]{@link PiPWindow.create(config: PiPConfiguration)}创建PiPController时，不传
+     * 值则默认为[XComponent]{@link XComponent}组件的宽度。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -193,12 +175,10 @@ declare namespace PiPWindow {
     contentWidth?: int;
 
     /**
-     * Height of the original content, in px. It is used to determine the aspect ratio of the PiP window. When the PiP
-     * controller is created in
-     * [typeNode mode]{@link PiPWindow.create(config: PiPConfiguration, contentNode: typeNode.XComponent)}, the default
-     * value is 1080. When the PiP controller is created
-     * [not in typeNode mode]{@link PiPWindow.create(config: PiPConfiguration)}, the default value is the height of the
-     * [XComponent]{@link XComponent}.
+     * 原始内容高度，单位为px。用于确定画中画窗口比例。当
+     * [使用typeNode的方式]{@link PiPWindow.create(config: PiPConfiguration, contentNode: typeNode.XComponent)}创建
+     * PiPController时，不传值则默认为1080。当[不使用typeNode的方式]{@link PiPWindow.create(config: PiPConfiguration)}创建PiPController时，不传
+     * 值则默认为[XComponent]{@link XComponent}组件的高度。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -208,11 +188,7 @@ declare namespace PiPWindow {
     contentHeight?: int;
 
     /**
-     * A list of optional component groups of the PiP controller. An application can configure whether to display these
-     * optional components. If this parameter is not set for the application, the panel displays basic components (such
-     * as the play/pause component of the video playback component group). If this parameter is set for the application,
-     * a maximum of three components can be selected. If more than three controls are selected, error code 401 is
-     * reported by the API.
+     * 画中画控制面板的可选控件组列表，应用可以对此进行配置以决定是否显示。应用未配置时，面板显示基础控件（如视频播放控件组的播放/暂停控件）；应用选择配置时，则最多可以选择三个控件，超出三个create接口抛出401错误码。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -222,8 +198,7 @@ declare namespace PiPWindow {
     controlGroups?: Array<PiPControlGroup>;
 
     /**
-     * Custom UI controller, which is used to implement the custom UI features on the PiP page. If this parameter is
-     * left empty, the custom UI features are not used by default.
+     * 自定义UI控制器，用于实现在画中画界面的自定义UI功能。此参数不填时，默认不使用自定义UI功能
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -233,9 +208,7 @@ declare namespace PiPWindow {
     customUIController?: NodeController;
 
     /**
-     * A page-level UI state storage unit. In multi-instance scenarios, it can be used to track the UI state storage
-     * object of the main window instance. If no value is passed, you cannot retrieve the main window's UI storage
-     * object through the PiP window.
+     * 页面级别的UI状态存储单元。多实例下可用来跟踪主窗实例的UI状态存储对象，不传值则无法通过画中画窗口获取主窗的UI状态存储对象。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -245,16 +218,15 @@ declare namespace PiPWindow {
     localStorage?: LocalStorage;
 
     /**
-     * Size of the PiP window that the current app starts for the first time.
+     * 当前应用第一次拉起画中画的窗口大小。
      *
-     * **0**: no size is set. The PiP window is started based on the size before the PiP window of the previous
-     * application is closed.
+     * 0：代表不设置大小。按照上个应用的画中画关闭前的大小启动；
      *
-     * **1**: small window.
+     * 1：代表小窗；
      *
-     * **2**: large window.
+     * 2：代表大窗；
      *
-     * If no value is passed, **0** is used.
+     * 不传值则为默认值0。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -264,17 +236,16 @@ declare namespace PiPWindow {
     defaultWindowSizeType?: int;
 
     /**
-     * Whether the PiP window automatically snaps to screen corners. When this feature is enabled, the screen is divided
-     * into four hot zones (top-left, top-right, bottom-left, and bottom-right). When users lift their finger while
-     * dragging the PiP window within a hot zone, the PiP window is automatically snapped to the nearest corner.
-     *
-     * **true**: enables corner snapping.
-     *
-     * **false**: disables corner snapping.
-     *
-     * The default value is **true**.
-     *
-     * This API can be properly called on phones and tablets. If it is called on other device types, it has no effect.
+     * 是否开启画中画四角吸附功能。当开启画中画四角吸附功能后，屏幕将被划分为四个热区：以屏幕的上下中线和左右中线为界，形成左上、右上、左下、右下四个区域。用户拖动画中画窗口并松手后，系统将根据窗口中心点所处的热区，自动将窗口吸附到
+     * 对应角落。
+     * 
+     * true：表示开启画中画四角吸附功能。
+     * 
+     * false：表示关闭画中画四角吸附功能。
+     * 
+     * 不传值则为默认值true。
+     * 
+     * 该接口在Phone、Tablet设备上可正常调用，在其他设备上不生效。
      *
      * @default true
      * @syscap SystemCapability.Window.SessionManager
@@ -286,7 +257,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Describes the size of a PiP window.
+   * 画中画窗口大小。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -295,7 +266,7 @@ declare namespace PiPWindow {
    */
   interface PiPWindowSize {
     /**
-     * Window width, in px. The value must be a positive integer and cannot be greater than the screen width.
+     * 窗口宽度，单位为px，该参数应为正整数，不大于屏幕宽度。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -305,7 +276,7 @@ declare namespace PiPWindow {
     width: int;
 
     /**
-     * Window height, in px. The value must be a positive integer and cannot be greater than the screen height.
+     * 窗口高度，单位为px，该参数应为正整数，不大于屏幕高度。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -315,9 +286,7 @@ declare namespace PiPWindow {
     height: int;
 
     /**
-     * Scale factor of the window, representing the display size relative to the width and height. The value is a
-     * floating-point number in the range (0.0, 1.0]. The value **1** means that the window matches the specified width
-     * and height.
+     * 窗口缩放比，显示大小相对于width和height的缩放比，该参数为浮点数，取值范围大于0.0，小于等于1.0。等于1表示与width和height一样大。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -328,7 +297,7 @@ declare namespace PiPWindow {
   }
 
 /**
-   * Describes the PiP window information.
+   * 画中画窗口信息。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -337,7 +306,7 @@ declare namespace PiPWindow {
    */
   interface PiPWindowInfo {
     /**
-     * ID of the PiP window.
+     * 画中画窗口ID。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -347,7 +316,7 @@ declare namespace PiPWindow {
     windowId: int;
 
     /**
-     * Size of the PiP window.
+     * 画中画窗口大小。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -358,7 +327,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the PiP template types.
+   * 画中画模板类型枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
@@ -367,8 +336,7 @@ declare namespace PiPWindow {
    */
   enum PiPTemplateType {
     /**
-     * Video playback template. A PiP window will be started during video playback, and the video playback template will
-     * be loaded. The template contains the play/pause component by default.
+     * 表示将要切换为画中画播放的媒体类型是视频，系统依此加载视频播放模板，该模板默认存在播放/暂停控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -378,8 +346,7 @@ declare namespace PiPWindow {
     VIDEO_PLAY = 0,
 
     /**
-     * Video call template. A PiP window will be started during a video call, and the video call template will be
-     * loaded.
+     * 表示将要切换为画中画播放的媒体类型是视频通话，系统依此加载视频通话模板。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -389,8 +356,7 @@ declare namespace PiPWindow {
     VIDEO_CALL = 1,
 
     /**
-     * Video meeting template. A PiP window will be started during a video meeting, and the video meeting template will
-     * be loaded.
+     * 表示将要切换为画中画播放的媒体类型是视频会议，系统依此加载视频会议模板。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -400,7 +366,7 @@ declare namespace PiPWindow {
     VIDEO_MEETING = 2,
 
     /**
-     * Live template. A PiP window will be started during a live, and the live template is loaded.
+     * 表示将要切换为画中画播放的媒体类型是直播，系统依此加载直播模板。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -411,7 +377,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the PiP states.
+   * 画中画生命周期状态枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
@@ -420,7 +386,7 @@ declare namespace PiPWindow {
    */
   enum PiPState {
     /**
-     * PiP is about to start.
+     * 表示画中画将要启动。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -430,7 +396,7 @@ declare namespace PiPWindow {
     ABOUT_TO_START = 1,
 
     /**
-     * PiP is started.
+     * 表示画中画已经启动。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -440,7 +406,7 @@ declare namespace PiPWindow {
     STARTED = 2,
 
     /**
-     * PiP is about to stop.
+     * 表示画中画将要停止。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -450,7 +416,7 @@ declare namespace PiPWindow {
     ABOUT_TO_STOP = 3,
 
     /**
-     * PiP is stopped.
+     * 表示画中画已经停止。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -460,7 +426,7 @@ declare namespace PiPWindow {
     STOPPED = 4,
 
     /**
-     * The original page is about to restore.
+     * 表示画中画将从小窗播放恢复到原始播放界面。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -470,7 +436,7 @@ declare namespace PiPWindow {
     ABOUT_TO_RESTORE = 5,
 
     /**
-     * An error occurs during the execution of the PiP lifecycle.
+     * 表示画中画生命周期执行过程出现了异常。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -481,14 +447,13 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Describes the optional component groups of the PiP controller. An application can configure whether to display
-   * these optional components. This API must match [PiPTemplateType]{@link PiPWindow.PiPTemplateType} when being used.
-   * Otherwise, the [create]{@link PiPWindow.create(config: PiPConfiguration)} API returns error code 401.
+   * 画中画控制面板的可选控件组列表，应用可以配置是否显示可选控件。使用时必须和[PiPTemplateType]{@link PiPWindow.PiPTemplateType}对应，否则
+   * [create]{@link PiPWindow.create(config: PiPConfiguration)}接口抛出401错误码。
    *
-   * @unionmember { VideoPlayControlGroup } Video playback component group.
-   * @unionmember { VideoCallControlGroup } Video call component group.
-   * @unionmember { VideoMeetingControlGroup } Video meeting component group.
-   * @unionmember { VideoLiveControlGroup } Live video component group.
+   * @unionmember { VideoPlayControlGroup } 视频播放控件组。
+   * @unionmember { VideoCallControlGroup } 视频通话控件组。
+   * @unionmember { VideoMeetingControlGroup } 视频会议控件组。
+   * @unionmember { VideoLiveControlGroup } 视频直播控件组。
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -498,8 +463,7 @@ declare namespace PiPWindow {
     | VideoLiveControlGroup;
 
   /**
-   * Enumerates the video playback component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_PLAY**.
+   * 视频播放控件组枚举。仅当[PiPTemplateType]{@link PiPWindow.PiPTemplateType}为VIDEO_PLAY时使用。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -508,10 +472,9 @@ declare namespace PiPWindow {
    */
   enum VideoPlayControlGroup {
     /**
-     * Previous/Next component group for video playback.
+     * 视频上一个/下一个控件组。
      *
-     * This component group is mutually exclusive with the fast-forward/rewind component group. It cannot be added if
-     * the fast-forward/rewind component group is added.
+     * 与视频快进/后退控件组为互斥控件组。如添加视频快进/后退控件组，则不可添加该控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -521,10 +484,9 @@ declare namespace PiPWindow {
     VIDEO_PREVIOUS_NEXT = 101,
 
     /**
-     * Fast-forward/Rewind component group for video playback.
+     * 视频快进/后退控件组。
      *
-     * This component group is mutually exclusive with the previous/next component group. It cannot be added if the
-     * previous/next component group is added.
+     * 与视频上一个/下一个控件组为互斥控件组。如添加视频上一个/下一个控件组，则不可添加该控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -535,8 +497,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the video call component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_CALL**.
+   * 视频通话控件组枚举。仅当[PiPTemplateType]{@link PiPWindow.PiPTemplateType} 为VIDEO_CALL时使用。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -545,7 +506,7 @@ declare namespace PiPWindow {
    */
   enum VideoCallControlGroup {
     /**
-     * Microphone on/off component group.
+     * 打开/关闭麦克风控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -555,7 +516,7 @@ declare namespace PiPWindow {
     MICROPHONE_SWITCH = 201,
 
     /**
-     * Hang-up component group.
+     * 挂断控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -565,7 +526,7 @@ declare namespace PiPWindow {
     HANG_UP_BUTTON = 202,
 
     /**
-     * Camera on/off component group.
+     * 打开/关闭摄像头控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -575,7 +536,7 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 203,
 
     /**
-     * Mute/Unmute component group.
+     * 静音控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -586,8 +547,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the video meeting component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_MEETING**.
+   * 视频会议控件组枚举。仅当[PiPTemplateType]{@link PiPWindow.PiPTemplateType} 为VIDEO_MEETING时使用。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -596,7 +556,7 @@ declare namespace PiPWindow {
    */
   enum VideoMeetingControlGroup {
     /**
-     * Hang-up component group.
+     * 挂断控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -606,7 +566,7 @@ declare namespace PiPWindow {
     HANG_UP_BUTTON = 301,
 
     /**
-     * Camera on/off component group.
+     * 打开/关闭摄像头控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -616,7 +576,7 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 302,
 
     /**
-     * Mute/Unmute component group.
+     * 静音控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -626,7 +586,7 @@ declare namespace PiPWindow {
     MUTE_SWITCH = 303,
 
     /**
-     * Microphone on/off component group.
+     * 打开/关闭麦克风控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -637,8 +597,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the live video component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_LIVE**.
+   * 视频直播控件组枚举。仅当[PiPTemplateType]{@link PiPWindow.PiPTemplateType} 为VIDEO_LIVE时使用。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -647,7 +606,7 @@ declare namespace PiPWindow {
    */
   enum VideoLiveControlGroup {
     /**
-     * Play/Pause component group for live video.
+     * 播放/暂停直播控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -657,7 +616,7 @@ declare namespace PiPWindow {
     VIDEO_PLAY_PAUSE = 401,
 
     /**
-     * Mute/Unmute component group.
+     * 静音控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -668,7 +627,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the statuses of components displayed on the PiP controller.
+   * 控制面板控件状态枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -677,7 +636,7 @@ declare namespace PiPWindow {
    */
   enum PiPControlStatus {
     /**
-     * Play.
+     * 播放。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -687,7 +646,7 @@ declare namespace PiPWindow {
     PLAY = 1,
 
     /**
-     * Pause.
+     * 暂停。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -697,7 +656,7 @@ declare namespace PiPWindow {
     PAUSE = 0,
 
     /**
-     * Open.
+     * 打开。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -707,7 +666,7 @@ declare namespace PiPWindow {
     OPEN = 1,
 
     /**
-     * Close.
+     * 关闭。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -718,7 +677,7 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the types of components displayed on the PiP controller.
+   * 控制面板控件类型枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -727,7 +686,7 @@ declare namespace PiPWindow {
    */
   enum PiPControlType {
     /**
-     * Play/Pause component group for live video.
+     * 播放/暂停直播控件组。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -737,7 +696,7 @@ declare namespace PiPWindow {
     VIDEO_PLAY_PAUSE = 0,
 
     /**
-     * Previous component in video scenarios.
+     * 视频上一个控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -747,7 +706,7 @@ declare namespace PiPWindow {
     VIDEO_PREVIOUS = 1,
 
     /**
-     * Next component in video scenarios.
+     * 视频下一个控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -757,7 +716,7 @@ declare namespace PiPWindow {
     VIDEO_NEXT = 2,
 
     /**
-     * Fast-forward component in video scenarios.
+     * 视频快进控件
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -767,7 +726,7 @@ declare namespace PiPWindow {
     FAST_FORWARD = 3,
 
     /**
-     * Rewind component in video scenarios.
+     * 视频快退控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -777,7 +736,7 @@ declare namespace PiPWindow {
     FAST_BACKWARD = 4,
 
     /**
-     * Hang-up component.
+     * 挂断控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -787,7 +746,7 @@ declare namespace PiPWindow {
     HANG_UP_BUTTON = 5,
 
     /**
-     * Microphone on/off component.
+     * 打开/关闭麦克风控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -797,7 +756,7 @@ declare namespace PiPWindow {
     MICROPHONE_SWITCH = 6,
 
     /**
-     * Camera on/off component.
+     * 打开/关闭摄像头控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -807,7 +766,7 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 7,
 
     /**
-     * Mute/Unmute component.
+     * 打开/关闭静音控件。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -818,12 +777,12 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the types of action events of the PiP controller.
+   * 画中画控制面板控件动作事件类型，支持以下四种。
    *
-   * @unionmember { PiPVideoActionEvent } Action event for components displayed on the video playback controller.
-   * @unionmember { PiPCallActionEvent } Action event for components displayed on the video call controller.
-   * @unionmember { PiPMeetingActionEvent } Action event for components displayed on the video meeting controller.
-   * @unionmember { PiPLiveActionEvent } Action event for components displayed on the live video controller.
+   * @unionmember { PiPVideoActionEvent } 视频播放控制面板控件事件类型。
+   * @unionmember { PiPCallActionEvent } 视频通话控制面板控件事件类型。
+   * @unionmember { PiPMeetingActionEvent } 视频会议控制面板控件事件类型。
+   * @unionmember { PiPLiveActionEvent } 直播控制面板控件事件类型。
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -832,13 +791,13 @@ declare namespace PiPWindow {
   type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent;
 
   /**
-   * Defines the PiP action event during video playback.
+   * 视频播放控制事件类型。
    *
-   * @unionmember { 'playbackStateChanged' } The playback status changes.
-   * @unionmember { 'nextVideo' } Plays the next video.
-   * @unionmember { 'previousVideo' } Plays the previous video.
-   * @unionmember { 'fastForward' } Fast forwards the video. This value is supported since API version 12. [since 12]
-   * @unionmember { 'fastBackward' } Rewinds the video. This value is supported since API version 12. [since 12]
+   * @unionmember { 'playbackStateChanged' } 播放状态发生了变化。
+   * @unionmember { 'nextVideo' } 播放下一个视频。
+   * @unionmember { 'previousVideo' } 播放上一个视频。
+   * @unionmember { 'fastForward' } 视频进度快进。从API version 12 开始支持。 [since 12]
+   * @unionmember { 'fastBackward' } 视频进度后退。从API version 12 开始支持。 [since 12]
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -847,12 +806,12 @@ declare namespace PiPWindow {
   type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward';
 
   /**
-   * Defines the PiP action event in a video call.
+   * 视频通话控制事件类型。
    *
-   * @unionmember { 'hangUp' } The video call is hung up.
-   * @unionmember { 'micStateChanged' } The microphone is muted or unmuted.
-   * @unionmember { 'videoStateChanged' } The camera is turned on or off.
-   * @unionmember { 'voiceStateChanged' } The speaker is muted or unmuted. [since 12]
+   * @unionmember { 'hangUp' } 挂断视频通话。
+   * @unionmember { 'micStateChanged' } 打开或关闭麦克风。
+   * @unionmember { 'videoStateChanged' } 打开或关闭摄像头。
+   * @unionmember { 'voiceStateChanged' } 静音或解除静音。 [since 12]
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -861,12 +820,12 @@ declare namespace PiPWindow {
   type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
 
   /**
-   * Defines the PiP action event in a video meeting.
+   * 视频会议控制事件类型。
    *
-   * @unionmember { 'hangUp' } The video meeting is hung up.
-   * @unionmember { 'voiceStateChanged' } The speaker is muted or unmuted.
-   * @unionmember { 'videoStateChanged' } The camera is turned on or off.
-   * @unionmember { 'micStateChanged' } The microphone is muted or unmuted. [since 12]
+   * @unionmember { 'hangUp' } 挂断视频会议。
+   * @unionmember { 'voiceStateChanged' } 静音或解除静音。
+   * @unionmember { 'videoStateChanged' } 打开或关闭摄像头。
+   * @unionmember { 'micStateChanged' } 打开或关闭麦克风。 [since 12]
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -875,10 +834,10 @@ declare namespace PiPWindow {
   type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
 
   /**
-   * Defines the PiP action event in a live.
+   * 直播控制事件类型。
    *
-   * @unionmember { 'playbackStateChanged' } The live is played or paused.
-   * @unionmember { 'voiceStateChanged' } The speaker is muted or unmuted. [since 12]
+   * @unionmember { 'playbackStateChanged' } 播放或暂停直播。
+   * @unionmember { 'voiceStateChanged' } 静音或解除静音。 [since 12]
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -887,16 +846,12 @@ declare namespace PiPWindow {
   type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
   /**
-   * Describes the action event callback of the PiP controller.
+   * 描述画中画控制面板控件动作事件回调。
    *
-   * @param { PiPActionEventType } event - Type of the action event of the PiP controller.
-   *     <br>The application performs processing based on the action event. For example,
-   *     if the **'playbackStateChanged'** event is triggered, the application starts or stops the video.
-   * @param { int } [status] - Status of a component that can be switched. For example, for a microphone on/off
-   *     component group, a camera on/off component group, and a mute/unmute component group, the value **1** means that
-   *     the component is enabled and **0** means that the component is disabled. For other components, the default
-   *     value **-1** is used.
-   *     The value should be an integer.
+   * @param { PiPActionEventType } event - 回调画中画控制面板控件动作事件类型。<br/>应用依据控件动作事件做相应处理，如触发'playbackStateChanged'事件时，需要开始或停止视频
+   *     。
+   * @param { int } [status] - 表示可切换状态的控件当前的状态，如具备打开和关闭两种状态的麦克风控件组、摄像头控件组和静音控件组，打开为1，关闭为0。其余控件该参数返回默认值-1。
+   *     取值限定为整数
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -907,7 +862,7 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture stage change event callback.
    *
-   * @param { PiPState } state - pip window state
+   * @param { PiPState } state - 画中画窗口状态。
    * @param { string } reason - the reason of state change
    * @syscap SystemCapability.Window.SessionManager
    * @since 24 static
@@ -915,7 +870,7 @@ declare namespace PiPWindow {
   type StateChangeCallback = (state: PiPState, reason: string) => void;
 
   /**
-   * Describes the parameters in the callback of the action event of the PiP controller.
+   * 画中画控制面板控件动作回调的参数。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
@@ -924,8 +879,7 @@ declare namespace PiPWindow {
    */
   interface ControlEventParam {
     /**
-     * Type of the action event of the PiP controller. The application performs processing based on the component type.
-     * For example, if the video play/pause component is touched, the application starts or stops the video.
+     * 回调画中画控制面板控件动作事件类型。应用依据控件类型做相应处理，如视频模板中暂停/播放控件被点击时，需要开始或停止视频。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -935,10 +889,8 @@ declare namespace PiPWindow {
     controlType: PiPControlType;
 
     /**
-     * Status of a component that can be switched. For example, for a microphone on/off component group, a camera on/off
-     * component group, and a mute/unmute component group, the value **PiPControlStatus.PLAY** means that the component
-     * is enabled and **PiPControlStatus.PAUSE** means that the component is disabled. For the hang-up component, the
-     * default value is **-1**.
+     * 表示可切换状态的控件当前的状态，如具备打开和关闭两种状态的麦克风控件组、摄像头控件组和静音控件组，打开为PiPControlStatus.PLAY，关闭为PiPControlStatus.PAUSE。如不具备开/关和播放/暂停
+     * 状态的挂断控件默认返回值为-1。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -949,10 +901,10 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Implements a PiP controller that starts, stops, or updates a PiP window and registers callbacks.
+   * 画中画控制器实例。用于启动、停止画中画以及更新回调注册等。
    *
-   * Before calling any of the following APIs, you must use
-   * [PiPWindow.create()]{@link PiPWindow.create(config: PiPConfiguration)} to create a PiPController instance.
+   * 下列API示例中都需先使用[PiPWindow.create()]{@link PiPWindow.create(config: PiPConfiguration)}方法获取到PiPController实例，再通过此实例调用对应方
+   * 法。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
@@ -962,15 +914,13 @@ declare namespace PiPWindow {
   interface PiPController {
 
     /**
-     * Starts a PiP window. This API uses a promise to return the result.
+     * 启动画中画，使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
      * @throws { BusinessError } 1300013 - Failed to create the PiP window.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
-     * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
-     *     App has already started float view. [since 26.0.0]
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -979,9 +929,9 @@ declare namespace PiPWindow {
     startPiP(): Promise<void>;
 
     /**
-     * Stops a PiP window. This API uses a promise to return the result.
+     * 停止画中画，使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 1300011 - Failed to destroy the PiP window.
      * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
@@ -993,17 +943,12 @@ declare namespace PiPWindow {
     stopPiP(): Promise<void>;
 
     /**
-     * Sets whether to automatically start a PiP window when the user returns to the home screen. By default, no PiP
-     * window is started.
+     * 设置是否在返回桌面时自动启动画中画，默认不自动拉起。
      *
-     * If the XComponent approach is used to implement PiP and the **Navigation** component is used for route management
-     * , the system caches the top stack information with the specified navigation ID upon the first call of
-     * **setAutoStartEnabled(true)**.
+     * 在使用XComponent方案实现画中画功能并结合Navigation进行路由管理时，首次调用setAutoStartEnabled(true)方法，系统会缓存当前应用传入的NavigationId的栈顶信息。
      *
-     * @param { boolean } enable - Whether to automatically start a PiP window when the user returns to the home screen.
-     *     **true** to start, **false** otherwise. If the PiP feature under **Settings** > **System** > **Multi-window**
-     *     is disabled, the PiP window will not be automatically started when the user returns to the home screen even
-     *     if this parameter is set to **true**.
+     * @param { boolean } enable - 如返回桌面时需自动启动画中画，则该参数配置为true，否则为false。若设置-系统-智慧多窗-自动启动画中画开关为关闭状态，就算该参数配置为true，应用返回桌面时也不
+     *     会自动启动画中画窗口。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1012,12 +957,10 @@ declare namespace PiPWindow {
     setAutoStartEnabled(enable: boolean): void;
 
     /**
-     * Updates the media content size when the media content changes.
+     * 当媒体源切换时，向画中画控制器更新媒体源尺寸信息。
      *
-     * @param { int } width - Width of the media content, in px. The value must be an integer greater than 0. It is used
-     *     to update the aspect ratio of the PiP window.
-     * @param { int } height - Height of the media content, in px. The value must be an integer greater than 0. It is
-     *     used to update the aspect ratio of the PiP window.
+     * @param { int } width - 表示媒体内容宽度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。
+     * @param { int } height - 表示媒体内容高度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1026,12 +969,11 @@ declare namespace PiPWindow {
     updateContentSize(width: int, height: int): void;
 
     /**
-     * Updates the PiP controller status.
+     * 更新画中画控制面板控件功能状态。
      *
-     * @param { PiPControlType } controlType - Type of the component displayed on the PiP controller. Currently, only
-     *     the **VIDEO_PLAY_PAUSE**, **MICROPHONE_SWITCH**, **CAMERA_SWITCH**, and **MUTE_SWITCH** component types are
-     *     supported. If other component types are passed, they do not take effect and no error is reported.
-     * @param { PiPControlStatus } status - Status of the component displayed on the PiP controller.
+     * @param { PiPControlType } controlType - 表示画中画控制面板控件类型。目前仅支持VIDEO_PLAY_PAUSE、MICROPHONE_SWITCH、CAMERA_SWITCH和
+     *     MUTE_SWITCH这几种控件类型，传入其他控件类型不生效也不报错。
+     * @param { PiPControlStatus } status - 表示画中画控制面板控件状态。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1040,11 +982,10 @@ declare namespace PiPWindow {
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
     /**
-     * Updates the PiP node content. This API uses a promise to return the result.
+     * 更新画中画节点内容，使用Promise异步回调。
      *
-     * @param { typeNode.XComponent } contentNode - Content to be rendered in the PiP window. The parameter value cannot
-     *     be empty.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { typeNode.XComponent } contentNode - 用于渲染画中画窗口中的内容。该参数不能为空。
+     * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1056,11 +997,10 @@ declare namespace PiPWindow {
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
 
     /**
-     * Sets the enabled status for a component displayed on the PiP controller.
+     * 更新控制面板控件使能状态。
      *
-     * @param { PiPControlType } controlType - Type of the component displayed on the PiP controller.
-     * @param { boolean } enabled - Enabled status of the component displayed on the PiP controller. **true** if enabled
-     *     , **false** otherwise.
+     * @param { PiPControlType } controlType - 表示画中画控制面板控件类型。
+     * @param { boolean } enabled - 表示画中画控制面板控件使能状态。true表示控件为可使用状态，false则为禁用状态。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1069,9 +1009,9 @@ declare namespace PiPWindow {
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
     /**
-     * Obtains the PIP window information. This API uses a promise to return the result.
+     * 获取画中画窗口信息，使用Promise异步回调。
      *
-     * @returns { Promise<PiPWindowInfo> } Promise used to return the information about the current PIP window.
+     * @returns { Promise<PiPWindowInfo> } Promise对象，返回当前画中画窗口信息。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1083,10 +1023,9 @@ declare namespace PiPWindow {
     getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
     /**
-     * Obtains the status of the auto-start PiP switch in Settings. This API uses a promise to return the result.
+     * 获取设置中自动启动画中画开关的状态，使用Promise异步回调。
      *
-     * @returns { Promise<boolean> } Promise used to return the auto-start PiP switch status. **true** if enabled,
-     *     **false** otherwise.
+     * @returns { Promise<boolean> } Promise对象，返回当前自动启动画中画开关状态，true表示开启，false表示关闭。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1098,12 +1037,10 @@ declare namespace PiPWindow {
     getPiPSettingSwitch(): Promise<boolean>;
 
     /**
-     * Check whether the PiP window is active. This API uses a promise to return the result.
+     * 获取画中画的隐藏状态。使用Promise异步回调。
      *
-     * @returns { Promise<boolean> } Promise used to return the PiP window status. **true** is returned if the PiP
-     *     window is visible, and **false** is returned if the PiP window is invisible (hidden in the sidebar). If this
-     *     API is called when the PiP lifecycle is not [STARTED]{@link PiPWindow.PiPState}, **false** is always
-     *     returned.
+     * @returns { Promise<boolean> } Promise对象，返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。画中画生命周期不为
+     *     [STARTED]{@link PiPWindow.PiPState}时调用本接口总是返回false。
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1113,27 +1050,20 @@ declare namespace PiPWindow {
     isPiPActive(): Promise<boolean>;
 
     /**
-     * Subscribes to PiP state events. To avoid potential memory leaks, you are advised to stop listening when it is no
-     * longer needed.
+     * 开启画中画生命周期状态变化的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { 'stateChange' } type - Event type. The value is fixed at **'stateChange'**, indicating that the PiP
-     *     state changes.
-     * @param { function } callback - Callback used to return the result, which includes the following information:<br>-
-     *     **state**: [PiPState]{@link PiPWindow.PiPState}, indicating the new PiP state.
-     *     <br>- **reason**: a string indicating the reason for the state change.
-     *     <br>Before <!--RP1-->OpenHarmony 6.1<!--RP1End-->, the value of **reason** is always **0**,
-     *     which can be ignored.<br>Since <!--RP1-->OpenHarmony 6.1<!--RP1End-->, **reason**
-     *     indicates the reason for switching the current lifecycle. The options are as follows:
-     *     <br>**"requestStart"**: An application calls the **startPip** API.
-     *     <br>**"autoStart"**: The application is automatically started in PiP mode
-     *      when it is switched to the background.
-     *     <br>**"requestDelete"**: The application calls the **stopPip** API.
-     *     <br>**"panelActionDelete"**: The user taps the close button in the PiP window.
-     *     <br>**"dragDelete"**: The user drags the PiP window to delete.
-     *     <br>**"panelActionRestore"**: The user taps the restore button in the PiP
-     *     window (or taps the PiP window if there is no restore button) to restore the PiP window.
-     *     <br>**"other"**: Other reasons, such as the current window or application's main window being closed
-     *     due to the startup of a new PiP window.
+     * @param { 'stateChange' } type - 事件类型，固定为'stateChange'，即画中画生命周期状态变化事件。
+     * @param { function } callback - 回调生命周期状态变化事件以及原因。<br/>state：[PiPState]{@link PiPWindow.PiPState}，表示当前画中画生命周期状态。
+     *     <br/>reason：string，表示当前生命周期的切换原因。
+     *     <br/>在<!--RP1-->OpenHarmony 6.1<!--RP1End-->之前，reason始终为“0”，无需关注。
+     *     <br/>从<!--RP1-->OpenHarmony 6.1<!--RP1End-->开始，reason为当前生命周期的切换原因：
+     *     <br/>"requestStart"：应用调用startPip接口；
+     *     <br/>"autoStart"：应用退后台触发画中画自动启动；
+     *     <br/>"requestDelete"：应用调用stopPip接口；
+     *     <br/>"panelActionDelete"：用户点击画中画窗口的关闭按钮；
+     *     <br/>"dragDelete"：用户将画中画窗口拖入垃圾桶；
+     *     <br/>"panelActionRestore"：用户点击画中画窗口的还原按钮（无还原按钮时可点击画中画窗口）触发还原；
+     *     <br/>"other"：其他原因，如新的画中画窗口拉起导致当前窗口被关闭、应用主窗口被关闭等场景。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1150,10 +1080,9 @@ declare namespace PiPWindow {
     onStateChange(callback: StateChangeCallback): void;
 
     /**
-     * Unsubscribes from PiP state events.
+     * 关闭画中画生命周期状态变化的监听。
      *
-     * @param { 'stateChange' } type - Event type. The value is fixed at **'stateChange'**, indicating that the PiP
-     *     state changes.
+     * @param { 'stateChange' } type - 事件类型，固定为'stateChange'，即画中画生命周期状态变化事件。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1169,15 +1098,13 @@ declare namespace PiPWindow {
     offStateChange(): void;
 
     /**
-     * Subscribes to PiP action events. To avoid potential memory leaks, you are advised to stop listening when it is no
-     * longer needed. The
+     * 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。推荐使用
      * [on('controlEvent')]{@link PiPWindow.PiPController.on(type: 'controlEvent', callback: Callback<ControlEventParam>)}
-     * API is preferred.
+     * 来开启画中画控制面板控件动作事件的监听。
      *
-     * @param { 'controlPanelActionEvent' } type - Event type. The value is fixed at **'controlPanelActionEvent'**,
-     *     indicating the action event of the PiP controller.
-     * @param { function } callback - Action event callback of the PiP controller. [since 11 - 11]
-     * @param { ControlPanelActionEventCallback } callback - Action event callback of the PiP controller. [since 12]
+     * @param { 'controlPanelActionEvent' } type - 事件类型，固定为'controlPanelActionEvent'，即画中画控制面板控件动作事件。
+     * @param { function } callback - 描述画中画控制面板控件动作事件回调。[since 11 - 11]
+     * @param { ControlPanelActionEventCallback } callback - 描述画中画控制面板控件动作事件回调。 [since 12]
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1194,12 +1121,11 @@ declare namespace PiPWindow {
     onControlPanelActionEvent(callback: ControlPanelActionEventCallback): void;
 
     /**
-     * Unsubscribes from PiP action events. The
-     * **[off('controlEvent')]{@link PiPWindow.PiPController.off(type: 'controlEvent', callback?: Callback<ControlEventParam>)}**
-     * API is preferred.
+     * 关闭画中画控制面板控件动作事件的监听。推荐使用
+     * [off('controlEvent')]{@link PiPWindow.PiPController.off(type: 'controlEvent', callback?: Callback<ControlEventParam>)}
+     * 来关闭画中画控制面板控件动作事件的监听。
      *
-     * @param { 'controlPanelActionEvent' } type - Event type. The value is fixed at **'controlPanelActionEvent'**,
-     *     indicating the action event of the PiP controller.
+     * @param { 'controlPanelActionEvent' } type - 事件类型，固定为'controlPanelActionEvent'，即画中画控制面板控件动作事件。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1215,12 +1141,10 @@ declare namespace PiPWindow {
     offControlPanelActionEvent(): void;
 
     /**
-     * Subscribes to PiP action events. To avoid potential memory leaks, you are advised to stop listening when it is no
-     * longer needed.
+     * 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { 'controlEvent' } type - Event type. The value is fixed at **'controlEvent'**, indicating the action
-     *     event of the PiP controller.
-     * @param { Callback<ControlEventParam> } callback - Action event callback of the PiP controller.
+     * @param { 'controlEvent' } type - 事件类型，固定为'controlEvent'，即画中画控制面板控件动作事件。
+     * @param { Callback<ControlEventParam> } callback - 描述画中画控制面板控件动作事件回调。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1237,12 +1161,10 @@ declare namespace PiPWindow {
     onControlEvent(callback: Callback<ControlEventParam>): void;
 
     /**
-     * Unsubscribes from PiP action events.
+     * 关闭画中画控制面板控件动作事件的监听。
      *
-     * @param { 'controlEvent' } type - Event type. The value is fixed at **'controlEvent'**, indicating the action
-     *     event of the PiP controller.
-     * @param { Callback<ControlEventParam> } callback - Describes the action event callback of the PiP controller. If
-     *     no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { 'controlEvent' } type - 事件类型，固定为'controlEvent'，即画中画控制面板控件动作事件。
+     * @param { Callback<ControlEventParam> } callback - 描述画中画控制面板控件动作事件回调。如果未传入参数，解除type为'controlEvent'的所有回调。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1260,12 +1182,10 @@ declare namespace PiPWindow {
     offControlEvent(callback?: Callback<ControlEventParam>): void;
 
     /**
-     * Subscribes to PiP window size change events. To avoid potential memory leaks, you are advised to stop listening
-     * when it is no longer needed.
+     * 开启画中画窗口尺寸变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { 'pipWindowSizeChange' } type - Event type. The value is fixed at **'pipWindowSizeChange'**, indicating
-     *     that the PiP window size changes.
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the size of the current PiP window.
+     * @param { 'pipWindowSizeChange' } type - 事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。
+     * @param { Callback<PiPWindowSize> } callback - 回调函数。返回当前画中画窗口的尺寸。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1288,13 +1208,11 @@ declare namespace PiPWindow {
     onPipWindowSizeChange(callback: Callback<PiPWindowSize>): void;
 
     /**
-     * Unsubscribes from the PiP window size change event.
+     * 关闭画中画窗口尺寸变化事件的监听。
      *
-     * @param { 'pipWindowSizeChange' } type - Event type. The value is fixed at **'pipWindowSizeChange'**, indicating
-     *     that the PiP window size changes.
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the size of the current PiP window. If a
-     *     value is passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions
-     *     to the specified event are canceled.
+     * @param { 'pipWindowSizeChange' } type - 事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。
+     * @param { Callback<PiPWindowSize> } callback - 回调函数。返回当前画中画窗口的尺寸。如果传入参数，则关闭该监听。如果未传入参数，解除type为'pipWindowSizeChange
+     *     '的所有回调。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @syscap SystemCapability.Window.SessionManager
@@ -1316,13 +1234,10 @@ declare namespace PiPWindow {
     offPipWindowSizeChange(callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * Subscribes to PiP window active status change events. To avoid potential memory leaks, you are advised to stop
-     * listening when it is no longer needed.
+     * 开启画中画窗口隐藏状态变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { 'activeStatusChange' } type - Event type. The value is fixed at **'activeStatusChange'**, indicating
-     *     that the PiP window active status changes.
-     * @param { Callback<boolean> } callback - PiP window active status. **true** is returned if the PiP window is
-     *     visible, and **false** is returned if the PiP window is invisible (hidden in the sidebar).
+     * @param { 'activeStatusChange' } type - 事件类型，固定为'activeStatusChange'，即画中画隐藏状态变化事件。
+     * @param { Callback<boolean> } callback - 返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
@@ -1334,6 +1249,7 @@ declare namespace PiPWindow {
      *
      * @param { Callback<boolean> } callback - Used to handle {'activeStatusChange'} command.
      *     True indicates that the pip is onscreen, and vice verse.
+     *     <br>画中画显示状态变化回调函数
      * @throws { BusinessError } 801 - Capability not supported.
      *     function onActiveStatusChange(callback) can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1343,13 +1259,11 @@ declare namespace PiPWindow {
     onActiveStatusChange(callback: Callback<boolean>): void;
 
     /**
-     * Unsubscribes from PiP window active status change events.
+     * 关闭画中画窗口隐藏状态变化事件的监听。
      *
-     * @param { 'activeStatusChange' } type - Event type. The value is fixed at **'activeStatusChange'**, indicating
-     *     that the PiP window active status changes.
-     * @param { Callback<boolean> } [callback] - PiP window active status. **true** is returned if the PiP window is
-     *     visible, and **false** is returned if the PiP window is invisible (hidden in the sidebar). If no value is
-     *     passed in, all subscriptions to the specified event are canceled.
+     * @param { 'activeStatusChange' } type - 事件类型，固定为'activeStatusChange'，即画中画隐藏状态变化事件。
+     * @param { Callback<boolean> } [callback] - 返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。如果未传入参数，解除type为'
+     *     activeStatusChange'的所有回调。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
