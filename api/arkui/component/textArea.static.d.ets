@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { KeyboardOptions, PasteEvent } from "./richEditor";
-import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, LineSpacingOptions, MaxLinesOptions, IMEClient } from "./textCommon";
+import { CaretStyle, DeleteValue, EditMenuOptions, EditableTextOnChangeCallback, InsertValue, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, LineSpacingOptions, MaxLinesOptions, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextContentStyle, TextAlign, TextOverflow, TextHeightAdaptivePolicy, WordBreak, EllipsisMode } from "./enums";
 import { EnterKeyType, SubmitEvent, ContentType } from "./textInput";
 import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr, ColorMetrics } from "./units";
@@ -1282,6 +1282,30 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default orphanCharOptimization(enabled: boolean | undefined): this;
+
+    /**
+     * Set the join style of the stroke.
+     *
+     * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
+ 
+    /**
+     * Set the shader style of the text, such as lineargradient or radialgradient.
+     *
+     * @param { ShaderStyle | undefined } shader - The shader style of the text.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAreaAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default shaderStyle(shader: ShaderStyle | undefined): this;
 }
 
 /**

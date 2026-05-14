@@ -24,7 +24,7 @@ import { FontStyle, FontWeight, TextAlign, WordBreak, LineBreakStrategy, ImageSp
 import { DecorationStyleInterface, StyledString, MutableStyledString } from './styledString';
 import { Resource } from './../../../api/global/resource';
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle, TextVerticalAlign, TextChangeReason, IMEClient } from './textCommon';
+import { DecorationStyleResult, TextRange, MenuType, TextEditControllerEx, LayoutManager, PreviewText, StyledStringController, StyledStringChangedListener, TextDataDetectorConfig, OnDidChangeCallback, EditMenuOptions, KeyboardAppearance, AccessibilitySpanOptions, TextDirection, SelectedDragPreviewStyle, TextVerticalAlign, TextChangeReason, IMEClient, ShaderStyle, StrokeJoinStyle } from './textCommon';
 import { GestureEvent } from './gesture';
 import { EnterKeyType, SubmitEvent } from './textInput';
 import { LengthMetrics, ColorMetrics } from '../Graphics';
@@ -347,6 +347,14 @@ export declare interface RichEditorTextStyle {
      * @since 23 static
      */
     strokeColor?: ResourceColor;
+    /**
+     * The stroke join style of the text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    strokeJoinStyle?: StrokeJoinStyle;
 }
 /**
  * Defines the leading margin placeholder of a paragraph.
@@ -451,6 +459,14 @@ export declare interface RichEditorParagraphStyle {
      * @since 23 static
      */
     textDirection?: TextDirection;
+    /**
+     * Set shader style.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    shaderStyle?: ShaderStyle;
 }
 /**
  * Defines the paste event.
@@ -780,6 +796,14 @@ export declare interface RichEditorTextStyleResult {
      * @since 23 static
      */
     strokeColor?: ResourceColor;
+    /**
+     * Get the stroke join style of the text.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    strokeJoinStyle?: StrokeJoinStyle;
 }
 /**
  * Defines the paragraph result.

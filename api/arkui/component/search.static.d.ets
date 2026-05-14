@@ -20,7 +20,7 @@
 import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
 import { CustomBuilder } from './builder';
 import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics, LengthMetrics } from "./units";
-import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection, IMEClient } from "./textCommon";
+import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
 import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
@@ -1261,6 +1261,30 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
+ 
+    /**
+     * Set the join style of the stroke.
+     *
+     * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
+ 
+    /**
+     * Set the shader style of the text, such as lineargradient or radialgradient.
+     *
+     * @param { ShaderStyle | undefined } shader - The shader style of the text.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default shaderStyle(shader: ShaderStyle | undefined): this;
 }
 
 /**

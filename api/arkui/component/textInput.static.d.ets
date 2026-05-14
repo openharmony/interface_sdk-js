@@ -22,7 +22,7 @@ import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, In
 import { CustomBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, LengthMetrics } from "./units";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient } from "./textCommon";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
 import { ComponentBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
@@ -2094,6 +2094,30 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default orphanCharOptimization(enabled: boolean | undefined): this;
+ 
+    /**
+     * Set the join style of the stroke.
+     *
+     * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
+ 
+    /**
+     * Set the shader style of the text, such as lineargradient or radialgradient.
+     *
+     * @param { ShaderStyle | undefined } shader - The shader style of the text.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default shaderStyle(shader: ShaderStyle | undefined): this;
 }
 
 /**
