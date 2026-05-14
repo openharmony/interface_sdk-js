@@ -26,7 +26,6 @@ import { ComponentBuilder, CustomBuilder } from './builder';
 /**
  * Enumeration of different types of SecurityDpiFollowStrategy.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -34,7 +33,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  */
 export declare enum SecurityDpiFollowStrategy {
     /**
-     * Followed the host DPI.
+     * Follow host DPI
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -43,7 +42,7 @@ export declare enum SecurityDpiFollowStrategy {
      */
     FOLLOW_HOST_DPI = 0,
     /**
-     * Followed the UIExtensionAbility.
+     * DPI following provider UIExtensionAbility
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -55,7 +54,6 @@ export declare enum SecurityDpiFollowStrategy {
 /**
  * This interface is used to set the options for SecurityUIExtensionComponentAttribute during construction
  *
- * @interface SecurityUIExtensionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -66,7 +64,6 @@ export declare interface SecurityUIExtensionOptions {
      * Set whether the current capability is used as a Caller.<br/>
      * If set to true, as a Caller, the current token of SecurityUIExtensionComponent is set to rootToken.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -78,7 +75,6 @@ export declare interface SecurityUIExtensionOptions {
      * Set placeholder.
      * If set placeholder ComponentContent, show placeholder node when connection is not established.
      *
-     * @type { ?ComponentContent }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
@@ -88,7 +84,6 @@ export declare interface SecurityUIExtensionOptions {
     /**
      * Set SecurityUIExtensionComponent Content Dpi Follow Strategy.
      *
-     * @type { ?SecurityDpiFollowStrategy }
      * @default SecurityDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -98,9 +93,8 @@ export declare interface SecurityUIExtensionOptions {
     dpiFollowStrategy?: SecurityDpiFollowStrategy;
 }
 /**
- * Get Callback from @ohos.base.
+ * Define ReceiveCallback
  *
- * @typedef { Callback<Record<string, RecordData>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -112,7 +106,6 @@ export type ReceiveCallback = Callback<Record<string, RecordData>>;
  * It is returned from onRemoteReady callback of SecurityUIExtensionComponent<br/>
  * when UIExtensionAbility connects successfully
  *
- * @interface SecurityUIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -193,8 +186,6 @@ export declare interface SecurityUIExtensionProxy {
 /**
  * Define the attribute functions of SecurityUIExtensionComponent.
  *
- * @extends CommonMethod
- * @typedef SecurityUIExtensionComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -205,7 +196,7 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
     /**
      * callback called when remote UIExtensionAbility object is ready for receive data
      *
-     * @param { Callback<SecurityUIExtensionProxy> | undefined } callback
+     * @param { Callback<SecurityUIExtensionProxy> | undefined } callback - <br>SecurityUIExtensionProxy object.
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -216,7 +207,7 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
     /**
      * AnonyMous Object Rectification
      *
-     * @param { ReceiveCallback | undefined  } callback - Called when data received from UIExtensionAbility
+     * @param { ReceiveCallback | undefined } callback - Called when data received from UIExtensionAbility
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -227,7 +218,7 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
     /**
      * called when some error occurred except disconnected from UIExtensionAbility.
      *
-     * @param { ErrorCallback<BusinessError> | undefined } callback
+     * @param { ErrorCallback<BusinessError> | undefined } callback - ErrorCallback
      * @returns { SecurityUIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -261,7 +252,8 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
 
 /**
  * Defines SecurityUIExtensionComponent Component.
- * @param { Want } want - The want
+ *
+ * @param { Want } want - Want object
  * @param { SecurityUIExtensionOptions } [options] - The options
  * @param { CustomBuilder } [content_] - container
  * @returns { SecurityUIExtensionComponentAttribute }
@@ -275,4 +267,4 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
 export declare function SecurityUIExtensionComponent(
     want: Want, options?: SecurityUIExtensionOptions, 
     content_?: CustomBuilder,
-): SecurityUIExtensionComponentAttribute
+): SecurityUIExtensionComponentAttribute;
