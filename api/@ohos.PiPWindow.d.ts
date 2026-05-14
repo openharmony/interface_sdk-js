@@ -46,7 +46,7 @@ import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
  * @syscap SystemCapability.Window.SessionManager
  * @atomicservice [since 12]
  * @since 11 dynamic
- * @since 24 static
+ * @since 26.0.0 static
  */
 declare namespace PiPWindow {
   /**
@@ -57,7 +57,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function isPiPEnabled(): boolean;
 
@@ -75,7 +75,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function create(config: PiPConfiguration): Promise<PiPController>;
 
@@ -96,7 +96,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>;
 
@@ -106,7 +106,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   interface PiPConfiguration {
     /**
@@ -115,7 +115,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     context: BaseContext;
 
@@ -125,7 +125,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     componentController: XComponentController;
 
@@ -143,7 +143,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     navigationId?: string;
 
@@ -162,7 +162,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     handleId?: int;
 
@@ -173,7 +173,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     templateType?: PiPTemplateType;
 
@@ -188,7 +188,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     contentWidth?: int;
 
@@ -203,7 +203,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     contentHeight?: int;
 
@@ -217,7 +217,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     controlGroups?: Array<PiPControlGroup>;
 
@@ -228,7 +228,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     customUIController?: NodeController;
 
@@ -240,7 +240,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     localStorage?: LocalStorage;
 
@@ -259,7 +259,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     defaultWindowSizeType?: int;
 
@@ -280,7 +280,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     cornerAdsorptionEnabled?: boolean;
   }
@@ -291,7 +291,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   interface PiPWindowSize {
     /**
@@ -300,7 +300,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     width: int;
 
@@ -310,7 +310,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     height: int;
 
@@ -322,7 +322,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     scale: double;
   }
@@ -333,7 +333,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   interface PiPWindowInfo {
     /**
@@ -342,7 +342,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     windowId: int;
 
@@ -352,7 +352,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     size: PiPWindowSize;
   }
@@ -363,7 +363,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum PiPTemplateType {
     /**
@@ -373,7 +373,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_PLAY = 0,
 
@@ -384,7 +384,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_CALL = 1,
 
@@ -395,7 +395,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_MEETING = 2,
 
@@ -405,7 +405,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_LIVE = 3,
   }
@@ -416,7 +416,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum PiPState {
     /**
@@ -425,7 +425,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     ABOUT_TO_START = 1,
 
@@ -435,7 +435,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     STARTED = 2,
 
@@ -445,7 +445,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     ABOUT_TO_STOP = 3,
 
@@ -455,7 +455,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     STOPPED = 4,
 
@@ -465,7 +465,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     ABOUT_TO_RESTORE = 5,
 
@@ -475,7 +475,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     ERROR = 6
   }
@@ -492,7 +492,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup
     | VideoLiveControlGroup;
@@ -504,7 +504,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum VideoPlayControlGroup {
     /**
@@ -516,7 +516,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_PREVIOUS_NEXT = 101,
 
@@ -529,7 +529,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     FAST_FORWARD_BACKWARD = 102
   }
@@ -541,7 +541,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum VideoCallControlGroup {
     /**
@@ -550,7 +550,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     MICROPHONE_SWITCH = 201,
 
@@ -560,7 +560,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     HANG_UP_BUTTON = 202,
 
@@ -570,7 +570,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     CAMERA_SWITCH = 203,
 
@@ -580,7 +580,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     MUTE_SWITCH = 204
   }
@@ -592,7 +592,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum VideoMeetingControlGroup {
     /**
@@ -601,7 +601,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     HANG_UP_BUTTON = 301,
 
@@ -611,7 +611,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     CAMERA_SWITCH = 302,
 
@@ -621,7 +621,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     MUTE_SWITCH = 303,
 
@@ -631,7 +631,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     MICROPHONE_SWITCH = 304
   }
@@ -643,7 +643,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum VideoLiveControlGroup {
     /**
@@ -652,7 +652,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_PLAY_PAUSE = 401,
 
@@ -662,7 +662,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     MUTE_SWITCH = 402
   }
@@ -673,7 +673,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum PiPControlStatus {
     /**
@@ -682,7 +682,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     PLAY = 1,
 
@@ -692,7 +692,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     PAUSE = 0,
 
@@ -702,7 +702,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     OPEN = 1,
 
@@ -712,7 +712,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     CLOSE = 0
   }
@@ -723,7 +723,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enum PiPControlType {
     /**
@@ -732,7 +732,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_PLAY_PAUSE = 0,
 
@@ -742,7 +742,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_PREVIOUS = 1,
 
@@ -752,7 +752,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     VIDEO_NEXT = 2,
 
@@ -762,7 +762,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     FAST_FORWARD = 3,
 
@@ -772,7 +772,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     FAST_BACKWARD = 4,
 
@@ -782,7 +782,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     HANG_UP_BUTTON = 5,
 
@@ -792,7 +792,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     MICROPHONE_SWITCH = 6,
 
@@ -802,7 +802,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     CAMERA_SWITCH = 7,
 
@@ -812,7 +812,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     MUTE_SWITCH = 8
   }
@@ -827,7 +827,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent;
 
@@ -842,7 +842,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward';
 
@@ -856,7 +856,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
 
@@ -870,7 +870,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
 
@@ -882,7 +882,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
@@ -900,7 +900,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: int) => void;
 
@@ -910,7 +910,7 @@ declare namespace PiPWindow {
    * @param { PiPState } state - pip window state
    * @param { string } reason - the reason of state change
    * @syscap SystemCapability.Window.SessionManager
-   * @since 24 static
+   * @since 26.0.0 static
    */
   type StateChangeCallback = (state: PiPState, reason: string) => void;
 
@@ -920,7 +920,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   interface ControlEventParam {
     /**
@@ -930,7 +930,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     controlType: PiPControlType;
 
@@ -943,7 +943,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     status?: PiPControlStatus;
   }
@@ -957,7 +957,7 @@ declare namespace PiPWindow {
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice [since 12]
    * @since 11 dynamic
-   * @since 24 static
+   * @since 26.0.0 static
    */
   interface PiPController {
 
@@ -974,7 +974,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     startPiP(): Promise<void>;
 
@@ -988,7 +988,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     stopPiP(): Promise<void>;
 
@@ -1007,7 +1007,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     setAutoStartEnabled(enable: boolean): void;
 
@@ -1021,7 +1021,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     updateContentSize(width: int, height: int): void;
 
@@ -1035,7 +1035,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
@@ -1051,7 +1051,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
 
@@ -1064,7 +1064,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
@@ -1078,7 +1078,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
@@ -1093,7 +1093,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     getPiPSettingSwitch(): Promise<boolean>;
 
@@ -1108,7 +1108,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     isPiPActive(): Promise<boolean>;
 
@@ -1145,7 +1145,7 @@ declare namespace PiPWindow {
      *
      * @param { StateChangeCallback } callback - Used to handle {'stateChange'} command
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onStateChange(callback: StateChangeCallback): void;
 
@@ -1164,7 +1164,7 @@ declare namespace PiPWindow {
      * Unregister picture-in-picture lifecycle state change listener.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     offStateChange(): void;
 
@@ -1189,7 +1189,7 @@ declare namespace PiPWindow {
      *
      * @param { ControlPanelActionEventCallback } callback - Used to handle {'controlPanelActionEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onControlPanelActionEvent(callback: ControlPanelActionEventCallback): void;
 
@@ -1210,7 +1210,7 @@ declare namespace PiPWindow {
      * Unregister picture-in-picture lifecycle event listener
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     offControlPanelActionEvent(): void;
 
@@ -1232,7 +1232,7 @@ declare namespace PiPWindow {
      *
      * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onControlEvent(callback: Callback<ControlEventParam>): void;
 
@@ -1255,7 +1255,7 @@ declare namespace PiPWindow {
      * @param { Callback<ControlEventParam> } [callback] - Used to handle {'controlEvent'} command.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     offControlEvent(callback?: Callback<ControlEventParam>): void;
 
@@ -1283,7 +1283,7 @@ declare namespace PiPWindow {
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onPipWindowSizeChange(callback: Callback<PiPWindowSize>): void;
 
@@ -1311,7 +1311,7 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     offPipWindowSizeChange(callback?: Callback<PiPWindowSize>): void;
 
@@ -1338,7 +1338,7 @@ declare namespace PiPWindow {
      *     function onActiveStatusChange(callback) can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onActiveStatusChange(callback: Callback<boolean>): void;
 
@@ -1365,7 +1365,7 @@ declare namespace PiPWindow {
      *     function offActiveStatusChange(callback) can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 24 static
+     * @since 26.0.0 static
      */
     offActiveStatusChange(callback?: Callback<boolean>): void;
 
@@ -1378,7 +1378,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use
      * @since 18 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      * @test
      */
     isPiPSupported(): boolean;
