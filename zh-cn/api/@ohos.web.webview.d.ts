@@ -4044,38 +4044,44 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for ArkWeb Engine Version.
+   * ArkWeb内核版本，请参考
+   * [M114内核在OpenHarmony 6.0系统上的适配指导](https://gitcode.com/openharmony-tpc/chromium_src/blob/master/web/ReleaseNote/CompatibleWithLegacyWebEngine_6.0.md)
+   * ，
+   * [M132内核在OpenHarmony 7.0系统上的适配指导](https://gitcode.com/openharmony-tpc/chromium_src/blob/master/web/ReleaseNote/CompatibleWithLegacyWebEngine_7.0.md)
+   * 。
    *
-   * <strong>ArkWeb Dual Web Engine Versioning Convention</strong>:
-   * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
-   * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   enum ArkWebEngineVersion {
     /**
-     * Use the system default ArkWeb engine.
+     * 系统默认内核，OpenHarmony 6.0版本默认为M132，OpenHarmony 7.0版本默认为M144。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     SYSTEM_DEFAULT = 0,
 
     /**
-     * ArkWeb M114 version.
+     * OpenHarmony 6.0版本的遗留内核。开发者可选择此遗留内核，若系统版本上不存在此内核则设置无效。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     M114 = 1,
 
     /**
-     * ArkWeb M132 version.
+     * OpenHarmony 6.0版本的常青内核（OpenHarmony 7.0版本的遗留内核），M132为OpenHarmony 6.0版本的默认内核。若系统版本上不存在此内核则设置无效。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     M132 = 2,
 
     /**
-     * arkweb 144内核版本
+     * OpenHarmony 7.0版本的常青内核，M144为OpenHarmony 7.0版本的默认内核。若系统版本上不存在此内核则设置无效。
+     *
+     * 26.0.0
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -4084,7 +4090,8 @@ declare namespace webview {
     M144 = 3,
 
     /**
-     * ArkWeb auto use the newest ArkWeb Engine version.
+     * 常青内核，系统的最新内核。开发者可选择在每个系统版本上都使用最新的内核，OpenHarmony开发套件（基于API 23）及之后所有系统版本都生效。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
@@ -4281,8 +4288,9 @@ declare namespace webview {
      */
     disableWebGL?: boolean;
     /**
-     * 确定是否禁用PDFViewer。
-     *
+     * 是否禁用PDF查看器。true表示禁用，false表示不禁用。默认值：false。
+     * 内置PDF解析引擎在解析复杂二进制格式和嵌入式脚本时容易存在漏洞，攻击者可构造特殊PDF文件利用字体解析或内存破坏漏洞控制应用主进程。
+     * 禁用后无法在ArkWeb中加载PDF。非文档办公类App建议禁用，引导用户使用外部应用打开PDF。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
@@ -4347,36 +4355,34 @@ declare namespace webview {
     constructor(webTag?: string);
 
     /**
-     * Set active ArkWeb engine version.
-     * If the system does not support the specified version, it will not take effect.
-     * This is a global static API that must be called before initializeWebEngine, and it will have no effect if any
-     * Web components are loaded.
+     * 设置ArkWeb内核版本。若系统不支持指定版本，则设置无效。该接口为全局静态API，须在调用initializeWebEngine前执行，若已加载任何Web组件，则该设置无效。
      *
-     * <strong>Legacy Web Engine Compatibility Note</strong>:
-     * <p>When using legacy ArkWeb Engine, some ArkWeb newly created API will not take effect,<br>
-     * see [Compatible with Legacy Web Engine in release note]  for compatibility guidelines.
-     * </p>
+     * > **说明：**
+     * >
+     * > - setActiveWebEngineVersion不支持在异步线程中调用。
+     * >
+     * > - setActiveWebEngineVersion全局生效，在整个APP生命周期中调用一次即可，不需要重复调用。
      *
-     * @param {ArkWebEngineVersion} engineVersion - the ArkWebEngineVersion
-     * @static
+     * @param {ArkWebEngineVersion} engineVersion - ArkWeb内核版本。
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void;
 
     /**
-     * Get the currently active ArkWeb engine version.
-     * @returns {ArkWebEngineVersion} Active ArkWeb Engine version as defined by ArkWebEngineVersion
-     * @static
+     * 获取当前ArkWeb内核版本。
+     *
+     * @returns {ArkWebEngineVersion} 返回由[ArkWebEngineVersion]{@link @ohos.web.webview:webview.ArkWebEngineVersion}所定义的当
+     *     前使用的ArkWeb内核版本。
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     static getActiveWebEngineVersion(): ArkWebEngineVersion;
 
     /**
-     * Check if the currently active ArkWeb engine is Evergreen.
-     * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
-     * @static
+     * 判断当前系统是否正在使用常青内核，即系统的最新内核。
+     *
+     * @returns {boolean} 表示是否正在使用常青内核。正在使用返回true，否则返回false。
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */

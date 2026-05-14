@@ -251,31 +251,34 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for ArkWeb Engine Version.
+   * For details about the ArkWeb kernel version, see
+   * [Adaptation Guide for the M114 Kernel on OpenHarmony 6.0](https://gitcode.com/openharmony-tpc/chromium_src/blob/132_trunk/web/ReleaseNote/CompatibleWithLegacyWebEngine.md)
+   * .
    *
-   * <strong>ArkWeb Dual Web Engine Versioning Convention</strong>:
-   * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
-   * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   enum ArkWebEngineVersion {
     /**
-     * Use the system default ArkWeb engine.
+     * Default system kernel. For OpenHarmony 6.0, the default kernel is M132.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     SYSTEM_DEFAULT = 0,
 
     /**
-     * ArkWeb M114 version.
+     * Legacy kernel of OpenHarmony 6.0. You can select this legacy kernel. If it does not exist, the setting is
+     * invalid.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     M114 = 1,
 
     /**
-     * ArkWeb M132 version.
+     * Evergreen kernel of OpenHarmony 6.0, which is M132 by default. If it does not exist, the setting is invalid.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
@@ -290,7 +293,9 @@ declare namespace webview {
     M144 = 3,
 
     /**
-     * ArkWeb auto use the newest ArkWeb Engine version.
+     * Evergreen kernel, which is the latest kernel of the system. You can choose to use the latest kernel for each
+     * system version. This setting takes effect for OpenHarmony 6.1 and later versions.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
@@ -3907,36 +3912,38 @@ declare namespace webview {
     static initializeWebEngine(): void;
 
     /**
-     * Set active ArkWeb engine version.
-     * If the system does not support the specified version, it will not take effect.
-     * This is a global static API that must be called before initializeWebEngine, and it will have no effect if any
-     * Web components are loaded.
+     * Sets the ArkWeb kernel version. If the system does not support the specified version, the setting is invalid.
+     * This API is a global static API and must be called before **initializeWebEngine** is called. If any **Web**
+     * component has been loaded, the setting of this API is invalid.
      *
-     * <strong>Legacy Web Engine Compatibility Note</strong>:
-     * <p>When using legacy ArkWeb Engine, some ArkWeb newly created API will not take effect,<br>
-     * see [Compatible with Legacy Web Engine in release note]  for compatibility guidelines.
-     * </p>
+     * > **NOTE**
+     * >
+     * > - **setActiveWebEngineVersion** cannot be called in an asynchronous thread.
+     * >
+     * > - **setActiveWebEngineVersion** takes effect globally and needs to be called only once in an application
+     * > lifecycle.
      *
-     * @param {ArkWebEngineVersion} engineVersion - the ArkWebEngineVersion
-     * @static
+     * @param {ArkWebEngineVersion} engineVersion - ArkWeb kernel version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void;
 
     /**
-     * Get the currently active ArkWeb engine version.
-     * @returns {ArkWebEngineVersion} Active ArkWeb Engine version as defined by ArkWebEngineVersion
-     * @static
+     * Obtains the current ArkWeb kernel version.
+     *
+     * @returns {ArkWebEngineVersion} The ArkWeb kernel version defined by
+     *     [ArkWebEngineVersion]{@link @ohos.web.webview:webview.ArkWebEngineVersion}.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     static getActiveWebEngineVersion(): ArkWebEngineVersion;
 
     /**
-     * Check if the currently active ArkWeb engine is Evergreen.
-     * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
-     * @static
+     * Checks whether the system is using the evergreen kernel, that is, the latest kernel.
+     *
+     * @returns {boolean} Whether the system is using the evergreen kernel. If the system is using the evergreen kernel,
+     *     **true** is returned. Otherwise, **false** is returned.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */

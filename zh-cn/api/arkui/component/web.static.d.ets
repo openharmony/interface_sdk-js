@@ -4262,37 +4262,37 @@ export declare interface OnOverScrollEvent {
     yOffset: double;
 }
 /**
- * Defines the function triggered when the PDF page is scrolled to the bottom.
+ * 定义PDF页面滚动到底时触发的回调函数。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare interface OnPdfScrollEvent {
   /**
-   * URL of the page.
-   *
+     * 页面的URL地址。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   url:string;
 }
 /**
- * Defines the function triggered when the PDF loading is successful or fails.
+ * 定义PDF加载成功或失败时触发的函数。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare interface OnPdfLoadEvent {
   /**
-   * The PDF page loading result.
-   *
+     * PDF页面加载结果。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   result: PdfLoadResult;
   /**
-   * URL of the page.
-   *
+     * 页面的URL地址。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -4466,43 +4466,43 @@ export declare enum AudioSessionType {
     AMBIENT = 3
 }
 /**
- * Enumerates the PDF page loading results.
+ * 定义PDF页面的加载结果。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare enum PdfLoadResult {
   /**
-   * The PDF file is successfully loaded.
-   *
+     * PDF页面加载成功。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   LOAD_SUCCESS = 0,
   /**
-   * The PDF file fails to be loaded.
-   *
+     * PDF文件加载失败的错误码。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   PARSE_ERROR_FILE = 1,
   /**
-   * The PDF file format is not supported.
-   *
+     * PDF文件格式不支持的错误码。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   PARSE_ERROR_FORMAT = 2,
   /**
-   * The PDF file password is incorrect.
-   *
+     * PDF文件密码不正确的错误码。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   PARSE_ERROR_PASSWORD = 3,
   /**
-   * The PDF file fails to be processed.
-   *
+     * PDF文件处理失败的错误码。
+     *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
@@ -5817,25 +5817,23 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onOverScroll(callback: Callback<OnOverScrollEvent> | undefined): this;
     /**
-     * Called to notify the user that the PDF page has been scrolled to the bottom.
+     * 通知用户PDF页面已滚动到底。
      *
-     * @param { Callback<OnPdfScrollEvent> | undefined } callback - Callback triggered to notify the user that the PDF
-     *     page has been scrolled to the bottom.
-     * @returns { WebAttribute }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 static
-     */
-    default onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent> | undefined): this;
+   * @param { Callback<OnPdfScrollEvent> | undefined } callback - 当PDF滚动到垂直方向底部时，会触发回调，通知用户PDF页面已滚动到底。
+   * @returns { WebAttribute }
+      * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  default onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent> | undefined): this;
     /**
-     * Called to notify the user of whether the PDF page is successfully loaded.
+     * 通知用户PDF页面加载状态，包括成功或失败。
      *
-     * @param { Callback<OnPdfLoadEvent> | undefined } callback - Callback triggered to notify users of whether the PDF
-     *     page is successfully loaded.
-     * @returns { WebAttribute }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 static
-     */
-    default onPdfLoadEvent(callback: Callback<OnPdfLoadEvent> | undefined): this;
+   * @param { Callback<OnPdfLoadEvent> | undefined } callback - 当PDF加载成功或失败时，会触发回调，通知用户PDF页面加载状态。
+   * @returns { WebAttribute }
+      * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  default onPdfLoadEvent(callback: Callback<OnPdfLoadEvent> | undefined): this;
     /**
      * Called when received website security risk check result.
      *
