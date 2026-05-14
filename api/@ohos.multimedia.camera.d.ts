@@ -5071,7 +5071,17 @@ declare namespace camera {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    AUTO_FRAMING = 2
+    AUTO_FRAMING = 2,
+
+    /**
+     * Color effect.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    COLOR_EFFECT = 3
   }
 
   /**
@@ -16109,13 +16119,16 @@ declare namespace camera {
 
   /**
    * Control center session object.
+   * 
+   * @extends Beauty, Aperture [since 20 - 24]
+   * @extends Beauty, Aperture, ColorEffect [since 26.0.0]
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 20 dynamic
    * @since 23 static
    */
-  interface ControlCenterSession extends Beauty, Aperture {
+  interface ControlCenterSession extends Beauty, Aperture, ColorEffect {
     /**
      * Release control center session object.
      *
