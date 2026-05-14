@@ -3089,6 +3089,24 @@ declare namespace media {
     deselectTrack(index: int): Promise<void>;
 
     /**
+     * Obtains the selected track by the specified media type. This API can be called only when the AVPlayer
+     * is in the prepared, playing, or paused state. This API uses a promise to return the result.
+     *
+     * @param { MediaType } trackType - specified media Type, see [MediaType]{@link #MediaType}.
+     * @returns { Promise<int> } A Promise instance used to return selected track index.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @throws { BusinessError } 5400101 - No memory. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400103 - I/O error. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getCurrentTrack(trackType: MediaType): Promise<int>;
+
+    /**
      * Sets a source of streaming media that can be pre-downloaded, downloads the media data, and temporarily stores the
      * data in the memory. This API uses a promise to return the result.
      *
@@ -3279,6 +3297,20 @@ declare namespace media {
      * @since 23 static
      */
     setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
+
+    /**
+     * Specifies whether to forcibly load the video. This API can be called only when the AVPlayer
+     * is in the prepared, playing, or paused state. This API uses a promise to return the result.
+     *
+     * @param { boolean } force - specified whether to forcibly load the video.
+     * @returns { Promise<void> } A Promise instance used to return when forceLoadVideo completed.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    forceLoadVideo(force: boolean): Promise<void>;
 
     /**
      * Sets the playback range and seeks to the start position of the range based on the specified 
@@ -10909,6 +10941,42 @@ declare namespace media {
      * @since 23 static
      */
     SCREEN_AND_WINDOW = 2,
+        
+    /**
+     * Show application options only.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    APP_ONLY = 3,
+ 
+    /**
+     * Show both window and application options.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WINDOW_AND_APP = 4,
+     
+    /**
+     * Show both screen and application options.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREEN_AND_APP = 5,
+ 
+    /**
+     * Show screen, window, and application options.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SCREEN_WINDOW_AND_APP = 6
   }
 
   /**
