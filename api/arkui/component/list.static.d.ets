@@ -22,7 +22,7 @@ import { Axis, FocusWrapMode } from './enums';
 import { OnScrollFrameBeginCallback, ScrollAlign, Scroller } from "./scroll";
 import { Dimension, Length, LengthConstrain, ResourceColor, ItemFillPolicy, CacheCountInfo, Resource } from './units';
 import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
-import { AttributeModifier, Bindable, CommonMethod, UIScrollableCommonEvent } from "./common";
+import { AttributeModifier, Bindable, Callback, CommonMethod, UIScrollableCommonEvent } from "./common";
 /**
  * Declare scroll status
  *
@@ -1029,6 +1029,17 @@ export declare interface ListAttribute extends ScrollableCommonMethod {
      * @since 26.0.0 static
      */
     default enableEditMode(enabled: boolean | Bindable<boolean> | undefined): this;
+    /**
+     * Triggered when the editing mode status changes.
+     *
+     * @param { Callback<boolean> | undefined } callback - Callback triggered when editing mode status changes.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this } The attribute of the list.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onEditModeChange(callback: Callback<boolean> | undefined): this;
     /**
      * Sets the focus wrap mode of the List component.
      *
