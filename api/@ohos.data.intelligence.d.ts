@@ -58,6 +58,60 @@ declare namespace intelligence {
   function getImageEmbeddingModel(config: ModelConfig): Promise<ImageEmbedding>;
 
   /**
+   * Indicates cloud embedding model information.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface CloudModelInfo {  
+    /**
+     * Indicates cloud embedding model type.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    modelType: string;
+
+    /**
+     * Indicates cloud embedding model version.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    modelVersionCode?: string;
+  }
+
+  /**
+   * Indicates network policy.
+   *
+   * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum NetworkPolicy {  
+    /**
+     * Using WiFi.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WIFI_ONLY = 0,
+	
+    /**
+     * Using WiFi and Cellular.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WIFI_AND_CELLULAR = 1
+  }
+
+  /**
    * Manages configurations of the embedding model.
    *
    * @interface ModelConfig
@@ -96,6 +150,24 @@ declare namespace intelligence {
      * @since 23 static
      */
     cachePath?: string;
+
+    /**
+     * Indicates cloud embedding model information.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    modelInfo?: CloudModelInfo;
+
+    /**
+     * Indicates cloud embedding model network policy.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    networkPolicy?: NetworkPolicy;
   }
 
   /**
@@ -259,6 +331,16 @@ declare namespace intelligence {
    * @since 23 static
    */
   function splitText(text: string, config: SplitConfig): Promise<Array<string>>;
+
+  /**
+   * Obtains the supported cloud embedding models.
+   *
+   * @returns { Promise<Array<CloudModelInfo>> } The promise returned by the function.
+   * @syscap SystemCapability.DistributedDataManager.DataIntelligence.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getSupportedCloudModel(): Promise<Array<CloudModelInfo>>;
 
   /**
    * Manages text chunk process configurations.
