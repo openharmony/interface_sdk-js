@@ -144,14 +144,14 @@ declare namespace volumeManager {
     extraInfo?: string;
   }
 
-/**
-   * Enumerates the verify type for burn data.
-   *
-   * @syscap SystemCapability.FileManagement.StorageService.Volume
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
+  /**
+  * Enumerates the verify type for burn data.
+  *
+  * @syscap SystemCapability.FileManagement.StorageService.Volume
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
   export enum VerifyType {
     /**
       * Key data verification type.
