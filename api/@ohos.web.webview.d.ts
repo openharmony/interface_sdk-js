@@ -6818,7 +6818,7 @@ declare namespace webview {
      * @returns { number } Effective value that ranges from 0 MB to 100 MB.
      *     <br>When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value
      *     **100** takes effect.
-     * @throws { BusinessError } 801 Capability not supported.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
