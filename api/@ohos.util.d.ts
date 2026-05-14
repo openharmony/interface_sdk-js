@@ -183,7 +183,7 @@ declare namespace util {
    * @param { string } uuid - A string representing the UUID.
    * @returns { Uint8Array } A Uint8Array value representing the UUID parsed. If the parsing fails, **SyntaxError** is
    *     thrown.
-   * @throws { BusinessError } 10200002 - Invalid uuid string. [since 12]
+   * @throws { BusinessError } 10200002 - Invalid uuid string.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -792,7 +792,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead null
+     * @useinstead ohos.util.LRUCache.constructor
      */
     constructor(capacity?: number);
 
@@ -1383,7 +1383,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead null
+     * @useinstead ohos.util.ScopeHelper.constructor
      */
     constructor(lowerObj: ScopeType, upperObj: ScopeType);
 

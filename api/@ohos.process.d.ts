@@ -149,9 +149,6 @@ declare namespace process {
      * @param { number } v - UID. which can be obtained by running **process.uid**.
      * @returns { boolean } Check result. The value **true** is returned if the UID belongs to the application;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -164,9 +161,6 @@ declare namespace process {
      *
      * @param { string } v - User name.
      * @returns { number } UID of the user. If the user does not exist, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -179,9 +173,6 @@ declare namespace process {
      *
      * @param { number } v - TID.
      * @returns { number } Priority of the thread. The priority depends on the operating system.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -194,9 +185,6 @@ declare namespace process {
      *
      * @param { number } name - System configuration parameter name.
      * @returns { number } System configuration obtained. If the configuration does not exist, **-1** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -214,9 +202,6 @@ declare namespace process {
      *
      * @param { string } name - Environment variable name.
      * @returns { string } Value of the environment variable.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -231,9 +216,6 @@ declare namespace process {
      * is not 0, data loss or exceptions may occur.
      *
      * @param { number } code - Exit code of the process.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -248,9 +230,6 @@ declare namespace process {
      * @param { number } pid - PID of the process, to which the signal will be sent.
      * @returns { boolean } Signal sending result. The value **true** is returned if the signal is sent successfully;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
