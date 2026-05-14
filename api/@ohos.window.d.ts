@@ -11444,6 +11444,28 @@ declare namespace window {
     setResizeByDragEnabled(enable: boolean): Promise<void>;
 
     /**
+     * Sets the supported window modes of the app window.
+     *
+     * @param { Array<bundleManager.SupportWindowMode> } supportedWindowModes - The supported modes of the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     Only main windows and subwindows are supported.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. When called on a main window, the parameter should not only contain SPLIT.
+     *     2. When called on a sub window, the parameter should not contain SPLIT.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>;
+
+    /**
      * Sets whether to hide non-system floating windows (where [windowType]{@link @ohos.window:window.WindowType} is
      * **TYPE_FLOAT**). This API uses an asynchronous callback to return the result.
      *
