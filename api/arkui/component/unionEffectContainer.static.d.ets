@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 import { LengthMetrics } from '../Graphics';
 
@@ -82,6 +82,17 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
      */
     default attributeModifier(modifier: AttributeModifier<UnionEffectContainerAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set UnionEffectContainer options.
+     *
+     * @param { UnionEffectContainerOptions } [options] - The options to create an UnionEffectContainer.
+     * @returns { UnionEffectContainerAttribute } Returns instance of  UnionEffectContainerAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setUnionEffectContainerOptions(options?: UnionEffectContainerOptions): this;
 }
 
 /**
@@ -100,4 +111,21 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
 export declare function UnionEffectContainer(
     options?:UnionEffectContainerOptions,
     content_?:CustomBuilder,
+): UnionEffectContainerAttribute;
+
+/**
+ * Defines UnionEffectContainer
+ *
+ * @param { CustomBuilderT<UnionEffectContainerAttribute> } style_ - UnionEffectContainer attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { UnionEffectContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function UnionEffectContainer(
+  style_: CustomBuilderT<UnionEffectContainerAttribute>,
+  content_?: CustomBuilder,
 ): UnionEffectContainerAttribute;
