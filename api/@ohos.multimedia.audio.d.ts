@@ -3973,7 +3973,7 @@ declare namespace audio {
      * @crossplatform
      * @since 26.0.0 dynamic&static
      */
-    getDebugManager(): AudioDebuggingManager;
+    getDebuggingManager(): AudioDebuggingManager;
 
     /**
      * user disable the safe media volume state.
