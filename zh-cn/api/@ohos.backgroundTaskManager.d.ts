@@ -23,19 +23,13 @@ import { WantAgent } from './@ohos.wantAgent';
 import Context from './application/BaseContext';
 
 /**
- * The **BackgroundTaskManager** module provides APIs to manage background tasks.
- * 
- * If a service needs to be continued when the application or service module is running in the background (not visible 
- * to users), the application or service module can request a transient task to delay the suspension or a continuous 
- * task to prevent the suspension.
- * 
- * If an application has a task that needs to be continued when the application is switched to the background and can be
- * completed within a short period of time, the application can request a transient task. For example, if a user chooses
- * to clear junk files in the **Files** application and exits the application, the application can request a transient 
- * task to complete the cleanup.
- * 
- * If an application has a service that can be intuitively perceived by users and needs to run in the background for a 
- * long period of time (for example, music playback in the background), the application can request a continuous task.
+ * 本模块提供后台任务管理能力。
+ *
+ * 当应用或业务模块处于后台（无可见界面）时，如果有需要继续执行或者后续执行的业务，可基于业务类型，申请短时任务延迟挂起（Suspend）或者长时任务避免进入挂起状态。
+ *
+ * 应用有不可中断且短时间能完成的任务时（如，用户在文件管理器上点击垃圾文件清理，若清理未完成时退到后台，文件管理器需要申请短时任务完成清理），可以使用短时任务机制。
+ *
+ * 应用中存在用户能够直观感受到的且需要一直在后台运行的业务时（如，后台播放音乐），可以使用长时任务机制。
  * 
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
  * @since 7
@@ -44,7 +38,7 @@ import Context from './application/BaseContext';
  */
 declare namespace backgroundTaskManager {
   /**
-   * Provides the information about the suspension delay.
+   * 延迟挂起信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
@@ -77,10 +71,10 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Cancels the suspension delay.
+   * 取消延迟挂起。
    *
-   * @param { number } requestId - ID of the suspension delay request. The value is obtained by calling
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}.
+   * @param { number } requestId  - 延迟挂起的请求ID。这个值通过调用
+   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}方法获取。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -89,13 +83,11 @@ declare namespace backgroundTaskManager {
   function cancelSuspendDelay(requestId: number): void;
 
   /**
-   * Obtains the remaining duration before the application is suspended. This API uses an asynchronous callback to 
-   * return the result.
+   * 获取本次短时任务的剩余时间，使用callback异步回调。
    *
-   * @param { number } requestId - ID of the suspension delay request. The value is obtained by calling
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}.
-   * @param { AsyncCallback<number> } callback - Callback used to return the remaining duration before the application
-   *     is suspended, in milliseconds.
+   * @param { number } requestId  - 延迟挂起的请求ID。这个值通过调用
+   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}方法获取。
+   * @param { AsyncCallback<number> } callback  - 回调函数，返回本次短时任务的剩余时间，单位：ms。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -162,7 +154,7 @@ declare namespace backgroundTaskManager {
    * @param { BackgroundMode } bgMode - Background mode requested.
    * @param { WantAgent } wantAgent - Notification parameter, which is used to specify the target page that is
    *     redirected to when a continuous task notification is clicked.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
    * @deprecated since 9
@@ -190,7 +182,7 @@ declare namespace backgroundTaskManager {
    * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
    *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
    *     [Context]{@link ./application/Context:Context}.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
    * @deprecated since 9

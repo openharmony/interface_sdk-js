@@ -21,10 +21,8 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * The **workScheduler** module provides the APIs for registering, canceling, and querying deferred tasks. You can use 
- * the APIs to register tasks that do not have high requirements on real-time performance as deferred tasks. The system 
- * schedules and executes the deferred tasks at an appropriate time, subject to the storage space, power consumption, 
- * and more. For details, see [Deferred Task Scheduling](docroot://task-management/work-scheduler.md).
+ * 本模块提供延迟任务注册、取消、查询的能力。在开发过程中，对于实时性要求不高的任务，可以调用本模块接口注册延迟任务，在系统空闲时根据性能、功耗、热等情况进行调度执行。开发指导请参考
+ * [延迟任务开发指南](docroot://task-management/work-scheduler.md)。
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
@@ -33,7 +31,7 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace workScheduler {
   /**
-   * Represents the deferred task information, which is used to set the trigger condition.
+   * 延迟任务的具体信息, 用于设置延迟任务的触发条件等。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -42,7 +40,7 @@ declare namespace workScheduler {
    */
   export interface WorkInfo {
     /**
-     * ID of the deferred task.
+     * 延迟任务ID。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -51,7 +49,7 @@ declare namespace workScheduler {
      */
     workId: int;
     /**
-     * Bundle name of the application where the deferred task is located.
+     * 延迟任务所在应用的包名。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -60,7 +58,7 @@ declare namespace workScheduler {
      */
     bundleName: string;
     /**
-     * Ability name in the bundle.
+     * 包内ability名称。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -69,10 +67,10 @@ declare namespace workScheduler {
      */
     abilityName: string;
     /**
-     * Whether the registered deferred task can be saved in the system. The default value is **false**.
-     * 
-     * - **true**: The task can be saved. That is, the task can be restored after the system restarts.
-     * - **false**: The task cannot be saved.
+     * 注册的延迟任务是否可保存在系统中，默认为false。
+     *
+     * - true表示可保存，即系统重启后，任务可恢复。
+     * - false表示不可保存。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -81,7 +79,7 @@ declare namespace workScheduler {
      */
     isPersisted?: boolean;
     /**
-     * Network type.
+     * 网络类型。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -90,10 +88,10 @@ declare namespace workScheduler {
      */
     networkType?: NetworkType;
     /**
-     * Whether the device needs to enter the charging state. The default value is **false**.
-     * 
-     * - **true**: The device needs to enter the charging state to trigger deferred task scheduling.
-     * - **false**: The device does not need to enter the charging state to trigger deferred task scheduling.
+     * 是否充电，默认为false。
+     *
+     * - true表示充电触发延迟任务回调。
+     * - false表示不充电触发延迟任务回调。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -102,7 +100,7 @@ declare namespace workScheduler {
      */
     isCharging?: boolean;
     /**
-     * Charging type.
+     * 充电类型。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -111,9 +109,9 @@ declare namespace workScheduler {
      */
     chargerType?: ChargingType;
     /**
-     * Battery level.
+     * 电量。
      * 
-     * Value range: [0, 100]
+     * 取值范围：[0, 100]
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -122,7 +120,7 @@ declare namespace workScheduler {
      */
     batteryLevel?: int;
     /**
-     * Battery status.
+     * 电池状态。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -131,7 +129,7 @@ declare namespace workScheduler {
      */
     batteryStatus?: BatteryStatus;
     /**
-     * Storage status.
+     * 存储状态。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -140,7 +138,7 @@ declare namespace workScheduler {
      */
     storageRequest?: StorageRequest;
     /**
-     * Repeat interval, in milliseconds.
+     * 循环间隔，单位：ms。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -149,10 +147,10 @@ declare namespace workScheduler {
      */
     repeatCycleTime?: int;
     /**
-     * Whether the task is repeated. The default value is **false**.
+     * 是否循环任务，默认为false。
      * 
-     * - **true**: The task is repeated.
-     * - **false**: The task is not repeated.
+     * - true表示循环任务。
+     * - false表示非循环任务。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -161,7 +159,7 @@ declare namespace workScheduler {
      */
     isRepeat?: boolean;
     /**
-     * Number of repeat times.
+     * 循环次数。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -170,11 +168,10 @@ declare namespace workScheduler {
      */
     repeatCount?: int;
     /**
-     * Whether the device needs to enter the idle state to trigger deferred task scheduling. The default value is 
-     * **false**.
+     * 是否要求设备进入空闲状态，默认为false。
      * 
-     * - **true**: The device needs to enter the idle state to trigger deferred task scheduling.
-     * - **false**: The device does not need to enter the idle state to trigger deferred task scheduling.
+     * - true表示需要。
+     * - false表示不需要。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -183,7 +180,7 @@ declare namespace workScheduler {
      */
     isDeepIdle?: boolean;
     /**
-     * Idle wait time, in milliseconds.
+     * 空闲等待时间，单位：ms。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -192,7 +189,7 @@ declare namespace workScheduler {
      */
     idleWaitTime?: int;
     /**
-     * Carried parameters.
+     * 携带参数信息。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -201,8 +198,8 @@ declare namespace workScheduler {
      */
     parameters?: Record<string, int | double | string | boolean>;
     /**
-     * Interval between the initial execution time and the request time for a task, in milliseconds. The default value 
-     * is **0**, and the value must be greater than or equal to 0.
+     * 任务首次执行时间距离任务申请时间的间隔，单位：ms，默认为0，范围大于等于0。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -213,7 +210,7 @@ declare namespace workScheduler {
   }
 
   /**
-   * The last condition met when the current task is triggered.
+   * 当前任务触发时满足的最后一个条件。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
@@ -223,7 +220,7 @@ declare namespace workScheduler {
   const WORK_SCHEDULER_CONDITION = 'WORK_SCHEDULER_CONDITION';
 
   /**
-   * Whether the requested task is executed immediately.
+   * 请求的任务是否立即执行。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
@@ -233,8 +230,7 @@ declare namespace workScheduler {
   const EXECUTE_IMMEDIATE = 'executeImmediate';
 
   /**
-   * Requests a deferred task. Upon successful request, the deferred task is added to the execution queue and will be 
-   * executed by the system once the trigger conditions are met.
+   * 申请延迟任务，成功后会把任务添加到执行队列，满足触发条件后由系统调度执行。
    *
    * @param { WorkInfo } work - The info of work.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -253,11 +249,10 @@ declare namespace workScheduler {
   function startWork(work: WorkInfo): void;
 
   /**
-   * Stops a deferred task.
+   * 取消延迟任务。
    *
-   * @param { WorkInfo } work - Deferred task to stop.
-   * @param { boolean } needCancel - Whether to clear the task while stopping it.<br>The value **true** means to clear
-   *     the task while stopping it, and **false** means to stop the task only. The default value is **false**.
+   * @param { WorkInfo } work  - 要停止或移除的延迟任务。
+   * @param { boolean } needCancel  - 是否需要移除任务。<br>true表示停止并移除，false表示只停止不移除。默认为false。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -273,11 +268,10 @@ declare namespace workScheduler {
   function stopWork(work: WorkInfo, needCancel?: boolean): void;
 
   /**
-   * Obtains the information a deferred task. This API uses an asynchronous callback to return the result.
+   * 通过workId获取延迟任务，使用Callback异步回调。
    *
-   * @param { int } workId - ID of the deferred task.
-   * @param { AsyncCallback<WorkInfo> } callback - Callback used to return the result. If **workId** is valid, the task
-   *     information obtained from WorkSchedulerService is returned. Otherwise, an exception is thrown.
+   * @param { int } workId  - 延迟任务Id。
+   * @param { AsyncCallback<WorkInfo> } callback  - 回调函数。如果workId有效，则返回从WorkSchedulerService获取的任务，否则抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -292,11 +286,10 @@ declare namespace workScheduler {
   function getWorkStatus(workId: int, callback: AsyncCallback<WorkInfo>): void;
 
   /**
-   * Obtains the information a deferred task. This API uses a promise to return the result.
+   * 通过workId获取延迟任务，使用Promise异步回调。
    *
-   * @param { int } workId - ID of the deferred task.
-   * @returns { Promise<WorkInfo> } Promise used to return the result. If **workId** is valid, the task information
-   *     obtained from WorkSchedulerService is returned. Otherwise, an exception is thrown.
+   * @param { int } workId  - 延迟任务Id。
+   * @returns { Promise<WorkInfo> } Promise对象，如果workId有效，则返回从WorkSchedulerService获取的任务，否则抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -311,12 +304,10 @@ declare namespace workScheduler {
   function getWorkStatus(workId: int): Promise<WorkInfo>;
 
   /**
-   * Obtains all the deferred tasks. This API uses an asynchronous callback to return the result.
+   * 获取当前应用所有的延迟任务，使用Callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If all the deferred tasks are
-   *     obtained, **err** is **undefined**. Otherwise, **err** is an error object.
-   * @returns { Array<WorkInfo> } List of deferred tasks. If deferred tasks have been added to the execution queue, the
-   *     list of all deferred tasks in the current application is returned. Otherwise, an empty list is returned.
+   * @param { AsyncCallback<void> } callback  - 回调函数，获取成功时，err为undefined，否则为错误对象。
+   * @returns { Array<WorkInfo> } 延迟任务列表，如果已添加延迟任务到执行队列，则返回当前应用所有的延迟任务列表；否则返回空列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -332,10 +323,9 @@ declare namespace workScheduler {
   function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
 
   /**
-   * Obtains all the deferred tasks. This API uses an asynchronous callback to return the result.
+   * 获取当前应用所有的延迟任务，使用Callback异步回调。
    *
-   * @param { AsyncCallback<Array<WorkInfo>> } callback - Callback used to return the list of all deferred tasks in the
-   *     current application. If the list fails to be obtained, an exception is thrown.
+   * @param { AsyncCallback<Array<WorkInfo>> } callback  - 回调函数，获取成功时，返回当前应用所有的延迟任务列表，否则抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -350,9 +340,9 @@ declare namespace workScheduler {
   function obtainAllWorks(callback: AsyncCallback<Array<WorkInfo>>): void;
 
   /**
-   * Obtains all the deferred tasks. This API uses a promise to return the result.
+   * 获取当前应用所有的延迟任务，使用Promise异步回调。
    *
-   * @returns { Promise<Array<WorkInfo>> } Promise used to return all the deferred tasks.
+   * @returns { Promise<Array<WorkInfo>> } Promise对象，返回当前应用所有的延迟任务。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
@@ -367,7 +357,7 @@ declare namespace workScheduler {
   function obtainAllWorks(): Promise<Array<WorkInfo>>;
 
   /**
-   * Stops and clears all the deferred tasks.
+   * 停止和取消当前应用所有的延迟任务。
    *
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types.
@@ -383,14 +373,12 @@ declare namespace workScheduler {
   function stopAndClearWorks(): void;
 
   /**
-   * Checks whether the last execution of a task timed out. This API uses an asynchronous callback to return the result.
+   * 检查延迟任务的最后一次执行是否超时，使用Callback异步回调。
    *
-   * @param { number } workId - ID of the deferred task.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
-   * @returns { boolean } Whether the last execution of a deferred task timed out. If **workId** is valid, it returns
-   *     whether the last execution of the task obtained from WorkSchedulerService timed out; otherwise, an exception is
-   *     thrown. **true** indicates that the last execution of the deferred task corresponding to the **workId** timed
-   *     out, while **false** indicates the opposite.
+   * @param { number } workId  - 指定延迟任务的Id。
+   * @param { AsyncCallback<void> } callback  - 回调函数。
+   * @returns { boolean } 检查延迟任务最后一次执行是否超时，如果workId有效，则返回从WorkSchedulerService获取的任务最后一次执行是否超时；否则，抛出异常。true，对应workId延迟任务最
+   *     后一次执行超时，false，对应workId延迟任务最后一次执行未超时。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -406,10 +394,10 @@ declare namespace workScheduler {
   function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
 
   /**
-   * Checks whether the last execution of a task timed out. This API uses an asynchronous callback to return the result.
+   * 检查延迟任务的最后一次执行是否超时，使用Callback异步回调。
    *
-   * @param { int } workId - ID of the deferred task.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   * @param { int } workId  - 指定延迟任务的Id。
+   * @param { AsyncCallback<boolean> } callback  - 回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -424,11 +412,10 @@ declare namespace workScheduler {
   function isLastWorkTimeOut(workId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the last execution of a task timed out. This API uses a promise to return the result.
+   * 检查延迟任务的最后一次执行是否超时，使用Promise异步回调。
    *
-   * @param { int } workId - ID of the deferred task.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the last execution
-   *     of the specified task times out, and **false** means the opposite.
+   * @param { int } workId  - 指定延迟任务的Id。
+   * @returns { Promise<boolean> } Promise对象。返回true表示指定任务的最后一次执行超时，false表示未超时。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -443,7 +430,7 @@ declare namespace workScheduler {
   function isLastWorkTimeOut(workId: int): Promise<boolean>;
 
   /**
-   * Enumerates the network types that trigger deferred task callback.
+   * 触发延迟任务回调的网络类型。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -453,7 +440,7 @@ declare namespace workScheduler {
    */
   export enum NetworkType {
     /**
-     * Any network type.
+     * 表示这个触发条件是任何类型的网络连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -462,7 +449,7 @@ declare namespace workScheduler {
      */
     NETWORK_TYPE_ANY = 0,
     /**
-     * Mobile network.
+     * 表示这个触发条件是Mobile网络连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -471,7 +458,7 @@ declare namespace workScheduler {
      */
     NETWORK_TYPE_MOBILE = 1,
     /**
-     * Wi-Fi network.
+     * 表示这个触发条件是Wifi类型的网络连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -480,7 +467,7 @@ declare namespace workScheduler {
      */
     NETWORK_TYPE_WIFI = 2,
     /**
-     * Bluetooth network.
+     * 表示这个触发条件是Bluetooth网络连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -489,7 +476,7 @@ declare namespace workScheduler {
      */
     NETWORK_TYPE_BLUETOOTH = 3,
     /**
-     * Wi-Fi P2P network.
+     * 表示这个触发条件是Wifi P2P网络连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -498,7 +485,7 @@ declare namespace workScheduler {
      */
     NETWORK_TYPE_WIFI_P2P = 4,
     /**
-     * Ethernet.
+     * 表示这个触发条件是有线网络连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -509,7 +496,7 @@ declare namespace workScheduler {
   }
 
   /**
-   * Enumerates the charging types that trigger deferred task callback.
+   * 触发延迟任务回调的充电类型。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -519,7 +506,7 @@ declare namespace workScheduler {
    */
   export enum ChargingType {
     /**
-     * Any charging type.
+     * 表示这个触发条件是任何类型的充电器连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -528,7 +515,7 @@ declare namespace workScheduler {
      */
     CHARGING_PLUGGED_ANY = 0,
     /**
-     * DC charging.
+     * 表示这个触发条件是直流充电器连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -537,7 +524,7 @@ declare namespace workScheduler {
      */
     CHARGING_PLUGGED_AC = 1,
     /**
-     * USB charging.
+     * 表示这个触发条件是USB充电连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -546,7 +533,7 @@ declare namespace workScheduler {
      */
     CHARGING_PLUGGED_USB = 2,
     /**
-     * Wireless charging.
+     * 表示这个触发条件是无线充电器连接。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -557,7 +544,7 @@ declare namespace workScheduler {
   }
 
   /**
-   * Enumerates the battery status that triggers the deferred task callback.
+   * 触发延迟任务回调的电池状态。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -567,7 +554,7 @@ declare namespace workScheduler {
    */
   export enum BatteryStatus {
     /**
-     * A low battery alert is displayed.
+     * 表示这个触发条件是低电告警。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -576,7 +563,7 @@ declare namespace workScheduler {
      */
     BATTERY_STATUS_LOW = 0,
     /**
-     * The battery level is restored from low to normal.
+     * 表示这个触发条件是从低电恢复到正常电量。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -585,7 +572,7 @@ declare namespace workScheduler {
      */
     BATTERY_STATUS_OKAY = 1,
     /**
-     * The battery level is restored from low to normal, or a low battery alert is displayed.
+     * 表示这个触发条件是从低电恢复到正常电量或者低电告警。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -596,7 +583,7 @@ declare namespace workScheduler {
   }
 
   /**
-   * Enumerates the storage status that triggers the deferred task callback.
+   * 触发延迟任务回调的存储状态。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -606,7 +593,7 @@ declare namespace workScheduler {
    */
   export enum StorageRequest {
     /**
-     * The storage space is insufficient.
+     * 表示这个触发条件是存储空间不足。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -615,7 +602,7 @@ declare namespace workScheduler {
      */
     STORAGE_LEVEL_LOW = 0,
     /**
-     * The storage space is restored from insufficient to normal.
+     * 表示这个触发条件是从存储空间不足恢复到正常。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -624,7 +611,7 @@ declare namespace workScheduler {
      */
     STORAGE_LEVEL_OKAY = 1,
     /**
-     * The storage space is insufficient, or the storage space is restored from insufficient to normal.
+     * 表示这个触发条件是存储空间不足或者从存储空间不足恢复到正常。
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
