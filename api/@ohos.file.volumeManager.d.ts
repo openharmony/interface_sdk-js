@@ -176,7 +176,7 @@ declare namespace volumeManager {
   /**
    * Disk information.
    *
-   * @syscap SystemCapability.FileManagement.StorageService.Disk
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1001,13 +1001,14 @@ declare namespace volumeManager {
   function verifyBurnData(volumeId: string, verType: VerifyType): Promise<void>;
 
   /**
-   * Obtains information about all disks. This API uses a promise to return the result.
+   * Querying Information About All Disks.
    *
-   * @permission ohos.permission.MOUNT_FORMAT_MANAGER
-   * @returns { Promise<Array<Disk>> } Promise used to return information about all disks.
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @returns { Promise<Array<Disk>> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
@@ -1016,16 +1017,15 @@ declare namespace volumeManager {
   function getAllDisks(): Promise<Array<Disk>>;
 
   /**
-   * Obtains information about a disk based on the disk ID. This API uses a promise to return the result.
+   * Querying disk information based on the disk ID.
    *
-   * @permission ohos.permission.MOUNT_FORMAT_MANAGER
-   * @param { string } diskId - Disk ID.
-   * @returns { Promise<Disk> } Promise used to return the disk information of the current ID.
+   * @permission ohos.permission.STORAGE_MANAGER
+   * @param { string } diskId - The diskId of disk.
+   * @returns { Promise<Disk> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
