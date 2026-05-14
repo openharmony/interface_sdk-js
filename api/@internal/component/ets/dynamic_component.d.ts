@@ -96,28 +96,26 @@ declare interface DynamicOptions {
 
 /**
  * Provide an interface for the DynamicComponent, which is used to render UI of other ABC
- * 
- * @interface DynamicComponentInterface
+ *
+ * @returns { DynamicComponentAttribute } Attribute of DynamicComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic
  */
-declare interface DynamicComponentInterface {
-  /**
-   * Construct the DynamicComponentInterface.<br/>
-   * Called when the DynamicComponentInterface is used.
-   *
-   * @param { DynamicOptions } options - Construction configuration of DynamicComponentAttribute
-   * @returns { DynamicComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  (
-    options: DynamicOptions
-  ): DynamicComponentAttribute;
+interface DynamicComponentInterface {
+    /**
+     * Construct the DynamicComponentInterface.<br/>
+     * Called when the DynamicComponentInterface is used.
+     *
+     * @param { DynamicOptions } options - Construction configuration of DynamicComponentAttribute
+     * @returns { DynamicComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    (options: DynamicOptions): DynamicComponentAttribute;
 }
 
 /**
