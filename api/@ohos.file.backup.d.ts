@@ -740,7 +740,7 @@ declare namespace backup {
      * @since 18 dynamic
      * @since 23 static
      */
-   onBackupSizeReport?: OnBackupSizeReport;
+    onBackupSizeReport?: OnBackupSizeReport;
 
     /**
      * Callback called when the migrate result is reported.
@@ -748,21 +748,21 @@ declare namespace backup {
      * The second return string parameter indicates that when BusinessError errors occur,
      * the callback data is the name of the bundle.
      *
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed,
+     * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13600001 - IPC error
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900001 - Operation not permitted
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900005 - I/O error
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900011 - Out of memory
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900020 - Invalid argument
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900025 - No space left on device
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900005 - I/O error
+     * @throws { BusinessError } 13900011 - Out of memory
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13900025 - No space left on device
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     onMigrateResult?: AsyncCallback<string, void | string>;
-}
+  }
 
   /**
    * Control class for backup procedure.
@@ -976,7 +976,7 @@ declare namespace backup {
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     destPath: string;
   }
@@ -1234,44 +1234,45 @@ declare namespace backup {
     /**
      * Migrate file from source path to destination path.
      *
-     * [@permission](https://gitcode.com/permission) ohos.permission.BACKUP
+     * @permission ohos.permission.BACKUP
      * @param { PathInfo } pathInfo - Path information containing source and destination paths.
      * @param { FileMeta } fileMeta - File metadata containing bundleName and optional fileName.
      * @returns { Promise<void> } Promise that returns no value.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed,
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13600001 - IPC error
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900001 - Operation not permitted
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     migrateFile(pathInfo: PathInfo, fileMeta: FileMeta): Promise<void>;
 
     /**
      * Get the file handle of an APK file.
      *
-     * [@permission](https://gitcode.com/permission) ohos.permission.BACKUP
+     * @permission ohos.permission.BACKUP
      * @param { string } path - The path to the APK file.
      * @param { string } fileName - The name of the APK file.
      * @returns { Promise<FileData> } Promise used to return A FileData holding the file descriptor. The returned
      *     file is a temporal file that will be deleted automatically when closed.  
-     * [@throws](https://gitcode.com/throws) { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed,
+     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
+     * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13600001 - IPC error
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900001 - Operation not permitted
-     * [@throws](https://gitcode.com/throws) { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 13600001 - IPC error
+     * @throws { BusinessError } 13900001 - Operation not permitted
+     * @throws { BusinessError } 13900020 - Invalid argument
      * @syscap SystemCapability.FileManagement.StorageService.Backup
      * @systemapi
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     getApkFileHandle(path: string, fileName: string): Promise<FileData>;
-}
+  }
+  
   /**
    * Control class for incremental backup procedure.
    *
