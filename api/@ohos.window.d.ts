@@ -5196,8 +5196,8 @@ declare namespace window {
     /**
      * The duration of the window snapshot fade-out animation (ms).
      * If left unspecified, the parameter defaults to a value determined by the system animation context:
-     * 250 for transitions between WindowStatusType.FLOATING and WindowStatusType.FULLSCREEN window status.
-     * 400 for all other screenshot animation scenarios.
+     * 400 for transitions between WindowStatusType.FLOATING and WindowStatusType.FULLSCREEN window status.
+     * 250 for all other screenshot animation scenarios.
      * The valid range for this parameter is 0-400.
      *
      * @syscap SystemCapability.Window.SessionManager
@@ -5209,8 +5209,8 @@ declare namespace window {
     /**
      * The delay before the window snapshot fade-out animation begins (ms).
      * If left unspecified, the parameter defaults to a value determined by the system animation context:
-     * 50 for transitions between WindowStatusType.FLOATING and WindowStatusType.FULLSCREEN window status.
-     * 350 for all other screenshot animation scenarios.
+     * 350 for transitions between WindowStatusType.FLOATING and WindowStatusType.FULLSCREEN window status.
+     * 50 for all other screenshot animation scenarios.
      * The valid range for this parameter is 0-350.
      *
      * @syscap SystemCapability.Window.SessionManager
@@ -11398,6 +11398,7 @@ declare namespace window {
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     1. Invalid window type. Only main windows and maximizable subwindows are supported;
      *     2. The acrossDisplay parameter only supports main windows.
+     *     3. The snapshotAnimationConfig parameter only supports main windows.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -11673,6 +11674,8 @@ declare namespace window {
      *     2. Internal task error;
      *     3. The window does not support floating mode.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     1. The snapshotAnimationConfig parameter only supports main windows.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
