@@ -19,12 +19,15 @@
  */
 
 /**
- * Contains basic Ability information, which uniquely identifies an launcher StatusCallback.
- * You can use this class to obtain values of the fields set in an callback function,
- * such as the add, update, remove.
- * Contains basic launcher status callback information, which uniquely identifies an LauncherStatusCallback
+ * > **NOTE**
+ * >
+ * > The initial APIs of this module are supported since API version 8. Newly added APIs will
+ * > be marked with a superscript to indicate their earliest API version.
+ * >
+ * > The APIs of this module have been deprecated since API version 9. No substitute is provided.
+ * >
+ * > The APIs provided by this module are system APIs.
  *
- * @interface BundleStatusCallback
  * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
@@ -34,10 +37,9 @@
  */
 export interface BundleStatusCallback {
   /**
-   * Obtains add callback about an launcherStatusCallback.
+   * Used to obtain information when a bundle is installed.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
@@ -47,10 +49,9 @@ export interface BundleStatusCallback {
   add: (bundleName: string, userId: number) => void;
 
   /**
-   * Obtains update callback about an launcherStatusCallback.
+   * Used to obtain information when a bundle is updated.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
@@ -60,10 +61,9 @@ export interface BundleStatusCallback {
   update: (bundleName: string, userId: number) => void;
 
   /**
-   * Obtains remove callback about an launcherStatusCallback.
+   * Used to obtain information when a bundle is uninstalled.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @type { function }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly

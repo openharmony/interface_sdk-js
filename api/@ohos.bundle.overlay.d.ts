@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
+
 /*** if arkts dynamic */
 import * as _OverlayModuleInfo from './bundleManager/OverlayModuleInfo';
 /*** endif */
@@ -27,53 +28,75 @@ import { OverlayModuleInfo as _OverlayModuleInfo } from './bundleManager/Overlay
 /*** endif */
 
 /**
- * Used for application interception overlay
+ * The module provides APIs for querying the
+ * [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} of an application with the overlay
+ * feature, and disabling and enabling the feature.
  *
- * @namespace overlay
+ * An application with the overlay feature contains an overlay resource package. For details about this package, see
+ * [Overlay Mechanism](docroot://quick-start/resource-categories-and-access.md#overlay-mechanism).
+ *
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module apply only to the stage model and
+ * > [static overlay](docroot://quick-start/resource-categories-and-access.md#using-overlay-in-static-mode) mode.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
  * @since 10 dynamic
  * @since 23 static
  */
 declare namespace overlay {
   /**
-   * Set enabled state of overlay module based on specified moduleName.
+   * Enables or disables a module with the overlay feature in the current application. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { string } moduleName - Indicates the module name of the overlay module to be set.
-   * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
-   * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } moduleName - Name of the module with the overlay feature.
+   * @param { boolean } isEnabled - Whether to enable the module with the overlay feature. **true** to enable, **false**
+   *     otherwise.
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
    * @since 23 static
    */
-  function setOverlayEnabled(moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
+  function setOverlayEnabled(moduleName:string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set enabled state of overlay module based on specified moduleName.
+   * Enables or disables a module with the overlay feature in the current application. This API uses a promise to return
+   * the result.
    *
-   * @param { string } moduleName - Indicates the module name of the overlay module to be set.
-   * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } moduleName - Name of the module with the overlay feature.
+   * @param { boolean } isEnabled - Whether to enable the module with the overlay feature. **true** to enable, **false**
+   *     otherwise.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
    * @since 23 static
    */
-  function setOverlayEnabled(moduleName: string, isEnabled: boolean): Promise<void>;
+  function setOverlayEnabled(moduleName:string, isEnabled: boolean): Promise<void>;
 
   /**
-   * Set enabled state of overlay module based on specified bundleName and moduleName.
+   * Enables or disables a module with the overlay feature in another application. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * No permission is required when the specified application is the caller itself.
    *
    * @permission ohos.permission.CHANGE_OVERLAY_ENABLED_STATE
-   * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be set.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be set.
-   * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
-   * @param { AsyncCallback<void> } callback - The callback of setting specified overlay module enabled state result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } moduleName - Name of the module with the overlay feature.
+   * @param { boolean } isEnabled - Whether to enable the module with the overlay feature. **true** to enable, **false**
+   *     otherwise.
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -85,18 +108,22 @@ declare namespace overlay {
    * @since 10 dynamic
    * @since 23 static
    */
-  function setOverlayEnabledByBundleName(bundleName: string,
-    moduleName: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
+  function setOverlayEnabledByBundleName(bundleName:string, moduleName:string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set enabled state of overlay module based on specified bundleName and moduleName.
+   * Enables or disables a module with the overlay feature in another application. This API uses a promise to return the
+   * result.
+   *
+   * No permission is required when the specified application is the caller itself.
    *
    * @permission ohos.permission.CHANGE_OVERLAY_ENABLED_STATE
-   * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be set.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be set.
-   * @param { boolean } isEnabled - The value true means to enable overlay feature, and the value false means to disable overlay feature.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } moduleName - Name of the module with the overlay feature.
+   * @param { boolean } isEnabled - Whether to enable the module with the overlay feature. **true** to enable, **false**
+   *     otherwise.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -108,14 +135,18 @@ declare namespace overlay {
    * @since 10 dynamic
    * @since 23 static
    */
-  function setOverlayEnabledByBundleName(bundleName: string, moduleName: string, isEnabled: boolean): Promise<void>;
+  function setOverlayEnabledByBundleName(bundleName:string, moduleName:string, isEnabled: boolean): Promise<void>;
 
   /**
-   * Obtain the OverlayModuleInfo of current application based on moduleName.
+   * Obtains the OverlayModuleInfo about a module with the overlay feature in the current application. This API uses an
+   * asynchronous callback to return the result.
    *
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
-   * @param { AsyncCallback<OverlayModuleInfo> } callback - The callback of getting OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } moduleName - Name of the module with the overlay feature.
+   * @param { AsyncCallback<OverlayModuleInfo> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return
+   *     the result, which is an [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} object.
+   *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
@@ -126,11 +157,14 @@ declare namespace overlay {
   function getOverlayModuleInfo(moduleName: string, callback: AsyncCallback<OverlayModuleInfo>): void;
 
   /**
-   * Obtain the OverlayModuleInfo of current application based on moduleName.
+   * Obtains the OverlayModuleInfo about a module with the overlay feature in the current application. This API uses a
+   * promise to return the result.
    *
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
-   * @returns { Promise<OverlayModuleInfo> } The result of getting OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } moduleName - Name of the module with the overlay feature.
+   * @returns { Promise<OverlayModuleInfo> } Promise used to return the result, which is an
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
    * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
@@ -141,26 +175,34 @@ declare namespace overlay {
   function getOverlayModuleInfo(moduleName: string): Promise<OverlayModuleInfo>;
 
   /**
-   * Obtain the OverlayModuleInfo of current application based on moduleName.
+   * Obtains the OverlayModuleInfo associated with the specified target module. Modules with the overlay feature
+   * generally provide an overlay resource file for other modules (target module) on the device. This API uses an
+   * asynchronous callback to return the result.
    *
-   * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } targetModuleName - Name of the target module specified by modules with the overlay feature.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
+   *     return the result, which is an [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}
+   *     object. If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
    * @since 23 static
    */
-  function getTargetOverlayModuleInfos(targetModuleName: string,
-    callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+  function getTargetOverlayModuleInfos(targetModuleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
-   * Obtain the OverlayModuleInfo of current application based on moduleName.
+   * Obtains the OverlayModuleInfo associated with the specified target module. Modules with the overlay feature
+   * generally provide an overlay resource file for other modules (target module) on the device. This API uses a promise
+   * to return the result.
    *
-   * @param { string } targetModuleName - Indicates the target module name of the target module to be queried.
-   * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } targetModuleName - Name of the target module specified by modules with the overlay feature.
+   * @returns { Promise<Array<OverlayModuleInfo>> } Promise used to return the result, which is an array of
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
    * @throws { BusinessError } 17700034 - The specified module is an overlay module.
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
@@ -170,12 +212,19 @@ declare namespace overlay {
   function getTargetOverlayModuleInfos(targetModuleName: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
-   * Obtain the OverlayModuleInfo of the specified application based on bundleName.
+   * Obtains the information about all modules with the overlay feature in another application. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * No permission is required when the specified application is the caller itself.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
+   *     return the result, which is an array of
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects. If the operation is
+   *     successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -186,38 +235,24 @@ declare namespace overlay {
    * @since 23 static
    */
   function getOverlayModuleInfoByBundleName(bundleName: string,
-    callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
-   * Obtain the OverlayModuleInfo of the specified application based on bundleName.
+   * Obtains the information about a module with the overlay feature in another application. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * No permission is required when the specified application is the caller itself.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700002 - The specified module name is not found.
-   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
-   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
-   * @systemapi
-   * @since 10 dynamic
-   * @since 23 static
-   */
-  function getOverlayModuleInfoByBundleName(bundleName: string,
-    moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
-
-  /**
-   * Obtain the OverlayModuleInfo of the specified application based on bundleName and moduleName.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the application bundle name of the overlay bundle to be quired.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
-   * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } moduleName - Name of the module with the overlay feature. If this parameter is not specified, the
+   *     API obtains the information of all modules with the overlay feature in that application.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
+   *     return the result, which is an array of
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects. If the operation is
+   *     successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -229,16 +264,49 @@ declare namespace overlay {
    * @since 10 dynamic
    * @since 23 static
    */
-  function getOverlayModuleInfoByBundleName(bundleName: string,
-    moduleName?: string): Promise<Array<OverlayModuleInfo>>;
+  function getOverlayModuleInfoByBundleName(bundleName: string, moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
-   * Obtain the OverlayModuleInfo of the specified target application based on bundleName.
+   * Obtains the information about a module with the overlay feature in another application. This API uses a promise to
+   * return the result.
+   *
+   * No permission is required when the specified application is the caller itself.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } moduleName - Name of the module with the overlay feature. By default, no value is passed, and the
+   *     API obtains the information of all modules with the overlay feature in that application.
+   * @returns { Promise<Array<OverlayModuleInfo>> } Promise used to return the result, which is an array of
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified module name is not found.
+   * @throws { BusinessError } 17700032 - The specified bundle does not contain any overlay module.
+   * @throws { BusinessError } 17700033 - The specified module is not an overlay module.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
+   * @systemapi
+   * @since 10 dynamic
+   * @since 23 static
+   */
+  function getOverlayModuleInfoByBundleName(bundleName: string, moduleName?: string): Promise<Array<OverlayModuleInfo>>;
+
+  /**
+   * Obtains the information about all modules with the overlay feature in another application. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * No permission is required when the specified application is the caller itself.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } targetBundleName - Bundle name of the application.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
+   *     return the result, which is an array of
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects. If the operation is
+   *     successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -249,16 +317,24 @@ declare namespace overlay {
    * @since 23 static
    */
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
-    callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+      callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
-   * Obtain the OverlayModuleInfo of the specified target application based on bundleName.
+   * Obtains the information about modules with the overlay feature in another application based on the target module
+   * name. This API uses an asynchronous callback to return the result.
+   *
+   * No permission is required when the specified application is the caller itself.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - The callback of getting a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } targetBundleName - Bundle name of the application.
+   * @param { string } moduleName - Name of the target module. If this parameter is not specified, the API obtains the
+   *     information associated with all modules in that application.
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
+   *     return the result, which is an array of
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects. If the operation is
+   *     successful, **err** is **null**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -270,17 +346,22 @@ declare namespace overlay {
    * @since 10 dynamic
    * @since 23 static
    */
-  function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
-    moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
+  function getTargetOverlayModuleInfosByBundleName(targetBundleName: string, moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
-   * Obtain the OverlayModuleInfo of the specified target application based on bundleName and moduleName.
+   * Obtains the information about modules with the overlay feature in another application based on the target module
+   * name. This API uses a promise to return the result.
+   *
+   * No permission is required when the specified application is the caller itself.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } targetBundleName - Indicates the application target bundle name of the overlay bundle to be quired.
-   * @param { string } moduleName - Indicates the module name of the overlay module to be queried.
-   * @returns { Promise<Array<OverlayModuleInfo>> } Returns a list of OverlayModuleInfo object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } targetBundleName - Bundle name of the application.
+   * @param { string } moduleName - Name of the target module. By default, no value is passed, and the API obtains the
+   *     information associated with all modules in that application.
+   * @returns { Promise<Array<OverlayModuleInfo>> } Promise used to return the result, which is an array of
+   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo} objects.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -292,13 +373,11 @@ declare namespace overlay {
    * @since 10 dynamic
    * @since 23 static
    */
-  function getTargetOverlayModuleInfosByBundleName(targetBundleName: string,
-    moduleName?: string): Promise<Array<OverlayModuleInfo>>;
+  function getTargetOverlayModuleInfosByBundleName(targetBundleName: string, moduleName?: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
-   * Obtains configuration information about a overlay hap module.
+   * Defines the information about a module with the overlay feature.
    *
-   * @typedef { _OverlayModuleInfo.OverlayModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic
    */
@@ -307,7 +386,6 @@ declare namespace overlay {
   /**
    * Obtains configuration information about a overlay hap module.
    *
-   * @typedef { _OverlayModuleInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 23 static
    */

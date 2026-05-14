@@ -28,9 +28,14 @@ import { ElementName } from './bundleManager/ElementName';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * Used for application interception control
+ * The module provides APIs for setting, obtaining, and deleting the disposed status of an application. An application
+ * in the disposed status is forbidden to run. When a user clicks the application icon on the home screen, the
+ * corresponding page is displayed based on the disposal intent.
  *
- * @namespace appControl
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
  * @since 9 dynamic
@@ -38,9 +43,8 @@ import Want from './@ohos.app.ability.Want';
  */
 declare namespace appControl {
   /**
-   * Indicates the ability component type.
+   * Enumerates the types of application components that function as the displayed page.
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
@@ -48,7 +52,7 @@ declare namespace appControl {
    */
   export enum ComponentType {
     /**
-     * Indicates the UI ability type.
+     * UIAbility component.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -58,7 +62,7 @@ declare namespace appControl {
     UI_ABILITY = 1,
 
     /**
-     * Indicates the extension ability type.
+     * UIExtensionAbility component.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -69,17 +73,21 @@ declare namespace appControl {
   }
 
   /**
-   * Indicates the ability component type when uninstalled.
+   * Enumerates the types of abilities during uninstallation.
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 15 dynamic
    * @since 23 static
    */
   export enum UninstallComponentType {
+
     /**
-     * Indicates the service extension ability type.
+     * ExtensionAbility component. Only
+     * [ExtensionAbility](docroot://quick-start/module-configuration-file.md#extensionabilities) components of the
+     * service type is supported.
+     *
+     * The ExtensionAbility component is determined by bundleName, moduleName, and abilityName in want.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -88,7 +96,11 @@ declare namespace appControl {
      */
     EXTENSION = 1,
     /**
-     * Indicates the UI extension ability type.
+     * UIExtensionAbility component.
+     *
+     * The UIExtensionAbility is determined by bundleName, moduleName, and abilityName in want, and the
+     * **ability.want.params.uiExtensionType** field in **want.parameters** is set to
+     * [UIExtensionAbility](docroot://application-models/uiextensionability-sys.md).
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -99,9 +111,8 @@ declare namespace appControl {
   }
 
   /**
-   * Indicates when to intercept the specified application.
+   * Enumerates the types of application disposals.
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
@@ -109,7 +120,7 @@ declare namespace appControl {
    */
   export enum DisposedType {
     /**
-     * All abilities will be blocked.
+     * All abilities of the application are blocked. That is, the entire application is blocked.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -118,7 +129,7 @@ declare namespace appControl {
      */
     BLOCK_APPLICATION = 1,
     /**
-     * Only the specified abilities will be blocked.
+     * A specific ability of the application is blocked.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -127,7 +138,7 @@ declare namespace appControl {
      */
     BLOCK_ABILITY = 2,
     /**
-     * All abilities will not be blocked.
+     * The application is not blocked.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -138,9 +149,8 @@ declare namespace appControl {
   }
 
   /**
-   * Indicates the strategy to intercept the specified application.
+   * Enumerates the control type of application disposal.
    *
-   * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
@@ -148,7 +158,7 @@ declare namespace appControl {
    */
   export enum ControlType {
     /**
-     * Only the specified abilities are allowed to run.
+     * A trustlist is used, which means that the application components in the list are allowed to run.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -157,7 +167,7 @@ declare namespace appControl {
      */
     ALLOWED_LIST = 1,
     /**
-     * The specified abilities are not allowed to run.
+     * A blocklist is used, which means that the application components in the list are forbidden to run.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -168,9 +178,8 @@ declare namespace appControl {
   }
 
   /**
-   * Indicates the rule for interception.
+   * Defines a disposed rule.
    *
-   * @typedef DisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 11 dynamic
@@ -178,9 +187,8 @@ declare namespace appControl {
    */
   export interface DisposedRule {
     /**
-     * Indicates the ability that will be pulled up when interception occurs.
+     * Page displayed when the application is disposed of.
      *
-     * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
@@ -189,9 +197,8 @@ declare namespace appControl {
     want: Want;
 
     /**
-     * Indicates the type of the ability that will be pulled up when interception occurs.
+     * Type of application component that functions as the displayed page.
      *
-     * @type { ComponentType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
@@ -200,9 +207,8 @@ declare namespace appControl {
     componentType: ComponentType;
 
     /**
-     * Indicates when to intercept the specified application.
+     * Type of application disposal.
      *
-     * @type { DisposedType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
@@ -211,9 +217,8 @@ declare namespace appControl {
     disposedType: DisposedType;
 
     /**
-     * Indicates the interception policy.
+     * Control type of application disposal.
      *
-     * @type { ControlType }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
@@ -222,9 +227,8 @@ declare namespace appControl {
     controlType: ControlType;
 
     /**
-     * Indicates the abilities to be disposed of the specified application.
+     * List of application components to be disposed of or exempted.
      *
-     * @type { Array<ElementName> }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
@@ -233,9 +237,9 @@ declare namespace appControl {
     elementList: Array<ElementName>;
 
     /**
-     * Indicates priority of the rule.
+     * Priority of the disposed rule, which is used to sort the query results of the rule list. The value is an integer.
+     * A smaller value indicates a higher priority.
      *
-     * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
@@ -245,9 +249,8 @@ declare namespace appControl {
   }
 
   /**
-   * Indicates the uninstall rule for interception.
+   * Describes an uninstallation disposed rule.
    *
-   * @typedef UninstallDisposedRule
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 15 dynamic
@@ -255,9 +258,8 @@ declare namespace appControl {
    */
   export interface UninstallDisposedRule {
     /**
-     * Indicates the ability that will be pulled up when interception occurs.
+     * Component displayed when the application is disposed of.
      *
-     * @type { Want }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 15 dynamic
@@ -266,32 +268,30 @@ declare namespace appControl {
     want: Want;
 
     /**
-     * Indicates the type of the ability that will be pulled up when interception occurs.
+     * Priority of the disposed rule, which is used to sort the query results of the rule list. The value is an integer.
+     * A smaller value indicates a higher priority.
      *
-     * @type { UninstallComponentType }
-     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-     * @systemapi
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    uninstallComponentType: UninstallComponentType;
-
-    /**
-     * Indicates priority of the rule.
-     *
-     * @type { int }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 15 dynamic
      * @since 23 static
      */
     priority: int;
+
+    /**
+     * Type of the ability to start during interception.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 15 dynamic
+     * @since 23 static
+     */
+    uninstallComponentType: UninstallComponentType;
   }
 
   /**
-   * Indicate the configuration for batch interception settings.
+   * Describes the configurations for setting disposed rules in batches.
    *
-   * @typedef DisposedRuleConfiguration
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
    * @since 20 dynamic
@@ -299,9 +299,18 @@ declare namespace appControl {
    */
   export interface DisposedRuleConfiguration {
     /**
-     * Indicates the app ID of the application.
+     * appId or appIdentifier of the target application. Identical appId and appIdentifier values indicate the same
+     * application instance. If a rule is set using appId, it overwrites the one set with appIdentifier, and the reverse
+     * is also true.
      *
-     * @type { string }
+     * **NOTE**
+     *
+     * **appId** is also the unique identifier of an app. For details, see
+     * [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
+     * details about how to obtain **appIdentifier**, see
+     * [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
+     * .
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20 dynamic
@@ -310,9 +319,11 @@ declare namespace appControl {
     appId: string;
 
     /**
-     * Indicates the index of clone app.
+     * Index of the application clone. The default value is **0**.
      *
-     * @type { int }
+     * The value **0** means to set the disposed rule for the main application. A value greater than 0 means to set the
+     * disposed rule for the application clone with the specified index.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20 dynamic
@@ -321,9 +332,8 @@ declare namespace appControl {
     appIndex: int;
 
     /**
-     * Indicates the rule for interception.
+     * Disposal rule of the application, including the type of the ability to be started during disposal.
      *
-     * @type { DisposedRule }
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 20 dynamic
@@ -333,15 +343,22 @@ declare namespace appControl {
   }
 
   /**
-   * Set the disposed status of a specified bundle.
+   * Sets the disposed status for an application. This API uses an asynchronous callback to return the result. If the
+   * operation is successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { Want } disposedWant - Indicates the disposed want.
-   * @param { AsyncCallback<void> } callback - The callback of setting the disposed status result.
+   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
+   *     and is determined by the bundle name and signature information of the application. For details about how to
+   *     obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @param { Want } disposedWant - Disposal intent of the application.
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -352,15 +369,21 @@ declare namespace appControl {
   function setDisposedStatus(appId: string, disposedWant: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the disposed status of a specified bundle.
+   * Sets the disposed status for an application. This API uses a promise to return the result. If the operation is
+   * successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { Want } disposedWant - Indicates the disposed want.
-   * @returns { Promise<void> } The result of setting the disposed status of a specified bundle.
+   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
+   *     and is determined by the bundle name and signature information of the application. For details about how to
+   *     obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @param { Want } disposedWant - Disposal intent of the application.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -371,14 +394,20 @@ declare namespace appControl {
   function setDisposedStatus(appId: string, disposedWant: Want): Promise<void>;
 
   /**
-   * Set the disposed status of a specified bundle.
+   * Sets the disposed status for an application. This API returns the result synchronously. If the operation is
+   * successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { Want } disposedWant - Indicates the disposed want.
+   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
+   *     and is determined by the bundle name and signature information of the application. For details about how to
+   *     obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @param { Want } disposedWant - Disposal intent of the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -389,14 +418,23 @@ declare namespace appControl {
   function setDisposedStatusSync(appId: string, disposedWant: Want): void;
 
   /**
-   * Obtains the disposed status of a specified bundle.
+   * Obtains the disposed status of an application. This API uses an asynchronous callback to return the result. If the
+   * operation is successful, the disposed status of the application is returned. If the operation fails, an error
+   * message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { AsyncCallback<Want> } callback - The callback of getting the disposed status of a specified bundle result.
+   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
+   *     and is determined by the bundle name and signature information of the application. For details about how to
+   *     obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @param { AsyncCallback<Want> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null** and **data** is the disposed status obtained; otherwise,
+   *     **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -407,14 +445,21 @@ declare namespace appControl {
   function getDisposedStatus(appId: string, callback: AsyncCallback<Want>): void;
 
   /**
-   * Obtains the disposed status of a specified bundle.
+   * Obtains the disposed status of an application. This API uses a promise to return the result. If the operation is
+   * successful, the disposed status of the application is returned. If the operation fails, an error message is
+   * returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @returns { Promise<Want> } Returns the disposed status of a specified bundle.
+   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
+   *     and is determined by the bundle name and signature information of the application. For details about how to
+   *     obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @returns { Promise<Want> } Promise used to return the disposed status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -425,14 +470,21 @@ declare namespace appControl {
   function getDisposedStatus(appId: string): Promise<Want>;
 
   /**
-   * Obtains the disposed status of a specified bundle.
+   * Obtains the disposed status of an application. This API returns the result synchronously. If the operation is
+   * successful, the disposed status of the application is returned. If the operation fails, an error message is
+   * returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @returns { Want } Returns the disposed status of a specified bundle.
+   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
+   *     and is determined by the bundle name and signature information of the application. For details about how to
+   *     obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @returns { Want } Disposed status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -443,14 +495,27 @@ declare namespace appControl {
   function getDisposedStatusSync(appId: string): Want;
 
   /**
-   * Delete the disposed status of a specified bundle.
+   * Deletes the disposed status for an application. This API uses an asynchronous callback to return the result. If the
+   * operation is successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { AsyncCallback<void> } callback - the callback of deleting the disposed status of a specified bundle result.
+   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
+   *     be deleted using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
+   *     identifier of an application and is determined by the bundle name and signature information of the application.
+   *     For details about how to obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
+   *     For details, see
+   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
+   *     details about how to obtain **appIdentifier**, see
+   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
+   *     .
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**. otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -461,14 +526,26 @@ declare namespace appControl {
   function deleteDisposedStatus(appId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Delete the disposed status of a specified bundle.
+   * Deletes the disposed status for an application. This API uses a promise to return the result. If the operation is
+   * successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @returns { Promise<void> } Returns the result of deleting the disposed status of a specified bundle.
+   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
+   *     be deleted using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
+   *     identifier of an application and is determined by the bundle name and signature information of the application.
+   *     For details about how to obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
+   *     For details, see
+   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
+   *     details about how to obtain **appIdentifier**, see
+   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
+   *     .
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is empty string.
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -479,118 +556,121 @@ declare namespace appControl {
   function deleteDisposedStatus(appId: string): Promise<void>;
 
   /**
-   * Delete the disposed status of a specified bundle.
+   * Deletes the disposed status for an application or an application clone. This API returns the result synchronously.
+   * If the operation is successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is empty string.
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * Delete the disposed status of a specified bundle.
-   *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { int } [appIndex] Indicates the index of clone app.
+   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
+   *     be deleted using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
+   *     identifier of an application and is determined by the bundle name and signature information of the application.
+   *     For details about how to obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
+   *     For details, see
+   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
+   *     details about how to obtain **appIdentifier**, see
+   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
+   *     .
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
+   *     to delete the disposed status of the main application. A value greater than 0 means to delete the disposed
+   *     status of the application clone. [since 12]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is invalid.
-   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range. [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 12 dynamic
+   * @since 10 dynamic
    * @since 23 static
    */
   function deleteDisposedStatusSync(appId: string, appIndex?: int): void;
 
   /**
-   * Obtains the disposed rule of a specified bundle.
+   * Obtains the disposed rule of an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
+   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
+   *     be obtained using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
+   *     identifier of an application and is determined by the bundle name and signature information of the application.
+   *     For details about how to obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
+   *     For details, see
+   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
+   *     details about how to obtain **appIdentifier**, see
+   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
+   *     .
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
+   *     to obtain the disposed rule of the main application. A value greater than 0 means to obtain the disposed rule
+   *     of the application clone with the specified index. [since 12]
+   * @returns { DisposedRule } Disposed rule of the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is an empty string.
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Obtains the disposed rule of a specified bundle.
-   *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { int } [appIndex] Indicates the index of clone app.
-   * @returns { DisposedRule } Returns the disposed rule of a specified bundle.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is invalid.
-   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range. [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function getDisposedRule(appId: string, appIndex?: int): DisposedRule;
 
   /**
-   * Sets the disposed rule of a specified bundle.
+   * Sets the disposed rule for an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { DisposedRule } rule - Indicates the disposed rule of a specified bundle.
+   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it
+   *     overwrites the one set with appIdentifier, and the reverse is also true.<br>**NOTE**<br> **appId** is the
+   *     unique identifier of an application and is determined by the bundle name and signature information of the
+   *     application. For details about how to obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
+   *     For details, see
+   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
+   *     details about how to obtain **appIdentifier**, see
+   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
+   *     .
+   * @param { DisposedRule } rule - Disposed rule to set.
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
+   *     to set the disposed rule for the main application. A value greater than 0 means to set the disposed rule for
+   *     the application clone with the specified index. [since 12]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700005 - The specified app ID is an empty string.
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Sets the disposed rule of a specified bundle.
-   *
-   * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - Indicates the app ID of the application.
-   * @param { DisposedRule } rule - Indicates the disposed rule of a specified bundle.
-   * @param { int } [appIndex] Indicates the index of clone app.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700005 - The specified app ID is invalid.
-   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
+   * @throws { BusinessError } 17700061 - AppIndex is not in the valid range. [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function setDisposedRule(appId: string, rule: DisposedRule, appIndex?: int): void;
 
   /**
-   * Sets the uninstall disposed rule of a specified bundle.
+   * Sets an uninstallation disposed rule for an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { UninstallDisposedRule } rule - Indicates the uninstall disposed rule of a specified bundle.
-   * @param { int } [appIndex] Indicates the index of clone app.
+   * @param { string } appIdentifier - appIdentifier of the target application.<br> If the application does not have an
+   *     appIdentifier, use its appId instead. **appId** is the unique identifier of an application and is determined by
+   *     the bundle name and signature information of the application. For details about how to obtain **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @param { UninstallDisposedRule } rule - Uninstallation disposed rule.
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
+   *     to set the uninstallation disposed rule for the main application. A value greater than 0 means to set the
+   *     uninstallation disposed rule for the application clone.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
@@ -601,17 +681,24 @@ declare namespace appControl {
    * @since 23 static
    */
   function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: int): void;
-  
+
   /**
-   * Obtains the uninstall disposed rule of a specified bundle.
+   * Obtains the uninstallation disposed rule of an application or an application clone.
    *
    * @permission ohos.permission.GET_DISPOSED_APP_STATUS or ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { int } [appIndex] Indicates the index of clone app.
-   * @returns { UninstallDisposedRule } Returns the uninstall disposed rule of a specified bundle.
+   * @param { string } appIdentifier - appIdentifier of the target application.<br> If the application does not have an
+   *     appIdentifier, use its appId instead. **appId** is the unique identifier of an application and is determined by
+   *     the bundle name and signature information of the application. For details about how to set **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
+   *     to obtain the uninstallation disposed rule of the main application. A value greater than 0 means to obtain the
+   *     uninstallation disposed rule of the application clone.
+   * @returns { UninstallDisposedRule } Uninstallation disposed rule.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
@@ -623,14 +710,21 @@ declare namespace appControl {
   function getUninstallDisposedRule(appIdentifier: string, appIndex?: int): UninstallDisposedRule;
 
   /**
-   * Delete the uninstall disposed rule of a specified bundle.
+   * Deletes an uninstallation disposed rule for an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - Indicates the appIdentifier of the application.
-   * @param { int } [appIndex] Indicates the index of clone app.
+   * @param { string } appIdentifier - appIdentifier of the target application.<br> If the application does not have an
+   *     appIdentifier, use its appId instead. **appId** is the unique identifier of an application and is determined by
+   *     the bundle name and signature information of the application. For details about how to delete **appId**, see
+   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
+   *     .
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
+   *     to delete the uninstallation disposed rule of the main application. A value greater than 0 means to delete the
+   *     uninstallation disposed rule of the application clone.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700061 - AppIndex is not in the valid range.
    * @throws { BusinessError } 17700074 - The specified appIdentifier is invalid.
@@ -642,10 +736,15 @@ declare namespace appControl {
   function deleteUninstallDisposedRule(appIdentifier: string, appIndex?: int): void;
 
   /**
-   * Batch set disposed rules for specified bundles.
+   * Sets disposed rules in batches for an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { Array<DisposedRuleConfiguration> } disposedRuleConfigurations - Indicate the configuration for batch interception settings.
+   * @param { Array<DisposedRuleConfiguration> } disposedRuleConfigurations - Configuration for the disposed rules in
+   *     batches, including the appId of the target application, the index of the application clone, and the rules
+   *     themselves. The maximum number of disposed rules in an array is 1000.<br>**NOTE**<br>1. If multiple
+   *     **DisposedRuleConfiguration** entries in the array have the same appId and appIndex, the later entry will
+   *     overwrite the earlier one.<br>2. If an application has already set disposed rules, re-setting the rules will
+   *     replace the existing ones. Identical appId and appIndex values indicate the same application instance.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -659,10 +758,10 @@ declare namespace appControl {
   function setDisposedRules(disposedRuleConfigurations: Array<DisposedRuleConfiguration>): void;
 
   /**
-   * Query all disposed rules under the current user.
+   * Obtains all the disposed rules set for the current user.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @returns { Array<DisposedRuleConfiguration> } Returns all disposed rules.
+   * @returns { Array<DisposedRuleConfiguration> } Array of disposed rules.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -673,7 +772,7 @@ declare namespace appControl {
   function getAllDisposedRules(): Array<DisposedRuleConfiguration>;
 
   /**
-   * Query all disposed rules under the current user for the specified setter bundle name.
+   * Query all disposed rules under the current user for the specified bundle name.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } bundleName - Indicates the bundle name of the setter that sets the disposed rules.
