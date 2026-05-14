@@ -2078,7 +2078,7 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
    * @atomicservice
-   * @since26.0.0 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   const SKIP_NDEF = 11;
 }
