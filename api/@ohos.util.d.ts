@@ -1057,7 +1057,7 @@ declare namespace util {
      * A constructor used to create a **LRUCache** instance. The default capacity of the cache is 64.
      *
      * @param { number } [capacity] - Capacity of the cache to create. The default value is **64**, and the maximum
-     *     value is **2147483647**.
+     *     value is **2147483647**. [since 12]
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
