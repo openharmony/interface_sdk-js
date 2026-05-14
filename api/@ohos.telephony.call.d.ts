@@ -3441,6 +3441,17 @@ declare namespace call {
      * @since 23 static
      */
     isMuted: boolean;
+
+    /**
+     * Indicates the status of microphone disabled.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 24 dynamic&static
+     */
+    isMicDisabled?: boolean;
   }
 
   /**
