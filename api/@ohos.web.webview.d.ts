@@ -391,8 +391,16 @@ declare namespace webview {
   }
 
   /**
-   * The memory pressure level that can be set.
-   * @enum {number}
+   * Enumerates the memory pressure levels. When an application clears the cache occupied by the **Web** component, the
+   * **Web** kernel releases the cache based on the memory pressure level.
+   *
+   * | Name| Value| Description|
+   * | ------------------------------- | - | ---------- |
+   * | MEMORY_PRESSURE_LEVEL_MODERATE | 1 | Moderate memory pressure level. At this level, the **Web** kernel attempts
+   * to release the cache that has low reallocation overhead and does not need to be used immediately.|
+   * | MEMORY_PRESSURE_LEVEL_CRITICAL | 2 | Critical memory pressure level. At this level, the **Web** kernel attempts
+   * to release all possible memory caches.|
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
@@ -400,6 +408,7 @@ declare namespace webview {
   enum PressureLevel {
     /**
      * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
@@ -408,6 +417,7 @@ declare namespace webview {
 
     /**
      * At this level, modules are advised to free all possible memory.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
@@ -729,108 +739,40 @@ declare namespace webview {
   }
 
   /**
-   * Provides basic information of web storage.
+   * Provides usage information of the Web SQL Database.
    *
-   * @interface WebStorageOrigin
+   * @interface WebStorageOrigin [since 9 - 11]
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @interface WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @typedef WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @typedef WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   interface WebStorageOrigin {
     /**
-     * Url source.
+     * Index of the origin.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Url source.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-	/**
-     * Url source.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Web.Webview.Core
-	 * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     origin: string;
     /**
-     * Specify the amount of storage for the source.
+     * Storage usage of the origin.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Specify the amount of storage for the source. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-	/**
-     * Specify the amount of storage for the source. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-	 * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     usage: number;
     /**
-     * the callback of getOriginUsage.
+     * Storage quota of the origin.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * the callback of getOriginUsage. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-	/**
-     * the callback of getOriginUsage. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-	 * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     quota: number;
   }
@@ -932,402 +874,220 @@ declare namespace webview {
   function once(type: string, callback: Callback<void>): void;
 
   /**
-   * Provides methods for managing web storage.3
+   * Implements a **WebStorage** object to manage the Web SQL database and HTML5 Web Storage APIs. All **Web**
+   * components in an application share a **WebStorage** object.
+   *
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
+   * >
+   * > - You must load the **Web** component before calling the APIs in **WebStorage**.
+   * >
+   * > - After the ArkWeb kernel is upgraded to M132, the Web SQL database management becomes invalid because the kernel
+   * > discards Web SQL. For details about the ArkWeb kernel version, see
+   * > [Constraints](docroot://web/web-component-overview.md#constraints).
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides methods for managing web storage.3
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Implements a WebStorage object to manage the Web SQL database and HTML5 Web Storage APIs.
-   * All Web components in an application share a WebStorage object.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * You must load the Web component before calling the APIs in WebStorage.
-   * </p>
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebStorage {
     /**
-     * Delete all the storage data.
+     * Deletes all storage data used by JavaScript storage APIs, including the Web SQL Database and HTML5-supported Web
+     * storage APIs.
      *
+     * @param { boolean } incognito - Whether to delete all data in the Web SQL Database in incognito mode. The value
+     *     **true** means to delete all data in the Web SQL Database in incognito mode, and **false** means the
+     *     opposite.<br>Default value: **false**.<br>If **undefined** or **null** is passed, the value is
+     *     **false**. [since 11]
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete all the storage data.
-     *
-     * @param { boolean } incognito - {@code true} delete all the storage data in incognito mode;
-     *                                {@code false} otherwise.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Deletes all data in the Web SQL Database.
-     *
-     * @param { boolean } incognito - Whether to delete all data in the Web SQL Database in incognito mode.
-     *                                {@code true} means to delete all data in the Web SQL Database in incognito mode;
-     *                                {@code false} means to delete all data in the Web SQL Database in normal non-incognito mode.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteAllData(incognito?: boolean): void;
 
     /**
-     * Delete the storage data with the origin.
-     *
-     * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete the storage data with the origin.
-     *
-     * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Deletes all data in the specified origin.
      *
-     * @param { string } origin - Index of the origin, which is obtained through {@link getOrigins}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @param { string } origin - Index of the origin, which is obtained through
+     *     [getOrigins]{@link webview.WebStorage.static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>)}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteOrigin(origin: string): void;
 
     /**
-     * Get current all the web storage origins.
-     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get current all the web storage origins.
-     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about all origins that are currently using the Web SQL Database.
-     * This API uses a promise to return the result.
+     * Obtains information about origins that are currently using the Web SQL Database and HTML5-supported Web Storage
+     * APIs. This API uses a promise to return the result.
      *
-     * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
-     *                                                 For details, see {@link WebStorageOrigin}.
+     * @returns { Promise<Array<WebStorageOrigin>> } Promise used to return the information about the origins.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
     /**
-     * Get current all the web storage origins.
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get current all the web storage origins.
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about all origins that are currently using the Web SQL Database.
-     * This API uses an asynchronous callback to return the result.
+     * Obtains information about origins that are currently using the Web SQL Database and HTML5-supported Web Storage
+     * APIs. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
-     *                                                              origins. For details, see {@link WebStorageOrigin}.
+     *     origins.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
     /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
+     * Obtains the storage quota of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in bytes.
+     * This API uses a promise to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @returns { Promise<number> } Promise used to return the storage quota of the origin.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginQuota(origin: string): Promise<number>;
 
     /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
+     * Obtains the storage quota of an origin in Web SQL Database and HTML5-supported Web Storage APIs, in bytes. This
+     * API uses an asynchronous callback to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @param { AsyncCallback<number> } callback - Storage quota of the origin.<br>**number** is a long integer ranging
+     *     from -2,147,483,648 to 2,147,483,647.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
+     * Obtains the storage usage of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in bytes.
+     * This API uses a promise to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @returns { Promise<number> } Promise used to return the storage usage of the origin.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
+     * Obtains the storage usage of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in bytes.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @param { AsyncCallback<number> } callback - Storage usage of the origin.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
 
   /**
-   * Provides methods for managing web database.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Implements a WebDataBase object.
+   * Implements a **WebDataBase** object.
    *
-   * <p><strong>API Note</strong>:<br>
-   * You must load the Web component before calling the APIs in WebDataBase.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
+   * >
+   * > - You must load the **Web** component before calling the APIs in **WebDataBase**.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebDataBase {
     /**
-    * Get whether instances holds any http authentication credentials.
-    * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 9
-    */
-   /**
-    * Get whether instances holds any http authentication credentials.
-    * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 11 dynamic
-    */
+     * Checks whether any saved HTTP authentication credentials exist. This API returns the result synchronously.
+     *
+     * @returns { boolean } Whether any saved HTTP authentication credentials exist.
+     *     <br>**true** is returned if any saved HTTP authentication credentials exist; otherwise, **false** is returned.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     */
     static existHttpAuthCredentials(): boolean;
 
-    /**
-     * Delete all http authentication credentials.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
     /**
      * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteHttpAuthCredentials(): void;
 
     /**
-     * Get http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @returns { Array<string> } Return an array containing username and password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @returns { Array<string> } Return an array containing username and password.
+     * Retrieves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
+     *
+     * @param { string } host - Host to which the HTTP authentication credential is applied.
+     * @param { string } realm - Realm to which the HTTP authentication credential is applied.
+     * @returns { Array<string> } Array of the matching user names and passwords is returned if the operation is
+     *     successful; otherwise, an empty array is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getHttpAuthCredentials(host: string, realm: string): Array<string>;
 
     /**
-     * Save http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @param { string } username - The username.
-     * @param { string } password - The password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
      * Saves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
-     * @param { string } host - Host to which HTTP authentication credentials apply.
-     * @param { string } realm - Realm to which HTTP authentication credentials apply.
+     *
+     * @param { string } host - Host to which the HTTP authentication credential is applied.
+     * @param { string } realm - Realm to which the HTTP authentication credential is applied.
      * @param { string } username - User name.
      * @param { string } password - Password.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
   }
@@ -6632,19 +6392,21 @@ declare namespace webview {
      * The paths in the list must be any of the following(sub path and module name must be provided):
      *
      * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
-     *    or "/data/storage/el2/base/haps/entry/files/example".
-     *    The application file directory is obtained using Context.filesDir in the Ability Kit.
+     * or "/data/storage/el2/base/haps/entry/files/example".
+     * The application file directory is obtained using Context.filesDir in the Ability Kit.
      * 2. The path of application resource directory or its subdirectory, like "/data/storage/el1/bundle/entry/resource/resfile"
-     *    or "/data/storage/el1/bundle/entry/resource/resfile/example".
-     *    The application resource directory is obtained from Context.resourceDir in the Ability Kit.
+     * or "/data/storage/el1/bundle/entry/resource/resfile/example".
+     * The application resource directory is obtained from Context.resourceDir in the Ability Kit.
      *
      * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
      * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
      * the behavior of the {@link fileAccess}.
      *
      * @param { Array<string> } pathList - The path list allow universal access.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Parameter string is too long.
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -6656,8 +6418,10 @@ declare namespace webview {
      * Trim memory by different memory pressure level.
      *
      * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Parameter string is too long.
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
