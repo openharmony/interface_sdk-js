@@ -424,14 +424,14 @@ declare namespace volumeManager {
   }
 
   /**
-   * Partition creation options.
+   * Partition creation params.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface PartitionOptions {
+  export interface PartitionParams {
     /**
      * Partition number.
      *
@@ -474,14 +474,14 @@ declare namespace volumeManager {
   }
 
   /**
-   * Format options for partition formatting.
+   * Format params for partition formatting.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface FormatOptions {
+  export interface FormatParams {
     /**
      * File system type, such as 'ext4', 'vfat', 'ntfs'.
      *
@@ -1058,7 +1058,7 @@ declare namespace volumeManager {
    *
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } diskId - Disk ID.
-   * @param { PartitionOptions } options - Partition creation options.
+   * @param { PartitionParams } params - Partition creation params.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -1073,7 +1073,7 @@ declare namespace volumeManager {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function createPartition(diskId: string, options: PartitionOptions): Promise<void>;
+  function createPartition(diskId: string, params: PartitionParams): Promise<void>;
 
   /**
    * Deletes a partition on a disk. This API uses a promise to return the result.
@@ -1102,7 +1102,7 @@ declare namespace volumeManager {
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } diskId - Disk ID.
    * @param { number } partitionNum - Partition number.
-   * @param { FormatOptions } options - Format options.
+   * @param { FormatParams } params - Format params.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -1117,7 +1117,7 @@ declare namespace volumeManager {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function formatPartition(diskId: string, partitionNum: int, options: FormatOptions): Promise<void>;
+  function formatPartition(diskId: string, partitionNum: int, params: FormatParams): Promise<void>;
 }
 
 export default volumeManager;
