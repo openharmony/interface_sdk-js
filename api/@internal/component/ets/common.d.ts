@@ -21448,6 +21448,88 @@ declare enum MenuKeyboardAvoidMode {
 }
 
 /**
+ * The position of grid in menu.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum MenuGridPosition {
+  /**
+   * The grid is located at the top of the menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  TOP = 0,
+  /**
+   * The grid is located at the bottom of the menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  BOTTOM = 1
+}
+
+/**
+ * Defines the grid style of menu.
+ *
+ * @interface MenuGridStyleOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface MenuGridStyleOptions {
+  /**
+   * The count of items in grid.
+   *
+   * @type { ?number }
+   * @default 3
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  count?: number;
+  /**
+   * The horizontal size of items in grid.
+   *
+   * @type { ?number }
+   * @default 3
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  horizontalSize?: number;
+  /**
+   * The position of grid.
+   *
+   * @type { ?MenuGridPosition }
+   * @default MenuGridPosition.TOP
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  position?: MenuGridPosition;
+}
+
+/**
  * Defines the context menu options.
  *
  * @interface ContextMenuOptions
@@ -22159,6 +22241,18 @@ declare interface ContextMenuOptions {
    * @since 26.0.0 dynamic
    */
   edgeLightMode?: EdgeLightMode;
+  /**
+   * Define the grid style of menu. Only fixed-style menus are effective.
+   * For example, using MenuElement in bindMenu/bindContextMenu or using MenuItemOptions in MenuItem.
+   *
+   * @type { ?MenuGridStyleOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  gridStyle?: MenuGridStyleOptions;
 }
 
 /**
@@ -31066,6 +31160,24 @@ declare class CommonMethod<T> {
 
   /**
    * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+   * component. Custom or fixed-style menu items are supported.
+   *
+   * @param { CustomBuilder | Array<MenuElement> } content - Indicates the content of context menu.
+   * @param { ResponseType } responseType - Indicates response type of context menu. Long pressing with a mouse device
+   *     is not supported.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  bindContextMenuByResponseType(content: CustomBuilder | Array<MenuElement>, responseType: ResponseType,
+      options?: ContextMenuOptions): T;
+
+  /**
+   * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
    * component. Only custom menu items are supported. Long pressing with a mouse device is not supported.
    *
    * @param { CustomBuilderT<ResponseType> | undefined } content - Indicates the content of context menu. Undefined
@@ -31079,6 +31191,23 @@ declare class CommonMethod<T> {
    * @since 23 dynamic
    */
   bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions): T;
+
+  /**
+   * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
+   * component. Custom or fixed-style menu items are supported. Long pressing with a mouse device is not supported.
+   *
+   * @param { CustomBuilderT<ResponseType> | Array<MenuElement> | undefined } content - Indicates the content of
+   *     context menu. Undefined means unbinding.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | Array<MenuElement> | undefined,
+    options?: ContextMenuOptions): T;
 
   /**
    * Binds a context menu to the component, whose visibility is subject to the isShown settings.
@@ -31100,6 +31229,26 @@ declare class CommonMethod<T> {
    * @since 12 dynamic
    */
   bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions): T;
+
+  /**
+   * Binds a context menu to the component, whose visibility is subject to the isShow settings.
+   *
+   * @param { boolean } isShow - true means display content, false means hide content, default is false.
+   *     <p><strong>NOTE</strong>:
+   *     <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is set
+   *     to true before the construction is complete, display issues, such as misplacement, distortion, or failure to pop
+   *     up, may occur. Dragging via long press is not supported.
+   *     </p>.
+   * @param { CustomBuilder | Array<MenuElement> } content - Indicates the content of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  bindContextMenuByIsShow(isShow: boolean, content: CustomBuilder | Array<MenuElement>, options?: ContextMenuOptions): T;
 
   /**
    * Binds a modal page to the component, whose visibility is subject to the isShow settings.
