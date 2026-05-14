@@ -501,15 +501,16 @@ export type OnTabsGestureSwipeCallback = (index: int, extraInfo: TabsAnimationEv
 /**
  * Defines a tabs callback when customContentTransition.
  *
- * @typedef { function } TabsCustomContentTransitionCallback
  * @param { int } from - The index value of the current tab when the animation begins.
+ *    <br>There is no transition animation when the set value exceeds the index value or less than 0.
  * @param { int } to - The index value of the target tab when the animation begins.
+ *    <br>There is no transition animation when the set value exceeds the index value or less than 0.
  * @returns { TabContentAnimatedTransition | undefined } Returns animated transition options of tab or undefined.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
-export type TabsCustomContentTransitionCallback = (from: int, to: int) => TabContentAnimatedTransition | undefined;
+export type TabsCustomContentTransitionCallback = (from: int, to: int) => (TabContentAnimatedTransition | undefined);
 /**
  * Defines a tabs callback when onContentWillChange.
  *

@@ -789,14 +789,17 @@ export declare interface NavDestinationAttribute extends CommonMethod {
 /**
  * Delegate function for NavDestination custom animation.
  *
- * @typedef { function } NavDestinationTransitionDelegate
  * @param { NavigationOperation } operation - the operation type of current Navigation animation.
  * @param { boolean } isEnter - whether current NavDestination will do enter-type transition.
- * @returns { Array<NavDestinationTransition> | undefined } user-set custom navDestination transitions.
+ *    <br>true: The current page is the entry page.
+ *    false: The current page is not the entry page.
+ * @returns { Array<NavDestinationTransition> | undefined } Collection of custom animations for NavDestination.
+ *    If undefined is returned, the default animation is performed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
+export type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => (Array<NavDestinationTransition> | undefined);
 
 /**
  * Defines NavDestination Component
