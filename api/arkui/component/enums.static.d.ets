@@ -4350,7 +4350,7 @@ export declare enum CrownAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
-   * @deprecated since 24 static
+   * @deprecated since 24
    */
   BEGIN = 0,
 
