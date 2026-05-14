@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,11 +29,8 @@ import Context from './application/BaseContext';
 import type notificationManager from './@ohos.notificationManager';
 
 /**
- * The **backgroundTaskManager** module provides APIs to request background tasks. You can use the APIs to request 
- * transient tasks, continuous tasks, or efficiency resources to prevent the application process from being terminated 
- * or suspended when your application is switched to the background. For details, see 
- * [Continuous Task](docroot://task-management/continuous-task.md) and 
- * [Transient Task](docroot://task-management/transient-task.md).
+ * 本模块提供申请后台任务的接口。当应用退至后台时，开发者可以通过本模块接口为应用申请短时、长时任务，避免应用进程被终止或挂起。开发指导请参考
+ * [长时任务开发指南](docroot://task-management/continuous-task.md)、[短时任务开发指南](docroot://task-management/transient-task.md)。
  *
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
  * @atomicservice [since 12]
@@ -42,35 +39,19 @@ import type notificationManager from './@ohos.notificationManager';
  */
 declare namespace backgroundTaskManager {
   /**
-   * Specifies details of the continuous task being requested or updated. It is typically used as input for the 
+   * 通常作为
    * [startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-   * and 
+   * 和
    * [updateBackgroundRunning()]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-   * APIs. Note that:
-   * 
-   * 1. When requesting a continuous task via
-   * [startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)},
-   * notifications will be combined if the main type and subtype of the continuous task
-   * to be requested are the same as those of the existing continuous task in the current application,
-   * and the **combinedTaskNotification** value is **true** for both tasks.
-   * Otherwise, notifications will not be combined.
-   * 2. Notifications will not be combined if the continuous task has no notification.
-   * For details about whether notifications are sent for the continuous task,
-   * see [BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}.
-   * 3. Notifications cannot be combined if the continuous task includes data transmission.
-   * 4. Notifications that have been combined cannot be canceled.
-   * If notifications have been combined, they cannot be updated to uncombined.
-   * 5. After notifications are combined, tapping the notification will redirect to the UIAbility
-   * corresponding to the first requested continuous task.
-   * If the update API is called,
-   * the redirection will target the UIAbility corresponding to the last updated continuous task.
-   * 6. When the [updateBackgroundRunning()]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-   * API is called to update a continuous task, the input **continuousTaskId** must exist. Otherwise, the update fails.
-   * 7. Continuous tasks of the [MODE_SPECIAL_SCENARIO_PROCESSING]{@link backgroundTaskManager.BackgroundTaskMode} type
-   * are supported since API version 22. This task type must be used independently and notifications cannot be combined.
-   * Specifically, when you request or update a continuous task,
-   * it must be of the **MODE_SPECIAL_SCENARIO_PROCESSING** type.
-   * Otherwise, an error is returned.
+   * 接口的入参，用于指定申请或更新的长时任务信息。其中：
+   *
+   * 1. 通过[startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口申请长时任务时，如果待申请长时任务与当前应用下已存在长时任务，两者的主类型和子类型均相同，且combinedTaskNotification均取值为true，则会合并通知。否则不会合并通知。
+   * 2. 如果长时任务本身没有通知，则不会合并，长时任务类型是否会通知请参考[BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}。
+   * 3. 如果长时任务类型中包含数据传输类型，则不会合并通知。
+   * 4. 通知合并后不能取消合并，已合并的不能更新成不合并。
+   * 5. 通知合并后，点击通知栏消息，会跳转到第一个申请的长时任务对应的UIAbility，如果调用了更新接口，则跳转到最后一次更新的长时任务对应的UIAbility。
+   * 6. 通过[updateBackgroundRunning()]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口更新长时任务时，传入的continuousTaskId必须存在，否则更新失败。
+   * 7. 从API version 22开始支持特殊场景类型[MODE_SPECIAL_SCENARIO_PROCESSING]{@link backgroundTaskManager.BackgroundTaskMode}的长时任务。必须单独使用且不支持通知合并，即申请或更新长时任务时，长时任务类型只能有特殊场景类型，否则返回错误。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
@@ -79,9 +60,9 @@ declare namespace backgroundTaskManager {
    */
   export class ContinuousTaskRequest {
     /**
-     * Main type of a continuous task.
+     * 长时任务主类型
      * 
-     * Note: The main type must match the subtype.
+     * **说明：** 主类型与子类型必须匹配。
      *
      * @returns { BackgroundTaskMode[] } the background modes
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -92,9 +73,9 @@ declare namespace backgroundTaskManager {
     get backgroundTaskModes(): BackgroundTaskMode[];
 
     /**
-     * Main type of a continuous task.
+     * 长时任务主类型
      * 
-     * Note: The main type must match the subtype.
+     * **说明：** 主类型与子类型必须匹配。
      *
      * @param { BackgroundTaskMode[] } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -105,9 +86,9 @@ declare namespace backgroundTaskManager {
     set backgroundTaskModes(value: BackgroundTaskMode[]);
 
     /**
-     * Subtype of a continuous task.
+     * 长时任务子类型。
      * 
-     * Note: The main type must match the subtype.
+     * **说明：** 主类型与子类型必须匹配。
      *
      * @returns { BackgroundTaskSubmode[] } the background submodes
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -118,9 +99,9 @@ declare namespace backgroundTaskManager {
     get backgroundTaskSubmodes(): BackgroundTaskSubmode[];
 
     /**
-     * Subtype of a continuous task.
+     * 长时任务子类型。
      * 
-     * Note: The main type must match the subtype.
+     * **说明：** 主类型与子类型必须匹配。
      *
      * @param { BackgroundTaskSubmode[] } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -131,8 +112,7 @@ declare namespace backgroundTaskManager {
     set backgroundTaskSubmodes(value: BackgroundTaskSubmode[]);
 
     /**
-     * Notification parameters, which are used to specify the target page that is redirected to when a continuous task 
-     * notification is clicked.
+     * 通知参数，用于指定点击长时任务通知后跳转的界面。
      * 
      * @returns { WantAgent } the wantAgent
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -144,8 +124,7 @@ declare namespace backgroundTaskManager {
     get wantAgent(): WantAgent;
 
     /**
-     * Notification parameters, which are used to specify the target page that is redirected to when a continuous task 
-     * notification is clicked.
+     * 通知参数，用于指定点击长时任务通知后跳转的界面。
      *
      * @param { WantAgent } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -156,13 +135,11 @@ declare namespace backgroundTaskManager {
     set wantAgent(value: WantAgent);
 
     /**
-     * Whether to combine notifications. The value **true** means to combine notifications, and the value **false** (
-     * default) means the opposite.
+     * 是否合并通知，true表示合并，false表示不合并，默认为false。
      * 
-     * Note: This property does not take effect in 
+     * **说明：** 该属性在
      * [updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-     * API. If notifications need to be combined for an existing task, request the task again and set the value to 
-     * **true**.
+     * 接口中不生效，如需在已有任务上合并通知，请重新申请该任务，并在申请时设置为支持合并。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -171,13 +148,11 @@ declare namespace backgroundTaskManager {
     combinedTaskNotification?: boolean;
 
     /**
-     * Whether to combine notifications. The value **true** means to combine notifications, and the value **false** (
-     * default) means the opposite.
+     * 是否合并通知，true表示合并，false表示不合并，默认为false。
      * 
-     * Note: This property does not take effect in 
+     * **说明：** 该属性在
      * [updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-     * API. If notifications need to be combined for an existing task, request the task again and set the value to 
-     * **true**.
+     * 接口中不生效，如需在已有任务上合并通知，请重新申请该任务，并在申请时设置为支持合并。
      *
      * @returns { boolean | undefined } whethre to merge notifications.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -187,13 +162,11 @@ declare namespace backgroundTaskManager {
     get combinedTaskNotification(): boolean | undefined;
 
     /**
-     * Whether to combine notifications. The value **true** means to combine notifications, and the value **false** (
-     * default) means the opposite.
+     * 是否合并通知，true表示合并，false表示不合并，默认为false。
      * 
-     * Note: This property does not take effect in 
+     * **说明：** 该属性在
      * [updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-     * API. If notifications need to be combined for an existing task, request the task again and set the value to 
-     * **true**.
+     * 接口中不生效，如需在已有任务上合并通知，请重新申请该任务，并在申请时设置为支持合并。
      *
      * @param { boolean | undefined } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -203,19 +176,17 @@ declare namespace backgroundTaskManager {
     set combinedTaskNotification(value: boolean | undefined);
 
     /**
-     * Continuous task ID. The default value is **-1**.
+     * 长时任务ID，默认值为-1。
      * 
-     * Note: If **combinedTaskNotification** is set to true, this property is mandatory and the corresponding ID must 
-     * exist.
-     * 
-     * Additionally, this property is mandatory (with the corresponding ID required) when used as an input parameter for
-     * the 
+     * **说明：** 如果combinedTaskNotification取值为true，则该值为必填项，且必须是存在的ID。
+     *
+     * 作为
      * [updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-     * API.
-     * 
-     * You can call the 
+     * 接口入参时，该属性必填，且必须是存在的ID。
+     *
+     * 可以通过
      * [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context, includeSuspended: boolean)}
-     * API to view information about all continuous tasks.
+     * 接口查看当前所有长时任务信息。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -224,19 +195,17 @@ declare namespace backgroundTaskManager {
     continuousTaskId?: number;
 
     /**
-     * Continuous task ID. The default value is **-1**.
+     * 长时任务ID，默认值为-1。
      * 
-     * Note: If **combinedTaskNotification** is set to true, this property is mandatory and the corresponding ID must 
-     * exist.
-     * 
-     * Additionally, this property is mandatory (with the corresponding ID required) when used as an input parameter for
-     * the 
+     * **说明：** 如果combinedTaskNotification取值为true，则该值为必填项，且必须是存在的ID。
+     *
+     * 作为
      * [updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-     * API.
-     * 
-     * You can call the 
+     * 接口入参时，该属性必填，且必须是存在的ID。
+     *
+     * 可以通过
      * [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context, includeSuspended: boolean)}
-     * API to view information about all continuous tasks.
+     * 接口查看当前所有长时任务信息。
      *
      * @returns { int | undefined } the continuous task id
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -246,19 +215,17 @@ declare namespace backgroundTaskManager {
     get continuousTaskId(): int | undefined;
 
     /**
-     * Continuous task ID. The default value is **-1**.
+     * 长时任务ID，默认值为-1。
      * 
-     * Note: If **combinedTaskNotification** is set to true, this property is mandatory and the corresponding ID must 
-     * exist.
-     * 
-     * Additionally, this property is mandatory (with the corresponding ID required) when used as an input parameter for
-     * the 
+     * **说明：** 如果combinedTaskNotification取值为true，则该值为必填项，且必须是存在的ID。
+     *
+     * 作为
      * [updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-     * API.
-     * 
-     * You can call the 
+     * 接口入参时，该属性必填，且必须是存在的ID。
+     *
+     * 可以通过
      * [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context, includeSuspended: boolean)}
-     * API to view information about all continuous tasks.
+     * 接口查看当前所有长时任务信息。
      *
      * @param { int | undefined } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -268,13 +235,11 @@ declare namespace backgroundTaskManager {
     set continuousTaskId(value: int | undefined);
 
     /**
-     * Checks whether **BackgroundTaskMode** specified in 
-     * [ContinuousTaskRequest]{@link backgroundTaskManager.ContinuousTaskRequest} is supported. For details, see 
-     * [BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}.
+     * 查询当前[ContinuousTaskRequest]{@link backgroundTaskManager.ContinuousTaskRequest}设置的长时任务主类型，是否支持申请长时任务。是否支持申请长时任务请参考
+     * [BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}的说明。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @returns { boolean } Whether **BackgroundTaskMode** is supported. The value **true** means it is supported, and
-     *     the value **false** means the opposite.
+     * @returns { boolean } 返回长时任务主类型是否支持。true表示支持，false表示不支持。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -285,18 +250,16 @@ declare namespace backgroundTaskManager {
     isModeSupported(): boolean;
 
     /**
-     * Requests user authorization to run tasks continuously in the background. This API uses an asynchronous callback
-     * to return the result. If the API call is successful, a banner notification with a sound is sent. This API is
-     * applicable only to continuous tasks of the
-     * [MODE_SPECIAL_SCENARIO_PROCESSING]{@link backgroundTaskManager.BackgroundTaskMode} type.
+     * 请求用户授权是否能在后台长时间运行，使用callback异步回调。接口调用成功会弹出用户授权弹框，建议应用在前台时调用该接口，提示用户进行授权。仅适用于特殊场景类型
+     * [MODE_SPECIAL_SCENARIO_PROCESSING]{@link backgroundTaskManager.BackgroundTaskMode}的长时任务。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param { Context } context - Application context.
-     *     <br>For details about the application context of the FA model,
-     *     see [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-     *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-     *     UIAbility in the stage model and the ServiceAbility in the FA model.
-     * @param { Callback<UserAuthResult> } callback - Callback used to return the user authorization result.
+     * @param { Context } context  - 应用运行的上下文。
+     *     <br>
+     *     <br>FA模型的应用Context定义见[Context]{@link./app/context}。<br>Stage模型的应用Context定义
+     *     见[Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility
+     *     申请。
+     * @param { Callback<UserAuthResult> } callback  - 用户操作后，返回授权结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -308,8 +271,7 @@ declare namespace backgroundTaskManager {
     requestAuthFromUser(context: Context, callback: Callback<UserAuthResult>): void;
 
     /**
-     * Requesting MODE_SPECIAL_SCENARIO_PROCESSING authorization from users,
-     *     a dialog box will be displayed.
+     * 向用户请求MODE_SPECIAL_SCENARIO_PROCESSING授权时，会弹出对话框。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
@@ -324,17 +286,15 @@ declare namespace backgroundTaskManager {
     requestAuthFromUserByDialog(context: Context, callback: Callback<UserAuthResult>): void;
 
     /**
-     * Checks whether the user has authorized tasks to run continuously in the background. This API uses a promise to 
-     * return the result.
-     * An exception will be thrown if unauthorized.
+     * 查询用户是否授权能在后台长时间运行。使用Promise异步回调。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param { Context } context - Application context.
-     *     <br>For details about the application context of the FA model,
-     *     see [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-     *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-     *     UIAbility in the stage model and the ServiceAbility in the FA model.
-     * @returns { Promise<UserAuthResult> } Promise used to return the user authorization result.
+     * @param { Context } context  - 应用运行的上下文
+     *     <br>
+     *     <br>FA模型的应用Context定义见[Context]{@link./app/context}。<br>Stage模型的应用Context定
+     *     义见[Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持
+     *     ServiceAbility申请。
+     * @returns { Promise<UserAuthResult> } Promise对象，返回用户授权结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -346,15 +306,14 @@ declare namespace backgroundTaskManager {
     checkSpecialScenarioAuth(context: Context): Promise<UserAuthResult>;
 
     /**
-     * Check whether the application can request MODE_SPECIAL_SCENARIO_PROCESSING.
-     * No exception will be thrown whether authorized or not.
+     * 特殊场景长时任务申请用户授权，未授权时不会抛出异常。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param { Context } context - App running context.
-     * @returns { Promise<UserAuthResult> } The promise returns the result of user authorization.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 9800004 - System service operation failed.
-     * @throws { BusinessError } 9800005 - Continuous task verification failed.
+     * @param { Context } context - 应用上下文
+     * @returns { Promise<UserAuthResult> } 用户授权结果
+     * @throws { BusinessError } 201 - 无权限
+     * @throws { BusinessError } 9800004 - 系统服务无响应
+     * @throws { BusinessError } 9800005 - 长时任务校验错误
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -363,7 +322,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Defines the information about the transient task.
+   * 短时任务信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 9 dynamic
@@ -371,7 +330,7 @@ declare namespace backgroundTaskManager {
    */
   interface DelaySuspendInfo {
     /**
-     * Request ID of the transient task.
+     * 应用实际申请的短时任务时间，单位：ms。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9 dynamic
@@ -382,9 +341,8 @@ declare namespace backgroundTaskManager {
      * Actual duration of the transient task requested by the application, in milliseconds.
      * <br>Unit:ms
      * 
-     * Note: The maximum duration of a transient task is 3 minutes in normal cases. In the case of a low battery (
-     * [BatteryCapacityLevel]{@link @ohos.batteryInfo:batteryInfo.BatteryCapacityLevel} set to **LEVEL_LOW**), the 
-     * maximum duration is decreased to 1 minute.
+     * **说明：** 申请时间最长为3分钟，低电量（[BatteryCapacityLevel]{@link @ohos.batteryInfo:batteryInfo.BatteryCapacityLevel}为LEVEL_LOW）
+     * 时最长为1分钟。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9 dynamic
@@ -394,7 +352,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes all transient task information.
+   * 所有短时任务信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 20 dynamic
@@ -402,8 +360,7 @@ declare namespace backgroundTaskManager {
    */
   interface TransientTaskInfo {
     /**
-     * Remaining quota of the application on the current day, in ms.
-     * <br>Unit:ms
+     * 应用当日所剩余总配额，单位：ms。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 20 dynamic
@@ -411,7 +368,7 @@ declare namespace backgroundTaskManager {
      */
     remainingQuota: int;
     /**
-     * All information about the requested transient task.
+     * 当前已申请的所有短时任务信息。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 20 dynamic
@@ -421,7 +378,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the information about a continuous-task notification.
+   * 长时任务通知信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice
@@ -430,9 +387,9 @@ declare namespace backgroundTaskManager {
    */
   interface ContinuousTaskNotification {
     /**
-     * Slot type of a continuous-task notification.
+     * 长时任务通知的渠道类型。
      * 
-     * Note: After a continuous task is successfully requested or updated, no prompt tone is played.
+     * **说明：** 长时任务申请或更新成功后不支持提示音。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
@@ -441,7 +398,7 @@ declare namespace backgroundTaskManager {
      */
     slotType: notificationManager.SlotType;
     /**
-     * Content type of a continuous-task notification.
+     * 长时任务通知的内容类型。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
@@ -450,7 +407,7 @@ declare namespace backgroundTaskManager {
      */
     contentType: notificationManager.ContentType;
     /**
-     * ID of the continuous-task notification.
+     * 长时任务通知 Id。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice
@@ -459,7 +416,7 @@ declare namespace backgroundTaskManager {
      */
     notificationId: int;
     /**
-     * ID of a continuous task.
+     * 长时任务 Id。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -470,7 +427,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the information about the cancellation of a continuous task.
+   * 长时任务取消信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 15 dynamic
@@ -478,7 +435,7 @@ declare namespace backgroundTaskManager {
    */
   interface ContinuousTaskCancelInfo {
     /**
-     * Reason for canceling the continuous task.
+     * 长时任务取消原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -487,7 +444,7 @@ declare namespace backgroundTaskManager {
     reason: ContinuousTaskCancelReason;
 
     /**
-     * ID of the continuous task canceled.
+     * 被取消的长时任务 Id。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -496,7 +453,7 @@ declare namespace backgroundTaskManager {
     id: int;
 
     /**
-     * Detailed reason for canceling the continuous task.
+     * 长时任务取消详细原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -506,7 +463,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the activation information of a continuous task.
+   * 长时任务激活信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -514,7 +471,7 @@ declare namespace backgroundTaskManager {
    */
   interface ContinuousTaskActiveInfo {
     /**
-     * ID of the activated continuous task.
+     * 被激活的长时任务 Id。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -524,7 +481,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the continuous task information.
+   * 长时任务信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -532,7 +489,7 @@ declare namespace backgroundTaskManager {
    */
   interface ContinuousTaskInfo {
     /**
-     * UIAbility name.
+     * UIAbility名称。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -540,7 +497,7 @@ declare namespace backgroundTaskManager {
      */
     abilityName: string;
     /**
-     * Application UID.
+     * 应用的UID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -548,7 +505,7 @@ declare namespace backgroundTaskManager {
      */
     uid: int;
     /**
-     * Application PID.
+     * 应用进程的PID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -556,9 +513,7 @@ declare namespace backgroundTaskManager {
      */
     pid: int;
     /**
-     * Whether to request a continuous task in WebView mode, that is, whether to request a continuous task through the 
-     * system proxy application. The value **true** indicates that the Webview mode is used, and the value **false** 
-     * indicates that the Webview mode is not used.
+     * 是否通过Webview方式申请，即通过系统代理应用申请长时任务。true表示通过Webview方式申请，false表示不通过Webview方式申请。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -566,7 +521,7 @@ declare namespace backgroundTaskManager {
      */
     isFromWebView: boolean;
     /**
-     * [Type of a continuous task]{@link backgroundTaskManager.BackgroundMode}.
+     * [长时任务类型]{@link backgroundTaskManager.BackgroundMode}。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -574,7 +529,7 @@ declare namespace backgroundTaskManager {
      */
     backgroundModes: string[];
     /**
-     * [Subtype of a continuous task]{@link backgroundTaskManager.BackgroundSubMode}.
+     * [长时任务子类型]{@link backgroundTaskManager.BackgroundSubMode}。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -582,7 +537,7 @@ declare namespace backgroundTaskManager {
      */
     backgroundSubModes: string[];
     /**
-     * Notification ID.
+     * 通知 Id。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -590,7 +545,7 @@ declare namespace backgroundTaskManager {
      */
     notificationId: int;
     /**
-     * Continuous task ID.
+     * 长时任务ID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -606,17 +561,15 @@ declare namespace backgroundTaskManager {
      */
     abilityId: int;
     /**
-     * Bundle name configured in [WantAgent]{@link @ohos.app.ability.wantAgent}. **WantAgent** is a notification 
-     * parameter used to specify the target page when a continuous task notification is tapped.
-     *
+     * [WantAgent]{@link @ohos.app.ability.wantAgent} 配置的包名。WantAgent为通知参数，用于指定点击长时任务通知后跳转的界面，在申请长时任务时作为参数传入。
+     * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
      * @since 23 static
      */
     wantAgentBundleName: string;
     /**
-     * Ability name configured in [WantAgent]{@link @ohos.app.ability.wantAgent}. **WantAgent** is a notification 
-     * parameter used to specify the target page when a continuous task notification is tapped.
+     * [WantAgent]{@link @ohos.app.ability.wantAgent} 配置的ability名称。WantAgent为通知参数，用于指定点击长时任务通知后跳转的界面，在申请长时任务时作为参数传入。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -624,8 +577,7 @@ declare namespace backgroundTaskManager {
      */
     wantAgentAbilityName: string;
     /**
-     * Whether the requested continuous task is suspended. The value **true** indicates that the task is suspended, and 
-     * the value **false** indicates that the task is activated.
+     * 申请的长时任务是否处于暂停状态。true表示处于暂停状态，false表示处于激活状态。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -633,7 +585,7 @@ declare namespace backgroundTaskManager {
      */
     suspendState: boolean;
     /**
-     * Application bundle name.
+     * 应用包名。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 23 dynamic
@@ -641,7 +593,8 @@ declare namespace backgroundTaskManager {
      */
     bundleName?: string;
     /**
-     * Index of an application clone.
+     * 应用分身ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 23 dynamic
@@ -651,7 +604,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Defines the authorization information of a continuous task.
+   * 长时任务授权信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi Hide this for inner system use.
@@ -661,7 +614,8 @@ declare namespace backgroundTaskManager {
    */
   interface BackgroundTaskStateInfo {  
     /**
-     * UserId of the application applying for special continuous task
+     * 用户ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -671,7 +625,7 @@ declare namespace backgroundTaskManager {
      */
     userId: int;
     /**
-     * BundleName of the application applying for special continuous task.
+     * 应用包名。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -681,7 +635,8 @@ declare namespace backgroundTaskManager {
      */
     bundleName: string;
     /**
-     * AppIndex of the application applying for special continuous task.
+     * 应用分身ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -691,7 +646,7 @@ declare namespace backgroundTaskManager {
      */
     appIndex: int;
     /**
-     * Type of user authorization status.
+     * 授权结果。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -703,7 +658,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the information about a suspended continuous task.
+   * 长时任务暂停信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -711,7 +666,7 @@ declare namespace backgroundTaskManager {
    */
   interface ContinuousTaskSuspendInfo {
     /**
-     * ID of the suspended continuous task.
+     * 被暂停的长时任务 Id。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -720,8 +675,7 @@ declare namespace backgroundTaskManager {
     continuousTaskId: int;
 
     /**
-     * Continuous task state. The value **false** indicates that the task is activated, and the value **true** indicates
-     * that the task is suspended.
+     * 长时任务状态，false表示激活，true表示暂停。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -730,7 +684,7 @@ declare namespace backgroundTaskManager {
     suspendState: boolean;
 
     /**
-     * Reason why the continuous task is suspended.
+     * 长时任务暂停原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -739,7 +693,7 @@ declare namespace backgroundTaskManager {
     suspendReason: ContinuousTaskSuspendReason;
 	
     /**
-     * Describes the information about a suspended continuous task.
+     * 长时任务暂停信息。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -749,7 +703,7 @@ declare namespace backgroundTaskManager {
   }
   
   /**
-   * Describes the reason why a continuous task is suspended.
+   * 长时任务暂停原因。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @stagemodelonly
@@ -757,7 +711,7 @@ declare namespace backgroundTaskManager {
    */
   interface SuspendMessage {  
     /**
-     * Suspension message.
+     * 长时任务暂停的信息。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -766,7 +720,7 @@ declare namespace backgroundTaskManager {
     message: string;
 
     /**
-     * Reason why the continuous task is suspended.
+     * 长时任务暂停的原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -776,7 +730,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Represents a listener object used to listen for background task state changes.
+   * 后台任务监听。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi
@@ -786,9 +740,9 @@ declare namespace backgroundTaskManager {
    */
   export interface BackgroundTaskSubscriber {  
     /**
-     * Called when a continuous task starts.
+     * 长时任务开始回调接口。
      *
-     * @param { ContinuousTaskInfo } info - Continuous task callback information, including the task ID and type.
+     * @param { ContinuousTaskInfo } info  - 长时任务回调信息，长时任务ID、长时任务类型等。
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi
      * @stagemodelonly
@@ -798,9 +752,9 @@ declare namespace backgroundTaskManager {
     onContinuousTaskStart(info: ContinuousTaskInfo): void;
 
     /**
-     * Called when a continuous task is updated.
+     * 长时任务更新回调接口。
      *
-     * @param { ContinuousTaskInfo } info - Continuous task callback information, including the task ID and type.
+     * @param { ContinuousTaskInfo } info  - 长时任务回调信息，长时任务ID、长时任务类型等。
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi
      * @stagemodelonly
@@ -810,9 +764,9 @@ declare namespace backgroundTaskManager {
     onContinuousTaskUpdate(info: ContinuousTaskInfo): void;
 
     /**
-     * Called when a continuous task stops.
+     * 长时任务结束回调接口。
      *
-     * @param { ContinuousTaskInfo } info - Continuous task callback information, including the task ID and type.
+     * @param { ContinuousTaskInfo } info  - 长时任务回调信息，长时任务ID、长时任务类型等。
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi
      * @stagemodelonly
@@ -823,7 +777,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Defines the efficiency resource information.
+   * 能效资源信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -832,7 +786,7 @@ declare namespace backgroundTaskManager {
    */
   interface EfficiencyResourcesInfo {
     /**
-     * Enumerates the efficiency resource types.
+     * 能效资源类型。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -841,7 +795,7 @@ declare namespace backgroundTaskManager {
      */
     resourceTypes: int;
     /**
-     * Timeout, in milliseconds.
+     * 超时时间，单位：ms。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -850,8 +804,7 @@ declare namespace backgroundTaskManager {
      */
     timeout: int;
     /**
-     * Whether the resource is permanently held. The default value is **false**. The value **true** indicates the 
-     * resource is permanently held. The value **false** indicates that the resource is held within a limited time.
+     * 是否永久持有资源，默认为false。取值为true表示永久持有。取值为false表示有限时间内持有。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -860,8 +813,7 @@ declare namespace backgroundTaskManager {
      */
     isPersistent: boolean;
     /**
-     * Whether the resource is requested by a process or an application. The value **true** indicates that the resource 
-     * is requested by a process. The value **false** indicates that the resource is requested by an application.
+     * 进程或应用申请，取值为true表示进程申请。取值为false表示应用申请。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -870,7 +822,7 @@ declare namespace backgroundTaskManager {
      */
     isForProcess: boolean;
     /**
-     * Reason for requesting the resource.
+     * 申请资源原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -879,7 +831,7 @@ declare namespace backgroundTaskManager {
      */
     reason: string;
     /**
-     * Application UID.
+     * 应用的UID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -888,7 +840,7 @@ declare namespace backgroundTaskManager {
      */
     uid: int;
     /**
-     * Application PID.
+     * 应用进程的PID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -898,9 +850,7 @@ declare namespace backgroundTaskManager {
     pid: int;
 
     /**
-     * CPU level. If **resourceTypes** is set to **CPU**, this parameter specifies the CPU resource size. The system 
-     * allocates the specified CPU resources to the application during the idle time of load (for example, when the 
-     * screen is off).
+     * 指定CPU级别，能效资源类型resourceTypes为CPU时该参数用于指定CPU资源大小，系统会在负载空闲时间（例如灭屏场景）分配指定的CPU资源给应用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -911,10 +861,10 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Cancels a transient task.
+   * 取消短时任务。
    *
-   * @param { int } requestId - Request ID of the transient task. It is obtained by calling the
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay} API.
+   * @param { int } requestId  - 短时任务的请求ID。通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}
+   *     接口获取。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -931,12 +881,11 @@ declare namespace backgroundTaskManager {
   function cancelSuspendDelay(requestId: int): void;
 
   /**
-   * Obtains the remaining time of a transient task. This API uses an asynchronous callback to return the result.
+   * 获取本次短时任务的剩余时间，使用callback异步回调。
    *
-   * @param { int } requestId - Request ID of the transient task. It is obtained by calling the
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay} API.
-   * @param { AsyncCallback<int> } callback - Callback used to return the remaining time of the transient task, in
-   *     milliseconds.
+   * @param { int } requestId  - 短时任务的请求ID。通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}
+   *     接口获取。
+   * @param { AsyncCallback<int> } callback  - 回调函数，返回本次短时任务的剩余时间，单位：ms。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -953,11 +902,11 @@ declare namespace backgroundTaskManager {
   function getRemainingDelayTime(requestId: int, callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the remaining time of a transient task. This API uses a promise to return the result.
+   * 获取本次短时任务的剩余时间，使用Promise异步回调。
    *
-   * @param { int } requestId - Request ID of the transient task. It is obtained by calling the
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay} API.
-   * @returns { Promise<int> } Promise that returns the remaining time of the transient task, in milliseconds.
+   * @param { int } requestId  - 短时任务的请求ID。通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}
+   *     接口获取。
+   * @returns { Promise<int> } Promise对象，返回本次短时任务的剩余时间，单位：ms。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -974,17 +923,15 @@ declare namespace backgroundTaskManager {
   function getRemainingDelayTime(requestId: int): Promise<int>;
 
   /**
-   * Requests a transient task.
+   * 申请短时任务。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about the constraints on requesting and using a transient task, see 
-   * > [Transient Task (ArkTS)](docroot://task-management/transient-task.md#constraints).
+   * > 短时任务的申请和使用过程中的约束与限制请参考[指南](docroot://task-management/transient-task.md#约束与限制)。
    *
-   * @param { string } reason - Reason for requesting the transient task.
-   * @param { Callback<void> } callback - Callback used to notify the application that the transient task is about to
-   *     time out. Generally, the callback is invoked 6 seconds before the timeout.
-   * @returns { DelaySuspendInfo } Information about the transient task.
+   * @param { string } reason  - 申请短时任务的原因。
+   * @param { Callback<void> } callback  - 短时任务即将超时的回调函数，一般在超时前6秒，通过此回调通知应用。
+   * @returns { DelaySuspendInfo } 返回短时任务信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameters types.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -1001,10 +948,9 @@ declare namespace backgroundTaskManager {
   function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
   /**
-   * Obtains all transient task information, including the remaining quota of the current day. This API uses a promise 
-   * to return the result.
+   * 获取所有短时任务信息，如当日剩余总配额等，使用Promise异步回调。
    *
-   * @returns { Promise<TransientTaskInfo> } Promise that returns all transient task information.
+   * @returns { Promise<TransientTaskInfo> } Promise对象，返回所有短时任务信息。
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900003 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1016,24 +962,19 @@ declare namespace backgroundTaskManager {
   function getTransientTaskInfo(): Promise<TransientTaskInfo>;
 
   /**
-   * Requests a continuous task of a specific type. This API uses an asynchronous callback to return the result. After a
-   * continuous task is successfully requested, there will be a notification message without prompt tone. A UIAbility (
-   * ServiceAbility in the FA model) can request only one continuous task at a time through this API. You can request 
-   * multiple continuous tasks by calling 
-   * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-   * added in API version 21.
+   * 申请长时任务，支持申请一种类型，使用callback异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
+   * API version 21新增接口
+   * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
+   * 申请多个长时任务。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { BackgroundMode } bgMode - Type of the continuous task.
-   * @param { WantAgent } wantAgent - Notification parameters, which are used to specify the target page that is
-   *     redirected to when a continuous task notification is clicked.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the continuous task is requested,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { Context } context  - 应用运行的上下文。
+   *     <br>
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { BackgroundMode } bgMode  - 长时任务类型。
+   * @param { WantAgent } wantAgent  - 通知参数，用于指定点击长时任务通知后跳转的界面。
+   * @param { AsyncCallback<void> } callback  - 回调函数，申请长时任务成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1054,23 +995,19 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests a continuous task of a specific type. This API uses a promise to return the result. After a continuous 
-   * task is successfully requested, there will be a notification message without prompt tone. A UIAbility (
-   * ServiceAbility in the FA model) can request only one continuous task at a time through this API. You can request 
-   * multiple continuous tasks by calling 
-   * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-   * added in API version 21.
+   * 申请长时任务，支持申请一种类型，使用Promise异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
+   * API version 21新增接口
+   * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
+   * 申请多个长时任务。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { BackgroundMode } bgMode - Type of the continuous task.
-   * @param { WantAgent } wantAgent - Notification parameters, which are used to specify the target page that is
-   *     redirected to when a continuous task notification is clicked.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context  - 应用运行的上下文。
+   *     <br>
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { BackgroundMode } bgMode  - 长时任务类型。
+   * @param { WantAgent } wantAgent  - 通知参数，用于指定点击长时任务通知后跳转的界面。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1091,26 +1028,23 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
 
   /**
-   * Requests continuous tasks of multiple types. This API uses a promise to return the result. After a continuous task 
-   * is successfully requested, there will be a notification message without prompt tone. A UIAbility (ServiceAbility in
-   * the FA model) can request only one continuous task at a time through this API. You can request multiple continuous 
-   * tasks by calling 
-   * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-   * added in API version 21.
+   * 申请长时任务，支持申请多种类型，使用Promise异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
+   * API version 21新增接口
+   * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
+   * 申请多个长时任务。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { string[] } bgModes - Types of continuous tasks.
-   *     <br>For details about the available options, see
-   *     [Item](docroot://task-management/continuous-task.md#use-cases).<br> Note: One or more types can be passed.
-   * @param { WantAgent } wantAgent - Notification parameters, which are used to specify the target page that is
-   *     redirected to when a continuous task notification is clicked.
-   * @returns { Promise<ContinuousTaskNotification> } Promise that returns an object of the
-   *     [ContinuousTaskNotification]{@link backgroundTaskManager.ContinuousTaskNotification} type.
+   * @param { Context } context  - 应用运行的上下文
+   *     <br>
+   *     FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { string[] } bgModes  - 长时任务类型
+   *     <br>
+   *     取值范围请参考长时任务类型中的[配置项](docroot://task-management/continuous-task.md#使用场景)。<br>
+   *     **说明：** 支持传入一个或多个类型。
+   * @param { WantAgent } wantAgent  - 通知参数，用于指定点击长时任务通知后跳转的界面。
+   * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回
+   *     [ContinuousTaskNotification]{@link backgroundTaskManager.ContinuousTaskNotification}类型对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
@@ -1130,30 +1064,18 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<ContinuousTaskNotification>;
 
   /**
-   * Requests a continuous task. This API allows a UIAbility (ServiceAbility in the FA model) to request multiple 
-   * continuous tasks and uses a promise to return the result. When using this API to request a continuous task, its 
-   * notification can be combined with that of an existing continuous task. For details, see 
-   * [ContinuousTaskRequest]{@link backgroundTaskManager.ContinuousTaskRequest}.
-   * 
-   * A maximum of 10 continuous tasks can be created simultaneously. Upon successful creation of a continuous task, a 
-   * notification will be sent without a prompt tone.
-   * 
-   * If a continuous task requested via this API includes multiple task types (including data transmission tasks), two 
-   * notifications will appear in the notification panel: one for the data transmission task and the other for the 
-   * remaining tasks. Removing either notification will cancel the continuous task and remove the other notification. 
-   * The continuous task notification ID returned by the API is the ID of the data transmission type, which is used to 
-   * update the data transmission progress.
+   * 申请长时任务，一个UIAbility（FA模型则为ServiceAbility）下支持通过本接口申请多个长时任务，使用Promise异步回调。通过本接口申请长时任务时，支持与已存在的长时任务合并通知，具体请参考
+   * [ContinuousTaskRequest]{@link backgroundTaskManager.ContinuousTaskRequest}。</br>同一时间最多可存在10个长时任务，长时任务申请成功后，会有通知栏消息，
+   * 没有提示音。</br>如果通过本接口申请的一个长时任务中同时包含多种类型，且包含数据传输类型，则在通知栏会发送2个长时任务通知，一个为数据传输类型，另一个为其他类型的合并通知。任意一个通知被移除时，长时任务取消，且另一个通知也会同
+   * 步移除。接口返回的长时任务通知Id为数据传输类型的Id，主要用于数据传输的进度更新。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { ContinuousTaskRequest } request - Request information of a continuous task, including the main type and
-   *     subtype.
-   * @returns { Promise<ContinuousTaskNotification> } Promise used to return the continuous task notification
-   *     information, including the continuous task ID.
+   * @param { Context } context  - 应用运行的上下文
+   *     <br>
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { ContinuousTaskRequest } request  - 长时任务请求信息，包括长时任务主类型、子类型等。
+   * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回长时任务通知信息，包括长时任务ID等。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1168,32 +1090,25 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
   /**
-   * Updates continuous tasks of multiple types. This API uses a promise to return the result. After a continuous task 
-   * is successfully updated, there will be a notification message without prompt tone.
-   * 
-   * Before updating a continuous task, you can call 
-   * [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context)} to retrieve 
-   * information about all existing continuous tasks. If there are no continuous tasks, the update will fail.
-   * 
-   * This API can only be used to update continuous tasks that were requested via the following APIs:
-   * 
-   * [startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback&lt;void&gt;): void]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>)}
-   * 
-   * [startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise&lt;void&gt;]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent)}
-   * 
-   * [startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise&lt;ContinuousTaskNotification&gt;]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent)}
+   * 更新长时任务类型，使用Promise异步回调。长时任务更新成功后，会有通知栏消息，没有提示音。</br>更新长时任务前，可以通过
+   * [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context)}接口获取当前所有长时任务信息，如果当前没有已经
+   * 存在的长时任务，会更新失败。</br>该接口仅支持更新如下三个接口申请的长时任务：</br>
+   * [startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback:AsyncCallback&lt;void&gt;): void]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgMode:BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>)}
+   * </br>
+   * [startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise&lt;void&gt;]{@linkbackgroundTaskManager.startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent)}
+   * </br>
+   * [startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent):Promise&lt;ContinuousTaskNotification&gt;]{@link backgroundTaskManager.startBackgroundRunning(context: Context,bgModes: string[], wantAgent: WantAgent)}
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { string[] } bgModes - Types of continuous tasks after the update.
-   *     <br>For details about the available options,
-   *     see [Item](docroot://task-management/continuous-task.md#use-cases).<br> Note: One or more types can be passed.
-   * @returns { Promise<ContinuousTaskNotification> } Promise that returns an object of the
-   *     [ContinuousTaskNotification]{@link backgroundTaskManager.ContinuousTaskNotification} type.
+   * @param { Context } context  - 应用运行的上下文。
+   *     <br>
+   *     <br>FA模型的应用Context定义见[Context]{@link./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { string[] } bgModes  - 更新后的长时任务类型
+   *     <br>取值范围请参考长时任务类型中的[配置项](docroot://task-management/continuous-task.md#使用场景)。
+   *     <br> **说明：** 支持传入一个或多个类型。
+   * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回
+   *     [ContinuousTaskNotification]{@link backgroundTaskManager.ContinuousTaskNotification}类型对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
@@ -1213,29 +1128,21 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
   /**
-   * Updates a continuous task. This API uses a promise to return the result. After a continuous task is successfully 
-   * updated, there will be a notification message without prompt tone.
-   * 
-   * The following restrictions apply when updating a continuous task:
-   * 
-   * 1. This API can only update continuous tasks requested via
-   * [startBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise&lt;ContinuousTaskNotification&gt;]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}.
-   * 2. If the main type and subtype of the background tasks are the same,
-   * only the wants information (such as **abilityName**) in **ContinuousTaskRequest.wantAgent** can be updated.
-   * If the types are different, the update fails.
-   * 3. If the continuous task to be updated or the specified update type contains the data transmission type, 
-   * a failure message is returned.
+   * 更新长时任务，使用Promise异步回调。长时任务更新成功后，会有通知栏消息，没有提示音。
+   *
+   * 更新长时任务还存在如下约束限制：
+   *
+   * 1. 本接口仅支持更新如下接口申请的长时任务：[startBackgroundRunning(context: Context, request: ContinuousTaskRequest):Promise&lt;ContinuousTaskNotification&gt;]{@link backgroundTaskManager.startBackgroundRunning(context: Context,request: ContinuousTaskRequest)}。
+   * 2. 已经合并的长时任务，且后台任务主类型和子类型均相同，仅支持更新ContinuousTaskRequest.wantAgent中的wants信息（abilityName等），如果类型不同，更新失败。
+   * 3. 如果待更新的长时任务或指定的更新类型中包含数据传输类型，直接返回失败。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { ContinuousTaskRequest } request - Continuous task request information, including the ID of the continuous
-   *     task to be updated.
-   * @returns { Promise<ContinuousTaskNotification> } Promise used to return the updated continuous task notification
-   *     information, including the continuous task ID.
+   * @param { Context } context  - 应用运行的上下文
+   *     <br>
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { ContinuousTaskRequest } request  - 长时任务请求信息，包括待更新的长时任务ID等。
+   * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回更新后的长时任务通知信息，包括长时任务ID等。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1250,18 +1157,15 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
   /**
-   * Cancels all continuous tasks in the current UIAbility (ServiceAbility in the FA model). This API uses an 
-   * asynchronous callback to return the result. You can also call the 
+   * 取消当前UIAbility（FA模型则为ServiceAbility）下所有长时任务，使用callback异步回调。也可以通过
    * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, continuousTaskId: int)}
-   * API to cancel a continuous task with the specified ID.
+   * 接口取消指定Id的长时任务。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the continuous task is canceled,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { Context } context  - 应用运行的上下文。
+   *     <br>
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { AsyncCallback<void> } callback  - 回调函数，取消长时任务成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -1280,17 +1184,12 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels all continuous tasks in the current UIAbility (ServiceAbility in the FA model). This API uses a promise to 
-   * return the result. You can also call the 
+   * 取消当前UIAbility（FA模型则为ServiceAbility）下所有长时任务，使用Promise异步回调。也可以通过
    * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, continuousTaskId: int)}
-   * API to cancel a continuous task with the specified ID.
+   * 接口取消指定Id的长时任务。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context  - 应用运行的上下文。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
@@ -1309,25 +1208,22 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context): Promise<void>;
 
   /**
-   * Cancels a continuous task with the specified ID. This API uses a promise to return the result. You can also call 
-   * the 
-   * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, callback: AsyncCallback<void>)}
-   * API to cancel all continuous tasks in the current UIAbility.
+   * 取消指定Id的长时任务，使用Promise异步回调。也可以通过
+   * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, callback:AsyncCallback<void>)}
+   * 取消当前UIAbility下所有长时任务。
    *
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { int } continuousTaskId - Continuous task ID.
-   *     <br>The value should be an integer.
-   *     <br>Note: You can obtain the ID of the current continuous task
-   *     through the return value of the
-   *     [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}
-   *     API, or obtain information about all continuous tasks through the
-   *     [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context, includeSuspended: boolean)}
-   *     API.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context  - 应用运行的上下文。
+   *     <br>
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { int } continuousTaskId  - 长时任务ID。
+   *     <br>取值限定为整数。
+   *     - 长时任务ID。<br>**说明：** 可以通过
+   *     [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
+   *     接口的返回值获取当前申请的长时任务ID，或者通过
+   *     [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context, includeSuspended:boolean)}
+   *     接口获取所有长时任务信息。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1341,16 +1237,13 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context, continuousTaskId: int): Promise<void>;
 
   /**
-   * Obtains all continuous task information, including the task ID and type. This API uses a promise to return the 
-   * result.
+   * 获取所有长时任务信息，如长时任务ID、长时任务类型等，使用Promise异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @returns { Promise<ContinuousTaskInfo[]> } Promise that returns all continuous task information.
+   * @param { Context } context  - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @returns { Promise<ContinuousTaskInfo[]> } Promise对象，返回所有长时任务信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1363,18 +1256,14 @@ declare namespace backgroundTaskManager {
   function getAllContinuousTasks(context: Context): Promise<ContinuousTaskInfo[]>;
 
   /**
-   * Obtains all continuous task information, including the task ID and type. It supports specifying whether to include 
-   * suspended tasks and uses a promise to return the result.
+   * 获取所有长时任务信息，如长时任务ID、长时任务类型等。可选择是否获取暂停的长时任务信息，使用Promise异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.
-   *     <br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.<br> Note: Continuous tasks can be requested only by the
-   *     UIAbility in the stage model and the ServiceAbility in the FA model.
-   * @param { boolean } includeSuspended - Whether to obtain the information about the suspended continuous task. The
-   *     value **true** means to obtain the information, and the value **false** means the opposite.
-   * @returns { Promise<ContinuousTaskInfo[]> } Promise that returns all continuous task information.
+   * @param { Context } context  - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { boolean } includeSuspended  - 是否获取暂停的长时任务信息， true表示获取， false表示不获取。
+   * @returns { Promise<ContinuousTaskInfo[]> } Promise对象，返回所有长时任务信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -1387,11 +1276,10 @@ declare namespace backgroundTaskManager {
   function getAllContinuousTasks(context: Context, includeSuspended: boolean): Promise<ContinuousTaskInfo[]>;
 
   /**
-   * Obtains all continuous task information, including the task ID and type. This API uses a promise to return the 
-   * result.
+   * 获取所有长时任务信息，如长时任务ID、长时任务类型等。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @returns { Promise<ContinuousTaskInfo[]> } Promise that returns all continuous task information.
+   * @returns { Promise<ContinuousTaskInfo[]> } Promise对象，返回所有长时任务信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1404,11 +1292,10 @@ declare namespace backgroundTaskManager {
   function obtainAllContinuousTasks(): Promise<ContinuousTaskInfo[]>;
 
   /**
-   * Sets the authorization information of a continuous task.
+   * 设置长时任务授权信息。
    *
    * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
-   * @param { BackgroundTaskStateInfo } stateInfo - Required authorization information, including the user ID,
-   *     application bundle name, and application clone ID.
+   * @param { BackgroundTaskStateInfo } stateInfo  - 授权的必要信息，包括用户ID、应用包名、应用分身ID等。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1422,12 +1309,11 @@ declare namespace backgroundTaskManager {
   function setBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): void;
 
   /**
-   * Obtains the authorization information of a continuous task.
+   * 获取长时任务授权信息。
    *
    * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
-   * @param { BackgroundTaskStateInfo } stateInfo - Required authorization information, including the user ID,
-   *     application bundle name, and application clone ID.
-   * @returns { UserAuthResult } Authorization result.
+   * @param { BackgroundTaskStateInfo } stateInfo  - 授权的必要信息，包括用户ID、应用包名、应用分身ID等。
+   * @returns { UserAuthResult } 授权结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1441,11 +1327,10 @@ declare namespace backgroundTaskManager {
   function getBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): UserAuthResult;
 
   /**
-   * Registers a callback to listen for the continuous task change events.
+   * 注册长时任务变化回调。
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @param { BackgroundTaskSubscriber } subscriber - Background task listener that listens for continuous task state
-   *     changes, including start, update and stop events.
+   * @param { BackgroundTaskSubscriber } subscriber  - 后台任务监听对象，包含长时任务开始，长时任务更新，长时任务结束。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1459,11 +1344,10 @@ declare namespace backgroundTaskManager {
   function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
   /**
-   * Unregisters the callback for continuous task changes.
+   * 解注册长时任务变化回调。
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @param { BackgroundTaskSubscriber } subscriber - Background task listener that listens for continuous task state
-   *     changes, including start, update and stop events.
+   * @param { BackgroundTaskSubscriber } subscriber  - 后台任务监听对象，包含长时任务开始，长时任务更新，长时任务结束。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1477,10 +1361,9 @@ declare namespace backgroundTaskManager {
   function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
   /**
-   * Requests efficiency resources.
+   * 申请能效资源。
    *
-   * @param { EfficiencyResourcesRequest } request - Necessary information carried in the request, including the
-   *     resource type and timeout interval.
+   * @param { EfficiencyResourcesRequest } request  - 请求的必要信息，包括资源类型、超时时间等。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1499,7 +1382,7 @@ declare namespace backgroundTaskManager {
   function applyEfficiencyResources(request: EfficiencyResourcesRequest): void;
 
   /**
-   * Releases all efficiency resources.
+   * 释放已申请的全部能效资源。
    *
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
@@ -1518,10 +1401,9 @@ declare namespace backgroundTaskManager {
   function resetAllEfficiencyResources(): void;
 
   /**
-   * Obtains all information about the requested efficiency resources, including the resource type. This API uses a 
-   * promise to return the result.
+   * 获取已申请的所有能效资源信息，如能效资源类型等，使用Promise异步回调。
    *
-   * @returns { Promise<EfficiencyResourcesInfo[]> } Promise used to return all information about efficiency resources.
+   * @returns { Promise<EfficiencyResourcesInfo[]> } Promise对象，返回所有能效资源信息。
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @throws { BusinessError } 18700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -1535,13 +1417,11 @@ declare namespace backgroundTaskManager {
   function getAllEfficiencyResources(): Promise<EfficiencyResourcesInfo[]>;
 
   /**
-   * Subscribes to continuous task cancellation events. This API uses an asynchronous callback to return the result.
+   * 注册长时任务取消的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskCancel' } type - Event type. The value is fixed at **'continuousTaskCancel'**, indicating
-   *     that a continuous task is canceled.
-   * @param { Callback<ContinuousTaskCancelInfo> } callback - Callback used to return information such as the reason for
-   *     canceling a continuous task.
+   * @param { 'continuousTaskCancel' } type  - 事件回调类型，固定取值为'continuousTaskCancel'，表示长时任务取消。
+   * @param { Callback<ContinuousTaskCancelInfo> } callback  - 回调函数，返回长时任务取消原因等信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    *     <br> 2. Register a exist callback type; 3. Parameter verification failed.
@@ -1551,7 +1431,7 @@ declare namespace backgroundTaskManager {
   function on(type: 'continuousTaskCancel', callback: Callback<ContinuousTaskCancelInfo>): void;
   
   /**
-   * Register continuous task cancel callback.
+   * 注册长时任务取消的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
@@ -1564,24 +1444,21 @@ declare namespace backgroundTaskManager {
   function onContinuousTaskCancel(callback: Callback<ContinuousTaskCancelInfo>): void;
 
   /**
-    * Unsubscribes from continuous task cancellation events. This API uses an asynchronous callback to return the 
-    * result.
-    *
-    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-    * @param { 'continuousTaskCancel' } type - Cancels a continuous task. The value is fixed at
-    *     **'continuousTaskCancel'**.
-    * @param { Callback<ContinuousTaskCancelInfo> } callback - Callback for which listening is cancelled. If this
-    *     parameter is left unspecified, all registered callbacks are cancelled.
-    * @throws { BusinessError } 201 - Permission denied.
-    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-    *     <br> 2. Unregister type has not register; 3. Parameter verification failed.
-    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-    * @since 15 dynamic
-    */
+   * 解除长时任务取消的监听，使用callback异步回调。
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { 'continuousTaskCancel' } type  - 取消长时任务，固定取值为'continuousTaskCancel'。
+   * @param { Callback<ContinuousTaskCancelInfo> } callback  - 需要取消监听的回调函数，未传入则取消所有注册回调。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
+   *     <br> 2. Unregister type has not register; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @since 15 dynamic
+   */
    function off(type: 'continuousTaskCancel', callback?: Callback<ContinuousTaskCancelInfo>): void;
    
    /**
-   * Unregister continuous task cancel callback.
+   * 解除长时任务取消的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskCancelInfo> } [callback] - the callback of continuous task cancel.
@@ -1594,19 +1471,13 @@ declare namespace backgroundTaskManager {
   function offContinuousTaskCancel(callback?: Callback<ContinuousTaskCancelInfo>): void;
 
   /**
-   * Registers a listener for continuous task suspension. This API uses an asynchronous callback to return the result. 
-   * After the callback is registered, if the system detects for the first time that the application does not execute 
-   * the corresponding service, the system does not directly cancel the continuous task. Instead, it will mark the task 
-   * as suspended. If the detection failures persist, the system will cancel the continuous task.
+   * 注册长时任务暂停的监听，使用callback异步回调。注册该回调后，如果系统首次检测到应用未执行相应的业务，不会直接取消长时任务，而是将长时任务标记为暂停状态，如果连续检测失败，仍会取消长时任务。
    * 
-   * When a continuous task is suspended, the application will be suspended when switched to the background and 
-   * automatically activated when brought back to the foreground.
+   * 长时任务处于暂停状态时，应用退后台会被挂起，回前台自动激活。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskSuspend' } type - Event type. The value is fixed at **'continuousTaskSuspend'**, indicating
-   *     that the continuous task is suspended.
-   * @param { Callback<ContinuousTaskSuspendInfo> } callback - Callback used to return information such as the reason
-   *     for suspending a continuous task.
+   * @param { 'continuousTaskSuspend' } type  - 事件回调类型，固定取值为'continuousTaskSuspend'，表示长时任务暂停。
+   * @param { Callback<ContinuousTaskSuspendInfo> } callback  - 回调函数，返回长时任务暂停原因等信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1615,8 +1486,10 @@ declare namespace backgroundTaskManager {
   function on(type: 'continuousTaskSuspend', callback: Callback<ContinuousTaskSuspendInfo>): void;
   
   /**
-   * Register continuous task suspend callback.
+   * 注册长时任务暂停的监听，使用callback异步回调。注册该回调后，如果系统首次检测到应用未执行相应的业务，不会直接取消长时任务，而是将长时任务标记为暂停状态，如果连续检测失败，仍会取消长时任务。
    *
+   * 长时任务处于暂停状态时，应用退后台会被挂起，回前台自动激活。
+   * 
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1627,14 +1500,11 @@ declare namespace backgroundTaskManager {
   function onContinuousTaskSuspend(callback: Callback<ContinuousTaskSuspendInfo>): void;
 
   /**
-   * Unregisters from the listener for continuous task suspension. This API uses an asynchronous callback to return the 
-   * result.
+   * 取消长时任务暂停的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskSuspend' } type - Event type. The value is fixed at **'continuousTaskSuspend'**, indicating
-   *     that the continuous task is suspended.
-   * @param { Callback<ContinuousTaskSuspendInfo> } [callback] - Callback used to unregister from the listener for
-   *     continuous task suspension. If this parameter is not passed, all listeners are unsubscribed from.
+   * @param { 'continuousTaskSuspend' } type  - 事件回调类型，固定取值为'continuousTaskSuspend'，表示长时任务暂停。
+   * @param { Callback<ContinuousTaskSuspendInfo> } [callback]  - 需要取消监听的回调函数，未传入则取消所有注册的暂停回调。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1643,7 +1513,7 @@ declare namespace backgroundTaskManager {
   function off(type: 'continuousTaskSuspend', callback?: Callback<ContinuousTaskSuspendInfo>): void;
   
   /**
-   * Unregister continuous task suspend callback.
+   * 取消长时任务暂停的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskSuspendInfo> } [callback] - the callback of continuous task suspend.
@@ -1655,14 +1525,11 @@ declare namespace backgroundTaskManager {
   function offContinuousTaskSuspend(callback?: Callback<ContinuousTaskSuspendInfo>): void;
 
   /**
-   * Registers a listener for continuous task activation. This API uses an asynchronous callback to return the result. 
-   * The application returns to the foreground to activate the suspended continuous task.
+   * 注册长时任务激活的监听，使用callback异步回调。应用回前台激活暂停的长时任务。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskActive' } type - Event type. The value is fixed at **'continuousTaskActive'**, indicating
-   *     that the continuous task is activated.
-   * @param { Callback<ContinuousTaskActiveInfo> } callback - Callback used to return the activation information about a
-   *     continuous task.
+   * @param { 'continuousTaskActive' } type  - 事件回调类型，固定取值为'continuousTaskActive'，表示长时任务激活。
+   * @param { Callback<ContinuousTaskActiveInfo> } callback  - 回调函数，返回长时任务激活相关信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1671,7 +1538,7 @@ declare namespace backgroundTaskManager {
   function on(type: 'continuousTaskActive', callback: Callback<ContinuousTaskActiveInfo>): void;
   
   /**
-   * Register continuous task active callback.
+   * 注册长时任务激活的监听，使用callback异步回调。应用回前台激活暂停的长时任务。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
@@ -1683,14 +1550,11 @@ declare namespace backgroundTaskManager {
   function onContinuousTaskActive(callback: Callback<ContinuousTaskActiveInfo>): void;
 
   /**
-   * Unregisters from the listener for continuous task activation. This API uses an asynchronous callback to return the 
-   * result.
+   * 取消长时任务激活的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskActive' } type - Event type. The value is fixed at **'continuousTaskActive'**, indicating
-   *     that the continuous task is activated.
-   * @param { Callback<ContinuousTaskActiveInfo> } [callback] - Callback used to unregister from the listener for
-   *     continuous task activation. If this parameter is not passed, all listeners are unsubscribed from.
+   * @param { 'continuousTaskActive' } type  - 事件回调类型，固定取值为'continuousTaskActive'，表示长时任务激活。
+   * @param { Callback<ContinuousTaskActiveInfo> } [callback]  - 需要取消监听的回调函数，未传入则取消所有注册的激活回调。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1699,7 +1563,7 @@ declare namespace backgroundTaskManager {
   function off(type: 'continuousTaskActive', callback?: Callback<ContinuousTaskActiveInfo>): void;
   
   /**
-   * Unregister continuous task active callback.
+   * 取消长时任务激活的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.
@@ -1711,7 +1575,7 @@ declare namespace backgroundTaskManager {
   function offContinuousTaskActive(callback?: Callback<ContinuousTaskActiveInfo>): void;
   
   /**
-   * Defines the type of a continuous task.
+   * 长时任务类型。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 12]
@@ -1721,17 +1585,15 @@ declare namespace backgroundTaskManager {
 
   export enum BackgroundMode {
     /**
-     * Data transfer.
+     * 数据传输。
      * 
-     * Use scenario: upload and download in non-hosting mode, for example, uploading or downloading data in the 
-     * background of a browser.
+     * 使用场景举例：非托管形式的上传、下载，如在浏览器后台上传或下载数据。
      * 
-     * Note: During data transfer, the application needs to update the progress. If the progress is not updated for more
-     * than 10 minutes, the continuous task of the **DATA_TRANSFER** type will be canceled.
+     * **说明：** 在数据传输时，应用需要更新进度，如果进度长时间（超过10分钟）未更新，数据传输的长时任务会被取消。
      * 
-     * The notification type of the progress update must be live view. For details, see the example in 
+     * 更新进度的通知类型必须为实况窗，具体实现可参考
      * [startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent)}
-     * .
+     * 中的示例。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
@@ -1740,18 +1602,15 @@ declare namespace backgroundTaskManager {
     DATA_TRANSFER = 1,
 
     /**
-     * Audio and video playback.
+     * 音视频播放。
      * 
-     * Use scenario: audio/video playback in the background and audio/video casting.
+     * 使用场景举例：音频、视频在后台播放，音视频投播。
      * 
-     * Note: Since API version 20, if an application requests or updates a continuous task of the **AUDIO_PLAYBACK** 
-     * type without connecting to AVSession, a notification will appear in the notification panel once the task is 
-     * successfully requested or updated.
+     * **说明：** 从API version 20开始，申请/更新AUDIO_PLAYBACK类型长时任务但不接入AVSession，申请/更新长时任务成功后会在通知栏显示通知。
      * 
-     * Once AVSession is connected, notifications will be sent by AVSession instead of the background task module.
+     * 接入AVSession后，后台任务模块不会发送通知栏通知，由AVSession发送通知。
      * 
-     * For API version 19 and earlier versions, the background task module does not display notifications in the 
-     * notification panel.
+     * 对于API version 19及之前的版本，后台任务模块不会在通知栏显示通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 12]
@@ -1761,11 +1620,11 @@ declare namespace backgroundTaskManager {
     AUDIO_PLAYBACK = 2,
 
     /**
-     * Audio recording.
+     * 录制。
      * 
-     * Use scenario: recording and screen capture in the background.<!--Del-->
+     * 使用场景举例：录音、录屏退后台。<!--Del-->
      * 
-     * Note: No notification is displayed if a system application requests or updates a continuous task.<!--DelEnd-->
+     * **说明：** 系统应用申请/更新该类型的长时任务，没有通知栏消息。<!--DelEnd-->
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
@@ -1774,7 +1633,7 @@ declare namespace backgroundTaskManager {
     AUDIO_RECORDING = 3,
 
     /**
-     * Positioning and navigation.
+     * 定位导航。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -1784,9 +1643,9 @@ declare namespace backgroundTaskManager {
     LOCATION = 4,
 
     /**
-     * Bluetooth-related services.
+     * 蓝牙相关业务。
      * 
-     * Use scenario: An application moves to the background while transferring files via Bluetooth.
+     * 使用场景举例：通过蓝牙传输文件时退后台。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
@@ -1795,9 +1654,9 @@ declare namespace backgroundTaskManager {
     BLUETOOTH_INTERACTION = 5,
 
     /**
-     * Multi-device connection.
+     * 多设备互联。
      * 
-     * Use scenario: distributed service connection and casting.
+     * 使用场景举例：分布式业务连接、投播。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 12]
@@ -1807,7 +1666,9 @@ declare namespace backgroundTaskManager {
     MULTI_DEVICE_CONNECTION = 6,
 
     /**
-     * WLAN-related.
+     * WLAN相关。
+     * 
+     * **系统API**: 此接口为系统接口。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -1817,12 +1678,11 @@ declare namespace backgroundTaskManager {
     WIFI_INTERACTION = 7,
 
     /**
-     * Audio and video calls.
+     * 音视频通话。
      * 
-     * Use scenario: Chat applications (with audio and video services) transition into the background during audio and 
-     * video calls.<!--Del-->
+     * 使用场景举例：某些聊天类应用（具有音视频业务）音频、视频通话时退后台。<!--Del-->
      * 
-     * Note: No notification is displayed if a system application requests or updates a continuous task.<!--DelEnd-->
+     * **说明：** 系统应用申请/更新该类型的长时任务，没有通知栏消息。<!--DelEnd-->
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 13 dynamic
@@ -1831,14 +1691,13 @@ declare namespace backgroundTaskManager {
     VOIP = 8,
 
     /**
-     * Computing tasks.
+     * 计算任务。
      * 
-     * Use scenario: antivirus software.
+     * 使用场景举例：杀毒软件
      * 
-     * **NOTE**: Starting from API version 21, this capability is available for PCs/2-in-1 devices, and non-PCs/2-in-1 
-     * devices that have obtained the ACL permission 
+     * **说明：** 从API version 21开始，对PC/2in1设备、非PC/2in1设备但申请了ACL权限为
      * [ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system)
-     * . In API version 20 and earlier versions, this task type is limited to PCs/2-in-1 devices only.
+     * 的应用开放。 API version 20及之前版本，仅对PC/2in1设备开放。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 9 dynamic
@@ -1848,18 +1707,14 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Main type of a continuous task. It is usually used together with the subtype 
-   * [BackgroundTaskSubmode]{@link backgroundTaskManager.BackgroundTaskSubmode}. For details, see the mapping table. The
-   * two types are newly added in API version 21 for 
-   * [requesting]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)} 
-   * and 
-   * [updating]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)} 
-   * continuous tasks.
-   * 
-   * When the main type of the continuous task is **MODE_SPECIAL_SCENARIO_PROCESSING**, or that of a non-PC/2-in-1 
-   * device is **MODE_TASK_KEEPING**, you need to request the ACL permission 
+   * 长时任务主类型。通常与长时任务子类型[BackgroundTaskSubmode]{@link backgroundTaskManager.BackgroundTaskSubmode}配合使用，对照关系请参考长时任务主类型与子类型
+   * 对照表，两者共同作为API version 21新增的
+   * [申请]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}、
+   * [更新]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}长时任务接口入参
+   * ，用于指定长时任务类型。</br>仅当主类型为MODE_SPECIAL_SCENARIO_PROCESSING特殊场景类型，或非PC/2in1设备主类型为MODE_TASK_KEEPING计算任务时，调用长时任务相关接口时需同时申
+   * 请ACL权限
    * [ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system)
-   * before calling APIs related to continuous tasks. In other scenarios, this permission is not required.
+   * ，其他场景无需申请该权限。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
@@ -1868,18 +1723,14 @@ declare namespace backgroundTaskManager {
    */
   export enum BackgroundTaskMode {  
     /**
-     * Data transfer.
+     * 数据传输。
      * 
-     * Use scenario: upload and download in non-hosting mode, for example, uploading or downloading data in the 
-     * background of a browser.
+     * 使用场景举例：非托管形式的上传、下载，如在浏览器后台上传或下载数据。
      * 
-     * **NOTE**
-     * 
-     * 1. During data transfer, the application needs to update the progress.
-     * If the progress is not updated for more than 10 minutes,
-     * the continuous task of the **DATA_TRANSFER** type will be canceled.
-     * 2. The notification type of the progress update must be live view. For details, see the example in
-     * [startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent)}.
+     * **说明：**
+     *
+     * 1. 在数据传输时，应用需要更新进度，如果进度长时间（超过10分钟）未更新，数据传输的长时任务会被取消。
+     * 2. 更新进度的通知类型必须为实况窗，具体实现可参考[startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent)}中的示例。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21 dynamic
@@ -1888,14 +1739,12 @@ declare namespace backgroundTaskManager {
     MODE_DATA_TRANSFER = 1,
 
     /**
-     * Audio and video playback.
+     * 音视频播放。
      * 
-     * Use scenario: audio/video playback in the background and audio/video casting.
+     * 使用场景举例：音频、视频在后台播放，音视频投播。
      * 
-     * Note: If a continuous task of the **MODE_AUDIO_PLAYBACK** type is requested or updated without connecting to 
-     * AVSession, a notification will appear in the notification panel once the task is successfully requested or 
-     * updated. Once AVSession is connected, notifications will be sent by AVSession instead of the background task 
-     * module.
+     * **说明：** 申请/更新MODE_AUDIO_PLAYBACK类型长时任务但不接入AVSession，申请/更新长时任务成功后会在通知栏显示通知。接入AVSession后，后台任务模块不会发送通知栏通知，由AVSession
+     * 发送通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -1905,11 +1754,11 @@ declare namespace backgroundTaskManager {
     MODE_AUDIO_PLAYBACK = 2,
 
     /**
-     * Audio recording.
+     * 录制。
      * 
-     * Use scenario: recording and screen capture in the background.<!--Del-->
+     * 使用场景举例：录音、录屏退后台。<!--Del-->
      * 
-     * Note: No notification is displayed if a system application requests or updates a continuous task.<!--DelEnd-->
+     * **说明：** 系统应用申请/更新该类型的长时任务，没有通知栏消息。<!--DelEnd-->
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21 dynamic
@@ -1918,7 +1767,7 @@ declare namespace backgroundTaskManager {
     MODE_AUDIO_RECORDING = 3,
 
     /**
-     * Positioning and navigation.
+     * 定位导航。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -1928,9 +1777,9 @@ declare namespace backgroundTaskManager {
     MODE_LOCATION = 4,
 
     /**
-     * Bluetooth-related services.
+     * 蓝牙相关业务。
      * 
-     * Use scenario: An application moves to the background while transferring files via Bluetooth.
+     * 使用场景举例：通过蓝牙传输文件时退后台。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21 dynamic
@@ -1939,9 +1788,9 @@ declare namespace backgroundTaskManager {
     MODE_BLUETOOTH_INTERACTION = 5,
 
     /**
-     * Multi-device connection.
+     * 多设备互联。
      * 
-     * Use scenario: distributed service connection and casting.
+     * 使用场景举例：分布式业务连接、投播。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -1951,7 +1800,7 @@ declare namespace backgroundTaskManager {
     MODE_MULTI_DEVICE_CONNECTION = 6,
 
     /**
-     * WLAN-related services.
+     * WLAN相关业务。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -1961,12 +1810,11 @@ declare namespace backgroundTaskManager {
     MODE_ALLOW_WIFI_AWARE = 7,
 
     /**
-     * Audio and video calls.
+     * 音视频通话。
      * 
-     * Use scenario: Chat applications (with audio and video services) transition into the background during audio and 
-     * video calls. <!--Del-->
+     * 使用场景举例：某些聊天类应用（具有音视频业务）音频、视频通话时退后台。 <!--Del-->
      * 
-     * Note: No notification is displayed if a system application requests or updates a continuous task.<!--DelEnd-->
+     * **说明：** 系统应用申请/更新该类型的长时任务，没有通知栏消息。<!--DelEnd-->
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21 dynamic
@@ -1975,14 +1823,13 @@ declare namespace backgroundTaskManager {
     MODE_VOIP = 8,
 
     /**
-     * Computing tasks.
+     * 计算任务。
      * 
-     * Use scenario: antivirus software.
+     * 使用场景举例：杀毒软件。
      * 
-     * **NOTE**: This capability is available only to PCs/2-in-1 devices, or non-PCs/2-in-1 devices that have obtained 
-     * the ACL permission 
+     * **说明：** 仅对PC/2in1设备开放，或者非PC/2in1设备但申请了ACL权限为
      * [ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system)
-     * .
+     * 的应用开放。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21 dynamic
@@ -1991,12 +1838,10 @@ declare namespace backgroundTaskManager {
     MODE_TASK_KEEPING = 9,
 
     /**
-     * Multimedia services.
+     * 多媒体相关业务。
      * 
-     * Use scenarios: audio/video playback, recording, and audio/video calls. The scenario must match that of the 
-     * subtype. You can select this task type or the corresponding main type for preceding scenarios. For example, you 
-     * can request a continuous task of the **MODE_AUDIO_PLAYBACK** or **MODE_AV_PLAYBACK_AND_RECORD** type for audio/
-     * video playback.
+     * 使用场景举例：音视频播放、录制、音视频通话场景，场景需与长时任务子类型相匹配。在上述场景下，选择此类型或者对应的长时任务主类型均可。例如：音视频播放场景可以申请MODE_AUDIO_PLAYBACK或者
+     * MODE_AV_PLAYBACK_AND_RECORD长时任务主类型。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -2006,27 +1851,15 @@ declare namespace backgroundTaskManager {
     MODE_AV_PLAYBACK_AND_RECORD = 12,
 
     /**
-     * Special scenarios (available only for smartphones, tablets, PCs/2-in-1 devices).
+     * 特殊场景类型（仅对Phone、Tablet、PC/2in1设备开放）。
      * 
-     * Use scenarios: An application exports media files in the background or uses a third-party component to cast 
-     * content in the background. The scenario must match that of the subtype.
+     * 使用场景举例：应用在后台导出媒体文件、应用使用三方投播组件在后台进行投播，场景需与长时任务子类型相匹配。
      * 
-     * **NOTE**
+     * **说明：**
      * 
-     * 1. If an application needs to run in the background for a long time,
-     * it can request user authorization through the
-     * [requestAuthFromUser]{@link backgroundTaskManager.ContinuousTaskRequest.requestAuthFromUser} API
-     * and check the authorization result via
-     * [checkSpecialScenarioAuth]{@link backgroundTaskManager.ContinuousTaskRequest.checkSpecialScenarioAuth}.
-     * 2. Since API version 24, this capability is available only to applications that have obtainedthe ACL permission
-     * [ohos.permission.KEEP_BACKGROUND_RUNNING_SPECIAL_SCENARIO](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_special_scenario).
-     * For API version 23 and earlier,
-     * this capability is available only to applications that have obtained the ACL permission
-     * [ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system).
-     * Applications that have obtained this permission are not affected for API version 24 and later.
-     * 3. This task type must be used independently and notifications cannot be combined.
-     * Specifically, when you request or update a continuous task,
-     * it must be of the **MODE_SPECIAL_SCENARIO_PROCESSING** type. Otherwise, an error is returned.
+     * 1. 如果应用需要在后台长时间运行，可以通过[requestAuthFromUser]{@link backgroundTaskManager.ContinuousTaskRequest.requestAuthFromUser}接口请求用户授权、通过[checkSpecialScenarioAuth]{@link backgroundTaskManager.ContinuousTaskRequest.checkSpecialScenarioAuth}接口查询用户授权结果。
+     * 2. 从API version 24开始，仅对申请ACL权限[ohos.permission.KEEP_BACKGROUND_RUNNING_SPECIAL_SCENARIO](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_special_scenario)的应用开放。API version 23及之前版本，仅对申请ACL权限[ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system)的应用开放，已经申请该权限的应用在API version 24之后不受影响。
+     * 3. 必须单独使用且不支持通知合并，即申请或更新长时任务时，长时任务类型只能有特殊场景类型，否则返回错误。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2035,9 +1868,9 @@ declare namespace backgroundTaskManager {
     MODE_SPECIAL_SCENARIO_PROCESSING = 13,
 
     /**
-     * NearLink device.
+     * 星闪业务。
      * 
-     * Use scenario: An application transitions into the background during the process of file transfer using NearLink.
+     * 使用场景举例：通过星闪传输文件时退后台。
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2048,9 +1881,8 @@ declare namespace backgroundTaskManager {
 
   
   /**
-   * Defines the subtype of a continuous task. It is usually used together with the main type 
-   * [BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}. For details, see the mapping table. The two 
-   * types are newly added in API version 21 for requesting and updating continuous tasks.
+   * 长时任务子类型。通常与长时任务主类型[BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}配合使用，对照关系请参考长时任务主类型与子类型对照表，两者
+   * 共同作为API version 21新增的申请、更新长时任务接口入参，用于指定长时任务类型。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
@@ -2059,7 +1891,7 @@ declare namespace backgroundTaskManager {
    */
   export enum BackgroundTaskSubmode {
     /**
-     * **CAR_KEY** type. It is of the normal text notification type.
+     * 车钥匙类型，通知类型为普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21 dynamic
@@ -2068,7 +1900,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_CAR_KEY_NORMAL_NOTIFICATION = 1,
     
     /**
-     * Normal text notification.
+     * 普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -2078,7 +1910,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_NORMAL_NOTIFICATION = 2,
 
     /**
-     * Live view notification.
+     * 实况窗通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 21 dynamic
@@ -2087,8 +1919,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_LIVE_VIEW_NOTIFICATION = 3,
 
     /**
-     * Audio and video playback. It is of the normal text notification type.
-     * You can access [AVSession](docroot://media/avsession/avsession-overview.md) as needed.
+     * 音视频播放，通知类型为普通文本通知。根据实际场景选择是否接入[AVSession](docroot://media/avsession/avsession-overview.md)。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -2098,8 +1929,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_AUDIO_PLAYBACK_NORMAL_NOTIFICATION = 4,
 
     /**
-     * Audio and video playback scenario where [AVSession](docroot://media/avsession/avsession-overview.md) is accessed.
-     * It is of the normal text notification type.
+     * 已接入[AVSession](docroot://media/avsession/avsession-overview.md)的音视频播放场景，不发送通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -2109,7 +1939,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_AVSESSION_AUDIO_PLAYBACK = 5,
 
     /**
-     * Recording. It is of the normal text notification type.
+     * 录音，通知类型为普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2118,7 +1948,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_AUDIO_RECORD_NORMAL_NOTIFICATION = 6,
 
     /**
-     * Recording. It is of the normal text notification type.
+     * 录屏，通知类型为普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2127,7 +1957,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_SCREEN_RECORD_NORMAL_NOTIFICATION = 7,
 
     /**
-     * Call. It is of the normal text notification type.
+     * 通话，通知类型为普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2136,8 +1966,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_VOICE_CHAT_NORMAL_NOTIFICATION = 8,
 
     /**
-     * Media processing. For example, an application exports media files in the background. It is of the normal text 
-     * notification type.
+     * 媒体处理，例如：应用在后台导出媒体文件，通知类型为普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2146,8 +1975,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_MEDIA_PROCESS_NORMAL_NOTIFICATION = 9,
 
     /**
-     * Video casting. For example, an application uses a third-party casting component to cast a video in the 
-     * background, and the notification type is common text notification.
+     * 视频投播，例如：应用使用三方投播组件在后台进行投播，通知类型为普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2156,8 +1984,7 @@ declare namespace backgroundTaskManager {
     SUBMODE_VIDEO_BROADCAST_NORMAL_NOTIFICATION = 10,
 
     /**
-     * Exercise. For example, an application has an indoor running scenario in the background, and the notification type
-     * is common text notification.
+     * 运动，例如：应用在后台有室内跑步场景，通知类型为普通文本通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2168,7 +1995,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Enumerates the efficiency resource types.
+   * 能效资源类型。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -2177,7 +2004,7 @@ declare namespace backgroundTaskManager {
    */
   export enum ResourceType {
     /**
-     * CPU resource. Such type of resource prevents an application from being suspended.
+     * CPU资源，申请后应用进程不被挂起。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2187,8 +2014,7 @@ declare namespace backgroundTaskManager {
     CPU = 1,
 
     /**
-     * Common event resource. Such type of resource ensures that an application in the suspended state can receive 
-     * common events.
+     * 公共事件资源，申请后应用进程被挂起后，可以收到公共事件。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2198,8 +2024,7 @@ declare namespace backgroundTaskManager {
     COMMON_EVENT = 1 << 1,
 
     /**
-     * Timer resource. Such type of resource ensures that an application in the suspended state can be woken up by 
-     * system timers.
+     * 计时器，申请后应用进程被挂起后，Timer仍然可以唤醒应用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2209,7 +2034,7 @@ declare namespace backgroundTaskManager {
     TIMER = 1 << 2,
 
     /**
-     * Deferred task resource. Such type of resource provides a loose control policy for an application.
+     * 延迟任务资源，申请后延迟任务管控变宽松。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2219,8 +2044,7 @@ declare namespace backgroundTaskManager {
     WORK_SCHEDULER = 1 << 3,
 
     /**
-     * Bluetooth resource. Such type of resource ensures that an application in the suspended state can be woken up by 
-     * Bluetooth-related events.
+     * 蓝牙资源，申请后应用进程被挂起后，蓝牙相关事件仍然可以唤醒应用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2230,8 +2054,7 @@ declare namespace backgroundTaskManager {
     BLUETOOTH = 1 << 4,
 
     /**
-     * GPS resource. Such type of resource ensures that an application in the suspended state can be woken up by GPS-
-     * related events.
+     * GPS资源，申请后应用进程被挂起后，GPS相关事件可以唤醒应用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2241,8 +2064,7 @@ declare namespace backgroundTaskManager {
     GPS = 1 << 5,
 
     /**
-     * Audio resource. Such type of resource prevents an application from being suspended when the application has an 
-     * audio being played.
+     * 音频资源，有音频播放时对应的应用进程不被挂起。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2252,7 +2074,7 @@ declare namespace backgroundTaskManager {
     AUDIO = 1 << 6,
 
     /**
-     * RUNNING_LOCK resources are not proxied when the application is suspended.
+     * RUNNING_LOCK资源，申请后挂起状态不会代理RUNNING_BACKGROUND锁。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2262,7 +2084,7 @@ declare namespace backgroundTaskManager {
     RUNNING_LOCK = 1 << 7,
 
     /**
-     * Sensor callbacks are not intercepted.
+     * 申请后不拦截Sensor回调。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2273,7 +2095,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Defines the CPU level of the efficiency resource.
+   * 能效资源CPU级别。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -2282,8 +2104,7 @@ declare namespace backgroundTaskManager {
    */
   export enum EfficiencyResourcesCpuLevel {  
     /**
-     * The background task runs on small CPU cores. This level caters to lightweight background tasks with a relatively 
-     * low CPU frequency.
+     * 表示运行在小核，用于处理轻量级后台任务，CPU频点较低。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2293,9 +2114,7 @@ declare namespace backgroundTaskManager {
     SMALL_CPU = 0,
 
     /**
-     * The background task can run on medium CPU cores at maximum. The system determines whether to run the task on 
-     * small or medium CPU cores based on load. This level balances performance and energy efficiency, and is applicable
-     * to scenarios requiring complex task processing with a high CPU frequency.
+     * 表示最高可以运行在中核，系统基于负载决策运行在小核或中核。平衡性能与能效，用于需要处理复杂任务的场景，CPU频点高。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2305,9 +2124,7 @@ declare namespace backgroundTaskManager {
     MEDIUM_CPU = 1,
 
     /**
-     * The background task can run on large CPU cores at maximum. The system determines whether to run the task on small
-     * , medium, or large CPU cores based on load. This level delivers ultimate performance, and is applicable to 
-     * scenarios requiring heavy-load task processing with the highest CPU frequency.
+     * 表示最高可以运行在大核，系统基于负载决策运行在小核、中核或大核。 极致性能，用于应对重载任务的场景，CPU频点最高。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2318,7 +2135,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the parameters for requesting efficiency resources.
+   * 能效资源申请参数。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi Hide this for inner system use.
@@ -2327,7 +2144,7 @@ declare namespace backgroundTaskManager {
    */
   export interface EfficiencyResourcesRequest {
     /**
-     * Type of the resource to request.
+     * 申请的资源类型。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2337,10 +2154,10 @@ declare namespace backgroundTaskManager {
     resourceTypes: int;
 
     /**
-     * Whether the request is used to apply for resources.
+     * 申请或释放资源。
      * 
-     * - **true**: The request is used to apply for resources.
-     * - **false**: The request is used to release resources.
+     * - true表示申请资源。
+     * - false表示释放部分资源。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2350,7 +2167,7 @@ declare namespace backgroundTaskManager {
     isApply: boolean;
 
     /**
-     * Duration for which the resource will be used, in milliseconds.
+     * 资源使用时间，单位：ms。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2360,10 +2177,10 @@ declare namespace backgroundTaskManager {
     timeOut: int;
 
     /**
-     * Whether the resource is permanently held. The default value is **false**.
+     * 是否永久持有资源，默认为false。
      * 
-     * - **true**: The resource is permanently held.
-     * - **false**: The resource is held for a limited period of time.
+     * - true表示永久持有
+     * - false表示有限时间内持有。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2373,10 +2190,10 @@ declare namespace backgroundTaskManager {
     isPersist?: boolean;
 
     /**
-     * Whether the request is initiated by a process. The default value is **false**.
+     * 进程或应用申请，默认为false。
      * 
-     * - **true**: The request is initiated by a process.
-     * - **false**: The request is initiated by an application.
+     * - true表示进程申请。
+     * - false表示应用申请。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2386,7 +2203,7 @@ declare namespace backgroundTaskManager {
     isProcess?: boolean;
 
     /**
-     * Reason for requesting the resource.
+     * 申请资源原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2396,9 +2213,7 @@ declare namespace backgroundTaskManager {
     reason: string;
 
     /**
-     * CPU level. If **resourceTypes** is set to **CPU**, this parameter specifies the CPU resource size. The system 
-     * allocates the specified CPU resources to the application during the idle time of load (for example, when the 
-     * screen is off).
+     * 指定CPU级别，能效资源类型resourceTypes为CPU时该参数用于指定CPU资源大小，系统会在负载空闲时间（例如灭屏场景）分配指定的CPU资源给应用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2409,7 +2224,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the reason for canceling a continuous task.
+   * 长时任务取消原因。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 15 dynamic
@@ -2417,7 +2232,7 @@ declare namespace backgroundTaskManager {
    */
   export enum ContinuousTaskCancelReason {
     /**
-     * The task is canceled by the user.
+     * 用户取消。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2425,7 +2240,7 @@ declare namespace backgroundTaskManager {
      */
     USER_CANCEL = 1,
     /**
-     * The task is canceled by the system.
+     * 系统取消。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2433,7 +2248,7 @@ declare namespace backgroundTaskManager {
      */
     SYSTEM_CANCEL = 2,
     /**
-     * User removal notification. This value is reserved.
+     * 用户移除通知。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2442,8 +2257,7 @@ declare namespace backgroundTaskManager {
     USER_CANCEL_REMOVE_NOTIFICATION = 3,
   
     /**
-     * A continuous task of the DATA_TRANSFER type is requested, but the data transmission rate is low. This value is 
-     * reserved.
+     * 申请DATA_TRANSFER类型长时任务，但是数据传输速率低。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2452,8 +2266,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
   
     /**
-     * A continuous task of the AUDIO_PLAYBACK type is requested, but the 
-     * [AVSession](docroot://media/avsession/avsession-overview.md) is not accessed. This value is reserved.
+     * 申请AUDIO_PLAYBACK类型长时任务，但是未接入[AVSession](docroot://media/avsession/avsession-overview.md)。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2462,8 +2275,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
   
     /**
-     * A continuous task of the AUDIO_PLAYBACK type is requested, but the audio and video are not played. This value is 
-     * reserved.
+     * 申请AUDIO_PLAYBACK类型长时任务，但是未播放音视频。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2472,8 +2284,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
   
     /**
-     * A continuous task of the AUDIO_RECORDING type is requested, but audio recording is not in progress. This value is
-     * reserved.
+     * 申请AUDIO_RECORDING类型长时任务，但是未录制。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2482,8 +2293,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
   
     /**
-     * A continuous task of the **LOCATION** type is requested, but the location service is not in use. This value is 
-     * reserved.
+     * 申请LOCATION类型长时任务，但是未使用定位导航。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2492,8 +2302,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
   
     /**
-     * A continuous task of the BLUETOOTH_INTERACTION type is requested, but Bluetooth-related services are not used. 
-     * This value is reserved.
+     * 申请BLUETOOTH_INTERACTION类型长时任务，但是未使用蓝牙相关业务。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2502,8 +2311,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
   
     /**
-     * A continuous task of the MULTI_DEVICE_CONNECTION type is requested, but multi-device connection is not used. This
-     * value is reserved.
+     * 申请MULTI_DEVICE_CONNECTION类型长时任务，但是未使用多设备互联。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2512,8 +2320,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
   
     /**
-     * A continuous task of an invalid type is used. For example, a continuous task of the **AUDIO_PLAYBACK** type is 
-     * requested, but the audio playback and location services are in use. This value is reserved.
+     * 使用非法类型的长时任务，如申请AUDIO_PLAYBACK类型长时任务，但是使用音视频播放及定位导航业务。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 15 dynamic
@@ -2523,7 +2330,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the detailed reason for canceling a continuous task.
+   * 长时任务取消详细原因。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @stagemodelonly
@@ -2531,7 +2338,7 @@ declare namespace backgroundTaskManager {
    */
   export enum ContinuousTaskDetailedCancelReason {  
     /**
-     * User removal notification.
+     * 用户移除通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2540,7 +2347,7 @@ declare namespace backgroundTaskManager {
     USER_CANCEL_REMOVE_NOTIFICATION = 3,
   
     /**
-     * A continuous task of the **DATA_TRANSFER** type is requested, but the data transmission rate is low.
+     * 申请DATA_TRANSFER类型长时任务，但是数据传输速率低。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2549,8 +2356,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
   
     /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but 
-     * [AVSession](docroot://media/avsession/avsession-overview.md) is not accessed.
+     * 申请AUDIO_PLAYBACK类型长时任务，但是未接入[AVSession](docroot://media/avsession/avsession-overview.md)。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2559,7 +2365,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
   
     /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but the audio and video are not played.
+     * 申请AUDIO_PLAYBACK类型长时任务，但是未播放音视频。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2568,7 +2374,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
   
     /**
-     * A continuous task of the **AUDIO_RECORDING** type is requested, but audio recording is not in progress.
+     * 申请AUDIO_RECORDING类型长时任务，但是未录制。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2577,7 +2383,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
   
     /**
-     * A continuous task of the **LOCATION** type is requested, but the location service is not in use.
+     * 申请LOCATION类型长时任务，但是未使用定位导航。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2586,7 +2392,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
   
     /**
-     * A continuous task of the **BLUETOOTH_INTERACTION** type is requested, but Bluetooth is not in use.
+     * 申请BLUETOOTH_INTERACTION类型长时任务，但是未使用蓝牙相关业务。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2595,8 +2401,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
   
     /**
-     * A continuous task of the **MULTI_DEVICE_CONNECTION** type is requested, but the multi-device connection service 
-     * is not in use.
+     * 申请MULTI_DEVICE_CONNECTION类型长时任务，但是未使用多设备互联。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2605,8 +2410,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
   
     /**
-     * A continuous task of an invalid type is used. For example, a continuous task of the **AUDIO_PLAYBACK** type is 
-     * requested, but the audio playback and location services are in use.
+     * 使用非法类型的长时任务，如申请AUDIO_PLAYBACK类型长时任务，但是使用音视频播放及定位导航业务。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2615,8 +2419,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_USE_ILLEGALLY = 11,
 
     /**
-     * A continuous task of the **DATA_TRANSFER** type is requested, but the progress is not updated for a long time (
-     * the first update takes more than 10 minutes).
+     * 申请DATA_TRANSFER类型长时任务，但是进度长时间（首次更新超过10分钟）未更新。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2625,7 +2428,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_NOT_UPDATE = 12,
 
     /**
-     * A continuous task of the **VOIP** type is requested, but no audio stream or recording stream is in progress.
+     * 申请VOIP类型长时任务，但是未检测到音频流或者录音流。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2634,7 +2437,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_VOIP_NOT_RUNNING = 13,
 
     /**
-     * A continuous task of the special scenario type is requested, but the user is not authorized.
+     * 申请特殊场景类型长时任务，但是用户未授权。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2644,7 +2447,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Defines the subtype of a continuous task.
+   * 长时任务子类型。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 16 dynamic
@@ -2652,12 +2455,12 @@ declare namespace backgroundTaskManager {
    */
   export enum BackgroundSubMode {
     /**
-     * Car key.
+     * 车钥匙。
      * 
-     * **NOTE**
+     * **说明：**
      * 
-     * 1. The car key subtype takes effect only when a continuous task of the BLUETOOTH_INTERACTION type is requested.
-     * 2. Continuous tasks of this type cannot be updated through the [updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, bgModes: string[])} API.
+     * 1. 只有申请BLUETOOTH_INTERACTION类型的长时任务，车钥匙子类型才能生效。
+     * 2. 不支持通过[updateBackgroundRunning]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, bgModes: string[])}接口更新为此类型长时任务。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 16 dynamic
@@ -2667,7 +2470,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Defines the type of a continuous task.
+   * 长时任务类型类别。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 16 dynamic
@@ -2675,7 +2478,7 @@ declare namespace backgroundTaskManager {
    */
   export enum BackgroundModeType {
     /**
-     * Subtype.
+     * 子类型。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 16 dynamic
@@ -2685,7 +2488,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Describes the reason why a continuous task is suspended.
+   * 长时任务暂停原因。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -2693,7 +2496,7 @@ declare namespace backgroundTaskManager {
    */
   export enum ContinuousTaskSuspendReason {
     /**
-     * A continuous task of the **DATA_TRANSFER** type is requested, but the data transmission rate is low.
+     * 申请DATA_TRANSFER类型长时任务，但是数据传输速率低。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2702,8 +2505,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_DATA_TRANSFER_LOW_SPEED = 4,
   
     /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but 
-     * [AVSession](docroot://media/avsession/avsession-overview.md) is not accessed.
+     * 申请AUDIO_PLAYBACK类型长时任务，但是未接入[AVSession](docroot://media/avsession/avsession-overview.md)。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2712,7 +2514,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
   
     /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but audio playback is not in progress.
+     * 申请AUDIO_PLAYBACK类型长时任务，但是未播放音视频。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2721,7 +2523,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_RUNNING = 6,
   
     /**
-     * A continuous task of the **AUDIO_RECORDING** type is requested, but audio recording is not in progress.
+     * 申请AUDIO_RECORDING类型长时任务，但是未录制。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2730,7 +2532,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_AUDIO_RECORDING_NOT_RUNNING = 7,
   
     /**
-     * A continuous task of the **LOCATION** type is requested, but the location service is not in use.
+     * 申请LOCATION类型长时任务，但是未使用定位导航。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2739,7 +2541,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_LOCATION_NOT_USED = 8,
   
     /**
-     * A continuous task of the **BLUETOOTH_INTERACTION** type is requested, but Bluetooth is not in use.
+     * 申请BLUETOOTH_INTERACTION类型长时任务，但是未使用蓝牙相关业务。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2748,8 +2550,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_BLUETOOTH_NOT_USED = 9,
   
     /**
-     * A continuous task of the **MULTI_DEVICE_CONNECTION** type is requested, but the multi-device connection service 
-     * is not in use.
+     * 申请MULTI_DEVICE_CONNECTION类型长时任务，但是未使用多设备互联。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2758,8 +2559,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_MULTI_DEVICE_NOT_USED = 10,
   
     /**
-     * A continuous task of an invalid type is used. For example, a continuous task of the **AUDIO_PLAYBACK** type is 
-     * requested, but the audio playback and location services are in use. This value is reserved.
+     * 使用非法类型的长时任务，如申请AUDIO_PLAYBACK类型长时任务，但是使用音视频播放及定位导航业务。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2768,7 +2568,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_USED_ILLEGALLY = 11,
 
     /**
-     * A continuous task is suspended due to high system load. This value is reserved.
+     * 系统高负载暂停长时任务。预留接口，暂未启用。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -2777,7 +2577,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_SYSTEM_LOAD_WARNING = 12,
 
     /**
-     * A continuous task of the **VOIP** type is requested, but no audio stream or recording stream is in progress.
+     * 申请VOIP类型长时任务，但是未检测到音频流或者录音流。
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2786,8 +2586,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_VOIP_NOT_USED = 13,
 
     /**
-     * A continuous task of the **BLUETOOTH_INTERACTION** type is requested, but there is no Bluetooth data flow for a 
-     * period of time.
+     * 申请BLUETOOTH_INTERACTION类型长时任务，但是一段时间没有蓝牙数据流。
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2796,7 +2595,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_BLUETOOTH_DATA_NOT_EXIST = 14,
 
     /**
-     * A continuous task of the **LOCATION** type is requested, but the device is absolutely still for a period of time.
+     * 申请LOCATION类型长时任务，但是一段时间内设备处于绝对静止状态。
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2805,7 +2604,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_POSITION_NOT_MOVED = 15,
 
     /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but the device is muted for a period of time.
+     * 申请AUDIO_PLAYBACK类型长时任务，但是一段时间内处于整机静音状态。
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2814,7 +2613,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_AUDIO_PLAYBACK_MUTE = 16,
 
     /**
-     * No nearlink connection for a period of time when request nearlink mode.
+     * 申请星闪类型长时任务，但是一段时间没有星闪配对连接。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2823,7 +2622,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_NEARLINK_NOT_USED = 17,
 
     /**
-     * No nearlink data for a period of time when request nearlink mode.
+     * 申请星闪类型长时任务，但是一段时间没有星闪数据流。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2832,7 +2631,7 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_NEARLINK_DATA_NOT_EXIST = 18,
 
     /**
-     * A continuous task of the special scenario type is requested, but the user is not authorized.
+     * 申请特殊场景类型长时任务，但是用户未授权。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2842,7 +2641,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Represents the user authorization result.
+   * 用户授权结果。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22 dynamic
@@ -2850,8 +2649,7 @@ declare namespace backgroundTaskManager {
    */
   export enum UserAuthResult {
     /**
-     * The authorization is not supported. For example, if the main type of the requested continuous task is not 
-     * **MODE_SPECIAL_SCENARIO_PROCESSING**, continuous task running in the background is not supported.
+     * 不支持。例如：申请的长时任务主类型非MODE_SPECIAL_SCENARIO_PROCESSING时，不支持申请用户授权是否能在后台长时间运行。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2860,7 +2658,7 @@ declare namespace backgroundTaskManager {
     NOT_SUPPORTED = 0,
 
     /**
-     * No user operation.
+     * 用户未操作。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2869,7 +2667,7 @@ declare namespace backgroundTaskManager {
     NOT_DETERMINED = 1,
 
     /**
-     * The authorization is denied.
+     * 拒绝。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2878,9 +2676,9 @@ declare namespace backgroundTaskManager {
     DENIED = 2,
 
     /**
-     * The authorization is granted this time.
+     * 本次允许。
      * 
-     * Note: The authorization record will be cleared when the application exits.
+     * **说明：** 在应用退出时该授权记录会被清除
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
@@ -2889,2467 +2687,23 @@ declare namespace backgroundTaskManager {
     GRANTED_ONCE = 3,
 
     /**
-     * The authorization is granted always.
+     * 始终允许。
      * 
-     * **NOTE**
+     * **说明：**
      * 
-     * When the following common events are received, the related authorization records will be cleared:
+     * 当接收到以下公共事件时，相关授权记录将被清除：
      * 
      * [COMMON_EVENT_PACKAGE_ADDED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_added)
-     * , 
+     * 、
      * [COMMON_EVENT_PACKAGE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_removed)
-     * , 
+     * 、
      * [COMMON_EVENT_BUNDLE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_bundle_removed)
-     * , 
+     * 、
      * [COMMON_EVENT_PACKAGE_FULLY_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_fully_removed)
-     * , 
+     * 、
      * [COMMON_EVENT_PACKAGE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_changed)
-     * .
+     * 。
      *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    GRANTED_ALWAYS = 4
-  }
-}
-
-export default backgroundTaskManager;
-
-
-/**
- * Manages background tasks.
- *
- * @namespace backgroundTaskManager
- * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
- * @atomicservice [since 12]
- * @since 9 dynamic
- * @since 23 static
- */
-declare namespace backgroundTaskManager {
-  /**
-   * The request object of continuous task.
-   *
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 26.0.0]
-   * @since 21 dynamic
-   * @since 24 static
-   */
-  export class ContinuousTaskRequest {
-    /**
-     * Modes of continuous task.
-     *
-     * @returns { BackgroundTaskMode[] } the background modes
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    get backgroundTaskModes(): BackgroundTaskMode[];
-
-    /**
-     * Modes of continuous task.
-     *
-     * @param { BackgroundTaskMode[] } value
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    set backgroundTaskModes(value: BackgroundTaskMode[]);
-
-    /**
-     * Submodes of continuous task.
-     *
-     * @returns { BackgroundTaskSubmode[] } the background submodes
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    get backgroundTaskSubmodes(): BackgroundTaskSubmode[];
-
-    /**
-     * Submodes of continuous task.
-     *
-     * @param { BackgroundTaskSubmode[] } value
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    set backgroundTaskSubmodes(value: BackgroundTaskSubmode[]);
-
-    /**
-     * Indicates which ability to start when user click the notification bar.
-     *
-     * @returns { WantAgent } the wantAgent
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @stagemodelonly
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    get wantAgent(): WantAgent;
-
-    /**
-     * Indicates which ability to start when user click the notification bar.
-     *
-     * @param { WantAgent } value
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    set wantAgent(value: WantAgent);
-
-    /**
-     * Indicates whether to merge notifications, default is not to merge.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     */
-    combinedTaskNotification?: boolean;
-
-    /**
-     * Indicates whether to merge notifications, default is not to merge.
-     *
-     * @returns { boolean | undefined } whethre to merge notifications
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 24 static
-     */
-    get combinedTaskNotification(): boolean | undefined;
-
-    /**
-     * Indicates whether to merge notifications, default is not to merge.
-     *
-     * @param { boolean | undefined } value
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 24 static
-     */
-    set combinedTaskNotification(value: boolean | undefined);
-
-    /**
-     * The continuous task id, default -1.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     */
-    continuousTaskId?: number;
-
-    /**
-     * The continuous task id, default -1.
-     *
-     * @returns { int | undefined } the continuous task id
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 24 static
-     */
-    get continuousTaskId(): int | undefined;
-
-    /**
-     * The continuous task id, default -1.
-     *
-     * @param { int | undefined } value
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 24 static
-     */
-    set continuousTaskId(value: int | undefined);
-
-    /**
-     * Whether the modes of continuous task are supported.
-     *
-     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @returns { boolean } Whether the modes of continuous task are supported.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 9800005 - Continuous task verification failed.
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    isModeSupported(): boolean;
-
-    /**
-     * Requesting MODE_SPECIAL_SCENARIO_PROCESSING authorization from users,
-     *     a dialog box will be displayed.
-     *
-     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param { Context } context - App running context.
-     * @param { Callback<UserAuthResult> } callback - The callback of the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 9800004 - System service operation failed.
-     * @throws { BusinessError } 9800005 - Continuous task verification failed.
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    requestAuthFromUser(context: Context, callback: Callback<UserAuthResult>): void;
-
-    /**
-     * Check whether the application can request MODE_SPECIAL_SCENARIO_PROCESSING.
-     *
-     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param { Context } context - App running context.
-     * @returns { Promise<UserAuthResult> } The promise returns the result of user authorization.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 9800004 - System service operation failed.
-     * @throws { BusinessError } 9800005 - Continuous task verification failed.
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    checkSpecialScenarioAuth(context: Context): Promise<UserAuthResult>;
-  }
-
-  /**
-   * The info of delay suspend.
-   *
-   * @interface DelaySuspendInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  interface DelaySuspendInfo {
-    /**
-     * The unique identifier of the delay request.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    requestId: int;
-    /**
-     * The actual delay duration (ms).
-     * <br>Unit:ms
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    actualDelayTime: int;
-  }
-
-  /**
-   * The callback info of transient task.
-   *
-   * @interface TransientTaskInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  interface TransientTaskInfo {
-    /**
-     * Total remaining quota of an application in one day.
-     * <br>Unit:ms
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    remainingQuota: int;
-    /**
-     * The info list of delay suspend.
-     *
-     * @type { DelaySuspendInfo[] }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    transientTasks: DelaySuspendInfo[];
-  }
-
-  /**
-   * The info of continuous task notification.
-   *
-   * @interface ContinuousTaskNotification
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 23 static
-   */
-  interface ContinuousTaskNotification {
-    /**
-     * The notification slot type.
-     *
-     * @type { notificationManager.SlotType }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    slotType: notificationManager.SlotType;
-    /**
-     * The notification content type.
-     *
-     * @type { notificationManager.ContentType }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    contentType: notificationManager.ContentType;
-    /**
-     * The notification id.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    notificationId: int;
-    /**
-     * The continuous task id.
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    continuousTaskId?: int;
-  }
-
-  /**
-   * The continuous task cancel info.
-   *
-   * @interface ContinuousTaskCancelInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 15 dynamic
-   * @since 23 static
-   */
-  interface ContinuousTaskCancelInfo {
-    /**
-     * The cancel reason of continuous task.
-     *
-     * @type { ContinuousTaskCancelReason }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    reason: ContinuousTaskCancelReason;
-
-    /**
-     * The id of cancelled continuous task.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    id: int;
-
-    /**
-     * The detailed cancel reason of a continuous task.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    detailedReason?: ContinuousTaskDetailedCancelReason;
-  }
-
-  /**
-   * The continuous task active info.
-   *
-   * @interface ContinuousTaskActiveInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  interface ContinuousTaskActiveInfo {
-    /**
-     * The id of active continuous task.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    id: int;
-  }
-
-  /**
-   * The continuous task info.
-   *
-   * @interface ContinuousTaskInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  interface ContinuousTaskInfo {
-    /**
-     * The ability name of apply continuous task.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    abilityName: string;
-   /**
-     * The uid of apply continuous task.
-     *
-     * @type { int}
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    uid: int;
-   /**
-     * The pid of apply continuous task.
-     *
-     * @type { int}
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    pid: int;
-    /**
-     * Is apply continuous task from webview.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    isFromWebView: boolean;
-    /**
-     * Background modes of apply continuous task.
-     *
-     * @type { string[] }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    backgroundModes: string[];
-    /**
-     * Background sub modes of apply continuous task.
-     *
-     * @type { string[] }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    backgroundSubModes: string[];
-    /**
-     * The notification id of apply continuous task.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    notificationId: int;
-    /**
-     * The continuous task id of apply continuous task.
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    continuousTaskId: int;
-   /**
-     * The ability id of apply continuous task.
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    abilityId: int;
-    /**
-     * The wantAgent bundle name of apply continuous task.
-     * @type { string }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    wantAgentBundleName: string;
-    /**
-     * The wantAgent ability name of apply continuous task.
-     * @type { string }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    wantAgentAbilityName: string;
-    /**
-     * The suspend state of apply continuous task.
-     * @type { boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    suspendState: boolean;
-    /**
-     * The bundleName of apply continuous task.
-     * @type { ?string }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 23 dynamic
-     * @since 24 static
-     */
-    bundleName?: string;
-    /**
-     * The appIndex of apply continuous task.
-     * @type { ?int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 23 dynamic
-     * @since 24 static
-     */
-    appIndex?: int;
-  }
-
-  /**
-   * The background task state info of user authorization status.
-   *
-   * @interface BackgroundTaskStateInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @systemapi Hide this for inner system use.
-   * @stagemodelonly
-   * @since 22 dynamic
-   * @since 24 static
-   */
-  interface BackgroundTaskStateInfo {
-    /**
-     * UserId of the application applying for special continuous task.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    userId: int;
-    /**
-     * BundleName of the application applying for special continuous task.
-     * @type { string }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    bundleName: string;
-    /**
-     * AppIndex of the application applying for special continuous task.
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    appIndex: int;
-    /**
-     * Type of user authorization status.
-     * @type { ?UserAuthResult }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    authResult?: UserAuthResult;
-  }
-
-  /**
-   * The continuous task suspend info.
-   *
-   * @interface ContinuousTaskSuspendInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  interface ContinuousTaskSuspendInfo {
-    /**
-     * The id of suspended continuous task.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    continuousTaskId: int;
-
-    /**
-     * The suspend state of continuous task.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    suspendState: boolean;
-
-    /**
-     * The suspend reason of continuous task.
-     *
-     * @type { ContinuousTaskSuspendReason }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    suspendReason: ContinuousTaskSuspendReason;
-
-    /**
-     * The suspend message of continuous task.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    suspendMessage?:SuspendMessage;
-  }
-
-  /**
-   * The continuous task suspend message.
-   *
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface SuspendMessage {
-    /**
-     * The detailed suspend message of continuous task.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    message: string;
-
-    /**
-     * The detailed suspend reason of continuous task.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    reason: ContinuousTaskSuspendReason;
-  }
-
-  /**
-   * The continuous task state change subscriber.
-   *
-   * @typedef BackgroundTaskSubscriber
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @systemapi
-   * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
-   */
-  export interface BackgroundTaskSubscriber {  
-    /**
-     * Callback of continuous task start.
-     *
-     * @param { ContinuousTaskInfo } info - The continuous task info.
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 dynamic
-     * @since 24 static
-     */
-    onContinuousTaskStart(info: ContinuousTaskInfo): void;
-
-    /**
-     * Callback of continuous task update.
-     *
-     * @param { ContinuousTaskInfo } info - The continuous task info.
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 dynamic
-     * @since 24 static
-     */
-    onContinuousTaskUpdate(info: ContinuousTaskInfo): void;
-
-    /**
-     * Callback of continuous task stop.
-     *
-     * @param { ContinuousTaskInfo } info - The continuous task info.
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi
-     * @stagemodelonly
-     * @since 23 dynamic
-     * @since 24 static
-     */
-    onContinuousTaskStop(info: ContinuousTaskInfo): void;
-  }
-
-  /**
-   * Efficiency Resources information.
-   *
-   * @interface EfficiencyResourcesInfo
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-   * @systemapi Hide this for inner system use.
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  interface EfficiencyResourcesInfo {
-    /**
-     * The set of resource types that app wants to apply.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    resourceTypes: int;
-    /**
-     * The duration that the resource can be used most.
-     * <br>Unit:ms
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    timeout: int;
-    /**
-     * True if the apply action is persistent, else false. Default value is false.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    isPersistent: boolean;
-    /**
-     * True if apply action is for process, false is for package. Default value is false.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    isForProcess: boolean;
-    /**
-     * The apply reason.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    reason: string;
-   /**
-     * The uid of apply efficiency resources.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    uid: int;
-   /**
-     * The pid of apply efficiency resources.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    pid: int;
-   /**
-     * Specify CPU resources. The system will allocate the specified CPU resources
-     *     to the application during idle load times.
-     *
-     * @type { ?EfficiencyResourcesCpuLevel }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
-    cpuLevel?: EfficiencyResourcesCpuLevel;
-  }
-
-  /**
-   * Cancels delayed transition to the suspended state.
-   *
-   * @param { int } requestId - The identifier of the delay request.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
-   * @throws { BusinessError } 9900002 - Transient task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function cancelSuspendDelay(requestId: int): void;
-
-  /**
-   * Obtains the remaining time before an application enters the suspended state.
-   *    <br>Unit:ms
-   *
-   * @param { int } requestId - The identifier of the delay request.
-   * @param { AsyncCallback<int> } callback - The callback of the remaining delay time.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
-   * @throws { BusinessError } 9900002 - Transient task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function getRemainingDelayTime(requestId: int, callback: AsyncCallback<int>): void;
-
-  /**
-   * Obtains the remaining time before an application enters the suspended state.
-   *    <br>Unit:ms
-   *
-   * @param { int } requestId - The identifier of the delay request.
-   * @returns { Promise<int> } The promise returns the remaining delay time.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
-   * @throws { BusinessError } 9900002 - Transient task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function getRemainingDelayTime(requestId: int): Promise<int>;
-
-  /**
-   * Requests delayed transition to the suspended state.
-   *
-   * @param { string } reason - Indicates the reason for delayed transition to the suspended state.
-   * @param { Callback<void> } callback - The callback delay time expired.
-   * @returns { DelaySuspendInfo } Info of delay request.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
-   * @throws { BusinessError } 9900002 - Transient task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
-
-  /**
-   * Obtains transient task info before an application enters the suspended state.
-   *
-   * @returns { Promise<TransientTaskInfo> } The promise returns the transient tasks info.
-   * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
-   * @throws { BusinessError } 9900003 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9900004 - System service operation failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  function getTransientTaskInfo(): Promise<TransientTaskInfo>;
-
-  /**
-   * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to this service. </p>
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-   * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 12]
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
-
-  /**
-   * Service ability uses this method to request start running in background.
-   * <p> System will publish a notification related to the this service. </p>
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { BackgroundMode } bgMode - Indicates which background mode to request.
-   * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 12]
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
-
-  /**
-   * UIAbility uses this method to request start running in background.
-   * <p> System will publish a notification related to the UIAbility. </p>
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { string[] } bgModes - Indicates which background mode to request.
-   * @param { WantAgent } wantAgent - Indicates which ability to start when user click the notification bar.
-   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 23 static
-   */
-  function startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise<ContinuousTaskNotification>;
-
-  /**
-   * UIAbility uses this method to request start running in background,
-   *     a UIAbility can request multi continuous task at a time.
-   *     System will publish a notification related to the UIAbility.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { ContinuousTaskRequest } request - The continuous task request.
-   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 26.0.0]
-   * @since 21 dynamic
-   * @since 24 static
-   */
-  function startBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
-
-  /**
-   * UIAbility uses this method to update background mode.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { string[] } bgModes - Indicates which background mode to request.
-   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 23 static
-   */
-  function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
-
-  /**
-   * UIAbility uses this method to update background mode, support update according to continuous task id.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { ContinuousTaskRequest } request - Indicates which background mode to request.
-   * @returns { Promise<ContinuousTaskNotification> } The continuous task notification.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 26.0.0]
-   * @since 21 dynamic
-   * @since 24 static
-   */
-  function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
-
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 12]
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
-
-  /**
-   * Service ability uses this method to request stop running in background.
-   *
-   * @param { Context } context - App running context.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 12]
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function stopBackgroundRunning(context: Context): Promise<void>;
-
-  /**
-   * UI ability uses this method to request stop running in background according to continuous task id.
-   *
-   * @param { Context } context - App running context.
-   * @param { int } continuousTaskId - continuousTaskId.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
-   * @throws { BusinessError } 9800007 - Continuous task storage failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice  [since 26.0.0]
-   * @since 21 dynamic
-   * @since 24 static
-   */
-  function stopBackgroundRunning(context: Context, continuousTaskId: int): Promise<void>;
-
-  /**
-   * Obtains all the continuous tasks before an application enters the suspended state,
-   *     including continuous tasks in suspended state.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  function getAllContinuousTasks(context: Context): Promise<ContinuousTaskInfo[]>;
-
-  /**
-   * Obtains all the continuous tasks before an application enters the suspended state.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - App running context.
-   * @param { boolean } includeSuspended - Return the suspended continuous tasks.
-   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  function getAllContinuousTasks(context: Context, includeSuspended: boolean): Promise<ContinuousTaskInfo[]>;
-
-  /**
-   * Set the user authorization status of special continuous tasks.
-   *
-   * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
-   * @param { BackgroundTaskStateInfo } stateInfo - Background task state info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @systemapi
-   * @stagemodelonly
-   * @since 22 dynamic
-   * @since 24 static
-   */
-  function setBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): void;
-
-  /**
-   * Get the user authorization status of special continuous tasks.
-   *
-   * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
-   * @param { BackgroundTaskStateInfo } stateInfo - Background task state info.
-   * @returns { UserAuthResult } Type of user authorization status.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @systemapi
-   * @stagemodelonly
-   * @since 22 dynamic
-   * @since 24 static
-   */
-  function getBackgroundTaskState(stateInfo: BackgroundTaskStateInfo): UserAuthResult;
-
-  /**
-   * Obtains information about all continuous tasks in the system.
-   *
-   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @returns { Promise<ContinuousTaskInfo[]> } The promise returns the continuous task info.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @systemapi
-   * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
-   */
-  function obtainAllContinuousTasks(): Promise<ContinuousTaskInfo[]>;
-
-  /**
-   * Subscribe to continuous task state change.
-   *
-   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @systemapi
-   * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
-   */
-  function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
-
-  /**
-   * Unsubscribe to continuous task state change.
-   *
-   * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @param { BackgroundTaskSubscriber } subscriber - The continuous task state change subscriber.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @systemapi
-   * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
-   */
-  function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
-
-  /**
-   * Apply or unapply efficiency resources.
-   *
-   * @param { EfficiencyResourcesRequest } request - The request of apply or unapply efficiency resources.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function applyEfficiencyResources(request: EfficiencyResourcesRequest): void;
-
-  /**
-   * Reset all efficiency resources apply.
-   *
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
-   * @throws { BusinessError } 9800001 - Memory operation failed.
-   * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 9800003 - Internal transaction failed.
-   * @throws { BusinessError } 9800004 - System service operation failed.
-   * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  function resetAllEfficiencyResources(): void;
-
-  /**
-   * Obtains all the efficiency resources of current application.
-   *
-   * @returns { Promise<EfficiencyResourcesInfo[]> } The promise returns the efficiency resources info.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
-   * @throws { BusinessError } 18700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 18700004 - System service operation failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-   * @systemapi
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  function getAllEfficiencyResources(): Promise<EfficiencyResourcesInfo[]>;
-
-  /**
-   * Register continuous task cancel callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskCancel' } type - The type of continuous task cancel.
-   * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-   * <br> 2. Register a exist callback type; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 15 dynamic
-   */
-  function on(type: 'continuousTaskCancel', callback: Callback<ContinuousTaskCancelInfo>): void;
-
-  /**
-   * Register continuous task cancel callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-   * <br> 2. Register a exist callback type; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 23 static
-   */
-  function onContinuousTaskCancel(callback: Callback<ContinuousTaskCancelInfo>): void;
-
-  /**
-   * Unregister continuous task cancel callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskCancel' } type - The type of continuous task cancel.
-   * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-   * <br> 2. Unregister type has not register; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 15 dynamic
-   */
-  function off(type: 'continuousTaskCancel', callback?: Callback<ContinuousTaskCancelInfo>): void;
-
-  /**
-   * Unregister continuous task cancel callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-   * <br> 2. Unregister type has not register; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 23 static
-   */
-  function offContinuousTaskCancel(callback?: Callback<ContinuousTaskCancelInfo>): void;
-
-  /**
-   * Register continuous task suspend callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskSuspend' } type - The type of continuous task suspend.
-   * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   */
-  function on(type: 'continuousTaskSuspend', callback: Callback<ContinuousTaskSuspendInfo>): void;
-
-  /**
-   * Register continuous task suspend callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 23 static
-   */
-  function onContinuousTaskSuspend(callback: Callback<ContinuousTaskSuspendInfo>): void;
-
-  /**
-   * Unregister continuous task suspend callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskSuspend' } type - The type of continuous task suspend.
-   * @param { Callback<ContinuousTaskSuspendInfo> } [callback] - the callback of continuous task suspend.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   */
-  function off(type: 'continuousTaskSuspend', callback?: Callback<ContinuousTaskSuspendInfo>): void;
-
-  /**
-   * Unregister continuous task suspend callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Callback<ContinuousTaskSuspendInfo> } [callback] - the callback of continuous task suspend.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 23 static
-   */
-  function offContinuousTaskSuspend(callback?: Callback<ContinuousTaskSuspendInfo>): void;
-
-  /**
-   * Register continuous task active callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskActive' } type - The type of continuous task active.
-   * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   */
-  function on(type: 'continuousTaskActive', callback: Callback<ContinuousTaskActiveInfo>): void;
-
-  /**
-   * Register continuous task active callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 23 static
-   */
-  function onContinuousTaskActive(callback: Callback<ContinuousTaskActiveInfo>): void;
-
-  /**
-   * Unregister continuous task suspend callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskActive' } type - The type of continuous task active.
-   * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   */
-  function off(type: 'continuousTaskActive', callback?: Callback<ContinuousTaskActiveInfo>): void;
-
-  /**
-   * Unregister continuous task active callback.
-   *
-   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 9800005 - Continuous task verification failed.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 23 static
-   */
-  function offContinuousTaskActive(callback?: Callback<ContinuousTaskActiveInfo>): void;
-
-  /**
-   * Supported background mode.
-   *
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 12]
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  export enum BackgroundMode {
-    /**
-     * data transfer mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    DATA_TRANSFER = 1,
-
-    /**
-     * audio playback mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 12]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    AUDIO_PLAYBACK = 2,
-
-    /**
-     * audio recording mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    AUDIO_RECORDING = 3,
-
-    /**
-     * location mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    LOCATION = 4,
-
-    /**
-     * bluetooth interaction mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    BLUETOOTH_INTERACTION = 5,
-
-    /**
-     * multi-device connection mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 12]
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    MULTI_DEVICE_CONNECTION = 6,
-
-    /**
-     * wifi interaction mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    WIFI_INTERACTION = 7,
-
-    /**
-     * Voice over Internet Phone mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 13 dynamic
-     * @since 23 static
-     */
-    VOIP = 8,
-
-    /**
-     * background continuous calculate mode, for example 3D render.
-     * only supported in particular device
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    TASK_KEEPING = 9,
-  }
-
-  /**
-   * Supported Continuous task mode.
-   *
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 26.0.0]
-   * @since 21 dynamic
-   * @since 24 static
-   */
-  export enum BackgroundTaskMode {
-    /**
-     * data transfer mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_DATA_TRANSFER = 1,
-
-    /**
-     * audio playback mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_AUDIO_PLAYBACK = 2,
-
-    /**
-     * audio recording mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_AUDIO_RECORDING = 3,
-
-    /**
-     * share location mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_LOCATION = 4,
-
-    /**
-     * bluetooth interaction mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_BLUETOOTH_INTERACTION = 5,
-
-    /**
-     * multi-device connection mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_MULTI_DEVICE_CONNECTION = 6,
-
-    /**
-     * allow wifi aware mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @systemapi Hide this for inner system use.
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_ALLOW_WIFI_AWARE = 7,
-
-    /**
-     * Voice over Internet Phone mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_VOIP = 8,
-
-    /**
-     * background continuous calculate mode, for example 3D render.
-     * only supported in particular device
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    MODE_TASK_KEEPING = 9,
-
-    /**
-     * 'av playback and record' mode, for example audio playback, audio recording.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    MODE_AV_PLAYBACK_AND_RECORD = 12,
-
-    /**
-     * special scenario processing mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    MODE_SPECIAL_SCENARIO_PROCESSING = 13,
-
-    /**
-     * nearlink mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    MODE_NEARLINK = 14,
-  }
-
-  /**
-   * Supported Continuous task submode.
-   *
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @atomicservice [since 26.0.0]
-   * @since 21 dynamic
-   * @since 24 static
-   */
-  export enum BackgroundTaskSubmode {
-    /**
-     * submode of 'MODE_BLUETOOTH_INTERACTION'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    SUBMODE_CAR_KEY_NORMAL_NOTIFICATION = 1,
-
-    /**
-     * normal notification submode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    SUBMODE_NORMAL_NOTIFICATION = 2,
-
-    /**
-     * obvious notification submode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 21 dynamic
-     * @since 24 static
-     */
-    SUBMODE_LIVE_VIEW_NOTIFICATION = 3,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    SUBMODE_AUDIO_PLAYBACK_NORMAL_NOTIFICATION = 4,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @atomicservice [since 26.0.0]
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    SUBMODE_AVSESSION_AUDIO_PLAYBACK = 5,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    SUBMODE_AUDIO_RECORD_NORMAL_NOTIFICATION = 6,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    SUBMODE_SCREEN_RECORD_NORMAL_NOTIFICATION = 7,
-
-    /**
-     * submode of 'MODE_AV_PLAYBACK_AND_RECORD'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    SUBMODE_VOICE_CHAT_NORMAL_NOTIFICATION = 8,
-
-    /**
-     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    SUBMODE_MEDIA_PROCESS_NORMAL_NOTIFICATION = 9,
-
-    /**
-     * submode of 'MODE_MULTI_DEVICE_CONNECTION'.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    SUBMODE_VIDEO_BROADCAST_NORMAL_NOTIFICATION = 10,
-
-    /**
-     * submode of 'MODE_SPECIAL_SCENARIO_PROCESSING', used for workout scenarios.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 23 dynamic
-     * @since 24 static
-     */
-    SUBMODE_WORK_OUT_NORMAL_NOTIFICATION = 11
-  }
-
-  /**
-   * The type of resource.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  export enum ResourceType {
-    /**
-     * The cpu resource for not being suspended.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    CPU = 1,
-
-    /**
-     * The resource for not being proxyed common_event.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    COMMON_EVENT = 1 << 1,
-
-    /**
-     * The resource for not being proxyed timer.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    TIMER = 1 << 2,
-
-    /**
-     * The resource for not being proxyed workscheduler.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    WORK_SCHEDULER = 1 << 3,
-
-    /**
-     * The resource for not being proxyed bluetooth.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    BLUETOOTH = 1 << 4,
-
-    /**
-     * The resource for not being proxyed gps.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    GPS = 1 << 5,
-
-    /**
-     * The resource for not being proxyed audio.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    AUDIO = 1 << 6,
-
-    /**
-     * The resource for not being proxyed running lock.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 10 dynamic
-     * @since 23 static
-     */
-    RUNNING_LOCK = 1 << 7,
-
-    /**
-     * The resource for not being proxyed sensor.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 10 dynamic
-     * @since 23 static
-     */
-    SENSOR = 1 << 8
-  }
-
-  /**
-   * The type of CPU level.
-   *
-   * @enum { int } The type of resource.
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-   * @systemapi Hide this for inner system use.
-   * @stagemodelonly
-   * @since 23 dynamic&static
-   */
-  export enum EfficiencyResourcesCpuLevel {
-    /**
-     * Runs up to small cores.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
-    SMALL_CPU = 0,
-
-    /**
-     * Runs up to medium cores.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
-    MEDIUM_CPU = 1,
-
-    /**
-     * Runs up to large cores.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
-    LARGE_CPU = 2
-  }
-
-  /**
-   * The request of efficiency resources.
-   *
-   * @interface EfficiencyResourcesRequest
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   * @since 23 static
-   */
-  export interface EfficiencyResourcesRequest {
-    /**
-     * The set of resource types that app wants to apply.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    resourceTypes: int;
-
-    /**
-     * True if the app begin to use, else false.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    isApply: boolean;
-
-    /**
-     * The duration that the resource can be used most.
-     * <br>Unit:ms
-     *
-     * @type { int }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    timeOut: int;
-
-    /**
-     * True if the apply action is persist, else false. Default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    isPersist?: boolean;
-
-    /**
-     * True if apply action is for process, false is for package. Default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    isProcess?: boolean;
-
-    /**
-     * The apply reason.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
-     */
-    reason: string;
-
-   /**
-     * Specify CPU resources. The system will allocate the specified CPU resources
-     *     to the application during idle load times.
-     *
-     * @type { ?EfficiencyResourcesCpuLevel }
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 23 dynamic&static
-     */
-    cpuLevel?: EfficiencyResourcesCpuLevel;
-  }
-
-  /**
-   * The type of continuous task cancel reason.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 15 dynamic
-   * @since 23 static
-   */
-  export enum ContinuousTaskCancelReason {
-    /**
-     * User cancel.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    USER_CANCEL = 1,
-    /**
-     * System cancel.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL = 2,
-    /**
-     * User remove notification.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    USER_CANCEL_REMOVE_NOTIFICATION = 3,
-
-    /**
-     * Low network speed when request data transfer mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
-
-    /**
-     * Not use avsession when request audio playback mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
-
-    /**
-     * Audio is not running when request audio playback mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
-
-    /**
-     * Audio is not running when request audio recording mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
-
-    /**
-     * Not use location when request location mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
-
-    /**
-     * Not use bluetooth when request bluetooth interaction mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
-
-    /**
-     * Not use multi device when request multi-device connection mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
-
-    /**
-     * Use some mode illegally.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    SYSTEM_CANCEL_USE_ILLEGALLY = 11,
-  }
-
-  /**
-   * The type of continuous task detailed cancel reason.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  export enum ContinuousTaskDetailedCancelReason {
-    /**
-     * User remove notification.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    USER_CANCEL_REMOVE_NOTIFICATION = 3,
-
-    /**
-     * Low network speed when request data transfer mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
-
-    /**
-     *  Not use avsession when request audio playback mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
-
-    /**
-     * Audio is not running when request audio playback mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_RUNNING = 6,
-
-    /**
-     * Audio is not running when request audio recording mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_RECORDING_NOT_RUNNING = 7,
-
-    /**
-     * Not use location when request location mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_NOT_USE_LOCATION = 8,
-
-    /**
-     * Not use bluetooth when request bluetooth interaction mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_NOT_USE_BLUETOOTH = 9,
-
-    /**
-     * Not use multi device when request multi-device connection mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_NOT_USE_MULTI_DEVICE = 10,
-
-    /**
-     * Use some undeclared mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_USE_ILLEGALLY = 11,
-
-    /**
-     * Data transfer task was not updated within the specified time.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_DATA_TRANSFER_NOT_UPDATE = 12,
-
-    /**
-     * VOIP is not running when request VOIP mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_VOIP_NOT_RUNNING = 13,
-
-    /**
-     * User not authorized when request MODE_SPECIAL_SCENARIO_PROCESSING.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14
-  }
-
-  /**
-   * Supported background submode.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16 dynamic
-   * @since 23 static
-   */
-  export enum BackgroundSubMode {
-    /**
-     * bluetooth car key mode
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16 dynamic
-     * @since 23 static
-     */
-    CAR_KEY = 1
-  }
-
-  /**
-   * Supported background mode type.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 16 dynamic
-   * @since 23 static
-   */
-  export enum BackgroundModeType {
-    /**
-     * subMode type
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 16 dynamic
-     * @since 23 static
-     */
-    SUB_MODE = 'subMode'
-  }
-
-  /**
-   * Type of continuous task suspend reason.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  export enum ContinuousTaskSuspendReason {
-    /**
-     * Low network speed when request data transfer mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_DATA_TRANSFER_LOW_SPEED = 4,
-  
-    /**
-     *  Not use avsession when request audio playback mode.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
-  
-    /**
-     * Audio is not running when request audio playback mode.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_AUDIO_PLAYBACK_NOT_RUNNING = 6,
-  
-    /**
-     * Audio is not running when request audio recording mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_AUDIO_RECORDING_NOT_RUNNING = 7,
-  
-    /**
-     * Not use location when request location mode.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_LOCATION_NOT_USED = 8,
-  
-    /**
-     * Not use bluetooth when request bluetooth interaction mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_BLUETOOTH_NOT_USED = 9,
-  
-    /**
-     * Not use multi device when request multi-device connection mode.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_MULTI_DEVICE_NOT_USED = 10,
-  
-    /**
-     * Use some mode illegally.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_USED_ILLEGALLY = 11,
-
-    /**
-     * System load warning.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    SYSTEM_SUSPEND_SYSTEM_LOAD_WARNING = 12,
-
-    /**
-     * Not use VOIP when request VOIP mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_SUSPEND_VOIP_NOT_USED = 13,
-
-    /**
-     * No bluetooth data for a period of time when request bluetooth interaction mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_SUSPEND_BLUETOOTH_DATA_NOT_EXIST = 14,
-
-    /**
-     * The location has not moved for a period of time when request location mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_SUSPEND_POSITION_NOT_MOVED = 15,
-
-    /**
-     * The system muted for a period of time when request audio playback mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_SUSPEND_AUDIO_PLAYBACK_MUTE = 16,
-
-    /**
-     * No nearlink connection for a period of time when request nearlink mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_SUSPEND_NEARLINK_NOT_USED = 17,
-
-    /**
-     * No nearlink data for a period of time when request nearlink mode.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_SUSPEND_NEARLINK_DATA_NOT_EXIST = 18,
-
-    /**
-     * User not authorized when request MODE_SPECIAL_SCENARIO_PROCESSING.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_SUSPEND_USER_UNAUTHORIZED = 19,
-  }
-
-  /**
-   * Type of user authorization status.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-   * @since 22 dynamic
-   * @since 24 static
-   */
-  export enum UserAuthResult {
-    /**
-     * Request is not supported.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    NOT_SUPPORTED = 0,
-
-    /**
-     * Permission is not determined.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    NOT_DETERMINED = 1,
-
-    /**
-     * Permission has been denied, only can change it in settings.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    DENIED = 2,
-
-    /**
-     * The permission was granted once.
-     * 
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @since 22 dynamic
-     * @since 24 static
-     */
-    GRANTED_ONCE = 3,
-
-    /**
-     * Permissions are always granted.
-     * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
      * @since 24 static
