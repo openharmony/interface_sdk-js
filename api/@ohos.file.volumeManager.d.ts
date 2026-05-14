@@ -424,7 +424,7 @@ declare namespace volumeManager {
   }
 
   /**
-   * Partition creation params.
+   * Partition creation options.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -474,7 +474,7 @@ declare namespace volumeManager {
   }
 
   /**
-   * Format params for partition formatting.
+   * Format options for partition formatting.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -1058,7 +1058,7 @@ declare namespace volumeManager {
    *
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } diskId - Disk ID.
-   * @param { PartitionParams } params - Partition creation params.
+   * @param { PartitionParams } params - Partition creation options.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
@@ -1102,7 +1102,7 @@ declare namespace volumeManager {
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } diskId - Disk ID.
    * @param { number } partitionNum - Partition number.
-   * @param { FormatParams } params - Format params.
+   * @param { FormatParams } params - Format options.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
