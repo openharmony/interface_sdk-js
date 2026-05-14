@@ -238,13 +238,13 @@ declare namespace PiPWindow {
     /**
      * 是否开启画中画四角吸附功能。当开启画中画四角吸附功能后，屏幕将被划分为四个热区：以屏幕的上下中线和左右中线为界，形成左上、右上、左下、右下四个区域。用户拖动画中画窗口并松手后，系统将根据窗口中心点所处的热区，自动将窗口吸附到
      * 对应角落。
-     * 
+     *
      * true：表示开启画中画四角吸附功能。
-     * 
+     *
      * false：表示关闭画中画四角吸附功能。
-     * 
+     *
      * 不传值则为默认值true。
-     * 
+     *
      * 该接口在Phone、Tablet设备上可正常调用，在其他设备上不生效。
      *
      * @default true
@@ -921,6 +921,8 @@ declare namespace PiPWindow {
      * @throws { BusinessError } 1300013 - Failed to create the PiP window.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
+     * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
+     *     App has already started float view. [since 26.0.0]
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
