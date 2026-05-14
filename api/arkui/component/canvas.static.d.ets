@@ -25,6 +25,7 @@ import { Size } from '../Graphics';
 import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod, Callback } from './common';
 import { Color } from './enums'
+import { Resource } from '../../global/resource';
 
 /**
  * Filling style algorithm, which determines whether a point is within or outside the path. The following
@@ -587,6 +588,16 @@ export declare class ImageBitmap {
    * @since 23 static
    */
   constructor(src: PixelMap | string, unit?: LengthMetricsUnit);
+  /**
+   * Create an ImageBitmap object based on the transferred image path or PixelMap object or Resource object.
+   *
+   * @param { Resource | PixelMap | string } src - image path or PixelMap object or Resource object
+   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(src: Resource | PixelMap | string, unit?: LengthMetricsUnit);
 }
 
 /**
