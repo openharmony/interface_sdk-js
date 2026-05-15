@@ -22,7 +22,7 @@
 import { CommonMethod, BlurStyle, Bindable } from './common';
 import { ResourceColor, Length, Position } from "./units";
 import { Font } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * indexer align property.
@@ -421,6 +421,17 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * @noninterop
      */
     default attributeModifier(modifier: AttributeModifier<AlphabetIndexerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set alphabetIndexer options.
+     *
+     * @param { AlphabetIndexerOptions } info - indexer constructor options
+     * @returns { AlphabetIndexerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setAlphabetIndexerOptions(info: AlphabetIndexerOptions): this;
 }
 
 /**
@@ -437,3 +448,17 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
 export declare function AlphabetIndexer(
     options: AlphabetIndexerOptions
 ): AlphabetIndexerAttribute
+
+/**
+ * Defines AlphabetIndexer Component
+ *
+ * @param { CustomBuilderT<AlphabetIndexerAttribute> } style_ - AlphabetIndexer attribute instance
+ * @returns { AlphabetIndexerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function AlphabetIndexer(
+    style_: CustomBuilderT<AlphabetIndexerAttribute>
+): AlphabetIndexerAttribute;
