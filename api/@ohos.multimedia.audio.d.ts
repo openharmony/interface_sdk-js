@@ -9089,6 +9089,25 @@ declare namespace audio {
   }
 
   /**
+   * Volume type for audio separation effect.
+   * 
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AudioSeparationVolumeType {
+    /**
+     * Vocal type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    VOLUME_TYPE_VOCAL = 0,
+  }
+
+  /**
    * Implements audio effect management.
    * @typedef AudioEffectManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -9143,6 +9162,91 @@ declare namespace audio {
      * @since 23 static
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Checks whether the current device supports audio separation effect in system.
+     * @returns { boolean } Whether the current device supports audio separation effect.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isAudioSeparationEffectSupported(): boolean;
+
+    /**
+     * Sets audio separation effect enable or disable for specific application process,
+     * or for specific audio playback stream.
+     * This API uses a promise to return the result.
+     * 
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { boolean } enabled - The required effect state, true for enabled, false for disabled.
+     * @param { int } uid - The uid of target application process to add effect.
+     *     <br>The value should be an integer.
+     * @param { long } [streamId] - The id of target audio playback stream to add effect, the playback application
+     *     can use {@link AudioRenderer#getAudioStreamId} to obtain it.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Effect is not supported in this device.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setAudioSeparationEffectEnabled(enabled: boolean, uid: int, streamId?: long): Promise<void>;
+
+    /**
+     * Subscribes to system audio separation effect enabled state change event.
+     * The audio separation effect state in system can be set by system playback controller application,
+     * other applications can use this function to listen the change event.
+     * 
+     * @param { Callback<boolean> } callback - Callback used to listen the system audio separation effect
+     *     enabled state change event.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAudioSeparationEffectEnabledChange(callback: Callback<boolean>): void;
+
+    /**
+     * Unsubscribes from the system audio separation effect enabled state change event.
+     * 
+     * @param { Callback<boolean> } [callback] - The callback used in subscription function for unsubscribing.
+     *     If not using this parameter, all callbacks subscribed in current process before will be unsubscribed.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAudioSeparationEffectEnabledChange(callback?: Callback<boolean>): void;
+
+    /**
+     * Sets audio separation effect volume for specific volume type.
+     * This API uses a promise to return the result.
+     * 
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioSeparationVolumeType } type - The type to set volume.
+     * @param { double } volume - The target volume value.
+     *     <br>Value range: [0,1].
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Effect is not supported in this device.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setAudioSeparationEffectVolume(type: AudioSeparationVolumeType, volume: double): Promise<void>;
   }
 
   /**
