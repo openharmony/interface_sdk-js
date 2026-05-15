@@ -14,6 +14,14 @@
  */
 
 /**
+ * The module provides information in the **pack.info** file. The information can be obtained using 
+ * [freeInstall.getBundlePackInfo]{@link ./../@ohos.bundle.freeInstall:freeInstall.getBundlePackInfo(bundleName: string,  bundlePackFlag : BundlePackFlag, callback: AsyncCallback<BundlePackInfo>)}
+ * .
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -21,7 +29,6 @@
 /**
  * The bundle pack info class.
  *
- * @typedef BundlePackInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -29,10 +36,8 @@
  */
 export interface BundlePackInfo {
   /**
-   * This contains package information in pack.info
+   * Package configuration information in the **pack.info** file.
    *
-   * @type { Array<PackageConfig> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -41,10 +46,8 @@ export interface BundlePackInfo {
   readonly packages: Array<PackageConfig>;
 
   /**
-   * This contains bundle summary information in pack.info
+   * Package summary information in the **pack.info** file.
    *
-   * @type { PackageSummary }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -56,7 +59,6 @@ export interface BundlePackInfo {
 /**
  * PackageConfig: the package info class.
  *
- * @typedef PackageConfig
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -64,10 +66,8 @@ export interface BundlePackInfo {
  */
 export interface PackageConfig {
   /**
-   * Indicates the device types of this package
+   * Device types supported by the bundle.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -76,10 +76,8 @@ export interface PackageConfig {
   readonly deviceTypes: Array<string>;
 
   /**
-   * Indicates the name of this package
+   * Bundle name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -88,10 +86,8 @@ export interface PackageConfig {
   readonly name: string;
 
   /**
-   * Indicates the module type of this package
+   * Module type of the bundle.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -100,10 +96,9 @@ export interface PackageConfig {
   readonly moduleType: string;
 
   /**
-   * Indicates whether this package is delivery and install
+   * Whether it should be installed together with the application. **true** if it should be installed together with the
+   * application, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -115,7 +110,6 @@ export interface PackageConfig {
 /**
  * PackageSummary: the package summary class.
  *
- * @typedef PackageSummary
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -123,10 +117,8 @@ export interface PackageConfig {
  */
 export interface PackageSummary {
   /**
-   * Indicates the bundle config info of this package
+   * Bundle configuration information.
    *
-   * @type { BundleConfigInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -135,10 +127,8 @@ export interface PackageSummary {
   readonly app: BundleConfigInfo;
 
   /**
-   * Indicates the modules config info of this package
+   * Module configuration information of the bundle.
    *
-   * @type { Array<ModuleConfigInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -150,7 +140,6 @@ export interface PackageSummary {
 /**
  * BundleConfigInfo: the bundle summary class.
  *
- * @typedef BundleConfigInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -158,10 +147,8 @@ export interface PackageSummary {
  */
 export interface BundleConfigInfo {
   /**
-   * Indicates the name of this bundle
+   * Bundle name. It uniquely identifies an application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -170,10 +157,8 @@ export interface BundleConfigInfo {
   readonly bundleName: string;
 
   /**
-   * Indicates the bundle version
+   * Bundle version.
    *
-   * @type { Version }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -185,7 +170,6 @@ export interface BundleConfigInfo {
 /**
  * ExtensionAbility: the extension ability forms class.
  *
- * @typedef ExtensionAbility
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -193,10 +177,8 @@ export interface BundleConfigInfo {
  */
 export interface ExtensionAbility {
   /**
-   * Indicates the name of this extension ability
+   * Name of the ExtensionAbility.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -205,10 +187,8 @@ export interface ExtensionAbility {
   readonly name: string;
 
   /**
-   * Indicates the ability forms info
+   * Widget information.
    *
-   * @type { Array<AbilityFormInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -220,7 +200,6 @@ export interface ExtensionAbility {
 /**
  * ModuleConfigInfo: the module summary of a bundle.
  *
- * @typedef ModuleConfigInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -228,10 +207,8 @@ export interface ExtensionAbility {
  */
 export interface ModuleConfigInfo {
   /**
-   * Indicates the name of main ability
+   * Name of the main ability.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -240,10 +217,8 @@ export interface ModuleConfigInfo {
   readonly mainAbility: string;
 
   /**
-   * Indicates the api version
+   * API version of the module.
    *
-   * @type { ApiVersion }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -252,10 +227,8 @@ export interface ModuleConfigInfo {
   readonly apiVersion: ApiVersion;
 
   /**
-   * Indicates the devices type
+   * Device types supported by the module.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -264,10 +237,8 @@ export interface ModuleConfigInfo {
   readonly deviceTypes: Array<string>;
 
   /**
-   * Indicates the module distro info
+   * Distribution information of the module.
    *
-   * @type { ModuleDistroInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -276,10 +247,8 @@ export interface ModuleConfigInfo {
   readonly distro: ModuleDistroInfo;
 
   /**
-   * Indicates the abilities info of this module
+   * Ability information of the module.
    *
-   * @type { Array<ModuleAbilityInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -288,10 +257,8 @@ export interface ModuleConfigInfo {
   readonly abilities: Array<ModuleAbilityInfo>;
 
   /**
-   * Indicates extension abilities info of this module
+   * ExtensionAbility information of the module.
    *
-   * @type { Array<ExtensionAbility> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -303,7 +270,6 @@ export interface ModuleConfigInfo {
 /**
  * ModuleDistroInfo: the bundle info summary class.
  *
- * @typedef ModuleDistroInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -311,10 +277,9 @@ export interface ModuleConfigInfo {
  */
 export interface ModuleDistroInfo {
   /**
-   * Indicates whether this package is delivered with install
+   * Whether it should be installed together with the application. **true** if it should be installed together with the
+   * application, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -323,10 +288,9 @@ export interface ModuleDistroInfo {
   readonly deliveryWithInstall: boolean;
 
   /**
-   * Indicates whether this package is free install
+   * Whether the HAP file supports the installation-free feature. **true** if the HAP file supports the installation-
+   * free feature and meets installation-free constraints, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -335,10 +299,8 @@ export interface ModuleDistroInfo {
   readonly installationFree: boolean;
 
   /**
-   * Indicates the module name
+   * Module name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -347,10 +309,8 @@ export interface ModuleDistroInfo {
   readonly moduleName: string;
 
   /**
-   * Indicates the module type
+   * Module type.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -362,7 +322,6 @@ export interface ModuleDistroInfo {
 /**
  * ModuleAbilityInfo: the ability info of a module.
  *
- * @typedef ModuleAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -370,10 +329,8 @@ export interface ModuleDistroInfo {
  */
 export interface ModuleAbilityInfo {
   /**
-   * Indicates the name of this module ability
+   * Name of the ability. The name must be unique in the bundle.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -382,22 +339,18 @@ export interface ModuleAbilityInfo {
   readonly name: string;
 
   /**
-   * Indicates the label of this module ability
+   * Name of the ability displayed to users. The value is a resource index to names in multiple languages.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
    * @since 23 static
    */
   readonly label: string;
-
   /**
-   * Indicates whether this ability can be called by other abilities
+   * Whether the ability can be invoked by other applications. **true** if it can be invoked by other applications,
+   * **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -406,10 +359,8 @@ export interface ModuleAbilityInfo {
   readonly exported: boolean;
 
   /**
-   * Indicates the ability forms info
+   * Widget information.
    *
-   * @type { Array<AbilityFormInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -421,7 +372,6 @@ export interface ModuleAbilityInfo {
 /**
  * AbilityFormInfo: the form info of an ability.
  *
- * @typedef AbilityFormInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -429,10 +379,8 @@ export interface ModuleAbilityInfo {
  */
 export interface AbilityFormInfo {
   /**
-   * Indicates the name of this ability
+   * Widget name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -441,10 +389,8 @@ export interface AbilityFormInfo {
   readonly name: string;
 
   /**
-   * Indicates the type of this ability
+   * Widget type.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -453,10 +399,8 @@ export interface AbilityFormInfo {
   readonly type: string;
 
   /**
-   * Indicates whether this form is enabled update
+   * Whether the widget supports periodic update. **true** if the widget supports periodic update, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -465,10 +409,8 @@ export interface AbilityFormInfo {
   readonly updateEnabled: boolean;
 
   /**
-   * Indicates the scheduled update time
+   * Scheduled time to update the widget. The value is in 24-hour format and accurate to the minute.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -477,10 +419,10 @@ export interface AbilityFormInfo {
   readonly scheduledUpdateTime: string;
 
   /**
-   * Indicates the update duration,the unit is minutes, and the value is a multiple of 30.
+   * Interval to update the widget. The unit is 30 minutes. The value is a multiple of 30. A widget can be updated at a
+   * specified interval (**updateDuration**) or at the scheduled time (**scheduledUpdateTime**). If both are configured,
+   * **updateDuration** takes precedence.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -489,10 +431,9 @@ export interface AbilityFormInfo {
   readonly updateDuration: int;
 
   /**
-   * Indicates the ability support dimensions
+   * Dimensions of the widget. The value can be **1*2**, **2*2**, **2*4**, **4*4**, or a combination of these options.
+   * At least one option must be specified when defining the widget.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -501,10 +442,8 @@ export interface AbilityFormInfo {
   readonly supportDimensions: Array<string>;
 
   /**
-   * Indicates the ability default dimension
+   * Default dimensions of the widget. The value must be available in the **supportDimensions** array of the widget.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -516,7 +455,6 @@ export interface AbilityFormInfo {
 /**
  * Version: the bundle version class.
  *
- * @typedef Version
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -524,10 +462,9 @@ export interface AbilityFormInfo {
  */
 export interface Version {
   /**
-   * Indicates the min compatible code of this version
+   * Minimum compatible version of the bundle. It is used to check whether the bundle is compatible with a version on
+   * other devices in the cross-device scenario. The value is a 32-bit non-negative integer.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -536,10 +473,8 @@ export interface Version {
   readonly minCompatibleVersionCode: int;
 
   /**
-   * Indicates the name of this version
+   * Version number of the bundle visible to users.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -548,10 +483,9 @@ export interface Version {
   readonly name: string;
 
   /**
-   * Indicates the code of this version
+   * Version number of the bundle used only for bundle management. The value is a 32-bit non-negative integer. It is
+   * used only to determine whether a version is later than another version. A larger value indicates a later version.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -563,7 +497,6 @@ export interface Version {
 /**
  * ApiVersion: the bundle Api version class.
  *
- * @typedef ApiVersion
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
  * @since 9 dynamic
@@ -571,10 +504,8 @@ export interface Version {
  */
 export interface ApiVersion {
   /**
-   * Indicates the release type of the api
+   * Name of the API version.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -583,10 +514,8 @@ export interface ApiVersion {
   readonly releaseType: string;
 
   /**
-   * Indicates the compatible version code of the api
+   * Minimum API version.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic
@@ -595,10 +524,8 @@ export interface ApiVersion {
   readonly compatible: int;
 
   /**
-   * Indicates the target version code of the api
+   * Target API version.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
    * @since 9 dynamic

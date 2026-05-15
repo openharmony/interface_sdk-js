@@ -268,6 +268,7 @@ export interface BundleInfo {
    */
   readonly appInfo: ApplicationInfo | null;
 
+
   /**
    * Obtains configuration information about a module
    *
@@ -407,7 +408,7 @@ export interface BundleInfo {
    * @since 9
    */
   /**
-   * Indicates the hap install time,the unit is millisecond.
+   * Indicates the hap install time
    *
    * @type { long }
    * @readonly
@@ -427,7 +428,7 @@ export interface BundleInfo {
    * @since 9
    */
   /**
-   * Indicates the hap update time,the unit is millisecond.
+   * Indicates the hap update time
    *
    * @type { long }
    * @readonly
@@ -462,7 +463,7 @@ export interface BundleInfo {
   readonly appIndex: int;
 
   /**
-   * Indicates the hap first install time,the unit is millisecond.
+   * Indicates the hap first install time
    *
    * @type { ?long }
    * @readonly
@@ -972,16 +973,16 @@ export interface AlternateIconInfo {
 }
 
 /**
-  * The bundle options of bundle manager
-  * 
-  * @typedef BundleOptions
-  * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @systemapi
-  * @since 20 dynamic
-  * @since 23 static
-  */
+ * The bundle options of bundle manager
+ *
+ * @typedef BundleOptions
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 20 dynamic
+ * @since 23 static
+ */
 export interface BundleOptions {
-    /**
+  /**
    * Indicates the user id.
    *
    * @type { ?int }
