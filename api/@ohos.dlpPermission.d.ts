@@ -821,10 +821,10 @@ declare namespace dlpPermission {
      * Unsubscribes from the DLP sandbox uninstall event.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which indicates the
-     *     DLP sandbox application uninstall event.
-     * @param { Callback<DLPSandboxState> } [listener] - Callback used when a sandbox application is uninstalled. By default, this
-     *     parameter is left blank, which unregisters all callbacks for the sandbox uninstall event.
+     * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which 
+     *     indicates the DLP sandbox application uninstall event.
+     * @param { Callback<DLPSandboxState> } [listener] - Callback used when a sandbox application is uninstalled. By 
+     *     default, this parameter is left blank, which unregisters all callbacks for the sandbox uninstall event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
