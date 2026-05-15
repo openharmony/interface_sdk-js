@@ -18,13 +18,12 @@
  * @kit ArkUI
  */
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
-import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT, ComponentBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
 import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
-import { ComponentBuilder } from './builder';
 /**
  * Text overflow options.
  *
@@ -912,6 +911,19 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set Text options.
+     *
+     * @param { string | Resource } [content] - Text constructor content.
+     * @param { TextOptions } [value] - Text constructor options.
+     * @returns { TextAttribute } Returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextOptions(content?: string | Resource, value?: TextOptions): this;
+
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -1347,6 +1359,23 @@ export declare class TextController {
      */
     setTextSelection(selectionStart: int | undefined, selectionEnd: int | undefined, options?: SelectionOptions): void;
 }
+
+/**
+ * Defines Text Component.
+ *
+ * @param { CustomBuilderT<TextAttribute> } style - Text attribute instance
+ * @param { CustomBuilder } [content_] - content
+ * @returns { TextAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Text(
+    style: CustomBuilderT<TextAttribute>,
+    content_?: CustomBuilder,
+): TextAttribute;
 
 /**
  * Defines Text Component.
