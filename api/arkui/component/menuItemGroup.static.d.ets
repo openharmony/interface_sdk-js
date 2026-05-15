@@ -20,7 +20,7 @@
 import { CommonMethod } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceStr } from './units';
-import { ComponentBuilder } from './builder';
+import { ComponentBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option of MenuItemGroup.
@@ -72,7 +72,18 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
      */
     attributeModifier(
         modifier: AttributeModifier<MenuItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set menuitemgroup options.
+     *
+     * @param { MenuItemGroupOptions } [value] - menuitemgroup constructor options
+     * @returns { MenuItemGroupAttribute } Returns the instance of the MenuItemGroupAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setMenuItemGroupOptions(value?: MenuItemGroupOptions): this;
+ }
 
 /**
  * Defines MenuItem Component.
@@ -86,6 +97,23 @@ export declare interface MenuItemGroupAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function MenuItemGroup(
-    value?: MenuItemGroupOptions, 
+    value?: MenuItemGroupOptions,
+    content_?: CustomBuilder,
+): MenuItemGroupAttribute
+
+/**
+ * Defines MenuItemGroup Component.
+ *
+ * @param { CustomBuilderT<MenuItemGroupAttribute> } style_ - menuitemgroup attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { MenuItemGroupAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function MenuItemGroup(
+    style_: CustomBuilderT<MenuItemGroupAttribute>,
     content_?: CustomBuilder,
 ): MenuItemGroupAttribute

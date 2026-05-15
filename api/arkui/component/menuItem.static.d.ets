@@ -21,7 +21,7 @@ import { ResourceStr, Font, ResourceColor } from './units';
 import { CommonMethod, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-import { ComponentBuilder } from './builder';
+import { ComponentBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option of MenuItem.
@@ -194,7 +194,18 @@ export declare interface MenuItemAttribute extends CommonMethod {
      */
     default attributeModifier(
         modifier: AttributeModifier<MenuItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set menuitem options.
+     *
+     * @param { MenuItemOptions | CustomBuilder } [value] - menuitem constructor options
+     * @returns { MenuItemAttribute } Returns the instance of the MenuItemAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setMenuItemOptions(value?: MenuItemOptions | CustomBuilder): this;
+ }
 
 /**
  * Defines MenuItem Component.
@@ -209,5 +220,22 @@ export declare interface MenuItemAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function MenuItem(
     value?: MenuItemOptions | CustomBuilder,
+    content_?: CustomBuilder,
+): MenuItemAttribute
+
+/**
+ * Defines MenuItem Component.
+ *
+ * @param { CustomBuilderT<MenuItemAttribute> } style_ - menuitem attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { MenuItemAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function MenuItem(
+    style_: CustomBuilderT<MenuItemAttribute>,
     content_?: CustomBuilder,
 ): MenuItemAttribute

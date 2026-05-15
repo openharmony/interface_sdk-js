@@ -21,7 +21,7 @@ import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable 
 import { CustomBuilder } from './builder';
 import { ResourceColor, MarkStyle } from './units';
 import { CheckBoxShape } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the options of Checkbox.
@@ -202,7 +202,18 @@ export declare interface CheckboxAttribute extends CommonMethod {
      */
     default attributeModifier(
         modifier: AttributeModifier<CheckboxAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set checkbox options.
+     *
+     * @param { CheckboxOptions } [options] - checkbox constructor options
+     * @returns { CheckboxAttribute } Returns the instance of the CheckboxAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setCheckboxOptions(options?: CheckboxOptions): this;
+ }
 
 /**
  * Defines Checkbox Component.
@@ -216,6 +227,23 @@ export declare interface CheckboxAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function Checkbox(
-    options?: CheckboxOptions, 
+    options?: CheckboxOptions,
+    content_?: CustomBuilder,
+): CheckboxAttribute
+
+/**
+ * Defines Checkbox Component.
+ *
+ * @param { CustomBuilderT<CheckboxAttribute> } style_ - checkbox attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { CheckboxAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Checkbox(
+    style_: CustomBuilderT<CheckboxAttribute>,
     content_?: CustomBuilder,
 ): CheckboxAttribute
