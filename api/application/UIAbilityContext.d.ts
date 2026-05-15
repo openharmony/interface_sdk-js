@@ -2831,6 +2831,94 @@ declare class UIAbilityContext extends Context {
    * @since 23 static
    */
   setMissionWindowIcon(windowIcon: image.PixelMap): Promise<void>;
+
+  /**
+   * Connects this UIAbility to a ServiceExtensionAbility, with the account ID specified. This API can be called only on
+   *  the main thread.
+   * This API can be properly called on phones and tablets. If it is called on other devices, error code 16000006 is 
+   * returned.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > > Permission verification is not required when **accountId** specifies the current user.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { Want } want - Want information about the target UIAbility.
+   * @param { int } accountId - ID of a system account. For details, see 
+   *     [getCreatedOsAccountsCount]{@link ./../@ohos.account.osAccount:osAccount.AccountManager.getOsAccountCount(callback: AsyncCallback<int>)}
+   *     .
+   * @param { ConnectOptions } options - Instance of the callback function after the connection to the 
+   *     ServiceExtensionAbility is set up.
+   * @returns { long } Result code of the connection.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 10]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
+   * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead UIAbilityContext#connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions)
+   */
+  connectAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
+
+  /**
+   * Disconnects from a [ServiceExtensionAbility](docroot://application-models/extensionability-overview.md). Once the 
+   * connection is terminated, set the remote object, which is returned when the connection is established, to null. 
+   * This API uses an asynchronous callback to return the result. It can be called only on the main thread.
+   *
+   * @param { long } connection - ID of the connected ServiceExtensionAbility, that is, **connectionId** returned by 
+   *     [connectServiceExtensionAbility]{@link UIAbilityContext.connectServiceExtensionAbility}.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the API call is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed.
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead UIAbilityContext#disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>)
+   */
+  disconnectAbility(connection: long, callback: AsyncCallback<void>): void;
+  
+  /**
+   * Disconnects from a [ServiceExtensionAbility](docroot://application-models/extensionability-overview.md). Once the 
+   * connection is terminated, set the remote object, which is returned when the connection is established, to null. 
+   * This API uses a promise to return the result. It can be called only on the main thread.
+   *
+   * @param { long } connection - ID of the connected ServiceExtensionAbility, that is, **connectionId** returned by 
+   *     [connectServiceExtensionAbility]{@link UIAbilityContext.connectServiceExtensionAbility}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed.
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead UIAbilityContext#disconnectServiceExtensionAbility(connection: long)
+   */
+  disconnectAbility(connection: long): Promise<void>;
 }
 
 export default UIAbilityContext;
