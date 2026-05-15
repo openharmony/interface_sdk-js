@@ -23,7 +23,7 @@ import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Call
 import { ResourceColor, Offset, VoidCallback } from "./units";
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -180,6 +180,16 @@ export declare interface DatePickerOptions {
  * @noninterop
  */
 export declare interface DatePickerAttribute extends CommonMethod {
+    /**
+     * Sets the date picker options.
+     *
+     * @param { DatePickerOptions } [options] - date picker options.
+     * @returns { DatePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setDatePickerOptions(options?: DatePickerOptions): this;
     /**
      * Specifies whether to display the lunar calendar.
      *
@@ -705,7 +715,7 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
 
 /**
  * Defines the DatePicker component.
- * 
+ *
  * @param { DatePickerOptions } [options] - date picker options.
  * @returns { DatePickerAttribute } The attribute of the DatePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -717,3 +727,16 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
 export declare function DatePicker(
     options?: DatePickerOptions
 ): DatePickerAttribute;
+/**
+ * Defines the DatePicker component. It requires call setDatePickerOptions at start of the component attribute set-up.
+ * ant it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<DatePickerAttribute> } style - the callback to set up component's attribute.
+ * @returns { DatePickerAttribute } The attribute of the DatePicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function DatePicker(style: CustomBuilderT<DatePickerAttribute>): DatePickerAttribute;

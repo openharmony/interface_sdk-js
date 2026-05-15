@@ -458,6 +458,50 @@ export declare interface ImageAttribute extends CommonMethod {
     /**
      * Sets the placeholder image displayed during loading.
      *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+     * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        imageAIOptions?: ImageAIOptions
+    ): this;
+    /**
+     * Sets the placeholder image displayed during loading.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+     * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
+     * @param { string } [reloadKey] - Options for image reload.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        imageAIOptions?: ImageAIOptions,
+        reloadKey?: string
+    ): this;
+    /**
+     * Sets the placeholder image displayed during loading.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+     * @param { string } [reloadKey] - Options for image reload.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        reloadKey?: string
+    ): this;
+    /**
+     * Sets the placeholder image displayed during loading.
+     *
      * <p><strong>NOTE</strong>:
      * <br>This attribute does not take effect when the parameter type of the component is AnimatedDrawableDescriptor.
      * </p>
@@ -1030,7 +1074,7 @@ export declare function Image(
  * Defines the Image component.
  *
  * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
- * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.\
+ * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
  * @param { string } [reloadKey] - Options for image reload.
  * @returns { ImageAttribute } The attribute of the Image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1061,6 +1105,20 @@ export declare function Image(
     src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
     reloadKey?: string
 ): ImageAttribute;
+
+/**
+ * Defines the Image component. It requires call setImageOptions at start of the component attribute set-up.
+ * ant it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<ImageAttribute> } style - the callback to set up component's attribute.
+ * @returns { ImageAttribute } The attribute of the Image.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Image(style: CustomBuilderT<ImageAttribute>): ImageAttribute;
 
 /**
  * Defines the Extendable Image.

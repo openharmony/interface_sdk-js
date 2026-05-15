@@ -21,7 +21,7 @@
 import { Resource } from '../../global/resource';
 import { CommonMethod, PickerTextStyle, Callback, BlurStyle, PickerDialogButtonStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, DateRange, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 import { Offset, ResourceColor, VoidCallback } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -117,6 +117,16 @@ export declare interface CalendarOptions {
  * @noninterop
  */
 export declare interface CalendarPickerAttribute extends CommonMethod {
+    /**
+     * Sets the calendar picker options.
+     *
+     * @param { CalendarOptions } [options] - calendar options.
+     * @returns { CalendarPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setCalendarPickerOptions(options?: CalendarOptions): this;
     /**
      * Set the alignment between entry and calendar dialog.
      * @param { CalendarAlign | undefined } alignType - The type of alignment between entry and calendar dialog.
@@ -370,3 +380,16 @@ export declare class CalendarPickerDialog {
 export declare function CalendarPicker(
     options?: CalendarOptions
 ): CalendarPickerAttribute;
+/**
+ * Defines the CalendarPicker component. It requires call setCalendarPickerOptions at start of the
+ * component attribute set-up. ant it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<CalendarPickerAttribute> } style - the callback to set up component's attribute.
+ * @returns { CalendarPickerAttribute } The attribute of the CalendarPicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function CalendarPicker(style: CustomBuilderT<CalendarPickerAttribute>): CalendarPickerAttribute;

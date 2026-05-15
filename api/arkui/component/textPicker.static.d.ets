@@ -23,7 +23,7 @@ import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, Blur
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity, TextOverflow } from "./enums";
 import { LengthMetrics } from './../Graphics';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -330,6 +330,16 @@ export type TextPickerEnterSelectedAreaCallback = (value: string | string[], ind
  * @noninterop
  */
 export declare interface TextPickerAttribute extends CommonMethod {
+    /**
+     * Sets the text picker options.
+     *
+     * @param { TextPickerOptions } [options] - text picker options.
+     * @returns { TextPickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextPickerOptions(options?: TextPickerOptions): this;
     /**
      * Sets the height of each item in the picker.
      *
@@ -1240,3 +1250,16 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
 export declare function TextPicker(
     options?: TextPickerOptions
 ): TextPickerAttribute;
+/**
+ * Defines the TextPicker component. It requires call setTextPickerOptions at start of the component attribute set-up.
+ * ant it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<TextPickerAttribute> } style - the callback to set up component's attribute.
+ * @returns { TextPickerAttribute } The attribute of the TextPicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TextPicker(style: CustomBuilderT<TextPickerAttribute>): TextPickerAttribute;
