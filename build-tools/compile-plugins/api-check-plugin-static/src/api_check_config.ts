@@ -227,17 +227,17 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
     checkConfig: checkConfigArray
   };
   initComparisonFunctions();
-  if (/(?<!\.d)\.ts$/g.test(fileName)) {
-    getFindModuleCheckConfig(checkConfigArray);
-  }
-  // if (globalObject.projectConfig.systemModules.includes(apiName)) {
-  //   byFileName.set(sourceFileName, result);
-  //   return result;
+  // if (/(?<!\.d)\.ts$/g.test(fileName)) {
+  //   getFindModuleCheckConfig(checkConfigArray);
   // }
+  if (globalObject.projectConfig.systemModules.includes(apiName)) {
+    byFileName.set(sourceFileName, result);
+    return result;
+  }
   if (checkFileHasAvailableByFileName(sourceFileName)) {
     needCheckResult = true;
     getAvailableCheckConfig(checkConfigArray);
-  } else if (!globalObject.projectConfig.systemModules.includes(apiName) && globalObject.projectConfig.allModulesPaths.includes(path.normalize(sourceFileName))) {
+  } else if (globalObject.projectConfig.allModulesPaths.includes(path.normalize(sourceFileName))) {
     needCheckResult = true;
     getDeprecatedCheckConfig(checkConfigArray);
     getSystemApiCheckConfig(checkConfigArray);
