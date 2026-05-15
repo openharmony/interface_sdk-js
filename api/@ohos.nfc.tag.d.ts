@@ -2074,7 +2074,7 @@ declare namespace tag {
 
   /**
    * Skip NDEF when app is reading a card in the foreground.
-   * 
+   *
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
    * @atomicservice
