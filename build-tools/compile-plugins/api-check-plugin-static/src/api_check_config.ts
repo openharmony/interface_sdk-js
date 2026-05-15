@@ -49,8 +49,6 @@ import {
   checkPermissionTag,
   checkSinceTag,
   checkSyscapTag,
-  checkSystemTag,
-  checkTestTag,
   getJsDocNodeCheckConfigItem,
   isCardFile,
   pushLog,
@@ -99,7 +97,7 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
     checkConfigArray.push(getJsDocNodeCheckConfigItem([DEPRECATED_TAG_CHECK_NAME],
       DEPRECATED_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false));
     checkConfigArray.push(getJsDocNodeCheckConfigItem([SYSTEM_API_TAG_CHECK_NAME],
-      SYSTEM_API_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false,checkSystemTag));
+      SYSTEM_API_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false));
     checkConfigArray.push(getJsDocNodeCheckConfigItem([SINCE_TAG_NAME],
       SINCE_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false, checkSinceTag));
     // TODO: 预览文件 & CanIUse
@@ -109,7 +107,7 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
       const ohosTestDir = path.resolve(globalObject.projectConfig.projectRootPath, 'entry', 'src', 'ohosTest');
       if (!path.resolve(fileName).startsWith(ohosTestDir)) {
         checkConfigArray.push(getJsDocNodeCheckConfigItem([TEST_TAG_CHECK_NAME],
-          TEST_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false,checkTestTag));
+          TEST_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false));
       }
     }
     checkConfigArray.push(getJsDocNodeCheckConfigItem([PERMISSION_TAG_CHECK_NAME],
