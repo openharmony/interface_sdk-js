@@ -625,7 +625,7 @@ declare namespace inputEventClient {
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:<br>
-     *     1. The touch point is touching the display; 2. The touch point ID is not within the valid range [0,9].
+     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -642,7 +642,7 @@ declare namespace inputEventClient {
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:<br>
-     *     1. The touch point is touching the display; 2. The touch point ID is not within the valid range [0,9].
+     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
