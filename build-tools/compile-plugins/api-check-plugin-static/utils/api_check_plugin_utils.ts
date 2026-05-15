@@ -1198,6 +1198,7 @@ export function checkSyscapAbility(
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
+  return false;
   // let currentSyscapValue: string = '';
   
   // if (jsDocTags && jsDocTags.length > 0) {
@@ -1259,6 +1260,7 @@ export function checkPermissionValue(
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
+  return false;
   // if (!jsDocTags || jsDocTags.length === 0) {
   //   return false;
   // }
