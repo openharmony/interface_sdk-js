@@ -51,7 +51,7 @@ export class AnnotateSuppressWarningsValidator implements NodeValidator {
     if (!program) {
       return true;
     }
-    const nodeSourceText = program.sourceFileText || '';
+    const nodeSourceText = program.astNode.dumpSrc() || '';
     
     if (!annotationRegex.test(nodeSourceText)) {
       return false;
@@ -151,7 +151,7 @@ export class CommentSuppressWarningsValidator implements NodeValidator {
     if (!program) {
       return true;
     }
-    const nodeSourceText = program.sourceFileText || '';
+    const nodeSourceText = program.astNode.dumpSrc() || '';
     
     if (!commentRegex.test(nodeSourceText)) {
       return false;
@@ -162,11 +162,11 @@ export class CommentSuppressWarningsValidator implements NodeValidator {
 
   private checkCommentsWarning(node: arkts.AstNode): boolean {
     const program = arkts.getProgramFromAstNode(node);
-    if (!program || !program.sourceFileText) {
+    if (!program || !program.astNode.dumpSrc()) {
       return false;
     }
     
-    const commentsMessage: string[] = this.getAllClosestComments(program.sourceFileText, node);
+    const commentsMessage: string[] = this.getAllClosestComments(program.astNode.dumpSrc(), node);
     if (!commentsMessage || commentsMessage.length === 0) {
       return false;
     }

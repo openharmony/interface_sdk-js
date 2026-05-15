@@ -47,7 +47,7 @@ class SdkComparisonValidator implements NodeValidator {
 
   private isNodeWrappedInSdkComparison(node: arkts.AstNode): boolean {
     const program = arkts.getProgramFromAstNode(node);
-    const sourceText = program?.sourceFileText || '';
+    const sourceText = program?.astNode.dumpSrc() || '';
     
     if (!sourceText) {
       return false;
@@ -61,8 +61,7 @@ class SdkComparisonValidator implements NodeValidator {
     let currentNode: arkts.AstNode | null = node.parent;
     
     while (currentNode) {
-      const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, currentNode.peer);
-      if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IF_STATEMENT) {
+      if (arkts.isIfStatement(currentNode)) {
         return this.checkIfStatementForApiAvailable(currentNode, node);
       }
       currentNode = currentNode.parent;

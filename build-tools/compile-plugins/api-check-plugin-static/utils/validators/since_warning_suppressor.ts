@@ -14,15 +14,14 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { SINCE_TAG_NAME } from '../api_check_plugin_define';
+import { SINCE_TAG_NAME, ComparisonResult } from '../api_check_plugin_define';
 import {
   BaseWarningSuppressor,
   NodeValidator
 } from './base_warning_suppressor';
 import { AvailableComparisonValidator } from './available_comparison_validator';
 import {
-  comparePointVersion,
-  ComparisonResult
+  comparePointVersion
 } from '../api_check_base_utils';
 import { ParsedVersion } from '../api_check_plugin_typedef';
 import { globalObject } from '../../index';
@@ -100,13 +99,13 @@ class UndefinedCheckValidator implements NodeValidator {
   }
 
   private checkBinaryExpressionForUndefined(binaryNode: arkts.AstNode, targetName: string): boolean {
-    if (!binaryNode.left || !binaryNode.right || !binaryNode.operatorToken) {
+    if (!binaryNode.left || !binaryNode.right || !binaryNode.operatorType) {
       return false;
     }
     
-    const operatorKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, binaryNode.operatorToken.peer);
-    const isNotEqualOperator = operatorKind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BANG_EQUAL_EQUAL_TOKEN ||
-                                operatorKind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BANG_EQUAL_TOKEN;
+    const operatorKind = binaryNode.operatorType
+    const isNotEqualOperator = operatorKind === arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_NOT_STRICT_EQUAL ||
+                                operatorKind === arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_NOT_EQUAL;
     
     if (!isNotEqualOperator) {
       return false;
@@ -178,7 +177,7 @@ class SdkComparisonValidator implements NodeValidator {
 
   private isNodeWrappedInSdkComparison(node: arkts.AstNode): boolean {
     const program = arkts.getProgramFromAstNode(node);
-    const sourceText = program?.sourceFileText || '';
+    const sourceText = program?.astNode.dumpSrc() || '';
     
     if (!sourceText) {
       return false;
@@ -259,6 +258,9 @@ class SdkComparisonValidator implements NodeValidator {
     if (node.text) {
       return node.text.toString();
     }
+    if (node.dumpSrc()) {
+      return node.dumpSrc();
+    }
     return '';
   }
 
@@ -276,11 +278,11 @@ class SdkComparisonValidator implements NodeValidator {
     binaryNode: arkts.AstNode,
     matchedApi: string
   ): { operator: string; value: string; apiPosition: 'left' | 'right' } | null {
-    if (!binaryNode.operatorToken) {
+    if (!binaryNode.operatorType) {
       return null;
     }
     
-    const operatorKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, binaryNode.operatorToken.peer);
+    const operatorKind = binaryNode.operatorType
     const operator = this.getOperatorText(operatorKind);
     
     const leftText = this.getNodeText(binaryNode.left);
@@ -302,23 +304,23 @@ class SdkComparisonValidator implements NodeValidator {
     return { operator, value: targetValue, apiPosition };
   }
 
-  private getOperatorText(kind: arkts.Es2pandaAstNodeType): string {
+  private getOperatorText(kind: arkts.Es2pandaTokenType): string {
     switch (kind) {
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_GREATER_EQUAL_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_GREATER_THAN_EQUAL:
         return '>=';
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_GREATER_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_GREATER_THAN:
         return '>';
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_LESS_EQUAL_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_LESS_THAN_EQUAL:
         return '<=';
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_LESS_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_LESS_THAN:
         return '<';
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_EQUAL_EQUAL_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_EQUAL:
         return '==';
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_EQUAL_EQUAL_EQUAL_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_STRICT_EQUAL:
         return '===';
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BANG_EQUAL_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_NOT_EQUAL:
         return '!=';
-      case arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BANG_EQUAL_EQUAL_TOKEN:
+      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_NOT_STRICT_EQUAL:
         return '!==';
       default:
         return '';
