@@ -165,6 +165,33 @@ declare namespace floatView {
   }
 
   /**
+   * Template property, including template type and size.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface TemplateProperty {
+    /**
+     * The template type of the float view.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    templateType: FloatViewTemplateType;
+
+    /**
+     * The size of the float view.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    size: window.Size;
+  }
+
+  /**
    * FloatViewController
    *
    * @syscap SystemCapability.Window.SessionManager
@@ -207,6 +234,26 @@ declare namespace floatView {
     setWindowSize(size: window.Size): Promise<void>;
 
     /**
+     * Switches the float view template.
+     *
+     * @param { TemplateProperty } templateProperty - Indicate the new template type and size of the float view.
+     *     And the size is recommended to meet the limits of 'getFloatViewLimits'. If the size exceeds the limits,
+     *     the system will adjust the window size to fit within the limits.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The float view controller object is null.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
+     *     Internal IPC error.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invalid template type.
+     *     2. The value of the size is less than or equal to 0.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    switchTemplate(templateProperty: TemplateProperty): Promise<void>;
+
+    /**
      * Starts the float view window.
      *
      * @permission ohos.permission.FLOAT_VIEW
@@ -223,7 +270,7 @@ declare namespace floatView {
      *     The float view is stopping.
      * @throws { BusinessError } 1300033 - Failed to start float view. Possible causes:
      *     1. Start multiple float views.
-     *     2. The application does not have any foreground windows.
+     *     2. The main window of context is not foreground.
      * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
      *     App has already started floating ball or pip window.
      * @syscap SystemCapability.Window.SessionManager
@@ -402,7 +449,16 @@ declare namespace floatView {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    ROUNDED_RECTANGLE = 0
+    ROUNDED_RECTANGLE = 0,
+
+    /**
+     * A thin, horizontal strip template.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HORIZONTAL_BAR = 1
   }
 
   /**
