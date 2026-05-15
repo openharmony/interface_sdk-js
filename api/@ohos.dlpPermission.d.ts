@@ -717,8 +717,9 @@ declare namespace dlpPermission {
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**.
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
-     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the information about the sandbox
-     *     application installed.
+     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If installDLPSandbox is 
+     *     successful, **err** is **undefined**, and DLPSandboxInfo is the information about the sandbox application 
+     *     obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -760,7 +761,8 @@ declare namespace dlpPermission {
      *     default super user ID is **100**.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
      *     successfully called.
-     * @param { AsyncCallback<void> } callback - Callback used to return the uninstallation result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If uninstall DLPSandbox is 
+     *     successful, **err** us **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1379,7 +1381,9 @@ declare namespace dlpPermission {
      * @param { number } ciphertextFd - FD of the encrypted file.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
-     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
+     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result, If generateDLPFile is 
+     *     successful, **err** is **undefined**, and DLPFile is the **DLPFile** instance obtained. Otherwise, **err** is 
+     *     an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
