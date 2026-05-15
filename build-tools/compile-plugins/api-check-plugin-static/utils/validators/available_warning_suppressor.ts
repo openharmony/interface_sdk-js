@@ -14,11 +14,11 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { AVAILABLE_TAG_NAME } from '../../utils/api_check_plugin_define';
-import { ParsedVersion } from '../../utils/api_check_plugin_typedef';
+import { AVAILABLE_TAG_NAME } from '../api_check_plugin_define';
+import { ParsedVersion } from '../api_check_plugin_typedef';
 import { BaseWarningSuppressor, NodeValidator } from './base_warning_suppressor';
 import { AvailableComparisonValidator } from './available_comparison_validator';
-import { comparePointVersion, ComparisonResult } from '../../utils/api_check_base_utils';
+import { comparePointVersion, ComparisonResult } from '../api_check_base_utils';
 
 class SdkComparisonValidator implements NodeValidator {
   private projectCompatibleSdkVersion: string;

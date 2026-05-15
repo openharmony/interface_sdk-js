@@ -75,12 +75,12 @@ import {
   extractMinApiFromDecorator,
   getValidAnnotationFromNode
 } from '../api-check-wrapper/utils/available_decorator_utils';
-import { SinceJSDocChecker } from '../api-check-wrapper/validators/since_version_checker';
-import { SinceWarningSuppressor } from '../api-check-wrapper/validators/since_warning_suppressor';
-import { SyscapWarningSuppressor } from '../api-check-wrapper/validators/syscap_warning_suppressor';
-import { PermissionWarningSuppressor } from '../api-check-wrapper/validators/permission_warning_suppressor';
-import { AvailableAnnotationChecker } from '../api-check-wrapper/validators/available_comparison_validator';
-import { AvailableWarningSuppressor } from '../api-check-wrapper/validators/available_warning_suppressor';
+import { SinceJSDocChecker } from './validators/since_version_checker';
+import { SinceWarningSuppressor } from './validators/since_warning_suppressor';
+import { SyscapWarningSuppressor } from './validators/syscap_warning_suppressor';
+import { PermissionWarningSuppressor } from './validators/permission_warning_suppressor';
+import { AvailableAnnotationChecker } from './validators/available_comparison_validator';
+import { AvailableWarningSuppressor } from './validators/available_warning_suppressor';
 import {
   defaultFormatCheckerCompatibileIntegerAndMSF,
   defaultValueChecker,

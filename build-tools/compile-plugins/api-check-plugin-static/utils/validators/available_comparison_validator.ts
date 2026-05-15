@@ -14,7 +14,7 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { ParsedVersion } from '../../utils/api_check_plugin_typedef';
+import { ParsedVersion } from '../api_check_plugin_typedef';
 import { NodeValidator } from './base_warning_suppressor';
 import { BaseVersionChecker } from './base_version_checker';
 import {
@@ -23,20 +23,20 @@ import {
   ComparisonSenario,
   RUNTIME_OS_OH,
   AVAILABLE_TAG_NAME
-} from '../../utils/api_check_plugin_define';
+} from '../api_check_plugin_define';
 import {
   defaultFormatCheckerCompatibileIntegerAndMSF,
   defaultValueChecker,
   getFormatChecker,
   getValueChecker,
   getVersionByValueChecker
-} from '../../utils/api_check_base_utils';
+} from '../api_check_base_utils';
 import {
   isAvailableDecorator,
   extractMinApiFromDecorator,
   getValidAnnotationFromNode,
   checkFileHasAvailableByFileName
-} from '../utils/available_decorator_utils';
+} from '../../api-check-wrapper/utils/available_decorator_utils';
 import { globalObject } from '../../index';
 
 export class AvailableComparisonValidator implements NodeValidator {

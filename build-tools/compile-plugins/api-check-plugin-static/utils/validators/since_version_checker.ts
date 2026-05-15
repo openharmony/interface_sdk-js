@@ -18,20 +18,22 @@ import { BaseVersionChecker, ComparisonStrategy } from './base_version_checker';
 import {
   SINCE_TAG_NAME,
   ComparisonSenario
-} from '../../utils/api_check_plugin_define';
+} from '../api_check_plugin_define';
 import {
   getValueChecker,
   getFormatChecker,
   defaultFormatCheckerCompatibileIntegerAndMSF,
   defaultFormatChecker,
   initComparisonFunctions
-} from '../../utils/api_check_base_utils';
+} from '../api_check_base_utils';
 import { globalObject } from '../../index';
-import { JSDoc, JSDocTag } from '../utils/api_check_wrapper_typedef';
+import { JSDoc, JSDocTag } from '../../api-check-wrapper/utils/api_check_wrapper_typedef';
+import { getPeerJsDocs } from '../../api-check-wrapper/src/api_check_wrapper';
+import { parseJSDoc } from '../../api-check-wrapper/custom-plugins/custom-comment-parser';
 
 export class SinceJSDocChecker extends BaseVersionChecker {
   private jsDocTags?: JSDocTag[];
-  
+
   constructor() {
     super();
     this.init();
@@ -39,7 +41,7 @@ export class SinceJSDocChecker extends BaseVersionChecker {
 
   private init(): void {
     this.sdkVersion = globalObject.projectConfig.originCompatibleSdkVersion?.toString() ||
-                      globalObject.projectConfig.compatibleSdkVersion?.toString() || '';
+      globalObject.projectConfig.compatibleSdkVersion?.toString() || '';
 
     initComparisonFunctions();
 
@@ -112,35 +114,10 @@ export class SinceJSDocChecker extends BaseVersionChecker {
 
   private _getJsDocsFromNode(node: arkts.AstNode): JSDoc[] | null {
     try {
-      const jsDocString = arkts.getJsdocStringFromDeclaration(node);
-      if (!jsDocString) {
-        return null;
-      }
-      
-      const jsDoc: JSDoc = {
-        description: '',
-        tags: this._parseJsDocTags(jsDocString)
-      };
-      return [jsDoc];
+      const jsDocString: string = getPeerJsDocs(node);
+      return parseJSDoc(jsDocString);
     } catch {
       return null;
     }
-  }
-
-  private _parseJsDocTags(jsDocString: string): JSDocTag[] {
-    const tags: JSDocTag[] = [];
-    const tagRegex = /@(\w+)\s*(?:\{[^}]*\})?\s*(?:([^\s]+))?\s*(?:-\s*)?(.*)/g;
-    let match;
-
-    while ((match = tagRegex.exec(jsDocString)) !== null) {
-      tags.push({
-        tag: match[1],
-        name: match[2] || '',
-        comment: match[3] || '',
-        description: match[3] || ''
-      });
-    }
-
-    return tags;
   }
 }

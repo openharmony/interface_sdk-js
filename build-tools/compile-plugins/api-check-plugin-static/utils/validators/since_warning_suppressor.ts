@@ -14,7 +14,7 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { SINCE_TAG_NAME } from '../../utils/api_check_plugin_define';
+import { SINCE_TAG_NAME } from '../api_check_plugin_define';
 import {
   BaseWarningSuppressor,
   NodeValidator
@@ -23,8 +23,8 @@ import { AvailableComparisonValidator } from './available_comparison_validator';
 import {
   comparePointVersion,
   ComparisonResult
-} from '../../utils/api_check_base_utils';
-import { ParsedVersion } from '../../utils/api_check_plugin_typedef';
+} from '../api_check_base_utils';
+import { ParsedVersion } from '../api_check_plugin_typedef';
 import { globalObject } from '../../index';
 
 class TryCatchValidator implements NodeValidator {

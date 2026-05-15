@@ -14,7 +14,7 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { PERMISSION_TAG_CHECK_NAME } from '../../utils/api_check_plugin_define';
+import { PERMISSION_TAG_CHECK_NAME } from '../api_check_plugin_define';
 import { BaseWarningSuppressor } from './base_warning_suppressor';
 
 /**

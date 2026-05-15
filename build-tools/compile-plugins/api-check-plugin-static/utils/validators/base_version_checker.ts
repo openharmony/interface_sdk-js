@@ -17,12 +17,12 @@ import * as arkts from '@koalaui/libarkts';
 import {
   ValueCheckerFunction,
   FormatCheckerFunction
-} from '../../utils/api_check_plugin_define';
+} from '../api_check_plugin_define';
 import {
   defaultFormatCheckerCompatibileIntegerAndMSF,
   defaultValueChecker
-} from '../../utils/api_check_base_utils';
-import { ParsedVersion } from '../../utils/api_check_plugin_typedef';
+} from '../api_check_base_utils';
+import { ParsedVersion } from '../api_check_plugin_typedef';
 import { globalObject } from '../../index';
 
 export interface ComparisonStrategy {

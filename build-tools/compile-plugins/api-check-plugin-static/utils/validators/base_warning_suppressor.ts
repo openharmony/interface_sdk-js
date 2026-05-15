@@ -14,7 +14,7 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { SUPPRESSWARNINGS_RULE_INFO } from '../../utils/api_check_plugin_define';
+import { SUPPRESSWARNINGS_RULE_INFO } from '../api_check_plugin_define';
 
 export interface NodeValidator {
   validate(node: arkts.AstNode): boolean;
