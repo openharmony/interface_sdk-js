@@ -15347,7 +15347,7 @@ export declare class ScrollResult {
  * @stagemodelonly
  * @since 23 static
  */
-export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | ScrollResult;
+export type OnWillScrollCallback = (scrollOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => (undefined | ScrollResult);
 /**
   * On scroll callback using in scrollable onDidScroll.
   *
@@ -15391,7 +15391,7 @@ export type OnDidStopDraggingCallback = (willFling: boolean) => void;
   * @stagemodelonly
   * @since 23 static
   */
-export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => CustomBuilder | undefined;
+export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => (CustomBuilder | undefined);
 /**
   * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
   *
@@ -15401,7 +15401,7 @@ export type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: int) => C
   * @stagemodelonly
   * @since 23 static
   */
-export type OnGetPreviewBadgeCallback = () => boolean | int;
+export type OnGetPreviewBadgeCallback = () => (boolean | int);
 /**
  * Defines the callback type used in OnVisibleIndexesChange.
  *
