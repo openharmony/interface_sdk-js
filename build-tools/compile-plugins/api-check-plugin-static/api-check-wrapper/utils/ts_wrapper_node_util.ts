@@ -14,9 +14,9 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { checkIdentifier, curApiCheckWrapper } from '../src/api_check_wrapper';
-import { checkAvailableDecoratorImpl, isAvailableDecorator } from './available_decorator_utils';
-import { DiagnosticCategory } from './api_check_wrapper_typedef';
+import { checkIdentifier, curApiCheckWrapper, getCurrentAddressByNode, confirmNodeChecked } from '../src/api_check_wrapper';
+import { checkAvailableDecoratorImpl, isAvailableDecorator, isSourceRetentionAnnotationContentValid } from './available_decorator_utils';
+import { DiagnosticCategory, ConditionCheckResult } from './api_check_wrapper_typedef';
 
 // 不同节点对应的处理函数映射
 export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: arkts.AstNode, ...args: arkts.AstNode[]) => void>([
@@ -318,13 +318,19 @@ function handleAvailableDecoratorCheck(node: arkts.AstNode): void {
   if (!node.parent) {
     return;
   }
-  const declaration = node.parent;
-  const messageCallback = (message: string) => {
-    const startPos = node.startPosition;
-    const address = {
-      line: startPos?.line() + 1 || 0,
-      column: startPos?.col() || 0
-    };
+  
+  // Call isSourceRetentionAnnotationContentValid to validate annotation content
+  const checkResult: ConditionCheckResult = isSourceRetentionAnnotationContentValid(node);
+  
+  // If validation failed, output warning message
+  if (!checkResult.valid) {
+    
+    // 获取校验节点的行列信息
+    const address = getCurrentAddressByNode(node);
+    if (confirmNodeChecked(node.name, address.line, address.column)) {
+      return;
+    }
+
     const program = arkts.getProgramFromAstNode(node);
     const filePath = program?.sourceFilePath || curApiCheckWrapper.fileName;
     const apiName = declaration.name || '';

@@ -208,7 +208,7 @@ export function checkIdentifier(node: arkts.AstNode): void {
  * @param { number } line 节点所在的行号
  * @param { number } col 节点所在的列号
  */
-function confirmNodeChecked(nodeName: string, line: number, col: number): boolean {
+export function confirmNodeChecked(nodeName: string, line: number, col: number): boolean {
   const nodeKey = `${curApiCheckWrapper.fileName}_${nodeName}_${line}_${col}`;
   if (checkedNode.has(nodeKey) && checkedNode.get(nodeKey) !== undefined) {
     return true;
@@ -294,7 +294,7 @@ function expressionCheckByJsDoc(
  * @param { arkts.AstNode } node 需要获取行列信息的节点
  * @returns { CurrentAddress } 节点行列信息
  */
-function getCurrentAddressByNode(node: arkts.AstNode): CurrentAddress {
+export function getCurrentAddressByNode(node: arkts.AstNode): CurrentAddress {
   let address = {} as CurrentAddress;
   let startPosition = node.startPosition;
   address.column = startPosition.col();
