@@ -17,12 +17,10 @@
  * @file
  * @kit ArkUI
  */
-import { Callback, CommonMethod, Bindable } from './common';
-import { CustomBuilder } from './builder';
+import { AttributeModifier, Callback, CommonMethod, Bindable } from './common';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { ResourceStr, Resource } from './units';
 import { ComponentContentBase } from '../ComponentContent';
-import { ComponentBuilder } from './builder';
-import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The refresh status of the drop-down refresh.
  *
@@ -234,6 +232,16 @@ export declare interface RefreshAttribute extends CommonMethod {
      */
     default maxPullDownDistance(distance: Resource | undefined): this;
     /**
+     * Set Refresh options.
+     *
+     * @param { RefreshOptions } options - Refresh constructor options
+     * @returns { RefreshAttribute } Returns the instance of the RefreshAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setRefreshOptions(options: RefreshOptions): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<RefreshAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -257,6 +265,23 @@ export declare interface RefreshAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function Refresh(
-    value: RefreshOptions, 
+    value: RefreshOptions,
     content_?: CustomBuilder,
-): RefreshAttribute
+): RefreshAttribute;
+
+/**
+ * Defines Refresh Component.
+ *
+ * @param { CustomBuilderT<RefreshAttribute> } style_ - The style to create a Refresh.
+ * @param { CustomBuilder } [content_]
+ * @returns { RefreshAttribute } The attribute of the Refresh.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Refresh(
+    style_: CustomBuilderT<RefreshAttribute>,
+    content_?: CustomBuilder
+): RefreshAttribute;
