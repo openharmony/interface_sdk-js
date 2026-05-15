@@ -252,35 +252,36 @@ declare namespace webview {
     }
 
     /**
-     * The playback status of all audio and video.
-     * @enum {number}
+     * 当前网页的播控状态。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum MediaPlaybackState {
         /**
-         * No audio or video currently.
+         * 页面无音视频启播。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         NONE = 0,
-
         /**
-         * The audio and video on the page are being played.
+         * 页面音视频播放中。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         PLAYING = 1,
-
         /**
-         * The audio and video on the page are paused.
+         * 页面音视频暂停。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         PAUSED = 2,
-
         /**
-         * The audio and video on the page are stopped.
+         * 页面音视频停止。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -2283,7 +2284,7 @@ declare namespace webview {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  interface SecurityParams {  
+  interface SecurityParams {
     /**
      * Decide whether JIT is disabled, the default value is false.
      *
@@ -2424,7 +2425,7 @@ declare namespace webview {
 
         /**
          * 设置ArkWeb内核版本。若系统不支持指定版本，则设置无效。该接口为全局静态API，须在调用initializeWebEngine前执行，若已加载任何Web组件，则该设置无效。
-         * 
+         *
          * > **说明：**
          * >
          * > - setActiveWebEngineVersion不支持在异步线程中调用。
@@ -3083,25 +3084,28 @@ declare namespace webview {
         setNetworkAvailable(enable: boolean): void;
 
         /**
-         * Asynchronous search for image existence on the current page through Promise method.
+         * 通过Promise方式异步查找当前页面是否存在图像。
          *
-         * @returns { Promise<boolean> } A promise resolved after query image has finished.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+         * @returns { Promise<boolean> } Promise实例，返回查找页面是否存在图像。
+             *     <br> true表示页面存在图像；false表示页面不存在图像。
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         hasImage(): Promise<boolean>;
 
         /**
-         * Asynchronous search for the presence of an image on the current page through callback method.
+         * 通过Callback方式异步查找当前页面是否存在图像。
          *
-         * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types.
+         * @param { AsyncCallback<boolean> } callback - 返回查找页面是否存在图像。<br> true表示页面存在图像；false表示页面不存在图像。
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -3280,12 +3284,14 @@ declare namespace webview {
         getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
         /**
-         * Set webpage mute.
-         * @param { boolean } mute - Set the audio muted or not.
-         * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-         * <br>2. Incorrect parameter types.
+         * 设置网页静音。
+         *
+         * @param { boolean } mute - 表示是否将网页设置为静音状态。<br>true表示将网页设置为静音状态，false表示将网页取消静音状态。
+         * @throws { BusinessError } 401 - Parameter error. Possible causes:
+         *     1. Mandatory parameters are left unspecified.
+         *     2. Incorrect parameter types.
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -3362,7 +3368,7 @@ declare namespace webview {
 
         /**
          * Set web engine socket connection timeout. Unit: seconds.
-         * 
+         *
          * @param { int } timeout - Socket connection timeout.
          *     The value should be an integer.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -3512,30 +3518,31 @@ declare namespace webview {
         getLastJavascriptProxyCallingFrameUrl(): string;
 
         /**
-         * Start current camera, and before using the camera function, please add the permission in module.json5: ohos.permission.CAMERA.
+         * 开启当前网页摄像头捕获。使用摄像头功能前请在module.json5中添加权限: ohos.permission.CAMERA，具体权限的添加方法请参考
+         * [在配置文件中声明权限](docroot://security/AccessToken/declare-permissions.md#在配置文件中声明权限)。
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         startCamera(): void;
 
         /**
-         * Stop current camera.
+         * 停止当前网页摄像头捕获。
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         stopCamera(): void;
 
         /**
-         * Close current camera.
+         * 关闭当前网页摄像头捕获。
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -3574,51 +3581,51 @@ declare namespace webview {
         static resumeAllTimers(): void;
 
         /**
-         * Stop all audio and video playback on the web page.
+         * 控制网页所有音视频停止。
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         stopAllMedia(): void;
 
         /**
-         * Resumes the playback of the audio and video that are paused by the pauseAllMedia interface.
+         * 控制网页被pauseAllMedia接口暂停的音视频继续播放。
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         resumeAllMedia(): void;
 
         /**
-         * Pause all audio and video playback on the web page.
+         * 控制网页所有音视频暂停。
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         pauseAllMedia(): void;
 
         /**
-         * Closes all full-screen videos on a web page.
+         * 控制网页所有全屏视频关闭。
          *
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         closeAllMediaPresentations(): void;
 
         /**
-         * View the playback status of all audio and video on the web page.
+         * 查询当前网页音视频播放状态。
          *
-         * @returns { MediaPlaybackState } The playback status of all audio and video.
+         * @returns { MediaPlaybackState } 当前网页的播放状态，具体值为NONE、PLAYING、PAUSED、STOPPED。
          * @throws { BusinessError } 17100001 - Init error.
-         *                           The WebviewController must be associated with a Web component.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -3732,9 +3739,13 @@ declare namespace webview {
         static getDefaultUserAgent(): string;
 
         /**
-         * Register a callback to intercept web pages playing media.
+         * 注册回调函数，开启
+         * [应用接管网页媒体播放功能](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
+         * 后，当网页中有播放媒体时，触发注册的回调函数。
          *
-         * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
+         * 如果应用接管网页媒体播放功能未开启，则注册的回调函数不会被触发。
+         *
+         * @param { CreateNativeMediaPlayerCallback } callback - 接管网页媒体播放的回调函数。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -4551,27 +4562,30 @@ declare namespace webview {
         static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
         /**
-         * Resume current microphone.
+         * 恢复当前网页麦克风捕获。使用麦克风功能前请在module.json5中添加权限: ohos.permission.MICROPHONE，具体权限的添加方法请参考
+         * [在配置文件中声明权限](docroot://security/AccessToken/declare-permissions.md#在配置文件中声明权限)。
          *
-         * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         resumeMicrophone(): void;
 
         /**
-         * Pause current microphone.
+         * 暂停当前网页麦克风捕获。
          *
-         * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         pauseMicrophone(): void;
-
         /**
-         * Stop current microphone.
+         * 停止当前网页麦克风捕获。
          *
-         * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100001 - Init error.
+         *     The WebviewController must be associated with a Web component.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5634,274 +5648,269 @@ declare namespace webview {
     }
 
     /**
-     * Enum type supplied to {@link handleStatusChanged} for indicating the playback status.
-     * @enum {number}
+     * [handleStatusChanged](docroot://reference/apis-arkweb/arkts-apis-webview-NativeMediaPlayerHandler.md#handlestatuschanged12)
+     * 接口参数， 用于表示播放器的播放状态。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum PlaybackStatus {
         /**
-         * Player status is paused.
+         * 播放状态为暂停状态，表示媒体已暂停。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         PAUSED = 0,
         /**
-         * Player status is playing.
+         * 播放状态为播放状态，表示媒体正在播放。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        PLAYING,
+        PLAYING = 1
     }
 
     /**
-     * Enum type supplied to {@link handleNetworkStateChanged} for indicating the native player network state.
-     * @enum {number}
+     * 播放器的网络状态。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum NetworkState {
         /**
-         * Player does not do any download tasks.
+         * 播放器还没有开始下载数据。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         EMPTY = 0,
         /**
-         * Player downloads finished, waiting for next task.
+         * 播放器网络状态空闲，比如媒体分片下载完成，下一个分片还没有开始下载。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        IDLE,
+        IDLE = 1,
         /**
-         * Player is downloading contents.
+         * 播放器正在下载媒体数据。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        LOADING,
+        LOADING = 2,
         /**
-         * Player downloads failed, due to network error.
+         * 发生了网络错误。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        NETWORK_ERROR
+        NETWORK_ERROR = 3
     }
 
     /**
-     * Enum type supplied to {@link handleReadyStateChanged} for indicating the native player network state.
-     * @enum {number}
+     * 播放器的缓存状态。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum ReadyState {
         /**
-         * Player hasn't downloaded anything.
+         * 没有缓存。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         HAVE_NOTHING = 0,
         /**
-         * Player has downloaded metadata.
+         * 只缓存了媒体元数据。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        HAVE_METADATA,
+        HAVE_METADATA = 1,
         /**
-         * Player has played all downloaded media data.
+         * 只缓存到当前的播放进度。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        HAVE_CURRENT_DATA,
+        HAVE_CURRENT_DATA = 2,
         /**
-         * The buffered media data is not enough, and will cause jank.
+         * 缓存时长超过了当前的播放进度, 但是仍有可能导致卡顿。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        HAVE_FUTURE_DATA,
+        HAVE_FUTURE_DATA = 3,
         /**
-         * The buffered media data is enough.
+         * 缓存了足够的数据，保证播放流畅。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        HAVE_ENOUGH_DATA,
+        HAVE_ENOUGH_DATA = 4
     }
 
     /**
-     * Enum type supplied to {@link handleError} for indicating the error type of native media player.
-     * @enum {number}
+     * 播放器的错误类型。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum MediaError {
         /**
-         * Network error
+         * 网络错误。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         NETWORK_ERROR = 1,
         /**
-         * Media format error, such as not a valid file.
+         * 媒体格式错误。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        FORMAT_ERROR,
+        FORMAT_ERROR = 2,
         /**
-         * Decode error, such as decoder doesn't support this format.
+         * 解码错误。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        DECODE_ERROR
+        DECODE_ERROR = 3
     }
 
     /**
-     * The native media player status handler.
-     * Apps should use this class to handle native media player's status.
+     * [CreateNativeMediaPlayerCallback](docroot://reference/apis-arkweb/arkts-apis-webview-t.md#createnativemediaplayercallback12)
+     * 回调函数的参数。应用通过该对象，将播放器的状态通知给 ArkWeb 内核。
      *
-     * @typedef NativeMediaPlayerHandler
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 23 static
-     */
-    interface NativeMediaPlayerHandler {
-
+     * > **说明：**
+     * >
+     * > - 本Interface首批接口从API version 12开始支持。
+     * >
+     * > - 示例效果请以真机运行为准。
+     *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 23 static
+   */
+  interface NativeMediaPlayerHandler {
         /**
-         * Handle native media player playback status.
+         * 当播放器的播放状态发生变化时，调用该方法将播放状态通知给 ArkWeb 内核。
          *
-         * @param { PlaybackStatus } status - Playback status of native media player.
+         * @param { PlaybackStatus } status - 播放器的播放状态。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleStatusChanged(status: PlaybackStatus): void;
-
         /**
-         * Handle native media player volume.
-         *  volume: double
-         *   value range: [0 - 1.0]
+         * 当播放器的音量发生变化时，调用该方法将音量通知给 ArkWeb 内核。
          *
-         * @param { double } volume - Current volume of native media player.
+         * @param { double } volume - 播放器的音量，取值范围：[0, 1.0]。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleVolumeChanged(volume: double): void;
-
         /**
-         * Handle native media player muted status.
+         * 当播放器的静音状态发生变化时，调用该方法将静音状态通知给 ArkWeb 内核。
          *
-         * @param { boolean } muted - Current mute status of native media player.
+         * @param { boolean } muted - 当前播放器是否静音。<br>true表示当前播放器静音，false表示当前播放器未静音。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleMutedChanged(muted: boolean): void;
-
         /**
-         * Handle playback rate of native media player.
-         *  playbackRate: double
-         *   value range: [0 - infinity]
+         * 当播放器的播放速率发生变化时，调用该方法将播放速率通知给 ArkWeb 内核。
          *
-         * @param { double } playbackRate - Current playback rate of native media player.
+         * @param { double } playbackRate - 播放速率，取值范围：[0, +∞)
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handlePlaybackRateChanged(playbackRate: double): void;
-
         /**
-         * Handle duration time of media.
-         *  duration: double
-         *   value range: [0 - infinity]
+         * 当播放器解析出媒体的总时长时，调用该方法将媒体的总时长通知给 ArkWeb 内核。
          *
-         * @param { double } duration - Duration time of media, Unit: seconds.
+         * @param { double } duration - 媒体的总时长。<br>单位：秒，取值范围：[0, +∞)
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleDurationChanged(duration: double): void;
-
         /**
-         * Handle current playing time of media.
-         *  currentPlayTime: double
-         *   value range: [0 - duration]
+         * 当媒体的播放进度发生变化时，调用该方法将媒体的播放进度通知给 ArkWeb 内核。
          *
-         * @param { double } currentPlayTime - Current playing time of media, Unit: seconds.
+         * @param { double } currentPlayTime - 当前播放时间。<br>单位：秒，取值范围：[0, duration]
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleTimeUpdate(currentPlayTime: double): void;
-
         /**
-         * Handle buffered end time of media.
-         *  bufferedEndTime: double
-         *   value range: [0 - duration]
+         * 当媒体的缓冲时长发生变化时，调用该方法将媒体的缓冲时长通知给 ArkWeb 内核。
          *
-         * @param { double } bufferedEndTime - Buffered end time of media, Unit: seconds.
+         * @param { double } bufferedEndTime - 媒体缓冲的时长。<br>单位：秒，取值范围：[0, duration]
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleBufferedEndTimeChanged(bufferedEndTime: double): void;
-
         /**
-         * Handle native player ended event.
+         * 当媒体播放结束时，调用该方法将播放结束事件通知给 ArkWeb 内核。
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleEnded(): void;
-
         /**
-         * Handle network state of native media player.
+         * 当播放器的网络状态发生变化时，调用该方法将播放器的网络状态通知给 ArkWeb 内核。
          *
-         * @param { NetworkState } state - Network state of native media player.
+         * @param { NetworkState } state - 播放器的网络状态。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleNetworkStateChanged(state: NetworkState): void;
-
         /**
-         * Handle ready state of native media player.
+         * 当播放器的缓存状态发生变化时，调用该方法将播放器的缓存状态通知给 ArkWeb 内核。
          *
-         * @param { ReadyState } state - Ready state of native media player.
+         * @param { ReadyState } state - 播放器的缓存状态。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleReadyStateChanged(state: ReadyState): void;
-
         /**
-         * Handle native media player fullscreen state changed event.
+         * 当播放器的全屏状态发生变化时，调用该方法将播放器的全屏状态通知给 ArkWeb 内核。
          *
-         * @param { boolean } fullscreen - Fullscreen state of native media player.
+         * @param { boolean } fullscreen - 是否全屏。<br>true表示全屏，false表示未全屏。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleFullscreenChanged(fullscreen: boolean): void;
-
         /**
-         * Handle native media player seeking state.
+         * 当播放器进入seek状态时，调用该方法将seek进入事件通知 ArkWeb 内核。
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleSeeking(): void;
-
         /**
-         * Handle native media player seek finished state.
+         * 当播放器seek完成后，调用该方法将seek完成事件通知 ArkWeb 内核。
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleSeekFinished(): void;
-
         /**
-         * Handle native media player error event.
+         * 当播放器发生错误时，调用该方法将错误通知 ArkWeb 内核。
          *
-         * @param { MediaError } error - Error type of native media player.
-         * @param { string } errorMessage - Description of current error.
+         * @param { MediaError } error - 错误类型。
+         * @param { string } errorMessage - 错误的详细描述。
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         handleError(error: MediaError, errorMessage: string): void;
-
         /**
-         * Handle size of video.
+         * 当播放器解析出视频的尺寸时， 调用该方法将视频尺寸通知 ArkWeb 内核。
          *
-         * @param { double } width - Width of video, Unit: px.
-         * @param { double } height - Height of video, Unit: px.
+         * @param { double } width - 视频的宽，单位：像素，取值范围：[0, +∞)
+         * @param { double } height - 视频的高，单位：像素，取值范围：[0, +∞)
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5909,32 +5918,33 @@ declare namespace webview {
     }
 
     /**
-     * The scenarios for suspending the media player.
-     * @enum {number}
+     * 表示播放器的挂起类型。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum SuspendType {
         /**
-         * Page enters the BackForwardCache.
+         * 页面进入BFCache。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         ENTER_BACK_FORWARD_CACHE = 0,
-
         /**
-         * Page enters background.
+         * 页面进入后台。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        ENTER_BACKGROUND,
-
+        ENTER_BACKGROUND = 1,
         /**
-         * Cleanup when the number of paused media player over limit.
+         * 系统自动清理。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        AUTO_CLEANUP
+        AUTO_CLEANUP = 2
     }
 
     /**
@@ -5970,126 +5980,103 @@ declare namespace webview {
     type UpdateRectFn = (x: double, y: double, width: double, height: double) => void;
 
     /**
-     * The bridge between web core and native media player.
-     * Apps should implements this interface, and pass an instance to web core.
-     * Then web core can control native media player by this bridge.
+     * [CreateNativeMediaPlayerCallback](docroot://reference/apis-arkweb/arkts-apis-webview-t.md#createnativemediaplayercallback12)
+     * 回调函数的返回值类型。接管网页媒体的播放器和ArkWeb内核之间的一个接口类。
      *
-     * @typedef NativeMediaPlayerBridge
+     * ArkWeb内核通过该接口类的实例对象来控制应用创建的用来接管网页媒体的播放器。
+     *
+     * > **说明：**
+     * >
+     * > - 本模块同时支持ArkTS-Dyn、ArkTS-Sta。
+     * >
+     * > - 本Interface首批接口从API version 12开始支持。
+     * >
+     * > - 示例效果请以真机运行为准。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     interface NativeMediaPlayerBridge {
         /**
-         * Notify native media player that the rect of video tag has changed.
+         * 更新surface位置信息。
          *
-         * @typedef { UpdateRectFn }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         updateRect: UpdateRectFn;
-
         /**
-         * Request to play.
+         * 播放视频。
          *
-         * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         play: ZeroParamFn<>;
-
         /**
-         * Request to pause.
+         * 暂停播放。
          *
-         * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         pause: ZeroParamFn<>;
-
         /**
-         * Request to fast forward / back forward to targetTime.
-         *  targetTime: double, Unit: seconds.
-         *   value range: [0 - duration]
+         * 播放跳转到某个时间点。
          *
-         * @typedef { OneParamFn<double> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         seek: OneParamFn<double>;
-
         /**
-         * Request to change volume of native media player.
-         *  volume: double
-         *   value range: [0 - 1.0]
+         * 设置播放器音量值。
          *
-         * @typedef { OneParamFn<double> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         setVolume: OneParamFn<double>;
-
         /**
-         * Request to mute native media player.
+         * 设置静音状态。
          *
-         * @typedef { OneParamFn<boolean> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         setMuted: OneParamFn<boolean>;
-
         /**
-         * Request to change playback rate of native media player.
-         *  playbackRate: double
-         *   value range: [0 - 10.0]
+         * 设置播放速度。
          *
-         * @typedef { OneParamFn<double> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         setPlaybackRate: OneParamFn<double>;
-
         /**
-         * Request to release native media player.
+         * 销毁播放器。
          *
-         * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         release: ZeroParamFn<>;
-
         /**
-         * Request to enter fullscreen.
+         * 播放器进入全屏。
          *
-         * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         enterFullscreen: ZeroParamFn<>;
-
         /**
-         * Request to exit fullscreen.
+         * 播放器退出全屏。
          *
-         * @typedef { ZeroParamFn<> }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         exitFullscreen: ZeroParamFn<>;
-
         /**
-         * Resume the native media player.
+         * 通知应用销毁应用内播放器，并保存应用内播放器的状态信息。
          *
-         * @type { ?ResumePlayerFn }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         resumePlayer?: ResumePlayerFn;
-
         /**
-         * Suspend to release native media player, not the NativeMediaPlayerBridge. The
-         * embedder should save the status of player when release the native media player
-         * through NativeMediaPlayerBridge.
+         * 通知应用销毁应用内播放器，并保存应用内播放器的状态信息。
          *
-         * @type { ?SuspendPlayerFn }
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -6097,73 +6084,83 @@ declare namespace webview {
     }
 
     /**
-     * Enum type for indicating the media type of native media player.
-     * @enum {number}
+     * 表示媒体类型。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum MediaType {
         /**
-         * Media type is video.
+         * 视频。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         VIDEO = 0,
         /**
-         * Media type is audio.
+         * 音频。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        AUDIO
+        AUDIO = 1
     }
 
     /**
-     * Enum type for indicating the media source type of native media player.
-     * @enum {number}
+     * 表示媒体源的类型。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
-    enum SourceType {
+  enum SourceType {
         /**
-         * The type of media source is URL.
+         * 媒体源的类型是URL。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         URL = 0,
         /**
-         * The type of media source is blob.
+         * 媒体源的类型是blob。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        MSE
+        MSE = 1
     }
 
     /**
-     * Media source information. Uri and format.
+     * 表示媒体源的信息。
+     *
+     * > **说明：**
+     * >
+     * > - 本模块同时支持ArkTS-Dyn、ArkTS-Sta。
+     * >
+     * > - 本Class首批接口从API version 12开始支持。
+     * >
+     * > - 示例效果请以真机运行为准。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     class MediaSourceInfo {
         /**
-         * Source type, most time is URL.
-         * @type { SourceType }
+         * 媒体源的类型。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         type: SourceType;
-
         /**
-         * Media source, most time is Uri.
-         * @type { string }
+         * 媒体源地址。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         source: string;
-
         /**
-         * Media format, such as mp4, webm, m3u8 etc.
-         * @type { string }
+         * 媒体源格式，可能为空，需要开发者自行判断格式。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -6171,41 +6168,44 @@ declare namespace webview {
     }
 
     /**
-     * Rectangle definition.
+     * 矩形定义。
      *
-     * @typedef RectEvent
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     interface RectEvent {
         /**
-         * X coordinator of top left point, Unit: px.
+         * 矩形区域左上角x坐标。
          *
-         * @type { double }
+         * 单位：px。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         x: double;
         /**
-         * Y coordinator of top left point, Unit: px.
+         * 矩形区域左上角y坐标。
          *
-         * @type { double }
+         * 单位：px。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         y: double;
         /**
-         * Width of this rectangle, Unit: px.
+         * 矩形的宽度。
          *
-         * @type { double }
+         * 单位：px。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         width: double;
         /**
-         * Height of this rectangle, Unit: px.
+         * 矩形的高度。
          *
-         * @type { double }
+         * 单位：px。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -6213,23 +6213,33 @@ declare namespace webview {
     }
 
     /**
-     * Surface information.
+     * [应用接管网页媒体播放功能](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
+     * 中用于同层渲染的 surface 信息。
+     *
+     * > **说明：**
+     * >
+     * > - 本模块同时支持ArkTS-Dyn、ArkTS-Sta。
+     * >
+     * > - 本Class首批接口从API version 12开始支持。
+     * >
+     * > - 示例效果请以真机运行为准。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     class NativeMediaPlayerSurfaceInfo {
         /**
-         * Id of surface.
-         * @type { string }
+         * surface的id，用于同层渲染的NativeImage的surfaceId。
+         *
+         * 详见[NativeEmbedDataInfo]{@link ./@internal/component/ets/web:NativeEmbedDataInfo}。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         id: string;
-
         /**
-         * Surface rect info.
-         * @type { RectEvent }
+         * surface的位置信息。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -6237,114 +6247,122 @@ declare namespace webview {
     }
 
     /**
-     * Enum type for indicating the preload type.
-     * @enum {number}
+     * 播放器预加载媒体数据。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     enum Preload {
         /**
-         * Doesn't do preload.
+         * 不预加载。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         NONE = 0,
         /**
-         * Only preload metadata.
+         * 只预加载媒体的元数据。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        METADATA,
+        METADATA = 1,
         /**
-         * Preload enough data to ensure playing is smooth.
+         * 预加载足够多的媒体数据，以保证能流畅地播放。
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
-        AUTO
+        AUTO = 2
     }
 
     /**
-     * Media information.
+     * [CreateNativeMediaPlayerCallback](docroot://reference/apis-arkweb/arkts-apis-webview-t.md#createnativemediaplayercallback12)
+     * 回调函数的一个参数。包含了网页中媒体的信息。应用可以根据这些信息来创建接管网页媒体播放的播放器。
      *
-     * @typedef MediaInfo
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     interface MediaInfo {
         /**
-         * Id of media element.
-         * @type { string }
+         * ID of **<video>** or **<audio>** on the web page.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         embedID: string,
         /**
-         * Media type : Video or Audio.
-         * @type { MediaType }
+         * Type of the media.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         mediaType: MediaType,
         /**
-         * Media source list, player should choose an appropriate one to play.
-         * @type { MediaSourceInfo[] }
+         * Source of the media. There may be multiple sources. The application needs to select a supported source to
+         * play.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         mediaSrcList: MediaSourceInfo[],
         /**
-         * Surface to render media content on.
-         * @type { NativeMediaPlayerSurfaceInfo }
+         * Surface information used for same-layer rendering.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         surfaceInfo: NativeMediaPlayerSurfaceInfo,
         /**
-         * Should show media controls.
-         * @type { boolean }
+         * Whether the **controls** attribute exists in **<video>** or **<audio>**.
+         *
+         * The value **true** means that the **controls** attribute exists in **<video>** or **<audio>**, and **false**
+         * means the opposite.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         controlsShown: boolean,
         /**
-         * Limit media controls items.
-         *  Such as 'nodownload', 'nofullscreen', 'noremoteplayback'
-         * @type { string[] }
+         * Value of the **controlslist** attribute in **<video>** or **<audio>**.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         controlList: string[],
         /**
-         * Player should be muted;
-         * @type { boolean }
+         * Whether to mute the player.
+         *
+         * The value **true** means to mute the player, and **false** means the opposite.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         muted: boolean,
         /**
-         * Player should show poster before media first frame shown.
-         * @type { string }
+         * URL of a poster.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         posterUrl: string,
         /**
-         * Preload type.
-         * @type { Preload }
+         * Whether preloading is required.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         preload: Preload,
         /**
-         * Header information of a media network request.
-         * @type { Record<string, string> }
+         * HTTP headers that need to be included in the player's request for media resources.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         headers: Record<string, string>,
         /**
-         * The information list of attributes of media tag.
-         * @type { Record<string, string> }
+         * Attributes in **<video>** or **<audio>**.
+         *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -6352,12 +6370,13 @@ declare namespace webview {
     }
 
     /**
-     * The callback of creating a native media player.
+     * [onCreateNativeMediaPlayer](docroot://reference/apis-arkweb/arkts-apis-webview-WebviewController.md#oncreatenativemediaplayer12)
+     * 方法的参数。一个回调函数，创建一个播放器，用于接管网页中的媒体播放。
      *
-     * @typedef { function }
-     * @param { NativeMediaPlayerHandler } handler - callback information of onCreateNativeMediaPlayer.
-     * @param { MediaInfo } mediaInfo - callback information of onCreateNativeMediaPlayer.
-     * @returns { NativeMediaPlayerBridge } Returns whether the app takes over the media.
+     * @param { NativeMediaPlayerHandler } handler - 通过该对象，将播放器的状态报告给 ArkWeb 内核。
+     * @param { MediaInfo } mediaInfo - 网页媒体的信息。
+     * @returns { NativeMediaPlayerBridge } 接管网页媒体的播放器和 ArkWeb 内核之间的一个接口类。<br/>应用需要实现该接口类。<br/> ArkWeb 内核通过该接口类的对象来控制应用创
+     *     建的用来接管网页媒体的播放器。<br/>如果应用返回了 null，则表示应用不接管这个媒体的播放，由 ArkWeb 内核来播放该媒体。
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */

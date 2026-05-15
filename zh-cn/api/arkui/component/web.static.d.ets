@@ -290,7 +290,9 @@ export declare enum WebRotateEffect {
     RESIZE_COVER_EFFECT = 1
 }
 /**
- * The configuration of native media player.
+ * 用于
+ * [开启应用接管网页媒体播放功能](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)的
+ * 配置信息。
  *
  * @typedef NativeMediaPlayerConfig
  * @syscap SystemCapability.Web.Webview.Core
@@ -298,7 +300,11 @@ export declare enum WebRotateEffect {
  */
 export declare interface NativeMediaPlayerConfig {
     /**
-     * Whether to enable the application to take over the webpage media playback function.
+     * 是否开启应用接管网页媒体播放功能。
+     *
+     * true表示开启应用接管网页媒体播放功能，false表示关闭应用接管网页媒体播放功能。
+     *
+     * 默认值：false。
      *
      * @type { boolean }
      *    {@code true} means to enable the application to take over the web media playback function, {@code false} otherwise.
@@ -308,7 +314,11 @@ export declare interface NativeMediaPlayerConfig {
      */
     enable: boolean;
     /**
-     * Whether the video player's display overlays the web page content when the application takes over the web page's video player.
+     * 开启应用接管网页媒体播放功能后，应用接管网页视频的播放器画面是否覆盖网页内容。
+     *
+     * true表示改变视频图层的高度，使其覆盖网页内容。false表示不覆盖网页内容，跟原视频图层高度一样，嵌入在网页中。
+     *
+     * 默认值：false。
      *
      * @type { boolean }
      *    {@code true} means changing the height of the video layer to cover the content of the webpage, {@code false} otherwise.
@@ -820,7 +830,7 @@ export declare enum WebDarkMode {
     AUTO = 2
 }
 /**
- * Enum type supplied to {@link captureMode} for setting the web capture mode.
+ * Web屏幕捕获模式。
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -828,7 +838,7 @@ export declare enum WebDarkMode {
  */
 export declare enum WebCaptureMode {
     /**
-     * Capture of the home screen.
+     * 主屏捕获模式。
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -887,7 +897,7 @@ export declare enum ThreatType {
     THREAT_UNPROCESSED = 5
 }
 /**
- * Defines the Media Options.
+ * Web媒体策略的配置。
  *
  * @typedef WebMediaOptions
  * @syscap SystemCapability.Web.Webview.Core
@@ -895,9 +905,12 @@ export declare enum ThreatType {
  */
 export declare interface WebMediaOptions {
     /**
-     * Validity period for automatically resuming a paused web audio, Unit: seconds.
-     * The maximum validity period is 60 seconds. Due to the approximate value,
-     * the validity period may have a deviation of less than 1 second.
+     * 被其他应用暂停的Web音视频能够自动续播的有效期，单位：秒。取值范围：[-2147483648, 2147483647]。resumeInterval值为0时，不自动续播；大于0时，将在该时间内尝试续播；小于0时，将在无限时间
+     * 内尝试续播。由于近似值原因，该有效期可能存在一秒内的误差。
+     *
+     * **说明：**
+     *
+     * HLS视频被打断后，回到前台将自动续播，不受该时间控制。
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -905,8 +918,12 @@ export declare interface WebMediaOptions {
      */
     resumeInterval?: int;
     /**
-     * Whether the audio of multiple Web instances in an application is exclusive.
-     *
+    * 应用内多个Web实例的音频是否独占。
+    *
+    * true表示应用内多个Web实例的音频独占，false表示应用内多个Web实例的音频不独占。
+    *
+    * 默认值：true。
+    *
      * @type { ?boolean }
      *    {@code true} means audio exclusivity for multiple web instances within the application, {@code false} otherwise.
      * @syscap SystemCapability.Web.Webview.Core
@@ -914,7 +931,8 @@ export declare interface WebMediaOptions {
      */
     audioExclusive?: boolean;
     /**
-     * The type for audio sessions.
+     * 应用中Web音频类型。默认值对应[系统音频流类型](docroot://reference/apis-audio-kit/arkts-apis-audio-e.md#streamusage)STREAM_USAGE_MUSIC
+     * 。设置该参数会改变组件音频类型与系统音频类型映射关系，进而影响ArkWeb音频焦点策略。
      *
      * @type { ?AudioSessionType }
      * @syscap SystemCapability.Web.Webview.Core
@@ -947,14 +965,14 @@ export declare interface ScreenCaptureConfig {
  */
 export declare class FullScreenExitHandler {
     /**
-     * Constructor.
+     * WebKeyboardController的构造函数。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     constructor();
     /**
-     * Called when the Web component exits full screen mode.
+     * Exit the full screen mode.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -962,7 +980,7 @@ export declare class FullScreenExitHandler {
     exitFullScreen(): void;
 }
 /**
- * Defines the event details when the web component enter full screen mode.
+ * Web组件进入全屏回调事件的详情。
  *
  * @typedef FullScreenEnterEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -970,7 +988,7 @@ export declare class FullScreenExitHandler {
  */
 export declare interface FullScreenEnterEvent {
     /**
-     * A function handle to exit full-screen mode.
+     * 用于退出全屏模式的函数句柄。
      *
      * @type { FullScreenExitHandler }
      * @syscap SystemCapability.Web.Webview.Core
@@ -978,7 +996,9 @@ export declare interface FullScreenEnterEvent {
      */
     handler: FullScreenExitHandler;
     /**
-     * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
+     * 视频的宽度，单位：px。如果进入全屏的是 `<video>` 元素，表示其宽度；如果进入全屏的子元素中包含 `<video>` 元素，表示第一个子视频元素的宽度；其他情况下，为0。
+     *
+     * 23
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -986,7 +1006,9 @@ export declare interface FullScreenEnterEvent {
      */
     videoWidth?: int;
     /**
-     * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
+     * 视频的高度，单位：px。如果进入全屏的是 `<video>` 元素，表示其高度；如果进入全屏的子元素中包含 `<video>` 元素，表示第一个子视频元素的高度；其他情况下，为0。
+     *
+     * 23
      *
      * @type { ?int }
      * @syscap SystemCapability.Web.Webview.Core
@@ -995,10 +1017,10 @@ export declare interface FullScreenEnterEvent {
     videoHeight?: int;
 }
 /**
- * The callback when the web component enter full screen mode.
+ * Web组件进入全屏时触发的回调。
  *
  * @typedef { function } OnFullScreenEnterCallback
- * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
+ * @param { FullScreenEnterEvent } event - Web组件进入全屏的回调事件详情。
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -1499,7 +1521,6 @@ export declare class VerifyPinHandler {
 /**
  * Defines the accessible resource type, related to {@link onPermissionRequest} method.
  *
- * @enum { string }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
@@ -1526,7 +1547,9 @@ export declare enum ProtectedResourceType {
      */
     AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE',
     /**
-     * The sensor resource, such as accelerometer.
+     * 传感器资源，例如加速度传感器。
+     *
+     * 23
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1534,14 +1557,14 @@ export declare enum ProtectedResourceType {
     SENSOR = 'TYPE_SENSOR'
 }
 /**
- * Implements the PermissionRequest object, related to {@link onPermissionRequest} method.
+ * 权限请求。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare class PermissionRequest {
     /**
-     * Constructor.
+     * WebKeyboardController的构造函数。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1549,7 +1572,6 @@ export declare class PermissionRequest {
     constructor();
     /**
      * Reject the request.
-     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1563,9 +1585,9 @@ export declare class PermissionRequest {
      */
     getOrigin(): string;
     /**
-     * Obtains the list of accessible resources requested for the web page.
+     * Gets the resource that the webpage is trying to access.
      *
-     * @returns { Array<string> } List of accessible resources requested by the web page.
+     * @returns { Array<string> }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -1586,13 +1608,14 @@ export declare class PermissionRequest {
  */
 export declare class ScreenCaptureHandler {
     /**
-     * Constructor.
+     * WebKeyboardController的构造函数。
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     constructor();
     /**
-     * Obtains the origin of this web page.
+     * Gets the source of the webpage that attempted to access the restricted resource.
      *
      * @returns { string }
      * @syscap SystemCapability.Web.Webview.Core
@@ -1600,14 +1623,14 @@ export declare class ScreenCaptureHandler {
      */
     getOrigin(): string;
     /**
-     * Grants the screen capture permission.
+     * Grant origin access to a given resource.
      * @param { ScreenCaptureConfig } config The screen capture configuration.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     grant(config: ScreenCaptureConfig): void;
     /**
-     * Rejects this screen capture request.
+     * Reject the request.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -3735,8 +3758,7 @@ export declare interface OnInterceptRequestEvent {
     request: WebResourceRequest;
 }
 /**
- * Defines the triggered callback when the host application that web content from the specified origin is
- *     attempting to access the resources.
+ * 定义通知收到获取权限请求。
  *
  * @typedef OnPermissionRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -3744,7 +3766,7 @@ export declare interface OnInterceptRequestEvent {
  */
 export declare interface OnPermissionRequestEvent {
     /**
-     * Defines the onPermissionRequest callback.
+     * 通知Web组件用户操作行为。
      *
      * @type { PermissionRequest }
      * @syscap SystemCapability.Web.Webview.Core
@@ -3753,8 +3775,7 @@ export declare interface OnPermissionRequestEvent {
     request: PermissionRequest;
 }
 /**
- * Defines the triggered callback when the host application that web content from the specified origin is
- *     requesting to capture screen.
+ * 定义通知收到屏幕捕获请求。
  *
  * @typedef OnScreenCaptureRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -3762,7 +3783,7 @@ export declare interface OnPermissionRequestEvent {
  */
 export declare interface OnScreenCaptureRequestEvent {
     /**
-     * Notifies the user of the operation behavior of the web component.
+     * 通知Web组件用户操作行为。
      *
      * @type { ScreenCaptureHandler }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4182,7 +4203,7 @@ export declare interface OnDataResubmittedEvent {
     handler: DataResubmissionHandler;
 }
 /**
- * Defines the playing state of audio on web page.
+ * 定义网页上的音频播放状态发生改变时的回调函数。
  *
  * @typedef OnAudioStateChangedEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -4190,7 +4211,7 @@ export declare interface OnDataResubmittedEvent {
  */
 export declare interface OnAudioStateChangedEvent {
     /**
-     * The audio playback status of the current page, true if playing true otherwise false.
+     * 当前页面的音频播放状态，true表示正在播放，false表示未播放。
      *
      * @type { boolean }
      * @syscap SystemCapability.Web.Webview.Core
@@ -4449,7 +4470,7 @@ export declare enum WebResponseType {
 }
 
 /**
- * Arkweb audio session Type
+ * 应用中Web音频类型。
  *
  * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
@@ -4457,8 +4478,7 @@ export declare enum WebResponseType {
  */
 export declare enum AudioSessionType {
     /**
-     * Ambient audio, which is mixable with other types of audio.
-     * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+     * 适用于网页游戏场景，支持Web游戏声音与系统音乐同时播放。对应系统音频流类型STREAM_USAGE_GAME。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -4808,11 +4828,9 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default fileAccess(fileAccess: boolean | undefined): this;
     /**
-     * Sets whether to enable access to online images through HTTP and HTTPS.
+     * 设置是否允许从网络加载图片资源（通过HTTP和HTTPS访问的资源）。当属性没有显式调用时，默认允许从网络加载图片资源。
      *
-     * @param { boolean | undefined } onlineImageAccess - Sets whether to enable access to online images.
-     *    {@code true} means means setting to allow loading image resources from the network, {@code false} otherwise.
-     *    Default value: true.
+     * @param { boolean | undefined } onlineImageAccess - 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -4829,11 +4847,9 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default domStorageAccess(domStorageAccess: boolean | undefined): this;
     /**
-     * Sets whether to enable automatic image loading.
+     * 设置是否允许自动加载图片资源。当属性没有显式调用时，允许自动加载图片资源。
      *
-     * @param { boolean | undefined } imageAccess - Sets whether to enable automatic image loading.
-     *    {@code true} means the Web can automatically load image resources, {@code false} otherwise.
-     *    Default value: true.
+     * @param { boolean | undefined } imageAccess - 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -4928,19 +4944,19 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default forceDarkAccess(access: boolean | undefined): this;
     /**
-     * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web audio,
-     * and whether the audio of multiple Web instances in an application is exclusive.
-     * <p><strong>API Note</strong>:<br>
-     * Audios in the same Web instance are considered as the same audio.
-     * The media playback policy controls videos with an audio track.
-     * After the parameter settings are updated, the playback must be started again for the settings to take effect.
-     * It is recommended that you set the same audioExclusive value for all Web components.
-     * Audio and video interruption takes effect within an app and between apps, and playback resumption takes effect only between apps.
-     * </p>
+     * 设置Web媒体播放的策略，其中包括：Web中的音频在重新获焦后能够自动续播的有效期、应用内多个Web实例的音频是否独占。当该属性未显式设置时，默认Web中的音频重新获焦后无法自动续播、应用内多个Web实例的音频是独占的。
      *
-     * @param { WebMediaOptions | undefined } options Set the media policy for the web.
-     * After updating the attribute parameters, the audio needs to be replayed for it to take effect.
-     *    Default value: {resumeInterval: 0, audioExclusive: true}
+     * > **说明：**
+     * >
+     * > - 同一Web实例中的多个音频均视为同一音频。
+     * >
+     * > - 该媒体播放策略将同时管控有声视频。
+     * >
+     * > - 建议为所有Web组件设置相同的[audioExclusive]{@link ./../../@internal/component/ets/web:WebMediaOptions}值。
+     * >
+     * > - 音视频互相打断在应用内和应用间生效，续播只在应用间生效。
+     *
+     * @param { WebMediaOptions | undefined } options 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5283,18 +5299,18 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onResourceLoad(callback: Callback<OnResourceLoadEvent> | undefined): this;
     /**
-     * Triggered when the web component exit the full screen mode.
+     * 通知开发者Web组件退出全屏模式。
      *
-     * @param { function | undefined } callback The triggered function when the web component exit the full screen mode.
+     * @param { function | undefined } callback 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     default onFullScreenExit(callback: (() => void) | undefined): this;
     /**
-     * Triggered when the web component enter the full screen mode.
+     * 通知开发者Web组件进入全屏模式。
      *
-     * @param { OnFullScreenEnterCallback | undefined } callback - The triggered function when the web component enter the full screen mode.
+     * @param { OnFullScreenEnterCallback | undefined } callback - 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5328,18 +5344,18 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse | null> | undefined): this;
     /**
-     * Called when a permission request is received. To call this API, you need to declare the ohos.permission.CAMERA and ohos.permission.MICROPHONE permissions.
+     * 通知收到获取权限请求，需配置"ohos.permission.CAMERA"、"ohos.permission.MICROPHONE"权限。
      *
-     * @param { Callback<OnPermissionRequestEvent> | undefined } callback Callback invoked when a permission request is received.
+     * @param { Callback<OnPermissionRequestEvent> | undefined } callback 通知收到获取权限请求触发。
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     default onPermissionRequest(callback: Callback<OnPermissionRequestEvent> | undefined): this;
     /**
-     * Called when a screen capture request is received.
+     * 通知收到屏幕捕获请求。
      *
-     * @param { Callback<OnScreenCaptureRequestEvent> | undefined } callback Called when a screen capture request is received.
+     * @param { Callback<OnScreenCaptureRequestEvent> | undefined } callback 通知收到屏幕捕获请求。
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5367,11 +5383,9 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default onContextMenuHide(callback: OnContextMenuHideCallback | undefined): this;
     /**
-     * Set whether to manually play audio-only videos. The playback of muted videos is not controlled by this interface.
+     * 设置有声视频的自动播放是否需要用户手动点击，静音视频播放不受该接口管控。当该属性未显式设置时，默认有声视频的自动播放需要用户手动点击。
      *
-     * @param { boolean | undefined } access Set whether to manually play audio-only videos.
-     *  {@code true}True means setting up automatic playback of audio videos requires users to manually click, {@code false} otherwise.
-     *    Default value: true.
+     * @param { boolean | undefined } access 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -5750,9 +5764,9 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default allowWindowOpenMethod(flag: boolean | undefined): this;
     /**
-     * Set the callback function when the audio playback status on the webpage changes.
+     * 设置网页上的音频播放状态发生改变时的回调函数。
      *
-     * @param { Callback<OnAudioStateChangedEvent> | undefined } callback Callback invoked when the audio playback status on the webpage changes.
+     * @param { Callback<OnAudioStateChangedEvent> | undefined } callback 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -6099,12 +6113,9 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default textAutosizing(textAutosizing: boolean | undefined): this;
     /**
-     * Enable the application takeover of web media playback feature.
+     * 开启[应用接管网页媒体播放功能](docroot://web/app-takeovers-web-media.md)。当属性没有显式调用时，默认不开启接管网页媒体播放功能。
      *
-     * @param { NativeMediaPlayerConfig | undefined } config - The configuration of native media player.
-     *    enable: whether to enable the feature, shouldOverlay: whether the image of the video player
-     *    taken over by the application will overlay the web page content, if this feature is enabled.
-     *    Default value: {enable: false, shouldOverlay: false}.
+     * @param { NativeMediaPlayerConfig | undefined } config - 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -6230,10 +6241,9 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default enableFollowSystemFontWeight(follow: boolean | undefined): this;
     /**
-     * Sets whether to enable AVSession for web pages.
+     * 设置是否支持应用对接到播控中心。当属性没有显式设置时，默认支持应用对接到播控中心。
      *
-     * @param { boolean | undefined } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
-     *    False when passing in undefined and null.
+     * @param { boolean | undefined } enabled 是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -6461,20 +6471,47 @@ export declare interface WebAttribute extends CommonMethod {
      */
     default enableImageAnalyzer(enable: boolean | undefined): this;
     /**
-     *  Triggered after camera capture state changed.
+     * 通知用户当前网页的摄像头状态，摄像头有三个状态，无状态（None），捕获中（Active），暂停中（Paused）。使用callback异步回调。
      *
-     * @param { OnCameraCaptureStateChangeCallback } callback -  Callback triggered to
-     *    report current page camera capture state changing event.
+     * 可以通过startCamera，stopCamera，closeCamera这三个接口来切换摄像头的状态。这三个接口分别对应开启，暂停，停止摄像头功能。示例使用场景详见
+     * [startCamera](docroot://reference/apis-arkweb/arkts-apis-webview-WebviewController.md#startcamera12)。
+     *
+     * > **说明：**
+     * >
+     * > 当前网页正在使用摄像头时，返回在捕获中状态。
+     * >
+     * > 当前网页暂停使用摄像头时，返回暂停中状态。
+     * >
+     * > 当前网页完全没有使用摄像头时，返回无状态。
+     *
+     * @param { OnCameraCaptureStateChangeCallback } callback -  callback triggered to
+     *     report current page camera capture state changing event.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
     default onCameraCaptureStateChange(callback: OnCameraCaptureStateChangeCallback | undefined): this;
     /**
-     *  Triggered after microphone capture state changed.
+     * 通知用户当前网页中麦克风状态，麦克风有三个状态，未工作（None），捕获中（Active），暂停中（Paused）。使用callback异步回调。
      *
-     * @param { OnMicrophoneCaptureStateChangeCallback } callback -  callback triggered to
-     *    report current page microphone capture state changing event.
+     * 可以通过resumeMicrophone，pauseMicrophone，stopMicrophone这三个接口来切换麦克风的状态。这三个接口功能分别对应解除暂停，暂停，停止麦克风。示例使用场景详见
+     * [网页中麦克风的使用](docroot://reference/apis-arkweb/arkts-apis-webview-WebviewController.md#resumemicrophone23)。
+     *
+     * > **说明：**
+     * >
+     * > 当前网页正在使用麦克风时，返回捕获中状态；当前网页暂停使用麦克风时，返回暂停中状态；当前网页完全没有使用麦克风时，返回未工作状态。
+     * >
+     * > 当前麦克风处于捕获中状态时，设置暂停使用，当前麦克风变为暂停中状态。可通过ArkWeb设置麦克风开始使用状态进行恢复捕捉。
+     * >
+     * > 当前麦克风处于捕获中状态时，设置停止使用，当前麦克风停止捕捉，麦克风变为未工作状态。除非重新前端开始捕捉，否则无法恢复。
+     * >
+     * > 当前麦克风处于暂停中状态时，设置开始使用，当前麦克风继续捕捉，变为捕获中状态。
+     * >
+     * > 当前麦克风处于暂停中状态时，设置停止使用，当前麦克风停止捕捉，变为未工作状态。除非重新前端开始捕捉，否则无法恢复。
+     * >
+     * > 当前麦克风处于未工作状态时，设置开始使用以及暂停使用，麦克风状态均不发生变化。
+     *
+     * @param { OnMicrophoneCaptureStateChangeCallback } callback -  是
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static

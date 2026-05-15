@@ -350,15 +350,16 @@ declare namespace webview {
   }
 
   /**
-   * The playback status of all audio and video.
-   * @enum {number}
+   * Enumerates the playback states on the current web page.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum MediaPlaybackState {
     /**
-     * No audio or video currently.
+     * No audio or video playback is started on the page.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -367,6 +368,7 @@ declare namespace webview {
 
     /**
      * The audio and video on the page are being played.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -375,6 +377,7 @@ declare namespace webview {
 
     /**
      * The audio and video on the page are paused.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -383,6 +386,7 @@ declare namespace webview {
 
     /**
      * The audio and video on the page are stopped.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5004,49 +5008,31 @@ declare namespace webview {
     setNetworkAvailable(enable: boolean): void;
 
     /**
-     * Query if current document has image.
+     * Checks whether this page contains images. This API uses a promise to return the result.
      *
-     * @returns { Promise<boolean> } A promise resolved after query image has finished.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Asynchronous search for image existence on the current page through Promise method.
-     *
-     * @returns { Promise<boolean> } A promise resolved after query image has finished.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     *     <br> The value **true** indicates that this page contains images, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     hasImage(): Promise<boolean>;
 
     /**
-     * Query if current document has image.
+     * Checks whether this page contains images. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Asynchronous search for the presence of an image on the current page through callback method.
-     *
-     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.<br> The value **true** indicates
+     *     that this page contains images, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     hasImage(callback: AsyncCallback<boolean>): void;
 
@@ -5288,24 +5274,17 @@ declare namespace webview {
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
     /**
-     * Set audio muted.
-     * @param { boolean } mute - Set the audio muted or not.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
-     */
-    /**
-     * Set webpage mute.
-     * @param { boolean } mute - Set the audio muted or not.
+     * Mutes this web page.
+     *
+     * @param { boolean } mute - Whether to mute the web page.<br>The value **true** means to mute the web page, and
+     *     **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     setAudioMuted(mute: boolean): void;
 
@@ -5685,10 +5664,12 @@ declare namespace webview {
     getLastJavascriptProxyCallingFrameUrl(): string;
 
     /**
-     * Start current camera, and before using the camera function, please add the permission in module.json5: ohos.permission.CAMERA.
+     * Enables the camera capture of the current web page. Before using the camera, add the **ohos.permission.CAMERA**
+     * permission to **module.json5**. For details about how to add the permission, see
+     * [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md).
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5696,10 +5677,10 @@ declare namespace webview {
     startCamera(): void;
 
     /**
-     * Stop current camera.
+     * Stops the camera capture of the current web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5707,10 +5688,10 @@ declare namespace webview {
     stopCamera(): void;
 
     /**
-     * Close current camera.
+     * Disables the camera capture of the current web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5756,10 +5737,10 @@ declare namespace webview {
     static resumeAllTimers(): void;
 
     /**
-     * Stop all audio and video playback on the web page.
+     * Stops all audio and video on a web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5770,7 +5751,7 @@ declare namespace webview {
      * Resumes the playback of the audio and video that are paused by the pauseAllMedia interface.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5778,10 +5759,10 @@ declare namespace webview {
     resumeAllMedia(): void;
 
     /**
-     * Pause all audio and video playback on the web page.
+     * Pauses all audio and video on a web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5792,7 +5773,7 @@ declare namespace webview {
      * Closes all full-screen videos on a web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5800,11 +5781,12 @@ declare namespace webview {
     closeAllMediaPresentations(): void;
 
     /**
-     * View the playback status of all audio and video on the web page.
+     * Queries the audio and video playback status of the current web page.
      *
-     * @returns { MediaPlaybackState } The playback status of all audio and video.
+     * @returns { MediaPlaybackState } Playback control status of the current web page. The options are **NONE**,
+     *     **PLAYING**, **PAUSED**, and **STOPPED**.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5999,9 +5981,14 @@ declare namespace webview {
     static getDefaultUserAgent(): string;
 
     /**
-     * Register a callback to intercept web pages playing media.
+     * Called when the
+     * [application takes over media playback of the web page](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
+     * and a media file is played on the web page.
      *
-     * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
+     * If the application does not take over media playback on the web page, this callback is not invoked.
+     *
+     * @param { CreateNativeMediaPlayerCallback } callback - Callback when the application takes over media playback on
+     *     the web page.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6987,27 +6974,29 @@ declare namespace webview {
     static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
     /**
-     * Resume current microphone.
+     * Resumes microphone capture on the current web page. Before using the microphone , add the
+     * **ohos.permission.MICROPHONE** permission to **module.json5**. For details about how to add the permission, see
+     * [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md).
      *
-     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
     resumeMicrophone(): void;
 
     /**
-     * Pause current microphone.
+     * Pauses microphone capture on the current web page.
      *
-     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
     pauseMicrophone(): void;
 
     /**
-     * Stop current microphone.
+     * Stops microphone capture on the current web page.
      *
-     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
@@ -8739,148 +8728,170 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link handleStatusChanged} for indicating the playback status.
-   * @enum {number}
+   * Enumerates the playback statuses of the player, which is an input parameter of the
+   * [handleStatusChanged]{@link @ohos.web.webview:webview.NativeMediaPlayerHandler.handleStatusChanged} API.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum PlaybackStatus {
     /**
-     * Player status is paused.
+     * Playing.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     PAUSED = 0,
     /**
-     * Player status is playing.
+     * Paused.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    PLAYING,
+    PLAYING = 1
   }
 
   /**
-   * Enum type supplied to {@link handleNetworkStateChanged} for indicating the native player network state.
-   * @enum {number}
+   * Enumerates the network statuses of the player.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum NetworkState {
     /**
-     * Player does not do any download tasks.
+     * The player has not started downloading data.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     EMPTY = 0,
     /**
-     * Player downloads finished, waiting for next task.
+     * The player's network activity is idle. This could mean that the download of a media segment is complete, and the
+     * player is waiting to start downloading the next segment.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    IDLE,
+    IDLE = 1,
     /**
-     * Player is downloading contents.
+     * The player is downloading media data.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    LOADING,
+    LOADING = 2,
     /**
-     * Player downloads failed, due to network error.
+     * A network error occurs.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    NETWORK_ERROR
+    NETWORK_ERROR = 3
   }
 
   /**
-   * Enum type supplied to {@link handleReadyStateChanged} for indicating the native player network state.
-   * @enum {number}
+   * Enumerates the cache states of the player.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum ReadyState {
     /**
-     * Player hasn't downloaded anything.
+     * There is no data cached.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     HAVE_NOTHING = 0,
     /**
-     * Player has downloaded metadata.
+     * Only media metadata is cached.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_METADATA,
+    HAVE_METADATA = 1,
     /**
-     * Player has played all downloaded media data.
+     * Data up to the current playback position is cached.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_CURRENT_DATA,
+    HAVE_CURRENT_DATA = 2,
     /**
-     * The buffered media data is not enough, and will cause jank.
+     * Data beyond the current playback position is cached, but there might still be stutters during playback.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_FUTURE_DATA,
+    HAVE_FUTURE_DATA = 3,
     /**
-     * The buffered media data is enough.
+     * Sufficient data has been cached to ensure smooth playback.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_ENOUGH_DATA,
+    HAVE_ENOUGH_DATA = 4
   }
 
   /**
-   * Enum type supplied to {@link handleError} for indicating the error type of native media player.
-   * @enum {number}
+   * Enumerates the error types of the player.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum MediaError {
     /**
-     * Network error
+     * Network error.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     NETWORK_ERROR = 1,
     /**
-     * Media format error, such as not a valid file.
+     * Media format error.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    FORMAT_ERROR,
+    FORMAT_ERROR = 2,
     /**
-     * Decode error, such as decoder doesn't support this format.
+     * Decoding error.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    DECODE_ERROR
+    DECODE_ERROR = 3
   }
 
   /**
-   * The native media player status handler.
-   * Apps should use this class to handle native media player's status.
+   * Implements a **NativeMediaPlayerHandler** object used as a parameter of the
+   * [CreateNativeMediaPlayerCallback]{@link @ohos.web.webview:webview.CreateNativeMediaPlayerCallback} callback. The
+   * application uses this object to report the player status to the ArkWeb engine.
    *
-   * @typedef NativeMediaPlayerHandler
+   * > **NOTE**
+   * >
+   * > - The initial APIs of this interface are supported since API version 12.
+   * >
+   * > - The sample effect is subject to the actual device.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -8888,9 +8899,9 @@ declare namespace webview {
   interface NativeMediaPlayerHandler {
 
     /**
-     * Handle native media player playback status.
+     * Called to notify the ArkWeb engine of the playback status of the player when the playback status changes.
      *
-     * @param { PlaybackStatus } status - Playback status of native media player.
+     * @param { PlaybackStatus } status - Player status.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8898,11 +8909,9 @@ declare namespace webview {
     handleStatusChanged(status: PlaybackStatus): void;
 
     /**
-     * Handle native media player volume.
-     *  volume: float
-     *   value range: [0 - 1.0]
+     * Called to notify the ArkWeb engine of the volume of the player when the volume changes.
      *
-     * @param { number } volume - Current volume of native media player.
+     * @param { number } volume - Volume of the player. The value range is [0, 1.0].
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8910,9 +8919,10 @@ declare namespace webview {
     handleVolumeChanged(volume: number): void;
 
     /**
-     * Handle native media player muted status.
+     * Called to notify the ArkWeb engine of the muted status of the player when the muted status changes.
      *
-     * @param { boolean } muted - Current mute status of native media player.
+     * @param { boolean } muted - Whether the player is muted.<br>The value **true** indicates that the player is muted,
+     *     and **false** indicates the opposite.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8920,11 +8930,9 @@ declare namespace webview {
     handleMutedChanged(muted: boolean): void;
 
     /**
-     * Handle playback rate of native media player.
-     *  playbackRate: float
-     *   value range: [0 - infinity]
+     * Called to notify the ArkWeb engine of the playback rate of the player when the playback rate changes.
      *
-     * @param { number } playbackRate - Current playback rate of native media player.
+     * @param { number } playbackRate - Playback rate. The value range is [0, +��).
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8932,11 +8940,9 @@ declare namespace webview {
     handlePlaybackRateChanged(playbackRate: number): void;
 
     /**
-     * Handle duration time of media.
-     *  duration: float
-     *   value range: [0 - infinity]
+     * Called to notify the ArkWeb engine of the total duration of the media.
      *
-     * @param { number } duration - Duration time of media, Unit: seconds.
+     * @param { number } duration - Total duration of the media.<br>Unit: second. Value range: [0,+��)
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8944,11 +8950,9 @@ declare namespace webview {
     handleDurationChanged(duration: number): void;
 
     /**
-     * Handle current playing time of media.
-     *  currentPlayTime: float
-     *   value range: [0 - duration]
+     * Called to notify the ArkWeb engine of the playback progress when the playback progress changes.
      *
-     * @param { number } currentPlayTime - Current playing time of media, Unit: seconds.
+     * @param { number } currentPlayTime - Current progress.<br>Unit: second. Value range: [0, duration]
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8956,11 +8960,10 @@ declare namespace webview {
     handleTimeUpdate(currentPlayTime: number): void;
 
     /**
-     * Handle buffered end time of media.
-     *  bufferedEndTime: float
-     *   value range: [0 - duration]
+     * Called to notify the ArkWeb engine of the buffer time when the buffer time changes.
      *
-     * @param { number } bufferedEndTime - Buffered end time of media, Unit: seconds.
+     * @param { number } bufferedEndTime - Duration of media data in the buffer.<br>Unit: second. Value range:
+     *     [0, duration]
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8968,7 +8971,7 @@ declare namespace webview {
     handleBufferedEndTimeChanged(bufferedEndTime: number): void;
 
     /**
-     * Handle native player ended event.
+     * Called to notify the ArkWeb engine that the media playback ends.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -8977,9 +8980,9 @@ declare namespace webview {
     handleEnded(): void;
 
     /**
-     * Handle network state of native media player.
+     * Called to notify the ArkWeb engine of the network status of the player when the network status changes.
      *
-     * @param { NetworkState } state - Network state of native media player.
+     * @param { NetworkState } state - Network status of the player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8987,9 +8990,9 @@ declare namespace webview {
     handleNetworkStateChanged(state: NetworkState): void;
 
     /**
-     * Handle ready state of native media player.
+     * Called to notify the ArkWeb engine of the cache status of the player when the cache status changes.
      *
-     * @param { ReadyState } state - Ready state of native media player.
+     * @param { ReadyState } state - Cache status of the player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -8997,9 +9000,10 @@ declare namespace webview {
     handleReadyStateChanged(state: ReadyState): void;
 
     /**
-     * Handle native media player fullscreen state changed event.
+     * Called to notify the ArkWeb engine of the full screen status of the player when the full screen status changes.
      *
-     * @param { boolean } fullscreen - Fullscreen state of native media player.
+     * @param { boolean } fullscreen - Whether the player is in full screen.<br>The value **true** means that the player
+     *     is in full screen, and **false** means the opposite.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9007,7 +9011,7 @@ declare namespace webview {
     handleFullscreenChanged(fullscreen: boolean): void;
 
     /**
-     * Handle native media player seeking state.
+     * Called to notify the ArkWeb engine that the player enters the seek state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9016,7 +9020,7 @@ declare namespace webview {
     handleSeeking(): void;
 
     /**
-     * Handle native media player seek finished state.
+     * Called to notify the ArkWeb engine that the seek operation is complete.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9025,10 +9029,10 @@ declare namespace webview {
     handleSeekFinished(): void;
 
     /**
-     * Handle native media player error event.
+     * Called to notify the ArkWeb engine that an error occurs with the player.
      *
-     * @param { MediaError } error - Error type of native media player.
-     * @param { string } errorMessage - Description of current error.
+     * @param { MediaError } error - Error object type.
+     * @param { string } errorMessage - Error message.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9036,10 +9040,10 @@ declare namespace webview {
     handleError(error: MediaError, errorMessage: string): void;
 
     /**
-     * Handle size of video.
+     * Called to notify the ArkWeb engine of the video size of the player.
      *
-     * @param { number } width - Width of video, Unit: px.
-     * @param { number } height - Height of video, Unit: px.
+     * @param { number } width - Video width, in pixels. Value range: [0,+��)
+     * @param { number } height - Video height, in pixels. Value range: [0,+��)
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9212,51 +9216,55 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for indicating the media type of native media player.
-   * @enum {number}
+   * Enumerates the media types.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum MediaType {
     /**
-     * Media type is video.
+     * Video.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     VIDEO = 0,
     /**
-     * Media type is audio.
+     * Audio.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    AUDIO
+    AUDIO = 1
   }
 
   /**
-   * Enum type for indicating the media source type of native media player.
-   * @enum {number}
+   * Enumerates the media source types.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum SourceType {
     /**
-     * The type of media source is URL.
+     * URL.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     URL = 0,
     /**
-     * The type of media source is blob.
+     * Blob.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    MSE
+    MSE = 1
   }
 
   /**
@@ -9269,7 +9277,7 @@ declare namespace webview {
   class MediaSourceInfo {
     /**
      * Source type, most time is URL.
-     * @type { SourceType }
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -9277,7 +9285,7 @@ declare namespace webview {
 
     /**
      * Media source, most time is Uri.
-     * @type { string }
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9286,7 +9294,7 @@ declare namespace webview {
 
     /**
      * Media format, such as mp4, webm, m3u8 etc.
-     * @type { string }
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9295,41 +9303,40 @@ declare namespace webview {
   }
 
   /**
-   * Rectangle definition.
+   * Defines a rectangle.
    *
-   * @typedef RectEvent
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   interface RectEvent {
     /**
-     * X coordinator of top left point, Unit: px.
+     * X-axis coordinate of the upper left corner of the rectangle.
      *
-     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     x: number;
     /**
-     * Y coordinator of top left point, Unit: px.
+     * Y-axis coordinate of the upper left corner of the rectangle.
      *
-     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     y: number;
     /**
-     * Width of this rectangle, Unit: px.
+     * Width of the rectangle.
      *
-     * @type { number }
+     * Unit: px.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     width: number;
     /**
-     * Height of this rectangle, Unit: px.
+     * Height of the rectangle.
      *
-     * @type { number }
+     * Unit: px.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -9337,7 +9344,16 @@ declare namespace webview {
   }
 
   /**
-   * Surface information.
+   * Implements a **NativeMediaPlayerSurfaceInfo** object to provide the surface information used for same-layer
+   * rendering
+   * [when the application takes over the media playback of the web page](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
+   * .
+   *
+   * > **NOTE**
+   * >
+   * > - The initial APIs of this class are supported since API version 12.
+   * >
+   * > - The sample effect is subject to the actual device.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9346,7 +9362,7 @@ declare namespace webview {
   class NativeMediaPlayerSurfaceInfo {
     /**
      * Id of surface.
-     * @type { string }
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9355,7 +9371,7 @@ declare namespace webview {
 
     /**
      * Surface rect info.
-     * @type { RectEvent }
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -9363,127 +9379,136 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for indicating the preload type.
-   * @enum {number}
+   * Enumerates how the player preloads media data.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum Preload {
     /**
-     * Doesn't do preload.
+     * No media data is preloaded.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     NONE = 0,
     /**
-     * Only preload metadata.
+     * Only the metadata of the media is preloaded.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    METADATA,
+    METADATA = 1,
     /**
-     * Preload enough data to ensure playing is smooth.
+     * A sufficient amount of media data is preloaded to ensure smooth playback
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    AUTO
+    AUTO = 2
   }
 
   /**
-   * Media information.
+   * Represents a **MediaInfo** object used as a parameter of the
+   * [CreateNativeMediaPlayerCallback]{@link @ohos.web.webview:webview.CreateNativeMediaPlayerCallback} callback. The
+   * object contains information about media on the web page. The application may create, based on the information, a
+   * player that takes over media playback of the web page.
    *
-   * @typedef MediaInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   interface MediaInfo {
     /**
-     * Id of media element.
-     * @type { string }
+     * ID of **<video>** or **<audio>** on the web page.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     embedID: string,
     /**
-     * Media type : Video or Audio.
-     * @type { MediaType }
+     * Type of the media.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     mediaType: MediaType,
     /**
-     * Media source list, player should choose an appropriate one to play.
-     * @type { MediaSourceInfo[] }
+     * Source of the media. There may be multiple sources. The application needs to select a supported source to play.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     mediaSrcList: MediaSourceInfo[],
     /**
-     * Surface to render media content on.
-     * @type { NativeMediaPlayerSurfaceInfo }
+     * Surface information used for same-layer rendering.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     surfaceInfo: NativeMediaPlayerSurfaceInfo,
     /**
-     * Should show media controls.
-     * @type { boolean }
+     * Whether the **controls** attribute exists in **<video>** or **<audio>**.
+     *
+     * The value **true** means that the **controls** attribute exists in **<video>** or **<audio>**, and **false**
+     * means the opposite.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     controlsShown: boolean,
     /**
-     * Limit media controls items.
-     *  Such as 'nodownload', 'nofullscreen', 'noremoteplayback'
-     * @type { string[] }
+     * Value of the **controlslist** attribute in **<video>** or **<audio>**.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     controlList: string[],
     /**
-     * Player should be muted;
-     * @type { boolean }
+     * Whether to mute the player.
+     *
+     * The value **true** means to mute the player, and **false** means the opposite.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     muted: boolean,
     /**
-     * Player should show poster before media first frame shown.
-     * @type { string }
+     * URL of a poster.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     posterUrl: string,
     /**
-     * Preload type.
-     * @type { Preload }
+     * Whether preloading is required.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     preload: Preload,
     /**
-     * Header information of a media network request.
-     * @type { Record<string, string> }
+     * HTTP headers that need to be included in the player's request for media resources.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     headers: Record<string, string>,
     /**
-     * The information list of attributes of media tag.
-     * @type { Record<string, string> }
+     * Attributes in **<video>** or **<audio>**.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
