@@ -7273,16 +7273,15 @@ declare enum AudioSessionType {
 }
 
 /**
- * PDF page load result
+ * Enumerates the PDF page loading results.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare enum PdfLoadResult {
 
   /**
-   * The PDF page load success.
+   * The PDF file is successfully loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7290,7 +7289,7 @@ declare enum PdfLoadResult {
   LOAD_SUCCESS = 0,
 
   /**
-   * The error code for web load PDF file failed.
+   * The PDF file fails to be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7298,7 +7297,7 @@ declare enum PdfLoadResult {
   PARSE_ERROR_FILE = 1,
 
   /**
-   * The error code for the PDF format is not support.
+   * The PDF file format is not supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7306,7 +7305,7 @@ declare enum PdfLoadResult {
   PARSE_ERROR_FORMAT = 2,
 
   /**
-   * The error code for the PDF password is wrong.
+   * The PDF file password is incorrect.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7314,7 +7313,7 @@ declare enum PdfLoadResult {
   PARSE_ERROR_PASSWORD = 3,
 
   /**
-   * The error code for the  PDF handler process failed.
+   * The PDF file fails to be processed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
