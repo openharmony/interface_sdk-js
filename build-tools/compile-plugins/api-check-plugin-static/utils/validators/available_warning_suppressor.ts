@@ -96,8 +96,7 @@ class SdkComparisonValidator implements NodeValidator {
   }
 
   private checkApiAvailableComparison(testNode: arkts.AstNode): boolean {
-    const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, testNode.peer);
-    if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_CALL_EXPRESSION) {
+    if (!arkts.isCallExpression(testNode)) {
       return false;
     }
     
