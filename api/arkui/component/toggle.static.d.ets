@@ -232,7 +232,18 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set toggle options.
+     *
+     * @param { ToggleOptions } options - toggle constructor options
+     * @returns { ToggleAttribute } Returns the instance of the ToggleAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setToggleOptions(options: ToggleOptions): this;
+ }
 
 /**
  * Defines Toggle Component.
@@ -305,3 +316,20 @@ export declare abstract class ExtendableToggle implements ToggleAttribute {
      */
     public setToggleOptions(options: ToggleOptions): this;
 }
+
+/**
+ * Defines Toggle Component.
+ *
+ * @param { CustomBuilderT<ToggleAttribute> } style_ - toggle attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ToggleAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Toggle(
+    style_: CustomBuilderT<ToggleAttribute>,
+    content_?: CustomBuilder,
+): ToggleAttribute

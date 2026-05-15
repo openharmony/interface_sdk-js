@@ -20,7 +20,7 @@
 import { CommonMethod, ContentModifier, CommonConfiguration, Callback, Bindable } from './common';
 import { CustomBuilder } from './builder';
 import { ResourceColor } from './units';
-import { ComponentBuilder } from './builder';
+import { ComponentBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the IndicatorType of Radio component
@@ -213,7 +213,18 @@ export declare interface RadioAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<RadioAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set radio options.
+     *
+     * @param { RadioOptions } options - radio constructor options
+     * @returns { RadioAttribute } Returns the instance of the RadioAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setRadioOptions(options: RadioOptions): this;
+ }
 /**
  * RadioConfiguration used by radio Configuration
  *
@@ -266,5 +277,22 @@ export declare interface RadioConfiguration extends CommonConfiguration<RadioCon
 @ComponentBuilder
 export declare function Radio(
     options: RadioOptions,
+    content_?: CustomBuilder,
+): RadioAttribute
+
+/**
+ * Defines Radio Component.
+ *
+ * @param { CustomBuilderT<RadioAttribute> } style_ - radio attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { RadioAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Radio(
+    style_: CustomBuilderT<RadioAttribute>,
     content_?: CustomBuilder,
 ): RadioAttribute

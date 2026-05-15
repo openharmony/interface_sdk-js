@@ -19,7 +19,7 @@
  */
 import { CommonMethod } from './common';
 import { Length, Font, ResourceColor, Dimension, BorderRadiuses, DividerStyleOptions } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
 /**
@@ -151,7 +151,17 @@ export declare interface MenuAttribute extends CommonMethod {
      */
     default attributeModifier(
         modifier: AttributeModifier<MenuAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set menu options.
+     *
+     * @returns { MenuAttribute } Returns the instance of the MenuAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setMenuOptions(): this;
+ }
 
 /**
  * Defines Menu Component.
@@ -164,6 +174,23 @@ export declare interface MenuAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function Menu(
-    
+
+    content_?: CustomBuilder,
+): MenuAttribute
+
+/**
+ * Defines Menu Component.
+ *
+ * @param { CustomBuilderT<MenuAttribute> } style_ - menu attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { MenuAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Menu(
+    style_: CustomBuilderT<MenuAttribute>,
     content_?: CustomBuilder,
 ): MenuAttribute
