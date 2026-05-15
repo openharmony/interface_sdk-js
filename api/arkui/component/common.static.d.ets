@@ -13982,6 +13982,15 @@ export declare interface CommonMethod {
      */
     default debugLine(sourceLine: string, moduleName?: string): this;
     /**
+     * Notify the component is fiished setting up its attributes.
+     * 
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default applyAttributesFinish(): void;
+    /**
      * Enable or disable specific smart gesture shortcuts, and set response priorities for them.
      *
      * @param { SmartGestureShortcutOptions } [options] - Options for configuring smart gesture shortcuts.
