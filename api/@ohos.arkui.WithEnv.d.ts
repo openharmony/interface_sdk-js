@@ -28,18 +28,30 @@
  */
 export declare class WithEnvAttribute {
 
-  /**
-   * Defining Custom Environment Variables
+/**
+   * Defining System Environment Variables
    *
-   * @param { string } key - Keys for custom environment variables.
-   * @param { any } value - Values of custom environment variables.
+   * @param { WritableSystemEnvKey<T> } key - Keys for system environment variables.
+   * @param { T } value - Values of system environment variables.
    * @returns { WithEnvAttribute } WithEnvAttribute object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  customEnv(key: string, value: any): WithEnvAttribute;
+  env<T>(key: WritableSystemEnvKey<T>, value: T): WithEnvAttribute;
+  /**
+   * Defining Custom Environment Variables
+   *
+   * @param { CustomEnvKey<T> } key - Keys for custom environment variables.
+   * @param { T } value - Values of custom environment variables.
+   * @returns { WithEnvAttribute } WithEnvAttribute object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  customEnv<T>(key: CustomEnvKey<T>,  value: T): WithEnvAttribute;
 }
 
 

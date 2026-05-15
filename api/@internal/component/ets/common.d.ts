@@ -1049,6 +1049,132 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
+ * Defines the class of System Env Key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare class SystemEnvKey<T> {
+  /**
+   * The corresponding type of the system env key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  private type?: T;
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  protected constructor();
+}
+/**
+ * Defines writable system environment variable keys.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
+/**
+ * Define read-only system environment variable keys.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
+/**
+ * Defines the custom environment Key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare class CustomEnvKey<S> {
+  /**
+   * The corresponding type of the custom env key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  private type?: S;
+  /**
+   * create CustomEnvKey
+   *
+   * @returns { CustomEnvKey<T> } CustomEnvKey
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  static create<T>(): CustomEnvKey<T>;
+
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  protected constructor();
+}
+/**
+ * Defines the system environment key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare class WritableEnvKey {
+  /**
+   * Defines the system environment key direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  static readonly DIRECTION: WritableSystemEnvKey<Direction>;
+  /**
+   * Defines the system environment key fontScale.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  static readonly FONT_SCALE: WritableSystemEnvKey<double>;
+}
+
+/**
+ * Defines the custom environment PropertyDecorator.
+ *
+ * @param { CustomEnvKey<T> } key - custom environment key.
+ * @returns { PropertyDecorator } CustomEnv decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
+
+/**
  * Define Env Decorator type
  *
  * @typedef { function } EnvDecorator
@@ -1061,39 +1187,19 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  * @since 22 dynamic
  */
 declare type EnvDecorator = (value: SystemProperties) => PropertyDecorator;
-
 /**
  * Defining Env PropertyDecorator.
- * @type { EnvDecorator }
+ * On API 26.0.0 and above, the parameter also supports the SystemEnvKey<T> type.
+ *
+ * @param { SystemProperties } key - key value input by the user. [since 22 - 24]
+ * @param { SystemEnvKey<T> | SystemProperties } key - key value input by the user. [since 26.0.0]
+ * @returns { PropertyDecorator } Env decorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 22 dynamic
  */
-declare const Env: EnvDecorator;
-
-/**
- * Defines the custom environment PropertyDecorator.
- *
- * @param { string } value - custom environment key.
- * @returns { PropertyDecorator } CustomEnv decorator
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare type CustomEnvDecorator = (value: string) => PropertyDecorator;
-
-/**
- * Defining CustomEnv PropertyDecorator.
- *
- * @type { CustomEnvDecorator }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-declare const CustomEnv: CustomEnvDecorator;
+declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecorator;
 
 /**
  * Defining Environment variable enumeration value.
