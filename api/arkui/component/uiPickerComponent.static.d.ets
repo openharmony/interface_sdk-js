@@ -22,7 +22,7 @@ import { ResourceColor, BorderRadiuses, LocalizedBorderRadiuses } from "./units"
 import { CommonMethod } from './common';
 import { LengthMetrics } from './../Graphics';
 import { AttributeModifier } from "./common";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 /**
  * Defines the options of Picker.
  *
@@ -170,6 +170,16 @@ export declare interface PickerIndicatorStyle {
  */
 export declare interface UIPickerComponentAttribute extends CommonMethod {
   /**
+   * Sets the UI picker component options.
+   *
+   * @param { UIPickerComponentOptions } [options] - picker options.
+   * @returns { UIPickerComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setUIPickerComponentOptions(options?: UIPickerComponentOptions): this;
+  /**
    * This event is triggered when a Picker item is selected.
    * @param { OnUIPickerComponentCallback | undefined } callback - The callback of onChange.
    * @returns { UIPickerComponentAttribute }
@@ -264,6 +274,23 @@ export declare interface UIPickerComponentAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function UIPickerComponent(
-    options?: UIPickerComponentOptions, 
+    options?: UIPickerComponentOptions,
     content_?: CustomBuilder
+): UIPickerComponentAttribute;
+/**
+ * Defines the UIPickerComponent component. It requires call setUIPickerComponentOptions at start of the component
+ * attribute set-up. and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<UIPickerComponentAttribute> } style - the callback to set up component's attribute.
+ * @param { CustomBuilder } [content_]
+ * @returns { UIPickerComponentAttribute } The attribute of the UIPickerComponent.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ * @noninterop
+ */
+@Builder
+export declare function UIPickerComponent(
+  style: CustomBuilderT<UIPickerComponentAttribute>,
+  content_?: CustomBuilder
 ): UIPickerComponentAttribute;
