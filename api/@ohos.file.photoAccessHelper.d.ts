@@ -14963,45 +14963,7 @@ declare namespace photoAccessHelper {
      * @since 21 dynamic
      * @since 23 static
      */
-    /**
-     * Start downloading cloud assets.
-     *
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string[] } assetUris - List of URIs to be downloaded.
-     * @param { int } [taskSequence] - Task sequence set by the application.
-     * @returns { Promise<Map<string, CloudAssetDownloadCode>> } Youdo not have the permission.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     1. The assetUris array is empty;
-     *     2. The assetUris array size is bigger than 500.
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    startDownloadSpecificCloudMedia(assetUris: string[], taskSequence?: int): Promise<Map<string, CloudAssetDownloadCode>>;
-
-    /**
-     * Set the network policy for downloading cloud assets.
-     *
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string[] } assetUris - List of asset URIs to be downloaded
-     * @param { CloudDownloadNetworkPolicy } networkPolicy - network policy
-     * @returns { Promise<void> } Returnnull
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
-     *     1. The assetUris array is empty;
-     *     2. The assetUris array size is bigger than 500.
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    setDownloadSpecificCloudMediaNetworkPolicy(assetUris: string[], networkPolicy: CloudDownloadNetworkPolicy): Promise<void>;
+    startDownloadSpecificCloudMedia(assetUris: string[]): Promise<Map<string, CloudAssetDownloadCode>>;
 
     /**
      * Pause download cloud assets.
@@ -15093,25 +15055,6 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     queryDownloadSpecificCloudMediaTaskCount(predicates: dataSharePredicates.DataSharePredicates): Promise<int>;
-
-    /**
-     * Query download cloud assets count and size.
-     *
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { dataSharePredicates.DataSharePredicates } predicates - Filtering parameters
-     * @returns { Promise<int[]> } Returns download cloud assets count and size.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
-     * @throws { BusinessError } 23800151 - Scenario parameters fail to pass the verification.
-     *     Possible causes: Predicates null or undefined.
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-	 * @stagemodelonly
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    queryDownloadSpecificCloudMediaTaskCountAndSize(predicates: dataSharePredicates.DataSharePredicates): Promise<int[]>;
 
     /**
      * Register callback of download cloud assets task.
@@ -16314,41 +16257,6 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     static getRelatedEntity (topic: string, context: ContextMap, option?: Options): Promise<Entity[]>;
-  }
-
-  /**
-   * Network policy which is used to download cloud assets.
-   *
-   * @enum { int } CloudDownloadNetworkPolicy
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @systemapi
-   * @since 26.0.0 dynamic&static
-   */
-  enum CloudDownloadNetworkPolicy {  
-    /**
-     * DEFAULT means only download cloud assets when the network is WIFI without user selected it.
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    DEFAULT = 0,
-    /**
-     * CELL means download cloud assets when network is CELL or WIFI
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    CELL = 1,
-    /**
-     * WIFI means only download cloud assets when network is WIFI with user selected WIFI
-     *
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @systemapi
-     * @since 26.0.0 dynamic&static
-     */
-    WIFI = 2
   }
 
   /**
