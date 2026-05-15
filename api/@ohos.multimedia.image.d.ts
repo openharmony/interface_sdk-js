@@ -7165,6 +7165,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     release(): void;
+
+    /**
+     * Invokes the VPE algorithm to compose the main pixelmap and gainmap. The composed result will replace the
+     * main pixelmap of the current picture object.
+     *
+     * The Picture object that calls this API must contain the main pixelmap, gain map.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 7600201 - Unsupported operation. e.g.,1. The picture does not have a gainmap.
+     *     2. pixelMap's allocator type is not DMA.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    hdrComposeToMainPixelmap(): Promise<void>;
   }
 
   /**
@@ -7508,6 +7523,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 23 static
      */
     FRAGMENT_MAP = 5,
+    
+    /**
+     * LHDR gain map.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+    */
+    LHDR_GAINMAP = 10,
   }
 
   /**
