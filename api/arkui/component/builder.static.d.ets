@@ -24,6 +24,7 @@ import { Callback } from '@ohos.base';
  * Defines Builder Annotation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
