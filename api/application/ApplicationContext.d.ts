@@ -34,6 +34,7 @@ import type ApplicationStateChangeCallback from '../@ohos.app.ability.Applicatio
 import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
 import systemConfiguration from '../@ohos.app.ability.systemConfiguration';
+import UIAbility from '../@ohos.app.ability.UIAbility';
 
 /**
  * ApplicationContext inherits from [Context]{@link ./../app/context} and provides application-level management
@@ -978,6 +979,25 @@ declare class ApplicationContext extends Context {
    * @useinstead ApplicationContext#getRunningProcessInformation
    */
   getProcessRunningInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+   /**
+    * Get the UIAbility instance by the instance Id.
+    *
+    * <p>**NOTE**:
+    * <br>It can be called only by the main thread.
+    * </p>
+    *
+    * @param { string } instanceId - The instanceId of the UIAbility.
+    * @returns { UIAbility } The UIAbility instance.
+    * @throws { BusinessError } 16000003 - The id does not exist.
+    * @throws { BusinessError } 16000011 - The context does not exist.
+    * @throws { BusinessError } 16000050 - Internal error.
+    *     System service failed to communicate with dependency module.
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+   getUIAbilityByInstanceId(instanceId: string): UIAbility;
 }
 
 export default ApplicationContext;

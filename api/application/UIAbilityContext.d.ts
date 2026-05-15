@@ -2919,6 +2919,22 @@ declare class UIAbilityContext extends Context {
    * @useinstead UIAbilityContext#disconnectServiceExtensionAbility(connection: long)
    */
   disconnectAbility(connection: long): Promise<void>;
+
+  /**
+   * Bring the current UIAbility instance to the foreground.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported, because starting self to foreground
+   *     from background is not supported in current devive or current UIAbility is a non-native UIAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Connect to system service failed.
+   * @throws { BusinessError } 16000082 - The UIAbility is being started.
+   *     The UIAbility has not completed onCreate or onWindowStageCreate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  startSelf(): Promise<void>;
 }
 
 export default UIAbilityContext;
