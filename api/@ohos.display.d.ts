@@ -1533,6 +1533,17 @@ declare namespace display {
      * @since 23 static
      */
     readonly maxHeadroom: double;
+    /**
+     * Position of the brightness bar corresponding to the current screen brightness.
+     * Value range: [0.0,1.0]. Default value: 0.0.
+     *
+     * @readonly
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readonly brightnessPosition?: double;
   }
 
   /**
