@@ -1755,6 +1755,18 @@ export declare interface NavigationAttribute extends CommonMethod {
      * Sets Navigation options.
      *
      * @param { NavPathStack } [pathInfos] - the stack of navigation
+     * @param { NavigationModuleInfo } [moduleInfo] - the pageInfo and module info of Navigation.
+     * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setNavigationOptions(pathInfos?: NavPathStack, moduleInfo?: NavigationModuleInfo): this;
+
+    /**
+     * Sets Navigation options.
+     *
+     * @param { NavPathStack } [pathInfos] - the stack of navigation
      * @param { HomePathInfo } [homeDestination] - the custom home destination destination info.
      * @param { NavigationModuleInfo } [moduleInfo] - the pageInfo and module info of navigation
      * @returns { NavigationAttribute } Returns instance of the NavigationAttribute.
@@ -1763,18 +1775,6 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @since 26.0.0 staticonly
      */
     default setNavigationOptions(pathInfos?: NavPathStack, homeDestination?: HomePathInfo, moduleInfo?: NavigationModuleInfo): this;
-
-    /**
-     * Sets Navigation options.
-     *
-     * @param { NavPathStack } [pathInfos] - the stack of navigation
-     * @param { NavigationModuleInfo } [moduleInfo] - the pageInfo and module info of Navigation.
-     * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setNavigationOptions(pathInfos?: NavPathStack, moduleInfo?: NavigationModuleInfo): this;
 
     /**
      * Set the attribute modifier of navigation.
