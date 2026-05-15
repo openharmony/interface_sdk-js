@@ -11491,7 +11491,7 @@ declare enum CrownAction {
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
-   * @deprecated since 24 dynamic
+   * @deprecated since 24
    */
   BEGIN = 0,
 
