@@ -210,26 +210,6 @@ declare namespace workScheduler {
   }
 
   /**
-   * 当前任务触发时满足的最后一个条件。
-   *
-   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  const WORK_SCHEDULER_CONDITION = 'WORK_SCHEDULER_CONDITION';
-
-  /**
-   * 请求的任务是否立即执行。
-   *
-   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  const EXECUTE_IMMEDIATE = 'executeImmediate';
-
-  /**
    * 申请延迟任务，成功后会把任务添加到执行队列，满足触发条件后由系统调度执行。
    *
    * @param { WorkInfo } work - The info of work.
