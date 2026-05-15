@@ -14,6 +14,7 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
+import { CheckValidCallbackInterface } from '../../utils/api_check_plugin_typedef';
 
 /**
  * Diagnostic category enum for log levels
@@ -45,7 +46,7 @@ export interface JsDocNodeCheckConfigItem {
   message: string;
   type: DiagnosticCategory;
   tagNameShouldExisted: boolean;
-  checkValidCallback?: (jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem, node?: any, declaration?: any) => boolean;
+  checkValidCallback?: CheckValidCallbackInterface;
 }
 
 /**

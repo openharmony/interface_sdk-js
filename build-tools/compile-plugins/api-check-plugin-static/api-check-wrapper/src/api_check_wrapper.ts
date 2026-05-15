@@ -263,7 +263,7 @@ function expressionCheckByJsDoc(
       }
   
       if (config.checkValidCallback) {
-        tagNameExisted = config.checkValidCallback(jsDocs, config);
+        tagNameExisted = config.checkValidCallback(jsDocs, config, identifier, declaration);
       } else {
         tagNameExisted = true;
       }

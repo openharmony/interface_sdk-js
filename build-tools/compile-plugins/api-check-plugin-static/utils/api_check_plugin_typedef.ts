@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import * as arkts from '@koalaui/libarkts';
 import { JSDoc, JsDocNodeCheckConfigItem } from '../api-check-wrapper';
 import { PermissionValidTokenState } from './api_check_plugin_define';
 
@@ -109,7 +110,8 @@ export interface DependentModuleConfig {
 }
 
 export interface CheckValidCallbackInterface {
-  (jsDocTag: JSDoc[], config: JsDocNodeCheckConfigItem): boolean;
+  (jsDocTag: JSDoc[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode,
+    declaration?: arkts.AstNode): boolean;
 }
 
 export interface SyscapConfig {
