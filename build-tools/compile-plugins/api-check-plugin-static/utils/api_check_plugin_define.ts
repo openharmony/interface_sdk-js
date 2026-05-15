@@ -47,6 +47,51 @@ export const SINCE_TAG_CHECK_ERROR: string =
   "The '{0}' API is supported since SDK version $SINCE1. However, the current compatible SDK version is $SINCE2.";
 export const ATOMICSERVICE_TAG_CHECK_VERSION: number = 11;
 export const FIND_MODULE_WARNING: string = "Cannot find name '{0}'.";
+
+export const AVAILABLE_TAG_NAME: string = 'available';
+export const AVAILABLE_DECORATOR_WARNING: string =
+  "The '{0}' API is available since SDK version $SINCE1. However, the current compatible SDK version is $SINCE2.";
+export const AVAILABLE_FILE_NAME: string = '@ohos.annotation.d.ets';
+export const AVAILABLE_VERSION_FORMAT_ERROR_PREFIX: string =
+  'The runtime OS for the current project is $RUNTIMEOS. The OS version number $VERSION is invalid.';
+export const AVAILABLE_OSNAME_ERROR: string =
+  'The runtime OS for the current project is $RUNTIMEOS. @Available is not supported on the OS: $OSNAME.';
+export const AVAILABLE_SCOPE_ERROR: string =
+  'Unnecessary. The outer annotation already indicates that the version is greater than or equal to $VERSION.';
+export const AVAILABLE_VERSION_FORMAT_ERROR: string =
+  'The OpenHarmony version must be an integer between 1 and 999, and when the OpenHarmony version is greater than or equal to 26, the version number format also supports the M.S.F format.';
+export const MSF_INTEGER_VERSION: number = 26;
+export const MSF_SANDF_VERSION: number = 99;
+
+/**
+ * Permission validation token state enum
+ */
+export enum PermissionValidTokenState {
+  Init,
+  LeftParenthesis,
+  RightParenthesis,
+  PermissionChar,
+  And,
+  Or,
+}
+
+export enum ComparisonResult {
+  Less = -1,
+  Equal = 0,
+  Greater = 1
+}
+
+export enum ComparisonSenario {
+  Trigger = 0,
+  SuppressByOHVersion = 1,
+  SuppressByOtherOSVersion = 2,
+}
+
+export const comparisonFunctions = {
+  valueChecker: new Map<string, ValueCheckerFunction>(),
+  formatChecker: new Map<string, FormatCheckerFunction>()
+};
+
 export const CONSTANT_STEP_0: number = 0;
 export const CONSTANT_STEP_1: number = 1;
 export const CONSTANT_STEP_2: number = 2;
@@ -59,3 +104,23 @@ export const MESSAGE_CONFIG_COLOR_ERROR: string = 'color:#f5a623';
 export const MESSAGE_CONFIG_COLOR_WARNING: string = 'color:#d0021b';
 export const MESSAGE_CONFIG_HEADER_ERROR: string = 'ArkTS:ERROR File: ';
 export const MESSAGE_CONFIG_HEADER_WARNING: string = 'ArkTS:WARN File: ';
+
+export interface VersionValidationResult {
+  result: boolean;
+  message?: string;
+}
+
+export type ValueCheckerFunction = (
+  sinceVersion: string,
+  targetVersion: string,
+  triggerScene: number
+) => VersionValidationResult;
+
+export type FormatCheckerFunction = (version: string) => VersionValidationResult;
+
+export const SUPPRESSWARNINGS_RULE_INFO: Map<string, string> = new Map([
+  [SINCE_TAG_NAME, 'SuppressWarnings'],
+  [AVAILABLE_TAG_NAME, 'SuppressWarnings'],
+  [SYSCAP_TAG_CHECK_NAME, 'SuppressWarnings'],
+  [PERMISSION_TAG_CHECK_NAME, 'SuppressWarnings']
+]);

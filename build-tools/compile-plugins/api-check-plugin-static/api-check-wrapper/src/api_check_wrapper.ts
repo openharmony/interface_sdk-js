@@ -185,7 +185,7 @@ export function checkIdentifier(node: arkts.AstNode): void {
   let sysPath = getSysPath(decl);
 
   if (sysPath === undefined || sysPath === null) {
-    return
+    return;
   }
   let checkPram: JsDocNodeCheckConfig = curApiCheckWrapper.apiCheckHost.getJsDocNodeCheckedConfig(
     curFileCheckModuleInfo.currentFileName, sysPath);
@@ -225,18 +225,17 @@ function confirmNodeChecked(nodeName: string, line: number, col: number): boolea
  * @returns { string } Api文件路径
  */
 function getSysPath(decl: arkts.AstNode): string {
-  // 获取节点的声明节点，
   let program = arkts.getProgramFromAstNode(decl);
-  return program.sourceFilePath;
+  return program?.sourceFilePath || '';
 }
 
 /**
  * 通过声明节点获取Jsdoc注释内容
  * 
- * @param { arkts.AstNde } decl 声明节点
+ * @param { arkts.AstNode } decl 声明节点
  * @returns { string } 注释信息
  */
-export function getPeerJsDocs(decl: arkts.AstNde): string {
+export function getPeerJsDocs(decl: arkts.AstNode): string {
   return getJSDocInformation(decl);
 }
 
@@ -257,10 +256,10 @@ function expressionCheckByJsDoc(
   for (let i = 0; i < checkConfig.length; i++) {
     const config: JsDocNodeCheckConfigItem = checkConfig[i];
     let tagNameExisted = false;
-    jsDocTags.forEach((item) => {
+    
+    for (const item of jsDocTags) {
       if (!config.tagName.includes(item.tag)) {
-        tagNameExisted = false;
-        return;
+        continue;
       }
   
       if (config.checkValidCallback) {
@@ -277,8 +276,10 @@ function expressionCheckByJsDoc(
           config.type, 
           config.message
         );
+        break;
       }
-    })
+    }
+    
     if (config.tagNameShouldExisted && !tagNameExisted) {
       curApiCheckWrapper.apiCheckHost.pushLogInfo(
         identifier.name, curApiCheckWrapper.fileName,
@@ -310,7 +311,7 @@ function getCurrentAddressByNode(node: arkts.AstNode): CurrentAddress {
  */
 function getCurrentJSDoc(jsDocs: JSDoc[]): JSDocTag[] {
   let jsDocTags: JSDocTag[] = [];
-  let maxVersion: number = 0;
+  let maxVersion: string = '0';
 
   if (!jsDocs || jsDocs.length === 0) {
     return jsDocTags;
@@ -323,14 +324,32 @@ function getCurrentJSDoc(jsDocs: JSDoc[]): JSDocTag[] {
       if (tag.tag !== SINCE_TAG_NAME) {
         continue;
       }
-      const currentVersion: number = Number.parseInt(tag.name ?? '0');
-      if (!Number.isNaN(currentVersion) && currentVersion > maxVersion) {
+      const currentVersion: string = (tag.name ?? tag.comment ?? '0').trim();
+      if (!currentVersion || currentVersion === '0') {
+        continue;
+      }
+      if (compareVersionStrings(currentVersion, maxVersion) > 0) {
         maxVersion = currentVersion;
         jsDocTags = jsdoc.tags;
       }
-      break;
     }
   }
 
   return jsDocTags;
+}
+
+function compareVersionStrings(v1: string, v2: string): number {
+  const parseVersion = (v: string): number[] => {
+    const parts = v.split('.').map(p => parseInt(p, 10) || 0);
+    return [parts[0] || 0, parts[1] || 0, parts[2] || 0];
+  };
+  
+  const p1 = parseVersion(v1);
+  const p2 = parseVersion(v2);
+  
+  for (let i = 0; i < 3; i++) {
+    if (p1[i] > p2[i]) return 1;
+    if (p1[i] < p2[i]) return -1;
+  }
+  return 0;
 }

@@ -15,6 +15,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import * as arkts from '@koalaui/libarkts';
 import { globalObject, initApiCheckConfig } from '../index';
 import {
   CheckValidCallbackInterface,
@@ -31,7 +32,8 @@ import {
   ModuleJson,
   CardConfig,
   CardForm,
-  Logger
+  Logger,
+  ParsedVersion
 } from './api_check_plugin_typedef';
 import {
   MESSAGE_CONFIG_COLOR_ERROR,
@@ -46,7 +48,18 @@ import {
   SINCE_TAG_CHECK_ERROR,
   SINCE_TAG_NAME,
   STAGE_COMPILE_MODE,
-  SYSCAP_TAG_CHECK_NAME
+  SYSCAP_TAG_CHECK_NAME,
+  AVAILABLE_DECORATOR_WARNING,
+  ComparisonResult,
+  ComparisonSenario,
+  comparisonFunctions,
+  MSF_INTEGER_VERSION,
+  AVAILABLE_VERSION_FORMAT_ERROR,
+  AVAILABLE_TAG_NAME,
+  ValueCheckerFunction,
+  FormatCheckerFunction,
+  VersionValidationResult,
+  PermissionValidTokenState
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
@@ -55,55 +68,178 @@ import {
   JsDocNodeCheckConfigItem,
   JSDocTag
 } from '../api-check-wrapper';
-import { PermissionValidTokenState } from './api_check_plugin_enums';
+import {
+  getAvailableNodeKey,
+  availableNodeCheckConfigCache,
+  isAvailableDecorator,
+  extractMinApiFromDecorator,
+  getValidAnnotationFromNode
+} from '../api-check-wrapper/utils/available_decorator_utils';
+import { SinceJSDocChecker } from '../api-check-wrapper/validators/since_version_checker';
+import { SinceWarningSuppressor } from '../api-check-wrapper/validators/since_warning_suppressor';
+import { SyscapWarningSuppressor } from '../api-check-wrapper/validators/syscap_warning_suppressor';
+import { PermissionWarningSuppressor } from '../api-check-wrapper/validators/permission_warning_suppressor';
+import { AvailableAnnotationChecker } from '../api-check-wrapper/validators/available_comparison_validator';
+import { AvailableWarningSuppressor } from '../api-check-wrapper/validators/available_warning_suppressor';
+import {
+  defaultFormatCheckerCompatibileIntegerAndMSF,
+  defaultValueChecker,
+  getFormatChecker,
+  getValueChecker,
+  getVersionByValueChecker,
+  parseVersionString,
+  initComparisonFunctions,
+  comparePointVersion,
+  checkMSFVersionMajor,
+  defaultFormatChecker,
+  isOpenHarmonyRuntime,
+  compareVersions,
+  initValueChecker,
+  initFormatChecker
+} from './api_check_base_utils';
 
-/**
- * 从 JSON 文件中提取所有 src 字段到数组
- * 
- * @param { string } filePath JSON 文件的绝对路径
- * @returns { string[] } 包含所有 src 字段的字符串数组
- * @throws 文件不存在、JSON 解析错误或数据结构不符时抛出异常
- */
-export function extractSrcPaths(filePath: string): string[] {
-  // 1. 验证路径格式和存在性
-  if (!path.isAbsolute(filePath)) {
-    throw new Error(`路径必须是绝对路径: ${filePath}`);
-  }
+interface ExternalApiChecker {
+  check?: (node: any, declaration: any, projectConfig: any) => { checkResult: boolean; checkMessage?: string };
+}
 
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`文件不存在: ${filePath}`);
-  }
+const externalApiCheckerMap: Map<string, ExternalApiChecker[]> = new Map<string, ExternalApiChecker[]>();
 
-  try {
-    // 2. 读取并解析 JSON 文件
-    const rawData = fs.readFileSync(filePath, 'utf-8');
-    const config: ConfigSchema = JSON.parse(rawData);
-
-    // 3. 验证数据结构
-    if (!config.forms || !Array.isArray(config.forms)) {
-      throw new Error('JSON 缺少 forms 数组');
-    }
-
-    // 4. 提取所有 src 字段
-    const srcPaths: string[] = [];
-    for (const form of config.forms) {
-      if (form.src && typeof form.src === 'string') {
-        let src = form.src.replace(/^\.\/ets/, '');
-        srcPaths.push(globalObject.projectConfig?.projectPath + src);
-      } else {
-        console.warn(`跳过无效 src 字段的表单项: ${form.name}`);
+function checkMergingComments(tagName: string): (jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.AstNode) => boolean {
+  return (
+    jsDocs: JSDoc[],
+    config: JsDocNodeCheckConfigItem,
+    node?: arkts.AstNode,
+    declaration?: arkts.AstNode
+  ): boolean => {
+    let isflag = true;
+    if (jsDocs && jsDocs.length > 0) {
+      for (const jsDoc of jsDocs) {
+        if (jsDoc.tags) {
+          for (const tagN of jsDoc.tags) {
+            if (tagName === tagN.tag && tagN.comment !== undefined) {
+              const versionRange = extractVersionRange(tagN.comment);
+              if (versionRange !== undefined) {
+                const startVersion = versionRange.start;
+                const endVersion = versionRange.end;
+                const minSDKVersion = globalObject.projectConfig.compatibleSdkVersion;
+                const maxSDKVersion = globalObject.projectConfig.compileSdkVersion;
+                isflag = isVersionRangeIntersect(startVersion, endVersion, minSDKVersion, maxSDKVersion);
+              }
+            }
+          }
+        }
       }
     }
+    return isflag;
+  };
+}
 
-    // 5. 返回结果数组
-    return srcPaths;
-  } catch (error) {
-    // 6. 增强错误信息
-    if (error instanceof SyntaxError) {
-      throw new SyntaxError(`JSON 解析错误: ${error.message}`);
-    }
-    throw new Error(`处理失败: ${error instanceof Error ? error.message : String(error)}`);
+function extractVersionRange(comment: string): { start: string; end: string } | undefined {
+  const pattern = /\[since (.*?)\]/;
+  const match = comment.match(pattern);
+  if (!match) {
+    return undefined;
   }
+  const rangeStr = match[0].replace('since', '').replace('[', '').replace(']', '').trim();
+  if (rangeStr.split('-').length === 2) {
+    const startVersion = rangeStr.split('-')[0].trim();
+    const endVersion = rangeStr.split('-')[1].trim();
+    return {
+      start: startVersion,
+      end: endVersion
+    };
+  }
+  return undefined;
+}
+
+function isVersionRangeIntersect(start1: string, end1: string, start2: number, end2: number): boolean {
+  const numStart1 = parseVersion(start1);
+  const numEnd1 = parseVersion(end1);
+  const numStart2 = start2;
+  const numEnd2 = end2;
+
+  const aStart = Math.min(numStart1, numEnd1);
+  const aEnd = Math.max(numStart1, numEnd1);
+  const bStart = numStart2;
+  const bEnd = numEnd2;
+
+  return !(aEnd < bStart || bEnd < aStart);
+}
+
+function parseVersion(s: string): number {
+  const pattern1 = /^(\d+)\.(\d+)\.(\d+)\((\d+)\)$/;
+  const pattern2 = /^\d{1,2}$/;
+  const pattern3 = /^(\d{1,2})\.(\d{1,2})\.(\d{1,2})$/;
+
+  if (pattern1.test(s)) {
+    const match = s.match(pattern1);
+    const buildNumber = parseInt(match[4], 10);
+    return buildNumber * 10000;
+  }
+
+  if (pattern2.test(s)) {
+    const number = parseInt(s, 10);
+    return number * 10000;
+  }
+
+  if (pattern3.test(s)) {
+    const parts = s.split('.');
+    const major = parseInt(parts[0], 10);
+    const minor = parseInt(parts[1], 10);
+    const patch = parseInt(parts[2], 10);
+    return major * 10000 + minor * 100 + patch;
+  }
+
+  return 0;
+}
+
+export function checkSystemApiTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
+  return false;
+}
+
+export function checkSinceValue(
+  jsDocs: JSDoc[],
+  config: JsDocNodeCheckConfigItem,
+  node?: arkts.AstNode,
+  declaration?: arkts.AstNode
+): boolean {
+  if (!jsDocs || jsDocs.length === 0 || !globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
+    return false;
+  }
+
+  const program = arkts.getProgramFromAstNode(node);
+  const sourceFileName = program?.sourceFilePath || '';
+  if (!sourceFileName || !path.normalize(sourceFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
+    return false;
+  }
+
+  initComparisonFunctions();
+
+  const checker = new SinceJSDocChecker();
+  if (jsDocs[0] && jsDocs[0].tags) {
+    checker.setJSDocTags(jsDocs[0].tags);
+  }
+  const hasIncompatibility = checker.checkTargetVersion(declaration);
+
+  if (!hasIncompatibility) {
+    return false;
+  }
+
+  const suppressor = new SinceWarningSuppressor(
+    checker.getSdkVersion(),
+    checker.getMinApiVersion(),
+    declaration
+  );
+
+  if (suppressor.isApiVersionHandled(node)) {
+    return false;
+  }
+
+  config.message = SINCE_TAG_CHECK_ERROR
+    .replace('$SINCE1', checker.getMinApiVersion())
+    .replace('$SINCE2', checker.getSdkVersion());
+
+  return true;
 }
 
 /**
@@ -119,55 +255,55 @@ export function isCardFile(file: string): boolean {
   return false;
 }
 
-/**
- * 校验since标签，当前api版本是否小于等于compatibleSdkVersion。
- * 
- * @param { JSDoc[] } jsDocs 当前api的JSDoc
- * @param { JsDocNodeCheckConfigItem } config 当前的since标签校验规则
- * @returns { boolean } 是否报错该since标签
- */
-export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
-  if (jsDocs && jsDocs.length > 0) {
-    const minorJSDocVersion: number = getJSDocMinorVersion(jsDocs);
-    const compatibleSdkVersion: number = globalObject.projectConfig.compatibleSdkVersion;
-    if (minorJSDocVersion > compatibleSdkVersion) {
-      config.message = SINCE_TAG_CHECK_ERROR.replace('$SINCE1', minorJSDocVersion.toString())
-        .replace('$SINCE2', compatibleSdkVersion.toString());
-      return true;
-    }
-  }
-  return false;
-}
+// /**
+//  * 校验since标签，当前api版本是否小于等于compatibleSdkVersion。
+//  * 
+//  * @param { JSDoc[] } jsDocs 当前api的JSDoc
+//  * @param { JsDocNodeCheckConfigItem } config 当前的since标签校验规则
+//  * @returns { boolean } 是否报错该since标签
+//  */
+// export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
+//   if (jsDocs && jsDocs.length > 0) {
+//     const minorJSDocVersion: number = getJSDocMinorVersion(jsDocs);
+//     const compatibleSdkVersion: number = globalObject.projectConfig.compatibleSdkVersion;
+//     if (minorJSDocVersion > compatibleSdkVersion) {
+//       config.message = SINCE_TAG_CHECK_ERROR.replace('$SINCE1', minorJSDocVersion.toString())
+//         .replace('$SINCE2', compatibleSdkVersion.toString());
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 
-/**
- * 获取最小的Since版本号
- * 
- * @param { JSDoc[] } jsDocs JSDoc注释对象数组，用于提取版本信息
- * @returns { number } 从@since标签中提取的最大版本号（数值），若未找到则返回0
- */
-function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
-  let minorVersion: number = 0;
+// /**
+//  * 获取最小的Since版本号
+//  * 
+//  * @param { JSDoc[] } jsDocs JSDoc注释对象数组，用于提取版本信息
+//  * @returns { number } 从@since标签中提取的最大版本号（数值），若未找到则返回0
+//  */
+// function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
+//   let minorVersion: number = 0;
 
-  if (!jsDocs || jsDocs.length === 0) {
-    return minorVersion;
-  }
-  const jsdoc: JSDoc = jsDocs[0];
-  if (!jsdoc.tags || jsdoc.tags.length === 0) {
-    return minorVersion;
-  }
-  for (const tag of jsdoc.tags) {
-    if (tag.tag !== SINCE_TAG_NAME) {
-      continue;
-    }
-    const currentVersion: number = Number.parseInt(tag.name ?? '');
-    if (minorVersion === 0 || (!Number.isNaN(currentVersion) && currentVersion > minorVersion)) {
-      minorVersion = currentVersion;
-    }
-    break;
-  }
+//   if (!jsDocs || jsDocs.length === 0) {
+//     return minorVersion;
+//   }
+//   const jsdoc: JSDoc = jsDocs[0];
+//   if (!jsdoc.tags || jsdoc.tags.length === 0) {
+//     return minorVersion;
+//   }
+//   for (const tag of jsdoc.tags) {
+//     if (tag.tag !== SINCE_TAG_NAME) {
+//       continue;
+//     }
+//     const currentVersion: number = Number.parseInt(tag.name ?? '');
+//     if (minorVersion === 0 || (!Number.isNaN(currentVersion) && currentVersion > minorVersion)) {
+//       minorVersion = currentVersion;
+//     }
+//     break;
+//   }
 
-  return minorVersion;
-}
+//   return minorVersion;
+// }
 
 /**
  * 获取JSDoc数组中最新版本的JSDoc注释对象。
@@ -998,10 +1134,163 @@ function printMessage(fileInfo: string, message: string, level: DiagnosticCatego
  * @param { string } currentFilePath 当前模块文件的完整路径，将被添加到原生依赖列表
  */
 export function collectInfo(moduleName: string[], modulePath: string, currentFilePath: string): void {
-  // 收集so模块依赖
   if (/lib(\S+)\.so/g.test(modulePath) && !globalObject.projectConfig.nativeDependencies.includes(currentFilePath)) {
     globalObject.projectConfig.nativeDependencies.push(currentFilePath);
   }
+}
+
+export function checkAvailableDecorator(
+  jsDocs: JSDoc[],
+  config: JsDocNodeCheckConfigItem,
+  node?: arkts.AstNode,
+  declaration?: arkts.AstNode
+): boolean {
+  if (!globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
+    return false;
+  }
+
+  let key: string = getAvailableNodeKey(node);
+  if (availableNodeCheckConfigCache.has(key)) {
+    return false;
+  } else {
+    availableNodeCheckConfigCache.set(key, '');
+  }
+
+  const program = arkts.getProgramFromAstNode(node);
+  const sourceFileName = program?.sourceFilePath || '';
+  if (!sourceFileName || !path.normalize(sourceFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
+    return false;
+  }
+
+  const declProgram = arkts.getProgramFromAstNode(declaration);
+  const declFileName = declProgram?.sourceFilePath || '';
+  if (!declFileName || !path.normalize(declFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
+    return false;
+  }
+
+  initComparisonFunctions();
+
+  const checker = new AvailableAnnotationChecker();
+  const hasIncompatibility = checker.checkTargetVersion(declaration);
+
+  if (!hasIncompatibility) {
+    return false;
+  }
+
+  const minApiVersion = checker.getMinApiVersion();
+  const availableVersion = checker.getAvailableVersion();
+
+  const suppressor = new AvailableWarningSuppressor(
+    checker.getSdkVersion(),
+    minApiVersion,
+    availableVersion,
+    declaration
+  );
+
+  if (suppressor.isApiVersionHandled(node)) {
+    return false;
+  }
+
+  config.message = AVAILABLE_DECORATOR_WARNING
+    .replace('$SINCE1', availableVersion?.version || checker.getSdkVersion())
+    .replace('$SINCE2', checker.getSdkVersion());
+
+  return true;
+}
+
+export function checkSyscapAbility(
+  jsDocs: JSDoc[],
+  config: JsDocNodeCheckConfigItem,
+  node?: arkts.AstNode,
+  declaration?: arkts.AstNode
+): boolean {
+  let currentSyscapValue: string = '';
+  
+  if (jsDocs && jsDocs.length > 0) {
+    for (const jsDoc of jsDocs) {
+      if (jsDoc.tags && jsDoc.tags.length > 0) {
+        for (const jsDocTag of jsDoc.tags) {
+          if (jsDocTag && jsDocTag.tag === SYSCAP_TAG_CHECK_NAME) {
+            currentSyscapValue = jsDocTag.comment || jsDocTag.name || '';
+            break;
+          }
+        }
+        if (currentSyscapValue) {
+          break;
+        }
+      }
+    }
+  }
+
+  const defaultResult: boolean = globalObject.projectConfig.syscapIntersectionSet &&
+    !globalObject.projectConfig.syscapIntersectionSet.has(currentSyscapValue);
+
+  if (defaultResult) {
+    const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
+    const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
+    if (suppressor && suppressor.isApiVersionHandled(node)) {
+      return false;
+    }
+    return true;
+  }
+
+  const externalCheckers = externalApiCheckerMap.get(SYSCAP_TAG_CHECK_NAME);
+  if (!externalCheckers || externalCheckers.length === 0) {
+    return false;
+  }
+
+  for (const checker of externalCheckers) {
+    if (!checker.check) {
+      return false;
+    }
+    const extrenalCheckResult = checker.check(node, declaration, globalObject.projectConfig);
+    if (!extrenalCheckResult.checkResult) {
+      return false;
+    }
+    config.message = extrenalCheckResult.checkMessage;
+  }
+
+  const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
+  const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
+  if (suppressor && suppressor.isApiVersionHandled(node)) {
+    return false;
+  }
+
+  return true;
+}
+
+export function checkPermissionValue(
+  jsDocs: JSDoc[],
+  config: JsDocNodeCheckConfigItem,
+  node?: arkts.AstNode,
+  declaration?: arkts.AstNode
+): boolean {
+  if (!jsDocs || jsDocs.length === 0) {
+    return false;
+  }
+  
+  const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
+  const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
+  
+  if (!jsDocTag) {
+    return false;
+  }
+
+  const permissionExpression: string = jsDocTag.comment ?? '';
+  config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
+
+  const fun = checkMergingComments(PERMISSION_TAG_CHECK_NAME);
+  
+  if (permissionExpression === '' || validPermission(permissionExpression, globalObject.projectConfig.permissionsArray)) {
+    return false;
+  }
+
+  const suppressor = new PermissionWarningSuppressor();
+  if (suppressor.isApiVersionHandled(node)) {
+    return false;
+  }
+
+  return fun(jsDocs, config, node, declaration);
 }
 
 /**

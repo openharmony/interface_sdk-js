@@ -60,9 +60,8 @@ function apiCheckCallback(this: PluginContext): void {
     }
   }
   catch (error) {
-    if (error) {
-      console.error(`[API_CHECK_PLUGIN] ${error}`);
-    }
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(`[API_CHECK_PLUGIN] ${errorMessage}`);
   }
 }
 
@@ -76,6 +75,7 @@ export function initApiCheckConfig(projectConfig: ProjectConfig): void {
     return;
   }
   Object.assign(projectConfig, creatApiCheckConfig());
+  projectConfig.initApiCheckTag = true;
   readPermissions(projectConfig);
   readCardPageSet(projectConfig);
   readSystemModules(projectConfig);

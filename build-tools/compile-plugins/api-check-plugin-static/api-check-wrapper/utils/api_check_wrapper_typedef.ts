@@ -13,8 +13,15 @@
  * limitations under the License.
  */
 
-import { DiagnosticCategory } from './api_check_wrapper_enums';
 import * as arkts from '@koalaui/libarkts';
+
+/**
+ * Diagnostic category enum for log levels
+ */
+export enum DiagnosticCategory {
+  WARNING = 0,
+  ERROR = 1
+}
 
 /**
  * ApiCheckWrapper服务，绑定校验规则
@@ -38,7 +45,7 @@ export interface JsDocNodeCheckConfigItem {
   message: string;
   type: DiagnosticCategory;
   tagNameShouldExisted: boolean;
-  checkValidCallback?: (jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem) => boolean;
+  checkValidCallback?: (jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem, node?: any, declaration?: any) => boolean;
 }
 
 /**

@@ -14,7 +14,9 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { checkIdentifier } from '../src/api_check_wrapper';
+import { checkIdentifier, curApiCheckWrapper } from '../src/api_check_wrapper';
+import { checkAvailableDecorator, isAvailableDecorator } from './available_decorator_utils';
+import { DiagnosticCategory } from './api_check_wrapper_typedef';
 
 // 不同节点对应的处理函数映射
 export const nodeHandleFunctionMap = new Map<arkts.Es2pandaAstNodeType, (node: arkts.AstNode, ...args: arkts.AstNode[]) => void>([
@@ -186,7 +188,7 @@ const nodeMap = new Map();
 // 重复节点最大访问次数
 const limitCount = 5;
 // 访问路径上表达式节点个数
-let exporssionCount = 0;
+let expressionCount = 0;
 
 // 转换函数：将枚举值数组拼接为数字字符串数组
 const convertToNumberStringArray = (matchArray: arkts.Es2pandaAstNodeType[][]): string[] => {
@@ -250,36 +252,32 @@ function checkLimit(node: arkts.AstNode): boolean {
   }
   return false;
 }
+
 /**
  * 节点通用处理逻辑
  * @param { arkts.AstNode } node 节点
  */
 function handleAstNode(node: arkts.AstNode): void {
-  // 用于判断是否重复访问或者陷入循环
   if (node === null || node === undefined || checkLimit(node)) {
     return;
   }
-  // 通过CAPI获取节点具体类型
   let kind: number = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, node.peer)
   if (!nodeHandleFunctionMap.has(kind) || nodeHandleFunctionMap.get(kind) === undefined) {
     return;
   }
-  // 根据类型获取到具体节点对应处理方法
   let func = nodeHandleFunctionMap.get(kind)!
-  // 添加当前节点到访问路径
   visitPath.push([kind, `${func.name}_${node.peer.toString()}`]);
-  // Expression 下的identifier才会提示告警
   if (node instanceof arkts.Expression) {
-    exporssionCount++;
+    expressionCount++;
   }
-  // 编译节点属性
-  func(node);
-
-  // 清理节点
-  if (node instanceof arkts.Expression) {
-    exporssionCount--;
+  try {
+    func(node);
+  } finally {
+    if (node instanceof arkts.Expression) {
+      expressionCount--;
+    }
+    visitPath.pop();
   }
-  visitPath.pop();
 }
 
 export function handleAnnotatedAstNode(node: arkts.AstNode): void { }
@@ -305,12 +303,40 @@ export function handleAnnotationDeclaration(node: arkts.AstNode): void {
 }
 
 export function handleAnnotationUsage(node: arkts.AstNode): void {
+  if (isAvailableDecorator(node)) {
+    handleAvailableDecoratorCheck(node);
+  }
   if (!!node.expr) {
     handleAstNode(node.expr);
   }
   if (!!node.properties) {
     node.properties.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
+}
+
+function handleAvailableDecoratorCheck(node: arkts.AstNode): void {
+  if (!node.parent) {
+    return;
+  }
+  const declaration = node.parent;
+  const messageCallback = (message: string) => {
+    const startPos = node.startPosition;
+    const address = {
+      line: startPos?.line() + 1 || 0,
+      column: startPos?.col() || 0
+    };
+    const program = arkts.getProgramFromAstNode(node);
+    const filePath = program?.sourceFilePath || curApiCheckWrapper.fileName;
+    const apiName = declaration.name || '';
+    curApiCheckWrapper.apiCheckHost.pushLogInfo(
+      apiName,
+      filePath,
+      address,
+      DiagnosticCategory.WARNING,
+      message
+    );
+  };
+  checkAvailableDecorator(node, declaration, messageCallback);
 }
 
 export function handleArrayExpression(node: arkts.AstNode): void {
@@ -693,7 +719,7 @@ export function handleETSStructDeclaration(node: arkts.AstNode): void {
 
 export function handleETSTuple(node: arkts.AstNode): void {
   if (!!node.getTupleTypeAnnotationsList) {
-    node.getTupleTypeAnnotationsList.forEach((item: arkts.AstNde) =>
+    node.getTupleTypeAnnotationsList.forEach((item: arkts.AstNode) =>
       handleAstNode(item)
     );
   }
@@ -721,7 +747,7 @@ export function handleETSUndefinedType(node: arkts.AstNode): void { }
 
 export function handleETSUnionType(node: arkts.AstNode): void {
   if (!!node.types) {
-    node.types.forEach((item: arkts.AstNde) => handleAstNode(item));
+    node.types.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
@@ -830,7 +856,7 @@ export function handleFunctionDecl(node: arkts.AstNode): void {
     handleAstNode(node.returnTypeAnnotation);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNde) => handleAstNode(item));
+    node.annotations.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
@@ -878,7 +904,7 @@ export function handleFunctionSignature(node: arkts.AstNode): void {
 }
 
 export function handleIdentifier(node: arkts.AstNode): void {
-  if (exporssionCount > 1 || ValidNodeTypePathStrList.includes(joinLastFourElement(visitPath))) {
+  if (expressionCount > 1 || ValidNodeTypePathStrList.includes(joinLastFourElement(visitPath))) {
     checkIdentifier(node);
   }
 
@@ -1100,7 +1126,7 @@ export function handleScriptFunction(node: arkts.AstNode): void {
     handleAstNode(node.returnTypeAnnotation);
   }
   if (!!node.annotations) {
-    node.annotations.forEach((item: arkts.AstNde) => handleAstNode(item));
+    node.annotations.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
 }
 
@@ -1218,7 +1244,7 @@ export function handleTSEnumDeclaration(node: arkts.AstNode): void {
     handleAstNode(node.key);
   }
   if (!!node.members) {
-    node.members.forEach((item: arkts.AstNde) => handleAstNode(item));
+    node.members.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
   if (!!node.boxedClass) {
     handleAstNode(node.boxedClass);

@@ -14,7 +14,7 @@
  */
 
 import { JSDoc, JsDocNodeCheckConfigItem } from '../api-check-wrapper';
-import { PermissionValidTokenState } from './api_check_plugin_enums';
+import { PermissionValidTokenState } from './api_check_plugin_define';
 
 /**
  * 定义与显示窗口相关的配置
@@ -62,6 +62,7 @@ export interface ProjectConfig extends ApiCheckConfig {
   bundleType: string;
   compileSdkVersion: number;
   compatibleSdkVersion: number;
+  originCompatibleSdkVersion?: number;
   compileSdkPath: string;
   externalApiPaths: string;
   buildSdkPath: string;
@@ -181,4 +182,16 @@ export interface Logger {
   printInfo(message: string): void;
   printWarn(message: string): void;
   printDebug(message: string): void;
+}
+
+export interface ParsedVersion {
+  os?: string;
+  version: string;
+  formatVersion: string;
+  raw: string;
+}
+
+export interface MSFVersionCheckResult {
+  valid: boolean;
+  needDistCheck: boolean;
 }
