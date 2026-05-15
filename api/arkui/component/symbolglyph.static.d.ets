@@ -21,7 +21,7 @@ import { Resource } from '../../global/resource';
 import { ResourceColor, ResourceStr, ColorMetrics } from "./units";
 import { FontWeight } from "./enums";
 import { CommonMethod, AttributeModifier, ShadowOptions } from "./common";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { ShaderStyle, FontWeightConfigs } from "./textCommon";
 /**
  * The symbol rendering strategy.
@@ -609,6 +609,17 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<SymbolGlyphAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set SymbolGlyph options.
+     *
+     * @param { Resource } [value] - SymbolGlyph constructor options
+     * @returns { SymbolGlyphAttribute } Returns the instance of the SymbolGlyphAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSymbolGlyphOptions(value?: Resource): this;
 }
 
 /**
@@ -625,3 +636,18 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
 export declare function SymbolGlyph(
     value?: Resource
 ): SymbolGlyphAttribute
+
+/**
+ * Defines SymbolGlyph Component.
+ *
+ * @param { CustomBuilderT<SymbolGlyphAttribute> } style - SymbolGlyph attribute instance
+ * @returns { SymbolGlyphAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function SymbolGlyph(
+    style: CustomBuilderT<SymbolGlyphAttribute>,
+): SymbolGlyphAttribute;

@@ -23,7 +23,7 @@ import { Resource } from '../../global/resource';
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { LinearGradient } from "./dataPanel";
 import { LengthMetrics } from '../Graphics';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -532,6 +532,17 @@ export declare interface ProgressAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set Progress options.
+     *
+     * @param { ProgressOptions } options - Progress constructor options
+     * @returns { ProgressAttribute } Returns the instance of the ProgressAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setProgressOptions(options: ProgressOptions): this;
 }
 /**
  * ProgressConfiguration used by progress contentModifier
@@ -575,4 +586,19 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
 @ComponentBuilder
 export declare function Progress(
     options: ProgressOptions
+): ProgressAttribute;
+
+/**
+ * Defines Progress Component.
+ *
+ * @param { CustomBuilderT<ProgressAttribute> } style - Progress attribute instance
+ * @returns { ProgressAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Progress(
+    style: CustomBuilderT<ProgressAttribute>,
 ): ProgressAttribute;

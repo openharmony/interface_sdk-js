@@ -22,7 +22,7 @@ import { CommonMethod, ResourceStr, AttributeModifier } from "./common";
 import { ResourceColor } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { FontWeightConfigs } from "./textCommon";
 
 /**
@@ -137,6 +137,26 @@ export declare interface SymbolSpanAttribute {
      * @since 24 staticonly
      */
     default debugLine(sourceLine: string, moduleName?: string): this;
+
+    /**
+     * Set SymbolSpan options.
+     *
+     * @param { Resource } value - symbol span value
+     * @returns { SymbolSpanAttribute } Returns the instance of the SymbolSpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSymbolSpanOptions(value: Resource): this;
+
+    /**
+     * Notify the component is finished setting up its attributes.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default applyAttributesFinish(): void;
 }
 
 /**
@@ -153,3 +173,18 @@ export declare interface SymbolSpanAttribute {
 export declare function SymbolSpan(
     value: Resource
 ): SymbolSpanAttribute
+
+/**
+ * Defines SymbolSpan Component.
+ *
+ * @param { CustomBuilderT<SymbolSpanAttribute> } style - SymbolSpan attribute instance
+ * @returns { SymbolSpanAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function SymbolSpan(
+    style: CustomBuilderT<SymbolSpanAttribute>,
+): SymbolSpanAttribute;

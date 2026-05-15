@@ -23,9 +23,8 @@ import { BarState, CopyOptions, FontStyle, FontWeight, LineBreakStrategy, TextCo
 import { EnterKeyType, SubmitEvent, ContentType } from "./textInput";
 import { Dimension, Font, Length, LengthMetrics, ResourceColor, ResourceStr, ColorMetrics } from "./units";
 import { InputCounterOptions, TextContentControllerBase, SelectionOptions, TextDecorationOptions, CommonMethod, Callback, Bindable, AttributeModifier } from "./common";
-import { CustomBuilder } from './builder';
+import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
 import { Resource } from '../../global/resource';
-import { ComponentBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 /**
  * Provides the method of switching the cursor position.
@@ -1212,6 +1211,18 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAreaAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set TextArea options.
+     *
+     * @param { TextAreaOptions } [value] - TextArea constructor options
+     * @returns { TextAreaAttribute } Returns the instance of the TextAreaAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextAreaOptions(value?: TextAreaOptions): this;
+
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -1321,3 +1332,18 @@ export declare interface TextAreaAttribute extends CommonMethod {
 export declare function TextArea(
     value?: TextAreaOptions
 ): TextAreaAttribute
+
+/**
+ * Defines TextArea Component.
+ *
+ * @param { CustomBuilderT<TextAreaAttribute> } style - TextArea attribute instance
+ * @returns { TextAreaAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TextArea(
+    style: CustomBuilderT<TextAreaAttribute>,
+): TextAreaAttribute;

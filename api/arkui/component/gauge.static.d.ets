@@ -19,10 +19,9 @@
  * @kit ArkUI
  */
 import { CommonMethod, CommonConfiguration, ContentModifier, MultiShadowOptions } from './common';
-import { CustomBuilder } from './builder';
 import { ResourceStr, Dimension, ResourceColor, Length } from "./units";
 import { LinearGradient } from "./dataPanel";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -268,6 +267,17 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set Gauge options.
+     *
+     * @param { GaugeOptions } options - Gauge constructor options
+     * @returns { GaugeAttribute } Returns the instance of the GaugeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setGaugeOptions(options: GaugeOptions): this;
 }
 /**
  * Defines the Gauge component.
@@ -284,4 +294,21 @@ export declare interface GaugeAttribute extends CommonMethod {
 export declare function Gauge(
     options: GaugeOptions, 
     content_?: CustomBuilder
+): GaugeAttribute;
+
+/**
+ * Defines Gauge Component.
+ *
+ * @param { CustomBuilderT<GaugeAttribute> } style - Gauge attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { GaugeAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Gauge(
+    style: CustomBuilderT<GaugeAttribute>,
+    content_?: CustomBuilder,
 ): GaugeAttribute;

@@ -18,7 +18,7 @@
  */
 import { TextBackgroundStyle } from "./span";
 import { AttributeModifier, CommonMethod } from "./common";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * Define the ContainerSpan attribute functions.
@@ -58,6 +58,25 @@ export declare interface ContainerSpanAttribute {
      * @since 24 staticonly
      */
     default debugLine(sourceLine: string, moduleName?: string): this;
+
+    /**
+     * Set ContainerSpan options.
+     *
+     * @returns { ContainerSpanAttribute } Returns the instance of the ContainerSpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setContainerSpanOptions(): this;
+
+    /**
+     * Notify the component is finished setting up its attributes.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default applyAttributesFinish(): void;
 }
 
 /**
@@ -73,3 +92,20 @@ export declare interface ContainerSpanAttribute {
 export declare function ContainerSpan(
     content_?: CustomBuilder,
 ): ContainerSpanAttribute
+
+/**
+ * Defines ContainerSpan Component.
+ *
+ * @param { CustomBuilderT<ContainerSpanAttribute> } style - containerspan attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ContainerSpanAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ContainerSpan(
+    style: CustomBuilderT<ContainerSpanAttribute>,
+    content_?: CustomBuilder,
+): ContainerSpanAttribute;

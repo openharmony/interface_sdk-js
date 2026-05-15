@@ -21,7 +21,7 @@
 import { CommonConfiguration, CommonMethod, ShadowOptions, ContentModifier, DateTimeOptions } from './common';
 import { ResourceColor, Length, ResourceStr } from "./units";
 import { FontStyle, FontWeight } from "./enums";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, Callback } from "./common";
 
 /**
@@ -273,6 +273,17 @@ export declare interface TextClockAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextClockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set TextClock options.
+     *
+     * @param { TextClockOptions } [options] - TextClock constructor options
+     * @returns { TextClockAttribute } Returns the instance of the TextClockAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextClockOptions(options?: TextClockOptions): this;
 }
 /**
  * Defines the TextClock component.
@@ -286,4 +297,19 @@ export declare interface TextClockAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function TextClock(
     options?: TextClockOptions
+): TextClockAttribute;
+
+/**
+ * Defines TextClock Component.
+ *
+ * @param { CustomBuilderT<TextClockAttribute> } style - TextClock attribute instance
+ * @returns { TextClockAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TextClock(
+    style: CustomBuilderT<TextClockAttribute>,
 ): TextClockAttribute;

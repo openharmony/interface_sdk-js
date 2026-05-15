@@ -20,7 +20,7 @@
  */
 import { ResourceColor, Length } from "./units";
 import { CommonMethod, ContentModifier, CommonConfiguration, MultiShadowOptions } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -262,6 +262,17 @@ export declare interface DataPanelAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set DataPanel options.
+     *
+     * @param { DataPanelOptions } options - DataPanel constructor options
+     * @returns { DataPanelAttribute } Returns the instance of the DataPanelAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setDataPanelOptions(options: DataPanelOptions): this;
 }
 /**
  * Defines the DataPanel component.
@@ -276,4 +287,19 @@ export declare interface DataPanelAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function DataPanel(
     options: DataPanelOptions
+): DataPanelAttribute;
+
+/**
+ * Defines DataPanel Component.
+ *
+ * @param { CustomBuilderT<DataPanelAttribute> } style - DataPanel attribute instance
+ * @returns { DataPanelAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function DataPanel(
+    style: CustomBuilderT<DataPanelAttribute>,
 ): DataPanelAttribute;

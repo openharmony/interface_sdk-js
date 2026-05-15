@@ -20,7 +20,7 @@
  */
 import { CommonMethod, ContentModifier, CommonConfiguration } from './common';
 import { ResourceColor } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -109,6 +109,16 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set LoadingProgress options.
+     *
+     * @returns { LoadingProgressAttribute } Returns the instance of the LoadingProgressAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setLoadingProgressOptions(): this;
 }
 /**
  * LoadingProgressConfiguration used by LoadingProgress contentModifier
@@ -141,4 +151,19 @@ export declare interface LoadingProgressConfiguration extends CommonConfiguratio
  */
 @ComponentBuilder
 export declare function LoadingProgress(
+): LoadingProgressAttribute;
+
+/**
+ * Defines LoadingProgress Component.
+ *
+ * @param { CustomBuilderT<LoadingProgressAttribute> } style - LoadingProgress attribute instance
+ * @returns { LoadingProgressAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function LoadingProgress(
+    style: CustomBuilderT<LoadingProgressAttribute>,
 ): LoadingProgressAttribute;
