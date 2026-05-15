@@ -4054,7 +4054,7 @@ declare namespace notificationManager {
     NOTIFICATION_CONTENT_PICTURE,
 
     /**
-     * 社交类型通知。预留能力，暂未支持。
+     * 社交类型通知。
      *
      * @syscap SystemCapability.Notification.Notification
      * @atomicservice [since 12]
