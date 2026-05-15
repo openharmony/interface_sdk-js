@@ -214,20 +214,18 @@ declare interface MicrophoneCaptureStateChangeInfo {
 }
 
 /**
- * The callback when camera capturing state of current page has been changed.
+ * 当页面摄像设备状态发生改变时触发此回调。
  *
- * @typedef { function } OnCameraCaptureStateChangeCallback
- * @param { CameraCaptureStateChangeInfo } event - the camera capturing state event.
+ * @param { CameraCaptureStateChangeInfo } event - 网页摄像头状态发生改变时，返回原来的状态和改变后的状态。
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
 type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
 
 /**
- * The callback when microphone capturing state of current page has been changed.
+ * 当页面麦克风状态发生改变时触发此回调。
  *
- * @typedef { function } OnMicrophoneCaptureStateChangeCallback
- * @param { MicrophoneCaptureStateChangeInfo } event - the microphone capturing state event.
+ * @param { MicrophoneCaptureStateChangeInfo } event - 网页麦克风状态发生改变时，返回原来的状态和改变后的状态。
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
@@ -650,18 +648,20 @@ declare enum WebRotateEffect {
 }
 
 /**
- * The configuration of native media player.
+ * 用于[开启应用接管网页媒体播放功能]{@link web:WebAttribute.enableNativeMediaPlayer}的配置信息。
  *
- * @typedef NativeMediaPlayerConfig
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface NativeMediaPlayerConfig {
   /**
-   * Should playing web media by native application instead of web player.
+   * 是否开启应用接管网页媒体播放功能。
    *
-   * @type { boolean }
+   * true表示开启应用接管网页媒体播放功能，false表示关闭应用接管网页媒体播放功能。
+   *
+   * 默认值：false。
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -669,9 +669,12 @@ declare interface NativeMediaPlayerConfig {
   enable: boolean;
 
   /**
-   * The contents painted by native media player should overlay web page.
+   * 开启应用接管网页媒体播放功能后，应用接管网页视频的播放器画面是否覆盖网页内容。
    *
-   * @type { boolean }
+   * true表示改变视频图层的高度，使其覆盖网页内容。false表示不覆盖网页内容，跟原视频图层高度一样，嵌入在网页中。
+   *
+   * 默认值：false。
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -1598,43 +1601,20 @@ declare interface WebMediaOptions {
 }
 
 /**
- * Defines the screen capture configuration.
- *
- * @interface ScreenCaptureConfig
- * @syscap SystemCapability.Web.Webview.Core
- * @since 10
- */
-/**
- * Defines the screen capture configuration.
- *
- * @interface ScreenCaptureConfig
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the screen capture configuration.
+ * Web屏幕捕获的配置。
  *
  * @typedef ScreenCaptureConfig
  * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ScreenCaptureConfig {
   /**
-   * The mode for selecting the recording area.
+   * Web屏幕捕获模式。
    *
-   * @type { WebCaptureMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * The mode for selecting the recording area.
-   *
-   * @type { WebCaptureMode }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   captureMode: WebCaptureMode;
 }
@@ -1709,63 +1689,36 @@ declare class FullScreenExitHandler {
 }
 
 /**
- * Defines the event details when the web component enter full screen mode.
+ * Web组件进入全屏回调事件的详情。
  *
- * @typedef FullScreenEnterEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the event details when the web component enter full screen mode.
- *
- * @typedef FullScreenEnterEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 declare interface FullScreenEnterEvent {
   /**
-   * A function handle to exit full-screen mode.
+   * 用于退出全屏模式的函数句柄。
    *
-   * @type { FullScreenExitHandler }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * A function handle to exit full-screen mode.
-   *
-   * @type { FullScreenExitHandler }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   handler: FullScreenExitHandler;
 
   /**
-   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   * 视频的宽度，单位：px。如果进入全屏的是 `<video>` 元素，表示其宽度；如果进入全屏的子元素中包含 `<video>` 元素，表示第一个子视频元素的宽度；其他情况下，为0。
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   videoWidth?: number;
 
   /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   * 视频的高度，单位：px。如果进入全屏的是 `<video>` 元素，表示其高度；如果进入全屏的子元素中包含 `<video>` 元素，表示第一个子视频元素的高度；其他情况下，为0。
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1773,7 +1726,7 @@ declare interface FullScreenEnterEvent {
    * @since 12
    */
   /**
-   * The intrinsic height of the video if the fullscreen element contains video element, expressed in CSS pixels.
+   * 视频的高度，单位：px。如果进入全屏的是 `<video>` 元素，表示其高度；如果进入全屏的子元素中包含 `<video>` 元素，表示第一个子视频元素的高度；其他情况下，为0。
    *
    * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
@@ -1785,23 +1738,13 @@ declare interface FullScreenEnterEvent {
 }
 
 /**
- * The callback when the web component enter full screen mode.
+ * Web组件进入全屏时触发的回调。
  *
- * @typedef { function } OnFullScreenEnterCallback
- * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
+ * @param { FullScreenEnterEvent } event - Web组件进入全屏的回调事件详情。
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * The callback when the web component enter full screen mode.
- *
- * @typedef { function } OnFullScreenEnterCallback
- * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 
@@ -2626,71 +2569,47 @@ declare class ClientAuthenticationHandler {
 }
 
 /**
- * Defines the accessible resource type, related to {@link onPermissionRequest} method.
+ * 定义可访问的资源类型，与 {@link onPermissionRequest} 方法相关。
  *
- * @enum { string }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the accessible resource type, related to {@link onPermissionRequest} method.
- *
- * @enum { string }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum ProtectedResourceType {
   /**
-   * The MidiSysex resource.
+   * MIDI SYSEX资源。
+   *
+   * 目前仅支持权限事件上报，MIDI设备的使用还未支持。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The MidiSysex resource.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   MidiSysex = "TYPE_MIDI_SYSEX",
 
   /**
-   * The video capture resource, such as camera.
+   * 视频捕获资源，例如相机。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * The video capture resource, such as camera.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   VIDEO_CAPTURE = "TYPE_VIDEO_CAPTURE",
 
   /**
-   * The audio capture resource, such as microphone.
+   * 音频捕获资源，例如麦克风。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * The audio capture resource, such as microphone.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   AUDIO_CAPTURE = "TYPE_AUDIO_CAPTURE",
 
   /**
-   * The sensor resource, such as accelerometer.
+   * 传感器资源，例如加速度传感器。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2700,33 +2619,21 @@ declare enum ProtectedResourceType {
 }
 
 /**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
+ * 权限请求。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class PermissionRequest {
   /**
-   * Constructor.
+   * PermissionRequest的构造函数。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -2734,15 +2641,9 @@ declare class PermissionRequest {
    * Reject the request.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Reject the request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   deny(): void;
 
@@ -2750,17 +2651,10 @@ declare class PermissionRequest {
    * Gets the source if the webpage that attempted to access the restricted resource.
    *
    * @returns { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Gets the source if the webpage that attempted to access the restricted resource.
-   *
-   * @returns { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getOrigin(): string;
 
@@ -2768,35 +2662,22 @@ declare class PermissionRequest {
    * Gets the resource that the webpage is trying to access.
    *
    * @returns { Array<string> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Gets the resource that the webpage is trying to access.
-   *
-   * @returns { Array<string> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getAccessibleResource(): Array<string>;
 
   /**
    * Grant origin access to a given resource.
    *
-   * @param { Array<string> } resources
+   * @param { Array<string> } resources List of resources that can be requested by the web page with the permission to
+   * grant.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Grant origin access to a given resource.
-   *
-   * @param { Array<string> } resources
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   grant(resources: Array<string>): void;
 }
@@ -2804,25 +2685,15 @@ declare class PermissionRequest {
 /**
  * Defines the onScreenCapture callback, related to {@link onScreenCapture} method.
  * @syscap SystemCapability.Web.Webview.Core
- * @since 10
- */
-/**
- * Defines the onScreenCapture callback, related to {@link onScreenCapture} method.
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare class ScreenCaptureHandler {
   /**
    * Constructor.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Constructor.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   constructor();
 
@@ -2830,16 +2701,9 @@ declare class ScreenCaptureHandler {
    * Gets the source of the webpage that attempted to access the restricted resource.
    *
    * @returns { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Gets the source of the webpage that attempted to access the restricted resource.
-   *
-   * @returns { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getOrigin(): string;
 
@@ -2847,27 +2711,16 @@ declare class ScreenCaptureHandler {
    * Grant origin access to a given resource.
    * @param { ScreenCaptureConfig } config The screen capture configuration.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Grant origin access to a given resource.
-   * @param { ScreenCaptureConfig } config The screen capture configuration.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   grant(config: ScreenCaptureConfig): void;
 
   /**
    * Reject the request.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Reject the request.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   deny(): void;
 }
@@ -6553,10 +6406,8 @@ declare interface OnInterceptRequestEvent {
 }
 
 /**
- * Defines the triggered callback when the host application that web content from the specified origin is
- *     attempting to access the resources.
+ * 定义通知收到获取权限请求。
  *
- * @typedef OnPermissionRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6564,9 +6415,8 @@ declare interface OnInterceptRequestEvent {
  */
 declare interface OnPermissionRequestEvent {
   /**
-   * Defines the onPermissionRequest callback.
+   * Defines the js geolocation request.
    *
-   * @type { PermissionRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6576,19 +6426,16 @@ declare interface OnPermissionRequestEvent {
 }
 
 /**
- * Defines the triggered callback when the host application that web content from the specified origin is
- *     requesting to capture screen.
+ * 定义通知收到屏幕捕获请求。
  *
- * @typedef OnScreenCaptureRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnScreenCaptureRequestEvent {
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * 通知Web组件用户操作行为。
    *
-   * @type { ScreenCaptureHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6974,18 +6821,16 @@ declare interface OnDataResubmittedEvent {
 }
 
 /**
- * Defines the playing state of audio on web page.
+ * 定义网页上的音频播放状态发生改变时的回调函数。
  *
- * @typedef OnAudioStateChangedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnAudioStateChangedEvent {
   /**
-   * The audio playback status of the current page, true if playing true otherwise false.
+   * 当前页面的音频播放状态，true表示正在播放，false表示未播放。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -7343,16 +7188,14 @@ declare enum WebResponseType {
 }
 
 /**
- * Arkweb audio session Type
+ * 应用中Web音频类型。
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare enum AudioSessionType {
   /**
-   * Ambient audio, which is mixable with other types of audio.
-   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+   * 适用于网页游戏场景，支持Web游戏声音与系统音乐同时播放。对应系统音频流类型STREAM_USAGE_GAME。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7916,36 +7759,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   fileAccess(fileAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to allow image resources to be loaded from the network.
+   * 设置是否允许从网络加载图片资源（通过HTTP和HTTPS访问的资源）。当属性没有显式调用时，默认允许从网络加载图片资源。
    *
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   *    The default value is true.
-   * {@code false} otherwise.
+   * @param { boolean } onlineImageAccess - 设置是否允许从网络加载图片资源。<br>true表示设置允许从网络加载图片资源，false表示设置不允许从网络加载图片资源。<br>传入
+   *     undefined或null时为false。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether to allow image resources to be loaded from the network.
-   *
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   *    The default value is true.
-   * {@code false} otherwise.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to allow image resources to be loaded from the network.
-   *    The default value is true.
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   * {@code false} otherwise.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
@@ -7981,33 +7803,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether the Web can automatically load image resources.
+   * 设置是否允许自动加载图片资源。当属性没有显式调用时，允许自动加载图片资源。
    *
-   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
-   *    The default value is true.
+   * @param { boolean } imageAccess - 设置是否允许自动加载图片资源。<br>true表示设置允许自动加载图片资源，false表示设置不允许自动加载图片资源。<br>传入undefined或null时为
+   *     false。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether the Web can automatically load image resources.
-   *
-   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether the Web can automatically load image resources.
-   *    The default value is true.
-   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   imageAccess(imageAccess: boolean): WebAttribute;
 
@@ -8202,21 +8006,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   forceDarkAccess(access: boolean): WebAttribute;
 
   /**
-   * Sets the media options.
+   * 设置Web媒体播放的策略，其中包括：Web中的音频在重新获焦后能够自动续播的有效期、应用内多个Web实例的音频是否独占。当该属性未显式设置时，默认Web中的音频重新获焦后无法自动续播、应用内多个Web实例的音频是独占的。
    *
-   * @param { WebMediaOptions } options The media options, which can be {@link WebMediaOptions}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Sets the media options.
+   * > **说明：**
+   * >
+   * > - 同一Web实例中的多个音频均视为同一音频。
+   * >
+   * > - 该媒体播放策略将同时管控有声视频。
+   * >
+   * > - 建议为所有Web组件设置相同的[audioExclusive]{@link web:WebMediaOptions}值。
+   * >
+   * > - 音视频互相打断在应用内和应用间生效，续播只在应用间生效。
    *
-   * @param { WebMediaOptions } options The media options, which can be {@link WebMediaOptions}.
+   * @param { WebMediaOptions } options - 设置Web的媒体策略。<br>属性参数更新后需重新播放音频方可生效。<br>传入undefined或null时为`{resumeInterval: 0,
+   *     audioExclusive: true}`
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mediaOptions(options: WebMediaOptions): WebAttribute;
 
@@ -8953,69 +8760,26 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onResourceLoad(callback: Callback<OnResourceLoadEvent>): WebAttribute;
 
   /**
-   * Triggered when the web component exit the full screen mode.
+   * 通知开发者Web组件退出全屏模式。
    *
-   * @param { function } callback The triggered function when the web component exit the full screen mode.
+   * @param { function } callback - 退出全屏模式时的回调函数。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the web component exit the full screen mode.
-   *
-   * @param { function } callback The triggered function when the web component exit the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web component exit the full screen mode.
-   *
-   * @param { function } callback The triggered function when the web component exit the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onFullScreenExit(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when the web component enter the full screen mode.
+   * 通知开发者Web组件进入全屏模式。
    *
-   * @param { function } callback The triggered function when the web component enter the full screen mode.
+   * @param { OnFullScreenEnterCallback } callback - Web组件进入全屏时的回调信息。在API 12之前，使用 { function } 作为参数类型。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the web component enter the full screen mode.
-   *
-   * @param { function } callback The triggered function when the web component enter the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web component enter the full screen mode.
-   *
-   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the web component enter the full screen mode.
-   *
-   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
@@ -9193,24 +8957,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onContextMenuHide(callback: OnContextMenuHideCallback): WebAttribute;
 
   /**
-   * Set whether media playback needs to be triggered by user gestures.
+   * 设置有声视频的自动播放是否需要用户手动点击，静音视频播放不受该接口管控。当该属性未显式设置时，默认有声视频的自动播放需要用户手动点击。
    *
-   * @param { boolean } access True if it needs to be triggered manually by the user else false.
-   *    The default value is true.
+   * @param { boolean } access - 设置有声视频的自动播放是否需要用户手动点击。<br>true表示设置有声视频的自动播放需要用户手动点击，false表示设置有声视频的自动播放不需要用户手动点击，能自动播放。<
+   *     br>传入undefined或null时为false。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Set whether media playback needs to be triggered by user gestures.
-   *
-   * @param { boolean } access True if it needs to be triggered manually by the user else false.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   mediaPlayGestureAccess(access: boolean): WebAttribute;
 
@@ -9876,30 +9631,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   allowWindowOpenMethod(flag : boolean): WebAttribute;
 
   /**
-   * Triggered when the playing state of audio on web page changed.
+   * 设置网页上的音频播放状态发生改变时的回调函数。
    *
-   * @param { function } callback The playing state of audio on web page.
+   * @param { Callback<OnAudioStateChangedEvent> } callback - 网页上的音频播放状态发生改变时触发。在API 12之前，使用 { function } 作为参数类型。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Triggered when the playing state of audio on web page changed.
-   *
-   * @param { function } callback The playing state of audio on web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the playing state of audio on web page changed.
-   *
-   * @param { Callback<OnAudioStateChangedEvent> } callback The playing state of audio on web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onAudioStateChanged(callback: Callback<OnAudioStateChangedEvent>): WebAttribute;
 
@@ -10296,11 +10034,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable app creates native media player to play web page media source.
+   * 开启[应用接管网页媒体播放功能](docroot://web/app-takeovers-web-media.md)。当属性没有显式调用时，默认不开启接管网页媒体播放功能。
    *
-   * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
+   * @param { NativeMediaPlayerConfig } config - enable: 是否开启该功能。<br/> shouldOverlay: 该功能开启后， 应用接管网页视频的播放器画面是否覆盖网页内容。<br
+   *     >传入undefined或null时为`{enable: false, shouldOverlay: false}`。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
+      * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
@@ -10736,23 +10475,49 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableImageAnalyzer(enable: boolean): WebAttribute;
 
   /**
-   * Triggered after camera capture state changed.
+   * 通知用户当前网页的摄像头状态，摄像头有三个状态，无状态（None），捕获中（Active），暂停中（Paused）。使用callback异步回调。
    *
-   * @param { OnCameraCaptureStateChangeCallback } callback - callback triggered to
-   *     report current page camera capture state changing event.
+   * 可以通过startCamera，stopCamera，closeCamera这三个接口来切换摄像头的状态。这三个接口分别对应开启，暂停，停止摄像头功能。示例使用场景详见
+   * [startCamera]{@link ./../../../@ohos.web.webview:webview.WebviewController.startCamera}。
+   *
+   * > **说明：**
+   * >
+   * > 当前网页正在使用摄像头时，返回在捕获中状态。
+   * >
+   * > 当前网页暂停使用摄像头时，返回暂停中状态。
+   * >
+   * > 当前网页完全没有使用摄像头时，返回无状态。
+   *
+   * @param { OnCameraCaptureStateChangeCallback } callback - 回调函数。当摄像头捕获状态改变时触发该回调，返回原来的状态和改变后的状态。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
+      * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   onCameraCaptureStateChange(callback: OnCameraCaptureStateChangeCallback): WebAttribute;
 
   /**
-   * Triggered after microphone capture state changed.
+   * 通知用户当前网页中麦克风状态，麦克风有三个状态，未工作（None），捕获中（Active），暂停中（Paused）。使用callback异步回调。
    *
-   * @param { OnMicrophoneCaptureStateChangeCallback } callback - callback triggered to
-   *     report current page microphone capture state changing event.
+   * 可以通过resumeMicrophone，pauseMicrophone，stopMicrophone这三个接口来切换麦克风的状态。这三个接口功能分别对应解除暂停，暂停，停止麦克风。示例使用场景详见
+   * [网页中麦克风的使用](docroot://reference/apis-arkweb/arkts-apis-webview-WebviewController.md#resumemicrophone23)。
+   *
+   * > **说明：**
+   * >
+   * > 当前网页正在使用麦克风时，返回捕获中状态；当前网页暂停使用麦克风时，返回暂停中状态；当前网页完全没有使用麦克风时，返回未工作状态。
+   * >
+   * > 当前麦克风处于捕获中状态时，设置暂停使用，当前麦克风变为暂停中状态。可通过ArkWeb设置麦克风开始使用状态进行恢复捕捉。
+   * >
+   * > 当前麦克风处于捕获中状态时，设置停止使用，当前麦克风停止捕捉，麦克风变为未工作状态。除非重新前端开始捕捉，否则无法恢复。
+   * >
+   * > 当前麦克风处于暂停中状态时，设置开始使用，当前麦克风继续捕捉，变为捕获中状态。
+   * >
+   * > 当前麦克风处于暂停中状态时，设置停止使用，当前麦克风停止捕捉，变为未工作状态。除非重新前端开始捕捉，否则无法恢复。
+   * >
+   * > 当前麦克风处于未工作状态时，设置开始使用以及暂停使用，麦克风状态均不发生变化。
+   *
+   * @param { OnMicrophoneCaptureStateChangeCallback } callback - 回调函数。当麦克风捕获状态改变时触发该回调，返回原来的状态和改变后的状态。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
+      * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
   onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback): WebAttribute;
