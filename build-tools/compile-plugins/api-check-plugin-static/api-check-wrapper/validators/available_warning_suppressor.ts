@@ -61,7 +61,7 @@ class SdkComparisonValidator implements NodeValidator {
     let currentNode: arkts.AstNode | null = node.parent;
     
     while (currentNode) {
-      const kind = arkts.getAstNodeKind(currentNode);
+      const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, currentNode.peer);
       if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IF_STATEMENT) {
         return this.checkIfStatementForApiAvailable(currentNode, node);
       }
@@ -97,7 +97,7 @@ class SdkComparisonValidator implements NodeValidator {
   }
 
   private checkApiAvailableComparison(testNode: arkts.AstNode): boolean {
-    const kind = arkts.getAstNodeKind(testNode);
+    const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, testNode.peer);
     if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_CALL_EXPRESSION) {
       return false;
     }

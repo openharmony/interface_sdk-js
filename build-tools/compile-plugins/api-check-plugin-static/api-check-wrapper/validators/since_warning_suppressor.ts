@@ -39,7 +39,7 @@ class TryCatchValidator implements NodeValidator {
     let currentNode: arkts.AstNode | null = node;
     
     while (currentNode) {
-      const kind = arkts.getAstNodeKind(currentNode);
+      const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, currentNode.peer);
       if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_TRY_STATEMENT) {
         return true;
       }
@@ -67,7 +67,7 @@ class UndefinedCheckValidator implements NodeValidator {
     let currentNode: arkts.AstNode | null = node.parent;
     
     while (currentNode) {
-      const kind = arkts.getAstNodeKind(currentNode);
+      const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, currentNode.peer);
       if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IF_STATEMENT) {
         return this.checkIfStatementHasUndefinedCheck(currentNode, targetName);
       }
@@ -90,7 +90,7 @@ class UndefinedCheckValidator implements NodeValidator {
     }
     
     const testNode = ifNode.test;
-    const testKind = arkts.getAstNodeKind(testNode);
+    const testKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, testNode.peer);
     
     if (testKind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION) {
       return false;
@@ -104,7 +104,7 @@ class UndefinedCheckValidator implements NodeValidator {
       return false;
     }
     
-    const operatorKind = arkts.getAstNodeKind(binaryNode.operatorToken);
+    const operatorKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, binaryNode.operatorToken.peer);
     const isNotEqualOperator = operatorKind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BANG_EQUAL_EQUAL_TOKEN ||
                                 operatorKind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BANG_EQUAL_TOKEN;
     
@@ -192,7 +192,7 @@ class SdkComparisonValidator implements NodeValidator {
     let currentNode: arkts.AstNode | null = node.parent;
     
     while (currentNode) {
-      const kind = arkts.getAstNodeKind(currentNode);
+      const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, currentNode.peer);
       if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IF_STATEMENT) {
         return this.checkIfStatementForSdkComparison(currentNode, node);
       }
@@ -228,7 +228,7 @@ class SdkComparisonValidator implements NodeValidator {
   }
 
   private checkSdkVersionComparison(testNode: arkts.AstNode): boolean {
-    const kind = arkts.getAstNodeKind(testNode);
+    const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, testNode.peer);
     if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION) {
       return false;
     }
@@ -280,7 +280,7 @@ class SdkComparisonValidator implements NodeValidator {
       return null;
     }
     
-    const operatorKind = arkts.getAstNodeKind(binaryNode.operatorToken);
+    const operatorKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, binaryNode.operatorToken.peer);
     const operator = this.getOperatorText(operatorKind);
     
     const leftText = this.getNodeText(binaryNode.left);
@@ -331,7 +331,7 @@ class SdkComparisonValidator implements NodeValidator {
     }
     
     if (node.kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_NUMBER_LITERAL ||
-        arkts.getAstNodeKind(node) === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_NUMBER_LITERAL) {
+        arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, node.peer) === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_NUMBER_LITERAL) {
       return node.text?.toString() || '';
     }
     

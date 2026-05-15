@@ -77,7 +77,7 @@ class CanIUseValidator implements NodeValidator {
     let container = expression;
     while (container.parent) {
       container = container.parent;
-      if (arkts.getAstNodeKind(container) === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_SCRIPT_FUNCTION) {
+      if (arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, container.peer) === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_SCRIPT_FUNCTION) {
         break;
       }
     }
@@ -94,7 +94,7 @@ class CanIUseValidator implements NodeValidator {
     }
 
     if (node.parent !== parent) {
-      const parentKind = arkts.getAstNodeKind(node.parent);
+      const parentKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, node.parent.peer);
       if (parentKind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IF_STATEMENT) {
         if (this.checkSyscapConditionValidCallback(node.parent, specifyFuncName, importSymbol)) {
           result.hasIfChecked = true;
@@ -108,7 +108,7 @@ class CanIUseValidator implements NodeValidator {
   }
 
   private checkSyscapConditionValidCallback(node: arkts.AstNode, specifyFuncName: string, importSymbol: string): boolean {
-    if (arkts.getAstNodeKind(node) !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IF_STATEMENT) {
+    if (arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, node.peer) !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_IF_STATEMENT) {
       return false;
     }
     
@@ -117,7 +117,7 @@ class CanIUseValidator implements NodeValidator {
       return false;
     }
     
-    const testKind = arkts.getAstNodeKind(ifNode.test);
+    const testKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, ifNode.test.peer);
     if (testKind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_CALL_EXPRESSION) {
       return false;
     }
