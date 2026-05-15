@@ -1069,7 +1069,7 @@ export type ScrollOnScrollCallback = (xOffset: double, yOffset: double, scrollSt
  * @stagemodelonly
  * @since 23 static
  */
-export type ScrollOnWillScrollCallback = (xOffset: double, yOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => undefined | OffsetResult;
+export type ScrollOnWillScrollCallback = (xOffset: double, yOffset: double, scrollState: ScrollState, scrollSource: ScrollSource) => (undefined | OffsetResult);
 /**
  * Called when the scaling of each frame is complete.
  *
