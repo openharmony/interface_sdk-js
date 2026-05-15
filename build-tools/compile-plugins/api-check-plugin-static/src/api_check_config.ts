@@ -14,6 +14,7 @@
  */
 
 import path from 'path';
+import * as arkts from '@koalaui/libarkts';
 import {
   PERMISSION_TAG_CHECK_NAME,
   PERMISSION_TAG_CHECK_ERROR,
@@ -30,9 +31,6 @@ import {
   CROSSPLATFORM_TAG_CHECK_ERROR,
   DEPRECATED_TAG_CHECK_NAME,
   DEPRECATED_TAG_CHECK_WARNING,
-  FA_TAG_CHECK_NAME,
-  FA_TAG_HUMP_CHECK_NAME,
-  FA_TAG_CHECK_ERROR,
   ATOMICSERVICE_BUNDLE_TYPE,
   ATOMICSERVICE_TAG_CHECK_NAME,
   ATOMICSERVICE_TAG_CHECK_ERROR,
@@ -42,7 +40,6 @@ import {
   STAGE_TAG_CHECK_NAME,
   STAGE_TAG_HUMP_CHECK_NAME,
   STAGE_TAG_CHECK_ERROR,
-  STAGE_COMPILE_MODE,
   AVAILABLE_TAG_NAME,
   AVAILABLE_DECORATOR_WARNING,
   AVAILABLE_FILE_NAME
@@ -65,11 +62,14 @@ import {
   CurrentAddress,
   DiagnosticCategory,
   JsDocNodeCheckConfig,
-  JsDocNodeCheckConfigItem
+  JsDocNodeCheckConfigItem,
+  ConditionCheckResult,
+  JsDocNodeCheckConfigItemInterface
 } from '../api-check-wrapper';
 import {
   checkFileHasAvailableByFileName,
-  isArkuiDependence
+  isSourceRetentionDeclarationValid,
+  isSourceRetentionAnnotationContentValid
 } from '../api-check-wrapper/utils/available_decorator_utils';
 import { initComparisonFunctions } from '../utils/api_check_base_utils';
 
@@ -77,14 +77,14 @@ const jsDocNodeCheckConfigCache: Map<string, Map<string, JsDocNodeCheckConfig>> 
   new Map<string, Map<string, JsDocNodeCheckConfig>>();
 
 function getAvailableCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const availableConfig: JsDocNodeCheckConfigItem = {
+  const availableConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [SINCE_TAG_NAME],
     message: SINCE_TAG_CHECK_ERROR,
     type: DiagnosticCategory.WARNING,
     tagNameShouldExisted: true,
-    checkValidCallback: checkAvailableDecorator
+    checkJsDocSuppressorValidCallback: checkAvailableDecorator
   };
-  checkConfigArray.push(availableConfig);
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(availableConfig));
 }
 
 function getFindModuleCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
@@ -108,40 +108,40 @@ function getDeprecatedCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]):
 }
 
 function getSystemApiCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const systemApiConfig: JsDocNodeCheckConfigItem = {
+  const systemApiConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [SYSTEM_API_TAG_CHECK_NAME],
     message: SYSTEM_API_TAG_CHECK_WARNING,
     type: DiagnosticCategory.WARNING,
     tagNameShouldExisted: false,
-    checkValidCallback: checkSystemApiTag
+    checkJsDocSuppressorValidCallback: checkSystemApiTag
   };
   checkConfigArray.push(systemApiConfig);
 }
 
 function getSinceCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const sinceConfig: JsDocNodeCheckConfigItem = {
+  const sinceConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [SINCE_TAG_NAME],
     message: SINCE_TAG_CHECK_ERROR,
     type: DiagnosticCategory.WARNING,
     tagNameShouldExisted: false,
-    checkValidCallback: checkSinceValue
+    checkJsDocSuppressorValidCallback: checkSinceValue
   };
-  checkConfigArray.push(sinceConfig);
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(sinceConfig));
 }
 
 function getSyscapCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const syscapConfig: JsDocNodeCheckConfigItem = {
+  const syscapConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [SYSCAP_TAG_CHECK_NAME],
     message: SYSCAP_TAG_CHECK_WARNING,
     type: DiagnosticCategory.WARNING,
     tagNameShouldExisted: false,
-    checkValidCallback: checkSyscapAbility
+    checkJsDocSuppressorValidCallback: checkSyscapAbility
   };
   checkConfigArray.push(syscapConfig);
 }
 
 function getTestCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const testConfig: JsDocNodeCheckConfigItem = {
+  const testConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [TEST_TAG_CHECK_NAME],
     message: TEST_TAG_CHECK_ERROR,
     type: DiagnosticCategory.WARNING,
@@ -151,18 +151,18 @@ function getTestCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void 
 }
 
 function getPermissionCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const permissionConfig: JsDocNodeCheckConfigItem = {
+  const permissionConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [PERMISSION_TAG_CHECK_NAME],
     message: PERMISSION_TAG_CHECK_ERROR,
     type: DiagnosticCategory.WARNING,
     tagNameShouldExisted: false,
-    checkValidCallback: checkPermissionValue
+    checkJsDocSuppressorValidCallback: checkPermissionValue
   };
-  checkConfigArray.push(permissionConfig);
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(permissionConfig));
 }
 
 function getFormCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const formConfig: JsDocNodeCheckConfigItem = {
+  const formConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [FORM_TAG_CHECK_NAME],
     message: FORM_TAG_CHECK_ERROR,
     type: DiagnosticCategory.ERROR,
@@ -172,7 +172,7 @@ function getFormCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void 
 }
 
 function getCrossplatformCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[], logType: DiagnosticCategory): void {
-  const crossplatformConfig: JsDocNodeCheckConfigItem = {
+  const crossplatformConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [CROSSPLATFORM_TAG_CHECK_NAME],
     message: CROSSPLATFORM_TAG_CHECK_ERROR,
     type: logType,
@@ -181,18 +181,8 @@ function getCrossplatformCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[
   checkConfigArray.push(crossplatformConfig);
 }
 
-function getFAModuleCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const faModelOnlyConfig: JsDocNodeCheckConfigItem = {
-    tagName: [FA_TAG_CHECK_NAME, FA_TAG_HUMP_CHECK_NAME],
-    message: FA_TAG_CHECK_ERROR,
-    type: DiagnosticCategory.ERROR,
-    tagNameShouldExisted: false
-  };
-  checkConfigArray.push(faModelOnlyConfig);
-}
-
 function getStageModuleCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const stageModelOnlyConfig: JsDocNodeCheckConfigItem = {
+  const stageModelOnlyConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [STAGE_TAG_CHECK_NAME, STAGE_TAG_HUMP_CHECK_NAME],
     message: STAGE_TAG_CHECK_ERROR,
     type: DiagnosticCategory.ERROR,
@@ -202,7 +192,7 @@ function getStageModuleCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[])
 }
 
 function getAtomicserviceCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
-  const atomicserviceConfig: JsDocNodeCheckConfigItem = {
+  const atomicserviceConfig: JsDocNodeCheckConfigItemInterface = {
     tagName: [ATOMICSERVICE_TAG_CHECK_NAME],
     message: ATOMICSERVICE_TAG_CHECK_ERROR,
     type: DiagnosticCategory.ERROR,
@@ -237,18 +227,18 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
     checkConfig: checkConfigArray
   };
   initComparisonFunctions();
-  if (/(?<!\.d)\.ts$/g.test(fileName) && isArkuiDependence(sourceFileName) &&
-    sourceBaseName !== 'common_ts_ets_api.d.ts' && sourceBaseName !== 'global.d.ts') {
+  if (/(?<!\.d)\.ts$/g.test(fileName)) {
     getFindModuleCheckConfig(checkConfigArray);
   }
-  if (globalObject.projectConfig.systemModules.includes(apiName)) {
-    byFileName.set(sourceFileName, result);
-    return result;
-  }
+  // if (globalObject.projectConfig.systemModules.includes(apiName)) {
+  //   byFileName.set(sourceFileName, result);
+  //   return result;
+  // }
   if (checkFileHasAvailableByFileName(sourceFileName)) {
     needCheckResult = true;
     getAvailableCheckConfig(checkConfigArray);
-  } else if (globalObject.projectConfig.allModulesPaths.includes(path.normalize(sourceFileName)) || isArkuiDependence(sourceFileName)) {
+  } else if (!globalObject.projectConfig.systemModules.includes(apiName) && globalObject.projectConfig.allModulesPaths.includes(path.normalize(sourceFileName))) {
+    needCheckResult = true;
     getDeprecatedCheckConfig(checkConfigArray);
     getSystemApiCheckConfig(checkConfigArray);
     if (sourceBaseName !== AVAILABLE_FILE_NAME) {
@@ -265,26 +255,17 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
     }
     getPermissionCheckConfig(checkConfigArray);
     if (isCardFile(fileName)) {
-      needCheckResult = true;
       getFormCheckConfig(checkConfigArray);
     }
     if (globalObject.projectConfig.isCrossplatform) {
-      needCheckResult = true;
       const logType: DiagnosticCategory =
         globalObject.projectConfig.ignoreCrossplatformCheck !== true ? DiagnosticCategory.ERROR :
           DiagnosticCategory.WARNING;
       getCrossplatformCheckConfig(checkConfigArray, logType);
     }
-    if (globalObject.projectConfig.compileMode === STAGE_COMPILE_MODE) {
-      needCheckResult = true;
-      getFAModuleCheckConfig(checkConfigArray);
-    } else if (globalObject.projectConfig.compileMode !== '') {
-      needCheckResult = true;
-      getStageModuleCheckConfig(checkConfigArray);
-    }
+    getStageModuleCheckConfig(checkConfigArray);
     if (globalObject.projectConfig.bundleType === ATOMICSERVICE_BUNDLE_TYPE &&
       globalObject.projectConfig.compileSdkVersion >= ATOMICSERVICE_TAG_CHECK_VERSION) {
-      needCheckResult = true;
       getAtomicserviceCheckConfig(checkConfigArray);
     }
   }
@@ -319,6 +300,12 @@ export function getApiCheckWrapperServiceHost(): ApiCheckWrapperServiceHost {
     },
     collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string): void => {
       collectInfo(moduleName, modulePath, currentFilePath);
+    },
+    isSourceRetentionDeclarationValid: (annoDecl: arkts.AstNode): boolean => {
+      return isSourceRetentionDeclarationValid(annoDecl);
+    },
+    isSourceRetentionAnnotationContentValid: (annotation: arkts.AstNode): ConditionCheckResult => {
+      return isSourceRetentionAnnotationContentValid(annotation);
     }
   };
 }

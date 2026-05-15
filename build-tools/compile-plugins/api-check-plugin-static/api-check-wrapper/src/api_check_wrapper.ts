@@ -255,17 +255,17 @@ function expressionCheckByJsDoc(
   const jsDocTags: JSDocTag[] = getCurrentJSDoc(jsDocs);
   for (let i = 0; i < checkConfig.length; i++) {
     const config: JsDocNodeCheckConfigItem = checkConfig[i];
+    let tagNameCheckNecessity = true;
+    if (config.checkJsDocSuppressorValidCallback) {
+      tagNameCheckNecessity = config.checkJsDocSuppressorValidCallback(jsDocs, config, identifier, declaration);
+    }
+    if (!tagNameCheckNecessity) {
+      continue;
+    }
     let tagNameExisted = false;
-    
     for (const item of jsDocTags) {
       if (!config.tagName.includes(item.tag)) {
         continue;
-      }
-  
-      if (config.checkValidCallback) {
-        tagNameExisted = config.checkValidCallback(jsDocs, config, identifier, declaration);
-      } else {
-        tagNameExisted = true;
       }
   
       if (tagNameExisted && !config.tagNameShouldExisted) {

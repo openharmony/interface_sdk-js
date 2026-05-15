@@ -47,7 +47,6 @@ import {
   RUNTIME_OS_OH,
   SINCE_TAG_CHECK_ERROR,
   SINCE_TAG_NAME,
-  STAGE_COMPILE_MODE,
   SYSCAP_TAG_CHECK_NAME,
   AVAILABLE_DECORATOR_WARNING,
   ComparisonResult,
@@ -66,7 +65,8 @@ import {
   DiagnosticCategory,
   JSDoc,
   JsDocNodeCheckConfigItem,
-  JSDocTag
+  JSDocTag,
+  JsDocNodeCheckConfigItemInterface
 } from '../api-check-wrapper';
 import {
   getAvailableNodeKey,
@@ -193,17 +193,17 @@ function parseVersion(s: string): number {
   return 0;
 }
 
-export function checkSystemApiTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
-  return false;
+export function checkSystemApiTag(jsDoc: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
+  return true;
 }
 
 export function checkSinceValue(
-  jsDocs: JSDoc[],
+  jsDoc: JSDoc[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
-  if (!jsDocs || jsDocs.length === 0 || !globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
+  if (!jsDoc || jsDoc.length === 0 || !globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
     return false;
   }
 
@@ -216,9 +216,6 @@ export function checkSinceValue(
   initComparisonFunctions();
 
   const checker = new SinceJSDocChecker();
-  if (jsDocs[0] && jsDocs[0].tags) {
-    checker.setJSDocTags(jsDocs[0].tags);
-  }
   const hasIncompatibility = checker.checkTargetVersion(declaration);
 
   if (!hasIncompatibility) {
@@ -617,17 +614,18 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
 * @param { string } message 报错信息
 * @param { DiagnosticCategory } type 报错类型
 * @param { boolean } tagNameShouldExisted 该tag是否应该存在
-* @param { CheckValidCallbackInterface } checkValidCallback 报错验证回调方法
+* @param { CheckValidCallbackInterface } checkJsDocSuppressorValidCallback 报错验证回调方法
 * @returns { JsDocNodeCheckConfigItem } JsDocNodeCheckConfigItem对象
 */
-export function getJsDocNodeCheckConfigItem(tagName: string[], message: string, type: DiagnosticCategory,
-  tagNameShouldExisted: boolean, checkValidCallback?: CheckValidCallbackInterface): JsDocNodeCheckConfigItem {
+export function getJsDocNodeCheckConfigItem(
+  config: JsDocNodeCheckConfigItemInterface
+): JsDocNodeCheckConfigItem {
   return {
-    tagName: tagName,
-    message: message,
-    type: type,
-    tagNameShouldExisted: tagNameShouldExisted,
-    checkValidCallback: checkValidCallback
+    tagName: config.tagName,
+    message: config.message,
+    type: config.type,
+    tagNameShouldExisted: config.tagNameShouldExisted,
+    checkJsDocSuppressorValidCallback: config.checkJsDocSuppressorValidCallback
   };
 }
 
@@ -642,7 +640,6 @@ export function createOrCleanProjectConfig(): ProjectConfig {
     moduleName: '',
     cachePath: '',
     aceModuleJsonPath: '',
-    compileMode: '',
     permissions: {
       requestPermissions: [],
       definePermissions: []
@@ -754,7 +751,6 @@ function getPermissionFromConfig(array: Array<{ name: string }>): string[] {
  */
 export function readCardPageSet(projectConfig: ProjectConfig): void {
   if (projectConfig.aceModuleJsonPath && fs.existsSync(projectConfig.aceModuleJsonPath) && projectConfig.projectPath) {
-    projectConfig.compileMode = STAGE_COMPILE_MODE;
     const moduleJson: ModuleJson = JSON.parse(fs.readFileSync(projectConfig.aceModuleJsonPath).toString());
     const extensionAbilities: ExtensionAbilities[] = moduleJson?.module?.extensionAbilities;
     if (extensionAbilities && extensionAbilities.length > 0) {
@@ -1140,7 +1136,7 @@ export function collectInfo(moduleName: string[], modulePath: string, currentFil
 }
 
 export function checkAvailableDecorator(
-  jsDocs: JSDoc[],
+  jsDoc: JSDoc[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
@@ -1167,8 +1163,6 @@ export function checkAvailableDecorator(
   if (!declFileName || !path.normalize(declFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
     return false;
   }
-
-  initComparisonFunctions();
 
   const checker = new AvailableAnnotationChecker();
   const hasIncompatibility = checker.checkTargetVersion(declaration);
@@ -1199,98 +1193,99 @@ export function checkAvailableDecorator(
 }
 
 export function checkSyscapAbility(
-  jsDocs: JSDoc[],
+  jsDoc: JSDoc[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
-  let currentSyscapValue: string = '';
+  // let currentSyscapValue: string = '';
   
-  if (jsDocs && jsDocs.length > 0) {
-    for (const jsDoc of jsDocs) {
-      if (jsDoc.tags && jsDoc.tags.length > 0) {
-        for (const jsDocTag of jsDoc.tags) {
-          if (jsDocTag && jsDocTag.tag === SYSCAP_TAG_CHECK_NAME) {
-            currentSyscapValue = jsDocTag.comment || jsDocTag.name || '';
-            break;
-          }
-        }
-        if (currentSyscapValue) {
-          break;
-        }
-      }
-    }
-  }
+  // if (jsDocTags && jsDocTags.length > 0) {
+  //   for (const jsDoc of jsDocTags) {
+  //     if (jsDoc.tags && jsDoc.tags.length > 0) {
+  //       for (const jsDocTag of jsDoc.tags) {
+  //         if (jsDocTag && jsDocTag.tag === SYSCAP_TAG_CHECK_NAME) {
+  //           currentSyscapValue = jsDocTag.comment || jsDocTag.name || '';
+  //           break;
+  //         }
+  //       }
+  //       if (currentSyscapValue) {
+  //         break;
+  //       }
+  //     }
+  //   }
+  // }
 
-  const defaultResult: boolean = globalObject.projectConfig.syscapIntersectionSet &&
-    !globalObject.projectConfig.syscapIntersectionSet.has(currentSyscapValue);
+  // const defaultResult: boolean = globalObject.projectConfig.syscapIntersectionSet &&
+  //   !globalObject.projectConfig.syscapIntersectionSet.has(currentSyscapValue);
 
-  if (defaultResult) {
-    const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
-    const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
-    if (suppressor && suppressor.isApiVersionHandled(node)) {
-      return false;
-    }
-    return true;
-  }
+  // if (defaultResult) {
+  //   const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
+  //   const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
+  //   if (suppressor && suppressor.isApiVersionHandled(node)) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
-  const externalCheckers = externalApiCheckerMap.get(SYSCAP_TAG_CHECK_NAME);
-  if (!externalCheckers || externalCheckers.length === 0) {
-    return false;
-  }
+  // const externalCheckers = externalApiCheckerMap.get(SYSCAP_TAG_CHECK_NAME);
+  // if (!externalCheckers || externalCheckers.length === 0) {
+  //   return false;
+  // }
 
-  for (const checker of externalCheckers) {
-    if (!checker.check) {
-      return false;
-    }
-    const extrenalCheckResult = checker.check(node, declaration, globalObject.projectConfig);
-    if (!extrenalCheckResult.checkResult) {
-      return false;
-    }
-    config.message = extrenalCheckResult.checkMessage;
-  }
+  // for (const checker of externalCheckers) {
+  //   if (!checker.check) {
+  //     return false;
+  //   }
+  //   const extrenalCheckResult = checker.check(node, declaration, globalObject.projectConfig);
+  //   if (!extrenalCheckResult.checkResult) {
+  //     return false;
+  //   }
+  //   config.message = extrenalCheckResult.checkMessage;
+  // }
 
-  const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
-  const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
-  if (suppressor && suppressor.isApiVersionHandled(node)) {
-    return false;
-  }
+  // const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
+  // const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
+  // if (suppressor && suppressor.isApiVersionHandled(node)) {
+  //   return false;
+  // }
 
   return true;
 }
 
 export function checkPermissionValue(
-  jsDocs: JSDoc[],
+  jsDoc: JSDoc[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
-  if (!jsDocs || jsDocs.length === 0) {
-    return false;
-  }
+  // if (!jsDocTags || jsDocTags.length === 0) {
+  //   return false;
+  // }
   
-  const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
-  const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
+  // const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocTags);
+  // const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
   
-  if (!jsDocTag) {
-    return false;
-  }
+  // if (!jsDocTag) {
+  //   return false;
+  // }
 
-  const permissionExpression: string = jsDocTag.comment ?? '';
-  config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
+  // const permissionExpression: string = jsDocTag.comment ?? '';
+  // config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
 
-  const fun = checkMergingComments(PERMISSION_TAG_CHECK_NAME);
+  // const fun = checkMergingComments(PERMISSION_TAG_CHECK_NAME);
   
-  if (permissionExpression === '' || validPermission(permissionExpression, globalObject.projectConfig.permissionsArray)) {
-    return false;
-  }
+  // if (permissionExpression === '' || validPermission(permissionExpression, globalObject.projectConfig.permissionsArray)) {
+  //   return false;
+  // }
 
-  const suppressor = new PermissionWarningSuppressor();
-  if (suppressor.isApiVersionHandled(node)) {
-    return false;
-  }
+  // const suppressor = new PermissionWarningSuppressor();
+  // if (suppressor.isApiVersionHandled(node)) {
+  //   return false;
+  // }
 
-  return fun(jsDocs, config, node, declaration);
+  // return fun(jsDocs, config, node, declaration);
+  return true;
 }
 
 /**

@@ -28,7 +28,7 @@
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22 dynamic
+ * @since 22 dynamic&static
  */
 export @interface Available {
   /**
@@ -39,7 +39,7 @@ export @interface Available {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22 dynamic
+   * @since 22 dynamic&static
    */
   minApiVersion: string = '';
 }
@@ -53,7 +53,7 @@ export @interface Available {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23 dynamic
+ * @since 23 dynamic&static
  */
 export const enum SuppressWarningsType {
   /**
@@ -64,7 +64,7 @@ export const enum SuppressWarningsType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   COMPATIBILITY = 'compatibility',
   /**
@@ -75,7 +75,7 @@ export const enum SuppressWarningsType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   SYSCAP = 'syscap',
   /**
@@ -86,7 +86,7 @@ export const enum SuppressWarningsType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamic&static
    */
   PERMISSION = 'permission'
 }
@@ -101,7 +101,7 @@ export const enum SuppressWarningsType {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23 dynamic
+ * @since 23 dynamic&static
  */
 export @interface SuppressWarnings {
   /**
@@ -113,7 +113,7 @@ export @interface SuppressWarnings {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 23 dynamic
+   * @since 23 dynamic&static
    */
   rules: Array<SuppressWarningsType>;
 }

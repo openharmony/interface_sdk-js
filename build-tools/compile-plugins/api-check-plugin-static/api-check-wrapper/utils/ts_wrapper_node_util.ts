@@ -15,7 +15,7 @@
 
 import * as arkts from '@koalaui/libarkts';
 import { checkIdentifier, curApiCheckWrapper } from '../src/api_check_wrapper';
-import { checkAvailableDecorator, isAvailableDecorator } from './available_decorator_utils';
+import { checkAvailableDecoratorImpl, isAvailableDecorator } from './available_decorator_utils';
 import { DiagnosticCategory } from './api_check_wrapper_typedef';
 
 // 不同节点对应的处理函数映射
@@ -336,7 +336,7 @@ function handleAvailableDecoratorCheck(node: arkts.AstNode): void {
       message
     );
   };
-  checkAvailableDecorator(node, declaration, messageCallback);
+  checkAvailableDecoratorImpl(node, declaration, messageCallback);
 }
 
 export function handleArrayExpression(node: arkts.AstNode): void {

@@ -73,7 +73,6 @@ export interface ProjectConfig extends ApiCheckConfig {
   sdkConfigPaths: string;
   projectPath: string;
   aceModuleJsonPath: string;
-  compileMode: string;
   aceProfilePath: string;
   deviceTypes: string[];
   runtimeOS: string;

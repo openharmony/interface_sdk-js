@@ -34,6 +34,50 @@ export interface ApiCheckWrapperServiceHost {
     apiName: string, currentFilePath: string,
     currentAddress: CurrentAddress, logLevel: DiagnosticCategory, logMessage: string) => void;
   collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string) => void;
+  isSourceRetentionDeclarationValid?: (annoDecl: arkts.AstNode) => boolean;
+  isSourceRetentionAnnotationContentValid?: (annotation: arkts.AstNode) => ConditionCheckResult;
+}
+
+/**
+* Verify logical interface.
+* 
+* @interface JsDocNodeCheckConfigItemInterface
+*/
+export interface JsDocNodeCheckConfigItemInterface {
+  /**
+  * check node
+  * @type { string[] } 
+  */
+  tagName: string[],
+  /**
+  * check message
+  * @type { string }
+  */
+  message: string,
+  /**
+  * check type wanr/error
+  * @type { DiagnosticCategory }
+  */
+  type: DiagnosticCategory,
+  /**
+  * check node should exist
+  * @type { boolean }
+  */
+  tagNameShouldExisted: boolean,
+  /**
+  * check suppress call back
+  * @type {CheckJsDocSpecialValidCallbackInterface}
+  */
+  checkJsDocSuppressorValidCallback?: CheckJsDocSpecialValidCallbackInterface
+}
+
+interface Declaration extends Node {
+    _declarationBrand: any;
+}
+
+export interface CheckJsDocSpecialValidCallbackInterface {
+  (jsDoc: JSDoc[], config: JsDocNodeCheckConfigItem, node?: Node,
+    declaration?: Declaration): boolean;
 }
 
 export interface JsDocNodeCheckConfig {
@@ -46,7 +90,7 @@ export interface JsDocNodeCheckConfigItem {
   message: string;
   type: DiagnosticCategory;
   tagNameShouldExisted: boolean;
-  checkValidCallback?: CheckValidCallbackInterface;
+  checkJsDocSuppressorValidCallback?: CheckJsDocSpecialValidCallbackInterface;
 }
 
 /**

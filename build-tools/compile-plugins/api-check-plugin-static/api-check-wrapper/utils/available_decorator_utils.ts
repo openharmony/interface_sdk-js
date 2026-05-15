@@ -14,14 +14,17 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import fs from 'fs';
 import path from 'path';
-import { ParsedVersion } from '../../utils/api_check_plugin_typedef';
 import {
-  RUNTIME_OS_OH,
   AVAILABLE_TAG_NAME,
+  AVAILABLE_FILE_NAME,
+  AVAILABLE_SCOPE_ERROR,
+  AVAILABLE_OSNAME_ERROR,
+  AVAILABLE_VERSION_FORMAT_ERROR_PREFIX,
+  RUNTIME_OS_OH,
+  ComparisonSenario,
   AVAILABLE_DECORATOR_WARNING,
-  ComparisonSenario
+  VersionValidationResult
 } from '../../utils/api_check_plugin_define';
 import {
   parseVersionString,
@@ -32,29 +35,12 @@ import {
   defaultValueChecker,
   getVersionByValueChecker
 } from '../../utils/api_check_base_utils';
+import { ParsedVersion } from '../../utils/api_check_plugin_typedef';
 import { globalObject } from '../../index';
+import { DiagnosticCategory, ConditionCheckResult } from './api_check_wrapper_typedef';
 
 export const availableNodeCheckConfigCache: Map<string, string> = new Map<string, string>();
 const fileAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
-const arkuiDependenceCache: Map<string, boolean> = new Map<string, boolean>();
-
-export function isArkuiDependence(file: string): boolean {
-  if (!file) {
-    return false;
-  }
-  
-  let exists: boolean | undefined = arkuiDependenceCache.get(file);
-  if (exists !== undefined) {
-    return exists;
-  }
-  
-  const fileDir: string = path.dirname(file);
-  const declarationsPath: string = path.resolve(__dirname, '../../../declarations').replace(/\\/g, '/');
-  const componentPath: string = path.resolve(__dirname, '../../../../../component').replace(/\\/g, '/');
-  exists = fileDir === declarationsPath || fileDir === componentPath;
-  arkuiDependenceCache.set(file, exists);
-  return exists;
-}
 
 export function isAvailableDecorator(annotation: arkts.AstNode): boolean {
   if (!annotation) {
@@ -99,17 +85,7 @@ export function extractMinApiFromDecorator(annotation: arkts.AstNode): ParsedVer
     return null;
   }
 
-  const expr = annotation.expr;
-  if (!expr.arguments || expr.arguments.length === 0) {
-    return null;
-  }
-
-  const arg = expr.arguments[0];
-  if (!arg || !arg.properties) {
-    return null;
-  }
-
-  for (const prop of arg.properties) {
+  for (const prop of annotation.properties) {
     if (!prop.key || !prop.value) {
       continue;
     }
@@ -119,17 +95,7 @@ export function extractMinApiFromDecorator(annotation: arkts.AstNode): ParsedVer
       continue;
     }
 
-    const value = prop.value;
-    let versionText: string = '';
-
-    if (value.getString) {
-      versionText = value.getString();
-    } else if (value.text) {
-      versionText = value.text.toString();
-    } else if (value.name) {
-      versionText = value.name;
-    }
-
+    const versionText = prop.value.str;
     if (versionText) {
       return parseVersionString(versionText);
     }
@@ -284,4 +250,170 @@ function checkParentVersionSuppressed(
     : valueChecker(parentVersion.formatVersion, getVersionByValueChecker(minAvailableVersion, valueChecker), scenario);
 
   return compareResult.result;
+}
+
+/**
+ * Check if annotation declaration is valid SOURCE retention type
+ * 
+ * In es2panda:
+ * - AnnotationDeclaration has 'internalName' property for annotation name
+ * - Use arkts.getProgramFromAstNode() to get source file path
+ * 
+ * @param annoDecl AnnotationDeclaration node
+ * @returns boolean
+ */
+export function isSourceRetentionDeclarationValid(annoDecl: arkts.AstNode): boolean {
+  if (!annoDecl) {
+    return false;
+  }
+
+  // es2panda: check if node is AnnotationDeclaration type
+  // AnnotationDeclaration has internalName property
+  if (annoDecl.internalName !== undefined) {
+    const decoratorName = annoDecl.internalName;
+    if (decoratorName !== 'Available' && decoratorName !== 'SuppressWarnings') {
+      return false;
+    }
+  } else if (annoDecl.expr && annoDecl.expr.name) {
+    // Alternative: get name from expr
+    const decoratorName = annoDecl.expr.name;
+    if (decoratorName !== 'Available' && decoratorName !== 'SuppressWarnings') {
+      return false;
+    }
+  }
+
+  const program = arkts.getProgramFromAstNode(annoDecl);
+  const fileName = program?.sourceFilePath || '';
+  const normalizedFileName = path.normalize(fileName);
+  
+  if (normalizedFileName.endsWith(AVAILABLE_FILE_NAME)) {
+    return true;
+  }
+  
+  return false;
+}
+
+/**
+ * Check if annotation usage content is valid
+ * 
+ * In es2panda:
+ * - AnnotationUsage does NOT have annotationDeclaration property (unlike TypeScript)
+ * - Cannot verify annotation declaration source
+ * - Must parse content directly from annotation.expr
+ * 
+ * @param annotation AnnotationUsage node
+ * @returns ConditionCheckResult
+ */
+export function isSourceRetentionAnnotationContentValid(annotation: arkts.AstNode): ConditionCheckResult {
+  const result: ConditionCheckResult = {
+    valid: true
+  };
+  
+  if (!annotation) {
+    return result;
+  }
+
+  // es2panda: AnnotationUsage has NO annotationDeclaration property!
+  // Cannot check annotation.annotationDeclaration like TypeScript
+  // Must parse content directly
+
+  try {
+    // Directly extract version from annotation
+    const parseVersion = extractMinApiFromDecorator(annotation);
+    if (!parseVersion) {
+      return result;
+    }
+
+    // Validate version format
+    const checkResult = checkFormatResult(parseVersion);
+    if (checkResult) {
+      return checkResult;
+    }
+
+    // Check parent version hierarchy
+    return checkParentVersionHierarchy(annotation, parseVersion, result);
+  } catch (e) {
+    return result;
+  }
+}
+
+function checkParentVersionHierarchy(
+  annotation: arkts.AstNode,
+  currentVersion: ParsedVersion,
+  result: ConditionCheckResult
+): ConditionCheckResult {
+  const higherVersion = hasLargerVersionInParentNode(annotation, currentVersion);
+  if (!higherVersion) {
+    return result;
+  }
+  
+  const message = AVAILABLE_SCOPE_ERROR.replace('$VERSION', higherVersion.version);
+  return {
+    valid: false,
+    message: message,
+    type: DiagnosticCategory.WARNING
+  };
+}
+
+function hasLargerVersionInParentNode(node: arkts.AstNode, curAvailableVersion: ParsedVersion): ParsedVersion | null {
+  if (!node || !node.parent) {
+    return null;
+  }
+
+  const decorator = getValidAnnotationFromNode(node.parent, isAvailableDecorator);
+  if (decorator === null) {
+    return null;
+  }
+
+  const availableVersion = extractMinApiFromDecorator(decorator);
+  if (!availableVersion) {
+    return null;
+  }
+
+  const valueChecker = getValueChecker(AVAILABLE_TAG_NAME);
+  const compareResult = valueChecker === defaultValueChecker
+    ? valueChecker(availableVersion.version, curAvailableVersion.version, ComparisonSenario.Trigger)
+    : valueChecker(availableVersion.formatVersion, curAvailableVersion.formatVersion, ComparisonSenario.Trigger);
+
+  if (!compareResult.result) {
+    return availableVersion;
+  }
+
+  return null;
+}
+
+function checkFormatResult(parseVersion: ParsedVersion | null): ConditionCheckResult | null {
+  if (!parseVersion) {
+    return null;
+  }
+
+  let checkResult: VersionValidationResult;
+  
+  if (parseVersion.os === RUNTIME_OS_OH) {
+    checkResult = defaultFormatCheckerCompatibileIntegerAndMSF(parseVersion.version);
+  } else if (parseVersion.os === globalObject.projectConfig.runtimeOS) {
+    checkResult = getFormatChecker(AVAILABLE_TAG_NAME)(parseVersion.formatVersion);
+  } else {
+    const msg = AVAILABLE_OSNAME_ERROR
+      .replace('$RUNTIMEOS', globalObject.projectConfig.runtimeOS || '')
+      .replace('$OSNAME', parseVersion.os);
+    return {
+      valid: false,
+      message: msg,
+      type: DiagnosticCategory.ERROR
+    };
+  }
+
+  if (checkResult && !checkResult.result) {
+    const msg = AVAILABLE_VERSION_FORMAT_ERROR_PREFIX
+      .replace('$RUNTIMEOS', globalObject.projectConfig.runtimeOS || '')
+      .replace('$VERSION', parseVersion.version);
+    return {
+      valid: false,
+      message: msg,
+      type: DiagnosticCategory.ERROR
+    };
+  }
+
+  return null;
 }
