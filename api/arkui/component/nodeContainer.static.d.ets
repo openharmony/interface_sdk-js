@@ -21,7 +21,7 @@
 
 import { NodeController } from '../../@ohos.arkui.node';
 import { CommonMethod, AttributeModifier } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * The NodeContainerAttribute.
@@ -45,6 +45,16 @@ export declare interface NodeContainerAttribute extends CommonMethod {
      */
     attributeModifier(
         modifier: AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Sets NodeContainer options.
+     *
+     * @param { NodeController } controller - Instance of controller of NodeContainer.
+     * @returns { this } NodeContainerAttribute instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    setNodeContainerOptions(controller: NodeController): this;
 }
 
 /**
@@ -60,4 +70,19 @@ export declare interface NodeContainerAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function NodeContainer(
     controller: NodeController
+): NodeContainerAttribute;
+
+/**
+ * Defines NodeContainer Component. It requires call setNodeContainerOptions at start of component attribute set-up,
+ * and it requires call applyAttributeFinish at end of component attribute set-up.
+ *
+ * @param { CustomBuilderT<NodeContainerAttribute> } style - callback to set up NodeContainer's attributes.
+ * @returns { NodeContainerAttribute } The attribute of NodeContainer.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function NodeContainer(
+    style: CustomBuilderT<NodeContainerAttribute>
 ): NodeContainerAttribute;
