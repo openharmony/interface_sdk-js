@@ -3009,7 +3009,6 @@ declare namespace formInfo {
     formName: string;
     /**
      * Obtains whether the form shows in form center.
-     * The default value is true.
      *
      * @type { boolean }
      * @syscap SystemCapability.Ability.Form
