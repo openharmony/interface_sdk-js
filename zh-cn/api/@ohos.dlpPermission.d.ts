@@ -660,7 +660,7 @@ declare namespace dlpPermission {
      * @param { DLPFileAccess } access - DLP文件授权类型。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系账号ID，默认主用户ID：100。
      * @param { string } uri - DLP文件的URI。不超过4095字节。
-     * @param { AsyncCallback<DLPSandboxInfo> } callback - 获取应用沙箱信息的回调。
+     * @param { AsyncCallback<DLPSandboxInfo> } callback - 回调函数。当安装沙箱成功，err为undefined，DLPSandboxInfo为获取到的应用沙箱信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -698,7 +698,7 @@ declare namespace dlpPermission {
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。
      * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值。
-     * @param { AsyncCallback<void> } callback - 获取卸载结果的回调。
+     * @param { AsyncCallback<void> } callback - 回调函数。当uninstallDLPSandbox接口调用成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1297,7 +1297,7 @@ declare namespace dlpPermission {
      * @param { number } plaintextFd - 待加密明文文件的fd。
      * @param { number } ciphertextFd - 目标加密文件的fd。
      * @param { DLPProperty } property - 授权用户信息：授权用户列表、owner账号、联系人账号。
-     * @param { AsyncCallback<DLPFile> } callback - 回调函数。返回DLPFile对象。
+     * @param { AsyncCallback<DLPFile> } callback - 回调函数。当获取DLPFile管理对象成功，err为undefined，DLPFile为获取到的DLP文件管理对象；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
