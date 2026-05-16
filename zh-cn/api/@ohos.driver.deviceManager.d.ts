@@ -53,8 +53,8 @@ declare namespace deviceManager {
    * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - 回调函数。当绑定设备成功时，err为undefined，
    *     data包含设备ID和绑定设备驱动通信对象；否则为错误对象。
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
-   *     .Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -94,8 +94,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - 设备ID，通过queryDevices获得。
    * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
-   * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Promise used to return an object containing
-   *     the device ID and **IRemoteObject**.
+   * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Promise对象，返回一个包含设备ID和IRemoteObject的对象。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
