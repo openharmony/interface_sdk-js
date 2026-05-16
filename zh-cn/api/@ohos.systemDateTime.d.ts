@@ -14,19 +14,19 @@
  */
 
 /**
- * @file System Time and Time Zone
+ * @file 系统时间、时区
  * @kit BasicServicesKit
  */
 
 import { AsyncCallback } from './@ohos.base';
 
+
 /**
- * # Supported System Time Zones
+ * # 支持的系统时区
  * 
- * The following table lists the supported system time zones and the respective offset (unit: h) between each time zone 
- * and time zone 0.
+ * 支持的系统时区及各时区与0时区相比的偏移量(单位：h)可见下表。
  * 
- * | Time Zone                          | Offset        |
+ * | 时区                           | 偏移量         |
  * | ------------------------------ | --------------------- |
  * | Antarctica/McMurdo             | 12                    |
  * | America/Argentina/Buenos_Aires | -3                    |
@@ -61,15 +61,14 @@ import { AsyncCallback } from './@ohos.base';
  * | Asia/Tashkent                  | 5                     |
  */
 /**
- * # Supported System Time Zones
+ * # 支持的系统时区
  * 
- * For details about the supported system time zones, see API 
+ * 支持的系统时区参考接口
  * [I18n.SystemLocaleManager.getTimeZoneCityItemArray()]{@link @ohos.i18n:i18n.SystemLocaleManager.getTimeZoneCityItemArray}
- * .
+ * 。
  */
 /**
- * The **systemTime** module provides system time and time zone features. You can obtain the system time and time zone 
- * by using the following APIs.
+ * 本模块主要由系统时间和系统时区功能组成。开发者可以获取系统时间及系统时区。
  *
  * @syscap SystemCapability.MiscServices.Time
  * @crossplatform [since 18]
@@ -78,11 +77,11 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace systemDateTime {
   /**
-   * Sets the system time. This API uses an asynchronous callback to return the result.
+   * 设置系统时间，使用callback异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { long } time - Timestamp to set, in milliseconds.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { long } time - 目标时间戳(ms)。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -98,11 +97,11 @@ declare namespace systemDateTime {
    */
   function setTime(time: long, callback: AsyncCallback<void>): void;
   /**
-   * Sets the system time. This API uses a promise to return the result.
+   * 设置系统时间，使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { long } time - Timestamp to set, in milliseconds.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { long } time - 目标时间戳(ms)。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -119,11 +118,10 @@ declare namespace systemDateTime {
   function setTime(time: long): Promise<void>;
 
   /**
-   * Obtains the time elapsed since the Unix epoch. This API uses an asynchronous callback to return the result.
+   * 获取自Unix纪元以来经过的时间，使用callback异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds.<br>- **true**: The result is in
-   *     nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @param { AsyncCallback<number> } callback - Callback used to return the time elapsed since the Unix epoch.
+   * @param { boolean } isNano - 返回结果是否为纳秒数。<br>- true：表示返回结果为纳秒数（ns）。 <br>- false：表示返回结果为毫秒数（ms）。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自Unix纪元以来经过的时间戳。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -134,10 +132,9 @@ declare namespace systemDateTime {
   function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since the Unix epoch. This API uses an asynchronous callback to return the result.
+   * 获取自Unix纪元以来经过的时间，使用callback异步回调。
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the time elapsed since the Unix epoch, in
-   *     milliseconds.
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自Unix纪元以来经过的时间戳（ms）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -148,11 +145,10 @@ declare namespace systemDateTime {
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since the Unix epoch. This API uses a promise to return the result.
+   * 获取自Unix纪元以来经过的时间，使用Promise异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>-
-   *     **true**: The result is in nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @returns { Promise<number> } Promise used to return the timestamp that has elapsed since the Unix epoch.
+   * @param { boolean } isNano - 返回结果是否为纳秒数,默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @returns { Promise<number> } Promise对象，返回自Unix纪元以来经过的时间戳。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -163,11 +159,11 @@ declare namespace systemDateTime {
   function getCurrentTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the time elapsed since the Unix epoch. This API returns the result synchronously.
+   * 使用同步方式获取自Unix纪元以来到当前系统时间所经过的时间。
    *
-   * @param { boolean } [ isNanoseconds ] - Whether the time to return is in nanoseconds.<br>- **true**: The result is
-   *     in nanoseconds.<br>- **false**: The result is in milliseconds.<br>The default value is **false**.
-   * @returns { long } Time elapsed since the Unix epoch.
+   * @param { boolean } [ isNanoseconds ] - 返回结果是否为纳秒数。<br>- true：表示返回结果为纳秒数（ns）。 <br>- false：表示返回结果为毫秒数（ms）。<br>默认值为
+   *     false。
+   * @returns { long } 自Unix纪元以来到当前系统时间所经过的时间。
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform [since 18]
    * @since 10 dynamic
@@ -176,12 +172,10 @@ declare namespace systemDateTime {
   function getTime(isNanoseconds?: boolean): long;
 
   /**
-   * Obtains the time elapsed since system startup, excluding the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds.<br>- **true**: The result is in
-   *     nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @param { AsyncCallback<number> } callback - Callback used to return the time.
+   * @param { boolean } isNano - 返回结果是否为纳秒数。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间，但不包括深度睡眠时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -192,10 +186,9 @@ declare namespace systemDateTime {
   function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, excluding the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the time.
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间（ms），但不包括深度睡眠时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -206,13 +199,10 @@ declare namespace systemDateTime {
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, excluding the deep sleep time. This API uses a promise to return the
-   * result.
+   * 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用Promise异步回调。
    *
-   * @param { boolean } [isNano] - Whether the time to return is in nanoseconds. The default value is **false**.<br>-
-   *     **true**: The result is in nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @returns { Promise<number> } Promise used to return the time elapsed since system startup, excluding the deep sleep
-   *     time.
+   * @param { boolean } [isNano] - 返回结果是否为纳秒数,默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @returns { Promise<number> } Promise对象，返回自系统启动以来经过的时间，但不包括深度睡眠时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -223,12 +213,10 @@ declare namespace systemDateTime {
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the time elapsed since system startup, including the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds.<br>- **true**: The result is in
-   *     nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @param { AsyncCallback<number> } callback - Callback used to return the time.
+   * @param { boolean } isNano - 返回结果是否为纳秒数。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间，包括深度睡眠时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -239,10 +227,9 @@ declare namespace systemDateTime {
   function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, including the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间（ms），包括深度睡眠时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -253,13 +240,10 @@ declare namespace systemDateTime {
   function getRealTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, including the deep sleep time. This API uses a promise to return the
-   * result.
+   * 获取自系统启动以来经过的时间，包括深度睡眠时间，使用Promise异步回调。
    *
-   * @param { boolean } [isNano] - Whether the time to return is in nanoseconds. The default value is **false**.<br>-
-   *     **true**: The result is in nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @returns { Promise<number> } Promise used to return the time elapsed since system startup, including the deep sleep
-   *     time.
+   * @param { boolean } [isNano] - 返回结果是否为纳秒数,默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @returns { Promise<number> } Promise对象，返回自系统启动以来经过的时间，包括深度睡眠时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
@@ -270,7 +254,7 @@ declare namespace systemDateTime {
   function getRealTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Enumerates the types of time to obtain.
+   * 定义获取时间的枚举类型。
    *
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform [since 18]
@@ -279,7 +263,7 @@ declare namespace systemDateTime {
    */
   enum TimeType {
     /**
-     * Number of milliseconds elapsed since system startup, including the deep sleep time.
+     * 自系统启动以来经过的毫秒数，包括深度睡眠时间。
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform [since 18]
@@ -289,7 +273,7 @@ declare namespace systemDateTime {
     STARTUP = 0,
 
     /**
-     * Number of milliseconds elapsed since system startup, excluding the deep sleep time.
+     * 自系统启动以来经过的毫秒数，不包括深度睡眠时间。
      *
      * @syscap SystemCapability.MiscServices.Time
      * @crossplatform [since 18]
@@ -300,16 +284,17 @@ declare namespace systemDateTime {
   }
 
   /**
-   * Obtains the time elapsed since system startup. This API returns the result synchronously.
+   * 使用同步方式获取自系统启动以来经过的时间。
    *
-   * @param { TimeType } timeType - Type of the time to be obtained. The value can only be `STARTUP` or `ACTIVE`.
-   * @param { boolean } [ isNanoseconds ] - Whether the time to return is in nanoseconds.<br>- **true**: The result is
-   *     in nanoseconds.<br>- **false**: The result is in milliseconds.<br>The default value is **false**.
-   * @returns { long } Time elapsed since system startup.
+   * @param { TimeType } timeType - 获取时间的类型，仅能为`STARTUP`或者`ACTIVE`。
+   * @param { boolean } [ isNanoseconds ] - 返回结果是否为纳秒数。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。<br>默认值为
+   *     false。
+   * @returns { long } 自系统启动以来经过的时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameter types.
-   *     <br> 3. Parameter verification failed. This error code was added due to missing issues. [since 12]
+   *     <br> 3. Parameter verification failed. This error code was added due to missing
+   *     issues. [since 12]
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform [since 18]
    * @since 10 dynamic
@@ -318,17 +303,17 @@ declare namespace systemDateTime {
   function getUptime(timeType: TimeType, isNanoseconds?: boolean): long;
 
   /**
-   * Sets the system date. This API uses an asynchronous callback to return the result.
+   * 设置系统日期，使用callback异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { Date } date - Target date. The value must be greater than 0.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Date } date - 目标日期，且必须>0。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameter types.
-   *     <br> 3. Parameter verification failed.
+   *     <br> 3. Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamiconly
@@ -338,17 +323,17 @@ declare namespace systemDateTime {
   function setDate(date: Date, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the system date. This API uses a promise to return the result.
+   * 设置系统日期，使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { Date } date - Target date. The value must be greater than 0.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Date } date - 目标日期，且必须>0。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameter types.
-   *     <br> 3. Parameter verification failed.
+   *     <br> 3. Parameter verification failed;
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamiconly
@@ -358,9 +343,9 @@ declare namespace systemDateTime {
   function setDate(date: Date): Promise<void>;
 
   /**
-   * Obtains the current system date. This API uses an asynchronous callback to return the result.
+   * 获取当前系统日期，使用callback异步回调。
    *
-   * @param { AsyncCallback<Date> } callback - Callback used to return the current system date.
+   * @param { AsyncCallback<Date> } callback - 回调函数，返回当前系统日期。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. System error.
    * @syscap SystemCapability.MiscServices.Time
@@ -371,9 +356,9 @@ declare namespace systemDateTime {
   function getDate(callback: AsyncCallback<Date>): void;
 
   /**
-   * Obtains the current system date. This API uses a promise to return the result.
+   * 获取当前系统日期，使用Promise异步回调。
    *
-   * @returns { Promise<Date> } Promise used to return the current system date.
+   * @returns { Promise<Date> } Promise对象，返回当前系统日期。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. System error.
    * @syscap SystemCapability.MiscServices.Time
@@ -384,13 +369,12 @@ declare namespace systemDateTime {
   function getDate(): Promise<Date>;
 
   /**
-   * Sets the system time zone. This API uses an asynchronous callback to return the result.
+   * 设置系统时区，使用callback异步回调。
    *
    * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone - System time zone to set. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-system-date-time-sys.md#supported-system-time-zones)
-   *     .
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } timezone - 系统时区。 具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-system-date-time-sys.md#支持的系统时区) 。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -407,13 +391,12 @@ declare namespace systemDateTime {
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the system time zone. This API uses a promise to return the result.
+   * 设置系统时区，使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone - System time zone to set. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-system-date-time-sys.md#supported-system-time-zones)
-   *     .
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } timezone - 系统时区。具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-system-date-time-sys.md#支持的系统时区) 。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -430,11 +413,10 @@ declare namespace systemDateTime {
   function setTimezone(timezone: string): Promise<void>;
 
   /**
-   * Obtains the system time zone. This API uses an asynchronous callback to return the result.
+   * 获取系统时区，使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } callback - Callback used to return the system time zone. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-date-time.md#supported-system-time-zones)
-   *     .
+   * @param { AsyncCallback<string> } callback - 回调函数，返回系统时区。具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-date-time.md#支持的系统时区)。
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform [since 18]
    * @since 9 dynamic
@@ -443,11 +425,10 @@ declare namespace systemDateTime {
   function getTimezone(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the system time zone. This API uses a promise to return the result.
+   * 获取系统时区，使用Promise异步回调。
    *
-   * @returns { Promise<string> } Promise used to return the system time zone. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-date-time.md#supported-system-time-zones)
-   *     .
+   * @returns { Promise<string> } Promise对象，返回系统时区。具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-date-time.md#支持的系统时区)。
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform [since 18]
    * @since 9 dynamic
@@ -456,11 +437,9 @@ declare namespace systemDateTime {
   function getTimezone(): Promise<string>;
 
   /**
-   * Obtains the system time zone in synchronous mode.
+   * 获取系统时区，使用同步方式。
    *
-   * @returns { string } System time zone. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-date-time.md#supported-system-time-zones)
-   *     .
+   * @returns { string } 返回系统时区。具体可见[支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-date-time.md#支持的系统时区)。
    * @syscap SystemCapability.MiscServices.Time
    * @crossplatform [since 18]
    * @since 10 dynamic
@@ -469,10 +448,9 @@ declare namespace systemDateTime {
   function getTimezoneSync(): string;
 
   /**
-   * Updates the NTP time from the NTP server This API returns the result asynchronously. In this way, the NTP time is 
-   * updated from the NTP server only once within one hour.
+   * 使用异步方式从NTP服务器更新NTP时间。该方法一小时内只会从NTP服务器更新一次NTP时间。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13000001 - Network connection error or OS error.
    * @syscap SystemCapability.MiscServices.Time
@@ -483,9 +461,9 @@ declare namespace systemDateTime {
   function updateNtpTime(): Promise<void>;
 
   /**
-   * Obtains the actual time calculated based on the last updated NTP time. This API returns the result synchronously.
+   * 使用同步方式获取基于上次更新的NTP时间所计算出的真实时间。
    *
-   * @returns { long } Unix epoch time (ms) calculated based on the last updated NTP time.
+   * @returns { long } 基于上次更新的NTP时间所计算出的Unix纪元时间(ms)。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13000002 - updateNtpTime() is not called successfully.
    * @syscap SystemCapability.MiscServices.Time
@@ -496,11 +474,9 @@ declare namespace systemDateTime {
   function getNtpTime(): long;
 
   /**
-   * Obtains the switch status of the automatic time setting. This API returns the result synchronously.
+   * 获取自动设置时间开关状态，使用同步方式。
    *
-   * @returns { boolean } Switch status of the automatic time setting.
-   *     <br>- **true**: The automatic time setting is on.
-   *     <br>- **false**: The automatic time setting is off.
+   * @returns { boolean } 返回自动设置时间开关状态。<br/>- true：表示自动设置时间开关状态为打开。 <br/>- false：表示自动设置时间开关状态为关闭。
    * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes: 1.System memory is
    *     insufficient; 2.Calls the underlying system interface failed.
    * @syscap SystemCapability.MiscServices.Time
@@ -510,12 +486,11 @@ declare namespace systemDateTime {
   function getAutoTimeStatus(): boolean;
 
   /**
-   * Sets the status of the automatic time setting. This API uses a promise to return the result.
+   * 设置自动设置时间开关状态，使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { boolean } status - Whether to enable the automatic time setting.<br>- **true**: Enable the automatic time
-   *     setting.<br>- **false**: Disable the automatic time setting.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } status - 设置自动设置时间开关状态。<br/>- true：表示打开自动设置时间开关。 <br/>- false：表示关闭自动设置时间开关。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13000001 - Network connection error or OS error. Possible causes:

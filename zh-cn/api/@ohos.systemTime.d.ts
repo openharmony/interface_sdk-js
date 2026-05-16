@@ -14,19 +14,18 @@
  */
 
 /**
- * @file System Time and Time Zone
+ * @file 系统时间、时区
  * @kit BasicServicesKit
  */
 
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * # Supported System Time Zones
+ * # 支持的系统时区
  * 
- * The following table lists the supported system time zones and the respective offset (unit: h) between each time zone 
- * and time zone 0.
+ * 支持的系统时区及各时区与0时区相比的偏移量（单位：h）可见下表。
  * 
- * | Time Zone                          | Offset        |
+ * | 时区                           | 偏移量         |
  * | ------------------------------ | --------------------- |
  * | Antarctica/McMurdo             | 12                    |
  * | America/Argentina/Buenos_Aires | -3                    |
@@ -61,8 +60,7 @@ import { AsyncCallback } from './@ohos.base';
  * | Asia/Tashkent                  | 5                     |
  */
 /**
- * The **systemTime** module provides system time and time zone features. You can use the APIs of this module to set and
- * obtain the system time and time zone.
+ * 本模块主要由系统时间和系统时区功能组成。开发者可以设置、获取系统时间及系统时区。
  *
  * @syscap SystemCapability.MiscServices.Time
  * @since 7 dynamiconly
@@ -71,11 +69,11 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace systemTime {
   /**
-   * Sets the system time. This API uses an asynchronous callback to return the result.
+   * 设置系统时间，使用callback异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { number } time - Timestamp to set, in milliseconds.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } time - 目标时间戳（ms）。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7 dynamiconly
@@ -85,11 +83,11 @@ declare namespace systemTime {
   function setTime(time: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the system time. This API uses a promise to return the result.
+   * 设置系统时间，使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { number } time - Timestamp to set, in milliseconds.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { number } time - 目标时间戳（ms）。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7 dynamiconly
@@ -99,11 +97,10 @@ declare namespace systemTime {
   function setTime(time: number): Promise<void>;
 
   /**
-   * Obtains the time elapsed since the Unix epoch. This API uses an asynchronous callback to return the result.
+   * 获取自Unix纪元以来经过的时间，使用callback异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds.<br>- **true**: The result is in
-   *     nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @param { AsyncCallback<number> } callback - Callback used to return the time elapsed since the Unix epoch.
+   * @param { boolean } isNano - 返回结果是否为纳秒数。<br>- true：表示返回结果为纳秒数（ns）。 <br>- false：表示返回结果为毫秒数（ms）。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自Unix纪元以来经过的时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -113,10 +110,9 @@ declare namespace systemTime {
   function getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since the Unix epoch. This API uses an asynchronous callback to return the result.
+   * 获取自Unix纪元以来经过的时间，使用callback异步回调。
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the time elapsed since the Unix epoch, in
-   *     milliseconds.
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自Unix纪元以来经过的时间（ms）。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -126,12 +122,11 @@ declare namespace systemTime {
   function getCurrentTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since the Unix epoch. This API uses a promise to return the result.
+   * 获取自Unix纪元以来经过的时间，使用Promise异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>The
-   *     default value is false.<br>- **true**: The result is in nanoseconds.<br>- **false**: The result is in
-   *     milliseconds.
-   * @returns { Promise<number> } Promise used to return the time elapsed since the Unix epoch.
+   * @param { boolean } isNano - 返回结果是否为纳秒数，默认值为false。<br/>默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数
+   *     （ms）。
+   * @returns { Promise<number> } Promise对象，返回自Unix纪元以来经过的时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -141,12 +136,10 @@ declare namespace systemTime {
   function getCurrentTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the time elapsed since system startup, excluding the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds.<br>- **true**: The result is in
-   *     nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { boolean } isNano - 返回结果是否为纳秒数。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间，不包括深度睡眠时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -156,10 +149,9 @@ declare namespace systemTime {
   function getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, excluding the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间（ms），不包括深度睡眠时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -169,13 +161,10 @@ declare namespace systemTime {
   function getRealActiveTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, excluding the deep sleep time. This API uses a promise to return the
-   * result.
+   * 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用Promise异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>-
-   *     **true**: The result is in nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @returns { Promise<number> } Promise used to return the time elapsed since system startup, excluding the deep sleep
-   *     time.
+   * @param { boolean } isNano - 返回结果是否为纳秒数，默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @returns { Promise<number> } Promise对象，返回自系统启动以来经过的时间，但不包括深度睡眠时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -185,12 +174,10 @@ declare namespace systemTime {
   function getRealActiveTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Obtains the time elapsed since system startup, including the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds.<br>- **true**: The result is in
-   *     nanoseconds.<br>- **false**: The result is in milliseconds.
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { boolean } isNano - 返回结果是否为纳秒数。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数（ms）。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间，包括深度睡眠时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -200,10 +187,9 @@ declare namespace systemTime {
   function getRealTime(isNano: boolean, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, including the deep sleep time. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
    *
-   * @param { AsyncCallback<number> } callback - Callback used to return the result.
+   * @param { AsyncCallback<number> } callback - 回调函数，返回自系统启动以来经过的时间（ms），包括深度睡眠时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -213,14 +199,11 @@ declare namespace systemTime {
   function getRealTime(callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the time elapsed since system startup, including the deep sleep time. This API uses a promise to return the
-   * result.
+   * 获取自系统启动以来经过的时间，包括深度睡眠时间，使用Promise异步回调。
    *
-   * @param { boolean } isNano - Whether the time to return is in nanoseconds. The default value is **false**.<br>The
-   *     default value is false.<br>- **true**: The result is in nanoseconds.<br>- **false**: The result is in
-   *     milliseconds.
-   * @returns { Promise<number> } Promise used to return the time elapsed since system startup, including the deep sleep
-   *     time.
+   * @param { boolean } isNano - 返回结果是否为纳秒数，默认值为false。<br/>默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数
+   *     （ms）。
+   * @returns { Promise<number> } Promise对象，返回自系统启动以来经过的时间，包括深度睡眠时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -230,11 +213,11 @@ declare namespace systemTime {
   function getRealTime(isNano?: boolean): Promise<number>;
 
   /**
-   * Sets the system date. This API uses an asynchronous callback to return the result.
+   * 设置系统日期，使用callback异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { Date } date - Target date to set.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Date } date - 目标日期。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7 dynamiconly
@@ -244,11 +227,11 @@ declare namespace systemTime {
   function setDate(date: Date, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the system date. This API uses a promise to return the result.
+   * 设置系统日期，使用Promise异步回调。
    *
    * @permission ohos.permission.SET_TIME
-   * @param { Date } date - Target date to set.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Date } date - 目标日期。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7 dynamiconly
@@ -258,21 +241,21 @@ declare namespace systemTime {
   function setDate(date: Date): Promise<void>;
 
   /**
-   * Obtains the current system date. This API uses an asynchronous callback to return the result.
+   * 获取当前系统日期，使用callback异步回调。
    *
-   * @param { AsyncCallback<Date> } callback - Callback used to return the current system date.
+   * @param { AsyncCallback<Date> } callback - 回调函数，返回当前系统日期。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.systemDateTime:systemDateTime.setDate
+   * @useinstead @ohos.systemDateTime:systemDateTime.getDate
    */
   function getDate(callback: AsyncCallback<Date>): void;
 
   /**
-   * Obtains the current system date. This API uses a promise to return the result.
+   * 获取当前系统日期，使用Promise异步回调。
    *
-   * @returns { Promise<Date> } Promise used to return the current system date.
+   * @returns { Promise<Date> } Promise对象，返回当前系统日期。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -282,13 +265,12 @@ declare namespace systemTime {
   function getDate(): Promise<Date>;
 
   /**
-   * Sets the system time zone. This API uses an asynchronous callback to return the result.
+   * 设置系统时区，使用callback异步回调。
    *
    * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone - System time zone to set. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#supported-system-time-zones)
-   *     .
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } timezone - 系统时区。具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#支持的系统时区) 。
+   * @param { AsyncCallback<void> } callback - 回调函数。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7 dynamiconly
@@ -298,13 +280,12 @@ declare namespace systemTime {
   function setTimezone(timezone: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the system time zone. This API uses a promise to return the result.
+   * 使用Promise异步回调设置系统时区。
    *
    * @permission ohos.permission.SET_TIME_ZONE
-   * @param { string } timezone - System time zone to set. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#supported-system-time-zones)
-   *     .
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } timezone - 系统时区。具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#支持的系统时区) 。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 7 dynamiconly
@@ -314,11 +295,10 @@ declare namespace systemTime {
   function setTimezone(timezone: string): Promise<void>;
 
   /**
-   * Obtains the system time zone. This API uses an asynchronous callback to return the result.
+   * 获取系统时区，使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } callback - Callback used to return the system time zone. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#supported-system-time-zones)
-   *     .
+   * @param { AsyncCallback<string> } callback - 回调函数，返回系统时区。具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#支持的系统时区) 。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
@@ -328,11 +308,10 @@ declare namespace systemTime {
   function getTimezone(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the system time zone. This API uses a promise to return the result.
+   * 获取系统时区，使用Promise异步回调。
    *
-   * @returns { Promise<string> } Promise used to return the system time zone. For details, see
-   *     [Supported System Time Zones](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#supported-system-time-zones)
-   *     .
+   * @returns { Promise<string> } Promise对象，返回系统时区。具体可见
+   *     [支持的系统时区](docroot://reference/apis-basic-services-kit/js-apis-system-time.md#支持的系统时区) 。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
    * @syscap SystemCapability.MiscServices.Time
    * @since 8 dynamiconly
