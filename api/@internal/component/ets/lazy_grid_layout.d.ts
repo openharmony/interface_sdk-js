@@ -84,7 +84,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   /**
    * Triggered when the index of child components in the visible area changes.
    *
-   * @param { onVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
    *     when the index of child components in the visible area changes.
    *     Passing undefined will unregister the callback.
    * @returns { T }
@@ -94,7 +94,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  onVisibleIndexesChange(callback: onVisibleIndexesChangeCallback | undefined): T;
+  onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): T;
 }
 
 /**
