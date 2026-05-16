@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, BlurStyle, LengthMetrics, Bindable } from '@ohos.arkui.component'; 
+import { Builder, ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, BlurStyle, LengthMetrics, Bindable, CustomBuilderT } from '@ohos.arkui.component'; 
 
 /**
  * Define the initialization parameters of the arc alphabet index bar
@@ -260,6 +260,17 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @since 24 static
    */
   popupBackgroundBlurStyle(style: Optional<BlurStyle>): this;
+
+  /**
+   * Set arcAlphabetIndexer options.
+   *
+   * @param { ArcAlphabetIndexerInitInfo } info - arcAlphabetIndexer constructor options
+   * @returns { ArcAlphabetIndexerAttribute } Returns  instance of  ArcAlphabetIndexerAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setArcAlphabetIndexerOptions(info: ArcAlphabetIndexerInitInfo): this;
 }
 
 /**
@@ -275,4 +286,19 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function ArcAlphabetIndexer(
     info: ArcAlphabetIndexerInitInfo
-): ArcAlphabetIndexerAttribute;
+): ArcAlphabetIndexerAttribute
+
+/**
+ * Defines ArcAlphabetIndexer Component.
+ *
+ * @param { CustomBuilderT<ArcAlphabetIndexerAttribute> } style_ - arcAlphabetIndexer attribute instance
+ * @returns { ArcAlphabetIndexerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ArcAlphabetIndexer(
+    style_: CustomBuilderT<ArcAlphabetIndexerAttribute>,
+): ArcAlphabetIndexerAttribute
