@@ -77,8 +77,8 @@ declare class DriverExtensionAbility {
    * [RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，用于客户端和服务端进行通信。
    *
    * @param { Want } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
-   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } **RemoteObject** object used for communication between
-   *     the server and client, or promise used to return the value.
+   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } 一个RemoteObject对象，用于客户端和服务端进行通信；或一个Promise对象，返回用于通信的
+   *     RemoteObject对象。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -90,7 +90,7 @@ declare class DriverExtensionAbility {
    * Extension的生命周期回调，客户端执行断开连接服务时回调。
    *
    * @param { Want } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
-   * @returns { void | Promise<void> } Empty value, or promise used to return the value.
+   * @returns { void | Promise<void> } 返回值为空；或一个Promise对象，无返回结果。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10
@@ -100,7 +100,7 @@ declare class DriverExtensionAbility {
   /**
    * Extension的生命周期回调，客户端执行断开连接服务时回调。
    * @param { Want } want - Indicates disconnection information about the driver extension.
-   * @returns { undefined | Promise<void> }
+   * @returns { undefined | Promise<void> } 返回值为空；或一个Promise对象，无返回结果。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @stagemodelonly
    * @since 23 static
