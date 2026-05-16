@@ -956,6 +956,7 @@ declare namespace dlpPermission {
         fileId?: string;
         /**
          * 表示允许打开的次数，默认为空。取值范围大于等于0，超出此范围返回null。
+         * 取值应为≥0的整数。默认值：0。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -981,8 +982,8 @@ declare namespace dlpPermission {
         countdown?: number;
         /**
          * 表示DLP文件的扩展属性，默认为空。
-         * 
          * **模型约束**：此接口仅可在Stage模型下使用。
+         * 默认值：空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1479,8 +1480,8 @@ declare namespace dlpPermission {
         enterprise: string;
         /**
          * 企业DLP文件的查询选项。
-         * 
          * **模型约束**：此接口仅可在Stage模型下使用。
+         * 默认值：空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1579,6 +1580,7 @@ declare namespace dlpPermission {
     export interface EnterprisePolicy {
         /**
          * 表示企业定制策略的json字符串。长度不超过4MB。
+         * 最大长度为4139304。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1741,7 +1743,8 @@ declare namespace dlpPermission {
      */
     export interface DlpFileQueryOptions {
         /**
-         * 表示企业DLP文件的用户定义分类标签。单位为byte，最大长度为255字节。
+         * 表示企业DLP文件的用户定义分类标签。单位为byte，
+         * 最大长度为255字节，最大长度为255字节。默认值：空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
