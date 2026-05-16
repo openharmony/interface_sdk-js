@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,121 +19,95 @@
  */
 
 /**
- * Defines the advertisement data model.
- * @typedef Advertisement
- * @syscap SystemCapability.Advertising.Ads
- * @since 11
+ * # How to Use
+ * 
+ * When using the [advertising]{@link ./../@ohos.advertising:advertising} function, you can obtain the returned ad 
+ * through [Advertisement]{@link ./../@ohos.advertising:advertising.Advertisement}.
  */
 /**
- * Defines the advertisement data model.
- * @typedef Advertisement
+ * This module provides the capability of returning ads.
+ *
  * @syscap SystemCapability.Advertising.Ads
- * @atomicservice
- * @since 12
+ * @atomicservice [since 12]
+ * @since 11
  */
 export interface Advertisement {
   /**
-   * The advertisement type.
-   * @type { number }
+   * Ad type.
+   * 
+   * - **1**: splash ad.
+   * - **3**: native ad.
+   * - **7**: rewarded ad.
+   * - **8**: banner ad.
+   * - **12**: interstitial ad.
+   * - **60**: roll ad.
+   *
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
    * @since 11
-   */
-  /**
-   * The advertisement type.
-   * @type { number }
-   * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
-   * @since 12
    */
   adType: number;
 
   /**
-   * The server verifies the configuration parameters.
-   * @type { Map<string, string> }
+   * Server verification parameter.
+   *
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
    * @since 11
-   */
-  /**
-   * The server verifies the configuration parameters.
-   * @type { Map<string, string> }
-   * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
-   * @since 12
    */
   rewardVerifyConfig: Map<string, string>;
 
   /**
-   * The unique identifier of the advertisement.
-   * @type { string }
+   * Unique ID of the ad.
+   *
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
    * @since 11
-   */
-  /**
-   * The unique identifier of the advertisement.
-   * @type { string }
-   * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
-   * @since 12
    */
   uniqueId: string;
 
   /**
-   * The subscriber has been rewarded.
-   * @type { boolean }
+   * Whether users get rewarded for watching or clicking the ad.
+   * 
+   * - **true**: Users get rewarded.
+   * - **false**: Users do not get rewarded.
+   *
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
    * @since 11
-   */
-  /**
-   * The subscriber has been rewarded.
-   * @type { boolean }
-   * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
-   * @since 12
    */
   rewarded: boolean;
 
   /**
-   * The advertisement has been shown.
-   * @type { boolean }
+   * Whether the ad is shown.
+   * 
+   * - **true**: The ad is shown.
+   * - **false**: The ad is not shown.
+   *
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
    * @since 11
-   */
-  /**
-   * The advertisement has been shown.
-   * @type { boolean }
-   * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
-   * @since 12
    */
   shown: boolean;
 
   /**
-   * The advertisement has been clicked.
-   * @type { boolean }
+   * Whether the ad is clicked.
+   * 
+   * - **true**: The ad is clicked.
+   * - **false**: The ad is not clicked.
+   *
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
    * @since 11
-   */
-  /**
-   * The advertisement has been clicked.
-   * @type { boolean }
-   * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
-   * @since 12
    */
   clicked: boolean;
 
   /**
-   * The extended attributes of advertisement.
-   * @type { Object }
+   * Custom parameter.
+   *
    * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
    * @since 11
-   */
-  /**
-   * The extended attributes of advertisement.
-   * @type { Object }
-   * @syscap SystemCapability.Advertising.Ads
-   * @atomicservice
-   * @since 12
    */
   [key:string]: Object;
 }
