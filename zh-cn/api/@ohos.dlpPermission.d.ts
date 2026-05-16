@@ -622,8 +622,8 @@ declare namespace dlpPermission {
         tokenID: number;
         /**
          * 表示被绑定的DLP沙箱应用的应用索引。
-         * 
          * **模型约束**：此接口仅可在Stage模型下使用。
+         * 取值应为[-1,1100]内的整数。默认值：-1。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -657,9 +657,12 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
+     *     <br>最小长度为7且最大长度为128。
      * @param { DLPFileAccess } access - DLP文件授权类型。
-     * @param { number } userId - 当前的用户ID，通过账号子系统获取的系账号ID，默认主用户ID：100。
+     * @param { number } userId - 当前的用户ID，通过账号子系统获取的系账号ID，默认主用户ID：100
+     *     <br>取值范围为全体整数。
      * @param { string } uri - DLP文件的URI。不超过4095字节。
+     *     <br>最大长度为4095。
      * @param { AsyncCallback<DLPSandboxInfo> } callback - 回调函数。当安装沙箱成功，err为undefined，DLPSandboxInfo为获取到的应用沙箱信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -696,8 +699,11 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
+     *     <br>最小长度为7且最大长度为128。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。
+     *     <br>取值范围为全体整数。
      * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值。
+     *     <br>取值应为[1001,1100]内的整数。
      * @param { AsyncCallback<void> } callback - 回调函数。当uninstallDLPSandbox接口调用成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -942,6 +948,7 @@ declare namespace dlpPermission {
         actionUponExpiry?: ActionType;
         /**
          * 表示文件的标识，默认为空。不超过255字节，超出此范围返回null。
+         * 最大长度为255。默认值：空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -956,6 +963,7 @@ declare namespace dlpPermission {
         allowedOpenCount?: number;
         /**
          * 表示是否要求添加水印。true表示要求添加水印，false表示不要求添加水印，默认为空。
+         * 默认值：false。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 23
@@ -1295,7 +1303,9 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } plaintextFd - 待加密明文文件的fd。
+     *     <br>取值范围为全体整数。
      * @param { number } ciphertextFd - 目标加密文件的fd。
+     *     <br>取值范围为全体整数。
      * @param { DLPProperty } property - 授权用户信息：授权用户列表、owner账号、联系人账号。
      * @param { AsyncCallback<DLPFile> } callback - 回调函数。当获取DLPFile管理对象成功，err为undefined，DLPFile为获取到的DLP文件管理对象；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
@@ -1690,7 +1700,8 @@ declare namespace dlpPermission {
      * > - 相同分类标签的只读企业DLP文件在同一个沙箱中打开。如果一个沙箱中打开了多个相同标签的只读企业DLP文件，则查询结果返回所有该沙箱打开过文件的URI（包括手动关闭的文件）。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { DlpFileQueryOptions } [options] - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则查询所有企业DLP文件。
+     * @param { DlpFileQueryOptions } [options] - 表示DLP文件的查询选项
+     *     - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则查询所有企业DLP文件。
      * @returns { Promise<Array<string>> } Promise对象，返回已打开的目标企业DLP文件的URI列表。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -1709,7 +1720,8 @@ declare namespace dlpPermission {
      * > 该接口仅能关闭调用方应用通过[generateDlpFileForEnterprise]{@link dlpPermission.generateDlpFileForEnterprise}生成的企业DLP文件。
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { DlpFileQueryOptions } [options] - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则关闭所有企业DLP文件。
+     * @param { DlpFileQueryOptions } [options] - 表示DLP文件的查询选项
+     *     - 企业DLP文件的查询选项。<br>若参数未指定或为空字符串，则关闭所有企业DLP文件。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
