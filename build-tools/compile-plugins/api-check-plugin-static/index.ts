@@ -20,6 +20,9 @@ import { ApiCheckWrapperServiceHost } from './api-check-wrapper';
 import { getApiCheckWrapperServiceHost } from './src/api_check_config';
 import { checkApiExpression, WrapperApi } from './api-check-wrapper/src/api_check_wrapper';
 
+export let externalApiCheckPlugin = new Map();
+export let fileAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
+
 /**
  * 导出projectConfig作为全局变量
  */
@@ -36,7 +39,9 @@ export function apiCheckPlugin(): Plugins {
   return {
     name: 'api-check-plugins',
     checked: apiCheckCallback,
-    clean(): void { }
+    clean(): void {
+      resetPlugins();
+    }
   };
 }
 
@@ -80,4 +85,9 @@ export function initApiCheckConfig(projectConfig: ProjectConfig): void {
   readCardPageSet(projectConfig);
   readSystemModules(projectConfig);
   readSyscapInfo(projectConfig);
+}
+
+function resetPlugins(): void {
+  externalApiCheckPlugin = new Map();
+  fileAvailableCheckCache = new Map();
 }

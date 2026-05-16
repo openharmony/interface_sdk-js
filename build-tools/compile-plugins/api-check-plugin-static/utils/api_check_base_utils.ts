@@ -26,7 +26,7 @@ import {
   VersionValidationResult
 } from './api_check_plugin_define';
 import { ParsedVersion } from './api_check_plugin_typedef';
-import { globalObject } from '../index';
+import { globalObject, externalApiCheckPlugin } from '../index';
 
 export function defaultFormatChecker(since: string): boolean {
   const regex = /^(?:[1-9]\d{0,2}|[1-9]\d{0,2}\.\d{1,3}\.\d{1,3}|[1-9]\d{0,2}\.\d{1,3}\.\d{1,3}\([1-9]\d{0,2}\)|[1-9]\d?\.\d{1,2}\.\d{1,2})$/;
@@ -174,13 +174,60 @@ export function initValueChecker(osName: string, tag: string): void {
   if (comparisonFunctions.valueChecker.has(cacheKey)) {
     return;
   }
+  
+  // Try new format first: {osName}/{tag}/CompatibilityCheck
+  let formatKey = `${osName}/${tag}/CompatibilityCheck`;
+  if (!externalApiCheckPlugin.has(formatKey)) {
+    formatKey = `${osName}/${tag}`;
+  }
+  let plugins = externalApiCheckPlugin.get(formatKey);
+
+  if (!plugins || plugins.length === 0) {
+    comparisonFunctions.valueChecker.set(cacheKey, defaultValueChecker);
+    return;
+  }
+
+  // Try to load external plugin
+  for (const plugin of plugins) {
+    try {
+      const externalModule = require(plugin.path);
+      const externalMethod = externalModule[plugin.functionName];
+
+      if (typeof externalMethod === 'function') {
+        comparisonFunctions.valueChecker.set(cacheKey, externalMethod);
+        return;
+      }
+    } catch (error) {
+    }
+  }
+
   comparisonFunctions.valueChecker.set(cacheKey, defaultValueChecker);
 }
 
 export function initFormatChecker(osName: string, tag: string): void {
+  const pluginKey = `${osName}/${tag}/FormatValidation`;
   const cacheKey = `${osName}/${tag}`;
   if (comparisonFunctions.formatChecker.has(cacheKey)) {
     return;
+  }
+  
+  // Try to load external plugin
+  const plugins = externalApiCheckPlugin.get(pluginKey);
+  if (!plugins || plugins.length === 0) {
+    comparisonFunctions.formatChecker.set(cacheKey, defaultFormatCheckerCompatibileIntegerAndMSF);
+    return;
+  }
+  for (const plugin of plugins) {
+    try {
+      const externalModule = require(plugin.path);
+      const externalMethod = externalModule[plugin.functionName];
+
+      if (typeof externalMethod === 'function') {
+        comparisonFunctions.formatChecker.set(cacheKey, externalMethod);
+        return;
+      }
+    } catch (error) {
+    }
   }
   comparisonFunctions.formatChecker.set(cacheKey, defaultFormatCheckerCompatibileIntegerAndMSF);
 }

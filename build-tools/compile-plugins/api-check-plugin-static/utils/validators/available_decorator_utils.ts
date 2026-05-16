@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import fs from 'fs';
 import * as arkts from '@koalaui/libarkts';
 import path from 'path';
 import {
@@ -22,25 +23,20 @@ import {
   AVAILABLE_OSNAME_ERROR,
   AVAILABLE_VERSION_FORMAT_ERROR_PREFIX,
   RUNTIME_OS_OH,
-  ComparisonSenario,
-  AVAILABLE_DECORATOR_WARNING,
   VersionValidationResult
-} from '../../utils/api_check_plugin_define';
+} from '../api_check_plugin_define';
 import {
   parseVersionString,
   defaultFormatCheckerCompatibileIntegerAndMSF,
   getFormatChecker,
   initComparisonFunctions,
-  getValueChecker,
-  defaultValueChecker,
-  getVersionByValueChecker
-} from '../../utils/api_check_base_utils';
-import { ParsedVersion } from '../../utils/api_check_plugin_typedef';
-import { globalObject } from '../../index';
-import { DiagnosticCategory, ConditionCheckResult } from './api_check_wrapper_typedef';
+  compareVersions
+} from '../api_check_base_utils';
+import { ParsedVersion } from '../api_check_plugin_typedef';
+import { globalObject, fileAvailableCheckCache } from '../../index';
+import { DiagnosticCategory, ConditionCheckResult } from '../../api-check-wrapper/utils/api_check_wrapper_typedef';
 
 export const availableNodeCheckConfigCache: Map<string, string> = new Map<string, string>();
-const fileAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
 
 export function isAvailableDecorator(annotation: arkts.AstNode): boolean {
   if (!annotation) {
@@ -118,6 +114,10 @@ export function getValidAnnotationFromNode(
     annotationArray.push(...node.annotations);
   }
 
+  if (node.scriptFunction && node.scriptFunction.annotations && Array.isArray(node.scriptFunction.annotations)) {
+    annotationArray.push(...node.scriptFunction.annotations);
+  }
+
   const validAnnotation = annotationArray.find(annotation => predicate(annotation));
   if (validAnnotation) {
     return validAnnotation;
@@ -162,96 +162,6 @@ export function getAvailableNodeKey(node: arkts.AstNode): string {
   return `${fileName}_${line}_${col}`;
 }
 
-export function checkAvailableDecoratorImpl(
-  node: arkts.AstNode,
-  declaration: arkts.AstNode,
-  messageCallback: (message: string) => void
-): boolean {
-  if (!globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
-    return false;
-  }
-
-  let key: string = getAvailableNodeKey(node);
-  if (availableNodeCheckConfigCache.has(key)) {
-    return false;
-  } else {
-    availableNodeCheckConfigCache.set(key, '');
-  }
-
-  const program = arkts.getProgramFromAstNode(node);
-  const sourceFileName = program?.sourceFilePath || '';
-  if (!sourceFileName || !path.normalize(sourceFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
-    return false;
-  }
-
-  const declProgram = arkts.getProgramFromAstNode(declaration);
-  const declFileName = declProgram?.sourceFilePath || '';
-  if (!declFileName || !path.normalize(declFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
-    return false;
-  }
-
-  initComparisonFunctions();
-
-  const availableVersion = extractMinApiFromDecorator(node);
-  if (!availableVersion) {
-    return false;
-  }
-
-  const sdkVersion = globalObject.projectConfig.compatibleSdkVersion?.toString() || '';
-  const minApiVersion = availableVersion.version;
-
-  const valueChecker = getValueChecker(AVAILABLE_TAG_NAME);
-
-  const compareResult = valueChecker === defaultValueChecker
-    ? valueChecker(minApiVersion, sdkVersion, ComparisonSenario.Trigger)
-    : valueChecker(availableVersion.formatVersion, sdkVersion, ComparisonSenario.Trigger);
-
-  if (compareResult.result) {
-    return false;
-  }
-
-  if (checkParentVersionSuppressed(declaration, availableVersion)) {
-    return false;
-  }
-
-  const message = AVAILABLE_DECORATOR_WARNING
-    .replace('$SINCE1', availableVersion.version)
-    .replace('$SINCE2', sdkVersion);
-
-  messageCallback(message);
-  return true;
-}
-
-function checkParentVersionSuppressed(
-  declaration: arkts.AstNode,
-  minAvailableVersion: ParsedVersion
-): boolean {
-  if (!declaration || !declaration.parent) {
-    return false;
-  }
-  
-  const parentAnnotation = getValidAnnotationFromNode(declaration.parent, isAvailableDecorator);
-  if (!parentAnnotation) {
-    return false;
-  }
-
-  const parentVersion = extractMinApiFromDecorator(parentAnnotation);
-  if (!parentVersion) {
-    return false;
-  }
-
-  const valueChecker = getValueChecker(AVAILABLE_TAG_NAME);
-  const scenario = minAvailableVersion.os === RUNTIME_OS_OH
-    ? ComparisonSenario.SuppressByOHVersion
-    : ComparisonSenario.SuppressByOtherOSVersion;
-
-  const compareResult = valueChecker === defaultValueChecker
-    ? valueChecker(parentVersion.version, getVersionByValueChecker(minAvailableVersion, valueChecker), scenario)
-    : valueChecker(parentVersion.formatVersion, getVersionByValueChecker(minAvailableVersion, valueChecker), scenario);
-
-  return compareResult.result;
-}
-
 /**
  * Check if annotation declaration is valid SOURCE retention type
  * 
@@ -263,7 +173,7 @@ function checkParentVersionSuppressed(
  * @returns boolean
  */
 export function isSourceRetentionDeclarationValid(annoDecl: arkts.AstNode): boolean {
-  if (!annoDecl) {
+    if (!annoDecl) {
     return false;
   }
 
@@ -282,7 +192,11 @@ export function isSourceRetentionDeclarationValid(annoDecl: arkts.AstNode): bool
     }
   }
 
-  const program = arkts.getProgramFromAstNode(annoDecl);
+  const nodeDecl = arkts.getDecl(annoDecl.expr);
+  if (nodeDecl === undefined || nodeDecl === null) {
+    return false;
+  }
+  const program = arkts.getProgramFromAstNode(nodeDecl);
   const fileName = program?.sourceFilePath || '';
   const normalizedFileName = path.normalize(fileName);
   
@@ -313,6 +227,7 @@ export function isSourceRetentionAnnotationContentValid(annotation: arkts.AstNod
     return result;
   }
 
+  initComparisonFunctions();
   // es2panda: AnnotationUsage has NO annotationDeclaration property!
   // Cannot check annotation.annotationDeclaration like TypeScript
   // Must parse content directly
@@ -370,12 +285,7 @@ function hasLargerVersionInParentNode(node: arkts.AstNode, curAvailableVersion: 
     return null;
   }
 
-  const valueChecker = getValueChecker(AVAILABLE_TAG_NAME);
-  const compareResult = valueChecker === defaultValueChecker
-    ? valueChecker(availableVersion.version, curAvailableVersion.version, ComparisonSenario.Trigger)
-    : valueChecker(availableVersion.formatVersion, curAvailableVersion.formatVersion, ComparisonSenario.Trigger);
-
-  if (!compareResult.result) {
+  if (!compareVersions(availableVersion, curAvailableVersion)) {
     return availableVersion;
   }
 
@@ -410,7 +320,7 @@ function checkFormatResult(parseVersion: ParsedVersion | null): ConditionCheckRe
       .replace('$VERSION', parseVersion.version);
     return {
       valid: false,
-      message: msg,
+      message: checkResult.message ? `${msg} ${checkResult.message}` : `${msg}`,
       type: DiagnosticCategory.ERROR
     };
   }

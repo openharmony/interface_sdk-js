@@ -24,7 +24,6 @@ import {
   comparePointVersion
 } from '../api_check_base_utils';
 import { ParsedVersion } from '../api_check_plugin_typedef';
-import { globalObject } from '../../index';
 
 class TryCatchValidator implements NodeValidator {
   validate(node: arkts.AstNode): boolean {

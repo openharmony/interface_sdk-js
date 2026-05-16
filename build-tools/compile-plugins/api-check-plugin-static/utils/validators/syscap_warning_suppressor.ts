@@ -16,14 +16,14 @@
 import * as arkts from '@koalaui/libarkts';
 import { SYSCAP_TAG_CHECK_NAME } from '../api_check_plugin_define';
 import { BaseWarningSuppressor, NodeValidator } from './base_warning_suppressor';
-import { JSDocTag, JsDocNodeCheckConfigItem } from '../utils/api_check_wrapper_typedef';
+import { JSDocTag, JsDocNodeCheckConfigItem } from '../../api-check-wrapper/utils/api_check_wrapper_typedef';
 import { globalObject } from '../../index';
 
 class CanIUseValidator implements NodeValidator {
-  private jsDocTags: JSDocTag[];
+  private jsDocTags: readonly JSDocTag[];
   private config: JsDocNodeCheckConfigItem;
 
-  constructor(jsDocTags: JSDocTag[], config: JsDocNodeCheckConfigItem) {
+  constructor(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem) {
     this.jsDocTags = jsDocTags;
     this.config = config;
   }
@@ -43,7 +43,7 @@ class CanIUseValidator implements NodeValidator {
     return this.conditionCheck(node, this.jsDocTags, this.config);
   }
 
-  private conditionCheck(node: arkts.AstNode, jsDocTags: JSDocTag[], checkConfig: JsDocNodeCheckConfigItem): boolean {
+  private conditionCheck(node: arkts.AstNode, jsDocTags: readonly JSDocTag[], checkConfig: JsDocNodeCheckConfigItem): boolean {
     const specifyJsDocTagValue = this.getSpecifyJsDocTagValue(jsDocTags, checkConfig.tagName);
     if (specifyJsDocTagValue === undefined) {
       return true;
@@ -62,7 +62,7 @@ class CanIUseValidator implements NodeValidator {
     }
   }
 
-  private getSpecifyJsDocTagValue(jsDocTags: JSDocTag[], specifyTag: string[]): string | undefined {
+  private getSpecifyJsDocTagValue(jsDocTags: readonly JSDocTag[], specifyTag: string[]): string | undefined {
     for (const item of jsDocTags) {
       if (specifyTag.includes(item.tag)) {
         return item.comment || item.name || '';
@@ -143,7 +143,7 @@ class CanIUseValidator implements NodeValidator {
     return argValue.includes(importSymbol);
   }
 
-  private checkSyscapCondition(jsDocTags: JSDocTag[]): boolean {
+  private checkSyscapCondition(jsDocTags: readonly JSDocTag[]): boolean {
     let currentSyscapValue: string = '';
     
     for (const tag of jsDocTags) {
@@ -170,7 +170,7 @@ class CanIUseValidator implements NodeValidator {
 
 export class SyscapWarningSuppressor extends BaseWarningSuppressor {
   constructor(
-    jsDocTags: JSDocTag[],
+    jsDocTags: readonly JSDocTag[],
     config: JsDocNodeCheckConfigItem
   ) {
     super(SYSCAP_TAG_CHECK_NAME);

@@ -257,7 +257,7 @@ function expressionCheckByJsDoc(
     const config: JsDocNodeCheckConfigItem = checkConfig[i];
     let tagNameCheckNecessity = true;
     if (config.checkJsDocSuppressorValidCallback) {
-      tagNameCheckNecessity = config.checkJsDocSuppressorValidCallback(jsDocs, config, identifier, declaration);
+      tagNameCheckNecessity = config.checkJsDocSuppressorValidCallback(jsDocTags, config, identifier, declaration);
     }
     if (!tagNameCheckNecessity) {
       continue;
@@ -267,7 +267,7 @@ function expressionCheckByJsDoc(
       if (!config.tagName.includes(item.tag)) {
         continue;
       }
-      tagNameExisted = true;
+      
       if (tagNameExisted && !config.tagNameShouldExisted) {
         curApiCheckWrapper.apiCheckHost.pushLogInfo(
           identifier.name, 

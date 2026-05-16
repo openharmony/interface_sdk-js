@@ -36,7 +36,7 @@ import {
   extractMinApiFromDecorator,
   getValidAnnotationFromNode,
   checkFileHasAvailableByFileName
-} from '../../api-check-wrapper/utils/available_decorator_utils';
+} from './available_decorator_utils';
 import { globalObject } from '../../index';
 
 export class AvailableComparisonValidator implements NodeValidator {

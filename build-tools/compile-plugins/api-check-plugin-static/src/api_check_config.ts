@@ -52,6 +52,7 @@ import {
   checkAvailableDecorator,
   checkSystemApiTag,
   getJsDocNodeCheckConfigItem,
+  checkStageModuleValue,
   isCardFile,
   pushLog,
   collectInfo
@@ -67,10 +68,8 @@ import {
   JsDocNodeCheckConfigItemInterface
 } from '../api-check-wrapper';
 import {
-  checkFileHasAvailableByFileName,
-  isSourceRetentionDeclarationValid,
-  isSourceRetentionAnnotationContentValid
-} from '../api-check-wrapper/utils/available_decorator_utils';
+  checkFileHasAvailableByFileName
+} from '../utils/validators/available_decorator_utils';
 import { initComparisonFunctions } from '../utils/api_check_base_utils';
 
 const jsDocNodeCheckConfigCache: Map<string, Map<string, JsDocNodeCheckConfig>> =
@@ -186,9 +185,10 @@ function getStageModuleCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[])
     tagName: [STAGE_TAG_CHECK_NAME, STAGE_TAG_HUMP_CHECK_NAME],
     message: STAGE_TAG_CHECK_ERROR,
     type: DiagnosticCategory.ERROR,
-    tagNameShouldExisted: false
+    tagNameShouldExisted: false,
+    checkJsDocSuppressorValidCallback: checkStageModuleValue
   };
-  checkConfigArray.push(stageModelOnlyConfig);
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(stageModelOnlyConfig));
 }
 
 function getAtomicserviceCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
@@ -300,12 +300,6 @@ export function getApiCheckWrapperServiceHost(): ApiCheckWrapperServiceHost {
     },
     collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string): void => {
       collectInfo(moduleName, modulePath, currentFilePath);
-    },
-    isSourceRetentionDeclarationValid: (annoDecl: arkts.AstNode): boolean => {
-      return isSourceRetentionDeclarationValid(annoDecl);
-    },
-    isSourceRetentionAnnotationContentValid: (annotation: arkts.AstNode): ConditionCheckResult => {
-      return isSourceRetentionAnnotationContentValid(annotation);
     }
   };
 }

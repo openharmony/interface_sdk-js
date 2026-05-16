@@ -15,4 +15,4 @@
 
 export * from './utils/api_check_wrapper_typedef';
 export * from './custom-plugins/custom-comment-parser';
-export * from './utils/available_decorator_utils';
+export * from '../utils/validators/available_decorator_utils';

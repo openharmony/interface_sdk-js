@@ -15,7 +15,10 @@
 
 import * as arkts from '@koalaui/libarkts';
 import { checkIdentifier, curApiCheckWrapper, getCurrentAddressByNode, confirmNodeChecked } from '../src/api_check_wrapper';
-import { checkAvailableDecoratorImpl, isAvailableDecorator, isSourceRetentionAnnotationContentValid } from './available_decorator_utils';
+import {
+  isSourceRetentionDeclarationValid,
+  isSourceRetentionAnnotationContentValid
+} from '../../utils/validators/available_decorator_utils';
 import { DiagnosticCategory, ConditionCheckResult } from './api_check_wrapper_typedef';
 
 // 不同节点对应的处理函数映射
@@ -303,7 +306,7 @@ export function handleAnnotationDeclaration(node: arkts.AstNode): void {
 }
 
 export function handleAnnotationUsage(node: arkts.AstNode): void {
-  if (isAvailableDecorator(node)) {
+  if (isSourceRetentionDeclarationValid(node)) {
     handleAvailableDecoratorCheck(node);
   }
   if (!!node.expr) {
@@ -315,7 +318,7 @@ export function handleAnnotationUsage(node: arkts.AstNode): void {
 }
 
 function handleAvailableDecoratorCheck(node: arkts.AstNode): void {
-  if (!node.parent) {
+  if (!node) {
     return;
   }
   
@@ -333,16 +336,15 @@ function handleAvailableDecoratorCheck(node: arkts.AstNode): void {
 
     const program = arkts.getProgramFromAstNode(node);
     const filePath = program?.sourceFilePath || curApiCheckWrapper.fileName;
-    const apiName = declaration.name || '';
+    const apiName = node.parent?.name || '';
     curApiCheckWrapper.apiCheckHost.pushLogInfo(
       apiName,
       filePath,
       address,
-      DiagnosticCategory.WARNING,
-      message
+      checkResult.type || DiagnosticCategory.WARNING,
+      checkResult.message || ''
     );
   };
-  checkAvailableDecoratorImpl(node, declaration, messageCallback);
 }
 
 export function handleArrayExpression(node: arkts.AstNode): void {

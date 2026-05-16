@@ -120,6 +120,10 @@ export interface SyscapConfig {
 export interface SdkConfig {
   prefix: string;
   apiPath: string[];
+  osName?: string;
+  apiCheckPlugin?: Map<string, string>;
+  annotationCheckPlugin?: Map<string, string>;
+  apiCheckPlugins?: Map<string, string>;
 }
 
 export interface GlobalObject {
@@ -179,10 +183,18 @@ export interface CardConfig {
   forms: CardForm[];
 }
 
+export interface SdkHvigorLogInfo {
+  code: string;
+  description: string;
+  cause: string;
+  position: string;
+}
+
 export interface Logger {
   printInfo(message: string): void;
   printWarn(message: string): void;
   printDebug(message: string): void;
+  printError(message: SdkHvigorLogInfo): void;
 }
 
 export interface ParsedVersion {

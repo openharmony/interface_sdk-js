@@ -16,7 +16,7 @@
 import fs from 'fs';
 import path from 'path';
 import * as arkts from '@koalaui/libarkts';
-import { globalObject, initApiCheckConfig } from '../index';
+import { globalObject, externalApiCheckPlugin } from '../index';
 import {
   CheckValidCallbackInterface,
   ConfigPermission,
@@ -33,32 +33,22 @@ import {
   CardConfig,
   CardForm,
   Logger,
-  ParsedVersion
+  ParsedVersion,
+  SdkHvigorLogInfo
 } from './api_check_plugin_typedef';
 import {
-  MESSAGE_CONFIG_COLOR_ERROR,
   MESSAGE_CONFIG_COLOR_RED,
   MESSAGE_CONFIG_COLOR_RESET,
-  MESSAGE_CONFIG_COLOR_WARNING,
-  MESSAGE_CONFIG_HEADER_ERROR,
   MESSAGE_CONFIG_HEADER_WARNING,
   PERMISSION_TAG_CHECK_ERROR,
   PERMISSION_TAG_CHECK_NAME,
   RUNTIME_OS_OH,
   SINCE_TAG_CHECK_ERROR,
-  SINCE_TAG_NAME,
   SYSCAP_TAG_CHECK_NAME,
   AVAILABLE_DECORATOR_WARNING,
-  ComparisonResult,
-  ComparisonSenario,
-  comparisonFunctions,
-  MSF_INTEGER_VERSION,
-  AVAILABLE_VERSION_FORMAT_ERROR,
-  AVAILABLE_TAG_NAME,
-  ValueCheckerFunction,
-  FormatCheckerFunction,
-  VersionValidationResult,
-  PermissionValidTokenState
+  PermissionValidTokenState,
+  STAGE_TAG_HUMP_CHECK_NAME,
+  STAGE_TAG_CHECK_NAME
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
@@ -71,31 +61,13 @@ import {
 import {
   getAvailableNodeKey,
   availableNodeCheckConfigCache,
-  isAvailableDecorator,
-  extractMinApiFromDecorator,
-  getValidAnnotationFromNode
-} from '../api-check-wrapper/utils/available_decorator_utils';
+} from './validators/available_decorator_utils';
 import { SinceJSDocChecker } from './validators/since_version_checker';
 import { SinceWarningSuppressor } from './validators/since_warning_suppressor';
-import { SyscapWarningSuppressor } from './validators/syscap_warning_suppressor';
-import { PermissionWarningSuppressor } from './validators/permission_warning_suppressor';
 import { AvailableAnnotationChecker } from './validators/available_comparison_validator';
 import { AvailableWarningSuppressor } from './validators/available_warning_suppressor';
 import {
-  defaultFormatCheckerCompatibileIntegerAndMSF,
-  defaultValueChecker,
-  getFormatChecker,
-  getValueChecker,
-  getVersionByValueChecker,
-  parseVersionString,
   initComparisonFunctions,
-  comparePointVersion,
-  checkMSFVersionMajor,
-  defaultFormatChecker,
-  isOpenHarmonyRuntime,
-  compareVersions,
-  initValueChecker,
-  initFormatChecker
 } from './api_check_base_utils';
 
 interface ExternalApiChecker {
@@ -193,17 +165,17 @@ function parseVersion(s: string): number {
   return 0;
 }
 
-export function checkSystemApiTag(jsDoc: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
+export function checkSystemApiTag(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem): boolean {
   return true;
 }
 
 export function checkSinceValue(
-  jsDoc: JSDoc[],
+  jsDocTags: readonly JSDocTag[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
-  if (!jsDoc || jsDoc.length === 0 || !globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
+  if (!jsDocTags || jsDocTags.length === 0 || !globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
     return false;
   }
 
@@ -853,12 +825,67 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
       'prefix': '@arkts'
     }
   ];
-  const externalApiPathStr = projectConfig.sdkConfigPaths || '';
-  const externalApiPaths = externalApiPathStr.split(path.delimiter);
+  // TODO:projectConfig.sdkConfigPaths没找到，改用projectConfig.externalApiPaths
+  // projectConfig.externalApiPaths是带有static\\api的，路径多了一层api需要处理
+  const externalApiPathStr = projectConfig.externalApiPaths || '';
+  const externalApiStaticStr = Array.from(externalApiPathStr).find((item) => {
+    return item.includes('hms\\ets\\static');
+  })
+  const lastSlashIndex = externalApiStaticStr ? externalApiStaticStr.lastIndexOf('\\') : -1;
+  const resultPath = lastSlashIndex >= 0 ? externalApiStaticStr?.substring(0, lastSlashIndex) : '';
+  const externalApiPaths = resultPath?.split(path.delimiter);
   projectConfig.externalSdkPaths = [...externalApiPaths];
   const extendSdkConfigs: SdkConfig[] = [];
   collectExternalModules(externalApiPaths, extendSdkConfigs, projectConfig);
   projectConfig.sdkConfigs = [...defaultSdkConfigs, ...extendSdkConfigs];
+}
+
+/**
+ * Collects external API check plugins from SDK config.
+ * Loads plugins and stores them with keys: {osName}/{tag}/{type}
+ * 
+ * Plugin key format: {osName}/{tag}/{type}
+ * Example: "since/CompatibilityCheck"
+ * 
+ * @param {Object} sdkConfig - SDK configuration object
+ * @param {string} sdkPath - Base SDK path for resolving plugin paths
+ */
+function collectExternalApiCheckPlugin(sdkConfig, sdkPath) {
+  const osName = sdkConfig.osName;
+  if (!osName) {
+    return;
+  }
+
+  const pluginGroups = [
+    sdkConfig.apiCheckPlugin,
+    sdkConfig.annotationCheckPlugin
+  ].filter(Boolean);
+  for (let i = 0; i < pluginGroups.length; i++) {
+    const pluginGroup = pluginGroups[i];
+
+    for (const config of pluginGroup) {
+      let pluginKey = '';
+
+      if (config.type) {
+        // New format: has type field
+        // Key: {osName}/{tag}/{type}
+        pluginKey = [osName, config.tag, config.type].join('/');
+      } else {
+        // Old format: no type field
+        // Key: {osName}/{tag}
+        pluginKey = [osName, config.tag].join('/');
+      }
+
+      const pluginConfig = {
+        ...config,
+        path: path.resolve(sdkPath, config.path)
+      };
+
+      const existingPlugins = externalApiCheckPlugin.get(pluginKey) || [];
+      existingPlugins.push(pluginConfig);
+      externalApiCheckPlugin.set(pluginKey, existingPlugins);
+    }
+  }
 }
 
 /**
@@ -876,9 +903,12 @@ function collectExternalModules(sdkPaths: string[], extendSdkConfigs: SdkConfig[
     if (!fs.existsSync(sdkConfigPath)) {
       continue;
     }
-    const sdkConfig: SdkConfig = JSON.parse(fs.readFileSync(sdkConfigPath, 'utf-8'));
+    const sdkConfig = JSON.parse(fs.readFileSync(sdkConfigPath, 'utf-8'));
     if (!sdkConfig.apiPath) {
       continue;
+    }
+    if (sdkConfig.apiCheckPlugin && sdkConfig.apiCheckPlugin.length > 0) {
+      collectExternalApiCheckPlugin(sdkConfig, sdkPath);
     }
     let externalApiPathArray: string[] = [];
     if (Array.isArray(sdkConfig.apiPath)) {
@@ -1120,6 +1150,16 @@ function printMessage(fileInfo: string, message: string, level: DiagnosticCatego
       `${MESSAGE_CONFIG_HEADER_WARNING}${fileInfo}\n ${message}\n`
     );
   }
+  // 当前只涉及ERROR的告警
+  if (level === DiagnosticCategory.ERROR) {
+    const diagnosticInfo: SdkHvigorLogInfo = {
+      code: '117',
+      description: '错误码格式报错信息待确认',
+      cause: message,
+      position: fileInfo
+    }
+    logger.printError(diagnosticInfo);
+  }
 }
 
 /**
@@ -1136,7 +1176,7 @@ export function collectInfo(moduleName: string[], modulePath: string, currentFil
 }
 
 export function checkAvailableDecorator(
-  jsDoc: JSDoc[],
+  jsDocTags: readonly JSDocTag[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
@@ -1193,7 +1233,7 @@ export function checkAvailableDecorator(
 }
 
 export function checkSyscapAbility(
-  jsDoc: JSDoc[],
+  jsDocTags: readonly JSDocTag[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
@@ -1255,7 +1295,7 @@ export function checkSyscapAbility(
 }
 
 export function checkPermissionValue(
-  jsDoc: JSDoc[],
+  jsDocTags: readonly JSDocTag[],
   config: JsDocNodeCheckConfigItem,
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
@@ -1287,7 +1327,55 @@ export function checkPermissionValue(
   // }
 
   // return fun(jsDocs, config, node, declaration);
-  return true;
+}
+
+/**
+ * Checks whether the Stage module value is valid based on JSDoc tags and configuration.
+ * 
+ * @param {readonly ts.JSDocTag[]} jsDocTags - Array of JSDoc tags to be checked.
+ * @param {ts.JsDocNodeCheckConfigItem} config - Configuration item for JSDoc node checking.
+ * @param {ts.Node} [node] - Optional node related to the declaration.
+ * @param {ts.Declaration} [declaration] - Optional declaration containing the JSDoc tags.
+ * @returns {boolean} - Returns true if the Stage module value is valid; otherwise, returns false.
+ */
+export function checkStageModuleValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.Declaration): boolean {
+  // Find the JSDoc tag with STAGE_TAG_CHECK_NAME or STAGE_TAG_HUMP_CHECK_NAME
+  const jsDocTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+    return (item.tag === STAGE_TAG_CHECK_NAME || item.tag === STAGE_TAG_HUMP_CHECK_NAME);
+  });
+
+  // If the tag is not found, return false
+  if (!jsDocTag) {
+    return false;
+  }
+
+  // Extract the version range from the tag's comment
+  const versionRange = extractVersionRange(jsDocTag.comment);
+
+  // If a version range exists, check if it intersects with the project's SDK version range
+  if (versionRange !== undefined) {
+    return checkVersionRangeIntersection(versionRange);
+  } else {
+    return true;
+  }
+}
+
+/**
+ * Checks if the given version range intersects with the SDK version range of the project.
+ * 
+ * @param {Object} versionRange - The version range object to check.
+ * @param {string} versionRange.start - The starting version number of the version range.
+ * @param {string} versionRange.end - The ending version number of the version range.
+ * @returns {boolean} - Returns true if the version range intersects with the SDK version range of the project; otherwise, returns false.
+ */
+function checkVersionRangeIntersection(versionRange: { start: string; end: string }): boolean {
+  let isflag = false;
+  const startVersion = versionRange.start;
+  const endVersion = versionRange.end;
+  const minSDKVersion = globalObject.projectConfig.compileSdkVersion;
+  const maxSDKVersion = globalObject.projectConfig.compileSdkVersion;
+  isflag = isVersionRangeIntersect(startVersion, endVersion, minSDKVersion, maxSDKVersion);
+  return !isflag;
 }
 
 /**

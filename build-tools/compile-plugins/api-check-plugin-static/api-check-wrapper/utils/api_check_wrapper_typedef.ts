@@ -14,7 +14,6 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { CheckValidCallbackInterface } from '../../utils/api_check_plugin_typedef';
 
 /**
  * Diagnostic category enum for log levels
@@ -34,8 +33,6 @@ export interface ApiCheckWrapperServiceHost {
     apiName: string, currentFilePath: string,
     currentAddress: CurrentAddress, logLevel: DiagnosticCategory, logMessage: string) => void;
   collectImportInfo: (moduleName: string[], modulePath: string, currentFilePath: string) => void;
-  isSourceRetentionDeclarationValid?: (annoDecl: arkts.AstNode) => boolean;
-  isSourceRetentionAnnotationContentValid?: (annotation: arkts.AstNode) => ConditionCheckResult;
 }
 
 /**
@@ -76,7 +73,7 @@ interface Declaration extends Node {
 }
 
 export interface CheckJsDocSpecialValidCallbackInterface {
-  (jsDoc: JSDoc[], config: JsDocNodeCheckConfigItem, node?: Node,
+  (jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: Node,
     declaration?: Declaration): boolean;
 }
 
