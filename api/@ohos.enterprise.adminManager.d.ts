@@ -1014,7 +1014,7 @@ declare namespace adminManager {
    *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.0.0
+   * @since 24
    */
   function enableSelfDeviceAdmin(admin: Want, credential: string): Promise<void>;
 }
