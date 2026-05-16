@@ -1158,6 +1158,78 @@ export declare interface ToolbarItem {
 }
 
 /**
+ * Enumerates the scroll blur effect type for the title bar.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ScrollEffectType {
+  /**
+   * Common blur style. It applies uniform blur to the background.
+   * The blurred background appear/disappear with transparent gradient.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  COMMON_BLUR = 0,
+
+  /**
+   * Gradual blur style. It applies uniform blur to the title background with clear boundaries.
+   * The title bar content changes color/state before and after scrolling.
+   * During scrolling, it changes linearly following the gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  GRADUAL_BLUR = 1,
+}
+
+/**
+ * Defines the scroll effect options for the title bar.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface ScrollEffectOptions {
+  /**
+   * Title bar scroll blur style.
+   * Default value: ScrollEffectType.COMMON_BLUR
+   *
+   * @type { ?ScrollEffectType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  scrollEffectType?: ScrollEffectType;
+
+  /**
+   * The minimum sliding distance of the content area to enable the title bar sliding blur effect.
+   * Default value: 0vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  blurEffectiveStartOffset?: LengthMetrics;
+
+  /**
+   * The maximum sliding distance of the content area to enable the final blur style of the title bar.
+   * Default value: 8vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  blurEffectiveEndOffset?: LengthMetrics;
+}
+
+/**
  * Indicates the options of Navigation's Titlebar.
  *
  * @interface NavigationTitleOptions
@@ -1259,6 +1331,16 @@ export declare interface NavigationTitleOptions {
      * @since 23 static
      */
     enableHoverMode?: boolean;
+
+    /**
+     * Title scroll blur style.
+     *
+     * @type { ?ScrollEffectOptions }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    scrollEffectOptions?: ScrollEffectOptions;
 }
 
 /**
