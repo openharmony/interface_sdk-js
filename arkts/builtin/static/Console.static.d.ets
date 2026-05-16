@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -24,7 +25,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 class Console {
     /**
@@ -33,7 +34,7 @@ class Console {
      * @param { boolean } i - The value to print to stdout
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: boolean): void;
 
@@ -43,7 +44,7 @@ class Console {
      * @param { byte } i - The value to print
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: byte): void;
 
@@ -53,7 +54,7 @@ class Console {
      * @param { short } i - The value to print
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: short): void;
 
@@ -63,7 +64,7 @@ class Console {
      * @param { char } i - The value to print
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: char): void;
 
@@ -71,9 +72,10 @@ class Console {
      * log
      *
      * @param { int } i - The value to print
+     *     <br>The value should be an integer.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: int): void;
 
@@ -83,7 +85,7 @@ class Console {
      * @param { long } i - The value to print
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: long): void;
 
@@ -93,7 +95,7 @@ class Console {
      * @param { float } i - The value to print
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: float): void;
 
@@ -103,7 +105,7 @@ class Console {
      * @param { double } i - The value to print
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: double): void;
 
@@ -113,7 +115,7 @@ class Console {
      * @param { string } i - The value to print
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(i: string): void;
 
@@ -122,7 +124,7 @@ class Console {
      *
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(): void;
 
@@ -132,7 +134,7 @@ class Console {
      * @param { Any[] } vals - Variable number of values to be logged
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     log(...vals: Any[]): void;
 
@@ -142,7 +144,7 @@ class Console {
      * @param { Any[] } vals - Variable number of values to be logged
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     debug(...vals: Any[]): void;
 
@@ -152,7 +154,7 @@ class Console {
      * @param { Any[] } vals - Variable number of values to be logged
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     info(...vals: Any[]): void;
 
@@ -162,7 +164,7 @@ class Console {
      * @param { Any[] } vals - Variable number of values to be logged
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     warn(...vals: Any[]): void;
 
@@ -172,7 +174,7 @@ class Console {
      * @param { Any[] } vals - Variable number of values to be logged
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     error(...vals: Any[]): void;
 
@@ -183,7 +185,7 @@ class Console {
      * @param { Any[] } vals - Values to be logged if condition is false.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     assert(...vals: Any[]): void;
 
@@ -194,7 +196,7 @@ class Console {
      * @param { string } [label] - The value to count
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     count(label?: string): void;
 
@@ -204,7 +206,7 @@ class Console {
      * @param { string } [label] - The value to resets the counter
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     countReset(label?: string): void;
 
@@ -214,7 +216,7 @@ class Console {
      * @param { Any } [obj] - The object to inspect
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     dir(obj?: Any): void;
 
@@ -224,7 +226,7 @@ class Console {
      * @param { Any } obj - The object to display as XML
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     dirxml(obj: Any): void;
 
@@ -234,7 +236,7 @@ class Console {
      * @param { Any[] } objs - The object to starts a new logging group
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     group(...objs: Any[]): void;
 
@@ -243,7 +245,7 @@ class Console {
      *
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     groupEnd(): void;
 
@@ -253,7 +255,7 @@ class Console {
      * @param { Any[] } objs - The object to creates a collapsed group
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     groupCollapsed(...objs: Any[]): void;
 
@@ -263,7 +265,7 @@ class Console {
      * @param { Any[] } data - Array of objects to display as a table
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     table(...data: Any[]): void;
 
@@ -273,7 +275,7 @@ class Console {
      * @param { string } [label] - The key of timer
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     time(label?: string): void;
 
@@ -284,7 +286,7 @@ class Console {
      * @param { Object[] } arguments - Additional debugging information
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     timeLog(label?: string, ...arguments: Object[]): void;
 
@@ -295,7 +297,7 @@ class Console {
      * @throws { Error } - - Input parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     timeEnd(label?: string): void;
 
@@ -306,7 +308,7 @@ class Console {
      * @throws { Error } - - Input parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     trace(...data: Any[]): void;
 
@@ -315,7 +317,7 @@ class Console {
      *
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     traceHybridStack(): void;
 }

@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -24,7 +25,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 staticonly
+ * @since 26.0.0 staticonly
  */
 export class SparseArray<T> {
     /**
@@ -33,7 +34,7 @@ export class SparseArray<T> {
      * @returns { int } The length of the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     get length(): int;
 
@@ -42,7 +43,7 @@ export class SparseArray<T> {
      *
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     constructor();
 
@@ -50,9 +51,10 @@ export class SparseArray<T> {
      * Creates a new instance of SparseArray with the specified initial length.
      *
      * @param { int } arrayLen - The initial length of the sparse array.
+     *     <br>The value should be an integer.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     constructor(arrayLen: int);
 
@@ -63,7 +65,7 @@ export class SparseArray<T> {
      * @param { T[] } d - The rest of the elements to initialize the sparse array with.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     constructor(first: T, ...d: T[]);
 
@@ -74,7 +76,7 @@ export class SparseArray<T> {
      * @returns { int } The new length of the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     push(...items: T[]): int;
 
@@ -85,7 +87,7 @@ export class SparseArray<T> {
      * @returns { int } The new length of the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     push(val: T): int;
     
@@ -96,7 +98,7 @@ export class SparseArray<T> {
      *     function one time for each element in the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     forEach(callbackfn: (value: T, index: int, array: SparseArray<T>) => void): void;
 
@@ -106,7 +108,7 @@ export class SparseArray<T> {
      * @returns { string } return the string.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     toString(): string;
 
@@ -120,7 +122,7 @@ export class SparseArray<T> {
      *     and undefined otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     find(predicate: (value: T, index: int, array: SparseArray<T>) => boolean): T | undefined;
 
@@ -129,12 +131,14 @@ export class SparseArray<T> {
      * adding new elements in place.
      *
      * @param { int } start - The zero-based location in the sparse array from which to start removing elements.
+     *     <br>The value should be an integer.
      * @param { int } deleteCount - The number of elements to remove.
+     *     <br>The value should be an integer.
      * @param { T[] } items - Elements to insert into the sparse array in place of the deleted elements.
      * @returns { SparseArray<T> } A sparse array containing the elements that were deleted.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     splice(start: int, deleteCount: int, ...items: T[]): SparseArray<T>;
 
@@ -146,7 +150,7 @@ export class SparseArray<T> {
      * @returns { int } The index of the first element in the sparse array where predicate is true, and -1 otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     findIndex(predicate: (value: T, index: int, array: SparseArray<T>) => boolean): int;
     
@@ -158,7 +162,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<T> } A sparse array containing the elements that meet the condition.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     filter(predicate: (value: T, index: int, array: SparseArray<T>) => boolean): SparseArray<T>;
 
@@ -167,10 +171,11 @@ export class SparseArray<T> {
       *
       * @param { T } searchElement - The element to search for.
       * @param { int } [fromIndex] - The position in this sparse array at which to begin searching for searchElement.
+      *     <br>The value should be an integer.
       * @returns { boolean } true if searchElement is found, false otherwise.
       * @syscap SystemCapability.Utils.Lang
       * @FaAndStageModel
-      * @since 24 staticonly
+      * @since 26.0.0 staticonly
       */
      includes(searchElement: T, fromIndex?: int): boolean;
 
@@ -180,10 +185,11 @@ export class SparseArray<T> {
      * @param { T } searchElement - The value to locate in the sparse array.
      * @param { int } [fromIndex] - The sparse array index at which to begin the search.
      *     If fromIndex is omitted, the search starts at index 0.
+     *     <br>The value should be an integer.
      * @returns { int } The index of the first occurrence of the value in the sparse array, or -1 if not found.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     indexOf(searchElement: T, fromIndex?: int): int;
 
@@ -194,7 +200,7 @@ export class SparseArray<T> {
      * @returns { boolean } true if the value is a sparse array, false otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     static isSparseArray(value: Any): boolean;
 
@@ -206,7 +212,7 @@ export class SparseArray<T> {
      * @returns { string } A string with all sparse array elements joined.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     join(separator?: string): string;
 
@@ -214,11 +220,13 @@ export class SparseArray<T> {
      * Returns a copy of a section of a sparse array.
      *
      * @param { int } [start] - The beginning index of the specified portion of the sparse array.
+     *     <br>The value should be an integer.
      * @param { int } [end] - The end index of the specified portion of the sparse array.
+     *     <br>The value should be an integer.
      * @returns { SparseArray<T> } A new SparseArray object containing the extracted elements.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     slice(start?: int, end?: int): SparseArray<T>;
 
@@ -229,7 +237,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<U> } A new SparseArray instance.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     static from<U>(arrayLike: ArrayLike<U> | Iterable<U>): SparseArray<U>;
 
@@ -240,7 +248,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<U> } A new SparseArray instance.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     static from<U>(arr: ArrayLike<U>): SparseArray<U>;
 
@@ -251,7 +259,7 @@ export class SparseArray<T> {
      * @returns { this } The sorted sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     sort(compareFn?: (a: T, b: T) => int): this;
 
@@ -262,7 +270,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<T> }
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     concat(items: SparseArray<T>): SparseArray<T>;
 
@@ -270,11 +278,11 @@ export class SparseArray<T> {
      * Returns a new sparse array with all sub-array elements concatenated into it
      * recursively up to the specified depth.
      *
-     * @param { int } [depth]
+     * @param { int } [depth] - <br>The value should be an integer.
      * @returns { SparseArray<U> }
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     flat<U = T>(depth?: int): SparseArray<U>;
 
@@ -288,7 +296,7 @@ export class SparseArray<T> {
      *     and flattened.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     flatMap<U = T>(fn: (v: T, k: int, arr: SparseArray<T>) => U): SparseArray<U>;
 
@@ -302,7 +310,7 @@ export class SparseArray<T> {
      *     otherwise, false.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     some(predicate: (value: T, index: int, array: SparseArray<T>) => boolean): boolean;
 
@@ -315,7 +323,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<U> }
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     map<U>(callbackfn: (value: T, index: int, array: SparseArray<T>) => U): SparseArray<U>;
 
@@ -325,7 +333,7 @@ export class SparseArray<T> {
      * @returns { IterableIterator<T> } An iterable of values in the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     values(): IterableIterator<T>;
 
@@ -335,7 +343,7 @@ export class SparseArray<T> {
      * @returns { T | undefined } The last element of the sparse array, or undefined if the sparse array is empty.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     pop(): T | undefined;
 
@@ -345,7 +353,7 @@ export class SparseArray<T> {
      * @returns { T | undefined } The first element of the sparse array, or undefined if the sparse array is empty.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     shift(): T | undefined;
 
@@ -355,7 +363,7 @@ export class SparseArray<T> {
      * @returns { IterableIterator<int> } An iterable of keys in the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     keys(): IterableIterator<int>;
 
@@ -366,12 +374,14 @@ export class SparseArray<T> {
      * @param { T } value - The value to fill the sparse array section with.
      * @param { int } [start] - The index to start filling the sparse array at. If start is negative,
      *     it is treated as length+start.
+     *     <br>The value should be an integer.
      * @param { int } [end] - The index to stop filling the sparse array at. If end is negative,
      *     it is treated as length+end.
+     *     <br>The value should be an integer.
      * @returns { this } The modified sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     fill(value: T, start?: int, end?: int): this;
 
@@ -382,7 +392,7 @@ export class SparseArray<T> {
      * @returns { int } The new length of the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     unshift(...items: T[]): int;
 
@@ -392,7 +402,7 @@ export class SparseArray<T> {
      * @returns { this } The reversed sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     reverse(): this;
     /**
@@ -401,7 +411,7 @@ export class SparseArray<T> {
      * @returns { IterableIterator<[int, T]> } An iterable of key, value pairs for every entry in the sparse array.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     entries(): IterableIterator<[int, T]>;
     /**
@@ -410,10 +420,11 @@ export class SparseArray<T> {
      * @param { T } searchElement - The value to locate in the sparse array.
      * @param { int } [fromIndex] - The sparse array index at which to begin the search backwards.
      *     If fromIndex is omitted, the search starts at the last index.
+     *     <br>The value should be an integer.
      * @returns { int } The index of the last occurrence of the value in the sparse array, or -1 if not found.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     lastIndexOf(searchElement: T, fromIndex?: int): int;
 
@@ -426,7 +437,7 @@ export class SparseArray<T> {
      * @returns { T } The accumulated result.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     reduce(callbackfn: (previousValue: T, currentValue: T, index: int, array: SparseArray<T>) => T): T;
 
@@ -441,7 +452,7 @@ export class SparseArray<T> {
      * @returns { U } The accumulated result.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     reduce<U = T>(callbackfn: (previousValue: U, currentValue: T, index: int, array: SparseArray<T>) => U, initialValue: U): U;
 
@@ -454,7 +465,7 @@ export class SparseArray<T> {
      * @returns { boolean } true if the callback function returns true for all elements, false otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     every(predicate: (value: T, index: int, array: SparseArray<T>) => boolean): boolean;
 
@@ -465,7 +476,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<U> } A new SparseArray instance containing the specified elements.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     static of<U>(...items: U[]): SparseArray<U>;
 
@@ -474,10 +485,11 @@ export class SparseArray<T> {
      *
      * @param { int } index - The zero-based index of the desired element.
      *     A negative index counts back from the end of the sparse array.
+     *     <br>The value should be an integer.
      * @returns { T | undefined } The element at the specified index, or undefined if the index is out of range.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     at(index: int): T | undefined;
 
@@ -485,12 +497,15 @@ export class SparseArray<T> {
      * Copies a sequence of sparse array elements within the sparse array.
      *
      * @param { int } target - The zero-based index at which to copy the sequence to.
+     *     <br>The value should be an integer.
      * @param { int } start - The zero-based index at which to begin copying elements from.
+     *     <br>The value should be an integer.
      * @param { int } [end] - The zero-based index at which to stop copying elements from.
+     *     <br>The value should be an integer.
      * @returns { this }
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     copyWithin(target: int, start: int, end?: int): this;
 
@@ -503,7 +518,7 @@ export class SparseArray<T> {
      *     and undefined otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     findLast(predicate: (value: T, index: int, array: SparseArray<T>) => boolean): T | undefined;
 
@@ -515,7 +530,7 @@ export class SparseArray<T> {
      * @returns { int } The index of the last element in the sparse array where predicate is true, and -1 otherwise.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     findLastIndex(predicate: (value: T, index: int, array: SparseArray<T>) => boolean): int;
 
@@ -528,7 +543,7 @@ export class SparseArray<T> {
      * @returns { T } The accumulated result.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     reduceRight(callbackfn: (previousValue: T, currentValue: T, index: int, array: SparseArray<T>) => T): T;
 
@@ -542,7 +557,7 @@ export class SparseArray<T> {
      * @returns { U }
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     reduceRight<U = T>(callbackfn: (previousValue: U, currentValue: T, index: int, array: SparseArray<T>) => U, initialValue: U): U;
 
@@ -552,7 +567,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<T> } A new sparse array with the elements in reversed order.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     toReversed(): SparseArray<T>;
 
@@ -560,12 +575,14 @@ export class SparseArray<T> {
      * Returns a new sparse array with some elements removed and/or replaced at a given index.
      *
      * @param { int } start - The zero-based location in the sparse array from which to start removing elements.
+     *     <br>The value should be an integer.
      * @param { int } deleteCount - The number of elements to remove.
+     *     <br>The value should be an integer.
      * @param { T[] } items - Elements to insert into the sparse array in place of the deleted elements.
      * @returns { SparseArray<T> } A new sparse array with the specified elements removed and/or replaced.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     toSpliced(start: int, deleteCount: int, ...items: T[]): SparseArray<T>;
 
@@ -576,7 +593,7 @@ export class SparseArray<T> {
      * @returns { SparseArray<T> }
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     toSorted(compareFn?: (a: T, b: T) => int): SparseArray<T>;
 }

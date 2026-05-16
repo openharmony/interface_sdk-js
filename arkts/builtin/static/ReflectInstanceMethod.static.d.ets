@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -33,7 +34,7 @@ namespace reflect {
    *
    * @syscap SystemCapability.Utils.Lang
    * @FaAndStageModel
-   * @since 24 static
+   * @since 24 staticonly
    */
   class InstanceMethod extends Method {  
 
@@ -107,7 +108,7 @@ namespace reflect {
      * @throws { TypeError } Throws - when `thisObj` is incompatible with the method.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     invoke(thisObj: Object, args?: FixedArray<Any>): Any;
 }

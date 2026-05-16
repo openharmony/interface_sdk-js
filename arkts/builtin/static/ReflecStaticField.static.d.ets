@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -23,7 +24,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 26.0.0 staticonly
  */
 namespace reflect {
 
@@ -32,7 +33,7 @@ namespace reflect {
    *
    * @syscap SystemCapability.Utils.Lang
    * @FaAndStageModel
-   * @since 24 staticonly
+   * @since 26.0.0 staticonly
    */
   class StaticField extends Field {  
     /**
@@ -42,7 +43,7 @@ namespace reflect {
      * @returns { boolean } If two objects are equal, return true; otherwise, return false.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     equals(other: StaticField): boolean;
     /**
@@ -52,7 +53,7 @@ namespace reflect {
      * @throws { OutofMemoryError } if - there is no memory to allocate return value.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 26.0.0 staticonly
      */
     getValue(): Any;
 
@@ -63,7 +64,7 @@ namespace reflect {
      * @throws { TypeError } if - there is an incompatible value.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 26.0.0 staticonly
      */
     setValue(value: Any): void;
 }

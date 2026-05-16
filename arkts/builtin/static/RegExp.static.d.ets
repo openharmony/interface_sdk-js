@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -23,7 +24,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 class RegExpResultArray extends Array<string | undefined> {
     /**
@@ -33,7 +34,7 @@ class RegExpResultArray extends Array<string | undefined> {
      * @returns { string } the first match as string or null
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     $_get(index: string): string;
 
@@ -41,10 +42,11 @@ class RegExpResultArray extends Array<string | undefined> {
      * Returns result string by index.
      *
      * @param { int } index - Integer index.
+     *     <br>The value should be an integer.
      * @returns { string | undefined } resulting string.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     $_get(index: int): string | undefined;
 }
@@ -54,7 +56,7 @@ class RegExpResultArray extends Array<string | undefined> {
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 class RegExp extends Object {
     /**
@@ -63,7 +65,7 @@ class RegExp extends Object {
      * @returns { string } return source
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     get source(): string;
 
@@ -74,7 +76,7 @@ class RegExp extends Object {
      * @param { string } [flags] - description of flags to be used
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(pattern: string, flags?: string);
 
@@ -85,7 +87,7 @@ class RegExp extends Object {
      * @param { string } [flags] - description of flags to be used
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(regexp: RegExp, flags?: string);
 
@@ -96,7 +98,7 @@ class RegExp extends Object {
      * @param { string } [flags] - description of flags to be used.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(regexp: RegExp | string, flags?: string);
 }

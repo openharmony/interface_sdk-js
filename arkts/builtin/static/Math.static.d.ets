@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -23,7 +24,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 class Math {
 
@@ -34,7 +35,7 @@ class Math {
      * @returns { double } Smallest integer greater or equal to x
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static ceil(x: double): double;
 
@@ -45,7 +46,7 @@ class Math {
      * @returns { double } Largest integer less or equal to x
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static floor(x: double): double;
 
@@ -56,7 +57,7 @@ class Math {
      * @returns { double } value of the number rounded to the nearest integer
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static round(x: double): double;
 
@@ -67,7 +68,7 @@ class Math {
      * @returns { double } Square root of the given number. If the number is negative, returns NaN
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static sqrt(x: double): double;
 
@@ -77,7 +78,7 @@ class Math {
      * @returns { double } Infinity
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static min(): double;
 
@@ -88,7 +89,7 @@ class Math {
      * @returns { double } the argument itself
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static min(val: double): double;
 
@@ -100,7 +101,7 @@ class Math {
      * @returns { double } the smaller of the two numbers. If any argument is NaN, returns NaN
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static min(val1: double, val2: double): double;
 
@@ -112,7 +113,7 @@ class Math {
      *     returns Infinity. If any argument is NaN, returns NaN
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static min(...values: double[]): double;
 
@@ -122,7 +123,7 @@ class Math {
      * @returns { double } -Infinity
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static max(): double;
 
@@ -133,7 +134,7 @@ class Math {
      * @returns { double } the argument itself
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static max(val: double): double;
 
@@ -145,7 +146,7 @@ class Math {
      * @returns { double } the larger of the two numbers. If any argument is NaN, returns NaN
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static max(val1: double, val2: double): double;
 
@@ -157,7 +158,7 @@ class Math {
      *     returns -Infinity. If any argument is NaN, returns NaN
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static max(...values: double[]): double;
 
@@ -168,7 +169,7 @@ class Math {
      * @returns { byte } Absolute value of `x`
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static abs(x: byte): byte;
 
@@ -179,7 +180,7 @@ class Math {
      * @returns { short } Absolute value of `x`
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static abs(x: short): short;
 
@@ -187,10 +188,11 @@ class Math {
      * Absolute value
      *
      * @param { int } x - Some number value
+     *     <br>The value should be an integer.
      * @returns { int } Absolute value of `x`
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static abs(x: int): int;
 
@@ -201,7 +203,7 @@ class Math {
      * @returns { long } Absolute value of `x`
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static abs(x: long): long;
 
@@ -212,7 +214,7 @@ class Math {
      * @returns { float } Absolute value of `x`
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static abs(x: float): float;
 
@@ -223,7 +225,7 @@ class Math {
      * @returns { double } Absolute value of `x`
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static abs(x: double): double;
 
@@ -234,7 +236,7 @@ class Math {
      * @returns { double } Base 2 logarithm of x
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static log2(x: double): double;
 
@@ -245,7 +247,7 @@ class Math {
      * @returns { float } Base 2 logarithm of x
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static log2(x: float): float;
 
@@ -257,7 +259,7 @@ class Math {
      * @returns { double } base raised to the power of exponent
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static pow(u: double, v: double): double;
 
@@ -268,7 +270,7 @@ class Math {
      *     or equal to 0.0 and less than 1.0
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static random(): double;
 }

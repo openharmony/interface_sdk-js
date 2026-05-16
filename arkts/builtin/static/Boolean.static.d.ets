@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -23,7 +24,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 class Boolean extends Object implements Comparable<boolean> {
 
@@ -33,7 +34,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { boolean } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: boolean);
 
@@ -43,7 +44,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { byte } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: byte);
 
@@ -53,7 +54,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { char } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: char);
 
@@ -63,7 +64,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { short } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: short);
 
@@ -71,9 +72,10 @@ class Boolean extends Object implements Comparable<boolean> {
      * Constructs a new Boolean with provided int value
      *
      * @param { int } value - value to construct class instance with
+     *     <br>The value should be an integer.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: int);
 
@@ -83,7 +85,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { long } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: long);
 
@@ -93,7 +95,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { bigint } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: bigint);
 
@@ -103,7 +105,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { float } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: float);
 
@@ -113,7 +115,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { string } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: string);
 
@@ -123,7 +125,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @param { Any } value - value to construct class instance with
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(value: Any = undefined);
 
@@ -133,7 +135,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @returns { boolean } A new Boolean instance representing the specified value.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static $_invoke(): boolean;
 
@@ -144,7 +146,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @returns { boolean } A new Boolean instance representing the specified value.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static $_invoke<T>(value: T): boolean;
 
@@ -155,7 +157,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @returns { boolean } Returns the input boolean value unchanged.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     static toBoolean(value: boolean): boolean;
 
@@ -165,7 +167,7 @@ class Boolean extends Object implements Comparable<boolean> {
      * @returns { boolean } The instance value converted to boolean.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     toBoolean(): boolean;
 }
