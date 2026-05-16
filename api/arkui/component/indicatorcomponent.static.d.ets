@@ -20,7 +20,7 @@
 
 import { CommonMethod, Callback } from './common';
 import { DotIndicator, DigitIndicator } from './swiper';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 
 /**
  * Provides methods for switching components.
@@ -146,18 +146,6 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
    * @since 23 static
    */
   onChange(event: Callback<int> | undefined): this;
-
-  /**
-   * Set indicatorComponent options.
-   *
-   * @param { IndicatorComponentController } [controller] - IndicatorComponent constructor options
-   * @returns { IndicatorComponentAttribute } Returns the instance of the IndicatorComponentAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setIndicatorComponentOptions(controller?: IndicatorComponentController): this;
-
 }
 
 /**
@@ -174,17 +162,3 @@ export declare interface IndicatorComponentAttribute extends CommonMethod {
 export declare function IndicatorComponent(
   controller?: IndicatorComponentController
 ): IndicatorComponentAttribute
-
-/**
- * Defines IndicatorComponent Component
- *
- * @param { CustomBuilderT<IndicatorComponentAttribute> } style_ - indicatorComponent attribute instance
- * @returns { IndicatorComponentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function IndicatorComponent(
-  style_: CustomBuilderT<IndicatorComponentAttribute>,
-): IndicatorComponentAttribute;

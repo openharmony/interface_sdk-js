@@ -23,7 +23,7 @@ import { CrownSensitivity, EdgeEffect } from '@ohos.arkui.component';
 import { LinearGradient } from '@ohos.arkui.component';
 import { ResourceColor } from '@ohos.arkui.component';
 import { CommonMethod, Callback } from '@ohos.arkui.component';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
+import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
 /**
  * Handler of swiper controller, used in finishAnimation.
  *
@@ -502,17 +502,6 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
    * @since 24 static
    */
   default disableTransitionAnimation(disabled: boolean | undefined): this;
-
-  /**
-   * Set arcSwiper options.
-   *
-   * @param { ArcSwiperController } [controller] - ArcSwiper constructor options
-   * @returns { ArcSwiperAttribute } Returns  instance of  ArcSwiperAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Circle
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setArcSwiperOptions(controller?: ArcSwiperController): this;
 }
 
 /**
@@ -531,20 +520,3 @@ export declare function ArcSwiper(
     controller?: ArcSwiperController, 
     content_?: CustomBuilder
 ): ArcSwiperAttribute
-
-/**
- * Defines ArcSwiper Component
- *
- * @param { CustomBuilderT<ArcSwiperAttribute> } style_ - arcSwiper attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { ArcSwiperAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @stagemodelonly
- * @since 26.0.0 staticonly
- * @noninterop
- */
-@Builder
-export declare function ArcSwiper(
-    style_: CustomBuilderT<ArcSwiperAttribute>,
-    content_?: CustomBuilder,
-): ArcSwiperAttribute;

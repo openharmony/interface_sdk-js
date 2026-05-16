@@ -20,7 +20,7 @@
  */
 
 import { CommonMethod } from './common';
-import { Builder, CustomBuilder, CustomBuilderT } from './builder';
+import { CustomBuilder } from './builder';
 import { TextHeightAdaptivePolicy, TextOverflow, VerticalAlign } from './enums';
 import { Dimension, Font, Length, LocalizedPadding, Padding, Resource, ResourceColor, ResourceStr, VoidCallback } from './units';
 import { ComponentContentBase } from '../ComponentContent';
@@ -746,16 +746,6 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @since 23 static
    */
   attributeModifier(modifier: AttributeModifier<TabContentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-  /**
-   * Set tabContent options.
-   *
-   * @returns { TabContentAttribute } Returns the instance of the TabContentAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setTabContentOptions(): this;
 }
 
 /**
@@ -770,21 +760,5 @@ export declare interface TabContentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function TabContent(
     
-    content_?: CustomBuilder,
-): TabContentAttribute;
-
-/**
- * Defines TabContent Component
- *
- * @param { CustomBuilderT<TabContentAttribute> } style_ - tabContent attribute instance
- * @param { CustomBuilder } [content_] - TabContent
- * @returns { TabContentAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function TabContent(
-    style_: CustomBuilderT<TabContentAttribute>,
     content_?: CustomBuilder,
 ): TabContentAttribute;

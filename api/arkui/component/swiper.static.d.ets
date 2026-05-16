@@ -23,7 +23,7 @@ import { IndicatorComponentController } from './indicatorcomponent';
 import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './common';
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
 import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ItemFillPolicy } from './units';
-import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { ScrollState } from "./list";
 
 /**
@@ -1232,17 +1232,6 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-
-  /**
-   * Set swiper options.
-   *
-   * @param { SwiperController } [controller] - Swiper options
-   * @returns { SwiperAttribute } Returns the instance of the SwiperAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 staticonly
-   */
-  default setSwiperOptions(controller?: SwiperController): this;
 }
 
 /**
@@ -1419,19 +1408,3 @@ export declare function Swiper(
   controller?: SwiperController,
   content_?: CustomBuilder
 ): SwiperAttribute
-
-/**
- * Defines Swiper Component
- *
- * @param { CustomBuilderT<SwiperAttribute> } style_ - swiper attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { SwiperAttribute }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function Swiper(
-  style_: CustomBuilderT<SwiperAttribute>,
-  content_?: CustomBuilder,
-): SwiperAttribute;
