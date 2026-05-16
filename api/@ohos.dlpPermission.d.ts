@@ -1029,8 +1029,9 @@ declare namespace dlpPermission {
          */
         fileId?: string;
         /**
-         * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or 
-         * equal to 0. If the value is not within the range, **null** is returned.
+         * Number of allowed opening times. This parameter is left empty by default.
+         * The value must be greater than or equal to 0. If the value is not within the range, **null** is 
+         * returned. Default value: 0.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1058,6 +1059,7 @@ declare namespace dlpPermission {
         /**
          * Extended attribute of a DLP file. This parameter is left empty by default. **Model restriction**: This API 
          * can be used only in the stage model.
+         * Default value: Empty.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1572,6 +1574,7 @@ declare namespace dlpPermission {
         enterprise: string;
         /**
          * Represents query options for DLP files.
+         * Defau
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1683,6 +1686,7 @@ declare namespace dlpPermission {
     export interface EnterprisePolicy {
         /**
          * JSON string of an enterprise custom policy. The length cannot exceed 4 MB.
+         * The maximum length is 4139304.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1839,6 +1843,7 @@ declare namespace dlpPermission {
     export interface DlpFileQueryOptions {
         /**
          * User-defined classification label for an enterprise DLP file.
+         * The maximum length is 255. Default value: Empty.     
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
