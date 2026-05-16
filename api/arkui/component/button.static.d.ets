@@ -497,7 +497,28 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ButtonAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+    /**
+     * Set button options.
+     *
+     * @param { ResourceStr } label - the label of button
+     * @param { ButtonOptions } [options] - button constructor options
+     * @returns { ButtonAttribute } Returns the instance of the ButtonAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setButtonOptions(label: ResourceStr, options?: ButtonOptions): this;
+    /**
+     * Set button options.
+     *
+     * @param { ButtonOptions } [options] - button constructor options
+     * @returns { ButtonAttribute } Returns the instance of the ButtonAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setButtonOptions(options?: ButtonOptions): this;
+ }
 
 /**
  * Defines Button Component.
@@ -528,10 +549,26 @@ export declare function Button(
  */
 @ComponentBuilder
 export declare function Button(
-    options?: ButtonOptions, 
+    options?: ButtonOptions,
     content_?: CustomBuilder,
 ): ButtonAttribute
 
+/**
+ * Defines Button Component.
+ *
+ * @param { CustomBuilderT<ButtonAttribute> } style_ - button attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ButtonAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Button(
+    style_: CustomBuilderT<ButtonAttribute>,
+    content_?: CustomBuilder,
+): ButtonAttribute
 /**
  * Defines the Extendable Button.
  *
