@@ -14,14 +14,13 @@
  */
 
 /**
- * The **system.request** module provides applications with basic upload and download capabilities.
+ * system.request部件主要给应用提供上传下载文件的基础能力。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - The APIs of this module are deprecated since API version 9. You are advised to use 
- * > [@ohos.request]{@link @ohos.request:request} instead.
+ * > - 从API Version 9开始所有接口不再维护，推荐使用新接口[@ohos.request]{@link @ohos.request:request}。
  *
- * @file Upload and Download
+ * @file 上传下载
  * @kit BasicServicesKit
  */
 
@@ -34,7 +33,7 @@
  */
 export interface UploadResponse {
   /**
-   * HTTP status code returned by the server.
+   * 服务器返回的HTTP状态码。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -44,7 +43,7 @@ export interface UploadResponse {
   code: number;
 
   /**
-   * Content returned by the server. The value type is determined by the type in the returned headers.
+   * 服务器返回的内容。根据返回头内容中的type决定该值的类型。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -54,7 +53,7 @@ export interface UploadResponse {
   data: string;
 
   /**
-   * Headers returned by the server.
+   * 服务器返回的返回头内容。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -73,7 +72,7 @@ export interface UploadResponse {
  */
 export interface DownloadResponse {
   /**
-   * Download token, which is used to obtain the download status
+   * 表示下载的token，获取下载状态的依据。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
@@ -92,7 +91,7 @@ export interface DownloadResponse {
  */
 export interface OnDownloadCompleteResponse {
   /**
-   * URI of the download file.
+   * 表示下载文件的uri。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
@@ -111,7 +110,7 @@ export interface OnDownloadCompleteResponse {
  */
 export interface RequestFile {
   /**
-   * File name in the header when **multipart** is used.
+   * multipart 提交时，请求头中的文件名。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -121,7 +120,7 @@ export interface RequestFile {
   filename?: string;
 
   /**
-   * Name of a form item when **multipart** is used. The default value is **file**.
+   * multipart 提交时，表单项目的名称，缺省为file。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -131,7 +130,7 @@ export interface RequestFile {
   name?: string;
 
   /**
-   * Local path for storing files.
+   * 文件的本地存储路径。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -141,7 +140,7 @@ export interface RequestFile {
   uri: string;
 
   /**
-   * Type of the file content. By default, the type is obtained based on the extension of the file name or URI.
+   * 文件的内容类型，默认根据文件名或路径的后缀获取。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -160,7 +159,7 @@ export interface RequestFile {
  */
 export interface RequestData {
   /**
-   * Name of the form element.
+   * 表示form 元素的名称。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -170,7 +169,7 @@ export interface RequestData {
   name: string;
 
   /**
-   * Value of the form element.
+   * 表示form 元素的值。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
@@ -181,10 +180,6 @@ export interface RequestData {
 }
 
 /**
- * > **NOTE**
- * >
- * > This API has been supported since API version 3 and deprecated since API version 9. You are advised to use 
- * > [UploadConfig]{@link @ohos.request:request.agent.Config} instead.
  *
  * @syscap SystemCapability.MiscServices.Upload
  * @since 3 dynamiconly
@@ -274,10 +269,6 @@ export interface UploadRequestOptions {
 }
 
 /**
- * > **NOTE**
- * >
- * > This API has been supported since API version 3 and deprecated since API version 9. You are advised to use 
- * > [UploadConfig]{@link @ohos.request:request.agent.Config} instead.
  *
  * @syscap SystemCapability.MiscServices.Download
  * @since 3 dynamiconly
@@ -348,7 +339,7 @@ export interface DownloadRequestOptions {
   fail?: (data: any, code: number) => void;
 
   /**
-   * Called when API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
@@ -367,7 +358,7 @@ export interface DownloadRequestOptions {
  */
 export interface OnDownloadCompleteOptions {
   /**
-   * Result token returned by the download API.
+   * download 接口返回的结果 token。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
@@ -377,7 +368,7 @@ export interface OnDownloadCompleteOptions {
   token: string;
 
   /**
-   * Called when API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
@@ -387,7 +378,7 @@ export interface OnDownloadCompleteOptions {
   success?: (data: OnDownloadCompleteResponse) => void;
 
   /**
-   * Called when API call has failed. Header information and HTTP status code returned when the upload task fails.
+   * 接口调用失败的回调函数。返回header信息与HTTP状态码。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
@@ -397,7 +388,7 @@ export interface OnDownloadCompleteOptions {
   fail?: (data: any, code: number) => void;
 
   /**
-   * Called when API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
@@ -416,9 +407,9 @@ export interface OnDownloadCompleteOptions {
  */
 export default class Request {
   /**
-   * Uploads a file. This API returns no value.
+   * 上传文件，无返回值。
    *
-   * @param { UploadRequestOptions } options - Upload configurations.
+   * @param { UploadRequestOptions } options - 上传的配置信息。
    * @syscap SystemCapability.MiscServices.Upload
    * @since 3 dynamiconly
    * @deprecated since 9
@@ -427,9 +418,9 @@ export default class Request {
   static upload(options: UploadRequestOptions): void;
 
   /**
-   * Downloads a file. This API returns no value.
+   * 下载文件，无返回值。
    *
-   * @param { DownloadRequestOptions } options - Download configurations.
+   * @param { DownloadRequestOptions } options - 下载的配置信息。
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
    * @deprecated since 9
@@ -438,9 +429,9 @@ export default class Request {
   static download(options: DownloadRequestOptions): void;
 
   /**
-   * Listens for download task status. This API returns no value.
+   * 获取下载任务状态，无返回值。
    *
-   * @param { OnDownloadCompleteOptions } options - Configurations of the download task.
+   * @param { OnDownloadCompleteOptions } options - 监听下载任务的配置信息。
    * @syscap SystemCapability.MiscServices.Download
    * @since 3 dynamiconly
    * @deprecated since 9
