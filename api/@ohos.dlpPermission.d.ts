@@ -675,7 +675,9 @@ declare namespace dlpPermission {
          */
         tokenID: number;
         /**
-         * Index of the DLP sandbox application to be bound. **Model restriction**: This API can be used only in the stage model.
+         * Index of the DLP sandbox application to be bound. **Model restriction**: This API can be used only in the stage 
+         * model.
+         * The value must be an integer within [-1,1100]. Default value:-1.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -712,11 +714,13 @@ declare namespace dlpPermission {
      * of the sandbox application installed.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes
+     *     <br> The minimum length is 7 and the maximum length is 128.
      * @param { DLPFileAccess } access - Permission on the DLP file.
-     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
+     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. 
+     *     The default super user ID is **100**.
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
+     *     <br> The maximum length is 4095.
      * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If installDLPSandbox is 
      *     successful, **err** is **undefined**, and DLPSandboxInfo is the information about the sandbox application 
      *     obtained. Otherwise, **err** is an error object.
@@ -757,10 +761,13 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+     *     <br>The minimum length is 7 and the maximum length is 128.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**.
+     *     <br>The value should be integer.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
      *     successfully called.
+     *     <br>The value must be an integer within [1001, 1100].
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If uninstallDLPSandbox is 
      *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1015,6 +1022,7 @@ declare namespace dlpPermission {
         /**
          * System account ID. This parameter is left empty by default. The value contains up to 255 bytes. If the value 
          * exceeds this range, **null** is returned.
+         * The maximum length is 255. Default value: Empty.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1030,6 +1038,7 @@ declare namespace dlpPermission {
         allowedOpenCount?: number;
         /**
          * Whether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
+         * Default value: false.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 23
@@ -1378,7 +1387,9 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
+     *     <br>The value should be an integer.
      * @param { number } ciphertextFd - FD of the encrypted file.
+     *     <br>The value should be an integer.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
      * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If generateDLPFile is 
