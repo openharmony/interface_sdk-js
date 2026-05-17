@@ -146,7 +146,13 @@ export interface VoiceContentOptions {
  */
 export interface PictureOptions {
   /**
-   * The key array for pre-parsed live notification images.
+   * Subscribes to parse the image information in the extraInfo of
+   * [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent} for live view
+   * notifications. The input parameter is the key of the image filename in extraInfo that needs to be parsed into
+   * PixelMap format. When an application publishes a live view notification, the parsed image information is called
+   * back to the subscriber via
+   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}, and the parsed image
+   * information is stored in the pictureInfo of NotificationLiveViewContent.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

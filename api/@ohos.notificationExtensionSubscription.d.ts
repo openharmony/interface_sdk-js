@@ -64,7 +64,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { UIAbilityContext } context - Ability context bound to the notification settings page.
-   * @returns { Promise<UserGrantSetting> } The promise returned by the function.
+   * @returns { Promise<UserGrantSetting> } Promise used to return the result of the authorization set by the user.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
@@ -83,7 +83,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { NotificationExtensionSubscriptionInfo[] } info - List of subscribed notifications (in array).
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -98,7 +98,7 @@ declare namespace notificationExtensionSubscription {
    * Unsubscribes from the notification extension. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -256,7 +256,7 @@ declare namespace notificationExtensionSubscription {
    * @param { BundleOption[] } enabledBundles - Authorized applications.
    * @param { boolean } enabled - Whether the device notification access for the specified application is enabled.
    *     The value **true** indicates that this functionality is enabled, and **false** indicates the opposite.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.

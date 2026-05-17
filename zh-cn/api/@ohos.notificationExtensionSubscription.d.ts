@@ -42,7 +42,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
@@ -59,7 +59,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
-   * @returns { Promise<UserGrantSetting> } The promise returned by the function.
+   * @returns { Promise<UserGrantSetting> } Promise对象，返回用户设置的授权的结果。
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
@@ -76,7 +76,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { NotificationExtensionSubscriptionInfo[] } info - 订阅的信息列表（数组）。
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -91,7 +91,7 @@ declare namespace notificationExtensionSubscription {
    * 取消通知扩展的订阅。使用Promise异步回调。
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
