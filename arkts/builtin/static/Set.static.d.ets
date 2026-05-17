@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -19,74 +20,72 @@
  */
 
 /**
- * Represents boxed char value and related operations
+ * Set implementation.
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
  * @since 24 staticonly
  */
-class Char extends Object implements Comparable<Char> {
-
+class Set<K> implements ReadonlySet<K> {
     /**
-     * toString() converts Char to String object that contains a single element with the underlying char.
+     * Creates a new Set instance with the specified number of buckets.
      *
-     * @returns { string }
+     * @param { int } bucketsCount - The number of buckets for the internal map.
+     *     <br>The value should be an integer.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
      * @since 24 staticonly
      */
-    toString(): string;
+    constructor(bucketsCount: int);
 
     /**
-     * Returns the primitive as string value
+     * Creates a new Set instance from another Set.
      *
-     * @param { char } value - value to cast
-     * @returns { string }
+     * @param { Set<K> } set - Another Set instance used for initialization.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
      * @since 24 staticonly
      */
-    static toString(value: char): string;
+    constructor(set: Set<K>);
 
     /**
-     * isDecDigit() checks whether the char represents a decimal digit.
+     * Creates a new Set instance from an array.
      *
-     * @param { char } value - a char to check.
-     * @returns { boolean }
+     * @param { K[] } values - The array used for initialization.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
      * @since 24 staticonly
      */
-    static isDecDigit(value: char): boolean;
+    constructor(values: K[]);
 
     /**
-     * isDecDigit() checks whether the underlying char represents a decimal digit.
+     * Creates a new Set instance from an iterable object or FixedArray.
      *
-     * @returns { boolean }
+     * @param { Iterable<K> | FixedArray<K> | null } [elements] - The iterable object, FixedArray,
+     *     or null used for initialization.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
      * @since 24 staticonly
      */
-    isDecDigit(): boolean;
+    constructor(elements?: Iterable<K> | FixedArray<K> | null);
 
     /**
-     * isWhiteSpace(char) checks whether the char is a whitespace char.
-     *
-     * @param { char } value - a char to be tested.
-     * @returns { boolean }
+     * Gets the number of unique elements in the Set.
+     * 
+     * @returns { int } - The number of unique elements in the Set.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
      * @since 24 staticonly
      */
-    static isWhiteSpace(value: char): boolean;
+    get size(): int;
 
     /**
-     * isWhiteSpace() checks whether the underlying char is a whitespace char.
+     * Returns the default iterator of the Set, which is the values() iterator.
      *
-     * @returns { boolean }
+     * @returns { IterableIterator<K> } - The default iterator of the Set.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
      * @since 24 staticonly
      */
-    isWhiteSpace(): boolean;
+    $_iterator(): IterableIterator<K>;
 }

@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -24,7 +25,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 namespace reflect {
 
@@ -56,7 +57,7 @@ namespace reflect {
      * @throws { TypeError } Throws - when `thisObj` is incompatible with the field.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     getValue(thisObj: Object): Any;
 
@@ -68,7 +69,7 @@ namespace reflect {
      * @throws { TypeError } Throws - when `thisObj` is incompatible with the field or the value type doesn't match.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     setValue(thisObj: Object, value: Any): void;
 }

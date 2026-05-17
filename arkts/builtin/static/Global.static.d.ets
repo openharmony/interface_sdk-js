@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,18 +29,18 @@
  * @returns { int } Timer id.
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 function setTimeout(func: Function, delayMs: int | null | undefined, ...args: FixedArray<Any>): int;
 
 /**
  * Cancel the specified timer.
  *
- * @param { int | null } [timerId] - The id of the timer returned from setTimeout, 
+ * @param { int | null } [timerId] - The id of the timer returned from setTimeout,
  *     if pass empty or null or undefined will do nothing.
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 function clearTimeout(timerId?: int | null): void;
 
@@ -53,17 +54,17 @@ function clearTimeout(timerId?: int | null): void;
  * @returns { int } Returns the timer ID.
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 function setInterval(func: Function, delayMs: int | null | undefined, ...args: FixedArray<Any>): int;
 
 /**
  * Cancel the specified timer.
  *
- * @param { int | null } [timerId] - The id of the timer returned from setInterval, 
+ * @param { int | null } [timerId] - The id of the timer returned from setInterval,
  *     if pass empty or null or undefined will do nothing.
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 function clearInterval(timerId?: int | null): void;

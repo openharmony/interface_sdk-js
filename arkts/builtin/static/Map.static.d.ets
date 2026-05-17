@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -23,7 +24,7 @@
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 class Map<K, V> implements ReadonlyMap<K, V> {
 
@@ -31,9 +32,10 @@ class Map<K, V> implements ReadonlyMap<K, V> {
      * Creates an empty Map with the specified initial capacity
      *
      * @param { int } initialCapacity - Map's initial capacity
+     *     <br>The value should be an integer.
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(initialCapacity: int);
 
@@ -43,7 +45,7 @@ class Map<K, V> implements ReadonlyMap<K, V> {
      * @param { FixedArray<[K, V]> } values - FixedArray containing key-value pairs
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(values: FixedArray<[K, V]>);
 
@@ -53,7 +55,7 @@ class Map<K, V> implements ReadonlyMap<K, V> {
      * @param { Array<[K, V]> } entries - array containing key-value pairs
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(entries: Array<[K, V]>);
 
@@ -63,18 +65,18 @@ class Map<K, V> implements ReadonlyMap<K, V> {
      * @param { Map<K, V> } map - source Map used to create the new Map
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(map: Map<K, V>);
 
     /**
      * Creates a Map from an iterable object or array-like object
      *
-     * @param { Iterable<[K, V]> | readonly ((readonly [K, V]) | null | undefined)[] | null } [entries] 
+     * @param { Iterable<[K, V]> | readonly ((readonly [K, V]) | null | undefined)[] | null } [entries]
      *     - iterable object or array-like object containing key-value pairs
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     constructor(entries?: Iterable<[K, V]> | readonly ((readonly [K, V]) | null | undefined)[] | null);
 
@@ -84,7 +86,7 @@ class Map<K, V> implements ReadonlyMap<K, V> {
      * @returns { int } number of key-value pairs in the Map
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     get size(): int;
 }
@@ -94,7 +96,7 @@ class Map<K, V> implements ReadonlyMap<K, V> {
  *
  * @syscap SystemCapability.Utils.Lang
  * @FaAndStageModel
- * @since 24 static
+ * @since 24 staticonly
  */
 class Record<K extends Numeric | string | BaseEnum<Int> | BaseEnum<Long> | BaseEnum<string>, V> extends Map<K, V> {
     /**
@@ -104,7 +106,7 @@ class Record<K extends Numeric | string | BaseEnum<Int> | BaseEnum<Long> | BaseE
      * @returns { V | undefined } The value associated with the key, or undefined if not found
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     $_get(k : K) : V | undefined;
 
@@ -115,7 +117,7 @@ class Record<K extends Numeric | string | BaseEnum<Int> | BaseEnum<Long> | BaseE
      * @param { V } v - The value to set
      * @syscap SystemCapability.Utils.Lang
      * @FaAndStageModel
-     * @since 24 static
+     * @since 24 staticonly
      */
     $_set(k: K, v: V) : void;
 }

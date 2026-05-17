@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -145,6 +146,7 @@ class Double extends Floating implements Comparable<Double> {
    *
    * @param { string } s - the string to convert
    * @param { int } r - the radix of conversion; should be [2, 36]; 0 assumed to be 10
+   *     <br>The value should be an integer.
    * @returns { double } the result of parsing
    * @syscap SystemCapability.Utils.Lang
    * @FaAndStageModel
