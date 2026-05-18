@@ -656,12 +656,12 @@ declare namespace dlpPermission {
      * 安装一个应用的DLP沙箱。使用callback方式异步返回应用沙箱信息。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
+     * @param { string } bundleName - 应用包名。
      *     <br>最小长度为7且最大长度为128。
      * @param { DLPFileAccess } access - DLP文件授权类型。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系账号ID，默认主用户ID：100
      *     <br>取值范围为全体整数。
-     * @param { string } uri - DLP文件的URI。不超过4095字节。
+     * @param { string } uri - DLP文件的URI。
      *     <br>最大长度为4095。
      * @param { AsyncCallback<DLPSandboxInfo> } callback - 回调函数。当安装沙箱成功，err为undefined，DLPSandboxInfo为获取到的应用沙箱信息；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
@@ -698,7 +698,7 @@ declare namespace dlpPermission {
      * 卸载一个应用的DLP沙箱。使用callback方式异步返回结果。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - 应用包名。最小7字节，最大128字节。
+     * @param { string } bundleName - 应用包名。
      *     <br>最小长度为7且最大长度为128。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。
      *     <br>取值范围为全体整数。
@@ -947,23 +947,23 @@ declare namespace dlpPermission {
          */
         actionUponExpiry?: ActionType;
         /**
-         * 表示文件的标识，默认为空。不超过255字节，超出此范围返回null。
-         * 最大长度为255。默认值：空。
+         * 表示文件的标识。
+         * 最大长度为255。默认值：空。超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         fileId?: string;
         /**
-         * 表示允许打开的次数，默认为空。取值范围大于等于0，超出此范围返回null。
-         * 取值应为≥0的整数。默认值：0。
+         * 表示允许打开的次数。
+         * 取值应为≥0的整数。默认值：0。超出此范围返回null。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         allowedOpenCount?: number;
         /**
-         * 表示是否要求添加水印。true表示要求添加水印，false表示不要求添加水印，默认为空。
+         * 表示是否要求添加水印。true表示要求添加水印，false表示不要求添加水印。
          * 默认值：false。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -981,7 +981,7 @@ declare namespace dlpPermission {
          */
         countdown?: number;
         /**
-         * 表示DLP文件的扩展属性，默认为空。
+         * 表示DLP文件的扩展属性。
          * **模型约束**：此接口仅可在Stage模型下使用。
          * 默认值：空。
          *
@@ -1579,7 +1579,7 @@ declare namespace dlpPermission {
      */
     export interface EnterprisePolicy {
         /**
-         * 表示企业定制策略的json字符串。长度不超过4MB。
+         * 表示企业定制策略的json字符串。
          * 最大长度为4139304。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -1744,7 +1744,7 @@ declare namespace dlpPermission {
     export interface DlpFileQueryOptions {
         /**
          * 表示企业DLP文件的用户定义分类标签。单位为byte，
-         * 最大长度为255字节，最大长度为255字节。默认值：空。
+         * 最大长度为255字节。默认值：空。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
