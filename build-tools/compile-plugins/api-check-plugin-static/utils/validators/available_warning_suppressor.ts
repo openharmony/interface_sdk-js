@@ -18,13 +18,15 @@ import { AVAILABLE_TAG_NAME } from '../api_check_plugin_define';
 import { ParsedVersion } from '../api_check_plugin_typedef';
 import { BaseWarningSuppressor, NodeValidator } from './base_warning_suppressor';
 import { AvailableComparisonValidator } from './available_comparison_validator';
-import { comparePointVersion, ComparisonResult } from '../api_check_base_utils';
+import { SdkComparisonHelper, SDK_CONSTANTS } from './sdk_comparison_helper';
 
 class SdkComparisonValidator implements NodeValidator {
   private projectCompatibleSdkVersion: string;
   private minRequiredVersion: string;
   private minAvailableVersion: ParsedVersion | undefined;
   private declaration: arkts.AstNode | undefined;
+  private sdkComparisonHelper: SdkComparisonHelper;
+  private readonly deviceInfoChecker: Map<string, string[]>;
   
   constructor(
     projectCompatibleSdkVersion: string,
@@ -36,6 +38,23 @@ class SdkComparisonValidator implements NodeValidator {
     this.minRequiredVersion = minRequiredVersion;
     this.minAvailableVersion = minAvailableVersion;
     this.declaration = declaration;
+    
+    this.deviceInfoChecker = new Map([
+      [SDK_CONSTANTS.OTHER_SOURCE_DEVICE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]],
+      [SDK_CONSTANTS.OPEN_SOURCE_DEVICE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]],
+      [SDK_CONSTANTS.OPEN_SOURCE_APIAVAILABLE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]]
+    ]);
+    
+    this.sdkComparisonHelper = new SdkComparisonHelper(
+      projectCompatibleSdkVersion,
+      minRequiredVersion,
+      minAvailableVersion,
+      this.deviceInfoChecker,
+      SDK_CONSTANTS.OTHER_SOURCE_DEVICE_INFO,
+      SDK_CONSTANTS.OPEN_SOURCE_DEVICE_INFO,
+      SDK_CONSTANTS.OPEN_SOURCE_RUNTIME,
+      declaration
+    );
   }
 
   validate(node: arkts.AstNode): boolean {
@@ -53,16 +72,18 @@ class SdkComparisonValidator implements NodeValidator {
       return false;
     }
     
-    const hasApiAvailableCheck = /apiAvailable/.test(sourceText);
-    if (!hasApiAvailableCheck) {
-      return false;
-    }
+    // const hasApiAvailableCheck = /apiAvailable/.test(sourceText);
+    // const hasDeviceInfoCheck = /deviceInfo/.test(sourceText) || /sdkApiVersion/.test(sourceText);
+    
+    // if (!hasApiAvailableCheck && !hasDeviceInfoCheck) {
+    //   return false;
+    // }
 
     let currentNode: arkts.AstNode | null = node.parent;
     
     while (currentNode) {
       if (arkts.isIfStatement(currentNode)) {
-        return this.checkIfStatementForApiAvailable(currentNode, node);
+        return this.checkIfStatementForSdkComparison(currentNode, node);
       }
       currentNode = currentNode.parent;
     }
@@ -70,7 +91,7 @@ class SdkComparisonValidator implements NodeValidator {
     return false;
   }
 
-  private checkIfStatementForApiAvailable(ifNode: arkts.AstNode, originalNode: arkts.AstNode): boolean {
+  private checkIfStatementForSdkComparison(ifNode: arkts.AstNode, originalNode: arkts.AstNode): boolean {
     if (!ifNode.test) {
       return false;
     }
@@ -80,7 +101,14 @@ class SdkComparisonValidator implements NodeValidator {
       return false;
     }
     
-    return this.checkApiAvailableComparison(ifNode.test);
+    try {
+
+      return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test);
+      // return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test) ||
+      //        this.sdkComparisonHelper.isApiAvailableHelper(ifNode.test);
+    } catch {
+      return false;
+    }
   }
 
   private isNodeInIfThenBlock(node: arkts.AstNode, ifNode: arkts.AstNode): boolean {
@@ -93,43 +121,6 @@ class SdkComparisonValidator implements NodeValidator {
     const thenEndPos = ifNode.consequent.endPosition?.offset || 0;
     
     return nodeStartPos >= thenStartPos && nodeStartPos <= thenEndPos;
-  }
-
-  private checkApiAvailableComparison(testNode: arkts.AstNode): boolean {
-    if (!arkts.isCallExpression(testNode)) {
-      return false;
-    }
-    
-    const expr = testNode.expr;
-    if (!expr || expr.name !== 'apiAvailable') {
-      return false;
-    }
-    
-    if (!testNode.arguments || testNode.arguments.length !== 1) {
-      return false;
-    }
-    
-    const arg = testNode.arguments[0];
-    const argValue = this.getNodeText(arg);
-    const cleanedArgValue = argValue.replace(/['"`]/g, '');
-    
-    const minVersion = this.minAvailableVersion?.version || this.minRequiredVersion;
-    const compareResult = comparePointVersion(cleanedArgValue, minVersion);
-    
-    return compareResult !== ComparisonResult.Less;
-  }
-
-  private getNodeText(node: arkts.AstNode): string {
-    if (!node) {
-      return '';
-    }
-    if (node.name) {
-      return node.name;
-    }
-    if (node.text) {
-      return node.text.toString();
-    }
-    return '';
   }
 }
 

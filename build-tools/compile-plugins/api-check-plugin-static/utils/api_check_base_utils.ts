@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import * as arkts from '@koalaui/libarkts';
 import {
   ComparisonResult,
   ComparisonSenario,
@@ -21,11 +22,12 @@ import {
   RUNTIME_OS_OH,
   AVAILABLE_VERSION_FORMAT_ERROR,
   AVAILABLE_TAG_NAME,
+  SINCE_TAG_NAME,
   ValueCheckerFunction,
   FormatCheckerFunction,
   VersionValidationResult
 } from './api_check_plugin_define';
-import { ParsedVersion } from './api_check_plugin_typedef';
+import { ParsedVersion, DistributionOSApiAvailableVersionResult } from './api_check_plugin_typedef';
 import { globalObject, externalApiCheckPlugin } from '../index';
 
 export function defaultFormatChecker(since: string): boolean {
@@ -256,4 +258,47 @@ export function compareVersions(
   } catch (error) {
     return false;
   }
+}
+
+export function checkIntegerMoreVersion(since: string): boolean {
+  const IntVersionReg: RegExp = /^(?:[1-9]\d{0,2})$/;
+  if (IntVersionReg.test(since)) {
+    if (Number(since) >= MSF_INTEGER_VERSION) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function isApiAvailableStatement(expression: arkts.AstNode): boolean {
+  if (!arkts.isCallExpression(expression)) {
+    return false;
+  }
+  const expr = expression.expr;
+  if (!expr || expr.name !== 'apiAvailable') {
+    return false;
+  }
+  return expression.arguments && expression.arguments.length === 1;
+}
+
+export function isCheckDistributionOSVersion(tag: string, version: string): DistributionOSApiAvailableVersionResult {
+  const result: DistributionOSApiAvailableVersionResult = {
+    valid: true,
+    version: version,
+    message: ''
+  };
+  
+  const runtimeOS = globalObject.projectConfig.runtimeOS;
+  if (runtimeOS === RUNTIME_OS_OH) {
+    return result;
+  }
+  
+  const formatChecker = getFormatChecker(tag);
+  const formatResult = formatChecker(version);
+  if (!formatResult.result) {
+    result.valid = false;
+    result.message = formatResult.message || AVAILABLE_VERSION_FORMAT_ERROR;
+  }
+  
+  return result;
 }

@@ -208,3 +208,9 @@ export interface MSFVersionCheckResult {
   valid: boolean;
   needDistCheck: boolean;
 }
+
+export interface DistributionOSApiAvailableVersionResult {
+  valid: boolean;
+  version: string;
+  message: string;
+}
