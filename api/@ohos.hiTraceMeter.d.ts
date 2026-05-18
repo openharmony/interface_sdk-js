@@ -14,525 +14,296 @@
  */
 
 /**
- * @file
+ * @file Performance Tracing
  * @kit PerformanceAnalysisKit
  */
 
 /**
- * Provides interfaces to trace a task for performance measure, the logs can be capture by the
- * bytrace cmdline available on the device.
+ * The **HiTraceMeter** module provides the functions of tracing service processes and monitoring the system
+ * performance. It provides the data needed for HiTraceMeter to carry out performance analysis.
  *
- * <p>This interfaces trace the start, end, and value changes of key processes that last for at least 3 ms.
+ * For details about the development process, see
+ * [Using HiTraceMeter (ArkTS)](docroot://dfx/hitracemeter-guidelines-arkts.md).
  *
- * <p>Example:
- * Track the beginning of a context:
- * <pre>{@code
- * hiTraceMeter.startTrace("checkName", 111);
- * }</pre>
- * Track the end of a context:
- * <pre>{@code
- * hiTraceMeter.finishTrace("checkName", 111);
- * }</pre>
- * To trace the number of layers, which is 3:
- * <pre>{@code
- * hiTraceMeter.traceByValue("curLayer", 3);
- * }</pre>
+ * > **NOTE**
+ * >
+ * > You are advised to use the performance tracing APIs of API version 19. The
+ * > [startTrace()]{@link hiTraceMeter.startTrace}, [finishTrace()]{@link hiTraceMeter.finishTrace}, and
+ * > [traceByValue()]{@link hiTraceMeter.traceByValue(name: string, count: long)} APIs will be deprecated.
+ * >
+ * > The trace output level cannot be specified in the [startTrace()]{@link hiTraceMeter.startTrace},
+ * > [finishTrace()]{@link hiTraceMeter.finishTrace} and
+ * > [traceByValue()]{@link hiTraceMeter.traceByValue(name: string, count: long)} APIs. By default, the trace output
+ * > level is **COMMERCIAL**.
+ * >
+ * > The vertical bar (|) is used as the separator in
+ * > [user-mode trace format](docroot://dfx/hitracemeter-view.md#user-mode-trace-format). Therefore, the string
+ * > parameters passed by the performance tracing APIs must exclude this character to avoid trace parsing exceptions.
+ * >
+ * > The maximum length of a [user-mode trace](docroot://dfx/hitracemeter-view.md#user-mode-trace-format) is 512
+ * > characters. Excess characters will be truncated.
  *
- * <p>Each {@code startTrace} matches one {@code finishTrace}, and they must have the same name
- * and taskId.
- *
- * @namespace hiTraceMeter
  * @syscap SystemCapability.HiviewDFX.HiTrace
- * @since 8
- */
-/**
- * Provides interfaces to trace a task for performance measure, the logs can be capture by the
- * hitrace cmdline on the device.
- *
- * <p>This interfaces trace the start, end, and value changes of key processes that last for at least 3 ms.
- *
- * <p>Example:
- * Track the beginning of a context:
- * <pre>{@code
- * hiTraceMeter.startAsyncTrace(hiTraceMeter.HiTraceOutputLevel.COMMERCIAL, "checkName", 111, "test", "key=value");
- * }</pre>
- * Track the end of a context:
- * <pre>{@code
- * hiTraceMeter.finishAsyncTrace(hiTraceMeter.HiTraceOutputLevel.COMMERCIAL, "checkName", 111);
- * }</pre>
- * To trace the number of layers, which is 3:
- * <pre>{@code
- * hiTraceMeter.traceByValue(hiTraceMeter.HiTraceOutputLevel.COMMERCIAL, "curLayer", 3);
- * }</pre>
- *
- * <p>Each {@code startTrace} matches one {@code finishTrace}, and they must have the same name
- * and taskId.
- *
- * <p>Each {@code startSyncTrace} matches one {@code finishSyncTrace}, and they must have the same
- * level and name.
- *
- * <p>Each {@code startAsyncTrace} matches one {@code finishAsyncTrace}, and they must have the same
- * level, name and taskId.
- *
- * @namespace hiTraceMeter
- * @syscap SystemCapability.HiviewDFX.HiTrace
- * @atomicservice
- * @since 19
- */
-/**
- * Provides interfaces to trace a task for performance measure, the logs can be capture by the
- * hitrace cmdline on the device.
- *
- * <p>This interfaces trace the start, end, and value changes of key processes that last for at least 3 ms.
- *
- * <p>Example:
- * Track the beginning of a context:
- * <pre>{@code
- * hiTraceMeter.startAsyncTrace(hiTraceMeter.HiTraceOutputLevel.COMMERCIAL, "checkName", 111, "test", "key=value");
- * }</pre>
- * Track the end of a context:
- * <pre>{@code
- * hiTraceMeter.finishAsyncTrace(hiTraceMeter.HiTraceOutputLevel.COMMERCIAL, "checkName", 111);
- * }</pre>
- * To trace the number of layers, which is 3:
- * <pre>{@code
- * hiTraceMeter.traceByValue(hiTraceMeter.HiTraceOutputLevel.COMMERCIAL, "curLayer", 3);
- * }</pre>
- *
- * <p>Each {@code startTrace} matches one {@code finishTrace}, and they must have the same name
- * and taskId.
- *
- * <p>Each {@code startSyncTrace} matches one {@code finishSyncTrace}, and they must have the same
- * level and name.
- *
- * <p>Each {@code startAsyncTrace} matches one {@code finishAsyncTrace}, and they must have the same
- * level, name and taskId.
- *
- * @namespace hiTraceMeter
- * @syscap SystemCapability.HiviewDFX.HiTrace
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 19]
+ * @since 8 dynamic
  * @since 23 static
  */
 declare namespace hiTraceMeter {
 
   /**
-   * Enumerates the HiTrace output levels. The output level threshold system parameter determines
-   * the minimum output trace.
+   * Enumerates trace output levels.
    *
-   * @enum { int }
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @atomicservice
-   * @since 19
-   */
-  /**
-   * Enumerates the HiTrace output levels. The output level threshold system parameter determines
-   * the minimum output trace.
+   * The trace output level lower than the threshold does not take effect. The log version threshold is **INFO**, and
+   * the nolog version threshold is **COMMERCIAL**.
    *
-   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 20 dynamic
+   * @since 19 dynamic
    * @since 23 static
    */
   enum HiTraceOutputLevel {
     /**
-     * Ouput level only for debug usage.
+     * Level used only for debugging, which has the lowest priority.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
+     * @crossplatform [since 20]
      * @atomicservice
-     * @since 19
-     */
-    /**
-     * Ouput level only for debug usage.
-     *
-     * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @since 19 dynamic
      * @since 23 static
      */
     DEBUG = 0,
 
     /**
-     * Output level for log version usage.
+     * Level for the log version.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
+     * @crossplatform [since 20]
      * @atomicservice
-     * @since 19
-     */
-    /**
-     * Output level for log version usage.
-     *
-     * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @since 19 dynamic
      * @since 23 static
      */
     INFO = 1,
 
     /**
-     * Output level for log version usage, with higher priority than INFO.
+     * Level for the log version, which has a higher priority than **INFO**.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
+     * @crossplatform [since 20]
      * @atomicservice
-     * @since 19
-     */
-    /**
-     * Output level for log version usage, with higher priority than INFO.
-     *
-     * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @since 19 dynamic
      * @since 23 static
      */
     CRITICAL = 2,
 
     /**
-     * Output level for nolog version usage.
+     * Level for the nolog version, which has the highest priority.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
+     * @crossplatform [since 20]
      * @atomicservice
-     * @since 19
-     */
-    /**
-     * Output level for nolog version usage.
-     *
-     * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @since 19 dynamic
      * @since 23 static
      */
     COMMERCIAL = 3,
 
     /**
-     * Output level range limit.
+     * Maximum trace output level: **COMMERCIAL**.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
+     * @crossplatform [since 20]
      * @atomicservice
-     * @since 19
-     */
-    /**
-     * Output level range limit.
-     *
-     * @syscap SystemCapability.HiviewDFX.HiTrace
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @since 19 dynamic
      * @since 23 static
      */
     MAX = COMMERCIAL
   }
 
   /**
-   * Records a trace marking it as the start of a task, can with the expected completion time between
-   * startTrace and finishTrace.
+   * Starts an asynchronous trace.
    *
-   * This method is invoked at the start of a transaction to indicate that a task has started, whose name
-   * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
-   * {@link #finishTrace}, the name and taskId need to be the same.
+   * If multiple trace tasks with the same name need to be performed at the same time or a trace needs to be performed
+   * multiple times concurrently, different task IDs must be specified in **startTrace**.
    *
-   * @param { string } name Indicates the task name.
-   * @param { int } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
+   * If the trace tasks with the same name are not performed at the same time, the same taskId can be used. For a
+   * specific example, see [finishTrace()]{@link hiTraceMeter.finishTrace}.
+   *
+   * Since API version 19, you are advised to use [startAsyncTrace()]{@link hiTraceMeter.startAsyncTrace}, which must be
+   * used together with [finishAsyncTrace()]{@link hiTraceMeter.finishAsyncTrace}. In this way, you can specify the
+   * trace output level and category.
+   *
+   * @param { string } name - Name of the trace to start.<br>The maximum length of a trace record is 512 bytes. The
+   *     excess part will be truncated. It is recommended that the length of this parameter be less than or equal to 420
+   *     bytes.
+   * @param { int } taskId - Task ID.<br>It is used to distinguish multiple tasks with the same name. Ensure that the
+   *     task IDs of concurrently executed tasks with the same name are unique.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
-   */
-  /**
-   * Records a trace marking it as the start of a task, can with the expected completion time between
-   * startTrace and finishTrace.
-   *
-   * This method is invoked at the start of a transaction to indicate that a task has started, whose name
-   * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
-   * {@link #finishTrace}, the name and taskId need to be the same.
-   *
-   * @param { string } name Indicates the task name.
-   * @param { int } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace marking it as the start of a task, can with the expected completion time between
-   * startTrace and finishTrace.
-   *
-   * This method is invoked at the start of a transaction to indicate that a task has started, whose name
-   * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
-   * {@link #finishTrace}, the name and taskId need to be the same.
-   *
-   * @param { string } name Indicates the task name.
-   * @param { int } taskId The unique id used to distinguish the tasks and match with the id in follow finishTrace.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 19]
+   * @since 8 dynamic
    * @since 23 static
    */
   function startTrace(name: string, taskId: int): void;
 
   /**
-   * Records a trace and marks it as the end of a task.
+   * Stops an asynchronous trace.
    *
-   * This method is invoked at the end of a transaction to indicate that a task has ended, whose name
-   * is specified by {@code name}. This method must be invoked after the the startTrace.
+   * To stop a trace, the values of name and task ID in **finishTrace** must be the same as those in
+   * [startTrace()]{@link hiTraceMeter.startTrace}.
    *
-   * @param { string } name Indicates the task name. It must be the same with the {@code name} of startTrace.
-   * @param { int } taskId The unique id used to distinguish the tasks and must be the same with the .
-   *     {@code taskId} of startTrace.
+   * Since API version 19, you are advised to use [finishAsyncTrace()]{@link hiTraceMeter.finishAsyncTrace}, which must
+   * be used together with [startAsyncTrace()]{@link hiTraceMeter.startAsyncTrace}.
+   *
+   * @param { string } name - Name of the trace to start.
+   * @param { int } taskId - Task ID.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
-   */
-  /**
-   * Records a trace and marks it as the end of a task.
-   *
-   * This method is invoked at the end of a transaction to indicate that a task has ended, whose name
-   * is specified by {@code name}. This method must be invoked after {@link #startTrace}.
-   *
-   * @param { string } name Indicates the task name. It must be the same with the {@code name} of startTrace.
-   * @param { int } taskId The unique id used to distinguish the tasks and must be the same with the
-   *     {@code taskId} of startTrace.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace and marks it as the end of a task.
-   *
-   * This method is invoked at the end of a transaction to indicate that a task has ended, whose name
-   * is specified by {@code name}. This method must be invoked after {@link #startTrace}.
-   *
-   * @param { string } name Indicates the task name. It must be the same with the {@code name} of startTrace.
-   * @param { int } taskId The unique id used to distinguish the tasks and must be the same with the
-   *     {@code taskId} of startTrace.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 19]
+   * @since 8 dynamic
    * @since 23 static
    */
   function finishTrace(name: string, taskId: int): void;
 
   /**
-   * Records a trace for generating a count, such as clock pulse and the number of layers.
+   * Traces the value changes of an integer variable.
    *
-   * @param { string } name Indicates the name used to identify the count.
-   * @param { long } count Indicates the number of the count.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @since 8
-   */
-  /**
-   * Records a trace for generating a count, such as clock pulse and the number of layers.
+   * Since API version 19, you are advised to use the
+   * [traceByValue<sup>19+</sup>()]{@link hiTraceMeter.traceByValue(level: HiTraceOutputLevel, name: string, count: long)}
+   * API to specify the trace output level
    *
-   * @param { string } name Indicates the name used to identify the count.
-   * @param { long } count Indicates the number of the count.
+   * @param { string } name - Name of the integer variable to trace.<br>The maximum length of a trace record is 512
+   *     bytes. The excess part will be truncated. It is recommended that the length of this parameter be less than or
+   *     equal to 420 bytes.
+   * @param { long } count - Value of an integer variable.
    * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace for generating a count, such as clock pulse and the number of layers.
-   *
-   * @param { string } name Indicates the name used to identify the count.
-   * @param { long } count Indicates the number of the count.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 19]
+   * @since 8 dynamic
    * @since 23 static
    */
   function traceByValue(name: string, count: long): void;
 
   /**
-   * Records a trace marking it as the start of a task.
+   * Starts a synchronous trace with the trace output level specified. For details, see
+   * [finishSyncTrace()]{@link hiTraceMeter.finishSyncTrace}.
    *
-   * This method is invoked at the start of a transaction to indicate that a task has started, whose name
-   * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
-   * {@link #finishSyncTrace}, called by the same thread with the same level.
-   *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the task name.
-   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
-   * as separator.
+   * @param { HiTraceOutputLevel } level - Trace output level.
+   * @param { string } name - Name of the trace to start.<br>The maximum length of a trace record is 512 bytes. The
+   *     excess part will be truncated. It is recommended that the total length of **name** and **customArgs** be less
+   *     than or equal to 420 bytes.
+   * @param { string } [customArgs] - Key-value pair. The format is key=value. Multiple key-value pairs are separated by
+   *     commas (,). The default value is an empty string.<br>The maximum length of a trace record is 512 bytes. The
+   *     excess part will be truncated. It is recommended that the total length of **name** and **customArgs** be less
+   *     than or equal to 420 bytes.
    * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace marking it as the start of a task.
-   *
-   * This method is invoked at the start of a transaction to indicate that a task has started, whose name
-   * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by
-   * {@link #finishSyncTrace}, called by the same thread with the same level.
-   *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the task name.
-   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
-   * as separator.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 19 dynamic
    * @since 23 static
    */
   function startSyncTrace(level: HiTraceOutputLevel, name: string, customArgs?: string): void;
 
   /**
-   * Records a trace and marks it as the end of a task.
+   * Stops a synchronous trace with the trace output level specified.
    *
-   * This method is invoked at the end of a transaction to indicate that the nearest running task tracked by
-   * startSyncTrace that has yet to be marked by finishSyncTrace, has ended.
-   * This method must be invoked after {@link #startSyncTrace}, called by the same thread with the same level.
+   * The **level** used in **finishSyncTrace** must be the same as that of
+   * [startSyncTrace()]{@link hiTraceMeter.startSyncTrace}.
    *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
+   * @param { HiTraceOutputLevel } level - Trace output level.
    * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace and marks it as the end of a task.
-   *
-   * This method is invoked at the end of a transaction to indicate that the nearest running task tracked by
-   * startSyncTrace that has yet to be marked by finishSyncTrace, has ended.
-   * This method must be invoked after {@link #startSyncTrace}, called by the same thread with the same level.
-   *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 19 dynamic
    * @since 23 static
    */
   function finishSyncTrace(level: HiTraceOutputLevel): void;
 
   /**
-   * Records a trace marking it as the start of a task.
+   * Starts an asynchronous trace with the trace output level specified.
    *
-   * This method is invoked at the start of a transaction to indicate that a task has started, whose name
-   * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by a
-   * corresponding {@link #finishAsyncTrace}, with the same level, name, and taskId.
+   * If multiple trace tasks with the same name need to be performed at the same time or a trace needs to be performed
+   * multiple times concurrently, different task IDs must be specified in **startAsyncTrace**.
    *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the task name.
-   * @param { int } taskId The unique id used to distinguish the task and match with the id of the
-   *     corresponding finishAsyncTrace.
-   * @param { string } customCategory Indicates the label to aggregate asynchronous task display.
-   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
-   *     as Separator.
+   * If the trace tasks with the same name are not performed at the same time, the same taskId can be used. For details,
+   * see [finishAsyncTrace()]{@link hiTraceMeter.finishAsyncTrace}.
+   *
+   * @param { HiTraceOutputLevel } level - Trace output level.
+   * @param { string } name - Name of the trace to start.<br>The maximum length of a trace record is 512 bytes. The
+   *     excess part will be truncated. It is recommended that the total length of **name**, **customCategory**, and
+   *     **customArgs** be less than or equal to 420 bytes.
+   * @param { int } taskId - Task ID.<br>It is used to distinguish multiple tasks with the same name. Ensure that the
+   *     task IDs of concurrently executed tasks with the same name are unique.
+   * @param { string } customCategory - Custom category name, which is used to collect asynchronous trace data of the
+   *     same type.<br>The maximum length of a trace record is 512 bytes. The excess part will be truncated. It is
+   *     recommended that the total length of **name**, **customCategory**, and **customArgs** be less than or equal to
+   *     420 bytes.
+   * @param { string } [customArgs] - Custom key-value pair. The format is key=value. Multiple key-value pairs are
+   *     separated by commas (,). The default value is an empty string.<br>The maximum length of a trace record is 512
+   *     bytes. The excess part will be truncated. It is recommended that the total length of **name**,
+   *     **customCategory**, and **customArgs** be less than or equal to 420 bytes.
    * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace marking it as the start of a task.
-   *
-   * This method is invoked at the start of a transaction to indicate that a task has started, whose name
-   * is specified by {@code name}, and the taskId is used to distinguish the tasks. It must be followed by a
-   *     corresponding {@link #finishAsyncTrace}, with the same level, name, and taskId.
-   *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the task name.
-   * @param { int } taskId The unique id used to distinguish the task and match with the id of the
-   *     corresponding finishAsyncTrace.
-   * @param { string } customCategory Indicates the label to aggregate asynchronous task display.
-   * @param { string } [customArgs] Indicates key=value pair to be output in trace; multiple pairs should use comma
-   *     as Separator.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 19 dynamic
    * @since 23 static
    */
   function startAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: int, customCategory: string,
       customArgs?: string): void;
 
   /**
-   * Records a trace and marks it as the end of a task.
+   * Stops an asynchronous trace with the trace output level specified.
    *
-   * This method is invoked at the end of a transaction to indicate that a task has ended, whose name is specified
-   * by {@code name}. This method must be invoked after {@link #startAsyncTrace}, with the same level, name,
-   * and taskId. It is not required to be invoked by the same thread calling startAsyncTrace.
+   * The **level**, **name**, and **taskId** used in **finishAsyncTrace()** must be the same as those of
+   * [startAsyncTrace()]{@link hiTraceMeter.startAsyncTrace}.
    *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the task name.
-   * @param { int } taskId The unique id used to distinguish the task and match with the id of the corresponding
-   *     startAsyncTrace.
+   * @param { HiTraceOutputLevel } level - Trace output level.
+   * @param { string } name - Name of the trace to start.
+   * @param { int } taskId - Task ID.
    * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace and marks it as the end of a task.
-   *
-   * This method is invoked at the end of a transaction to indicate that a task has ended, whose name is specified
-   * by {@code name}. This method must be invoked after {@link #startAsyncTrace}, with the same level, name,
-   * and taskId. It is not required to be invoked by the same thread calling startAsyncTrace.
-   *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the task name.
-   * @param { int } taskId The unique id used to distinguish the task and match with the id of the corresponding
-   *     startAsyncTrace.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 19 dynamic
    * @since 23 static
    */
   function finishAsyncTrace(level: HiTraceOutputLevel, name: string, taskId: int): void;
 
   /**
-   * Records a trace for generating a count, such as clock pulse and the number of layers.
+   * Traces an integer with the trace output level specified. It is used to mark the name and value of a predefined
+   * integer variable to be traced.
    *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the name used to identify the count.
-   * @param { long } count Indicates the number of the count.
+   * @param { HiTraceOutputLevel } level - Trace output level.
+   * @param { string } name - Name of the integer variable to trace.<br>The maximum length of a trace record is 512
+   *     bytes. The excess part will be truncated. It is recommended that the length of this parameter be less than or
+   *     equal to 420 bytes.
+   * @param { long } count - Value of an integer variable.
    * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 19
-   */
-  /**
-   * Records a trace for generating a count, such as clock pulse and the number of layers.
-   *
-   * @param { HiTraceOutputLevel } level Indicates trace output priority level.
-   * @param { string } name Indicates the name used to identify the count.
-   * @param { long } count Indicates the number of the count.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 19 dynamic
    * @since 23 static
    */
   function traceByValue(level: HiTraceOutputLevel, name: string, count: long): void;
 
   /**
-   * Return whether the current process is allowed to output trace.
+   * Checks whether application trace capture is enabled.
    *
-   * @returns { boolean } The status of whether the current process is allowed to output trace.
+   * @returns { boolean } **true** is returned when the trace capture is enabled using
+   *     [hitrace](docroot://dfx/hitrace.md). **false** is returned when it is disabled or stopped. In this case,
+   *     calling the HiTraceMeter API does not take effect.
    * @syscap SystemCapability.HiviewDFX.HiTrace
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 19
-   */
-  /**
-   * Return whether the current process is allowed to output trace.
-   *
-   * @returns { boolean } The status of whether the current process is allowed to output trace.
-   * @syscap SystemCapability.HiviewDFX.HiTrace
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 19 dynamic
    * @since 23 static
    */
   function isTraceEnabled(): boolean;
 
   /**
-   * Defines the callback type used in trace status switch event.
-   * The value of traceStatus indicates the current trace status.
+   * Defines a callback to listen for whether the trace capture is enabled.
    *
-   * @typedef { function } TraceEventListener
-   * @param { boolean } traceStatus The current trace status, true for open, false for close.
+   * @param { boolean } traceStatus - Whether the trace capture is enabled for the current application.<br>The value
+   *     **true** indicates that the trace capture is enabled, and **false** indicates the opposite.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
@@ -542,17 +313,26 @@ declare namespace hiTraceMeter {
   type TraceEventListener = (traceStatus: boolean) => void;
 
   /**
-   * Register trace switch notification callback.
+   * Registers a callback to notify whether the application trace capture is enabled. This API uses a synchronous
+   * callback to return the result.
    *
-   * Register a callback function to execute specific trace-related behavior when trace
-   * status is changed. The current status will be passed as 0 for off or 1 for on as callback function
-   * paramter representing current trace status. The maximum number of registered callback functions is 10.
+   * After the registration is successful, the callback is executed immediately. Subsequent callbacks are executed when
+   * the application trace capture status changes.
    *
-   * @param { TraceEventListener } callback - The callback function to be invoked when trace status is changed.
-   * @returns { int } The callback registeration status.
-   *     >= 0: Successfully registered and callback index used for unregister.
-   *     -1: Reaches max number of callback functions.
-   *     -2: Invalid parameter.
+   * > **NOTE**
+   * >
+   * > If the callback contains time-consuming operations, the registration or deregistration will be blocked (waiting
+   * > for the callback execution to complete) when the callback is executed.
+   * >
+   * > Therefore, you are advised not to register or deregister callbacks containing time-consuming operations in the
+   * > main thread of the application to avoid application freeze.
+   *
+   * @param { TraceEventListener } callback - Registered callback.
+   * @returns { int } Callback registration status.
+   *     <br>>= 0: The registration is successful. The callback index for deregistration is returned.
+   *     The index ranges from 0 to 9.
+   *     <br> **-1**: The maximum number of callbacks has been reached.
+   *     <br> **-2**: Invalid parameter. The parameter is not of the **TraceEventListener** type.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
@@ -562,16 +342,16 @@ declare namespace hiTraceMeter {
   function registerTraceListener(callback: TraceEventListener): int;
 
   /**
-   * Unregister trace switch notification callback.
+   * Unregisters the callback function used to notify whether the trace capture is enabled, which is registered using
+   * **registerTraceListener()**.
    *
-   * Unregister the callback function registeration for trace switch notification
-   * with provided registered callback function index.
-   *
-   * @param { int } index - The callback function index to be unregistered.
-   * @returns { int } The callback unregisteration status.
-   *     0: Success.
-   *     -1: Callback function with target index has not been registered.
-   *     -2: Invalid index range.
+   * @param { int } index - Index of the registered callback function, that is, the return value when
+   *     [registerTraceListener()]{@link hiTraceMeter.registerTraceListener} is successfully called
+   *     <br>The value range is all integers.
+   * @returns { int } Callback deregistration status.
+   *     <br>**0**: Deregistration succeeded.
+   *     <br>**-1**: The callback corresponding to the index is not registered.
+   *     <br>**-2**: Invalid index. The index value is not within the range of 0 to 9.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @crossplatform
    * @atomicservice
