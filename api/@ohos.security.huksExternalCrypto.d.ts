@@ -172,7 +172,7 @@ declare namespace huksExternalCrypto {
   }
 
   /**
-   * Defines detailed error information. 
+   * Defines detailed error information.
    *
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
@@ -490,6 +490,17 @@ declare namespace huksExternalCrypto {
    * @since 26.0.0
    */
   function closeResource(resourceId: string, params?: HuksExternalCryptoParam[]): Promise<void>;
+
+  /**
+   * Get the detailed error information.
+   *
+   * @returns { HuksExternalErrorInfo } The returned error information.
+   * @throws { BusinessError } 801 - API is not supported.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getErrorInfo(): HuksExternalErrorInfo;
 }
 
 export default huksExternalCrypto;
