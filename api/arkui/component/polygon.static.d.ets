@@ -18,7 +18,7 @@
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { Length } from './units';
 
 /**
@@ -71,6 +71,16 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
      */
     default points(value: Array<ShapePoint> | undefined): this;
     /**
+ 	 * Set Polygon options.
+ 	 *
+ 	 * @param { PolygonOptions } [options] - Polygon constructor options
+ 	 * @returns { PolygonAttribute } Returns the instance of the PolygonAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setPolygonOptions(options?: PolygonOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<PolygonAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -96,3 +106,18 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
 export declare function Polygon(
     options?: PolygonOptions
 ): PolygonAttribute
+
+/**
+ * Defines Polygon Component.
+ *
+ * @param { CustomBuilderT<PolygonAttribute> } style - the callback to set up component's attributes.
+ * @returns { PolygonAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Polygon(
+    style: CustomBuilderT<PolygonAttribute>,
+): PolygonAttribute;

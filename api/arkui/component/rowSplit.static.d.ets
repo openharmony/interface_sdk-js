@@ -16,7 +16,7 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -40,6 +40,15 @@ export declare interface RowSplitAttribute extends CommonMethod {
      * @since 23 static
      */
     default resizeable(value: boolean | undefined): this;
+    /**
+     * Set RowSplit options.
+     *
+     * @returns { RowSplitAttribute } Returns the instance of the RowSplitAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setRowSplitOptions(): this;
     /**
      * Set the attribute modifier
      *
@@ -68,3 +77,20 @@ export declare function RowSplit(
     
     content_?: CustomBuilder,
 ): RowSplitAttribute
+
+/**
+ * Defines RowSplit Component.
+ *
+ * @param { CustomBuilderT<RowSplitAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { RowSplitAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function RowSplit(
+    style: CustomBuilderT<RowSplitAttribute>,
+    content_?: CustomBuilder,
+): RowSplitAttribute;

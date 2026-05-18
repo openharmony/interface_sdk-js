@@ -18,7 +18,7 @@
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
 import { ShapePoint } from "./line";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { Length } from './units';
 
 /**
@@ -70,6 +70,16 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
      */
     default points(value: Array<ShapePoint> | undefined): this;
     /**
+ 	 * Set Polyline options.
+ 	 *
+ 	 * @param { PolylineOptions } [options] - Polyline constructor options
+ 	 * @returns { PolylineAttribute } Returns the instance of the PolylineAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setPolylineOptions(options?: PolylineOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<PolylineAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -95,3 +105,18 @@ export declare interface PolylineAttribute extends CommonShapeMethod {
 export declare function Polyline(
     options?: PolylineOptions
 ): PolylineAttribute
+
+/**
+ * Defines Polyline Component.
+ *
+ * @param { CustomBuilderT<PolylineAttribute> } style - the callback to set up component's attributes.
+ * @returns { PolylineAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Polyline(
+    style: CustomBuilderT<PolylineAttribute>,
+): PolylineAttribute;

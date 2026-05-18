@@ -275,6 +275,14 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
     */
     default barrier(barrierStyle: Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined): this;
     /**
+     * Set RelativeContainer options.
+     * @returns { RelativeContainerAttribute } Returns the instance of the RelativeContainerAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setRelativeContainerOptions(): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<RelativeContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -302,6 +310,23 @@ export declare function RelativeContainer(
     
     content_?: CustomBuilder,
 ): RelativeContainerAttribute
+
+/**
+ * Defines RelativeContainer Component.
+ *
+ * @param { CustomBuilderT<RelativeContainerAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { RelativeContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function RelativeContainer(
+    style: CustomBuilderT<RelativeContainerAttribute>,
+    content_?: CustomBuilder,
+): RelativeContainerAttribute;
 
 /**
  * Defines the Extendable RelativeContainer.
