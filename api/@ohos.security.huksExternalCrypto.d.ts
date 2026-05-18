@@ -172,7 +172,7 @@ declare namespace huksExternalCrypto {
   }
 
   /**
-   * Defines detailed error information.
+   * Defines detailed error information. 
    *
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
