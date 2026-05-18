@@ -21,10 +21,9 @@ import { RichEditorAttribute } from '@ohos.arkui.component';
  * @kit ArkUI
  */
 
- /**
+/**
  * Defines RichEditor Modifier
  *
- * @implements RichEditorAttribute, AttributeModifier<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
