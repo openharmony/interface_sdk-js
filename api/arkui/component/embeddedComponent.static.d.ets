@@ -24,6 +24,111 @@ import { ComponentBuilder, CustomBuilder } from './builder';
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { AttributeModifier, CommonMethod, TerminationInfo } from './common'
 import { EmbeddedType } from './enums'
+import { ComponentContent } from '../ComponentContent'
+import { VoidCallback } from '../Units'
+/**
+ * Enumeration of different types of EmbeddedDpiFollowStrategy.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+declare enum EmbeddedDpiFollowStrategy {
+    /**
+     * Follow the host application's DPI configuration.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    FOLLOW_HOST_DPI = 0,
+
+    /**
+     * Follow the EmbeddedUIExtensionAbility's DPI configuration.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
+}
+
+/**
+* Enumeration of different types of EmbeddedWindowModeFollowStrategy.
+*
+* @enum { int }
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+declare enum EmbeddedWindowModeFollowStrategy {
+    /**
+     * Follow the host application's window mode configuration.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    FOLLOW_HOST_WINDOW_MODE = 0,
+
+    /**
+     * Follow the host EmbeddedUIExtensionAbility's window mode configuration.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
+}
+
+/**
+* This interface is used to set the options for EmbeddedComponentAttribute during construction
+*
+* @interface EmbeddedOptions
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @since 26.0.0 static
+*/
+declare interface EmbeddedOptions {
+    /**
+     * Set placeholder.
+     * If set placeholder ComponentContent, show placeholder node when connection is not established.
+     *
+     * @type { ?ComponentContent }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    placeholder?: ComponentContent;
+
+    /**
+     * Set Areachange placeholder.
+     * If the Areachange placeholder is set, the placeholder node is displayed until
+     * the EmbeddedComponent size change is complete.
+     * @type { ?Record<string, ComponentContent> }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    areaChangePlaceholder?: Record<string, ComponentContent>;
+
+    /**
+     * Set EmbeddedComponent Content Dpi Follow Strategy.
+     * @type { ?EmbeddedDpiFollowStrategy }
+     * @default EmbeddedDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    dpiFollowStrategy?: EmbeddedDpiFollowStrategy;
+
+    /**
+     * Set EmbeddedComponent Content Window Mode Follow Strategy.
+     * @type { ?EmbeddedWindowModeFollowStrategy }
+     * @default EmbeddedWindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    windowModeFollowStrategy?: EmbeddedWindowModeFollowStrategy;
+}
 
 /**
  * Define the attribute functions of EmbeddedComponent.
@@ -69,6 +174,16 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    */
   attributeModifier(modifier: AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
+  /**
+   * Callback called when the EmbeddedUIExtensionAbility draw the first frame.
+   *
+   * @param { VoidCallback | undefined } callback
+   * @returns { EmbeddedComponentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onDrawReady(callback: VoidCallback | undefined): this;
 }
 
 /**
@@ -84,5 +199,5 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function EmbeddedComponent(
-    loader: Want, type?: EmbeddedType
+    loader: Want, type?: EmbeddedType, options?: EmbeddedOptions
 ): EmbeddedComponentAttribute
