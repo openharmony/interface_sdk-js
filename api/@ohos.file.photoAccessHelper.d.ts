@@ -14946,18 +14946,23 @@ declare namespace photoAccessHelper {
     getCloudMediaAssetStatus(): Promise<CloudMediaAssetStatus>;
 
     /**
-     * Start download cloud assets.
+     * Starts a batch download for the specified cloud media assets. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { string[] } assetUris - Asset uris which will download
-     * @returns { Promise<Map<string, CloudAssetDownloadCode>> } Returns start task result.
+     * @param { string[] } assetUris - Array of URIs pointing to the original-quality images and videos to be
+     *     downloaded.
+     * @returns { Promise<Map<string, CloudAssetDownloadCode>> } Promise used to return a map, where each key is a URI
+     *     and its value indicates the status of that individual download item.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 23800151  - The scenario parameter verification fails. Possible causes:
-     *     1. The assetUris is empty;
-     *     2. The assetUris array size is bigger than 500.
-     * @throws { BusinessError } 23800301  -  Internal system error. It is recommended to retry and check the logs.
-     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The assetUris array is empty;
+     *     <br>2. The assetUris array size is bigger than 500.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
