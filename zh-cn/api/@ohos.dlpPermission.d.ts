@@ -972,8 +972,8 @@ declare namespace dlpPermission {
         waterMarkConfig?: boolean;
         /**
          * 表示文件可被查看的有效时间，超时后打开的文件将自动关闭，默认为空，单位：秒。取值范围大于等于0，超出此范围返回null。
-         * 
          * **模型约束**：此接口仅可在Stage模型下使用。
+         * 取值应为≥0的整数。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
