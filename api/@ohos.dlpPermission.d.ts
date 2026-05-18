@@ -1020,9 +1020,8 @@ declare namespace dlpPermission {
          */
         actionUponExpiry?: ActionType;
         /**
-         * System account ID. This parameter is left empty by default. 
-         * The maximum length is 255. Default value: Empty. If the value 
-         * exceeds this range, **null** is returned.
+         * System account ID. 
+         * The maximum length is 255. Default value: Empty. If the value exceeds this range, **null** is returned.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
