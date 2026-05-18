@@ -714,12 +714,12 @@ declare namespace dlpPermission {
      * of the sandbox application installed.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes
+     * @param { string } bundleName - Bundle name of the application. 
      *     <br> The minimum length is 7 and the maximum length is 128.
      * @param { DLPFileAccess } access - Permission on the DLP file.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. 
      *     The default super user ID is **100**.
-     * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
+     * @param { string } uri - URI of the DLP file. 
      *     <br> The maximum length is 4095.
      * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If installDLPSandbox is 
      *     successful, **err** is **undefined**, and DLPSandboxInfo is the information about the sandbox application 
@@ -760,7 +760,7 @@ declare namespace dlpPermission {
      * result.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+     * @param { string } bundleName - Bundle name of the application. 
      *     <br>The minimum length is 7 and the maximum length is 128.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**.
@@ -1020,9 +1020,9 @@ declare namespace dlpPermission {
          */
         actionUponExpiry?: ActionType;
         /**
-         * System account ID. This parameter is left empty by default. The value contains up to 255 bytes. If the value 
+         * System account ID. This parameter is left empty by default. 
+         * The maximum length is 255. Default value: Empty. If the value 
          * exceeds this range, **null** is returned.
-         * The maximum length is 255. Default value: Empty.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1038,7 +1038,7 @@ declare namespace dlpPermission {
          */
         allowedOpenCount?: number;
         /**
-         * Whether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
+         * Whether watermarks are required. **true**: yes; **false**: no.
          * Default value: false.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -1057,7 +1057,7 @@ declare namespace dlpPermission {
          */
         countdown?: number;
         /**
-         * Extended attribute of a DLP file. This parameter is left empty by default. **Model restriction**: This API 
+         * Extended attribute of a DLP file. **Model restriction**: This API 
          * can be used only in the stage model.
          * Default value: Empty.
          *
@@ -1574,7 +1574,6 @@ declare namespace dlpPermission {
         enterprise: string;
         /**
          * Represents query options for DLP files.
-         * Defau
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1685,7 +1684,7 @@ declare namespace dlpPermission {
      */
     export interface EnterprisePolicy {
         /**
-         * JSON string of an enterprise custom policy. The length cannot exceed 4 MB.
+         * JSON string of an enterprise custom policy. 
          * The maximum length is 4139304.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
