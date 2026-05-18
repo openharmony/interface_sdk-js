@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,19 +23,13 @@ import { WantAgent } from './@ohos.wantAgent';
 import Context from './application/BaseContext';
 
 /**
- * The **BackgroundTaskManager** module provides APIs to manage background tasks.
- * 
- * If a service needs to be continued when the application or service module is running in the background (not visible 
- * to users), the application or service module can request a transient task to delay the suspension or a continuous 
- * task to prevent the suspension.
- * 
- * If an application has a task that needs to be continued when the application is switched to the background and can be
- * completed within a short period of time, the application can request a transient task. For example, if a user chooses
- * to clear junk files in the **Files** application and exits the application, the application can request a transient 
- * task to complete the cleanup.
- * 
- * If an application has a service that can be intuitively perceived by users and needs to run in the background for a 
- * long period of time (for example, music playback in the background), the application can request a continuous task.
+ * 本模块提供后台任务管理能力。
+ *
+ * 当应用或业务模块处于后台（无可见界面）时，如果有需要继续执行或者后续执行的业务，可基于业务类型，申请短时任务延迟挂起（Suspend）或者长时任务避免进入挂起状态。
+ *
+ * 应用有不可中断且短时间能完成的任务时（如，用户在文件管理器上点击垃圾文件清理，若清理未完成时退到后台，文件管理器需要申请短时任务完成清理），可以使用短时任务机制。
+ *
+ * 应用中存在用户能够直观感受到的且需要一直在后台运行的业务时（如，后台播放音乐），可以使用长时任务机制。
  * 
  * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
  * @since 7
@@ -44,7 +38,7 @@ import Context from './application/BaseContext';
  */
 declare namespace backgroundTaskManager {
   /**
-   * Provides the information about the suspension delay.
+   * 延迟挂起信息。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
@@ -54,7 +48,7 @@ declare namespace backgroundTaskManager {
    */
   interface DelaySuspendInfo {
     /**
-     * ID of the suspension delay request.
+     * 延迟挂起的请求ID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 7
@@ -63,10 +57,9 @@ declare namespace backgroundTaskManager {
      */
     requestId: number;
     /**
-     * Actual suspension delay duration of the application, in milliseconds.
+     * 应用的实际挂起延迟时间，单位：ms。
      * 
-     * The default duration is 180000 when the battery level is higher than or equal to the broadcast low battery level 
-     * and 60000 when the battery level is lower than the broadcast low battery level.
+     * 一般情况下默认值为180000，低电量（依据系统低电量广播）时默认值为60000。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 7
@@ -77,10 +70,10 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * Cancels the suspension delay.
+   * 取消延迟挂起。
    *
-   * @param { number } requestId - ID of the suspension delay request. The value is obtained by calling
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}.
+   * @param { number } requestId  - 延迟挂起的请求ID。这个值通过调用
+   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}方法获取。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -89,13 +82,11 @@ declare namespace backgroundTaskManager {
   function cancelSuspendDelay(requestId: number): void;
 
   /**
-   * Obtains the remaining duration before the application is suspended. This API uses an asynchronous callback to 
-   * return the result.
+   * 获取本次短时任务的剩余时间，使用callback异步回调。
    *
-   * @param { number } requestId - ID of the suspension delay request. The value is obtained by calling
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}.
-   * @param { AsyncCallback<number> } callback - Callback used to return the remaining duration before the application
-   *     is suspended, in milliseconds.
+   * @param { number } requestId  - 延迟挂起的请求ID。这个值通过调用
+   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}方法获取。
+   * @param { AsyncCallback<number> } callback  - 回调函数，返回本次短时任务的剩余时间，单位：ms。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -104,12 +95,11 @@ declare namespace backgroundTaskManager {
   function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the remaining duration before the application is suspended. This API uses a promise to return the result.
+   * 获取本次短时任务的剩余时间，使用Promise异步回调。
    *
-   * @param { number } requestId - ID of the suspension delay request. The value is obtained by calling
-   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}.
-   * @returns { Promise<number> } Promise used to return the remaining duration before the application is suspended, in
-   *     milliseconds.
+   * @param { number } requestId  - 延迟挂起的请求ID。这个值通过调用
+   *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}方法获取。
+   * @returns { Promise<number> } Promise对象，返回本次短时任务的剩余时间，单位：ms。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -118,15 +108,13 @@ declare namespace backgroundTaskManager {
   function getRemainingDelayTime(requestId: number): Promise<number>;
 
   /**
-   * Requests delayed suspension after the application switches to the background.
+   * 后台应用申请延迟挂起。
    * 
-   * The default duration of delayed suspension is 3 minutes when the battery level is higher than or equal to the 
-   * broadcast low battery level and 1 minute when the battery level is lower than the broadcast low battery level.
+   * 延迟挂起时间一般情况下默认值为3分钟，低电量（依据系统低电量广播）时默认值为1分钟。
    *
-   * @param { string } reason - Reason for delayed transition to the suspended state.
-   * @param { Callback<void> } callback - Invoked when a delay is about to time out. Generally, this callback is used to
-   *     notify the application 6 seconds before the delay times out.
-   * @returns { DelaySuspendInfo } Information about the suspension delay.
+   * @param { string } reason  - 延迟挂起申请的原因。
+   * @param { Callback<void> } callback  - 延迟即将超时的回调函数，一般在超时前6秒通过此回调通知应用。
+   * @returns { DelaySuspendInfo } 返回延迟挂起信息。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -135,16 +123,14 @@ declare namespace backgroundTaskManager {
   function requestSuspendDelay(reason: string, callback: Callback<void>): DelaySuspendInfo;
 
   /**
-   * Requests a continuous task from the system. This API uses an asynchronous callback to return the result.
+   * 向系统申请长时任务，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { BackgroundMode } bgMode - Background mode requested.
-   * @param { WantAgent } wantAgent - Notification parameter, which is used to specify the target page that is
-   *     redirected to when a continuous task notification is clicked.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Context } context  - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。
+   * @param { BackgroundMode } bgMode  - 向系统申请的后台模式。
+   * @param { WantAgent } wantAgent  - 通知参数，用于指定长时任务通知点击后跳转的界面。
+   * @param { AsyncCallback<void> } callback  - 回调函数，申请长时任务成功时，err为undefined，否则为错误对象。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
    * @deprecated since 9
@@ -153,16 +139,15 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests a continuous task from the system. This API uses a promise to return the result.
+   * 向系统申请长时任务，使用promise异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { BackgroundMode } bgMode - Background mode requested.
-   * @param { WantAgent } wantAgent - Notification parameter, which is used to specify the target page that is
-   *     redirected to when a continuous task notification is clicked.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context  - - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link
+   *     ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。
+   * @param { BackgroundMode } bgMode  - 向系统申请的后台模式。
+   * @param { WantAgent } wantAgent  - 通知参数，用于指定长时任务通知点击跳转的界面。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
    * @deprecated since 9
@@ -171,12 +156,11 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise<void>;
 
   /**
-   * Requests to cancel a continuous task. This API uses an asynchronous callback to return the result.
+   * 向系统申请取消长时任务，使用callback异步回调。
    *
-   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { Context } context  - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。
+   * @param { AsyncCallback<void> } callback  - 回调函数，取消长时任务成功时，err为undefined，否则为错误对象。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
    * @deprecated since 9
@@ -185,12 +169,12 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests to cancel a continuous task. This API uses a promise to return the result.
+   * 向系统申请取消长时任务，使用promise异步回调。
    *
-   * @param { Context } context - Application context.<br>For details about the application context of the FA model, see
-   *     [Context]{@link ./app/context}.<br>For details about the application context of the stage model, see
-   *     [Context]{@link ./application/Context:Context}.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context  - - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link
+   *     ./app/context}。<br>Stage模型的应用Context定义见
+   *     [Context]{@link ./application/Context:Context}。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
    * @deprecated since 9
@@ -199,7 +183,7 @@ declare namespace backgroundTaskManager {
   function stopBackgroundRunning(context: Context): Promise<void>;
 
   /**
-   * Defines the type of a continuous task.
+   * 长时任务类型。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
@@ -208,7 +192,7 @@ declare namespace backgroundTaskManager {
    */
   export enum BackgroundMode {
     /**
-     * Data transfer.
+     * 数据传输。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
@@ -218,7 +202,7 @@ declare namespace backgroundTaskManager {
     DATA_TRANSFER = 1,
 
     /**
-     * Audio playback.
+     * 音频播放。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
@@ -228,7 +212,7 @@ declare namespace backgroundTaskManager {
     AUDIO_PLAYBACK = 2,
 
     /**
-     * Audio recording.
+     * 录音。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
@@ -238,7 +222,7 @@ declare namespace backgroundTaskManager {
     AUDIO_RECORDING = 3,
 
     /**
-     * Positioning and navigation.
+     * 定位导航。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
@@ -248,7 +232,7 @@ declare namespace backgroundTaskManager {
     LOCATION = 4,
 
     /**
-     * Bluetooth-related task.
+     * 蓝牙相关。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
@@ -258,7 +242,7 @@ declare namespace backgroundTaskManager {
     BLUETOOTH_INTERACTION = 5,
 
     /**
-     * Multi-device connection.
+     * 多设备互联。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
@@ -268,7 +252,7 @@ declare namespace backgroundTaskManager {
     MULTI_DEVICE_CONNECTION = 6,
 
     /**
-     * WLAN-related.
+     * WLAN相关
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -279,7 +263,7 @@ declare namespace backgroundTaskManager {
     WIFI_INTERACTION = 7,
 
     /**
-     * Audio and video calls.
+     * 音视频通话
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -290,7 +274,7 @@ declare namespace backgroundTaskManager {
     VOIP = 8,
 
     /**
-     * Computing task (effective only for specific devices).
+     * 计算任务（仅在特定设备生效）。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,9 +14,7 @@
  */
 
 /**
- * The **WorkSchedulerExtensionAbility** module provides callbacks for deferred task scheduling. You can override the 
- * APIs provided by this module. When a deferred task is triggered, the system calls back the application through the 
- * APIs and processes the task logic in the callback.
+ * 本模块提供延迟任务回调能力。开发者可重写模块接口，在延迟任务触发时，系统可通过本模块接口回调应用，在回调里处理任务逻辑。
  *
  * @file
  * @kit BackgroundTasksKit
@@ -26,8 +24,8 @@ import workScheduler from './@ohos.resourceschedule.workScheduler';
 import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtensionContext';
 
 /**
- * WorkSchedulerExtensionContext represents the context of WorkSchedulerExtensionAbility and is inherited from 
- * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+ * WorkSchedulerExtensionContext是WorkSchedulerExtensionAbility的上下文环境，继承自
+ * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
@@ -37,9 +35,9 @@ import _WorkSchedulerExtensionContext from './application/WorkSchedulerExtension
 export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
 
 /**
- * Provides callbacks to be invoked when the scheduling conditions are met or the scheduling ends, for example, 
- * [onWorkStart()]{@link WorkSchedulerExtensionAbility.onWorkStart} or 
- * [onWorkStop()]{@link WorkSchedulerExtensionAbility.onWorkStop} in WorkSchedulerExtensionAbility.
+ * 延迟任务回调，当满足调度条件或调度结束时，系统会回调应用WorkSchedulerExtensionAbility中
+ * [onWorkStart()]{@link WorkSchedulerExtensionAbility.onWorkStart}或
+ * [onWorkStop()]{@link WorkSchedulerExtensionAbility.onWorkStop}的方法。
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
@@ -48,7 +46,7 @@ export type WorkSchedulerExtensionContext = _WorkSchedulerExtensionContext;
  */
 declare class WorkSchedulerExtensionAbility {
   /**
-   * Context of the WorkSchedulerExtensionAbility. This context inherits from ExtensionContext.
+   * WorkSchedulerExtension的上下文环境，继承自ExtensionContext。
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -58,9 +56,9 @@ declare class WorkSchedulerExtensionAbility {
   context: WorkSchedulerExtensionContext;
 
   /**
-   * Called when the system starts scheduling the deferred task.
+   * 开始延迟任务调度回调。
    *
-   * @param {workScheduler.WorkInfo} work - Deferred task that starts.
+   * @param {workScheduler.WorkInfo} work  - 要添加到执行队列的任务。
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -69,11 +67,10 @@ declare class WorkSchedulerExtensionAbility {
   onWorkStart(work: workScheduler.WorkInfo): void;
 
   /**
-   * Called when the system stops scheduling the deferred task. This callback is triggered when the deferred task times 
-   * out for 2 minutes or the [stopWork]{@link @ohos.resourceschedule.workScheduler:workScheduler.stopWork} API is 
-   * called to cancel the task.
+   * 结束延迟任务调度回调。当延迟任务2分钟超时或应用调用[stopWork]{@link @ohos.resourceschedule.workScheduler:workScheduler.stopWork}
+   * 接口取消任务时，触发该回调。
    *
-   * @param {workScheduler.WorkInfo} work - Deferred task that stops.
+   * @param {workScheduler.WorkInfo} work  - 执行队列中要结束回调的任务。
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -83,9 +80,9 @@ declare class WorkSchedulerExtensionAbility {
 }
 
 /**
- * Provides callbacks to be invoked when the scheduling conditions are met or the scheduling ends, for example, 
- * [onWorkStart()]{@link WorkSchedulerExtensionAbility.onWorkStart} or 
- * [onWorkStop()]{@link WorkSchedulerExtensionAbility.onWorkStop} in WorkSchedulerExtensionAbility.
+ * 延迟任务回调，当满足调度条件或调度结束时，系统会回调应用WorkSchedulerExtensionAbility中
+ * [onWorkStart()]{@link WorkSchedulerExtensionAbility.onWorkStart}或
+ * [onWorkStop()]{@link WorkSchedulerExtensionAbility.onWorkStop}的方法。
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
