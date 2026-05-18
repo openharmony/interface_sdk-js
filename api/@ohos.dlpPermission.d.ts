@@ -677,7 +677,7 @@ declare namespace dlpPermission {
         /**
          * Index of the DLP sandbox application to be bound. **Model restriction**: This API can be used only in the stage 
          * model.
-         * The value must be an integer within [-1,1100]. Default value:-1.
+         * The value must be an integer within [-1,1100]. Default value: -1.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -715,12 +715,13 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - Bundle name of the application. 
-     *     <br> The minimum length is 7 and the maximum length is 128.
+     *     <br>The minimum length is 7 and the maximum length is 128.
      * @param { DLPFileAccess } access - Permission on the DLP file.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. 
-     *     The default super user ID is **100**.
+     *     The default user ID is **100**.
+     *     <br>The value should be an integer.
      * @param { string } uri - URI of the DLP file. 
-     *     <br> The maximum length is 4095.
+     *     <br>The maximum length is 4095.
      * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If installDLPSandbox is 
      *     successful, **err** is **undefined**, and DLPSandboxInfo is the information about the sandbox application 
      *     obtained. Otherwise, **err** is an error object.
