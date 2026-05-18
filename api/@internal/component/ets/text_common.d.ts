@@ -1453,6 +1453,19 @@ declare interface TextMenuItem {
 }
  
 /**
+ * Callback function when the selection menu create.
+ *
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+
+/**
  * Callback before displaying the menu when the selection range changes.
  *
  * @typedef { function } OnPrepareMenuCallback

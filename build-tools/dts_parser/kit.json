@@ -830,6 +830,7 @@
     { "filePath": "arkui/ToggleModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/VideoModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/WaterFlowModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "arkui/SelectionContainerModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/XComponentNode.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "bundle/abilityInfo.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
     { "filePath": "bundle/applicationInfo.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
@@ -935,6 +936,7 @@
     { "filePath": "wantAgent/wantAgentInfo.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "permissions.d.ts", "kitName": "NA", "subSystem": "NA" },
     { "filePath": "@ohos.arkui.uiMaterial.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
-    { "filePath": "@ohos.intelligentScene.d.ts", "kitName": "BasicServicesKit", "subSystem": "应用" }
+    { "filePath": "@ohos.intelligentScene.d.ts", "kitName": "BasicServicesKit", "subSystem": "应用" },
+    { "filePath": "@ohos.arkui.components.SelectionContainer.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" }
   ]
 }
