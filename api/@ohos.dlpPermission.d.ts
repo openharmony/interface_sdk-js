@@ -1046,9 +1046,10 @@ declare namespace dlpPermission {
         waterMarkConfig?: boolean;
         /**
          * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically 
-         * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value 
-         * is not within the range, **null** is returned. **Model restriction**: This API can be used only in the stage
-         * model.
+         * closed. This parameter is left empty by default.
+         * The value must be greater than or equal to 0. If the value 
+         * is not within the range, **null** is returned. 
+         * **Model restriction**: This API can be used only in the stage model.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
