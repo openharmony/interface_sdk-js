@@ -25,7 +25,7 @@ import { ValueType } from './@ohos.data.ValuesBucket';
 import type image from './@ohos.multimedia.image';
 
 /**
- * The **contact** module provides contact management functions, such as adding, deleting, and updating contacts.
+ * 本模块提供联系人管理能力，包括添加联系人、删除联系人、更新联系人等。
  *
  * @syscap SystemCapability.Applications.ContactsData
  * @atomicservice [since 11]
@@ -33,12 +33,11 @@ import type image from './@ohos.multimedia.image';
  */
 declare namespace contact {
   /**
-   * Adds a contact. This API uses an asynchronous callback to return the result.
+   * 添加联系人。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact information.
-   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the added contact is returned. If the operation fails, an error code is returned.
+   * @param { Contact } contact - 联系人信息。
+   * @param { AsyncCallback<number> } callback - 回调函数。成功返回添加的联系人id；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -47,13 +46,12 @@ declare namespace contact {
   function addContact(contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
-   * Adds a contact. This API uses an asynchronous callback to return the result.
+   * 添加联系人。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @param { AsyncCallback<number> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the added contact is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Contact } contact - 联系人信息。
+   * @param { AsyncCallback<number> } callback - 回调函数。成功返回添加的联系人id；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -63,12 +61,11 @@ declare namespace contact {
   function addContact(context: Context, contact: Contact, callback: AsyncCallback<number>): void;
 
   /**
-   * Adds a contact. This API uses a promise to return the result.
-   *
+   * 添加联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Promise used to return the result, which is the ID of the added contact.
+   * @param { Contact } contact - 联系人信息。
+   * @returns { Promise<number> } Promise对象，返回添加的联系人id。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -77,12 +74,12 @@ declare namespace contact {
   function addContact(contact: Contact): Promise<number>;
 
   /**
-   * Adds a contact. This API uses a promise to return the result.
+   * 添加联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Promise used to return the result, which is the ID of the added contact.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Contact } contact - 联系人信息。
+   * @returns { Promise<number> } Promise对象，返回添加的联系人id。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -92,10 +89,9 @@ declare namespace contact {
   function addContact(context: Context, contact: Contact): Promise<number>;
 
   /**
-   * Selects a contact. This API uses an asynchronous callback to return the result.
+   * 调用选择联系人接口，打开选择联系人UI界面。使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of selected contacts is returned. If the operation fails, an error code is returned.
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回选择的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    * @deprecated since 10
@@ -104,10 +100,9 @@ declare namespace contact {
   function selectContact(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Selects a contact. This API uses an asynchronous callback to return the result.
+   * 调用选择联系人接口，打开选择联系人UI界面。使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of selected contacts is returned. If the operation fails, an error code is returned.
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回选择的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice [since 11]
@@ -116,9 +111,9 @@ declare namespace contact {
   function selectContacts(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Selects a contact. This API uses a promise to return the result.
+   * 调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
    *
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of selected contacts.
+   * @returns { Promise<Array<Contact>> } Promise对象。返回选择的联系人数组对象。
    * @syscap SystemCapability.Applications.Contacts
    * @since 7
    * @deprecated since 10
@@ -127,9 +122,9 @@ declare namespace contact {
   function selectContact(): Promise<Array<Contact>>;
 
   /**
-   * Selects a contact. This API uses a promise to return the result.
+   * 调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
    *
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of selected contacts.
+   * @returns { Promise<Array<Contact>> } Promise对象。返回选择的联系人数组对象。
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice [since 11]
    * @since 10
@@ -137,13 +132,10 @@ declare namespace contact {
   function selectContacts(): Promise<Array<Contact>>;
 
   /**
-   * Selects a contact. (Filter criteria can be transferred during contact selection.) This API uses an asynchronous
-   * callback to return the result.
+   * 调用选择联系人接口，打开选择联系人UI界面（选择联系人时支持传入[筛选条件]{@link contact.ContactSelectionOptions}）。使用callback异步回调。
    *
-   * @param { ContactSelectionOptions } options - Contact selection options, which specifies whether one contact or
-   *     multiple contacts can be selected.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of selected contacts is returned. If the operation fails, an error code is returned.
+   * @param { ContactSelectionOptions } options - 选择联系人时的筛选条件，表示单选或多选。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回选择的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice [since 11]
@@ -152,12 +144,10 @@ declare namespace contact {
   function selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Selects a contact. (Filter criteria can be transferred during contact selection.) This API uses a promise to return
-   * the result.
+   * 调用选择联系人接口，打开选择联系人UI界面（选择联系人时支持传入筛选条件）。使用Promise异步回调。
    *
-   * @param { ContactSelectionOptions } options - Contact selection options, which specifies whether one contact or
-   *     multiple contacts can be selected.
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of selected contacts.
+   * @param { ContactSelectionOptions } options - 选择联系人时的筛选条件，用于指定是单选还是多选。
+   * @returns { Promise<Array<Contact>> } Promise对象。返回选择的联系人数组对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice [since 11]
@@ -166,13 +156,11 @@ declare namespace contact {
   function selectContacts(options: ContactSelectionOptions): Promise<Array<Contact>>;
 
   /**
-   * Deletes a contact. This API uses an asynchronous callback to return the result.
+   * 删除联系人。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
-   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the deleted contact is returned. If the operation fails, an error code is returned.
+   * @param { string } key - 联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回删除的联系人id；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -181,14 +169,12 @@ declare namespace contact {
   function deleteContact(key: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a contact. This API uses an asynchronous callback to return the result.
+   * 删除联系人。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
-   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the deleted contact is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } key - 联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回删除的联系人id；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -197,12 +183,11 @@ declare namespace contact {
   function deleteContact(context: Context, key: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes a contact. This API uses a promise to return the result.
+   * 删除联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
-   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } key - 联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -211,13 +196,12 @@ declare namespace contact {
   function deleteContact(key: string): Promise<void>;
 
   /**
-   * Deletes a contact. This API uses a promise to return the result.
+   * 删除联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Unique query key of a contact. One contact corresponds to one key, which can be obtained
-   *     through [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } key - 联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -226,14 +210,11 @@ declare namespace contact {
   function deleteContact(context: Context, key: string): Promise<void>;
 
   /**
-   * Queries a contact based on the specified key. This API uses an asynchronous callback to return the result.
+   * 根据联系人唯一标识符key查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -242,15 +223,12 @@ declare namespace contact {
   function queryContact(key: string, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key. This API uses an asynchronous callback to return the result.
+   * 根据key查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -259,18 +237,12 @@ declare namespace contact {
   function queryContact(context: Context, key: string, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key and holder. This API uses an asynchronous callback to return the
-   * result.
-   *
+   * 根据key和holder查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -279,18 +251,13 @@ declare namespace contact {
   function queryContact(key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key and holder. This API uses an asynchronous callback to return the
-   * result.
+   * 根据key和holder查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -299,17 +266,12 @@ declare namespace contact {
   function queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key and attributes. This API uses an asynchronous callback to return the
-   * result.
+   * 根据key和指定属性(attrs)查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -318,18 +280,13 @@ declare namespace contact {
   function queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key and attributes. This API uses an asynchronous callback to return the
-   * result.
+   * 根据key和attrs查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -338,19 +295,13 @@ declare namespace contact {
   function queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key, holder, and attributes. This API uses an asynchronous callback to
-   * return the result.
+   * 根据key、holder和attrs查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { Holder } holder - 创建联系人的应用信息类，为空则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，当该参数为空时，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -359,20 +310,14 @@ declare namespace contact {
   function queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key, holder, and attributes. This API uses an asynchronous callback to
-   * return the result.
+   * 根据key、holder和attrs查询联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful, an
-   *     array of queried contacts is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -381,17 +326,13 @@ declare namespace contact {
   function queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries a contact based on the specified key, holder, and attributes. This API uses a promise to return the result.
+   * 根据key、holder和attrs查询联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Contact> } Promise used to return the result, which is the queried contact.
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @returns { Promise<Contact> } Promise对象。返回查询到的联系人对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -400,18 +341,14 @@ declare namespace contact {
   function queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Queries a contact based on the specified key, holder, and attributes. This API uses a promise to return the result.
+   * 根据key、holder和attrs查询联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } key - Unique query key of a contact, which is the unique identifier automatically generated by
-   *     the system when a contact is created. Each contact corresponds to one key, which can be obtained through
-   *     [queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>)}.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Contact> } Promise used to return the result, which is the queried contact.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传该参数，则默认查询所有联系人属性。
+   * @returns { Promise<Contact> } Promise对象。返回查询到的联系人对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -420,11 +357,10 @@ declare namespace contact {
   function queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Queries all contacts. This API uses an asynchronous callback to return the result.
+   * 查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -433,12 +369,11 @@ declare namespace contact {
   function queryContacts(callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts. This API uses an asynchronous callback to return the result.
+   * 查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -447,13 +382,11 @@ declare namespace contact {
   function queryContacts(context: Context, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts based on the specified holder. This API uses an asynchronous callback to return the result.
+   * 根据holder查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -462,14 +395,12 @@ declare namespace contact {
   function queryContacts(holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts based on the specified holder. This API uses an asynchronous callback to return the result.
+   * 根据holder查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -478,14 +409,11 @@ declare namespace contact {
   function queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts based on the specified attributes. This API uses an asynchronous callback to return the
-   * result.
+   * 根据attrs查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -494,15 +422,12 @@ declare namespace contact {
   function queryContacts(attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts based on the specified attributes. This API uses an asynchronous callback to return the
-   * result.
+   * 根据attrs查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -511,16 +436,12 @@ declare namespace contact {
   function queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts based on the specified holder and attributes. This API uses an asynchronous callback to return
-   * the result.
+   * 根据holder和attrs查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -529,17 +450,13 @@ declare namespace contact {
   function queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts based on the specified holder and attributes. This API uses an asynchronous callback to return
-   * the result.
+   * 根据holder和attrs查询所有联系人。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -548,14 +465,12 @@ declare namespace contact {
   function queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries all contacts based on the specified holder and attributes. This API uses a promise to return the result.
+   * 根据holder和attrs查询所有联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -564,15 +479,13 @@ declare namespace contact {
   function queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries all contacts based on the specified holder and attributes. This API uses a promise to return the result.
+   * 根据holder和attrs查询所有联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果为空，默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传该参数默认查询所有联系人属性。
+   * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -581,16 +494,13 @@ declare namespace contact {
   function queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries a contact based on the specified email. This API uses an asynchronous callback to return the result. The
-   * return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to query all
-   * information about a contact, you are advised to call
+   * 根据email查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Email address of the contact.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -599,17 +509,14 @@ declare namespace contact {
   function queryContactsByEmail(email: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email. This API uses an asynchronous callback to return the result. The
-   * return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to query all
-   * information about a contact, you are advised to call
+   * 根据email查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Email address of the contact.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -618,18 +525,14 @@ declare namespace contact {
   function queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email and holder. This API uses an asynchronous callback to return the
-   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Email address of the contact.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -638,19 +541,15 @@ declare namespace contact {
   function queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email and holder. This API uses an asynchronous callback to return the
-   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据email和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Email address of the contact.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则使用系统联系人应用。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -660,18 +559,14 @@ declare namespace contact {
     callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email and attributes. This API uses an asynchronous callback to return the
-   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Email address of the contact.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -680,19 +575,15 @@ declare namespace contact {
   function queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email and attributes. This API uses an asynchronous callback to return the
-   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据email和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Email address of the contact.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -702,20 +593,15 @@ declare namespace contact {
     callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email, holder, and attributes. This API uses an asynchronous callback to
-   * return the result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If
-   * you want to query all information about a contact, you are advised to call
+   * 根据email、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Email address of the contact.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -724,21 +610,16 @@ declare namespace contact {
   function queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email, holder, and attributes. This API uses an asynchronous callback to
-   * return the result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If
-   * you want to query all information about a contact, you are advised to call
+   * 根据email、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Email address of the contact.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -747,19 +628,15 @@ declare namespace contact {
   function queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified email, holder, and attributes. This API uses a promise to return the
-   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据email、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } email - Email address of the contact.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, it is not
-   *     used for contact filtering by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -768,20 +645,16 @@ declare namespace contact {
   function queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries a contact based on the specified email, holder, and attributes. This API uses a promise to return the
-   * result. The return result of this API includes only the **id**, **key**, and **Emails** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据email、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key.
+   * 接口，根据该接口返回的属性key查询。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } email - Email address of the contact.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, it is not
-   *     used for contact filtering by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } email - 联系人的邮箱地址。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -790,18 +663,13 @@ declare namespace contact {
   function queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries a contact based on the specified phone number. This API uses an asynchronous callback to return the result.
-   * The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据电话号码查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -810,19 +678,14 @@ declare namespace contact {
   function queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number. This API uses an asynchronous callback to return the result.
-   * The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If you want to
-   * query all information about a contact, you are advised to call
+   * 根据电话号码查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -831,20 +694,14 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number and holder. This API uses an asynchronous callback to return
-   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
-   * you want to query all information about a contact, you are advised to call
+   * 根据电话号码和holder查询联系人，使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -853,21 +710,15 @@ declare namespace contact {
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number and holder. This API uses an asynchronous callback to return
-   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
-   * you want to query all information about a contact, you are advised to call
+   * 根据电话号码和holder查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -876,20 +727,14 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number and attributes. This API uses an asynchronous callback to
-   * return the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers**
-   * attributes. If you want to query all information about a contact, you are advised to call
+   * 根据电话号码和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -898,21 +743,15 @@ declare namespace contact {
   function queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number and attributes. This API uses an asynchronous callback to
-   * return the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers**
-   * attributes. If you want to query all information about a contact, you are advised to call
+   * 根据电话号码和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -921,22 +760,15 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number, holder, and attributes. This API uses an asynchronous
-   * callback to return the result. The return result of this API includes only the **id**, **key**, and
-   * **phoneNumbers** attributes. If you want to query all information about a contact, you are advised to call
+   * 根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果该参数为空，则查询联系人的所有属性字段。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -945,23 +777,16 @@ declare namespace contact {
   function queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number, holder, and attributes. This API uses an asynchronous
-   * callback to return the result. The return result of this API includes only the **id**, **key**, and
-   * **phoneNumbers** attributes. If you want to query all information about a contact, you are advised to call
+   * 根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Array<Contact>> } callback - Indicates the callback for getting the result of the call.
-   *     Returns the contact list which user select; returns empty contact list if user not select.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -971,21 +796,15 @@ declare namespace contact {
     callback: AsyncCallback<Array<Contact>>): void;
 
   /**
-   * Queries a contact based on the specified phone number, holder, and attributes. This API uses a promise to return
-   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
-   * you want to query all information about a contact, you are advised to call
+   * 根据电话号码、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -994,22 +813,16 @@ declare namespace contact {
   function queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries a contact based on the specified phone number, holder, and attributes. This API uses a promise to return
-   * the result. The return result of this API includes only the **id**, **key**, and **phoneNumbers** attributes. If
-   * you want to query all information about a contact, you are advised to call
+   * 根据电话号码、holder和attrs查询联系人。使用Promise异步回调。该接口返回的列表仅包含联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用
    * [queryContact]{@link contact.queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Contact>)}
-   * to query the contact based on the specified key. If an application calls this API in the background to obtain
-   * contact information, the application must request the corresponding continuous task.
+   * 接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息必须要申请对应的长时任务。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { string } phoneNumber - Phone number of a contact. Only full match is supported, and wildcards are not
-   *     supported.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @param { ContactAttributes } attrs - Contact attribute list. If this parameter is not specified, all contact
-   *     attributes are queried by default.
-   * @returns { Promise<Array<Contact>> } Promise used to return the result, which is an array of queried contacts.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，不传默认查询所有联系人属性。
+   * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1018,11 +831,10 @@ declare namespace contact {
   function queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array<Contact>>;
 
   /**
-   * Queries all groups of a contact. This API uses an asynchronous callback to return the result.
+   * 查询联系人的所有群组。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
+   * @param { AsyncCallback<Array<Group>> } callback - 回调函数。成功返回查询到的群组对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1031,12 +843,11 @@ declare namespace contact {
   function queryGroups(callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries all groups of a contact. This API uses an asynchronous callback to return the result.
+   * 查询联系人的所有群组。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { AsyncCallback<Array<Group>> } callback - 回调函数。成功返回查询到的群组对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1045,14 +856,11 @@ declare namespace contact {
   function queryGroups(context: Context, callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries all groups of a contact based on the specified holder. This API uses an asynchronous callback to return the
-   * result.
+   * 根据holder查询联系人的所有群组。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Array<Group>> } callback - 回调函数。成功返回查询到的群组对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1061,15 +869,12 @@ declare namespace contact {
   function queryGroups(holder: Holder, callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries all groups of a contact based on the specified holder. This API uses an asynchronous callback to return the
-   * result.
+   * 根据holder查询联系人的所有群组。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<Array<Group>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of queried groups is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<Array<Group>> } callback - 回调函数。成功返回查询到的群组对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1078,12 +883,11 @@ declare namespace contact {
   function queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array<Group>>): void;
 
   /**
-   * Queries all groups of a contact based on the specified holder. This API uses a promise to return the result.
+   * 根据holder查询联系人的所有群组。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @returns { Promise<Array<Group>> } Promise used to return the result, which is an array of groups.
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @returns { Promise<Array<Group>> } Promise对象。返回查询到的群组对象数组。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1092,13 +896,12 @@ declare namespace contact {
   function queryGroups(holder?: Holder): Promise<Array<Group>>;
 
   /**
-   * Queries all groups of a contact based on the specified holder. This API uses a promise to return the result.
+   * 根据holder查询联系人的所有群组。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @returns { Promise<Array<Group>> } Promise used to return the result, which is an array of groups.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @returns { Promise<Array<Group>> } Promise对象。返回查询到的群组对象数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1107,12 +910,10 @@ declare namespace contact {
   function queryGroups(context: Context, holder?: Holder): Promise<Array<Group>>;
 
   /**
-   * Queries all applications that have created contacts. This API uses an asynchronous callback to return the result.
+   * 查询所有创建联系人的应用信息类。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Array<Holder>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of the queried applications is returned. If the operation fails, an error code is
-   *     returned.
+   * @param { AsyncCallback<Array<Holder>> } callback - 回调函数。成功返回查询到的创建联系人应用信息的对象数组；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1121,13 +922,11 @@ declare namespace contact {
   function queryHolders(callback: AsyncCallback<Array<Holder>>): void;
 
   /**
-   * Queries all applications that have created contacts. This API uses an asynchronous callback to return the result.
+   * 查询所有创建联系人的应用信息类。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Array<Holder>> } callback - Indicates the callback for getting the result of the call. If the operation is
-   *     successful, an array of the queried applications is returned. If the operation fails, an error code is
-   *     returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { AsyncCallback<Array<Holder>> } callback - 回调函数。成功返回查询到的创建联系人应用信息的对象数组；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1136,10 +935,10 @@ declare namespace contact {
   function queryHolders(context: Context, callback: AsyncCallback<Array<Holder>>): void;
 
   /**
-   * Queries all applications that have created contacts. This API uses a promise to return the result.
+   * 查询所有创建联系人的应用信息类。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @returns { Promise<Array<Holder>> } Promise used to return the result, which is an array of queried applications.
+   * @returns { Promise<Array<Holder>> } Promise对象。返回查询到的创建联系人应用信息的对象数组。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1148,11 +947,11 @@ declare namespace contact {
   function queryHolders(): Promise<Array<Holder>>;
 
   /**
-   * Queries all applications that have created contacts. This API uses a promise to return the result.
+   * 查询所有创建联系人的应用信息类。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @returns { Promise<Array<Holder>> } Promise used to return the result, which is an array of queried applications.
+   * @param { Context } context - 应用上下文Context。
+   * @returns { Promise<Array<Holder>> } Promise对象。返回查询到的创建联系人应用信息的对象数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1161,13 +960,11 @@ declare namespace contact {
   function queryHolders(context: Context): Promise<Array<Holder>>;
 
   /**
-   * Queries the key of a contact based on the specified contact ID. This API uses an asynchronous callback to return
-   * the result.
+   * 根据联系人的id查询联系人的唯一查询键key。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Contact ID.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     key of the queried contact is returned. If the operation fails, an error code is returned.
+   * @param { number } id - 联系人对象的id属性。
+   * @param { AsyncCallback<string> } callback - 回调函数。成功返回查询到的联系人对应的key；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1176,14 +973,12 @@ declare namespace contact {
   function queryKey(id: number, callback: AsyncCallback<string>): void;
 
   /**
-   * Queries the key of a contact based on the specified contact ID. This API uses an asynchronous callback to return
-   * the result.
+   * 根据联系人的id查询联系人的唯一查询键key。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Contact ID.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     key of the queried contact is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { number } id - 联系人对象的id属性，是联系人对象在数据库中的唯一标识符。
+   * @param { AsyncCallback<string> } callback - 回调函数。成功返回查询到的联系人对应的key；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
@@ -1193,15 +988,12 @@ declare namespace contact {
   function queryKey(context: Context, id: number, callback: AsyncCallback<string>): void;
 
   /**
-   * Queries the key of a contact based on the specified contact ID and holder. This API uses an asynchronous callback
-   * to return the result.
+   * 根据联系人的id和holder查询联系人的唯一查询键key。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Contact ID.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     key of the queried contact is returned. If the operation fails, an error code is returned.
+   * @param { number } id - 联系人对象的id属性。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<string> } callback - 回调函数。成功返回查询到的联系人对应的key；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1210,16 +1002,13 @@ declare namespace contact {
   function queryKey(id: number, holder: Holder, callback: AsyncCallback<string>): void;
 
   /**
-   * Queries the key of a contact based on the specified contact ID and holder. This API uses an asynchronous callback
-   * to return the result.
+   * 根据联系人的id和holder查询联系人的唯一查询键key。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Contact ID.
-   * @param { Holder } holder - Application that creates the contacts.If the passed parameter is empty, the system
-   *     contact application is used by default.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     key of the queried contact is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { number } id - 联系人对象的id属性。
+   * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
+   * @param { AsyncCallback<string> } callback - 回调函数。成功返回查询到的联系人对应的key；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
@@ -1229,14 +1018,12 @@ declare namespace contact {
   function queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback<string>): void;
 
   /**
-   * Queries the key of a contact based on the specified contact ID and holder. This API uses a promise to return the
-   * result.
+   * 根据联系人的id和holder查询联系人的唯一查询键key。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Contact ID.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @returns { Promise<string> } Promise used to return the result, which is the key of the queried contact.
+   * @param { number } id - 联系人对象的id属性。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @returns { Promise<string> } Promise对象。返回查询到的联系人对应的key。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1245,15 +1032,13 @@ declare namespace contact {
   function queryKey(id: number, holder?: Holder): Promise<string>;
 
   /**
-   * Queries the key of a contact based on the specified contact ID and holder. This API uses a promise to return the
-   * result.
+   * 根据联系人的id和holder查询联系人的唯一查询键key。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Contact ID.
-   * @param { Holder } holder - Application information for a contact. If this parameter is not specified, the system
-   *     contact application is used by default.
-   * @returns { Promise<string> } Promise used to return the result, which is the key of the queried contact.
+   * @param { Context } context - 应用上下文Context。
+   * @param { number } id - 联系人对象的id属性。
+   * @param { Holder } holder - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
+   * @returns { Promise<string> } Promise对象。返回查询到的联系人对应的key。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
@@ -1263,11 +1048,10 @@ declare namespace contact {
   function queryKey(context: Context, id: number, holder?: Holder): Promise<string>;
 
   /**
-   * Queries my card. This API uses an asynchronous callback to return the result.
+   * 查询“我的名片”。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
-   *     information about my card is returned. If the operation fails, an error code is returned.
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回“我的名片”信息；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1276,12 +1060,11 @@ declare namespace contact {
   function queryMyCard(callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries my card. This API uses an asynchronous callback to return the result.
+   * 查询“我的名片”。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
-   *     information about my card is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回“我的名片”信息；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1290,14 +1073,11 @@ declare namespace contact {
   function queryMyCard(context: Context, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries my card. (The contact attribute list can be imported.) This API uses an asynchronous callback to return the
-   * result.
+   * 查询“我的名片”（支持传入联系人的属性列表）。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
-   *     information about my card is returned. If the operation fails, an error code is returned.
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回“我的名片”信息；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1306,15 +1086,12 @@ declare namespace contact {
   function queryMyCard(attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries my card. (The contact attribute list can be imported.) This API uses an asynchronous callback to return the
-   * result.
+   * 查询“我的名片”（支持传入联系人的属性列表）。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<Contact> } callback - Indicates the callback for getting the result of the call. If the operation is successful,
-   *     information about my card is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回“我的名片”信息；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1323,12 +1100,11 @@ declare namespace contact {
   function queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Contact>): void;
 
   /**
-   * Queries my card. (The contact attribute list can be imported.) This API uses a promise to return the result.
+   * 查询“我的名片”（支持传入联系人的属性列表）。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @returns { Promise<Contact> } Promise used to return the result, which is a contact in my card.
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @returns { Promise<Contact> } Promise对象。返回“我的名片”联系人对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1337,13 +1113,12 @@ declare namespace contact {
   function queryMyCard(attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Queries my card. (The contact attribute list can be imported.) This API uses a promise to return the result.
+   * 查询“我的名片”（支持传入联系人的属性列表）。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @returns { Promise<Contact> } Promise used to return the result, which is a contact in my card.
+   * @param { Context } context - 应用上下文Context。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @returns { Promise<Contact> } Promise对象。返回“我的名片”联系人对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1352,13 +1127,11 @@ declare namespace contact {
   function queryMyCard(context: Context, attrs?: ContactAttributes): Promise<Contact>;
 
   /**
-   * Updates a contact. This API uses an asynchronous callback to return the result.
+   * 更新联系人。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
-   *     [selectContacts]{@link contact.selectContacts()}.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
+   * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1367,14 +1140,12 @@ declare namespace contact {
   function updateContact(contact: Contact, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates a contact. This API uses an asynchronous callback to return the result.
+   * 更新联系人。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
-   *     [selectContacts]{@link contact.selectContacts()}.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1383,16 +1154,12 @@ declare namespace contact {
   function updateContact(context: Context, contact: Contact, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates a contact. (The contact attribute list can be imported.) This API uses an asynchronous callback to return
-   * the result.
+   * 更新联系人，支持传入联系人的属性列表。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
-   *     [selectContacts]{@link contact.selectContacts()}.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
+   * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1401,17 +1168,13 @@ declare namespace contact {
   function updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates a contact. (The contact attribute list can be imported.) This API uses an asynchronous callback to return
-   * the result.
+   * 更新联系人（支持传入联系人的属性列表）。使用callback异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
-   *     [selectContacts]{@link contact.selectContacts()}.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @param { AsyncCallback<void> } callback - Indicates the callback for getting the result of the call. If the operation is successful, the
-   *     ID of the updated contact is returned. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1420,14 +1183,12 @@ declare namespace contact {
   function updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback<void>): void;
 
   /**
-   * Updates a contact. (The contact attribute list can be imported.) This API uses a promise to return the result.
+   * 更新联系人，支持传入联系人的属性列表。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
-   *     [selectContacts]{@link contact.selectContacts()}.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1436,15 +1197,13 @@ declare namespace contact {
   function updateContact(contact: Contact, attrs?: ContactAttributes): Promise<void>;
 
   /**
-   * Updates a contact. (The contact attribute list can be imported.) This API uses a promise to return the result.
+   * 更新联系人（支持传入联系人的属性列表）。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information. The ID is mandatory and can be obtained through
-   *     [selectContacts]{@link contact.selectContacts()}.
-   * @param { ContactAttributes } attrs - List of contact attributes. If this parameter is empty, all attribute fields (
-   *     including the name, phone number, and email address) of the contact are queried.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
+   * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1453,14 +1212,11 @@ declare namespace contact {
   function updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise<void>;
 
   /**
-   * Checks whether the ID of this contact is in the local address book. This API uses an asynchronous callback to
-   * return the result.
+   * 判断当前联系人id是否在电话簿中。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Contact ID. Each contact corresponds to one ID.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
-   *     Boolean value is returned. The value **true** indicates that the contact ID is in the local phonebook, and the
-   *     value **false** indicates the opposite. If the operation fails, an error code is returned.
+   * @param { number } id - 联系人对象的id属性，一个联系人对应一个id。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。成功返回布尔值，true代表联系人id在本地电话簿中，false则代表联系人id不在本地电话簿中；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1469,15 +1225,12 @@ declare namespace contact {
   function isLocalContact(id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the ID of this contact is in the local address book. This API uses an asynchronous callback to
-   * return the result.
+   * 判断当前联系人id是否在电话簿中。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Contact ID. Each contact corresponds to one ID.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
-   *     Boolean value is returned. The value **true** indicates that the contact ID is in the local phonebook, and the
-   *     value **false** indicates the opposite. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { number } id - 联系人对象的id属性，一个联系人对应一个id。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。成功返回布尔值，true代表联系人id在本地电话簿中，false则代表联系人id不在本地电话簿中；失败返回具体的错误码信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
@@ -1487,12 +1240,11 @@ declare namespace contact {
   function isLocalContact(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the ID of this contact is in the local address book. This API uses a promise to return the result.
+   * 判断当前联系人id是否在电话簿中。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Contact ID. Each contact corresponds to one ID.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact ID
-   *     is in the local phonebook, and the value **false** indicates the opposite.
+   * @param { number } id - 联系人对象的id属性，一个联系人对应一个id。
+   * @returns { Promise<boolean> } Promise对象。返回true表示联系人id在本地电话簿中，返回false表示联系人id不在本地电话簿中。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1501,13 +1253,12 @@ declare namespace contact {
   function isLocalContact(id: number): Promise<boolean>;
 
   /**
-   * Checks whether the ID of this contact is in the local address book. This API uses a promise to return the result.
+   * 判断当前联系人id是否在电话簿中。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Contact ID. Each contact corresponds to one ID.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact ID
-   *     is in the local phonebook, and the value **false** indicates the opposite.
+   * @param { Context } context - 应用上下文Context。
+   * @param { number } id - 联系人对象的id属性，一个联系人对应一个id。
+   * @returns { Promise<boolean> } Promise对象。返回true表示联系人id在本地电话簿中，返回false表示联系人id不在本地电话簿中。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
@@ -1517,13 +1268,11 @@ declare namespace contact {
   function isLocalContact(context: Context, id: number): Promise<boolean>;
 
   /**
-   * Checks whether a contact is included in my card. This API uses an asynchronous callback to return the result.
+   * 判断是否为“我的名片”。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Contact ID.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
-   *     Boolean value is returned. The value **true** indicates that the contact is included in my card, and the value
-   *     **false** indicates the opposite. If the operation fails, an error code is returned.
+   * @param { number } id - 名片对象的id属性。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。成功返回是否为“我的名片”的布尔值。true代表的是“我的名片”，false则代表不是；失败返回具体的错误码信息。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1532,14 +1281,12 @@ declare namespace contact {
   function isMyCard(id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a contact is included in my card. This API uses an asynchronous callback to return the result.
+   * 判断是否为“我的名片”。使用callback异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Contact ID.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for getting the result of the call. If the operation is successful, a
-   *     Boolean value is returned. The value **true** indicates that the contact is included in my card, and the value
-   *     **false** indicates the opposite. If the operation fails, an error code is returned.
+   * @param { Context } context - 应用上下文Context。
+   * @param { number } id - 名片对象的id属性。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。成功返回是否为“我的名片”的布尔值。true代表的是“我的名片”，false代表不是；失败时则返回错误码。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
@@ -1549,12 +1296,11 @@ declare namespace contact {
   function isMyCard(context: Context, id: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a contact is included in my card. This API uses a promise to return the result.
+   * 判断是否为“我的名片”。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { number } id - Contact ID.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact is
-   *     included in my card, and the value **false** indicates the opposite.
+   * @param { number } id - 名片对象的id属性。
+   * @returns { Promise<boolean> } Promise对象。返回true表示是“我的名片”，返回false代表不是。
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    * @deprecated since 10
@@ -1563,13 +1309,12 @@ declare namespace contact {
   function isMyCard(id: number): Promise<boolean>;
 
   /**
-   * Checks whether a contact is included in my card. This API uses a promise to return the result.
+   * 判断是否为“我的名片”。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { number } id - Contact ID.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the contact is
-   *     included in my card, and the value **false** indicates the opposite.
+   * @param { Context } context - 应用上下文Context。
+   * @param { number } id - 名片对象的id属性。
+   * @returns { Promise<boolean> } Promise对象。返回true表示是“我的名片”，返回false代表不是。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
@@ -1579,8 +1324,7 @@ declare namespace contact {
   function isMyCard(context: Context, id: number): Promise<boolean>;
 
   /**
-   * Defines the Contact selection options, which specifies whether one contact or
-   *     multiple contacts can be selected.
+   * 选择联系人条件。
    *
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice [since 11]
@@ -1588,8 +1332,8 @@ declare namespace contact {
    */
   interface ContactSelectionOptions {
     /**
-     * Whether multiple contacts can be selected. The value **true** indicates that multiple contacts can be selected,
-     * and the value **false** indicates that only one contact can be selected. The default value is **false**.
+     * 是否为多选，true:多选，false:单选。默认值为false。
+ 
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice [since 11]
@@ -1598,8 +1342,8 @@ declare namespace contact {
     isMultiSelect?: boolean;
 
     /**
-     * Contact selection filter.
-     * This API can be used in atomic services since API version 15.
+     * 联系人查询过滤器。
+     * 从API version 15 开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -1608,9 +1352,8 @@ declare namespace contact {
     filter?: ContactSelectionFilter;
 
     /**
-     * Maximum number of contacts. The default value is **10000**. If the value exceeds the maximum number, the default
-     * value is used.
-     * This API can be used in atomic services since API version 15.
+     * 联系人数量上限。默认值为10000，超出上限则以默认值筛选。
+     * 从API version 15 开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -1619,9 +1362,8 @@ declare namespace contact {
     maxSelectable?: number;
 
     /**
-     * Whether to display contacts by name. The value **true** indicates that contacts are displayed by name, and the
-     * value **false** indicates that contacts are displayed by number. The default value is **false**.
-     * This API can be used in atomic services since API version 15.
+     * 是否按联系人姓名维度展示，true:按联系人姓名维度展示，false:按联系人号码维度展示，默认值为false。
+     * 从API version 15 开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -1630,9 +1372,8 @@ declare namespace contact {
     isDisplayedByName?: boolean;
 
     /**
-     * Indicates whether the contact picker is automatically closed when page routing is performed,for example, when the application is in the background.
-     *
-     * The default value is false
+     * 联系人picker发生页面路由时是否自动关闭，比如应用退后台场景
+     *     默认值为false
      *
      * @syscap SystemCapability.Applications.Contacts
      * @stagemodelonly
@@ -1643,7 +1384,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact.
+   * 联系人对象类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -1651,7 +1392,7 @@ declare namespace contact {
    */
   class Contact {
     /**
-     * Default contact ID, value is -1.
+     * 默认联系人的id，值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1660,7 +1401,7 @@ declare namespace contact {
     static readonly INVALID_CONTACT_ID: -1;
 
     /**
-     * Contact ID, which is automatically generated by the system.
+     * 联系人的id，由系统自动生成。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1669,7 +1410,7 @@ declare namespace contact {
     readonly id?: number;
 
     /**
-     * Contact key, which is automatically generated by the system.
+     * 联系人的唯一查询键key，由系统自动生成。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1678,7 +1419,7 @@ declare namespace contact {
     readonly key?: string;
 
     /**
-     * List of contact attributes.
+     * 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1687,7 +1428,7 @@ declare namespace contact {
     contactAttributes?: ContactAttributes;
 
     /**
-     * List of email addresses of the contact.
+     * 联系人的邮箱地址列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1696,7 +1437,7 @@ declare namespace contact {
     emails?: Email[];
 
     /**
-     * List of important dates such as birthdays and anniversaries of the contact.
+     * 联系人的生日、周年纪念等重要日期列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1705,7 +1446,7 @@ declare namespace contact {
     events?: Event[];
 
     /**
-     * List of groups of the contact.
+     * 联系人的群组列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1714,7 +1455,7 @@ declare namespace contact {
     groups?: Group[];
 
     /**
-     * List of instant message addresses of the contact.
+     * 联系人的即时消息地址列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1723,7 +1464,7 @@ declare namespace contact {
     imAddresses?: ImAddress[];
 
     /**
-     * List of phone numbers of the contact.
+     * 联系人的电话号码列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1732,7 +1473,7 @@ declare namespace contact {
     phoneNumbers?: PhoneNumber[];
 
     /**
-     * Contact portrait.
+     * 联系人的头像。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1741,7 +1482,7 @@ declare namespace contact {
     portrait?: Portrait;
 
     /**
-     * List of postal addresses of the contact.
+     * 联系人的邮政地址列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1750,7 +1491,7 @@ declare namespace contact {
     postalAddresses?: PostalAddress[];
 
     /**
-     * List of relationships with the contact.
+     * 联系人的关系列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1759,7 +1500,7 @@ declare namespace contact {
     relations?: Relation[];
 
     /**
-     * List of Session Initiation Protocol (SIP) addresses of the contact.
+     * 联系人的会话发起协议(SIP)地址列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1768,7 +1509,7 @@ declare namespace contact {
     sipAddresses?: SipAddress[];
 
     /**
-     * List of websites of the contact.
+     * 联系人的网站列表。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1777,7 +1518,7 @@ declare namespace contact {
     websites?: Website[];
 
     /**
-     * Contact name.
+     * 联系人的姓名。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1786,7 +1527,7 @@ declare namespace contact {
     name?: Name;
 
     /**
-     * Contact nickname.
+     * 联系人的昵称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1795,7 +1536,7 @@ declare namespace contact {
     nickName?: NickName;
 
     /**
-     * Contact notes.
+     * 联系人的备注。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1804,7 +1545,7 @@ declare namespace contact {
     note?: Note;
 
     /**
-     * Organization of the contact.
+     * 联系人的组织信息。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1814,8 +1555,8 @@ declare namespace contact {
   }
 
   /**
-   * Provides a list of contact attributes, which are generally used as arguments.
-   * If **null** is passed, all attributes are queried by default.
+   * 联系人属性列表，一般作为入参用来标识希望查询的联系人属性。
+   * 当传入为null时，默认查询全部属性。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -1823,7 +1564,7 @@ declare namespace contact {
    */
   class ContactAttributes {
     /**
-     * Indicates the contact attributes.
+     * 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1833,8 +1574,8 @@ declare namespace contact {
   }
 
   /**
-   * Enumerates contact attributes. The enumerated value is of the number type.
-   * Create contact data in JSON format:
+   * 枚举，类型为number。联系人属性列表。
+   * 通过JSON格式创建数据。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -1842,7 +1583,7 @@ declare namespace contact {
    */
   enum Attribute {
     /**
-     * Important dates such as birthday and anniversaries of the contact.
+     * 联系人的生日、周年纪念等重要日期。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1851,7 +1592,7 @@ declare namespace contact {
     ATTR_CONTACT_EVENT = 0,
 
     /**
-     * Email address of the contact.
+     * 联系人的邮箱地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1860,7 +1601,7 @@ declare namespace contact {
     ATTR_EMAIL = 1,
 
     /**
-     * Groups of the contact.
+     * 联系人的群组。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1869,7 +1610,7 @@ declare namespace contact {
     ATTR_GROUP_MEMBERSHIP = 2,
 
     /**
-     * IM addresses of the contact.
+     * 联系人的即时消息地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1878,7 +1619,7 @@ declare namespace contact {
     ATTR_IM = 3,
 
     /**
-     * Contact name.
+     * 联系人的姓名。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1887,7 +1628,7 @@ declare namespace contact {
     ATTR_NAME = 4,
 
     /**
-     * Contact nickname.
+     * 联系人的昵称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1896,7 +1637,7 @@ declare namespace contact {
     ATTR_NICKNAME = 5,
 
     /**
-     * Contact notes.
+     * 联系人的备注。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1905,7 +1646,7 @@ declare namespace contact {
     ATTR_NOTE = 6,
 
     /**
-     * Organization of the contact.
+     * 联系人的组织信息。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1914,8 +1655,7 @@ declare namespace contact {
     ATTR_ORGANIZATION = 7,
 
     /**
-     * Phone number of a contact. Only full match is supported, and wildcards are not
-     *     supported.
+     * 联系人的电话号码。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1924,7 +1664,7 @@ declare namespace contact {
     ATTR_PHONE = 8,
 
     /**
-     * Contact portrait.
+     * 联系人的头像。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1933,7 +1673,7 @@ declare namespace contact {
     ATTR_PORTRAIT = 9,
 
     /**
-     * Postal address of the contact.
+     * 联系人的邮政地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1942,7 +1682,7 @@ declare namespace contact {
     ATTR_POSTAL_ADDRESS = 10,
 
     /**
-     * Relationship with the contact.
+     * 联系人的关系。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1951,7 +1691,7 @@ declare namespace contact {
     ATTR_RELATION = 11,
 
     /**
-     * SIP addresses of the contact.
+     * 联系人的会话发起协议(SIP)地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1960,7 +1700,7 @@ declare namespace contact {
     ATTR_SIP_ADDRESS = 12,
 
     /**
-     * Website that stores the contact information.
+     * 联系人的网站。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1970,7 +1710,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's email.
+   * 联系人的邮箱。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -1978,7 +1718,7 @@ declare namespace contact {
    */
   class Email {
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1987,7 +1727,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Home mailbox, the default value is **1**.
+     * 家庭邮箱类型，默认值为1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -1996,7 +1736,7 @@ declare namespace contact {
     static readonly EMAIL_HOME: 1;
 
     /**
-     * Work mailbox, the default value is **2**.
+     * 工作邮箱类型，默认值为2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2005,7 +1745,7 @@ declare namespace contact {
     static readonly EMAIL_WORK: 2;
 
     /**
-     * Other mailbox, the default value is **3**.
+     * 其它邮箱类型，默认值为3。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2014,7 +1754,7 @@ declare namespace contact {
     static readonly EMAIL_OTHER: 3;
 
     /**
-     * Invalid mailbox, the default value is **-1**.
+     * 无效邮箱类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2023,7 +1763,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Email address of the contact.
+     * 联系人的邮箱地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2032,7 +1772,7 @@ declare namespace contact {
     email: string;
 
     /**
-     * Name of the mailbox type.
+     * 邮箱的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2041,7 +1781,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * Displayed name of the mailbox.
+     * 邮箱的显示名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2050,7 +1790,7 @@ declare namespace contact {
     displayName?: string;
 
     /**
-     * Mailbox type.
+     * 邮箱的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2060,7 +1800,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's event.
+   * 联系人事件类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2068,7 +1808,7 @@ declare namespace contact {
    */
   class Event {
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2077,7 +1817,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2086,7 +1826,7 @@ declare namespace contact {
     static readonly EVENT_ANNIVERSARY: 1;
 
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2095,7 +1835,7 @@ declare namespace contact {
     static readonly EVENT_OTHER: 2;
 
     /**
-     * Birthday event, the default value is **3**.
+     * 生日事件类型，默认值为3。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2104,7 +1844,7 @@ declare namespace contact {
     static readonly EVENT_BIRTHDAY: 3;
 
     /**
-     * Invalid mailbox, the default value is **-1**.
+     * 无效邮箱类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2113,7 +1853,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Event date.
+     * 事件的日期。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2122,7 +1862,7 @@ declare namespace contact {
     eventDate: string;
 
     /**
-     * Name of the mailbox type.
+     * 邮箱的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2131,7 +1871,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * Mailbox type.
+     * 邮箱的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2141,7 +1881,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact group.
+   * 联系人的群组类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2149,7 +1889,7 @@ declare namespace contact {
    */
   class Group {
     /**
-     * ID of a contact group.
+     * 联系人群组的Id。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2158,7 +1898,7 @@ declare namespace contact {
     groupId?: number;
 
     /**
-     * Name of a contact group.
+     * 联系人群组的名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2168,14 +1908,14 @@ declare namespace contact {
   }
 
   /**
-   * Defines an application that creates the contact.
+   * 创建联系人的应用信息类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @since 7
    */
   class Holder {
     /**
-     * Bundle name. The default value is **com.ohos.contacts**.
+     * Bundle名称，默认值为com.ohos.contacts。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2183,7 +1923,7 @@ declare namespace contact {
     readonly bundleName: string;
 
     /**
-     * Application name.
+     * 应用名称，默认值为空。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2191,7 +1931,7 @@ declare namespace contact {
     readonly displayName?: string;
 
     /**
-     * Application ID.
+     * 应用Id，默认值为空。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @since 7
@@ -2200,7 +1940,7 @@ declare namespace contact {
   }
 
   /**
-   * Enumerates IM addresses.
+   * 联系人的即时消息地址。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2208,7 +1948,7 @@ declare namespace contact {
    */
   class ImAddress {
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2217,7 +1957,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: -1;
 
     /**
-     * AIM, the default value is **0**.
+     * AIM即时消息类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2226,7 +1966,7 @@ declare namespace contact {
     static readonly IM_AIM: 0;
 
     /**
-     * MSN, the default value is **1**.
+     * MSN即时消息类型，默认值为1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2235,7 +1975,7 @@ declare namespace contact {
     static readonly IM_MSN: 1;
 
     /**
-     * Yahoo, the default value is **2**.
+     * YAHOO即时消息类型，默认值为2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2244,7 +1984,7 @@ declare namespace contact {
     static readonly IM_YAHOO: 2;
 
     /**
-     * Skype, the default value is **3**.
+     * SKYPE即时消息类型，默认值为3。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2253,7 +1993,7 @@ declare namespace contact {
     static readonly IM_SKYPE: 3;
 
     /**
-     * QQ, the default value is **4**.
+     * QQ即时消息类型，默认值为4。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2262,7 +2002,7 @@ declare namespace contact {
     static readonly IM_QQ: 4;
 
     /**
-     * ICQ, the default value is **6**.
+     * ICQ即时消息类型，默认值为6。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2271,7 +2011,7 @@ declare namespace contact {
     static readonly IM_ICQ: 6;
 
     /**
-     * JABBER, the default value is **7**.
+     * JABBER即时消息类型，默认值为7。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2280,7 +2020,7 @@ declare namespace contact {
     static readonly IM_JABBER: 7;
 
     /**
-     * Invalid mailbox, the default value is **-1**.
+     * 无效邮箱类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2289,7 +2029,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -2;
 
     /**
-     * IM address.
+     * 即时消息地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2298,7 +2038,7 @@ declare namespace contact {
     imAddress: string;
 
     /**
-     * Name of the mailbox type.
+     * 邮箱的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2307,7 +2047,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * Mailbox type.
+     * 邮箱的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2317,7 +2057,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's name.
+   * 联系人的名字类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2325,7 +2065,7 @@ declare namespace contact {
    */
   class Name {
     /**
-     * Family name.
+     * 联系人的家庭姓名。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2334,7 +2074,7 @@ declare namespace contact {
     familyName?: string;
 
     /**
-     * Family name in pinyin.
+     * 联系人的家庭姓名拼音。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2343,7 +2083,7 @@ declare namespace contact {
     familyNamePhonetic?: string;
 
     /**
-     * Full name of the contact.
+     * 联系人的全名。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2352,7 +2092,7 @@ declare namespace contact {
     fullName: string;
 
     /**
-     * Given name of the contact.
+     * 联系人的名称(firstName)。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2361,7 +2101,7 @@ declare namespace contact {
     givenName?: string;
 
     /**
-     * Given name of the contact in pinyin.
+     * 联系人的名称拼音。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2370,7 +2110,7 @@ declare namespace contact {
     givenNamePhonetic?: string;
 
     /**
-     * Middle name of the contact.
+     * 联系人的中间名。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2379,7 +2119,7 @@ declare namespace contact {
     middleName?: string;
 
     /**
-     * Middle name of the contact in pinyin.
+     * 联系人的中间名拼音。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2388,7 +2128,7 @@ declare namespace contact {
     middleNamePhonetic?: string;
 
     /**
-     * Prefix of the contact name.
+     * 联系人的姓名前缀。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2397,7 +2137,7 @@ declare namespace contact {
     namePrefix?: string;
 
     /**
-     * Suffix of the contact name.
+     * 联系人的姓名后缀。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2406,8 +2146,7 @@ declare namespace contact {
     nameSuffix?: string;
 
     /**
-     * Whether the contact information contains the name. The value **true** indicates that the contact information
-     * contains the name, and the value **false** indicates the opposite.
+     * 联系人信息中是否包含姓名。true表示包含，false表示不包含。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
@@ -2417,7 +2156,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's nickname.
+   * 联系人的昵称类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2425,7 +2164,7 @@ declare namespace contact {
    */
   class NickName {
     /**
-     * Contact nickname.
+     * 联系人的昵称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2435,7 +2174,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's note.
+   * 联系人的备注类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2443,7 +2182,7 @@ declare namespace contact {
    */
   class Note {
     /**
-     * Notes of the contact.
+     * 联系人的备注内容。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2453,7 +2192,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's organization.
+   * 联系人的组织类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2461,7 +2200,7 @@ declare namespace contact {
    */
   class Organization {
     /**
-     * Organization name.
+     * 单位名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2470,7 +2209,7 @@ declare namespace contact {
     name: string;
 
     /**
-     * Job title.
+     * 职位名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2480,7 +2219,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's phone number.
+   * 联系人电话号码类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2488,7 +2227,7 @@ declare namespace contact {
    */
   class PhoneNumber {
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2497,7 +2236,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Home phone, the default value is **1**.
+     * 家庭电话类型，默认值是1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2506,7 +2245,7 @@ declare namespace contact {
     static readonly NUM_HOME: 1;
 
     /**
-     * Mobile phone, the default value is **2**.
+     * 移动电话类型，默认值是2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2515,7 +2254,7 @@ declare namespace contact {
     static readonly NUM_MOBILE: 2;
 
     /**
-     * Work phone, the default value is **3**.
+     * 工作电话类型，默认值是3。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2524,7 +2263,7 @@ declare namespace contact {
     static readonly NUM_WORK: 3;
 
     /**
-     * Work fax, the default value is **4**.
+     * 工作传真电话类型，默认值是4。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2533,7 +2272,7 @@ declare namespace contact {
     static readonly NUM_FAX_WORK: 4;
 
     /**
-     * Family fax, the default value is **5**.
+     * 家庭传真电话类型，默认值是5。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2542,7 +2281,7 @@ declare namespace contact {
     static readonly NUM_FAX_HOME: 5;
 
     /**
-     * Pager, the default value is **6**.
+     * 寻呼机电话类型，默认值是6。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2551,7 +2290,7 @@ declare namespace contact {
     static readonly NUM_PAGER: 6;
 
     /**
-     * Other phone type, the default value is **7**.
+     * 其它电话类型，默认值是7。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2560,7 +2299,7 @@ declare namespace contact {
     static readonly NUM_OTHER: 7;
 
     /**
-     * Callback phone, the default value is **8**.
+     * 回呼电话类型，默认值是8。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2569,7 +2308,7 @@ declare namespace contact {
     static readonly NUM_CALLBACK: 8;
 
     /**
-     * Car phone, the default value is **9**.
+     * 车机电话类型，默认值是9。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2578,7 +2317,7 @@ declare namespace contact {
     static readonly NUM_CAR: 9;
 
     /**
-     * Company phone, the default value is **10**.
+     * 公司电话类型，默认值是10。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2587,7 +2326,7 @@ declare namespace contact {
     static readonly NUM_COMPANY_MAIN: 10;
 
     /**
-     * Integrated Services Digital Network (ISDN) phone, the default value is **11**.
+     * 综合业务数字网(ISDN)电话类型，默认值是11。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2596,7 +2335,7 @@ declare namespace contact {
     static readonly NUM_ISDN: 11;
 
     /**
-     * Main phone, the default value is **12**.
+     * 主电话类型，默认值是12。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2605,7 +2344,7 @@ declare namespace contact {
     static readonly NUM_MAIN: 12;
 
     /**
-     * Other fax phone, the default value is **13**.
+     * 其它传真类型，默认值是13。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2614,7 +2353,7 @@ declare namespace contact {
     static readonly NUM_OTHER_FAX: 13;
 
     /**
-     * Wireless phone, the default value is **14**.
+     * 无线电话类型，默认值是14。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2623,7 +2362,7 @@ declare namespace contact {
     static readonly NUM_RADIO: 14;
 
     /**
-     * Telex phone, the default value is **15**.
+     * 电传电话类型，默认值是15。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2632,7 +2371,7 @@ declare namespace contact {
     static readonly NUM_TELEX: 15;
 
     /**
-     * Teletypewriter (TTY) or Test Driven Development (TDD) phone, the default value is **16**.
+     * 电传打字机(TTY)或测试驱动开发(TDD)电话类型，默认值是16。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2641,7 +2380,7 @@ declare namespace contact {
     static readonly NUM_TTY_TDD: 16;
 
     /**
-     * Work mobile phone, the default value is **17**.
+     * 工作移动电话类型，默认值是17。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2650,7 +2389,7 @@ declare namespace contact {
     static readonly NUM_WORK_MOBILE: 17;
 
     /**
-     * Work pager, the default value is **18**.
+     * 工作寻呼机电话类型，默认值是18。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2659,7 +2398,7 @@ declare namespace contact {
     static readonly NUM_WORK_PAGER: 18;
 
     /**
-     * Assistant phone, the default value is **19**.
+     * 助理电话类型，默认值是19。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2668,7 +2407,7 @@ declare namespace contact {
     static readonly NUM_ASSISTANT: 19;
 
     /**
-     * MMS phone, the default value is **20**.
+     * 彩信电话类型，默认值是20。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2677,7 +2416,7 @@ declare namespace contact {
     static readonly NUM_MMS: 20;
 
     /**
-     * Invalid mailbox, the default value is **-1**.
+     * 无效邮箱类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2686,7 +2425,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Name of the mailbox type.
+     * 邮箱的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2695,7 +2434,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * Phone number.
+     * 电话号码。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2704,7 +2443,7 @@ declare namespace contact {
     phoneNumber: string;
 
     /**
-     * Mailbox type.
+     * 邮箱的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2714,21 +2453,20 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's portrait.
-   *
-   * > **NOTE**
+   * 联系人的头像类。
+   * 
+   * > **说明：**
    * >
-   * > Since API version 22, contact portraits can be set in URI or [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}
-   * > format. (Currently, contact avatars cannot be set through the [addContactViaUI]{@link contact.addContactViaUI} or
-   * > [saveToExistingContactViaUI]{@link contact.saveToExistingContactViaUI} API.)
-   * >
-   * > URI indicates the address of the contact portrait file that can be accessed, and
-   * > [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} indicates the [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}
-   * > object generated based on the contact portrait resource.
-   * >
-   * > Since API version 22, the profile picture resource can be read through URI. The resource can be opened only in
-   * > [fs.open]{@link @ohos.file.fs:open(path: string, mode?: number)} mode and cannot be directly displayed in the **Image** component using a URI. You need to read
-   * > the resource and display it in [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} format.
+   * > 从API version 22开始，支持通过uri和[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}格式设置联系人头像资源(暂不支持通过
+   * > [addContactViaUI]{@link contact.addContactViaUI}、
+   * > [saveToExistingContactViaUI]{@link contact.saveToExistingContactViaUI}接口设置)。
+   * > 
+   * > uri为可访问的联系人头像文件地址，[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}为通过联系人头像资源生成的
+   * > [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}对象。
+   * > 
+   * > 从API version 22开始，支持通过uri格式读取联系人头像资源，该格式仅支持以
+   * > [fs.open]{@link @ohos.file.fs:open(path: string, mode?: number)}方式打开，无法直接在Image组件内显示，需读取后转换为
+   * > [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}格式显示。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2736,7 +2474,8 @@ declare namespace contact {
    */
   class Portrait {
     /**
-     * Contact portrait in URI format.
+     * uri格式联系人头像。
+ 
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2745,7 +2484,7 @@ declare namespace contact {
     uri: string;
 
     /**
-     * Contact portrait in PixelMap format.
+     * PixelMap格式的联系人头像。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice
@@ -2755,7 +2494,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's postal address.
+   * 联系人的邮政地址类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2763,7 +2502,7 @@ declare namespace contact {
    */
   class PostalAddress {
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2772,7 +2511,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Home address, the default value is **1**.
+     * 家庭地址类型，默认值为1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2781,7 +2520,7 @@ declare namespace contact {
     static readonly ADDR_HOME: 1;
 
     /**
-     * Work address, the default value is **2**.
+     * 工作地址类型，默认值为2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2790,7 +2529,7 @@ declare namespace contact {
     static readonly ADDR_WORK: 2;
 
     /**
-     * Other addresses, the default value is **3**.
+     * 其它地址类型，默认值为3。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2799,7 +2538,7 @@ declare namespace contact {
     static readonly ADDR_OTHER: 3;
 
     /**
-     * Invalid mailbox, the default value is **-1**.
+     * 无效邮箱类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2808,7 +2547,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * City where the contact is located.
+     * 联系人所在的城市。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2817,7 +2556,7 @@ declare namespace contact {
     city?: string;
 
     /**
-     * Country/Region where the contact is located.
+     * 联系人所在的国家。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2826,7 +2565,7 @@ declare namespace contact {
     country?: string;
 
     /**
-     * Name of the mailbox type.
+     * 邮箱的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2835,7 +2574,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * Neighbor of the contact.
+     * 联系人的邻居。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2844,7 +2583,7 @@ declare namespace contact {
     neighborhood?: string;
 
     /**
-     * Email of the contact.
+     * 联系人的邮箱。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2853,7 +2592,7 @@ declare namespace contact {
     pobox?: string;
 
     /**
-     * Postal address of the contact.
+     * 联系人的邮政地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2862,7 +2601,7 @@ declare namespace contact {
     postalAddress: string;
 
     /**
-     * Postal code of the region where the contact is located.
+     * 联系人所在区域的邮政编码。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2871,7 +2610,7 @@ declare namespace contact {
     postcode?: string;
 
     /**
-     * Area where the contact is located.
+     * 联系人所在的区域。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2880,7 +2619,7 @@ declare namespace contact {
     region?: string;
 
     /**
-     * Street where the contact resides.
+     * 联系人所在的街道。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2889,7 +2628,7 @@ declare namespace contact {
     street?: string;
 
     /**
-     * Mailbox type.
+     * 邮箱的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2899,7 +2638,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's relationship.
+   * 联系人的关系类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -2907,7 +2646,7 @@ declare namespace contact {
    */
   class Relation {
     /**
-     * Custom relationship, the default value is **0**.
+     * 自定义关系类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2916,7 +2655,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Assistant, the default value is **1**.
+     * 助手关系类型，默认值为1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2925,7 +2664,7 @@ declare namespace contact {
     static readonly RELATION_ASSISTANT: 1;
 
     /**
-     * Sibling, the default value is **2**.
+     * 兄弟关系类型，默认值为2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2934,7 +2673,7 @@ declare namespace contact {
     static readonly RELATION_BROTHER: 2;
 
     /**
-     * Child, the default value is **3**.
+     * 子女关系类型，默认值为3。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2943,7 +2682,7 @@ declare namespace contact {
     static readonly RELATION_CHILD: 3;
 
     /**
-     * Domestic partner, the default value is **4**.
+     * 同居同伴关系类型，默认值为4。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2952,7 +2691,7 @@ declare namespace contact {
     static readonly RELATION_DOMESTIC_PARTNER: 4;
 
     /**
-     * Father, the default value is **5**.
+     * 父亲关系类型，默认值为5。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2961,7 +2700,7 @@ declare namespace contact {
     static readonly RELATION_FATHER: 5;
 
     /**
-     * Friend, the default value is **6**.
+     * 朋友关系类型，默认值为6。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2970,7 +2709,7 @@ declare namespace contact {
     static readonly RELATION_FRIEND: 6;
 
     /**
-     * Manager, the default value is **7**.
+     * 管理者关系类型，默认值为7。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2979,7 +2718,7 @@ declare namespace contact {
     static readonly RELATION_MANAGER: 7;
 
     /**
-     * Mother, the default value is **8**.
+     * 母亲关系类型，默认值为8。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2988,7 +2727,7 @@ declare namespace contact {
     static readonly RELATION_MOTHER: 8;
 
     /**
-     * Parent, the default value is **9**.
+     * 父母关系类型，默认值为9。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -2997,7 +2736,7 @@ declare namespace contact {
     static readonly RELATION_PARENT: 9;
 
     /**
-     * Parent, the default value is **9**.
+     * 父母关系类型，默认值为9。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3006,7 +2745,7 @@ declare namespace contact {
     static readonly RELATION_PARTNER: 10;
 
     /**
-     * Referrer, the default value is **11**.
+     * 推荐人关系类型，默认值为11。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3015,7 +2754,7 @@ declare namespace contact {
     static readonly RELATION_REFERRED_BY: 11;
 
     /**
-     * Relative, the default value is **12**.
+     * 亲属关系类型，默认值为12。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3024,7 +2763,7 @@ declare namespace contact {
     static readonly RELATION_RELATIVE: 12;
 
     /**
-     * Relative, the default value is **12**.
+     * 亲属关系类型，默认值为12。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3033,7 +2772,7 @@ declare namespace contact {
     static readonly RELATION_SISTER: 13;
 
     /**
-     * Spouse, the default value is **14**.
+     * 配偶关系类型，默认值为14。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3042,7 +2781,7 @@ declare namespace contact {
     static readonly RELATION_SPOUSE: 14;
 
     /**
-     * Invalid relationship, the default value is **-1**.
+     * 无效的关系类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3051,7 +2790,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Name of the mailbox type.
+     * 邮箱的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3060,7 +2799,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * Relationship name.
+     * 关系名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3069,7 +2808,7 @@ declare namespace contact {
     relationName: string;
 
     /**
-     * Mailbox type.
+     * 邮箱的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3079,7 +2818,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's SIP address.
+   * 联系人的会话发起协议(SIP)地址类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -3087,7 +2826,7 @@ declare namespace contact {
    */
   class SipAddress {
     /**
-     * Custom mailbox type, the default value is **0**.
+     * 自定义邮箱类型，默认值为0。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3096,7 +2835,7 @@ declare namespace contact {
     static readonly CUSTOM_LABEL: 0;
 
     /**
-     * Home SIP address, the default value is **1**.
+     * 家庭会话发起协议(SIP)地址类型，默认值为1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3105,7 +2844,7 @@ declare namespace contact {
     static readonly SIP_HOME: 1;
 
     /**
-     * Work SIP address, the default value is **2**.
+     * 工作会话发起协议(SIP)地址类型，默认值为2。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3114,7 +2853,7 @@ declare namespace contact {
     static readonly SIP_WORK: 2;
 
     /**
-     * Other SIP address, the default value is **3**.
+     * 其它会话发起协议(SIP)地址类型，默认值为3。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3123,7 +2862,7 @@ declare namespace contact {
     static readonly SIP_OTHER: 3;
 
     /**
-     * Invalid mailbox, the default value is **-1**.
+     * 无效邮箱类型，默认值为-1。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3132,7 +2871,7 @@ declare namespace contact {
     static readonly INVALID_LABEL_ID: -1;
 
     /**
-     * Name of the mailbox type.
+     * 邮箱的类型名称。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3141,7 +2880,7 @@ declare namespace contact {
     labelName?: string;
 
     /**
-     * SIP address.
+     * 会话发起协议(SIP)地址。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3150,7 +2889,7 @@ declare namespace contact {
     sipAddress: string;
 
     /**
-     * Mailbox type.
+     * 邮箱的类型。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3160,7 +2899,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines a contact's website.
+   * 联系人的网站信息类。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice [since 11]
@@ -3168,7 +2907,7 @@ declare namespace contact {
    */
   class Website {
     /**
-     * Website that stores the contact information.
+     * 联系人的网站。
      *
      * @syscap SystemCapability.Applications.ContactsData
      * @atomicservice [since 11]
@@ -3178,7 +2917,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines contact filter options.
+   * 联系人过滤参数。
    *
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
@@ -3187,7 +2926,7 @@ declare namespace contact {
   interface FilterOptions {
 
     /**
-     * Filter criteria.
+     * 过滤条件。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3196,7 +2935,7 @@ declare namespace contact {
     filterCondition: FilterCondition;
 
     /**
-     * Filter value. The default value is **undefined**.
+     * 过滤值，默认为undefined。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3206,7 +2945,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines the contact data filter item.
+   * 联系人数据过滤项。
    *
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
@@ -3215,7 +2954,7 @@ declare namespace contact {
   interface DataFilter {
 
     /**
-     * Contact filtering parameter. Multiple filter options in the array are ORed. The maximum length of the array is 3.
+     * 联系人过滤参数，数组中多个FilterOptions之间是“或”的关系，数组的最大长度为3。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3224,7 +2963,7 @@ declare namespace contact {
     options: Array<FilterOptions>;
 
     /**
-     * Contact data field.
+     * 联系人数据字段。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3234,8 +2973,7 @@ declare namespace contact {
   }
 
   /**
-   * Defines the contact filter criteria. Multiple filter criteria are ORed. If the parameter is an array, the array can
-   * contain a maximum of three elements.
+   * 联系人过滤条件。多个筛选条件之间是“或者”的关系，如果参数是数组类型，数组最多只能包含3个元素。
    *
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
@@ -3244,7 +2982,7 @@ declare namespace contact {
   interface FilterClause {
 
     /**
-     * Contact data filter item.
+     * 联系人数据过滤项。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3253,7 +2991,7 @@ declare namespace contact {
     dataItem?: DataFilter;
 
     /**
-     * Contact name.
+     * 联系人姓名。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3262,7 +3000,7 @@ declare namespace contact {
     name?: Array<FilterOptions>;
 
     /**
-     * Contact ID.
+     * 联系人id。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3271,7 +3009,7 @@ declare namespace contact {
     id?: Array<FilterOptions>;
 
     /**
-     * Focus mode list.
+     * 专注模式。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3281,12 +3019,11 @@ declare namespace contact {
   }
 
   /**
-   * Saves the information to an existing contact through UI interaction.. This API uses a promise to return the
-   * result.
+   * 调用保存至已有联系人接口，选择联系人UI界面并完成编辑。使用Promise异步回调。
    *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Promise used to return the result, which is the contact ID.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Contact } contact - 联系人信息。
+   * @returns { Promise<number> } Promise对象。返回添加的联系人id。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
@@ -3300,7 +3037,7 @@ declare namespace contact {
   function saveToExistingContactViaUI(context: Context, contact: Contact): Promise<number>;
 
   /**
-   * Defines the contact selection filter.
+   * 联系人查询过滤器。
    *
    * @syscap SystemCapability.Applications.Contacts
    * @atomicservice
@@ -3309,7 +3046,7 @@ declare namespace contact {
   interface ContactSelectionFilter {
 
     /**
-     * Filter criteria.
+     * 过滤条件。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3318,7 +3055,7 @@ declare namespace contact {
     filterClause: FilterClause;
 
     /**
-     * Filter type.
+     * 过滤类型。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3328,7 +3065,7 @@ declare namespace contact {
   }
 
   /**
-   * Enumerates contact filter types.
+   * 枚举，联系人过滤类型。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
@@ -3337,8 +3074,7 @@ declare namespace contact {
   enum FilterType {
 
     /**
-     * Shows only contacts that meet the filter criteria.
-     *
+     * 仅展示符合过滤条件的联系人。
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -3346,8 +3082,7 @@ declare namespace contact {
     SHOW_FILTER = 0,
 
     /**
-     * Selects contacts that meet the filter criteria by default.
-     *
+     * 默认勾选符合过滤条件的联系人。
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -3355,8 +3090,7 @@ declare namespace contact {
     DEFAULT_SELECT = 1,
 
     /**
-     * Shows only contacts that meet the filter criteria and selects these contacts by default.
-     *
+     * 默认勾选仅展示符合过滤条件的联系人。
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
      * @since 15
@@ -3365,7 +3099,7 @@ declare namespace contact {
   }
 
   /**
-   * Enumerates filter criteria.
+   * 枚举，过滤条件。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
@@ -3374,7 +3108,7 @@ declare namespace contact {
   enum FilterCondition {
 
     /**
-     * The corresponding field is equal to a value.
+     * 对应字段等于某值，值类型为string。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3383,7 +3117,7 @@ declare namespace contact {
     EQUAL_TO = 1,
 
     /**
-     * The corresponding field is not equal to a value.
+     * 对应字段不等于某值。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3392,7 +3126,7 @@ declare namespace contact {
     NOT_EQUAL_TO = 2,
 
     /**
-     * The value of the corresponding field is in an array.
+     * 对应字段值在某数组中，值类型为string。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3401,7 +3135,7 @@ declare namespace contact {
     IN = 3,
 
     /**
-     * The corresponding field is not empty.
+     * 对应字段不为空。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3410,7 +3144,7 @@ declare namespace contact {
     IS_NOT_NULL = 0,
 
     /**
-     * The value of the corresponding field is not in an array.
+     * 对应字段值不在某数组中。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3419,7 +3153,7 @@ declare namespace contact {
     NOT_IN = 4,
 
     /**
-     * The value of the corresponding field contains a certain value.
+     * 对应字段值包含某值，值类型为string
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3429,7 +3163,7 @@ declare namespace contact {
   }
 
   /**
-   * Enumerates contact data fields.
+   * 枚举，联系人数据字段。
    *
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
@@ -3438,7 +3172,7 @@ declare namespace contact {
   enum DataField {
 
     /**
-     * Phone number of the contact.
+     * 联系人电话。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3447,7 +3181,7 @@ declare namespace contact {
     PHONE = 1,
 
     /**
-     * Organization of the contact.
+     * 联系人单位。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3456,7 +3190,7 @@ declare namespace contact {
     ORGANIZATION = 2,
 
     /**
-     * Email of the contact.
+     * 联系人邮箱。
      *
      * @syscap SystemCapability.Applications.Contacts
      * @atomicservice
@@ -3466,11 +3200,11 @@ declare namespace contact {
   }
 
   /**
-   * Creates a contact through UI interaction. This API uses a promise to return the result.
+   * 通过UI交互创建联系人。使用Promise异步回调。
    *
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Contact } contact - Indicates the contact information.
-   * @returns { Promise<number> } Promise used to return the result, which is the contact ID.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Contact } contact - 联系人信息。
+   * @returns { Promise<number> } Promise对象。返回添加的联系人id，即新建联系人时系统自动生成的唯一标识，一个id唯一对应一个联系人。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
@@ -3483,11 +3217,11 @@ declare namespace contact {
   function addContactViaUI(context: Context, contact: Contact): Promise<number>;
 
   /**
-   * Queries the number of all contacts. This API uses a promise to return the result.
+   * 查询所有联系人的数量。使用Promise异步回调。
    *
    * @permission ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @returns { Promise<int> } Promise used to return the result, which is the number of queried contacts.
+   * @param { Context } context - 应用上下文Context。
+   * @returns { Promise<int> } Promise对象。返回查询到的联系人数量。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @syscap SystemCapability.Applications.ContactsData
@@ -3497,13 +3231,12 @@ declare namespace contact {
   function queryContactsCount(context: Context): Promise<int>;
 
   /**
-   * Adds contacts in batches. This API uses a promise to return the result.
+   * 批量添加联系人。使用Promise异步回调。
    *
    * @permission ohos.permission.WRITE_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { Array<Contact> } contacts - Indicates the contact information. array.
-   * @returns { Promise<Array<int>> } Promise used to return the result, which is the ID array of the contacts added in
-   *     batches.
+   * @param { Context } context - 应用上下文Context。
+   * @param { Array<Contact> } contacts - 联系人信息数组。
+   * @returns { Promise<Array<int>> } Promise对象，返回批量添加的联系人id数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
@@ -3514,15 +3247,13 @@ declare namespace contact {
   function addContacts(context: Context, contacts: Array<Contact>): Promise<Array<int>>;
 
   /**
-   * Check whether there are any calls that meet the specified condition.
-   *
-   * By default, the system queries call records generated within 6 hours.
+   * 检查是否有符合条件的通话记录，默认查询6小时以内的通话记录，仅针对运营商通话。使用Promise异步回调。
    *
    * @permission ohos.permission.CHECK_CALL_LOG
-   * @param { Context } context - Indicates the context of the application or capability.
-   * @param { string } phoneNumber - Indicates the phone number.
-   * @param { int } minDuration - Indicates the minimum call duration in seconds.
-   * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码。
+   * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
+   * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
@@ -3534,15 +3265,14 @@ declare namespace contact {
   function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int): Promise<boolean>;
 
   /**
-   * Check whether there are any calls that meet the specified condition.
+   * 检查是否有符合条件的通话记录，仅针对运营商通话。使用Promise异步回调。
    *
    * @permission ohos.permission.CHECK_CALL_LOG
-   * @param { Context } context - Indicates the context of the application or capability.
-   * @param { string } phoneNumber - Indicates the phone number.
-   * @param { int } minDuration - Indicates the minimum call duration in seconds.
-   * @param { int } withinTime - Indicates the period of time prior to the current time that the start and end time
-   *     of calls should be within, in seconds. Up to 6 hours.
-   * @returns { Promise<boolean> } Returns true if any matching call is found, false otherwise.
+   * @param { Context } context - 应用上下文Context。
+   * @param { string } phoneNumber - 联系人的电话号码。
+   * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
+   * @param { int } withinTime - 表示从当前时间开始计算，通话的起始时间和结束时间应在此时间范围内，单位为秒。最多可设置6小时，超过6小时的默认以6小时查询。
+   * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
