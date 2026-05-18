@@ -20,8 +20,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { CommonMethod, AttributeModifier, Callback } from "./common";
 import { XComponentType } from "./enums";
 import { VoidCallback, DrawingCanvas } from "./units";
-import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-import { Builder } from '@ohos.arkui.component';
+import { ComponentBuilder } from './builder';
 
 /**
  * Surface Rectangle information.
@@ -389,17 +388,6 @@ export declare interface NativeXComponentParameters {
  */
 export declare interface XComponentAttribute extends CommonMethod {
     /**
-     * Sets xcomponent options.
-     *
-     * @param { XComponentParameters | XComponentOptions | NativeXComponentParameters } params - The options to create an XComponent
-     * @returns { this } XComponentAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setXComponentOptions(params: XComponentParameters | XComponentOptions | NativeXComponentParameters): this;
-
-    /**
      * Called when judging whether the xcomponent surface is created.
      *
      * @param { VoidCallback | undefined } callback - Called when judging whether the xcomponent surface is created.
@@ -544,21 +532,4 @@ export declare interface XComponentParameters {
 @ComponentBuilder
 export declare function XComponent(
     params: XComponentParameters | XComponentOptions | NativeXComponentParameters,
-): XComponentAttribute
-
-/**
- * Defines XComponent Component.It requires call setXComponentOptions at start of the component attribute set-up,
- * and it requires call applyAttributeFinish at the end of the component attribute set-up.
- *
- * @param { CustomBuilderT<XComponentAttribute> } style - the callback to set up xcomponent's attributes.
- * @param { CustomBuilder } [content_] - container.
- * @returns { XComponentAttribute } The attribute of the XComponent.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 staticonly
- */
-@Builder
-export declare function XComponent(
-    style: CustomBuilderT<XComponentAttribute>,
-    content_?: CustomBuilder,
 ): XComponentAttribute
