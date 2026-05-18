@@ -19,20 +19,18 @@
  */
 
 /**
- * The **batteryInfo** module provides APIs for querying the charger type, battery health status, and battery charging
- * status.
+ * 该模块主要提供电池状态和充放电状态的查询接口。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 23 static
  */
 declare namespace batteryInfo {
   /**
-   * Sets the battery configuration based on the specified scenario.
+   * 按场景名称设置电池配置。
    *
-   * @param { string } sceneName - Scenario name. The value must be a string.
-   * @param { string } sceneValue - Scenario value. The value must be a string.
-   * @returns { int } Operation result. The value **0** indicates that the operation is successful, and a non-zero
-   *     value indicates the opposite.
+   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
+   * @param { string } sceneValue - 设置场景的值；该参数必须为字符串类型。
+   * @returns { int } 返回设置充电结果。返回0表示设置成功，返回非0表示设置失败。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -42,11 +40,10 @@ declare namespace batteryInfo {
   function setBatteryConfig(sceneName: string, sceneValue: string): int;
 
   /**
-   * Obtains the battery configuration based on the specified scenario.
+   * 按场景名称查询电池配置。
    *
-   * @param { string } sceneName - Scenario name. The value must be a string.
-   * @returns { string } Operation result. The battery configuration is returned if the operation is successful.
-   *     Otherwise, **""** is returned.
+   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
+   * @returns { string } 返回电池充电配置，否则返回""。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -56,11 +53,10 @@ declare namespace batteryInfo {
   function getBatteryConfig(sceneName: string): string;
 
   /**
-   * Checks whether the battery configuration is enabled based on the specified scenario.
+   * 检查是否按场景名称启用电池配置。
    *
-   * @param { string } sceneName - Scenario name. The value must be a string.
-   * @returns { boolean } Operation result. The value **true** indicates that the charging scenario is supported, and
-   *     the value **false** indicates the opposite.
+   * @param { string } sceneName - 设置场景名称；该参数必须为字符串类型。
+   * @returns { boolean } 如果设备支持充电场景，则返回true，否则返回false。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 5100101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -70,95 +66,91 @@ declare namespace batteryInfo {
   function isBatteryConfigSupported(sceneName: string): boolean;
 
   /**
-   * Battery state of charge (SoC) of the device, in unit of percentage, which ranges from 0 to 100.
+   * 表示当前设备剩余电池电量百分比，取值范围是[0，100]。
    *
-   * @returns { int } Returns the battery state of charge (SoC) of the device in unit of percentage, which ranges
-   *     from 0 to 100.
+   * @returns { int } 返回当前设备剩余电池电量百分比，取值范围是[0，100]。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function batterySOC(): int;
 
   /**
-   * Battery charging state of the current device.
+   * 表示当前设备电池的充电状态。
    *
-   * @returns { BatteryChargeState } Returns the battery charging state of the current device.
+   * @returns { BatteryChargeState } 返回当前设备电池的充电状态。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function chargingStatus(): BatteryChargeState;
 
   /**
-   * Battery health status of the device.
+   * 表示当前设备电池的健康状态。
    *
-   * @returns { BatteryHealthState } Returns the battery health status of the device.
+   * @returns { BatteryHealthState } 返回当前设备电池的健康状态。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function healthStatus(): BatteryHealthState;
 
   /**
-   * Charger type of the device.
+   * 表示当前设备连接的充电器类型。
    *
-   * @returns { BatteryPluggedType } Returns the charger type of the device.
+   * @returns { BatteryPluggedType } 返回当前设备连接的充电器类型。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function pluggedType(): BatteryPluggedType;
 
   /**
-   * Battery voltage of the device, in unit of microvolt.
+   * 表示当前设备电池的电压，单位微伏。
    *
-   * @returns { int } Returns the battery voltage of the device, in unit of microvolt.
+   * @returns { int } 返回当前设备电池的电压，单位微伏。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function voltage(): int;
 
   /**
-   * Battery technology of the device.
+   * 表示当前设备电池的技术型号。
    *
-   * @returns { string } Returns the battery technology of the device.
+   * @returns { string } 返回当前设备电池的技术型号。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function technology(): string;
 
   /**
-   * Battery temperature of the device, in unit of 0.1°C.
+   * 表示当前设备电池的温度，单位0.1摄氏度。
    *
-   * @returns { int } Returns the battery temperature of the device, in unit of 0.1°C.
+   * @returns { int } 返回当前设备电池的温度，单位0.1摄氏度。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function batteryTemperature(): int;
 
   /**
-   * Whether the battery is supported or present. The value **true** means that the battery is supported or present;
-   * **false** means the opposite.
+   * 表示当前设备是否支持电池或者电池是否在位。true表示支持电池或电池在位，false表示不支持电池或电池不在位，
+   * 默认为false。
    *
-   * Default value: **false**.
-   *
-   * @returns { boolean } Returns true if the battery is supported or present; returns false if the battery is not
-   *     supported or absent.
+   * @returns { boolean } 返回true表示支持电池或电池在位，返回false表示不支持电池或电池不在位。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function isBatteryPresent(): boolean;
 
   /**
-   * Battery level of the device.
+   * 表示当前设备电池电量的等级。
    *
-   * @returns { BatteryCapacityLevel } Returns the battery capacity level of the device.
+   * @returns { BatteryCapacityLevel } 返回当前设备电池电量的等级。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function batteryCapacityLevel(): BatteryCapacityLevel;
 
   /**
-   * Estimated time for fully charging the current device, in unit of milliseconds. This is a system API.
+   * 表示当前设备充满电的预估时间，单位毫秒。此接口为系统接口。
    *
-   * @returns { long } Returns the estimated remaining time for the current device to be fully charged, in ms.
+   * @returns { long } 返回当前设备充满电的预估时间，单位毫秒。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 23 static
@@ -166,9 +158,9 @@ declare namespace batteryInfo {
   function estimatedRemainingChargeTime(): long;
 
   /**
-   * Total battery capacity of the device, in unit of mAh. This is a system API.
+   * 表示当前设备电池的总容量，单位毫安时。此接口为系统接口。
    *
-   * @returns { int } Returns the total battery capacity of the device, in mAh.
+   * @returns { int } 返回当前设备电池的总容量，单位毫安时。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 23 static
@@ -176,18 +168,18 @@ declare namespace batteryInfo {
   function totalEnergy(): int;
 
   /**
-   * Battery current of the device, in unit of mA.
+   * 表示当前设备电池的电流，单位毫安。
    *
-   * @returns { int } Returns the battery current of the device, in mA.
+   * @returns { int } 返回当前设备电池的电流，单位毫安。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @since 23 static
    */
   function nowCurrent(): int;
 
   /**
-   * Remaining battery capacity of the device, in unit of mAh. This is a system API.
+   * 表示当前设备电池的剩余容量，单位毫安时。此接口为系统接口。
    *
-   * @returns { int } Returns the remaining battery capacity of the device, in mAh.
+   * @returns { int } 返回当前设备电池的剩余容量，单位毫安时。
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
    * @since 23 static
@@ -195,7 +187,7 @@ declare namespace batteryInfo {
   function remainingEnergy(): int;
 
   /**
-   * Enumerates charger types.
+   * 表示连接的充电器类型的枚举。
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -203,28 +195,28 @@ declare namespace batteryInfo {
    */
   export enum BatteryPluggedType {
     /**
-     * Unknown charger type.
+     * 表示未获取到连接充电器类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     NONE,
     /**
-     * AC charger.
+     * 表示连接的充电器类型为交流充电器。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     AC,
     /**
-     * USB charger.
+     * 表示连接的充电器类型为USB。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     USB,
     /**
-     * Wireless charger.
+     * 表示连接的充电器类型为无线充电器。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
@@ -233,7 +225,7 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates charging states.
+   * 表示电池充电状态的枚举。
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -241,28 +233,28 @@ declare namespace batteryInfo {
    */
   export enum BatteryChargeState {
     /**
-     * Unknown state.
+     * 表示电池充电状态为未充电。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     NONE,
     /**
-     * The battery is being charged.
+     * 表示电池充电状态为使能状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     ENABLE,
     /**
-     * The battery is not being charged.
+     * 表示电池充电状态为停止状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     DISABLE,
     /**
-     * The battery is fully charged.
+     * 表示电池充电状态为已充满状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
@@ -271,7 +263,7 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates battery health states.
+   * 表示电池健康状态的枚举。
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -279,42 +271,42 @@ declare namespace batteryInfo {
    */
   export enum BatteryHealthState {
     /**
-     * Unknown state.
+     * 表示电池健康状态未知。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     UNKNOWN,
     /**
-     * The battery is in the healthy state.
+     * 表示电池健康状态为正常。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     GOOD,
     /**
-     * The battery is overheated.
+     * 表示电池健康状态为过热。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     OVERHEAT,
     /**
-     * The battery voltage is over high.
+     * 表示电池健康状态为过压。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     OVERVOLTAGE,
     /**
-     * The battery temperature is low.
+     * 表示电池健康状态为低温。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     COLD,
     /**
-     * The battery is dead.
+     * 表示电池健康状态为僵死状态。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
@@ -323,7 +315,7 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates battery levels.
+   * 表示电池电量等级的枚举。
    *
    * @enum { int }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -331,56 +323,56 @@ declare namespace batteryInfo {
    */
   export enum BatteryCapacityLevel {
     /**
-     * Unknown battery level.
+     * 表示电池电量等级为未知电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     LEVEL_NONE,
     /**
-     * Full battery level.
+     * 表示电池电量等级为满电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     LEVEL_FULL,
     /**
-     * High battery level.
+     * 表示电池电量等级为高电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     LEVEL_HIGH,
     /**
-     * Normal battery level.
+     * 表示电池电量等级为正常电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     LEVEL_NORMAL,
     /**
-     * Low battery level.
+     * 表示电池电量等级为低电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     LEVEL_LOW,
     /**
-     * Alarm battery level.
+     * 表示电池电量等级为告警电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     LEVEL_WARNING,
     /**
-     * Ultra-low battery level.
+     * 表示电池电量等级为极低电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     LEVEL_CRITICAL,
     /**
-     * Power-down battery level.
+     * 表示电池电量等级为关机电量。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
@@ -389,7 +381,7 @@ declare namespace batteryInfo {
   }
 
   /**
-   * Enumerates keys for querying the additional information about the **COMMON_EVENT_BATTERY_CHANGED** event.
+   * 表示COMMON_EVENT_BATTERY_CHANGED通用事件附加信息的查询键。
    *
    * @enum { string }
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
@@ -397,63 +389,63 @@ declare namespace batteryInfo {
    */
   export enum CommonEventBatteryChangedKey {
     /**
-     * Remaining battery level in percentage.
+     * 表示剩余电池电量百分比的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_SOC = 'soc',
     /**
-     * Battery charging status of the device.
+     * 表示当前设备电池充电状态的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_CHARGE_STATE = 'chargeState',
     /**
-     * Battery health status of the device.
+     * 表示当前设备电池健康状态的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_HEALTH_STATE = 'healthState',
     /**
-     * Type of the charger connected to the device.
+     * 表示当前设备连接的充电器类型的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_PLUGGED_TYPE = 'pluggedType',
     /**
-     * Battery voltage of the device.
+     * 表示当前设备电池电压的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_VOLTAGE = 'voltage',
     /**
-     * Battery technology of the device.
+     * 表示当前设备电池技术型号的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_TECHNOLOGY = 'technology',
     /**
-     * Battery temperature of the device.
+     * 表示当前设备电池温度的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_TEMPERATURE = 'temperature',
     /**
-     * Whether the battery is supported by the device or installed.
+     * 表示当前设备是否支持电池或者电池是否在位的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
      */
     EXTRA_PRESENT = 'present',
     /**
-     * Battery level of the device.
+     * 表示当前设备电池电量等级的查询键。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @since 23 static
