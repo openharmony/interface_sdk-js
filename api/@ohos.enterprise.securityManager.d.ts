@@ -586,6 +586,15 @@ declare namespace securityManager {
      * @since 23 static
      */
     additionalDescription?: string;
+
+    /**
+     * The encryption algorithm of the password.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    passwordAlgs?: PasswordAlgs;
   }
 
   /**
@@ -1031,6 +1040,34 @@ declare namespace securityManager {
    * @since 26.0.0
    */
   function isScreenLockDisabledForAccount(admin: Want): boolean;
+
+  /**
+   * Encryption algorithm.
+   * 
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  export enum PasswordAlgs {
+
+    /**
+     * SCRYPT-HKDF-AES combination encryption algorithm.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SCRYPT_HKDF_AES = 0,
+    
+    /**
+     * SCRYPT-HKDF-SM4 combination encryption algorithm.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SCRYPT_HKDF_SM4 = 1
+  }
 }
 
 /*** if arkts dynamic */
