@@ -3112,6 +3112,27 @@ latitude and a negative value is used for south latitude.
     public constructor(locale?: Intl.Locale, options?: SymbolDateTimeFormatOptions);
 
     /**
+     * Parse a date time localized string to Unix timestamp.
+     * Unix timestamp, indicating the number of milliseconds elapsed since 00:00:00 on January 1, 1970 GMT.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "2023/02-25" is a invalid separator date string, it will parse failure when lenientMode
+     *     is false, and will parse success with value (2023, 02, 25) when lenientMode is true. it's better set
+     *     to false, ensure the data is not polluted.
+     *     <br>Whether to use loose parsing rules
+     * @returns { long } Unix timestamp, which indicates the number of milliseconds that have elapsed since
+     *     the Unix epoch.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    public parse(text: string, lenientMode: boolean): long;
+
+    /**
      * Obtains the options for creating a SymbolDateTimeFormat object.
      * This will allow us to check the current config symbols.
      *
@@ -3193,6 +3214,25 @@ latitude and a negative value is used for south latitude.
      * @since 26.0.0 static
      */
     public constructor(locale?: Intl.Locale, options?: SymbolNumberFormatOptions);
+
+    /**
+     * Parse a localized string to number object. For example, "123,456" will parse to 123456.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "1,23,456" is a invalid thousand separator number string, it will parse failure
+     *     when lenientMode is false, and will parse success with value 123456 when lenientMode is true.it's better
+     *     set to false, ensure the data is not polluted.
+     *     <br>Whether to use loose rules
+     * @returns { double } The result parse with localization rules.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    public parse(text: string, lenientMode: boolean): double;
 
     /**
      * Represents optional element for the ResolvedSymbolDateTimeFormatOptions object.

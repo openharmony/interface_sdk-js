@@ -3988,6 +3988,27 @@ declare namespace i18n {
     public formatToParts(date?: Date | number): Intl.DateTimeFormatPart[];
 
     /**
+     * Parse a date time localized string to Unix timestamp.
+     * Unix timestamp, indicating the number of milliseconds elapsed since 00:00:00 on January 1, 1970 GMT.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "2023/02-25" is a invalid separator date string, it will parse failure when lenientMode
+     *     is false, and will parse success with value (2023, 02, 25) when lenientMode is true. it's better set
+     *     to false, ensure the data is not polluted.
+     *     <br>Whether to use loose parsing rules
+     * @returns { number } Unix timestamp, which indicates the number of milliseconds that have elapsed since
+     *     the Unix epoch.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public parse(text: string, lenientMode: boolean): number;
+
+    /**
      * Obtains the options for creating a SymbolDateTimeFormat object.
      * This will allow us to check the current config symbols.
      *
@@ -4123,6 +4144,25 @@ declare namespace i18n {
      * @since 26.0.0 dynamic
      */
     public formatRangeToParts(startRange: number, endRange: number): Intl.NumberFormatPart[];
+
+    /**
+     * Parse a localized string to number object. For example, "123,456" will parse to 123456.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "1,23,456" is a invalid thousand separator number string, it will parse failure
+     *     when lenientMode is false, and will parse success with value 123456 when lenientMode is true.it's better
+     *     set to false, ensure the data is not polluted.
+     *     <br>Whether to use loose rules
+     * @returns { number } The result parse with localization rules.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    public parse(text: string, lenientMode: boolean): number;
 
     /**
      * Represents optional element for the ResolvedSymbolDateTimeFormatOptions object.
