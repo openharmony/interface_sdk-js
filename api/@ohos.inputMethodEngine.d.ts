@@ -648,7 +648,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility.on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void): void;
+     * @useinstead inputMethodEngine.InputMethodAbility.on(type: 'inputStart', callback: (kbController: KeyboardController, inputClient: InputClient) => void)
      */
     on(
       type: 'inputStart',
@@ -664,7 +664,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility.off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void): void;
+     * @useinstead inputMethodEngine.InputMethodAbility.off(type: 'inputStart', callback?: (kbController: KeyboardController, inputClient: InputClient) => void)
      */
     off(
       type: 'inputStart',
@@ -681,7 +681,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility.on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
+     * @useinstead inputMethodEngine.InputMethodAbility.on(type: 'keyboardShow' | 'keyboardHide', callback: () => void)
      */
     on(type: 'keyboardShow' | 'keyboardHide', callback: () => void): void;
 
@@ -696,7 +696,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 23
-     * @useinstead inputMethodEngine.InputMethodAbility.off_keyboardShow
+     * @useinstead inputMethodEngine.InputMethodAbility.off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void)
      */
     off(type: 'keyboardShow' | 'keyboardHide', callback?: () => void): void;
   }
@@ -963,7 +963,7 @@ declare namespace inputMethodEngine {
      * @param { AsyncCallback<Panel> } callback - Callback used to return the result. If the operation is successful,
      *     the created input method panel is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -994,7 +994,7 @@ declare namespace inputMethodEngine {
      * @param { PanelInfo } info - Information about the input method panel.
      * @returns { Promise<Panel> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+     *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800004 - not an input method application.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 10 dynamic
@@ -1249,7 +1249,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient.sendKeyFunction(action: int, callback: AsyncCallback<boolean>)
+     * @useinstead inputMethodEngine.InputClient.sendKeyFunction(action: int): Promise<boolean>
      */
     sendKeyFunction(action: number): Promise<boolean>;
 
@@ -1275,7 +1275,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient.deleteForward(length: int, callback: AsyncCallback<boolean>)
+     * @useinstead inputMethodEngine.InputClient.deleteForward(length: int): Promise<boolean>
      */
     deleteForward(length: number): Promise<boolean>;
 
@@ -1301,7 +1301,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient.deleteBackward(length: int, callback: AsyncCallback<boolean>)
+     * @useinstead inputMethodEngine.InputClient.deleteBackward(length: int): Promise<boolean>
      */
     deleteBackward(length: number): Promise<boolean>;
 
@@ -1327,7 +1327,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient.insertText(text: string, callback: AsyncCallback<boolean>)
+     * @useinstead inputMethodEngine.InputClient.insertText(text: string): Promise<boolean>
      */
     insertText(text: string): Promise<boolean>;
 
@@ -1352,7 +1352,7 @@ declare namespace inputMethodEngine {
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead inputMethodEngine.InputClient.getForward(length: int, callback: AsyncCallback<string>)
+     * @useinstead inputMethodEngine.InputClient.getForward(length: int): Promise<string>
      */
     getForward(length: number): Promise<string>;
 
