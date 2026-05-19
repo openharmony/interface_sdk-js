@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026  Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,29 +14,28 @@
  */
 
 /**
- * @file
+ * @file Device Usage Statistics
  * @kit BackgroundTasksKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Provides methods for managing bundle usage statistics,
- * including the methods for querying bundle usage information and state data.
- * <p>You can use the methods defined in this class to query
- * the usage history and states of bundles in a specified period.
- * The system stores the query result in a {@link BundleStateInfo} or {@link BundleActiveState} instance and
- * then returns it to you.
+ * This module provides APIs for collecting statistics on device usage.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module are deprecated since API version 9. The substitute APIs are open only to system 
+ * > applications.
  *
- * @namespace bundleState
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.resourceschedule.usageStatistics
+ * @useinstead null
  */
 declare namespace bundleState {
   /**
-   * @interface BundleStateInfo
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -45,7 +44,7 @@ declare namespace bundleState {
   interface BundleStateInfo {
     /**
      * The identifier of BundleStateInfo.
-     * @type { number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -55,7 +54,7 @@ declare namespace bundleState {
     /**
      * The total duration, in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -65,7 +64,7 @@ declare namespace bundleState {
     /**
      * The last time when the application was accessed, in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -75,7 +74,7 @@ declare namespace bundleState {
     /**
      * The last time when the application was visible in the foreground, in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -85,7 +84,7 @@ declare namespace bundleState {
     /**
      * The total duration when the application was visible in the foreground, in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -94,7 +93,7 @@ declare namespace bundleState {
     abilitySeenTotalTime?: number;
     /**
      * The bundle name of the application.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -104,7 +103,7 @@ declare namespace bundleState {
     /**
      * The total duration when the foreground application was accessed, in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -114,7 +113,7 @@ declare namespace bundleState {
     /**
      * The last time when the foreground application was accessed, in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -125,7 +124,7 @@ declare namespace bundleState {
      * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -136,7 +135,7 @@ declare namespace bundleState {
      * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -149,7 +148,7 @@ declare namespace bundleState {
      * The bundle name of both objects must be the same.
      *
      * @param { BundleStateInfo } toMerge Indicates the {@link BundleActiveInfo} object to merge.
-     * If the bundle names of the two {@link BundleActiveInfo} objects are different.
+     *     If the bundle names of the two {@link BundleActiveInfo} objects are different.
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -159,7 +158,7 @@ declare namespace bundleState {
   }
 
   /**
-   * @typedef BundleActiveState
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -168,7 +167,7 @@ declare namespace bundleState {
   interface BundleActiveState {
     /**
      * The usage priority group of the application.
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -177,7 +176,7 @@ declare namespace bundleState {
     appUsagePriorityGroup?: number;
     /**
      * The bundle name.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -186,7 +185,7 @@ declare namespace bundleState {
     bundleName?: string;
     /**
      * The shortcut ID.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -195,7 +194,7 @@ declare namespace bundleState {
     indexOfLink?: string;
     /**
      * The class name.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -205,7 +204,7 @@ declare namespace bundleState {
     /**
      * The time when this state occurred, in milliseconds.
      * <br> Unit:ms
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -214,7 +213,7 @@ declare namespace bundleState {
     stateOccurredTime?: number;
     /**
      * The state type.
-     * @type { ?number }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -224,40 +223,44 @@ declare namespace bundleState {
   }
 
   /**
-   * Checks whether the application with a specified bundle name is in the idle state.
+   * Checks whether the application specified by **bundleName** is in the idle state. A third-party application can only
+   * check the idle state of itself. A system application can check the idle state of other applications only when it is
+   * granted with the ohos.permission.BUNDLE_ACTIVE_INFO permission. This API uses an asynchronous callback to return 
+   * the result.
    *
-   * @param { string } bundleName Indicates the bundle name of the application to query.
-   * @param { AsyncCallback<boolean> } callback - the callback of isIdleState.
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   * @param { string } bundleName - Bundle name of an application.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the specified **bundleName** is
+   *     valid, the idle state of the application is returned; otherwise, **null** is returned.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.usageStatistics.isIdleState
+   * @useinstead null
    */
   function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the application with a specified bundle name is in the idle state.
+   * Checks whether the application specified by **bundleName** is in the idle state. A third-party application can only
+   * check the idle state of itself. A system application can check the idle state of other applications only when it is
+   * granted with the ohos.permission.BUNDLE_ACTIVE_INFO permission. This API uses a promise to return the result.
    *
-   * @param { string } bundleName Indicates the bundle name of the application to query.
-   * @returns { Promise<boolean> } the promise returned by isIdleState.
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   * @param { string } bundleName - Bundle name of an application.
+   * @returns { Promise<boolean> } Promise used to return the result. If the specified **bundleName** is valid, the idle
+   *     state of the application is returned; otherwise, **null** is returned.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceschedule.usageStatistics.isIdleState
+   * @useinstead null
    */
   function isIdleState(bundleName: string): Promise<boolean>;
 
   /**
    * Queries the usage priority group of the calling application.
+   * 
    * <p>The priority defined in a priority group restricts the resource usage of an application,
    * for example, restricting the running of background tasks. </p>
    *
    * @param { AsyncCallback<number> } callback - the callback of queryAppUsagePriorityGroup.
-   * <p> Returns the app group of the calling application.</p>
+   *     <p> Returns the app group of the calling application.</p>
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -267,11 +270,12 @@ declare namespace bundleState {
 
   /**
    * Queries the usage priority group of the calling application.
+   * 
    * <p>The priority defined in a priority group restricts the resource usage of an application,
    * for example, restricting the running of background tasks. </p>
    *
    * @returns { Promise<number> } the promise returned by queryAppUsagePriorityGroup.
-   * <p> Returns the app group of the calling application.</p>
+   *     <p> Returns the app group of the calling application.</p>
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -280,7 +284,7 @@ declare namespace bundleState {
   function queryAppUsagePriorityGroup(): Promise<number>;
 
   /**
-   * @typedef BundleActiveInfoResponse
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -300,15 +304,16 @@ declare namespace bundleState {
 
   /**
    * Queries usage information about each bundle within a specified period.
+   * 
    * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { AsyncCallback<BundleActiveInfoResponse> } callback - the callback of queryBundleStateInfos.
-   * <p> the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.</p>
+   *     <p> the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.</p>
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -319,15 +324,16 @@ declare namespace bundleState {
 
   /**
    * Queries usage information about each bundle within a specified period.
+   * 
    * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<BundleActiveInfoResponse> } the promise returned by queryBundleStatsInfos.
-   * <p> the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.</p>
+   *     <p> the {@link BundleActiveInfoResponse} objects containing the usage information about each bundle.</p>
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -339,7 +345,6 @@ declare namespace bundleState {
   /**
    * Declares interval type.
    *
-   * @enum { number }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -402,12 +407,12 @@ declare namespace bundleState {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { IntervalType } byInterval Indicates the interval at which the usage statistics are queried.
-   * <p>The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-   * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
+   *     <p>The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
+   *     {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { AsyncCallback<Array<BundleStateInfo>> } callback - the callback of usage information about each bundle.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
@@ -427,12 +432,12 @@ declare namespace bundleState {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { IntervalType } byInterval Indicates the interval at which the usage statistics are queried.
-   * <p>The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-   * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
+   *     <p>The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
+   *     {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<Array<BundleStateInfo>> } the usage information about each bundle.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
@@ -451,9 +456,9 @@ declare namespace bundleState {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { AsyncCallback<Array<BundleActiveState>> } callback - the state data of all bundles.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
@@ -468,9 +473,9 @@ declare namespace bundleState {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<Array<BundleActiveState>> } the state data of all bundles.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
@@ -484,9 +489,9 @@ declare namespace bundleState {
    * Queries state data of the current bundle within a specified period.
    *
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { AsyncCallback<Array<BundleActiveState>> } callback - the state data of the current bundle.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @since 7 dynamiconly
@@ -503,9 +508,9 @@ declare namespace bundleState {
    * Queries state data of the current bundle within a specified period.
    *
    * @param { number } begin Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { number } end Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<Array<BundleActiveState>> } the state data of the current bundle.
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @since 7 dynamiconly
