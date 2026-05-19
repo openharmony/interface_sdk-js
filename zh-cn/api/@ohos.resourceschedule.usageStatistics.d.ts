@@ -14,29 +14,27 @@
  */
 
 /**
- * @file
+ * @file 设备使用信息统计
  * @kit BackgroundTasksKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Provides methods for managing bundle usage statistics,
- * including the methods for querying bundle usage information and state data.
+ * 本模块提供设备使用信息统计能力，包括查询应用是否为常用应用、优先级分组、使用时长、系统事件（休眠、唤醒、解锁、锁屏）信息、应用事件（前台、后台、长时任务开始和结束）信息、通知次数等不同类型信息。
+ * 
+ * > **说明：**
+ * >
+ * > 本模块接口为系统接口。
  *
- * <p>You can use the methods defined in this class to query
- * the usage history and states of bundles in a specified period.
- * The system stores the query result in a {@link BundleStatsInfo} instance and
- * then returns it to you.
- *
- * @namespace usageStatistics
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 9 dynamic
  * @since 23 static
  */
 declare namespace usageStatistics {
   /**
-   * @interface BundleStatsInfo
+   * FA模型的使用信息属性集合。
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -44,8 +42,8 @@ declare namespace usageStatistics {
    */
   interface BundleStatsInfo {
     /**
-     * The identifier of BundleStatsInfo.
-     * @type { int }
+     * 用户id。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -54,9 +52,8 @@ declare namespace usageStatistics {
     id: int;
 
     /**
-     * The total duration, in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * 应用在前台可见的总时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -65,9 +62,8 @@ declare namespace usageStatistics {
     abilityInFgTotalTime?: long;
 
     /**
-     * The last time when the application was accessed, in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * 应用最后一次使用的时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -76,9 +72,8 @@ declare namespace usageStatistics {
     abilityPrevAccessTime?: long;
 
     /**
-     * The last time when the application was visible in the foreground, in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * 应用最后一次在前台可见的时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -87,9 +82,8 @@ declare namespace usageStatistics {
     abilityPrevSeenTime?: long;
 
     /**
-     * The total duration, in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * 应用在前台可见的总时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -98,8 +92,8 @@ declare namespace usageStatistics {
     abilitySeenTotalTime?: long;
 
     /**
-     * The bundle name of the application.
-     * @type { ?string }
+     * 应用包名。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -108,9 +102,8 @@ declare namespace usageStatistics {
     bundleName?: string;
 
     /**
-     * The total duration, in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * 应用在前台可见的总时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -119,9 +112,8 @@ declare namespace usageStatistics {
     fgAbilityAccessTotalTime?: long;
 
     /**
-     * The last time when the foreground application was accessed, in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * 应用最后一次访问前台的时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -130,10 +122,8 @@ declare namespace usageStatistics {
     fgAbilityPrevAccessTime?: long;
 
     /**
-     * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
-     * in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * BundleActiveInfo对象中第一条应用使用统计的记录时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -142,10 +132,8 @@ declare namespace usageStatistics {
     infosBeginTime?: long;
 
     /**
-     * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
-     * in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * BundleActiveInfo对象中最后一条应用使用统计的记录时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -154,8 +142,8 @@ declare namespace usageStatistics {
     infosEndTime?: long;
 
     /**
-     * The app index of the application.
-     * @type { ?int }
+     * 应用程序的索引。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 15 dynamic
@@ -165,7 +153,8 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface HapFormInfo
+   * FA模型的使用信息属性集合。
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -173,8 +162,8 @@ declare namespace usageStatistics {
    */
   interface HapFormInfo {
     /**
-     * The form name.
-     * @type { string }
+     * 卡片名称。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -183,8 +172,8 @@ declare namespace usageStatistics {
     formName: string;
 
     /**
-     * The form dimension.
-     * @type { int }
+     * 卡片尺寸。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -193,8 +182,8 @@ declare namespace usageStatistics {
     formDimension: int;
 
     /**
-     * The form id.
-     * @type { long }
+     * 卡片Id。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -203,9 +192,8 @@ declare namespace usageStatistics {
     formId: long;
 
     /**
-     * The last time when the form was accessed, in milliseconds..
-     * <br> Unit:ms
-     * @type { long }
+     * 卡片的上一次点击时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -214,8 +202,8 @@ declare namespace usageStatistics {
     formLastUsedTime: long;
 
     /**
-     * The click count of module.
-     * @type { int }
+     * 卡片的点击次数。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -225,7 +213,8 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface HapModuleInfo
+   * FA模型的使用信息属性集合。
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -233,8 +222,8 @@ declare namespace usageStatistics {
    */
   interface HapModuleInfo {
     /**
-     * The device id of module.
-     * @type { ?string }
+     * 设备Id。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -243,8 +232,8 @@ declare namespace usageStatistics {
     deviceId?: string;
 
     /**
-     * The bundle name.
-     * @type { string }
+     * 应用名称。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -253,8 +242,8 @@ declare namespace usageStatistics {
     bundleName: string;
 
     /**
-     * The module name.
-     * @type { string }
+     * FA所属module名。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -263,8 +252,8 @@ declare namespace usageStatistics {
     moduleName: string;
 
     /**
-     * The main ability name of module.
-     * @type { ?string }
+     * FA的MainAbility名。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -273,8 +262,8 @@ declare namespace usageStatistics {
     abilityName?: string;
 
     /**
-     * The label id of application.
-     * @type { ?long }
+     * FA的应用labelId。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -283,8 +272,8 @@ declare namespace usageStatistics {
     appLabelId?: long;
 
     /**
-     * The label id of module.
-     * @type { ?long }
+     * FA所属module的labelId。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -293,8 +282,8 @@ declare namespace usageStatistics {
     labelId?: long;
 
     /**
-     * The description id of application.
-     * @type { ?long }
+     * FA所属的应用descriptionId。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -303,8 +292,8 @@ declare namespace usageStatistics {
     descriptionId?: long;
 
     /**
-     * The ability id of main ability.
-     * @type { ?long }
+     * FA的MainAbility labelId。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -313,8 +302,8 @@ declare namespace usageStatistics {
     abilityLableId?: long;
 
     /**
-     * The description id of main ability.
-     * @type { ?long }
+     * FA的MainAbility descriptionId。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -323,8 +312,8 @@ declare namespace usageStatistics {
     abilityDescriptionId?: long;
 
     /**
-     * The icon id of main ability.
-     * @type { ?long }
+     * FA的MainAbility iconId。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -333,8 +322,8 @@ declare namespace usageStatistics {
     abilityIconId?: long;
 
     /**
-     * The launch count of module.
-     * @type { int }
+     * FA的启动次数。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -343,9 +332,8 @@ declare namespace usageStatistics {
     launchedCount: int;
 
     /**
-     * The last time when the module was accessed, in milliseconds.
-     * <br> Unit:ms
-     * @type { long }
+     * FA的上一次使用时间，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -354,8 +342,8 @@ declare namespace usageStatistics {
     lastModuleUsedTime: long;
 
     /**
-     * The form usage record list of current module.
-     * @type { Array<HapFormInfo> }
+     * FA中卡片的使用记录。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -365,7 +353,8 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface DeviceEventStats
+   * FA模型的使用信息属性集合。
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -373,8 +362,8 @@ declare namespace usageStatistics {
    */
   interface DeviceEventStats {
     /**
-     * The bundle name or system event name.
-     * @type { string }
+     * 通知应用包名或者系统事件名。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -383,8 +372,8 @@ declare namespace usageStatistics {
     name: string;
 
     /**
-     * The event id.
-     * @type { int }
+     * 应用事件类型。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -393,8 +382,8 @@ declare namespace usageStatistics {
     eventId: int;
 
     /**
-     * The the event occurrence number.
-     * @type { int }
+     * 应用通知次数或者系统事件触发次数。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -404,7 +393,8 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface BundleEvents
+   * FA模型的使用信息属性集合。
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -412,8 +402,8 @@ declare namespace usageStatistics {
    */
   interface BundleEvents {
     /**
-     * The usage group of the application.
-     * @type { ?int }
+     * 应用程序的使用优先级组。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -422,8 +412,8 @@ declare namespace usageStatistics {
     appGroup?: int;
 
     /**
-     * The bundle name.
-     * @type { ?string }
+     * 应用名称。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -432,8 +422,8 @@ declare namespace usageStatistics {
     bundleName?: string;
 
     /**
-     * The shortcut ID.
-     * @type { ?string }
+     * 快捷方式id。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -442,8 +432,8 @@ declare namespace usageStatistics {
     indexOfLink?: string;
 
     /**
-     * The class name.
-     * @type { ?string }
+     * 类名。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -452,9 +442,8 @@ declare namespace usageStatistics {
     nameOfClass?: string;
 
     /**
-     * The time when this state occurred, in milliseconds.
-     * <br> Unit:ms
-     * @type { ?long }
+     * 应用事件发生的时间戳，单位：ms。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -463,8 +452,8 @@ declare namespace usageStatistics {
     eventOccurredTime?: long;
 
     /**
-     * The event id.
-     * @type { ?int }
+     * 应用事件类型。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -474,16 +463,17 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface AppGroupCallbackInfo
+   * 应用分组变化回调返回的属性集合
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface AppGroupCallbackInfo {
     /**
-     * The usage old group of the application
-     * @type { int }
+     * 变化前的应用分组。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -492,8 +482,8 @@ declare namespace usageStatistics {
     appOldGroup: int;
 
     /**
-     * The usage new group of the application
-     * @type { int }
+     * 变化后的应用分组。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -502,8 +492,8 @@ declare namespace usageStatistics {
     appNewGroup: int;
 
     /**
-     * The use id
-     * @type { int }
+     * 用户id。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -512,8 +502,13 @@ declare namespace usageStatistics {
     userId: int;
 
     /**
-     * The change reason
-     * @type { long }
+     * 分组变化原因。
+     * 
+     * - 256:使用记录初创建时，默认匹配的原因。
+     * - 512:计算优先级分组时异常。
+     * - 768:使用时长变化。  
+     * - 1024:有其他应用为当前应用强制设置优先级分组。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -522,8 +517,8 @@ declare namespace usageStatistics {
     changeReason: long;
 
     /**
-     * The bundle name
-     * @type { string }
+     * 应用名称。
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -533,21 +528,20 @@ declare namespace usageStatistics {
   }
 
   /**
-   * Checks whether the application with a specified bundle name is in the idle state.
+   * 查询指定的应用是否为常用应用（GroupType值≤30），使用Callback形式返回。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to query.
-   * @param { AsyncCallback<boolean> } callback - the callback of isIdleState.
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   * @param { string } bundleName - 应用的bundleName。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为若应用为常用应用，返回true；若指定应用不是常用应用或bundleName无效，则返回false；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -559,21 +553,20 @@ declare namespace usageStatistics {
   function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the application with a specified bundle name is in the idle state.
+   * 查询指定的应用是否为常用应用（GroupType值≤30），使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to query.
-   * @returns { Promise<boolean> } the promise returned by isIdleState.
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   * @param { string } bundleName - 应用的bundleName。
+   * @returns { Promise<boolean> } Promise对象。
+   *     若应用为常用应用，返回true；若指定应用不是常用应用或bundleName无效，则返回false。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -585,21 +578,19 @@ declare namespace usageStatistics {
   function isIdleState(bundleName: string): Promise<boolean>;
 
   /**
-   * Checks whether the application with a specified bundle name is in the idle state.
+   * 查询指定的应用是否为常用应用（GroupType值≤30），使用同步方式返回。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to query.
-   * @returns { boolean }
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   * @param { string } bundleName - 应用的bundleName。
+   * @returns { boolean } 若应用为常用应用，返回true；若指定应用不是常用应用或bundleName无效，则返回false。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -611,20 +602,18 @@ declare namespace usageStatistics {
   function isIdleStateSync(bundleName: string): boolean;
 
   /**
-   * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 查询当前应用的优先级分组，使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { AsyncCallback<int> } callback - the callback of queryAppGroup.
-   * <p> Returns the app group of the calling application.</p>
+   * @param { AsyncCallback<int> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为当前应用优先级分组结果，值越小，优先级越高；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -638,19 +627,16 @@ declare namespace usageStatistics {
   function queryAppGroup(callback: AsyncCallback<int>): void;
 
   /**
-   * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 查询当前应用的优先级分组，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @returns { Promise<int> } the promise returned by queryAppGroup.
-   * <p> Returns the app group of the calling application.</p>
+   * @returns { Promise<int> } Promise对象。返回当前应用优先级分组结果，值越小，优先级越高。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -664,18 +650,16 @@ declare namespace usageStatistics {
   function queryAppGroup(): Promise<int>;
 
   /**
-   * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 查询当前应用的优先级分组，使用同步方式返回。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @returns { int } Returns the app group of the calling application.
+   * @returns { int } 返回当前应用优先级分组结果，值越小，优先级越高。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -689,21 +673,19 @@ declare namespace usageStatistics {
   function queryAppGroupSync(): int;
 
   /**
-   * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 查询指定bundleName应用的优先级分组，使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
-   * @param { AsyncCallback<int> } callback - the callback of queryAppGroup.
-   * <p> the usage priority group of the calling application.</p>
+   * @param { string } bundleName - 应用的bundleName。
+   * @param { AsyncCallback<int> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为指定应用的优先级分组结果，值越小，优先级越高；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -717,21 +699,18 @@ declare namespace usageStatistics {
   function queryAppGroup(bundleName: string, callback: AsyncCallback<int>): void;
 
   /**
-   * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 查询指定bundleName应用的优先级分组，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
-   * @returns { Promise<int> } the promise returned by queryAppGroup.
-   * <p> the usage priority group of the calling application.</p>
+   * @param { string } bundleName - 应用的bundleName。
+   * @returns { Promise<int> } Promise对象。返回指定应用的优先级分组结果，值越小，优先级越高。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -745,20 +724,18 @@ declare namespace usageStatistics {
   function queryAppGroup(bundleName: string): Promise<int>;
 
   /**
-   * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 查询指定bundleName应用的优先级分组，使用同步方式返回。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
-   * @returns { int } the usage priority group of the calling application.
+   * @param { string } bundleName - 应用的bundleName。
+   * @returns { int } 返回应用的优先级分组结果，值越小，优先级越高。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -772,7 +749,8 @@ declare namespace usageStatistics {
   function queryAppGroupSync(bundleName: string): int;
 
   /**
-   * @typedef { Record<string, BundleStatsInfo> }
+   * FA模型的使用信息属性集合。
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -781,23 +759,20 @@ declare namespace usageStatistics {
   type BundleStatsMap = Record<string, BundleStatsInfo>;
 
   /**
-   * Queries usage information about each bundle within a specified period.
-   * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
+   * 通过指定起始和结束时间，查询应用使用时长的具体信息，统计的最小颗粒度是天，使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<BundleStatsMap> } callback - the callback of queryBundleStatsInfos,
-   * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @param { AsyncCallback<BundleStatsMap> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为指定时间段内应用使用时长的具体信息；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -810,23 +785,19 @@ declare namespace usageStatistics {
   function queryBundleStatsInfos(begin: long, end: long, callback: AsyncCallback<BundleStatsMap>): void;
 
   /**
-   * Queries usage information about each bundle within a specified period.
-   * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
+   * 通过指定起始和结束时间，查询应用使用时长的具体信息，统计的最小颗粒度是天，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<BundleStatsMap> } the promise returned by queryBundleStatsInfos.
-   * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @returns { Promise<BundleStatsMap> } Promise对象。返回指定时间段内应用使用时长的具体信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -839,7 +810,7 @@ declare namespace usageStatistics {
   function queryBundleStatsInfos(begin: long, end: long): Promise<BundleStatsMap>;
 
   /**
-   * @typedef { Record<string, Array<BundleStatsInfo>> }
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 15 dynamic
@@ -848,23 +819,19 @@ declare namespace usageStatistics {
   type AppStatsMap = Record<string, Array<BundleStatsInfo>>;
 
   /**
-   * Queries usage information about each application within a specified period.
-   * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
+   * 通过指定起始和结束时间，查询应用使用时长的具体信息（包含分身应用），统计的最小颗粒度是天。使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<AppStatsMap> } the promise returned by queryAppStatsInfos.
-   * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @returns { Promise<AppStatsMap> } Promise对象。返回指定时间段内应用使用的具体信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -877,19 +844,18 @@ declare namespace usageStatistics {
   function queryAppStatsInfos(begin: long, end: long): Promise<AppStatsMap>;
 
   /**
-   * Queries the last usage timestamp by bundleName and app index.
+   * 通过指定bundleName和应用的index，查询应用使用具体信息，统计的最小颗粒度是天，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { appInfo } bundle name and app index info for each application.
-   * @returns { Promise<AppStatsMap> } the promise returned by queryLastUseTime.
-   * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
+   * @param { Record<string, Array<long>> } appInfo - 参数为map结构，key是bundleName，value是查询应用的index（可以有多个，通过Array传入）。
+   * @returns { Promise<AppStatsMap> } Promise对象。返回指定bundleName和index应用使用的具体信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -902,9 +868,8 @@ declare namespace usageStatistics {
   function queryLastUseTime(appInfo: Record<string, Array<long>>): Promise<AppStatsMap>;
 
   /**
-   * Declares interval type.
+   * 应用使用时长的查询类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -912,7 +877,7 @@ declare namespace usageStatistics {
    */
   export enum IntervalType {
     /**
-     * Indicates the interval type that will determine the optimal interval based on the start and end time.
+     * 表示系统自行判断最合适的查询类型（天、周、月、年）去查询指定时间段间隔的应用使用时长信息。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -922,7 +887,7 @@ declare namespace usageStatistics {
     BY_OPTIMIZED = 0,
 
     /**
-     * Indicates the daily interval.
+     * 表示系统按照天去查询指定时间段间隔的应用使用时长信息。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -932,7 +897,7 @@ declare namespace usageStatistics {
     BY_DAILY = 1,
 
     /**
-     * Indicates the weekly interval.
+     * 表示系统按照周去查询指定时间段间隔的应用使用时长信息。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -942,7 +907,7 @@ declare namespace usageStatistics {
     BY_WEEKLY = 2,
 
     /**
-     * Indicates the monthly interval.
+     * 表示系统按照月去查询指定时间段间隔的应用使用时长信息。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -952,7 +917,7 @@ declare namespace usageStatistics {
     BY_MONTHLY = 3,
 
     /**
-     * Indicates the annually interval.
+     * 表示系统按照年去查询指定时间段间隔的应用使用时长信息。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
@@ -963,25 +928,21 @@ declare namespace usageStatistics {
   }
 
   /**
-   * Queries usage information about each bundle within a specified period at a specified interval.
+   * 通过指定时间段间隔（天、周、月、年），查询应用使用时长的统计信息，使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
-   * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-   * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - the callback of queryBundleStatsInfoByInterval.
-   * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
+   * @param { IntervalType } byInterval - 查询类型。
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为指定时间段间隔内，应用使用时长的统计信息；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -999,25 +960,20 @@ declare namespace usageStatistics {
   ): void;
 
   /**
-   * Queries usage information about each bundle within a specified period at a specified interval.
+   * 通过指定时间段间隔（天、周、月、年），查询应用使用时长的统计信息，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
-   * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-   * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<Array<BundleStatsInfo>> } the promise returned by queryBundleStatsInfoByInterval.
-   * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
+   * @param { IntervalType } byInterval - 查询类型。
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @returns { Promise<Array<BundleStatsInfo>> } Promise对象。返回指定时间段间隔内，应用使用时长的统计信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1034,23 +990,21 @@ declare namespace usageStatistics {
   ): Promise<Array<BundleStatsInfo>>;
 
   /**
-   * Queries state data of all bundles within a specified period identified by the start and end time.
+   * 通过指定起始和结束时间，查询所有应用的事件集合，使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<BundleEvents>> } callback - the promise returned by queryBundleEvents.
-   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @param { AsyncCallback<Array<BundleEvents>> } callback - 回调方法。
+   *     当查询成功，err为undefined，data为起始和结束时间段内，所有应用的事件集合；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1063,23 +1017,20 @@ declare namespace usageStatistics {
   function queryBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
   /**
-   * Queries state data of all bundles within a specified period identified by the start and end time.
+   * 通过指定起始和结束时间，查询所有应用的事件集合，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
-   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @returns { Promise<Array<BundleEvents>> } Promise对象。返回起始和结束时间段内，所有应用的事件集合。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1092,50 +1043,46 @@ declare namespace usageStatistics {
   function queryBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
     /**
-   * Queries state data of all bundles within a specified period identified by the start and end time.
-   *
-   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
-   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
-   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10000007 - Failed to get the system time.
-   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-   * @systemapi Hide this for inner system use.
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
+     * 通过指定起始时间、结束时间及最大返回条数，查询指定时间段内所有应用的事件集合。若条数大于maxNum，则按事件发生时间降序排列，返回前maxNum条，否则返回所有数据。使用Promise异步回调。
+     *
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @param { long } begin - 起始时间。<br/>单位：ms
+     * @param { long } end - 结束时间。<br/>单位：ms
+     * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]。
+     * @returns { Promise<Array<BundleEvents>> } Promise对象，返回起始和结束时间段内，所有应用的事件集合。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not System App.
+     * @throws { BusinessError } 10000001 - Memory operation failed.
+     * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+     *     <br> 2. Failed to apply for memory.
+     * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+     * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+     * @throws { BusinessError } 10000006 - Failed to get the application information.
+     * @throws { BusinessError } 10000007 - Failed to get the system time.
+     * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left
+     *     unspecified;
+     *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     function queryBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
-   * Queries state data of the current bundle within a specified period.
+   * 通过指定起始和结束时间，查询当前应用的事件集合，使用Callback异步回调。
    *
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
-   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @param { AsyncCallback<Array<BundleEvents>> } callback - 回调方法。
+   *     当查询成功，err为undefined，data为指定起始和结束时间段内，当前应用的事件集合；否则为错误对象。
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1148,21 +1095,18 @@ declare namespace usageStatistics {
   function queryCurrentBundleEvents(begin: long, end: long, callback: AsyncCallback<Array<BundleEvents>>): void;
 
   /**
-   * Queries state data of the current bundle within a specified period.
+   * 通过指定起始和结束时间段内，查询当前应用的事件集合，使用Promise异步回调。
    *
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
-   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @returns { Promise<Array<BundleEvents>> } Promise对象。返回指定起始和结束时间段内，当前应用的事件集合。
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1175,47 +1119,45 @@ declare namespace usageStatistics {
   function queryCurrentBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
    /**
-   * Queries state data of the current bundle within a specified period.
-   *
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
-   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
-   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10000007 - Failed to get the system time.
-   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-   * @systemapi Hide this for inner system use.
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
+    * 通过指定起始时间、结束时间及最大返回条数，查询指定时间段内当前应用的事件集合。若条数大于maxNum，则按事件发生时间降序排列，返回前maxNum条，否则返回所有数据。使用Promise异步回调。
+    *
+    * @param { long } begin - 起始时间。<br/>单位：ms
+    * @param { long } end - 结束时间。<br/>单位：ms
+    * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]
+    * @returns { Promise<Array<BundleEvents>> } Promise对象，返回指定起始和结束时间段内，当前应用的事件集合。
+    * @throws { BusinessError } 202 - Not System App.
+    * @throws { BusinessError } 10000001 - Memory operation failed.
+    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+    *     <br> 2. Failed to apply for memory.
+    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+    * @throws { BusinessError } 10000006 - Failed to get the application information.
+    * @throws { BusinessError } 10000007 - Failed to get the system time.
+    * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified
+    *     ;
+    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+    * @systemapi Hide this for inner system use.
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
    function queryCurrentBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
-   * Queries recently module usage records with maxNum.
+   * 根据设置的maxNum，查询FA模型下各应用不用Hap包的使用记录。若Hap包中存在FA卡片，使用信息中也包含卡片信息。使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   * @param { int } maxNum - 使用记录的条数，取值范围为[1，1000]。
+   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - 回调方法。
+   *     当查询成功，err为undefined，data为FA模型下各应用不用Hap包的使用记录（不超过maxNum条）；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1228,20 +1170,19 @@ declare namespace usageStatistics {
   function queryModuleUsageRecords(maxNum: int, callback: AsyncCallback<Array<HapModuleInfo>>): void;
 
   /**
-   * Queries recently module usage records with maxNum.
+   * 根据设置的maxNum，查询FA模型下各应用不用Hap包的使用记录。若Hap包中存在FA卡片，使用信息中也包含卡片信息。使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-   * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   * @param { int } maxNum - 使用记录的条数，取值范围为[1，1000]。
+   * @returns { Promise<Array<HapModuleInfo>> } Promise对象，返回不超过maxNum条，FA模型下各应用不用Hap包的使用记录。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1254,19 +1195,19 @@ declare namespace usageStatistics {
   function queryModuleUsageRecords(maxNum: int): Promise<Array<HapModuleInfo>>;
 
   /**
-   * Queries recently module usage records.
+   * 查询FA模型下各应用不用Hap包的使用记录（不超过1000条）。若Hap包中存在FA卡片，使用信息中也包含卡片信息。使用CallBack异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为FA模型下各应用不用Hap包的使用记录（不超过1000条）；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1279,19 +1220,20 @@ declare namespace usageStatistics {
   function queryModuleUsageRecords(callback: AsyncCallback<Array<HapModuleInfo>>): void;
 
   /**
-   * Queries recently module usage records.
+   * 查询FA模型下各应用不用Hap包的使用记录（不超过1000条）。若Hap包中存在FA卡片，使用信息中也包含卡片信息。使用Promise异步回调。
+   * 
+   * 使用Promise形式返回不超过1000条FA使用记录，FA使用记录由近及远排序。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   * @returns { Promise<Array<HapModuleInfo>> } Promise对象。返回FA模型下各应用不用Hap包的使用记录（不超过1000条）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1304,9 +1246,8 @@ declare namespace usageStatistics {
   function queryModuleUsageRecords(): Promise<Array<HapModuleInfo>>;
 
   /**
-   * Declares group type.
+   * 应用分组的设置类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -1314,7 +1255,7 @@ declare namespace usageStatistics {
    */
   export enum GroupType {
     /**
-     * Indicates the alive group.
+     * 活跃分组。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
@@ -1324,7 +1265,7 @@ declare namespace usageStatistics {
     ALIVE_GROUP = 10,
 
     /**
-     * Indicates the daily group.
+     * 经常使用，但当前并未在活跃态。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
@@ -1334,7 +1275,7 @@ declare namespace usageStatistics {
     DAILY_GROUP = 20,
 
     /**
-     * Indicates the fixed group.
+     * 常用分组，定期使用，但不是每天使用。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
@@ -1344,7 +1285,7 @@ declare namespace usageStatistics {
     FIXED_GROUP = 30,
 
     /**
-     * Indicates the rare group.
+     * 极少使用分组，不经常使用。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
@@ -1354,7 +1295,7 @@ declare namespace usageStatistics {
     RARE_GROUP = 40,
 
     /**
-     * Indicates the limit group.
+     * 受限使用分组。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
@@ -1364,7 +1305,7 @@ declare namespace usageStatistics {
     LIMITED_GROUP = 50,
 
     /**
-     * Indicates the never group.
+     * 从未使用分组，安装但是从未运行过。
      *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
@@ -1375,20 +1316,21 @@ declare namespace usageStatistics {
   }
 
   /**
-   * Set app group by bundleName.
+   * 将指定bundleName应用的分组设置为newGroup，仅支持当前应用为其他应用设置，使用CallBack异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
-   * @param { GroupType } newGroup - the group of the application whose name is bundleName.
-   * @param { AsyncCallback<void> } callback - the callback of setAppGroup.
+   * @param { string } bundleName - 应用的bundleName。
+   * @param { GroupType } newGroup - 应用分组类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。
+   *     当设置成功，err为undefined；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1401,20 +1343,20 @@ declare namespace usageStatistics {
   function setAppGroup(bundleName: string, newGroup: GroupType, callback: AsyncCallback<void>): void;
 
   /**
-   * Set app group by bundleName.
+   * 将指定bundleName应用的分组设置为newGroup，仅支持当前应用为其他应用设置，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { string } bundleName - name of the application.
-   * @param { GroupType } newGroup - the group of the application whose name is bundleName.
-   * @returns { Promise<void> } the promise returned by setAppGroup.
+   * @param { string } bundleName - 应用的bundleName。
+   * @param { GroupType } newGroup - 应用分组类型。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1427,20 +1369,21 @@ declare namespace usageStatistics {
   function setAppGroup(bundleName: string, newGroup: GroupType): Promise<void>;
 
   /**
-   * Register appGroup change callback to service.
+   * 应用注册分组变化监听，即用户名下的某个应用分组发生变化时，向所有已注册分组变化监听的应用返回[AppGroupCallbackInfo]{@link usageStatistics.AppGroupCallbackInfo}信息。
+   * 使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-   * <p> callback of AppGroupCallbackInfo when the group of app changed.</p>
-   * @param { AsyncCallback<void> } callback - the callback of registerAppGroupCallBack.
+   * @param { Callback<AppGroupCallbackInfo> } groupCallback - 返回的应用分组变化信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。
+   *     当注册监听成功，err为undefined；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1452,20 +1395,20 @@ declare namespace usageStatistics {
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>, callback: AsyncCallback<void>): void;
 
   /**
-   * Register appGroup change callback to service.
+   * 注册应用分组变化监听，即用户名下的某个应用分组发生变化时，向所有已注册分组变化监听的应用返回[AppGroupCallbackInfo]{@link usageStatistics.AppGroupCallbackInfo}信息。
+   * 使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-   * <p> callback of AppGroupCallbackInfo when the group of app changed.</p>
-   * @returns { Promise<void> } the promise returned by registerAppGroupCallBack.
+   * @param { Callback<AppGroupCallbackInfo> } groupCallback - 返回的应用分组变化信息。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1477,18 +1420,19 @@ declare namespace usageStatistics {
   function registerAppGroupCallBack(groupCallback: Callback<AppGroupCallbackInfo>): Promise<void>;
 
   /**
-   * Unregister appGroup change callback from service.
+   * 应用解除分组变化监听。使用callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { AsyncCallback<void> } callback - the callback of unregisterAppGroupCallBack.
+   * @param { AsyncCallback<void> } callback - 回调函数。
+   *     当解除监听成功，err为undefined；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1500,18 +1444,18 @@ declare namespace usageStatistics {
   function unregisterAppGroupCallBack(callback: AsyncCallback<void>): void;
 
   /**
-   * Unregister appGroup change callback from service.
+   * 应用解除分组变化监听。使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @returns { Promise<void> } the promise returned by unregisterAppGroupCallBack.
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1523,23 +1467,21 @@ declare namespace usageStatistics {
   function unregisterAppGroupCallBack(): Promise<void>;
 
   /**
-   * Queries device event states data within a specified period identified by the start and end time.
+   * 通过指定起始和结束时间，查询系统事件（休眠、唤醒、解锁、锁屏）的统计信息，使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryDeviceEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为起始和结束时间段内，系统事件（休眠、唤醒、解锁、锁屏）的统计信息；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1552,23 +1494,20 @@ declare namespace usageStatistics {
   function queryDeviceEventStats(begin: long, end: long, callback: AsyncCallback<Array<DeviceEventStats>>): void;
 
   /**
-   * Queries device event states data within a specified period identified by the start and end time.
+   * 通过指定起始和结束时间，查询系统事件（休眠、唤醒、解锁、锁屏）的统计信息，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryDeviceEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @returns { Promise<Array<DeviceEventStats>> } Promise对象。返回起始和结束时间段内，系统事件（休眠、唤醒、解锁、锁屏）的统计信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1581,23 +1520,21 @@ declare namespace usageStatistics {
   function queryDeviceEventStats(begin: long, end: long): Promise<Array<DeviceEventStats>>;
 
   /**
-   * Queries app notification number within a specified period identified by the start and end time.
+   * 通过指定起始和结束时间，查询所有应用的通知次数，使用Callback异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryNotificationEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - 回调函数。
+   *     当查询成功，err为undefined，data为指定起始和结束时间段内，所有应用的通知次数；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1614,23 +1551,20 @@ declare namespace usageStatistics {
   ): void;
 
   /**
-   * Queries app notification number within a specified period identified by the start and end time.
+   * 通过指定起始和结束时间，查询所有应用的通知次数，使用Promise异步回调。
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryNotificationEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   * @param { long } begin - 起始时间，单位：ms。
+   * @param { long } end - 结束时间，单位：ms。
+   * @returns { Promise<Array<DeviceEventStats>> } Promise对象。返回指定起始和结束时间段内，所有应用的通知次数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
