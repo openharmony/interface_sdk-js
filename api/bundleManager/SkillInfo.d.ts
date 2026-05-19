@@ -25,7 +25,8 @@
  * @typedef SkillInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 export interface SkillInfo {
   /**
@@ -35,7 +36,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly bundleName: string;
 
@@ -46,7 +48,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly moduleName: string;
 
@@ -57,7 +60,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly skillName: string;
 
@@ -68,7 +72,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly skillType: SkillType;
 
@@ -79,7 +84,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly skillPath: string;
 
@@ -90,7 +96,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly abilityName: string;
 
@@ -101,7 +108,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly versionCode: long;
 
@@ -112,7 +120,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly description?: string;
 
@@ -123,7 +132,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly srcEntries?: Array<string>;
 
@@ -134,7 +144,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly permissions?: Array<string>;
 
@@ -145,7 +156,8 @@ export interface SkillInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   readonly requestPermissions?: Array<string>;
 }
@@ -156,7 +168,8 @@ export interface SkillInfo {
  * @enum { int }
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 export enum SkillType {
   /**
@@ -164,7 +177,8 @@ export enum SkillType {
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   APP_SKILL = 0,
   /**
@@ -172,7 +186,8 @@ export enum SkillType {
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   INDEPENDENT_SKILL = 1,
 }

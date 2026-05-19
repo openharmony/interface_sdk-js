@@ -26,7 +26,8 @@ import { SkillInfo as _SkillInfo, SkillType as _SkillType } from './bundleManage
  * @namespace skillManager
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 declare namespace skillManager {
   /**
@@ -36,7 +37,8 @@ declare namespace skillManager {
    * @enum { int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export enum SkillInfoFlag {
     /**
@@ -44,7 +46,8 @@ declare namespace skillManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     GET_SKILL_INFO_DEFAULT = 0x00000000,
     /**
@@ -52,7 +55,8 @@ declare namespace skillManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     GET_SKILL_INFO_WITH_DESCRIPTION = 0x00000001,
     /**
@@ -60,7 +64,8 @@ declare namespace skillManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     GET_SKILL_INFO_WITH_SRC_ENTRIES = 0x00000002,
     /**
@@ -68,7 +73,8 @@ declare namespace skillManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     GET_SKILL_INFO_WITH_PERMISSIONS = 0x00000004,
     /**
@@ -76,7 +82,8 @@ declare namespace skillManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @atomicservice
+     * @since 26.0.0 dynamic
      */
     GET_SKILL_INFO_WITH_REQUEST_PERMISSIONS = 0x00000008,
   }
@@ -93,7 +100,8 @@ declare namespace skillManager {
    * @throws { BusinessError } 17700093 - The specified skillName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   function getSkillInfoForSelf(moduleName: string, skillName: string, flags: int): Promise<SkillInfo>;
 
@@ -105,7 +113,8 @@ declare namespace skillManager {
    * @returns { Promise<Array<SkillInfo>> } Returns the list of SkillInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   function getSkillInfosForSelf(flags: int): Promise<Array<SkillInfo>>;
 
@@ -129,7 +138,8 @@ declare namespace skillManager {
    * @throws { BusinessError } 17700093 - The specified skillName is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   function getSkillInfo(bundleName: string, moduleName: string, skillName: string,
     flags: int, userId?: int): Promise<SkillInfo>;
@@ -150,7 +160,8 @@ declare namespace skillManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   function getSkillInfos(bundleName: string, flags: int, userId?: int): Promise<Array<SkillInfo>>;
 
@@ -168,7 +179,8 @@ declare namespace skillManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   function getAllSkillInfos(flags: int, userId?: int): Promise<Array<SkillInfo>>;
 
@@ -178,7 +190,8 @@ declare namespace skillManager {
    * @typedef { _SkillInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export type SkillInfo = _SkillInfo;
 
@@ -188,7 +201,8 @@ declare namespace skillManager {
    * @typedef { _SkillType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export type SkillType = _SkillType;
 }
