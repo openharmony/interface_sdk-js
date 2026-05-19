@@ -215,7 +215,7 @@ declare namespace workScheduler {
 
   /**
    * The last condition met when the current task is triggered.
-   * 
+   *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
@@ -225,7 +225,7 @@ declare namespace workScheduler {
 
   /**
    * Whether the requested task is executed immediately.
-   * 
+   *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
