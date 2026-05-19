@@ -5066,6 +5066,48 @@ declare namespace window {
   }
 
   /**
+   * Optional configuration for startMovingWithOptions.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface StartMovingOptions {
+    /**
+     * Indicates whether the window needs to be focused when moving starts.
+     *
+     * @default true
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needFocused?: boolean;
+
+    /**
+     * The avoidance rect of window during drag-moving.
+     * If unspecified, the system defaults to the following avoidance behavior:
+     * Free window state:
+     * 1.Main windows, subWindows and dialog windows can be dragged beyond the screen bounds
+     * and will spring back on release.
+     * 2.Other windows can be dragged beyond the screen bounds without springing back.
+     * Non-free window state:
+     * 1.System windows can be dragged beyond the main window bounds and the screen bounds without springing back.
+     * 2.When the main window is fullscreen,
+     * subWindows and dialog windows can be dragged beyond it without springing back.
+     * 3.When the main window is not fullscreen,
+     * subWindows and dialog windows can be dragged beyond it and will spring back on release.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    avoidRect?: Rect;
+  }
+
+  /**
    * Defines the type of system bar that can be displayed or hidden.
    *
    * @unionmember { 'status' } Status bar.
@@ -12134,6 +12176,32 @@ declare namespace window {
      * @since 23 static
      */
     startMoving(): Promise<void>;
+
+    /**
+     * Starts moving this window.
+     * The window moves along with the cursor only when this API is called in the callback function of onTouch,
+     * where the event type is TouchType.Down.
+     *
+     * @param { StartMovingOptions } [startMovingOptions] - The move configuration during drag-moving.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300001 - Repeated operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     1. The window is not created or destroyed.
+     *     2. Internal task error.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     Invalid window type, main windows are not supported in non-free window mode.
+     * @throws { BusinessError } 1300016 - Parameter error.
+     *     Possible cause: Invalid parameter range.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    startMovingWithOptions(startMovingOptions?: StartMovingOptions): Promise<void>;
 
     /**
      * Specifies the cursor position within the window and moves the window. This API uses a promise to return the
