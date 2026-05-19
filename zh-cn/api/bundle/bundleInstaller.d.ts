@@ -15,13 +15,6 @@
 
 /**
  * The module provides APIs for you to install, uninstall, and recover bundles on devices.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use 
- * > [@ohos.bundle.installer.install]{@link ./../@ohos.bundle.installer:installer} instead.
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @file
  * @kit AbilityKit
@@ -31,18 +24,13 @@ import { AsyncCallback } from './../@ohos.base';
 import bundle from './../@ohos.bundle';
 
 /**
- * > **说明：**
- * >
- * > 从API version 7开始支持，从API version 9开始废弃，建议使用[InstallParam]{@link ./../@ohos.bundle.installer:installer.InstallParam}替
- * > 代。
- * 
  * 安装、恢复或卸载时需要指定的参数。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ./../@ohos.bundle.installer:installer.InstallParam
+ * @useinstead @ohos.bundle.installer:installer.InstallParam
  */
 export interface InstallParam {
   /**
@@ -53,7 +41,7 @@ export interface InstallParam {
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer.InstallParam#userId
+   * @useinstead @ohos.bundle.installer:installer.InstallParam.userId
    */
   userId: number;
 
@@ -65,7 +53,7 @@ export interface InstallParam {
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer.InstallParam#installFlag
+   * @useinstead @ohos.bundle.installer:installer.InstallParam.installFlag
    */
   installFlag: number;
 
@@ -77,7 +65,7 @@ export interface InstallParam {
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer.InstallParam#isKeepData
+   * @useinstead @ohos.bundle.installer:installer.InstallParam.isKeepData
    */
   isKeepData: boolean;
 }
@@ -92,7 +80,7 @@ export interface InstallParam {
  */
 export interface InstallStatus {
   /**
-   * 表示安装或卸载错误状态码。取值范围：枚举值[InstallErrorCode]{@link ./../@ohos.bundle:bundle.InstallErrorCode}。
+   * 表示安装或卸载错误状态码。取值范围：枚举值[InstallErrorCode]{@link @ohos.bundle:bundle.InstallErrorCode}。
    *
    * @default Indicates the install or uninstall error code
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -126,65 +114,59 @@ export interface InstallStatus {
 
 /**
  * 本模块提供设备上安装、升级和卸载应用的能力。
- * 
- * > **说明：**
- * >
- * > 从API version 9开始，该模块不再维护，建议使用[@ohos.bundle.installer.install]{@link ./../@ohos.bundle.installer:installer}替代。
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.installer#BundleInstaller
+ * @useinstead @ohos.bundle.installer:installer.BundleInstaller
  */
 export interface BundleInstaller {
-    /**
-     * 在应用中安装hap，支持多hap安装。使用callback异步回调。
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { Array<string> } bundleFilePaths - 指示存储HAP的沙箱路径。
-     * @param { InstallParam } param - 指定安装所需的其他参数。
-     * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
-     *   启动作为入参的回调函数，返回安装状态信息。
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @systemapi Hide this for inner system use
-     * @since 7 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.bundle.installer.BundleInstaller#install
-     */
-    function install(bundleFilePaths: Array<string>, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+  /**
+   * 在应用中安装hap，支持多hap安装。使用callback异步回调。
+   *
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { Array<string> } bundleFilePaths - 指示存储HAP的沙箱路径。
+   * @param { InstallParam } param - 指定安装所需的其他参数。
+   * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
+   *   启动作为入参的回调函数，返回安装状态信息。
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7 dynamiconly
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer:installer.BundleInstaller.install
+   */
+  install(bundleFilePaths: Array<string>, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 
-    /**
-     * 卸载应用程序，使用callback异步回调，返回安装状态信息。
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { string } bundleName - 应用Bundle名称。
-     * @param { InstallParam } param - 指定卸载所需的其他参数。
-     * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
-     *   启动作为入参的回调函数，返回安装状态信息。
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @systemapi Hide this for inner system use
-     * @since 7 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.bundle.installer.BundleInstaller#uninstall
-     */
-    function uninstall(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+  /**
+   * 卸载应用程序，使用callback异步回调，返回安装状态信息。
+   *
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName - 应用Bundle名称。
+   * @param { InstallParam } param - 指定卸载所需的其他参数。
+   * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
+   *   启动作为入参的回调函数，返回安装状态信息。
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7 dynamiconly
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer:installer.BundleInstaller.uninstall
+   */
+  uninstall(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 
-    /**
-     * 恢复一个应用程序，使用callback异步回调。当预置应用被卸载后，可以通过此接口进行恢复。
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { string } bundleName - 应用Bundle名称。
-     * @param { InstallParam } param - 指定应用恢复所需的其他参数。
-     * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
-     *   启动作为入参的回调函数，返回安装状态信息。
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @systemapi Hide this for inner system use
-     * @since 8 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.bundle.installer.BundleInstaller#recover
-     */
-    function recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+  /**
+   * 恢复一个应用程序，使用callback异步回调。当预置应用被卸载后，可以通过此接口进行恢复。
+   *
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName - 应用Bundle名称。
+   * @param { InstallParam } param - 指定应用恢复所需的其他参数。
+   * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
+   *   启动作为入参的回调函数，返回安装状态信息。
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8 dynamiconly
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer:installer.BundleInstaller.recover
+   */
+  recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 }

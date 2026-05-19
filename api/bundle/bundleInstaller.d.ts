@@ -15,13 +15,6 @@
 
 /**
  * The module provides APIs for you to install, uninstall, and recover bundles on devices.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use 
- * > [@ohos.bundle.installer.install]{@link ./../@ohos.bundle.installer:installer} instead.
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @file
  * @kit AbilityKit
@@ -31,18 +24,13 @@ import { AsyncCallback } from './../@ohos.base';
 import bundle from './../@ohos.bundle';
 
 /**
- * > **NOTE**
- * >
- * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
- * > [InstallParam]{@link ./../@ohos.bundle.installer:installer.InstallParam} instead.
- *
  * Describes the parameters required for bundle installation, recovery, or uninstall.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ./../@ohos.bundle.installer:installer.InstallParam
+ * @useinstead @ohos.bundle.installer:installer.InstallParam
  */
 export interface InstallParam {
   /**
@@ -53,7 +41,7 @@ export interface InstallParam {
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer.InstallParam#userId
+   * @useinstead @ohos.bundle.installer:installer.InstallParam.userId
    */
   userId: number;
 
@@ -71,7 +59,7 @@ export interface InstallParam {
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer.InstallParam#installFlag
+   * @useinstead @ohos.bundle.installer:installer.InstallParam.installFlag
    */
   installFlag: number;
 
@@ -84,7 +72,7 @@ export interface InstallParam {
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer.InstallParam#isKeepData
+   * @useinstead @ohos.bundle.installer:installer.InstallParam.isKeepData
    */
   isKeepData: boolean;
 }
@@ -100,7 +88,7 @@ export interface InstallParam {
 export interface InstallStatus {
   /**
    * Installation or uninstall error code. The value must be defined in
-   * [InstallErrorCode]{@link ./../@ohos.bundle:bundle.InstallErrorCode}.
+   * [InstallErrorCode]{@link @ohos.bundle:bundle.InstallErrorCode}.
    *
    * @default Indicates the install or uninstall error code
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -166,66 +154,61 @@ export interface InstallStatus {
 /**
  * The module provides APIs for you to install, uninstall, and recover bundles on devices.
  *
- * > **NOTE**
- * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [@ohos.bundle.installer.install]{@link ./../@ohos.bundle.installer:installer} instead.
- * >
- * > The APIs provided by this module are system APIs.
- *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.installer#BundleInstaller
+ * @useinstead @ohos.bundle.installer:installer.BundleInstaller
  */
 export interface BundleInstaller {
+  /**
+   * Install an application in a HAP.
+   *
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { Array<string> } bundleFilePaths - Sandbox path where the HAP files of the bundle are stored.
+   * @param { InstallParam } param - Parameters required for bundle installation.
+   * @param { AsyncCallback<InstallStatus> } callback - Callback used to return the result. If
+   *     install is successful, **err** is **undefined**, and return the installation status.
+   *     Otherwise, **err** is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7 dynamiconly
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer:installer.BundleInstaller.install
+   */
+  install(bundleFilePaths: Array<string>, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 
-    /**
-     * Install an application in a HAP.
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { Array<string> } bundleFilePaths - Sandbox path where the HAP files of the bundle are stored.
-     * @param { InstallParam } param - Parameters required for bundle installation.
-     * @param { AsyncCallback<InstallStatus> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
-     *      return the installation status.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @systemapi Hide this for inner system use
-     * @since 7 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.bundle.installer.BundleInstaller#install
-     */
-    function install(bundleFilePaths: Array<string>, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+  /**
+   * Uninstall an application.
+   *
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName - Bundle name.
+   * @param { InstallParam } param - Parameters required for bundle uninstall.
+   * @param { AsyncCallback<InstallStatus> } callback - Callback used to return the result. If
+   *     uninstall is successful, **err** is **undefined**, and return the installation status.
+   *     Otherwise, **err** is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 7 dynamiconly
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer:installer.BundleInstaller.uninstall
+   */
+  uninstall(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 
-    /**
-     * Uninstall an application.
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { string } bundleName - Bundle name.
-     * @param { InstallParam } param - Parameters required for bundle uninstall.
-     * @param { AsyncCallback<InstallStatus> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
-     *      return the installation status.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @systemapi Hide this for inner system use
-     * @since 7 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.bundle.installer.BundleInstaller#uninstall
-     */
-    function uninstall(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
-
-    /**
-     * recover an application.
-     *
-     * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { string } bundleName - Bundle name.
-     * @param { InstallParam } param - Parameters required for bundle recovery.
-     * @param { AsyncCallback<InstallStatus> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
-     *      return the installation status.
-     * @syscap SystemCapability.BundleManager.BundleFramework
-     * @systemapi Hide this for inner system use
-     * @since 8 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.bundle.installer.BundleInstaller#recover
-     */
-    function recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
+  /**
+   * recover an application.
+   *
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName - Bundle name.
+   * @param { InstallParam } param - Parameters required for bundle recovery.
+   * @param { AsyncCallback<InstallStatus> } callback - Callback used to return the result. If
+   *     recover is successful, **err** is **undefined**, and return the installation status.
+   *     Otherwise, **err** is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi Hide this for inner system use
+   * @since 8 dynamiconly
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.installer:installer.BundleInstaller.recover
+   */
+  recover(bundleName: string, param: InstallParam, callback: AsyncCallback<InstallStatus>): void;
 }
