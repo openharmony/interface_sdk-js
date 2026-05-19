@@ -8756,6 +8756,35 @@ declare namespace photoAccessHelper {
     modifyHiddenAlbumDefaultCoverOrder(coverOrderInfos: DefaultCoverOrderInfo[],
     disableModification: boolean,
     isAsyncRefreshAlbum: boolean): Promise<void>;
+
+    /**
+     * Batch create assets,
+     * which also support to choose whether specifying an album and whether generating thumbnails in real time.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { CreationSetting[] } creationSettings - List of the photo asset creation settings.
+     * @param { boolean } isRealTimeThumb - Option indicating whether to generate thumbnails in real time.
+     * @param { string } [albumUri] - Target album when creating assets.
+     * @returns { Promise<string[]> } - Returns the asset uris, which is null when creation failed.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - Scenario-specific parameters are incorrect. Possible causes are as follows:
+     *     <br>1. The input parameter creationSettings is null or undefined.
+     *     <br>2. The array length of creationSettings is bigger than 500.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createAssetsWithAlbum(
+      creationSettings: CreationSetting[],
+      isRealTimeThumb: boolean,
+      albumUri?: string): Promise<string[]>;
   }
 
   /**
