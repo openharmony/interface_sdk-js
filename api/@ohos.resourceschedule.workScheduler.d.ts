@@ -214,6 +214,26 @@ declare namespace workScheduler {
   }
 
   /**
+   * The last condition met when the current task is triggered.
+   * 
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const WORK_SCHEDULER_CONDITION = 'WORK_SCHEDULER_CONDITION';
+
+  /**
+   * Whether the requested task is executed immediately.
+   * 
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const EXECUTE_IMMEDIATE = 'executeImmediate';
+
+  /**
    * Requests a deferred task. Upon successful request, the deferred task is added to the execution queue and will be 
    * executed by the system once the trigger conditions are met.
    *
