@@ -29,12 +29,6 @@ import { NotificationSlot } from './notification/notificationSlot';
  * created reminders are published, the timing and pop-up notification functions of your application will be taken over 
  * by the reminder agent in the background when your application is frozen or exits.
  * 
- * > **NOTE**
- * >
- * > This module is supported since API version 7 and deprecated since API version 9. You are advised to use 
- * > [@ohos.reminderAgentManager (Agent-powered Reminder)]{@link @ohos.reminderAgentManager:reminderAgentManager} 
- * > instead.
- *
  * @syscap SystemCapability.Notification.ReminderAgent
  * @since 7 dynamiconly
  * @deprecated since 9
@@ -45,20 +39,14 @@ declare namespace reminderAgent {
    * Publishes a reminder through the reminder agent. This API uses an asynchronous callback to return the result. It 
    * can be called only when notification is enabled for the application through 
    * [Notification.requestEnableNotification]{@link @ohos.notification:notification.requestEnableNotification(callback: AsyncCallback<void>)}
-   * .
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.publishReminder]{@link @ohos.reminderAgentManager:reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)}
-   * > .
-   *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - Reminder to be published.
    * @param { AsyncCallback<number> } callback - Callback used to return the published reminder's ID.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.publishReminder
    */
   function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void;
 
@@ -66,20 +54,14 @@ declare namespace reminderAgent {
    * Publishes a reminder through the reminder agent. This API uses a promise to return the result. It can be called 
    * only when notification is enabled for the application through 
    * [Notification.requestEnableNotification]{@link @ohos.notification:notification.requestEnableNotification(callback: AsyncCallback<void>)}
-   * .
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.publishReminder]{@link @ohos.reminderAgentManager:reminderAgentManager.publishReminder(reminderReq: ReminderRequest)}
-   * > .
-   *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq Indicates the reminder instance to publish.
    * @returns { Promise<number> } reminder id.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.publishReminder
    */
   function publishReminder(reminderReq: ReminderRequest): Promise<number>;
 
@@ -87,34 +69,24 @@ declare namespace reminderAgent {
    * Cancels the reminder with the specified ID. This API uses an asynchronous callback to return the cancellation 
    * result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.cancelReminder]{@link @ohos.reminderAgentManager:reminderAgentManager.cancelReminder(reminderId: int, callback: AsyncCallback<void>)}
-   * > .
-   *
    * @param { number } reminderId - ID of the reminder.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.cancelReminder
    */
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
 
   /**
    * Cancels the reminder with the specified ID. This API uses a promise to return the cancellation result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.cancelReminder]{@link @ohos.reminderAgentManager:reminderAgentManager.cancelReminder(reminderId: int)}
-   * > .
-   *
    * @param { number } reminderId - ID of the reminder.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.cancelReminder
    */
   function cancelReminder(reminderId: number): Promise<void>;
 
@@ -122,17 +94,12 @@ declare namespace reminderAgent {
    * Obtains all valid (not yet expired) reminders set by the current application. This API uses an asynchronous 
    * callback to return the result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.getValidReminders]{@link @ohos.reminderAgentManager:reminderAgentManager.getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>)}
-   * > .
-   *
    * @param { AsyncCallback<Array<ReminderRequest>> } callback - Callback used to return an array of all valid reminders
    *     set by the current application.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.getValidReminders
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
 
@@ -140,17 +107,12 @@ declare namespace reminderAgent {
    * Obtains all valid (not yet expired) reminders set by the current application. This API uses a promise to return the
    * reminders.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.getValidReminders]{@link @ohos.reminderAgentManager:reminderAgentManager.getValidReminders()}
-   * > .
-   *
    * @returns { Promise<Array<ReminderRequest>> } Promise used to return an array of all valid reminders set by the
    *     current application.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.getValidReminders
    */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
@@ -158,100 +120,70 @@ declare namespace reminderAgent {
    * Cancels all reminders set by the current application. This API uses an asynchronous callback to return the 
    * cancellation result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.cancelAllReminders]{@link @ohos.reminderAgentManager:reminderAgentManager.cancelAllReminders(callback: AsyncCallback<void>)}
-   * > .
-   *
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.cancelAllReminders
    */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
   /**
    * Cancels all reminders set by the current application. This API uses a promise to return the cancellation result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.cancelAllReminders]{@link @ohos.reminderAgentManager:reminderAgentManager.cancelAllReminders()}
-   * > .
-   *
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.cancelAllReminders
    */
   function cancelAllReminders(): Promise<void>;
 
   /**
    * Adds a notification slot. This API uses an asynchronous callback to return the result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.addNotificationSlot]{@link @ohos.reminderAgentManager:reminderAgentManager.addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>)}
-   * > .
-   *
    * @param { NotificationSlot } slot - Notification slot, whose type can be set.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.addNotificationSlot
    */
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
    * Adds a notification slot. This API uses a promise to return the result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.addNotificationSlot]{@link @ohos.reminderAgentManager:reminderAgentManager.addNotificationSlot(slot: NotificationSlot)}
-   * > .
-   *
    * @param { NotificationSlot } slot - Notification slot, whose type can be set.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.addNotificationSlot
    */
   function addNotificationSlot(slot: NotificationSlot): Promise<void>;
 
   /**
    * Removes a notification slot of a specified type. This API uses an asynchronous callback to return the result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.removeNotificationSlot]{@link @ohos.reminderAgentManager:reminderAgentManager.removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>)}
-   * > .
-   *
    * @param { notification.SlotType } slotType - Type of the reminder notification slot to remove.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.removeNotificationSlot
    */
   function removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void;
 
   /**
    * Removes a notification slot of a specified type. This API uses a promise to return the result.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.removeNotificationSlot]{@link @ohos.reminderAgentManager:reminderAgentManager.removeNotificationSlot(slotType: notification.SlotType)}
-   * > .
-   *
    * @param { notification.SlotType } slotType - Type of the reminder notification slot to remove.
    * @returns { Promise<void> } Promise used to return the result.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead reminderAgentManager.removeNotificationSlot
    */
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
 
@@ -331,7 +263,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.ActionButtonType
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.ActionButton
    */
   interface ActionButton {
     /**
@@ -389,15 +321,10 @@ declare namespace reminderAgent {
    * Provides the information about the target package and ability to start automatically when the reminder is displayed
    * in full-screen mode. This API is reserved.
    * 
-   * > **NOTE**
-   * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use 
-   * > [reminderAgentManager.MaxScreenWantAgent]{@link @ohos.reminderAgentManager:reminderAgentManager.MaxScreenWantAgent}
-   * > .
-   *
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead null
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.MaxScreenWantAgent
    */
   interface MaxScreenWantAgent {
     /**
@@ -679,7 +606,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.year
+     * @useinstead reminderAgentManager.LocalDateTime.year
      */
     year: number;
 
@@ -689,7 +616,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.month
+     * @useinstead reminderAgentManager.LocalDateTime.month
      */
     month: number;
 
@@ -699,7 +626,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.day
+     * @useinstead reminderAgentManager.LocalDateTime.day
      */
     day: number;
 
@@ -709,7 +636,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.hour
+     * @useinstead reminderAgentManager.LocalDateTime.hour
      */
     hour: number;
 
@@ -719,7 +646,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.minute
+     * @useinstead reminderAgentManager.LocalDateTime.minute
      */
     minute: number;
 
@@ -729,7 +656,7 @@ declare namespace reminderAgent {
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead reminderAgentManager.ReminderRequestTimer.second
+     * @useinstead reminderAgentManager.LocalDateTime.second
      */
     second?: number;
   }

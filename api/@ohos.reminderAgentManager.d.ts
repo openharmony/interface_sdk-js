@@ -128,8 +128,7 @@ declare namespace reminderAgentManager {
    *
    * @param { int } reminderId - ID of the agent-powered reminder to be canceled.
    *     The reminder ID is returned when the
-   *     [publishReminder]{@link reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback:
-   *     AsyncCallback<int>)}
+   *     [publishReminder]{@link reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)}
    *     API is called
    *     <br>The value range is all integers.
    * @returns { Promise<void> } Promise that returns no value.
@@ -621,7 +620,6 @@ declare namespace reminderAgentManager {
    * The data provider needs to set the ID, read/write permissions, and basic information of the table to be shared 
    * under **proxyData** in the **module.json5** file. For details about the configuration method, see 
    * [Data Provider Application Development](docroot://database/share-data-by-silent-access-sys.md#data-provider-application-development)
-   * .
    *
    * @syscap SystemCapability.Notification.ReminderAgent
    * @systemapi Hide this for inner system use.
@@ -936,8 +934,7 @@ declare namespace reminderAgentManager {
 
     /**
      * Whether the reminder is automatically cleared. The default value is **true**. For details, see 
-     * [NotificationRequest.tapDismissed](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest.md#notificationrequest-1)
-     * .
+     * [NotificationRequest.tapDismissed]{@link ./notification/notificationRequest:NotificationRequest.tapDismissed}
      * 
      * - **true** (default): The reminder is automatically cleared after the notification or button is tapped.
      * - **false**: The reminder is retained after the notification or button is tapped.
@@ -952,8 +949,7 @@ declare namespace reminderAgentManager {
      * Time when the notification is automatically cleared.
      * 
      * The data format is timestamp, in milliseconds. For details, please refer to 
-     * [NotificationRequest.autoDeletedTime](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest.md#notificationrequest-1)
-     * .
+     * [NotificationRequest.autoDeletedTime]{@link ./notification/notificationRequest:NotificationRequest.autoDeletedTime}
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 10 dynamic
@@ -983,8 +979,7 @@ declare namespace reminderAgentManager {
     /**
      * Whether notifications are not displayed in all scenarios across devices. The default value is **false**. For
      * details, see
-     * [NotificationRequest.notDistributed](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest-sys.md#notificationrequest)
-     * .
+     * [NotificationRequest.notDistributed]{@link ./notification/notificationRequest:NotificationRequest.notDistributed}
      * - **true**: Notifications are displayed only on the local device.
      * - **false**: Notifications are displayed on all collaborative devices.
      *
@@ -998,8 +993,7 @@ declare namespace reminderAgentManager {
     /**
      * Whether notifications are forcibly displayed in all scenarios across devices. The default value is **false**. For
      * details, see
-     * [NotificationRequest.forceDistributed](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest-sys.md#notificationrequest)
-     * .
+     * [NotificationRequest.forceDistributed]{@link ./notification/notificationRequest:NotificationRequest.forceDistributed}
      * - **true**: Notifications are displayed on all collaboration devices.
      * - **false**: Notifications are displayed on the applications that are on the collaborative management list.
      *

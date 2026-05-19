@@ -532,8 +532,7 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - 应用的bundleName。
-   * @param { AsyncCallback<boolean> } callback - 回调函数。
-   *     当查询成功，err为undefined，data为若应用为常用应用，返回true；若指定应用不是常用应用或bundleName无效，则返回false；否则为错误对象。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示应用为常用应用；返回false表示指定应用不是常用应用或bundleName无效。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
@@ -1133,8 +1132,7 @@ declare namespace usageStatistics {
     * @throws { BusinessError } 10000004 - Failed to access the device usage service.
     * @throws { BusinessError } 10000006 - Failed to get the application information.
     * @throws { BusinessError } 10000007 - Failed to get the system time.
-    * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified
-    *     ;
+    * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
     *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
     * @systemapi Hide this for inner system use.

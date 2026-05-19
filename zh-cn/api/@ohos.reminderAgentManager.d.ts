@@ -829,8 +829,7 @@ declare namespace reminderAgentManager {
 
     /**
      * 通知是否自动清除，默认值为true，具体请参考
-     * [NotificationRequest.tapDismissed](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest.md#notificationrequest-1)
-     * 。
+     * [NotificationRequest.tapDismissed]{@link ./notification/notificationRequest:NotificationRequest.tapDismissed}
      * 
      * - true：点击通知消息或通知按钮后，自动删除当前通知。
      * - false：点击通知消息或通知按钮后，保留当前通知。
@@ -845,8 +844,7 @@ declare namespace reminderAgentManager {
      * 自动清除的时间。
      * 
      * 数据格式：时间戳，单位：ms，具体请参考
-     * [NotificationRequest.autoDeletedTime](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest.md#notificationrequest-1)
-     * 。
+     * [NotificationRequest.autoDeletedTime]{@link ./notification/notificationRequest:NotificationRequest.autoDeletedTime}
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 10 dynamic
@@ -873,26 +871,8 @@ declare namespace reminderAgentManager {
     customRingUri?: string;
 
     /**
-     * 通知是否强制进行全场景跨设备协同显示，默认为false。具体请参考
-     * [NotificationRequest.forceDistributed](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest-sys.md#notificationrequest)
-     * 。
-     * 
-     * - 设置为true时：通知将在所有协同设备上显示。
-     * - 设置为false时：通知将按照协同管控名单显示。
-     * 
-     * **系统接口：** 此接口为系统接口。
-     *
-     * @default false
-     * @syscap SystemCapability.Notification.ReminderAgent
-     * @systemapi
-     * @since 23 dynamic&static
-     */
-    forceDistributed?: boolean;
-
-    /**
      * 通知是否不进行全场景跨设备协同显示，默认为false。具体请参考
-     * [NotificationRequest.notDistributed](docroot://reference/apis-notification-kit/js-apis-inner-notification-notificationRequest-sys.md#notificationrequest)
-     * 。
+     * [NotificationRequest.notDistributed]{@link ./notification/notificationRequest:NotificationRequest.notDistributed}
      * 
      * - 设置为true时：通知仅在本设备上显示。
      * - 设置为false时：通知将在所有协同设备上显示。
@@ -905,6 +885,22 @@ declare namespace reminderAgentManager {
      * @since 23 dynamic&static
      */
     notDistributed?: boolean;
+
+    /**
+     * 通知是否强制进行全场景跨设备协同显示，默认为false。具体请参考
+     * [NotificationRequest.forceDistributed]{@link ./notification/notificationRequest:NotificationRequest.forceDistributed}
+     * 
+     * - 设置为true时：通知将在所有协同设备上显示。
+     * - 设置为false时：通知将按照协同管控名单显示。
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
+     * @default false
+     * @syscap SystemCapability.Notification.ReminderAgent
+     * @systemapi
+     * @since 23 dynamic&static
+     */
+    forceDistributed?: boolean;
   }
 
   /**
