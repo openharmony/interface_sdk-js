@@ -2485,20 +2485,143 @@ declare namespace geoLocationManager {
    * Obtains the information about the district where the current device is located.
    *
    * @permission ohos.permission.APPROXIMATELY_LOCATION
-   * @param { DistrictInfoRequest } request - Indicates the request parameters for obtaining the sidtrict information.
-   * @param { Promise<DistrictInfo> } - The promise returned by the function.
+   * @param { DistrictInfoRequest } request - Indicates request parameters for obtaining the district information.
+   * @returns { Promise<DistrictInfo> } Promise used to return ${DistrictInfo}.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   *     ${geoLocationManager.findMatchingWlan} due to limited device capabilities.
+   *     ${geoLocationManager.getCurrentDistrict} due to limited device capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
-   * @syscap SystemCapability.Location.Location.GeoCoder
+   * @syscap SystemCapability.Location.Location.Geocoder
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-    function getCurrentDistrict(request: DistrictInfoRequest): Promise<DistrictInfo>;
+  function getCurrentDistrict(request: DistrictInfoRequest): Promise<DistrictInfo>;
+
+  /**
+   * Indicates request parameters for obtaining the district information.
+   *
+   * @syscap SystemCapability.Location.Location.Geocoder
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface DistrictInfo {  
+    /**
+     * Indicates language used for the location description.
+     * zh indicates Chinese, and en indicates English.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    locale?: string;
+
+    /**
+     * Indicates country code.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    countryCode?: string;
+
+    /**
+     * Indicates country name.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    countryName?: string;
+
+    /**
+     * Indicates administrative region name.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    administrativeArea?: string;
+
+    /**
+     * Indicates sub-administrative region name.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    subAdministrativeArea?: string;
+
+    /**
+     * Indicates locality information.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    locality?: string;
+
+    /**
+     * Indicates sub-locality information.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    subLocality?: string;
+  } 
+
+  /**
+   * Indicates request parameters for obtaining the district information.
+   *
+   * @syscap SystemCapability.Location.Location.Geocoder
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export interface DistrictInfoRequest {  
+    /**
+     * Indicates the language area information.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    locale?: string;
+
+    /**
+     * Indicates the country information.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    country?: string;
+
+    /**
+     * Indicates the timeout period.
+     * The default value is 3000 ms.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Location.Location.Geocoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    timeoutMs?: int;
+  }
 
   /**
    * Configuration parameters for simulating reverse geocoding.
@@ -6807,126 +6930,6 @@ declare namespace geoLocationManager {
      * @since 23 static
      */
     type: CountryCodeType;
-  }
-
-  /**
-   * Indicates request parameters for obtaining the district information.
-   *
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @stagemodelonly
-   * @crossplatform
-   * @since 26.0.0 dynamic&static
-   */
-  export interface DistrictInfo {
-    /**
-     * Indicates language used for the location description.
-     * zh indicates Chinese, and en indicates English.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    locale?: string;
-
-    /**
-     * Indicates country code.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    countryCode?: string;
-
-    /**
-     * Indicates country name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    countryname?: string;
-
-    /**
-     * Indicates administrative region name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    administrativeArea?: string;
-
-    /**
-     * Indicates sub-administrative region name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    subAdministrativeArea?: string;
-
-    /**
-     * Indicates locality information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    locality?: string;
-
-    /**
-     * Indicates sub-locality information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    subLocality?: string;
-  }
-
-  /**
-   * Indicates request parameters for obtaining the district information.
-   *
-   * @syscap SystemCapability.Location.Location.Geocoder
-   * @stagemodelonly
-   * @crossplatform
-   * @since 26.0.0 dynamic&static
-   */
-  export interface DistrictInfoRequest {
-    /**
-     * Indicates language area information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    locale?: string;
-
-    /**
-     * Indicates the country information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Location.Location.Geocoder
-     * @stagemodelonly
-     * @crossplatform
-     * @since 26.0.0 dynamic&static
-     */
-    country?: string;
   }
 
   /**
