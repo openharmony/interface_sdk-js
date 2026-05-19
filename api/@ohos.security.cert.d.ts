@@ -2930,14 +2930,14 @@ declare namespace cert {
   }
 
   /**
-   * Parameters for validating a certificate.
+   * Parameters for certificate validation.
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  interface X509CertValidatorParams {
+  interface CertValidationParams {
     /**
      * Indicates the list of untrusted certificates. An intermediate certificate is used only to construct a certificate
      * chain and is not used as a trust anchor. Maximum quantity: 100.
@@ -3101,14 +3101,14 @@ declare namespace cert {
   }
 
   /**
-   * The result of certificate verification.
+   * Result of certificate validation.
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  interface VerifyCertResult {
+  interface CertValidationResult {
     /**
      * Indicates the authenticated certificate chain. Upon successful authentication, the complete certificate chain is
      * returned, from the endpoint certificate to the trust anchor. It can be used for subsequent certificate
@@ -3200,7 +3200,8 @@ declare namespace cert {
     validate(certChain: CertChainData): Promise<void>;
 
     /**
-     * Verifies the certificate, returns the certificate chain that is successfully built and verified.
+     * Validates a certificate by building and verifying its certificate chain. This API uses a promise to return the
+     * result.
      *
      * The certificate chain construction process complies with the following rules:
      * 1. Trusted anchor source: The trusted certificate list (trustedCerts) is always used as the trust anchor source.
@@ -3219,8 +3220,8 @@ declare namespace cert {
      * such as certificate signature verification and certificate revocation check.
      *
      * @param { X509Cert } cert - indicates the certificate to verify.
-     * @param { X509CertValidatorParams } params - indicates the certificate validator parameters.
-     * @returns { Promise<VerifyCertResult> } the promise returned by the function.
+     * @param { CertValidationParams } params - indicates the certificate validation parameters.
+     * @returns { Promise<CertValidationResult> } Promise used to return the result of certificate validation.
      * @throws { BusinessError } 19020001 - memory malloc failed.
      * @throws { BusinessError } 19020002 - runtime error. Possible causes:
      *     <br>1. Memory copy failed;
@@ -3255,7 +3256,7 @@ declare namespace cert {
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    validate(cert: X509Cert, params: X509CertValidatorParams): Promise<VerifyCertResult>;
+    validateCert(cert: X509Cert, params: CertValidationParams): Promise<CertValidationResult>;
 
     /**
      * Algorithm used by the X.509 certificate chain validator.

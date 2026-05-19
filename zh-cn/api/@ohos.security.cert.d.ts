@@ -2967,14 +2967,14 @@ declare namespace cert {
   }
 
   /**
-   * 表示证书验证参数。
+   * 证书验证的参数。
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  interface X509CertValidatorParams {
+  interface CertValidationParams {
     /**
      * 非信任证书列表。仅用于构建证书链的中间证书，不作为信任锚点。最大数量：100。
      *
@@ -3120,14 +3120,14 @@ declare namespace cert {
   }
 
   /**
-   * 表示证书验证结果。
+   * 证书验证的结果。
    *
    * @syscap SystemCapability.Security.Cert
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  interface VerifyCertResult {
+  interface CertValidationResult {
     /**
      * 验证后的证书链。验证成功时返回完整的证书链，从终端证书到信任锚点。可用于后续的证书信息查询或其他验证操作。
      *
@@ -3210,55 +3210,55 @@ declare namespace cert {
     validate(certChain: CertChainData): Promise<void>;
 
     /**
-     * 验证证书，返回构建成功并验证成功的证书链。
+     * 通过构建和验证证书链来验证证书。该接口使用Promise返回结果。
      *
      * 证书链构建过程遵循以下规则：
-     * 1. 信任锚来源：信任证书列表（trustedCerts）始终作为信任锚来源；系统预置证书仅在trustSystemCa设置为true时作为信任锚来源。
-     * 2. 颁发者查找顺序：优先从信任锚来源中查找颁发者，若找不到则回退到不信任证书列表（untrustedCerts）中查找。在线下载的中间CA证书属于不信任证书。
-     * 3. 信任锚锁定：一旦在信任锚来源中找到颁发者，后续查找过程中不会再回退到不信任证书中查找，即后续证书必须都来自信任锚来源。
-     * 4. 构建完成条件：
-     * 若partialChain为false（默认值），必须找到根证书（自签名证书）才表示构建完成。
-     * 若partialChain为true，首次在信任锚来源中找到颁发者即表示构建完成。
-     * 5. 后续校验：证书链构建完成后，再进行证书签名校验、证书吊销检查等其他校验操作。
+     * 1. 信任锚来源：始终以信证书列表（trustedCerts）作为信任锚源。仅当trustSystemCa设置为true时，才使用预配置证书作为信任锚源。
+     * 2. 颁发者搜索顺序：系统首先从信任锚来源中搜索颁发者，若未找到，则继续在非信任证书列表（untrustedCerts）中查找。在线下载的中间CA证书
+     * 属于非受信任证书。
+     * 3. 信任锚锁定：一旦在信任锚来源中找到颁发者，后续查找过程将不会再回至非信任证书，即后续证书必须来自信任锚来源。
+     * 4. 构建完成条件：若partialChain为false（默认值），则仅在找到根证书（自签名证书）时构建完成。若partialChain为true，则在首次在
+     * 信任锚来源中找到颁发者时构建完成。
+     * 5. 后续验证：证书链构建完成后，执行其他验证操作，如证书签名验证和证书吊销检查。
      *
      * @param { X509Cert } cert - 待验证的证书。
-     * @param { X509CertValidatorParams } params - 证书验证参数。
-     * @returns { Promise<VerifyCertResult> } Promise对象，返回验证结果。
-     * @throws { BusinessError } 19020001 - memory malloc failed.
-     * @throws { BusinessError } 19020002 - runtime error. Possible causes:
-     *     <br>1. Memory copy failed;
-     *     <br>2. A null pointer occurs inside the system;
-     *     <br>3. Failed to convert parameters between ArkTS and C.
-     * @throws { BusinessError } 19020003 - the parameter check failed.
-     * @throws { BusinessError } 19030001 - crypto operation error.
-     * @throws { BusinessError } 19030002 - the certificate signature verification failed.
-     * @throws { BusinessError } 19030003 - the certificate has not taken effect.
-     * @throws { BusinessError } 19030004 - the certificate has expired.
-     * @throws { BusinessError } 19030005 - failed to obtain the certificate issuer.
-     * @throws { BusinessError } 19030006 - the key cannot be used for signing a certificate.
-     * @throws { BusinessError } 19030007 - the key cannot be used for a digital signature.
-     * @throws { BusinessError } 19030009 - untrusted certificate.
-     * @throws { BusinessError } 19030010 - the certificate has been revoked.
-     * @throws { BusinessError } 19030011 - unsupported critical extension.
-     * @throws { BusinessError } 19030012 - hostname mismatch in the certificate.
-     * @throws { BusinessError } 19030013 - email address mismatch in the certificate.
-     * @throws { BusinessError } 19030014 - key usage mismatch in the certificate.
-     * @throws { BusinessError } 19030015 - failed to obtain the certificate revocation list.
-     * @throws { BusinessError } 19030016 - the certificate revocation list does not take effect.
-     * @throws { BusinessError } 19030017 - the certificate revocation list has expired.
-     * @throws { BusinessError } 19030018 - failed to verify the signature of the certificate revocation list.
-     * @throws { BusinessError } 19030019 - failed to find the issuer of the certificate revocation list.
-     * @throws { BusinessError } 19030020 - failed to obtain the OCSP response.
-     * @throws { BusinessError } 19030021 - invalid OCSP response.
-     * @throws { BusinessError } 19030022 - failed to verify the OCSP signature.
-     * @throws { BusinessError } 19030023 - unknown OCSP certificate status.
-     * @throws { BusinessError } 19030024 - network connection timed out.
+     * @param { CertValidationParams } params - 证书验证参数。
+     * @returns { Promise<CertValidationResult> } Promise对象，返回验证结果。
+     * @throws { BusinessError } 19020001 - 内存申请失败。
+     * @throws { BusinessError } 19020002 - 运行时错误。可能的原因：
+     *     <br>1. 内存拷贝失败；
+     *     <br>2. 系统内部出现空指针；
+     *     <br>3. ArkTS与C之间参数转换失败。
+     * @throws { BusinessError } 19020003 - 参数校验失败。
+     * @throws { BusinessError } 19030001 - 加密操作错误。
+     * @throws { BusinessError } 19030002 - 证书签名验证失败。
+     * @throws { BusinessError } 19030003 - 证书尚未生效。
+     * @throws { BusinessError } 19030004 - 证书已过期。
+     * @throws { BusinessError } 19030005 - 无法获取证书颁发者。
+     * @throws { BusinessError } 19030006 - 密钥用途不能用于签名证书。
+     * @throws { BusinessError } 19030007 - 密钥用途不能用于数字签名。
+     * @throws { BusinessError } 19030009 - 不受信任的证书。
+     * @throws { BusinessError } 19030010 - 证书已被吊销。
+     * @throws { BusinessError } 19030011 - 不支持的关键扩展。
+     * @throws { BusinessError } 19030012 - 证书中主机名不匹配。
+     * @throws { BusinessError } 19030013 - 证书中电子邮件地址不匹配。
+     * @throws { BusinessError } 19030014 - 证书中密钥用途不匹配。
+     * @throws { BusinessError } 19030015 - 无法获取证书吊销列表。
+     * @throws { BusinessError } 19030016 - 证书吊销列表尚未生效。
+     * @throws { BusinessError } 19030017 - 证书吊销列表已过期。
+     * @throws { BusinessError } 19030018 - 证书吊销列表签名验证失败。
+     * @throws { BusinessError } 19030019 - 无法找到证书吊销列表的颁发者。
+     * @throws { BusinessError } 19030020 - 无法获取OCSP响应。
+     * @throws { BusinessError } 19030021 - 无效的OCSP响应。
+     * @throws { BusinessError } 19030022 - OCSP签名验证失败。
+     * @throws { BusinessError } 19030023 - 未知的OCSP证书状态。
+     * @throws { BusinessError } 19030024 - 网络连接超时。
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    validate(cert: X509Cert, params: X509CertValidatorParams): Promise<VerifyCertResult>;
+    validateCert(cert: X509Cert, params: CertValidationParams): Promise<CertValidationResult>;
 
     /**
      * X509证书链校验器算法名称。
