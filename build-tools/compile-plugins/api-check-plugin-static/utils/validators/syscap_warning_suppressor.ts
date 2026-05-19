@@ -15,7 +15,8 @@
 
 import * as arkts from '@koalaui/libarkts';
 import { SYSCAP_TAG_CHECK_NAME } from '../api_check_plugin_define';
-import { BaseWarningSuppressor, NodeValidator } from './base_warning_suppressor';
+import { BaseWarningSuppressor } from './base_warning_suppressor';
+import { NodeValidator } from './api_validate_node';
 import { JSDocTag, JsDocNodeCheckConfigItem } from '../../api-check-wrapper/utils/api_check_wrapper_typedef';
 import { globalObject } from '../../index';
 

@@ -14,8 +14,6 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
-import { ParsedVersion } from '../api_check_plugin_typedef';
-import { NodeValidator } from './base_warning_suppressor';
 import { BaseVersionChecker } from './base_version_checker';
 import {
   FormatCheckerFunction,
@@ -39,104 +37,6 @@ import {
 } from './available_decorator_utils';
 import { globalObject } from '../../index';
 
-export class AvailableComparisonValidator implements NodeValidator {
-  private formatChecker: FormatCheckerFunction = defaultFormatCheckerCompatibileIntegerAndMSF;
-  private valueChecker: ValueCheckerFunction = defaultValueChecker;
-
-  constructor(
-    private readonly compatibleSdkVersion: string,
-    private readonly minRequiredVersion: string,
-    private readonly minAvailableVersion?: ParsedVersion
-  ) {
-    this.init();
-  }
-
-  private init(): void {
-    const formatChecker = getFormatChecker(AVAILABLE_TAG_NAME);
-    this.formatChecker = formatChecker || defaultFormatCheckerCompatibileIntegerAndMSF;
-
-    const valueChecker = getValueChecker(AVAILABLE_TAG_NAME);
-    this.valueChecker = valueChecker || defaultValueChecker;
-  }
-
-  validate(node: arkts.AstNode): boolean {
-    if (!node || (!this.minAvailableVersion && !this.minRequiredVersion)) {
-      return false;
-    }
-
-    const nodeSourceFileName = this.getSourceFileName(node);
-    if (!checkFileHasAvailableByFileName(nodeSourceFileName)) {
-      return false;
-    }
-
-    try {
-      const curAvailableVersion = this.getParentVersion(node);
-      if (!curAvailableVersion) {
-        return false;
-      }
-
-      if (this.compareVersions(curAvailableVersion, this.minAvailableVersion || this.minRequiredVersion)) {
-        return true;
-      }
-
-      return false;
-    } catch (error) {
-      return false;
-    }
-  }
-
-  private getParentVersion(node: arkts.AstNode): ParsedVersion | null {
-    if (!node) {
-      return null;
-    }
-
-    const annotation: arkts.AstNode | null = getValidAnnotationFromNode(node, isAvailableDecorator);
-    if (annotation === null) {
-      return null;
-    }
-
-    return extractMinApiFromDecorator(annotation);
-  }
-
-  private getSourceFileName(node: arkts.AstNode): string {
-    const program = arkts.getProgramFromAstNode(node);
-    return program?.sourceFilePath || '';
-  }
-
-  private compareVersions(
-    curAvailableVersion: ParsedVersion,
-    minRequiredVersion: ParsedVersion | string
-  ): boolean {
-    try {
-      if (!curAvailableVersion) {
-        return false;
-      }
-
-      const scenario = curAvailableVersion.os === RUNTIME_OS_OH
-        ? ComparisonSenario.SuppressByOHVersion
-        : ComparisonSenario.SuppressByOtherOSVersion;
-
-      let result;
-      if (typeof minRequiredVersion === 'string') {
-        result = this.valueChecker(
-          minRequiredVersion,
-          getVersionByValueChecker(curAvailableVersion, this.valueChecker),
-          scenario
-        );
-      } else {
-        result = this.valueChecker(
-          getVersionByValueChecker(minRequiredVersion, this.valueChecker),
-          getVersionByValueChecker(curAvailableVersion, this.valueChecker),
-          scenario
-        );
-      }
-
-      return result ? result.result : false;
-    } catch (error) {
-      return false;
-    }
-  }
-}
 
 export class AvailableAnnotationChecker extends BaseVersionChecker {
   private formatChecker: FormatCheckerFunction;

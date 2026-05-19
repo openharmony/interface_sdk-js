@@ -16,8 +16,8 @@
 import * as arkts from '@koalaui/libarkts';
 import { AVAILABLE_TAG_NAME } from '../api_check_plugin_define';
 import { ParsedVersion } from '../api_check_plugin_typedef';
-import { BaseWarningSuppressor, NodeValidator } from './base_warning_suppressor';
-import { AvailableComparisonValidator } from './available_comparison_validator';
+import { BaseWarningSuppressor } from './base_warning_suppressor';
+import { NodeValidator, AvailableComparisonValidator } from './api_validate_node';
 import { SdkComparisonHelper, SDK_CONSTANTS } from './sdk_comparison_helper';
 
 class SdkComparisonValidator implements NodeValidator {
@@ -27,7 +27,7 @@ class SdkComparisonValidator implements NodeValidator {
   private declaration: arkts.AstNode | undefined;
   private sdkComparisonHelper: SdkComparisonHelper;
   private readonly deviceInfoChecker: Map<string, string[]>;
-  
+
   constructor(
     projectCompatibleSdkVersion: string,
     minRequiredVersion: string,
@@ -38,13 +38,13 @@ class SdkComparisonValidator implements NodeValidator {
     this.minRequiredVersion = minRequiredVersion;
     this.minAvailableVersion = minAvailableVersion;
     this.declaration = declaration;
-    
+
     this.deviceInfoChecker = new Map([
       [SDK_CONSTANTS.OTHER_SOURCE_DEVICE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]],
       [SDK_CONSTANTS.OPEN_SOURCE_DEVICE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]],
       [SDK_CONSTANTS.OPEN_SOURCE_APIAVAILABLE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]]
     ]);
-    
+
     this.sdkComparisonHelper = new SdkComparisonHelper(
       projectCompatibleSdkVersion,
       minRequiredVersion,
@@ -68,27 +68,27 @@ class SdkComparisonValidator implements NodeValidator {
     const nodeDecl = arkts.getDecl(node);
     const program = arkts.getProgramFromAstNode(nodeDecl);
     const sourceText = program?.astNode.dumpSrc() || '';
-    
+
     if (!sourceText) {
       return false;
     }
-    
+
     // const hasApiAvailableCheck = /apiAvailable/.test(sourceText);
     // const hasDeviceInfoCheck = /deviceInfo/.test(sourceText) || /sdkApiVersion/.test(sourceText);
-    
+
     // if (!hasApiAvailableCheck && !hasDeviceInfoCheck) {
     //   return false;
     // }
 
     let currentNode: arkts.AstNode | null = node.parent;
-    
+
     while (currentNode) {
       if (arkts.isIfStatement(currentNode)) {
         return this.checkIfStatementForSdkComparison(currentNode, node);
       }
       currentNode = currentNode.parent;
     }
-    
+
     return false;
   }
 
@@ -96,12 +96,12 @@ class SdkComparisonValidator implements NodeValidator {
     if (!ifNode.test) {
       return false;
     }
-    
+
     const isInThenBlock = this.isNodeInIfThenBlock(originalNode, ifNode);
     if (!isInThenBlock) {
       return false;
     }
-    
+
     try {
 
       return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test);
@@ -116,11 +116,11 @@ class SdkComparisonValidator implements NodeValidator {
     if (!ifNode.consequent) {
       return false;
     }
-    
+
     const nodeStartPos = node.startPosition?.offset || 0;
     const thenStartPos = ifNode.consequent.startPosition?.offset || 0;
     const thenEndPos = ifNode.consequent.endPosition?.offset || 0;
-    
+
     return nodeStartPos >= thenStartPos && nodeStartPos <= thenEndPos;
   }
 }
