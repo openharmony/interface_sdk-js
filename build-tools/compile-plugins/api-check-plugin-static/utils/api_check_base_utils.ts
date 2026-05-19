@@ -14,6 +14,8 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
+import fs from 'fs';
+import path from 'path';
 import {
   ComparisonResult,
   ComparisonSenario,
@@ -192,6 +194,9 @@ export function initValueChecker(osName: string, tag: string): void {
   // Try to load external plugin
   for (const plugin of plugins) {
     try {
+      if (fs.existsSync(path.join(plugin.path, '..', 'sdkApiVersionMap.json')) && !globalObject.projectConfig.originCompatibleSdkVersion) {
+        configOriginCompatibleSdkVersion(path.join(plugin.path, '..', 'sdkApiVersionMap.json'));
+      }
       const externalModule = require(plugin.path);
       const externalMethod = externalModule[plugin.functionName];
 
@@ -204,6 +209,16 @@ export function initValueChecker(osName: string, tag: string): void {
   }
 
   comparisonFunctions.valueChecker.set(cacheKey, defaultValueChecker);
+}
+
+function configOriginCompatibleSdkVersion(filePath: string) {
+  if (!fs.existsSync(filePath)) {
+    return;
+  }
+  const sdkApiVersionMap = require(filePath);
+  if (sdkApiVersionMap[globalObject.projectConfig.compatibleSdkVersion]) {
+    globalObject.projectConfig.originCompatibleSdkVersion = sdkApiVersionMap[globalObject.projectConfig.compatibleSdkVersion][0];
+  }
 }
 
 export function initFormatChecker(osName: string, tag: string): void {

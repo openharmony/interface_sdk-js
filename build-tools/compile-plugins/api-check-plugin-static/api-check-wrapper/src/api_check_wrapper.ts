@@ -267,7 +267,7 @@ function expressionCheckByJsDoc(
       if (!config.tagName.includes(item.tag)) {
         continue;
       }
-      
+      tagNameExisted = true;
       if (tagNameExisted && !config.tagNameShouldExisted) {
         curApiCheckWrapper.apiCheckHost.pushLogInfo(
           identifier.name, 
