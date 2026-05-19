@@ -15,6 +15,7 @@
 
 import * as arkts from '@koalaui/libarkts';
 import { SUPPRESSWARNINGS_RULE_INFO } from '../api_check_plugin_define';
+import { suppressWarningsCheckPlugin } from '../../index';
 
 export interface NodeValidator {
   validate(node: arkts.AstNode): boolean;
@@ -41,23 +42,8 @@ export class AnnotateSuppressWarningsValidator implements NodeValidator {
   }
   
   validate(node: arkts.AstNode): boolean {
-    return this.checkSuppressWarningsCache(this.warningTypeName, node, 'annotation_suppressWarnings') &&
+    return checkSuppressWarningsCache(this.warningTypeName, node, 'annotation_suppressWarnings') &&
       this.checkAnnotationWarning(node);
-  }
-
-  private checkSuppressWarningsCache(warnName: string, node: arkts.AstNode, sceneName: string): boolean {
-    const annotationRegex = /\s*@SuppressWarnings\s*(\()/g;
-    const program = arkts.getProgramFromAstNode(node);
-    if (!program) {
-      return true;
-    }
-    const nodeSourceText = program.astNode.dumpSrc() || '';
-    
-    if (!annotationRegex.test(nodeSourceText)) {
-      return false;
-    }
-    
-    return true;
   }
 
   private checkAnnotationWarning(node: arkts.AstNode): boolean {
@@ -141,27 +127,13 @@ export class CommentSuppressWarningsValidator implements NodeValidator {
   }
   
   validate(node: arkts.AstNode): boolean {
-    return this.checkSuppressWarningsCache(this.warningTypeName, node, 'comment_suppressWarnings') &&
+    return checkSuppressWarningsCache(this.warningTypeName, node, 'comment_suppressWarnings') &&
       this.checkCommentsWarning(node);
   }
 
-  private checkSuppressWarningsCache(warnName: string, node: arkts.AstNode, sceneName: string): boolean {
-    const commentRegex = /\/\/\s*@SuppressWarnings\s/g;
-    const program = arkts.getProgramFromAstNode(node);
-    if (!program) {
-      return true;
-    }
-    const nodeSourceText = program.astNode.dumpSrc() || '';
-    
-    if (!commentRegex.test(nodeSourceText)) {
-      return false;
-    }
-    
-    return true;
-  }
-
   private checkCommentsWarning(node: arkts.AstNode): boolean {
-    const program = arkts.getProgramFromAstNode(node);
+    const nodeDecl = arkts.getDecl(node);
+    const program = arkts.getProgramFromAstNode(nodeDecl);
     if (!program || !program.astNode.dumpSrc()) {
       return false;
     }
@@ -218,4 +190,44 @@ export abstract class BaseWarningSuppressor {
       new CommentSuppressWarningsValidator(warnName)
     ]);
   }
+}
+
+/**
+ * Check the suppressWarnings scenario in the cache.
+ * @param node - Obtain the content of the currently compiled file.
+ * @param sceneName - comment or annotation scene.
+ * @returns - Do not check when there is no data in the cache, and perform verification when there is data.
+ */
+function checkSuppressWarningsCache(warnName: string, node: arkts.AstNode, sceneName: string): boolean {
+  const commentRegex = /\/\/\s*@SuppressWarnings\s/g;
+  const annotationRegex = /\s*@SuppressWarnings\s*(\()/g;
+  const contentRegex = sceneName === 'comment_suppressWarnings' ? commentRegex : annotationRegex;
+  const nodeDecl = arkts.getDecl(node);
+  const program = arkts.getProgramFromAstNode(nodeDecl);
+  if (!program) {
+    return true;
+  }
+  const nodeSourceText = program.astNode.dumpSrc() || '';
+  const nodeSourceFile = program.fileName;
+  const mapKey = `${warnName}_${sceneName}_${nodeSourceFile}`;
+  if (suppressWarningsCheckPlugin.has(mapKey)) {
+    const hasSuppressWarnings = suppressWarningsCheckPlugin.get(mapKey)!;
+    if (!hasSuppressWarnings.get(sceneName)) {
+      return false;
+    }
+  } else {
+    try {
+      const contentChecker = contentRegex.test(nodeSourceText);
+      const commentMap = new Map([
+        [sceneName, contentChecker]
+      ])
+      suppressWarningsCheckPlugin.set(mapKey, commentMap);
+      if (!contentChecker) {
+        return false;
+      }
+    } catch (error) {
+      return false;
+    }
+  }
+  return true;
 }

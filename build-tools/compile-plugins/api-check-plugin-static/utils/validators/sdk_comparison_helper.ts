@@ -40,7 +40,7 @@ export const SDK_CONSTANTS = {
   OPEN_SOURCE_DEVICE_INFO: 'sdkApiVersion',
   OPEN_SOURCE_APIAVAILABLE_INFO: 'apiAvailable',
   OPEN_SOURCE_RUNTIME: 'OpenHarmony',
-  DEVICE_INFO_PACKAGE: '@ohos.deviceInfo.d.ts'
+  DEVICE_INFO_PACKAGE: '@ohos.deviceInfo.d.ets'
 } as const;
 
 export class SdkComparisonHelper {
@@ -402,7 +402,7 @@ export class SdkComparisonHelper {
     if (name !== targetProperty) {
       return undefined;
     }
-    return this.getRootIdentifier(expression.expression);
+    return this.getRootIdentifier(expression.object);
   }
 
   private getRootIdentifier(expression: arkts.AstNode | null): arkts.AstNode | undefined {
@@ -430,7 +430,8 @@ export class SdkComparisonHelper {
     if (!identifier) {
       return false;
     }
-    const program = arkts.getProgramFromAstNode(identifier);
+    const nodeDecl = arkts.getDecl(identifier);
+    const program = arkts.getProgramFromAstNode(nodeDecl);
     const declarationFile = program?.sourceFilePath || '';
     if (!declarationFile) {
       return false;

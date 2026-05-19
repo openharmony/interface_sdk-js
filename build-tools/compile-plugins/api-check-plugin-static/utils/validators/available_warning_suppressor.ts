@@ -65,7 +65,8 @@ class SdkComparisonValidator implements NodeValidator {
   }
 
   private isNodeWrappedInSdkComparison(node: arkts.AstNode): boolean {
-    const program = arkts.getProgramFromAstNode(node);
+    const nodeDecl = arkts.getDecl(node);
+    const program = arkts.getProgramFromAstNode(nodeDecl);
     const sourceText = program?.astNode.dumpSrc() || '';
     
     if (!sourceText) {

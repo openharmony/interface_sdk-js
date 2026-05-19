@@ -1192,7 +1192,8 @@ export function checkAvailableDecorator(
     availableNodeCheckConfigCache.set(key, '');
   }
 
-  const program = arkts.getProgramFromAstNode(node);
+  const nodeDecl = arkts.getDecl(node);
+  const program = arkts.getProgramFromAstNode(nodeDecl);
   const sourceFileName = program?.sourceFilePath || '';
   if (!sourceFileName || !path.normalize(sourceFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
     return false;

@@ -22,6 +22,7 @@ import { checkApiExpression, WrapperApi } from './api-check-wrapper/src/api_chec
 
 export let externalApiCheckPlugin = new Map();
 export let fileAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
+export let suppressWarningsCheckPlugin = new Map();
 
 /**
  * 导出projectConfig作为全局变量
@@ -90,4 +91,5 @@ export function initApiCheckConfig(projectConfig: ProjectConfig): void {
 function resetPlugins(): void {
   externalApiCheckPlugin = new Map();
   fileAvailableCheckCache = new Map();
+  suppressWarningsCheckPlugin = new Map();
 }
