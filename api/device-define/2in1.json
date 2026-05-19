@@ -219,12 +219,6 @@
     "SystemCapability.Global.I18n",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.ArkUI.ArkUI.Lite",
-	"SystemCapability.Driver.ExternalDevice",
-	"SystemCapability.Driver.DDK.Extension",
-	"SystemCapability.Driver.HID.Extension",
-	"SystemCapability.Driver.SCSI.Extension",
-	"SystemCapability.Driver.USB.Extension",
-	"SystemCapability.Driver.UsbSerial.Extension",
     "SystemCapability.Communication.FusionConnectivity.Core"
   ]
 }
