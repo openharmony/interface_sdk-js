@@ -18,13 +18,7 @@
  * @kit AdsKit
  */
 /**
- * # How to Use
- *
- * When using the [advertising]{@link ./../@ohos.advertising:advertising} function, you can obtain the returned ad
- * through [Advertisement]{@link ./../@ohos.advertising:advertising.Advertisement}.
- */
-/**
- * This module provides the capability of returning ads.
+ * 本模块为请求的广告内容。
  *
  * @syscap SystemCapability.Advertising.Ads
  * @atomicservice [since 12]
@@ -32,14 +26,16 @@
  */
 export interface Advertisement {
   /**
-   * Ad type.
-   *
-   * - **1**: splash ad.
-   * - **3**: native ad.
-   * - **7**: rewarded ad.
-   * - **8**: banner ad.
-   * - **12**: interstitial ad.
-   * - **60**: roll ad.
+   * 广告类型。
+   * 
+   * - 1：开屏广告。
+   * - 3：原生广告。
+   * - 7：激励广告。
+   * - 8：横幅广告。
+   * - 12：插屏广告。
+   * - 60：贴片广告。
+   * 
+   * 不填默认为原生广告类型。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -48,7 +44,12 @@ export interface Advertisement {
   adType: number;
 
   /**
-   * Server verification parameter.
+   * 服务器验证参数。
+   *
+   * {
+   *	customData: "test",
+   *	userId: "12345"
+   * }
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -57,7 +58,7 @@ export interface Advertisement {
   rewardVerifyConfig: Map<string, string>;
 
   /**
-   * Unique ID of the ad.
+   * 广告唯一标识。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -66,10 +67,10 @@ export interface Advertisement {
   uniqueId: string;
 
   /**
-   * Whether users get rewarded for watching or clicking the ad.
-   *
-   * - **true**: Users get rewarded.
-   * - **false**: Users do not get rewarded.
+   * 广告是否获得奖励。
+   * 
+   * - true：获得奖励。
+   * - false：没有获得奖励。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -78,10 +79,10 @@ export interface Advertisement {
   rewarded: boolean;
 
   /**
-   * Whether the ad is shown.
-   *
-   * - **true**: The ad is shown.
-   * - **false**: The ad is not shown.
+   * 广告是否展示。
+   * 
+   * - true：展示。
+   * - false：未展示。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -90,10 +91,10 @@ export interface Advertisement {
   shown: boolean;
 
   /**
-   * Whether the ad is clicked.
-   *
-   * - **true**: The ad is clicked.
-   * - **false**: The ad is not clicked.
+   * 广告是否被点击。
+   * 
+   * - true：被点击。
+   * - false：未被点击。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -102,7 +103,14 @@ export interface Advertisement {
   clicked: boolean;
 
   /**
-   * Custom parameter.
+   * 自定义参数。
+   * 
+   * - isFullScreen：类型boolean。开屏广告自定义参数，用于标识返回的广告是否为全屏，true为全屏广告，false为半屏广告。
+   * - biddingInfo：类型Object。用于获取实时竞价相关结果。
+   * - biddingInfo.price：类型number。本条广告的eCPM（Effective Cost Per Mille，每一千次展示可以获得的广告收入）。
+   * - biddingInfo.cur:类型string。 本条广告的价格币种。支持币种：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（单位：英镑）、JPY（单位：日元）。
+   * - biddingInfo.nurl：类型string。媒体回传竞价成功结果的URL。
+   * - biddingInfo.lurl：类型string。媒体回传竞价失败通知其他DSP竞价成功结果的URL。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
