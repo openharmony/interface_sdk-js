@@ -21,8 +21,7 @@
 import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
- * The **thermal** module provides thermal level-related callback and query APIs to obtain the information required for
- * thermal control.
+ * 该模块提供热管理相关的接口，包括热档位查询及注册回调等功能。
  *
  * @syscap SystemCapability.PowerManager.ThermalManager
  * @since 8 dynamic
@@ -30,7 +29,7 @@ import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
  */
 declare namespace thermal {
   /**
-   * Enumerates thermal levels.
+   * 热档位信息。
    *
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamic
@@ -38,7 +37,7 @@ declare namespace thermal {
    */
   export enum ThermalLevel {
     /**
-     * The device is cool, and services are not restricted.
+     * 表明设备处于清凉状态，业务执行不受热控的限制。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
@@ -46,8 +45,7 @@ declare namespace thermal {
      */
     COOL = 0,
     /**
-     * The device is in the normal temperature range but it is getting warm. You need to downgrade or reduce the load of
-     * imperceptible services.
+     * 表明设备温度正常，但邻近温热状态，无感知业务应降低规格和负载。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
@@ -55,7 +53,7 @@ declare namespace thermal {
      */
     NORMAL = 1,
     /**
-     * The device is warm. You need to stop or delay some imperceptible services.
+     * 表明设备进入温热状态，无感知业务应暂停或延迟运行。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
@@ -63,8 +61,7 @@ declare namespace thermal {
      */
     WARM = 2,
     /**
-     * The device is heating up. You need to stop all imperceptible services and downgrade or reduce the load of non-
-     * critical services.
+     * 表明设备发热明显，无感知业务应停止，非关键业务应降低规格及负载。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
@@ -72,8 +69,7 @@ declare namespace thermal {
      */
     HOT = 3,
     /**
-     * The device is overheated. You need to stop all imperceptible services and downgrade or reduce the load of major
-     * foreground services.
+     * 表明设备发热严重，无感知业务与非关键业务应停止，前台关键业务应降低规格及负载。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
@@ -81,8 +77,7 @@ declare namespace thermal {
      */
     OVERHEATED = 4,
     /**
-     * The device is overheated and is about to enter the emergency state. You need to stop all imperceptible services
-     * and downgrade major foreground services to the maximum extent.
+     * 表明设备过热即将进入紧急状态，整机资源供给大幅降低，停止所有非关键业务，前台关键业务应降低至最低规格。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
@@ -90,7 +85,7 @@ declare namespace thermal {
      */
     WARNING = 5,
     /**
-     * The device has entered the emergency state. You need to stop all services except those for fundamental use.
+     * 表明设备已经进入过热紧急状态，整机资源供给降至最低，设备功能受限，仅保留基础功能可用。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
@@ -98,8 +93,9 @@ declare namespace thermal {
      */
     EMERGENCY = 6,
     /**
-     * The device is about to enter the escape state. You need to stop all services and take necessary emergency
-     * measures such as data backup.
+     * 表明设备即将进入热逃生状态，所有业务将被强制停止，业务需做好逃生措施，例如保存重要数据等。 
+     * 
+     * **说明**: 从API version 11开始支持。
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 11 dynamic
@@ -109,10 +105,9 @@ declare namespace thermal {
   }
 
   /**
-   * Subscribes to the thermal level changes. This API uses an asynchronous callback to return thermal level.
+   * 订阅热档位变化时的回调提醒。使用callback异步回调。
    *
-   * @param { AsyncCallback<ThermalLevel> } callback - Callback used to return thermal level. The return value contains
-   *     only one parameter, that is, thermal level.
+   * @param { AsyncCallback<ThermalLevel> } callback - 回调函数。AsyncCallback只返回一个参数，为热档位信息。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -121,11 +116,9 @@ declare namespace thermal {
   function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
 
   /**
-   * Registers a callback to be invoked when the thermal level changes. This API uses an asynchronous callback to return
-   * the result.
+   * 订阅热档位变化时的回调提醒。使用callback异步回调。
    *
-   * @param { Callback<ThermalLevel> } callback - Callback used to return thermal level. This parameter is of the
-   *     function type.
+   * @param { Callback<ThermalLevel> } callback - 回调函数，返回变化后的热档位；该参数是一个函数类型。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
@@ -134,10 +127,9 @@ declare namespace thermal {
   function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
 
   /**
-   * Unsubscribes from the thermal level changes. This API uses an asynchronous callback to return the result.
+   * 取消订阅热档位变化时的回调提醒。使用callback异步回调。
    *
-   * @param { AsyncCallback<void> } callback - Callback that returns no value. If this parameter is not set, all
-   *     callbacks will be unregistered.
+   * @param { AsyncCallback<void> } callback - 回调函数，无返回值。不填该参数则取消所有回调。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -146,10 +138,9 @@ declare namespace thermal {
   function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
 
   /**
-   * Unregisters the callback to be invoked when the thermal level changes. This API uses an asynchronous callback to
-   * return the result.
+   * 取消订阅热档位变化时的回调提醒。使用callback异步回调。
    *
-   * @param { Callback<void> } callback - (Optional) Callback that returns no value.
+   * @param { Callback<void> } callback - 可选参数，回调函数，无返回值。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
@@ -158,9 +149,9 @@ declare namespace thermal {
   function unregisterThermalLevelCallback(callback?: Callback<void>): void;
 
   /**
-   * Obtains this thermal level.
+   * 获取当前热档位信息。
    *
-   * @returns { ThermalLevel } Thermal level.
+   * @returns { ThermalLevel } 热档位信息。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -169,9 +160,9 @@ declare namespace thermal {
   function getThermalLevel(): ThermalLevel;
 
   /**
-   * Obtains this thermal level.
+   * 获取当前热档位信息。
    *
-   * @returns { ThermalLevel } Thermal level.
+   * @returns { ThermalLevel } 热档位信息。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
    * @since 23 static

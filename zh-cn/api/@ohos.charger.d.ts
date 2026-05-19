@@ -19,11 +19,11 @@
  */
 
 /**
- * The **charger** module enumerates charging types.
- *
- * > **NOTE**
+ * 提供充电类型。
+ * 
+ * > **说明：**
  * >
- * > The APIs provided by this module are system APIs.
+ * > 本模块为系统接口。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @systemapi
@@ -32,7 +32,7 @@
  */
 declare namespace charger {
   /**
-   * Enumerates charging types.
+   * 表示充电类型的枚举。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @systemapi
@@ -41,7 +41,7 @@ declare namespace charger {
    */
   export enum ChargeType {
     /**
-     * Unknown charging type.
+     * 表示未知类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -50,7 +50,7 @@ declare namespace charger {
      */
     NONE,
     /**
-     * Wired normal charging.
+     * 表示有线正常充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -59,7 +59,7 @@ declare namespace charger {
      */
     WIRED_NORMAL,
     /**
-     * Wired fast charging.
+     * 表示有线快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -68,7 +68,7 @@ declare namespace charger {
      */
     WIRED_QUICK,
     /**
-     * Wired super fast charging.
+     * 表示有线超级快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -77,7 +77,7 @@ declare namespace charger {
      */
     WIRED_SUPER_QUICK,
     /**
-     * Wireless normal charging.
+     * 表示无线正常充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -86,7 +86,7 @@ declare namespace charger {
      */
     WIRELESS_NORMAL,
     /**
-     * Wireless fast charging.
+     * 表示无线快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi
@@ -95,7 +95,7 @@ declare namespace charger {
      */
     WIRELESS_QUICK,
     /**
-     * Wireless super fast charging.
+     * 表示无线超级快速充电类型。
      *
      * @syscap SystemCapability.PowerManager.BatteryManager.Core
      * @systemapi

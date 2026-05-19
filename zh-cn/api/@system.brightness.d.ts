@@ -14,24 +14,23 @@
  */
 
 /**
- * The **brightness** module provides APIs for querying and adjusting the screen brightness and mode.
+ * 该模块提供屏幕亮度和模式的查询、调节接口。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - Module maintenance policy:
+ * > - 模块维护策略：
  * > >
- * > >    \- For lite wearables, this module is constantly maintained and available.
+ * > >    \- 对于Lite Wearable设备类型，该模块长期维护，正常使用。
  * > >
- * > >    \- For other device types, this module is no longer maintained since API version 7.<!--Del--> You are advised 
- * > to use APIs of [@ohos.brightness]{@link @ohos.brightness:brightness}. <!--DelEnd-->The substitute APIs are 
- * > available only for system applications.
+ * > >    \- 对于支持该模块的其他设备类型，该模块从API Version 7开始不再维护。<!--Del-->建议使用
+ * > [@ohos.brightness]{@link @ohos.brightness:brightness}替代。<!--DelEnd-->替代接口能力仅对系统应用开放。
  *
  * @file
  * @kit BasicServicesKit
  */
 
 /**
- * Defines a response that returns the screen brightness.
+ * 包含屏幕亮度的对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -40,7 +39,7 @@
  */
 export interface BrightnessResponse {
   /**
-   * Screen brightness. The value ranges from **1** to **255**.
+   * 屏幕亮度，范围：1到255。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -51,7 +50,7 @@ export interface BrightnessResponse {
 }
 
 /**
- * Options for obtaining the screen brightness.
+ * 获取屏幕亮度的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -60,8 +59,7 @@ export interface BrightnessResponse {
  */
 export interface GetBrightnessOptions {
   /**
-   * Called when an API call is successful. **data** is a return value of the
-   * [BrightnessResponse]{@link BrightnessResponse} type.
+   * 接口调用成功的回调函数。data为[BrightnessResponse]{@link BrightnessResponse}类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -71,8 +69,7 @@ export interface GetBrightnessOptions {
   success?: (data: BrightnessResponse) => void;
 
   /**
-   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
-   * code.
+   * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -82,7 +79,7 @@ export interface GetBrightnessOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when an API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -93,7 +90,7 @@ export interface GetBrightnessOptions {
 }
 
 /**
- * Options for setting the screen brightness.
+ * 设置屏幕亮度的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -102,12 +99,13 @@ export interface GetBrightnessOptions {
  */
 export interface SetBrightnessOptions {
   /**
-   * Screen brightness. The value is an integer ranging from **1** to **255**.
+   * 屏幕亮度，值为1-255之间的整数。
    *
-   * - If the value is less than or equal to **0**, value **1** will be used.
-   * - If the value is greater than **255**, value **255** will be used.
-   * - If the value contains decimals, the integral part of the value will be used. For example, if value **8.1** is set
-   * , value **8** will be used.
+   * - 如果值小于等于0，系统按1处理。
+   *
+   * - 如果值大于255，系统按255处理。
+   *
+   * - 如果值为小数，系统将处理为整数。例如设置为8.1，系统按8处理。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -117,7 +115,7 @@ export interface SetBrightnessOptions {
   value: number;
 
   /**
-   * Called when an API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -127,8 +125,7 @@ export interface SetBrightnessOptions {
   success?: () => void;
 
   /**
-   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
-   * code.
+   * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -138,7 +135,7 @@ export interface SetBrightnessOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when an API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -149,7 +146,7 @@ export interface SetBrightnessOptions {
 }
 
 /**
- *Defines a response that returns the screen brightness mode.
+ * 包含屏幕亮度模式的对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -158,7 +155,7 @@ export interface SetBrightnessOptions {
  */
 export interface BrightnessModeResponse {
   /**
-   * The value **0** indicates the manual adjustment mode, and the value **1** indicates the automatic adjustment mode.
+   * 0表示手动调节屏幕亮度模式，1表示自动调节屏幕亮度模式。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -169,7 +166,7 @@ export interface BrightnessModeResponse {
 }
 
 /**
- * Options for obtaining the screen brightness mode.
+ * 获取屏幕亮度模式的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -178,8 +175,7 @@ export interface BrightnessModeResponse {
  */
 export interface GetBrightnessModeOptions {
   /**
-   * Called when an API call is successful. **data** is a return value of the
-   * [BrightnessModeResponse]{@link BrightnessModeResponse} type.
+   * 接口调用成功的回调函数。data为[BrightnessModeResponse]{@link BrightnessModeResponse}类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -189,8 +185,7 @@ export interface GetBrightnessModeOptions {
   success?: (data: BrightnessModeResponse) => void;
 
   /**
-   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
-   * code.
+   * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -200,7 +195,7 @@ export interface GetBrightnessModeOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when an API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -211,7 +206,7 @@ export interface GetBrightnessModeOptions {
 }
 
 /**
- * Options for setting the screen brightness mode.
+ * 设置屏幕亮度模式的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -220,7 +215,7 @@ export interface GetBrightnessModeOptions {
  */
 export interface SetBrightnessModeOptions {
   /**
-   * The value **0** indicates the manual adjustment mode, and the value **1** indicates the automatic adjustment mode.
+   * 0表示手动调节屏幕亮度模式，1表示自动调节屏幕亮度模式。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -230,7 +225,7 @@ export interface SetBrightnessModeOptions {
   mode: number;
 
   /**
-   * Called when an API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -240,8 +235,7 @@ export interface SetBrightnessModeOptions {
   success?: () => void;
 
   /**
-   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
-   * code.
+   * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -251,7 +245,7 @@ export interface SetBrightnessModeOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when an API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -262,7 +256,7 @@ export interface SetBrightnessModeOptions {
 }
 
 /**
- * Options for setting the screen to be steady on.
+ * 设置屏幕常亮的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -271,7 +265,7 @@ export interface SetBrightnessModeOptions {
  */
 export interface SetKeepScreenOnOptions {
   /**
-   * The value **true** means to keep the screen steady on, and the value **false** indicates the opposite.
+   * true表示保持屏幕常亮，false表示取消屏幕常亮。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -281,7 +275,7 @@ export interface SetKeepScreenOnOptions {
   keepScreenOn: boolean;
 
   /**
-   * Called when an API call is successful.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -291,8 +285,7 @@ export interface SetKeepScreenOnOptions {
   success?: () => void;
 
   /**
-   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
-   * code.
+   * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -302,7 +295,7 @@ export interface SetKeepScreenOnOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when an API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
@@ -313,7 +306,7 @@ export interface SetKeepScreenOnOptions {
 }
 
 /**
- * The module provides APIs for querying and adjusting the screen brightness and mode.
+ * 该模块提供屏幕亮度和模式的查询、调节接口。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
@@ -322,10 +315,9 @@ export interface SetKeepScreenOnOptions {
  */
 export default class Brightness {
   /**
-   * Obtains the current screen brightness.
+   * 获得设备当前的屏幕亮度值。
    *
-   * @param { GetBrightnessOptions } options Options for obtaining the screen brightness. This parameter is
-   *     optional and is left blank by default.
+   * @param { GetBrightnessOptions } options 获取屏幕亮度的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -334,10 +326,9 @@ export default class Brightness {
   static getValue(options?: GetBrightnessOptions): void;
 
   /**
-   * Sets the screen brightness.
+   * 设置设备当前的屏幕亮度值。
    *
-   * @param { SetBrightnessOptions } options Options for setting the screen brightness. This parameter is
-   *     optional and is left blank by default.
+   * @param { SetBrightnessOptions } options 设置屏幕亮度的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -347,10 +338,9 @@ export default class Brightness {
   static setValue(options?: SetBrightnessOptions): void;
 
   /**
-   * Obtains the screen brightness adjustment mode.
+   * 获得当前屏幕亮度模式。
    *
-   * @param { GetBrightnessModeOptions } options Options for obtaining the screen brightness mode. This parameter is
-   *     optional and is left blank by default.
+   * @param { GetBrightnessModeOptions } options 获取屏幕亮度模式的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -359,10 +349,9 @@ export default class Brightness {
   static getMode(options?: GetBrightnessModeOptions): void;
 
   /**
-   * Sets the screen brightness adjustment mode.
+   * 设置设备当前的屏幕亮度模式。
    *
-   * @param { SetBrightnessModeOptions } options Options for setting the screen brightness mode. This parameter is
-   *     optional and is left blank by default.
+   * @param { SetBrightnessModeOptions } options 设置屏幕亮度模式的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -371,20 +360,15 @@ export default class Brightness {
   static setMode(options?: SetBrightnessModeOptions): void;
 
   /**
-   * Sets whether to always keep the screen on. Call this API in **onShow()**.
+   * 设置屏幕是否保持常亮状态，开启常亮模式推荐在onShow()阶段调用。
    *
-   * **NOTE**
+   * 注意：
    *
-   * - This API is no longer maintained since API version 7 except for lite wearables. You are advised to use
-   * [window.setWindowKeepScreenOn()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowkeepscreenon9)
-   * instead.
+   * - 除Lite Wearable外，从API version 7开始不再维护，建议使用[window.setWindowKeepScreenOn()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowkeepscreenon9)替代。
    *
-   * - On Lite Wearables, this API can only prevent the system from turning off the screen due to inactivity
-   * timeout (automatic). It cannot prevent screen-off caused by user actions (such as covering the screen) or
-   * the end of the keep-screen-on period.
+   * - 在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
    *
-   * @param { SetKeepScreenOnOptions } options Options for setting the screen to be steady on. This parameter is
-   *     optional and is left blank by default.
+   * @param { SetKeepScreenOnOptions } options 设置屏幕常亮的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7

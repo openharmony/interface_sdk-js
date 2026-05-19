@@ -21,11 +21,11 @@
 import { BusinessError } from './@ohos.base';
 
 /**
- * The **brightness** module provides an API for setting the screen brightness.
- *
- * > **NOTE**
+ * 该模块提供屏幕亮度的设置接口。
+ * 
+ * > **说明：**
  * >
- * > - The APIs provided by this module are system APIs.
+ * > - 本模块接口为系统接口。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @systemapi
@@ -34,9 +34,9 @@ import { BusinessError } from './@ohos.base';
  */
 declare namespace brightness {
   /**
-   * Sets the screen brightness.
+   * 设置系统的屏幕亮度。
    *
-   * @param { int } value - Brightness value. Value range: 0 to 255. The value of this parameter must be a number.
+   * @param { int } value - 亮度的值。范围：0~255；该参数必须为数字类型。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -49,12 +49,10 @@ declare namespace brightness {
   function setValue(value: int): void;
 
   /**
-   * Sets the screen brightness. This API is used for continuous brightness adjustment. To achieve a better performance,
-   * set **continuous** to **true** when you start, and set it to **false** after you finish.
+   * 设置系统的屏幕亮度。用于连续调节亮度的场景，在连续调节亮度过程中，设置continuous为true，结束时设置continuous为false，会有更好的性能。
    *
-   * @param { int } value - Brightness value. Value range: [0, 255]
-   * @param { boolean } continuous - Whether the brightness adjustment is continuous. The value **true** indicates that
-   *     the brightness adjustment is continuous; **false** indicates the opposite. Default value: **false**
+   * @param { int } value - 亮度的值。范围：0~255。
+   * @param { boolean } continuous - 亮度调节是否连续。true表示亮度调节连续，false表示亮度调节不连续，默认为false。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
