@@ -631,6 +631,26 @@ declare namespace securityManager {
   function cancelScreenWatermarkImage(admin: Want): void;
 
   /**
+   * Sets the watermark image displayed during the application running.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } bundleName - bundleName indicates the bundle name of the application to be set watermark.
+   * @param { string | image.PixelMap } source - source indicates the watermark's pixelMap or its URL.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>Value range:[0, +∞)
+   * @param { WatermarkProperties } properties - Properties indicates the Properties of the watermark layout.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number, properties: WatermarkProperties): void;
+
+  /**
    * Password policy.
    * 
    * @typedef PasswordPolicy
@@ -756,6 +776,33 @@ declare namespace securityManager {
        */
       DENIED = -1
     }
+
+  /**
+   * The properties of a watermark.
+   * 
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  export interface WatermarkProperties {
+    /**
+     * The number of rows in the watermark layout.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    intervalsRow: number;
+
+    /**
+     * The number of columns in the watermark layout.
+     * 
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    intervalsCol: number;
+  }
 
 }
 
