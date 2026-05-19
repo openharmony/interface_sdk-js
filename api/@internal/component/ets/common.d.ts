@@ -32689,6 +32689,23 @@ declare class CommonMethod<T> {
    * @since 26.0.0 dynamic
    */
   inspectorLabel(label: string | undefined): T;
+
+  /**
+   * Sets whether to component is double-sided. 
+   * 
+   * @param { Optional<boolean> } value - Whether to draw both sides of component.
+   *     **true**: Both front and back sides are visible (default).
+   *     **false**: Only to front side is visible, to back side is hidden when rotated.
+   *     When **value** is **undefined**, the component reverts to default double-sided setting (**true**).
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  doubleSided(value: Optional<boolean>): T;
 }
 
 /**

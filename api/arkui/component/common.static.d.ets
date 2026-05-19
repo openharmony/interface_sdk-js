@@ -14009,6 +14009,19 @@ export declare interface CommonMethod {
       * @since 26.0.0 static
       */
     default inspectorLabel(label: string | undefined): this;
+    /**
+      * Sets whether to component is double-sided.
+      *
+      * @param { boolean | undefined } value - Whether to component is double-sided.
+      *     **true**: Both front and back sides are visible (default).
+      *     **false**: Only to front side is visible, to back side is hidden when rotated.
+      *     When **value** is **undefined**, the component reverts to default double-sided setting (**true**).
+      * @returns { this }
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
+      * @since 26.0.0 static
+      */
+    default doubleSided(value: boolean | undefined): this;
 }
 /**
  * CommonAttribute for ide.
