@@ -3798,7 +3798,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    FILE_HIDDEN = 'file_hidden'
+    FILE_HIDDEN = 'file_hidden',
+    /**
+     * Size of the asset attachment, in bytes.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ATTACHMENT_SIZE = 'attachment_size'
   }
 
   /**
