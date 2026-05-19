@@ -1079,6 +1079,15 @@ declare namespace print {
      * @since 23 static
      */
     options?: Object;
+
+    /**
+     * Vendor-specific job options in JSON format.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorOptions?: string;
   }
 
   /**
@@ -1271,6 +1280,15 @@ declare namespace print {
      * @since 23 dynamic&static
      */
     options?: string;
+
+    /**
+     * Vendor-specific job options in JSON format.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorOptions?: string;
   }
 
   /**
@@ -3624,6 +3642,24 @@ declare namespace print {
      * @since 23 static
      */
     options?: string;
+
+    /**
+     * Ability to configure printer vendor-specific preferences.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorPrinterPrefAbility?: string;
+
+    /**
+     * Ability to configure job vendor-specific attributes.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorJobAttrAbility?: string;
   }
 
   /**
@@ -3850,6 +3886,15 @@ declare namespace print {
      * @since 23 static
      */
     options?: string;
+
+    /**
+     * Vendor-specific printer preferences in JSON format.
+     *
+     * @syscap SystemCapability.Print.PrintFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendorOptions?: string;
   }
 
   /**
