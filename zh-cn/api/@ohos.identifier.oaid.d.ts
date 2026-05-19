@@ -21,28 +21,26 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This module provides the capability of obtaining open anonymous device identifiers (OAIDs).
- *
- * > **NOTE**
- *
- * > - To use the OAID APIs, you must
- * > [request authorization from users](docroot://security/AccessToken/request-user-authorization.md): ohos
- * > .permission.APP_TRACKING_CONSENT.
+ * 本模块提供开放匿名设备标识符（Open Anonymous Device Identifier, OAID，以下简称OAID）的获取和重置能力。
+ * 
+ * > **说明：**
+ * >
+ * > 使用获取开放匿名设备标识符接口，
+ * > 需[向用户申请授权](docroot://security/AccessToken/request-user-authorization.md)（默认开启权限）：
+ * > ohos.permission.APP_TRACKING_CONSENT。
  *
  * @syscap SystemCapability.Advertising.OAID
  * @since 10
  */
 declare namespace identifier {
   /**
-   * Obtains the OAID. This API uses an asynchronous callback to return the result.
+   * 获取开放匿名设备标识符（OAID）。使用callback异步回调。
    *
    * @permission ohos.permission.APP_TRACKING_CONSENT
-   * @param { AsyncCallback<string> } callback - Callback used to return the OAID.<br>1. If the application has
-   *     configured the permission **ohos.permission.APP_TRACKING_CONSENT** and the permission is allowed, the OAID is
-   *     returned.<br>2. If the application has configured the permission **ohos.permission.APP_TRACKING_CONSENT** and
-   *     the permission is disallowed, 00000000-0000-0000-0000-000000000000 is returned.<br>3. If the application has
-   *     not configured the permission **ohos.permission.APP_TRACKING_CONSENT**, 00000000-0000-0000-0000-000000000000 is
-   *     returned.
+   * @param { AsyncCallback<string> } callback - 回调函数，返回开放匿名设备标识符（OAID）。<br/>1.如应用已配置
+   *     ohos.permission.APP_TRACKING_CONSENT权限，且“跨应用关联访问权限”为“允许”，则返回OAID。<br/>2.如应用已配置
+   *     ohos.permission.APP_TRACKING_CONSENT权限，且“跨应用关联访问权限”为“禁止”，则返回00000000-0000-0000-0000-000000000000。
+   *     <br/>3.如应用未配置 ohos.permission.APP_TRACKING_CONSENT权限，则返回00000000-0000-0000-0000-000000000000。
    * @throws { BusinessError } 17300001 - System internal error.
    * @syscap SystemCapability.Advertising.OAID
    * @since 10
@@ -50,16 +48,14 @@ declare namespace identifier {
   function getOAID(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the OAID. This API uses a promise to return the result.
+   * 获取开放匿名设备标识符（OAID）。使用Promise异步回调。
    *
    * @permission ohos.permission.APP_TRACKING_CONSENT
-   * @returns { Promise<string> } Promise used to return the OAID.
-   *     <br>1. If the application has configured the permission **ohos.permission.APP_TRACKING_CONSENT**
-   *     and the permission is allowed, the OAID is returned.
-   *     <br>2. If the application has configured the permission **ohos.permission.APP_TRACKING_CONSENT**
-   *     and the permission is disallowed, 00000000-0000-0000-0000-000000000000 is returned.
-   *     <br>3. If the application has not configured the permission **ohos.permission.APP_TRACKING_CONSENT**,
-   *     00000000-0000-0000-0000-000000000000 is returned.
+   * @returns { Promise<string> } Promise对象，返回开放匿名设备标识符（OAID）。
+   *     <br/>1.如应用已配置ohos.permission.APP_TRACKING_CONSENT权限，且跨应用关联访问权限为“允许”，则返回OAID。
+   *     <br/>2.如应用已配置ohos.permission.APP_TRACKING_CONSENT权限，且跨应用关联访问权限为“禁止”，
+   *     则返回00000000-0000-0000-0000-000000000000。
+   *     <br/>3.如应用未配置ohos.permission.APP_TRACKING_CONSENT权限，则返回00000000-0000-0000-0000-000000000000。
    * @throws { BusinessError } 17300001 - System internal error.
    * @syscap SystemCapability.Advertising.OAID
    * @since 10
@@ -67,7 +63,7 @@ declare namespace identifier {
   function getOAID(): Promise<string>;
 
   /**
-   * Resets the OAID.
+   * 重置开放匿名设备标识符（OAID）。
    *
    * @throws { BusinessError } 17300001 - System internal error.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
