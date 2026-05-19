@@ -21,7 +21,7 @@
 import advertising from './@ohos.advertising';
 
 /**
- * The AutoAdComponent module provides the capability of displaying carousel ads.
+ * 本模块提供展示轮播广告的能力。
  *
  * @syscap SystemCapability.Advertising.Ads
  * @atomicservice [since 12]
@@ -30,7 +30,7 @@ import advertising from './@ohos.advertising';
 @Component
 declare struct AutoAdComponent {
   /**
-   * Ad request parameters.
+   * 广告请求参数。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -39,7 +39,7 @@ declare struct AutoAdComponent {
   adParam: advertising.AdRequestParams;
 
   /**
-   * Ad configuration options.
+   * 广告配置参数。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -48,7 +48,7 @@ declare struct AutoAdComponent {
   adOptions: advertising.AdOptions;
 
   /**
-   * Ad display parameters.
+   * 广告展示参数。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -57,7 +57,7 @@ declare struct AutoAdComponent {
   displayOptions: advertising.AdDisplayOptions;
 
   /**
-   * Ad status change callback.
+   * 广告状态变化回调。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -66,7 +66,7 @@ declare struct AutoAdComponent {
   interactionListener: advertising.AdInteractionListener;
 
   /**
-   * A constructor used to create an **AutoAdComponent** object.
+   * 用于创建AutoAdComponent对象的构造函数。
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]

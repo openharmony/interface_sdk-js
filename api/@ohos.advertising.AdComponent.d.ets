@@ -29,61 +29,63 @@ import advertising from './@ohos.advertising';
  */
 @Component
 declare struct AdComponent {
-    /**
-     * Array of ad objects.
-     *
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice [since 12]
-     * @since 11
-     */
-    ads: advertising.Advertisement[];
+  /**
+   * Array of ad objects.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  ads: advertising.Advertisement[];
 
-    /**
-     * Ad display parameters.
-     *
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice [since 12]
-     * @since 11
-     */
-    displayOptions: advertising.AdDisplayOptions;
+  /**
+   * Ad display parameters.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  displayOptions: advertising.AdDisplayOptions;
 
-    /**
-     * Ad status change callback.
-     *
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice [since 12]
-     * @since 11
-     */
-    interactionListener: advertising.AdInteractionListener;
+  /**
+   * Ad status change callback.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  interactionListener: advertising.AdInteractionListener;
 
-    /**
-     * Ad self-rendering.
-     *
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice [since 20]
-     * @since 12
-     */
-    @BuilderParam adRenderer?: () => void;
+  /**
+   * Ad self-rendering.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 20]
+   * @since 12
+   */
+  @BuilderParam
+  adRenderer?: () => void;
 
-    /**
-     * Roll ad state. The value **1** means that the roll ad is playing,
-     * and the value **2** (default) means that the roll ad is paused.
-     * Other values are invalid and the previous playback state is not changed.
-     *
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice [since 20]
-     * @since 15
-     */
-    @Prop rollPlayState?: number;
+  /**
+   * Roll ad state. The value **1** means that the roll ad is playing,
+   * and the value **2** (default) means that the roll ad is paused.
+   * Other values are invalid and the previous playback state is not changed.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 20]
+   * @since 15
+   */
+  @Prop
+  rollPlayState?: number;
 
-    /**
-     * A constructor used to create an **AdComponent** object.
-     *
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice [since 12]
-     * @since 11
-     */
-    build(): void;
+  /**
+   * A constructor used to create an **AdComponent** object.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  build(): void;
 }
 
 export { AdComponent };
