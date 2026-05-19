@@ -174,6 +174,106 @@ declare namespace volumeManager {
   }
 
   /**
+   * Media type of disk.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum MediaType {
+    /**
+     * The media type of ssd.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SSD = 0,
+
+    /**
+     * The media type of hdd.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HDD = 1,
+
+    /**
+     * Unknown media type.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_MEDIA_TYPE = 2
+  }
+
+  /**
+   * Disk type.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum DiskType {
+    /**
+     * The type of sd card.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SD_CARD = 1,
+
+    /**
+     * The type of usb flash.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    USB_FLASH = 2,
+
+    /**
+     * The type of CD_DVD_BD.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CD_DVD_BD = 3,
+
+    /**
+     * The type of mtp ptp.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MTP_PTP = 4,
+
+    /**
+     * Unknown disk type.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_DISK_TYPE = 255
+  }
+
+  /**
    * Disk information.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -190,10 +290,10 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    diskId: string;
+    id: string;
 
     /**
-     * Disk name.
+     * Disk name. Such as sda,sdb,sdc.etc.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -203,34 +303,16 @@ declare namespace volumeManager {
     diskName: string;
 
     /**
-     * Disk size in bytes.
+     * Disk total size.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     sizeBytes: long;
-
-    /**
-     * System path of the disk.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    sysPath: string;
-
-    /**
-     * Vendor of the disk.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    vendor: string;
 
     /**
      * Disk type.
@@ -240,7 +322,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    diskType: int;
+    diskType: DiskType;
 
     /**
      * Media type.
@@ -250,7 +332,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    mediaType: int;
+    mediaType: MediaType;
 
     /**
      * Whether the disk is removable.
@@ -260,10 +342,10 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    removable: int;
+    removable: boolean;
 
     /**
-     * Extra information of the disk.
+     * Disk information extension field.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -271,6 +353,16 @@ declare namespace volumeManager {
      * @since 26.0.0 dynamic&static
      */
     extraInfo: string;
+
+    /**
+     * Array of volume ids.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    volumeIds: Array<String>;
   }
 
   /**
@@ -285,6 +377,7 @@ declare namespace volumeManager {
     /**
      * Partition number.
      *
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -305,6 +398,7 @@ declare namespace volumeManager {
     /**
      * Start sector of the partition.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -315,6 +409,7 @@ declare namespace volumeManager {
     /**
      * End sector of the partition.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -323,8 +418,10 @@ declare namespace volumeManager {
     endSector: long;
 
     /**
-     * Partition size in bytes.
+     * Partition total size.
+     * <br>Unit: Byte.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -333,7 +430,7 @@ declare namespace volumeManager {
     sizeBytes: long;
 
     /**
-     * File system type.
+     * File system type. Common file systems are **ext4**, **vfat**, **exfat**, **NTFS**, **f2fs**, and **hmfs**.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -375,6 +472,7 @@ declare namespace volumeManager {
     /**
      * Number of partitions.
      *
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -385,6 +483,7 @@ declare namespace volumeManager {
     /**
      * Total number of sectors.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -395,6 +494,7 @@ declare namespace volumeManager {
     /**
      * Sector size in bytes.
      *
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -405,6 +505,7 @@ declare namespace volumeManager {
     /**
      * Alignment sector.
      *
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -435,6 +536,7 @@ declare namespace volumeManager {
     /**
      * Partition number.
      *
+     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -445,6 +547,7 @@ declare namespace volumeManager {
     /**
      * Start sector of the partition.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -455,6 +558,7 @@ declare namespace volumeManager {
     /**
      * End sector of the partition.
      *
+     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -463,7 +567,7 @@ declare namespace volumeManager {
     endSector: long;
 
     /**
-     * Partition type code.
+     * The code of file system. Common file systems are **ext4**, **vfat**, **exfat**, **NTFS**, **f2fs**, and **hmfs**.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -483,7 +587,7 @@ declare namespace volumeManager {
    */
   export interface FormatParams {
     /**
-     * File system type, such as 'ext4', 'vfat', 'ntfs'.
+     * File system type, Common file systems are **ext4**, **vfat**, and **exfat**.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -1003,12 +1107,11 @@ declare namespace volumeManager {
   /**
    * Querying Information About All Disks.
    *
-   * @permission ohos.permission.STORAGE_MANAGER
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
    * @returns { Promise<Array<Disk>> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600008 - No such object.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
@@ -1019,13 +1122,14 @@ declare namespace volumeManager {
   /**
    * Querying disk information based on the disk ID.
    *
-   * @permission ohos.permission.STORAGE_MANAGER
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
    * @param { string } diskId - The diskId of disk.
    * @returns { Promise<Disk> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
