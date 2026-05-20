@@ -16746,16 +16746,6 @@ export declare interface InputEventMonitor {
  */
 export declare abstract class RawInputEventWrapper {
   /**
-   * Constructor (internal use).
-   *
-   * @param { MouseEvent | TouchEvent | KeyEvent } event - The raw input event.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  protected constructor(event: MouseEvent | TouchEvent | KeyEvent);
-
-  /**
    * Checks whether the event is a mouse event.
    *
    * @returns { boolean } - Returns true if the event is a mouse event, otherwise returns false.
