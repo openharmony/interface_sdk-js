@@ -253,14 +253,24 @@ declare namespace volumeManager {
     CD_DVD_BD = 3,
 
     /**
-     * The type of mtp ptp.
+     * The type of ssd data disk.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    MTP_PTP = 4,
+    DATA_DISK_SSD = 4,
+
+    /**
+     * The type of hdd data disk.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA_DISK_HDD = 5,
 
     /**
      * Unknown disk type.
@@ -290,17 +300,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    id: string;
-
-    /**
-     * Disk name. Such as sda,sdb,sdc.etc.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    diskName: string;
+    diskId: string;
 
     /**
      * Disk total size.
@@ -325,17 +325,7 @@ declare namespace volumeManager {
     diskType: DiskType;
 
     /**
-     * Media type.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    mediaType: MediaType;
-
-    /**
-     * Whether the disk is removable.
+     * Indicates that the disk can be removed.The value true indicates that the disk can be removed.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -343,6 +333,16 @@ declare namespace volumeManager {
      * @since 26.0.0 dynamic&static
      */
     removable: boolean;
+
+    /**
+     * Indicates the volume of a disk. A disk may contain multiple volumes.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    volumeIds: Array<String>;
 
     /**
      * Disk information extension field.
@@ -353,16 +353,6 @@ declare namespace volumeManager {
      * @since 26.0.0 dynamic&static
      */
     extraInfo: string;
-
-    /**
-     * Array of volume ids.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    volumeIds: Array<String>;
   }
 
   /**
