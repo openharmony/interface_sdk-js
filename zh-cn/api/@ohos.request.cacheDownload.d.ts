@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Download and Cache
+ * @file 缓存下载
  * @kit BasicServicesKit
  */
 
@@ -22,14 +22,11 @@ import { BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
 /**
- * The **request** module provides applications with the basic capabilities of file upload and download and background 
- * transfer proxy.
+ * request部件主要给应用提供上传下载文件、后台传输代理的基础能力。
  * 
- * - The child component **cacheDownload** provides the basic capability of caching application resources in advance.
- * - **cacheDownload** uses the HTTP to download data and caches data resources to the application memory or specified 
- * files in the application sandbox directory.
- * - The cached data can be used by specific ArkUI components (such as **Image**) to improve resource loading 
- * efficiency. Check whether the ArkUI components support this function by referring to the ArkUI component topics.
+ * - request的cacheDownload子组件主要给应用提供应用资源提前缓存的基础能力。
+ * - cacheDownload组件使用HTTP协议进行数据下载，并将数据资源缓存至应用内存或应用沙箱目录的指定文件中。
+ * - 这些缓存数据可以被特定的ArkUI组件（例如：Image组件）使用，从而提升资源加载效率。请查看ArkUI组件文档确定组件是否支持该功能。
  *
  * @syscap SystemCapability.Request.FileTransferAgent
  * @since 18 dynamic
@@ -37,7 +34,7 @@ import { Callback } from './@ohos.base';
  */
 declare namespace cacheDownload {
     /**
-     * Enumerates secure communication protocols.
+     * 表示安全通信协议的枚举。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 21 dynamic
@@ -45,7 +42,7 @@ declare namespace cacheDownload {
      */
     enum SslType {
         /**
-         * TLS.
+         * 使用TLS安全通信协议。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
@@ -53,7 +50,7 @@ declare namespace cacheDownload {
          */
         TLS = 'TLS',
         /**
-         * TLCP.
+         * 使用TLCP安全通信协议。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
@@ -63,21 +60,21 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Enumerates cache update strategies.
+     * 表示缓存刷新策略的枚举。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     enum CacheStrategy {
         /**
-         * Forcibly updates the cache, regardless of whether the cache already exists.
+         * 强制更新缓存，无论缓存是否已经存在。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         FORCE = 0,
         /**
-         * Updates the cache only when the cache does not exist.
+         * 延迟更新缓存，只有当缓存不存在时才会更新。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -86,14 +83,14 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Enumerates the specific types of returned error code.
+     * 表示错误返回信息的特定类型枚举。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     enum ErrorCode {  
         /**
-         * Other types of errors that are not classified.
+         * 表示未分类的其他类型错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -101,7 +98,7 @@ declare namespace cacheDownload {
         OTHERS = 0xFF,
 
         /**
-         * DNS-related errors.
+         * 表示DNS相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -109,7 +106,7 @@ declare namespace cacheDownload {
         DNS = 0x00,
 
         /**
-         * TCP-related errors.
+         * 表示TCP相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -117,7 +114,7 @@ declare namespace cacheDownload {
         TCP = 0x10,
 
         /**
-         * SSL-related errors.
+         * 表示SSL相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -125,7 +122,7 @@ declare namespace cacheDownload {
         SSL = 0x20,
         
         /**
-         * HTTP-related errors.
+         * 表示HTTP相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -147,7 +144,7 @@ declare namespace cacheDownload {
        * The minimum value is 0.
        * The maximum value is 20.
        * When set to 0, no check will be performed.
-       * The value should be an integer.
+	   * The value should be an integer.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
@@ -190,8 +187,7 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Provides configuration options for download and cache, including HTTP options, transmission options, and task 
-     * options.
+     * 缓存下载的配置选项。包括HTTP选项、传输选项和任务选项。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18 dynamic
@@ -199,7 +195,7 @@ declare namespace cacheDownload {
      */
     interface CacheDownloadOptions {
         /**
-         * Request header used by a download task during HTTP transfer. The default value is empty.
+         * 缓存下载任务在HTTP传输时使用的请求头。默认值为空。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 18 dynamic
@@ -207,8 +203,7 @@ declare namespace cacheDownload {
          */
         headers?: Record<string, string>;
         /**
-         * Secure communication protocol, such as TSL or TLCP. TLS is used by default. Currently, TLS and TLCP do not
-         * support two-way authentication.
+         * 使用安全通信协议TLS或TLCP，默认使用TLS。当前TLS和TLCP均不支持双向认证。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
@@ -216,8 +211,7 @@ declare namespace cacheDownload {
          */
         sslType?: SslType;
         /**
-         * CA certificate path. Currently, only the .pem certificate is supported. The CA certificate preset by the
-         * system is used by default.
+         * CA证书路径。目前仅支持.pem格式证书，默认使用系统预设的CA证书。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
@@ -225,7 +219,7 @@ declare namespace cacheDownload {
          */
         caPath?: string;
         /**
-         * Cache update strategies, including **FORCE** or **LAZY**. The **FORCE** policy is used by default.
+         * 使用缓存刷新策略FORCE或LAZY，默认使用FORCE。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -250,7 +244,7 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Describes the pre-downloaded resource information.
+     * 预下载的资源信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -258,8 +252,7 @@ declare namespace cacheDownload {
      */
     interface ResourceInfo {
         /**
-         * Size of a pre-downloaded resource after decompression, in bytes. If the value is a positive integer, the 
-         * resource is successfully downloaded; if the value is **-1**, the resource fails to be downloaded.
+         * 预下载资源解压后的大小，单位为字节（B）。当值为正整数时表示资源下载成功，-1表示下载失败。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -269,7 +262,7 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Describes the pre-downloaded network information.
+     * 预下载的网络信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -277,7 +270,7 @@ declare namespace cacheDownload {
      */
     interface NetworkInfo {
         /**
-         * DNS servers used for downloading resources.
+         * 下载资源时使用的dns服务器列表。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -285,8 +278,7 @@ declare namespace cacheDownload {
          */
         readonly dnsServers: string[];
         /**
-         * IP address of the URL used for downloading resources. When the DNS resolution fails, the IP address is
-         * undefined.
+         * 下载资源时url的ip地址。当dns解析失败时，ip为undefined。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -295,7 +287,7 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Describes the pre-downloaded performance information.
+     * 预下载的性能信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -303,7 +295,7 @@ declare namespace cacheDownload {
      */
     interface PerformanceInfo {
         /**
-         * Time taken from DNS startup to resolution completion, in milliseconds.
+         * 从启动到dns解析完成所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -311,7 +303,7 @@ declare namespace cacheDownload {
          */
         readonly dnsTime: double;
         /**
-         * Time taken from TCP startup to connection completion, in milliseconds.
+         * 从启动到tcp连接完成所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -319,7 +311,7 @@ declare namespace cacheDownload {
          */
         readonly connectTime: double;
         /**
-         * Time taken from TLS startup to connection completion, in milliseconds.
+         * 从启动到tls连接完成所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -327,7 +319,7 @@ declare namespace cacheDownload {
          */
         readonly tlsTime: double;
         /**
-         * Time taken from startup to sending the first byte, in milliseconds.
+         * 从启动到开始发送第一个字节所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -335,7 +327,7 @@ declare namespace cacheDownload {
          */
         readonly firstSendTime: double;
         /**
-         * Time taken from startup to receiving the first byte, in milliseconds.
+         * 从启动到接收第一个字节所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -343,7 +335,7 @@ declare namespace cacheDownload {
          */
         readonly firstReceiveTime: double;
         /**
-         * Time taken from startup to request completion, in milliseconds.
+         * 从启动到完成请求所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -351,7 +343,7 @@ declare namespace cacheDownload {
          */
         readonly totalTime: double;
         /**
-         * Time taken from startup to redirection completion, in milliseconds.
+         * 从启动到完成所有重定向步骤所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -361,7 +353,7 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Describes the pre-downloaded download information.
+     * 预下载的下载信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -369,7 +361,7 @@ declare namespace cacheDownload {
      */
     interface DownloadInfo {
         /**
-         * Pre-downloaded resource information.
+         * 预下载的资源信息。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -377,7 +369,7 @@ declare namespace cacheDownload {
          */
         readonly resource: ResourceInfo;
         /**
-         * Pre-downloaded network information.
+         * 预下载的网络信息。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -385,7 +377,7 @@ declare namespace cacheDownload {
          */
         readonly network: NetworkInfo;
         /**
-         * Pre-downloaded performance information.
+         * 预下载的性能信息。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
@@ -395,22 +387,22 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Describes the error message returned when a pre-download error occurs.
+     * 预下载错误回调的返回信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     interface DownloadError {
         /**
-         * Specific error type returned by the pre-download error callback.
+         * 预下载错误回调返回的特定错误类型。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         readonly errorCode: ErrorCode;
         /**
-         * Error message. A [universal error code](docroot://reference/errorcode-universal.md) or
-         * [HTTP error code](docroot://reference/apis-network-kit/errorcode-net-http.md) is returned.
+         * 返回[通用错误码](docroot://reference/errorcode-universal.md)或
+         * [HTTP错误码](docroot://reference/apis-network-kit/errorcode-net-http.md)。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -419,22 +411,16 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Downloads a task from a specified URL. If the transfer is successful, the data is downloaded to the memory cache 
-     * and file cache.
+     * 启动一个缓存下载任务，若传输成功，则将数据下载到内存缓存和文件缓存中。
      * 
-     * - After automatically decompressing during HTTP transmission, the size of the target resource cannot exceed 20971
-     * 520 bytes (20 MB). Otherwise, the resource fails to store in the memory cache or file cache.
-     * - When caching the downloaded data, if the data already exists in the destination URL, the new data will 
-     * overwrite the old one.
-     * - In addition, the system determines whether to store the target resource in a specified location based on each 
-     * cache type's size limit in **cacheDownload**. By default, the LRU mode is used to replace the existing cached 
-     * data.
-     * - This API returns the result synchronously, without blocking the calling thread.
+     * - 目标资源经过HTTP传输自动解压后的大小不能超过20971520B（即20MB），否则不会保存到内存缓存或文件缓存中。
+     * - 在缓存下载数据时，如果在该url下已存在缓存内容，新的缓存内容会覆盖旧缓存内容。
+     * - 目标资源在存储到内存缓存或文件缓存中时，依照缓存下载组件的各类型缓存大小上限决定文件是否存储到指定位置，并默认使用“LRU”（最近最少使用）方式替换已有缓存内容。
+     * - 该方法为同步方法，不阻塞调用线程。
      *
      * @permission ohos.permission.INTERNET
-     * @param { string } url - URL of the target resource. HTTP and HTTPS are supported. The URL length cannot exceed 81
-     *     92 bytes.
-     * @param { CacheDownloadOptions } options - Cache download options for the target resource.
+     * @param { string } url - 目标资源的地址。支持HTTP和HTTPS协议，长度不超过8192字节。
+     * @param { CacheDownloadOptions } options - 目标资源的缓存下载选项。
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
@@ -447,13 +433,12 @@ declare namespace cacheDownload {
     function download(url: string, options: CacheDownloadOptions): void;
 
     /**
-     * Cancels an ongoing download task based on the URL. The saved memory cache and file cache are not affected.
+     * 根据url移除一个正在执行的缓存下载任务，已保存的内存缓存和文件缓存不会受到影响。
      * 
-     * - If there is no download task with the specified URL, this API does not take effect.
-     * - When this API is used for synchronous execution, the calling thread is not blocked.
+     * - 当不存在对应url的任务时无其他效果。
+     * - 使用该方法同步执行时，不阻塞调用线程。
      *
-     * @param { string } url - URL of the target resource. HTTP and HTTPS are supported. The URL length cannot exceed 81
-     *     92 bytes.
+     * @param { string } url - 目标资源的地址。支持HTTP和HTTPS协议，长度不超过8192字节。
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -465,14 +450,12 @@ declare namespace cacheDownload {
     function cancel(url: string): void;
 
     /**
-     * Sets the upper limit of the memory cache size for the **cacheDownload** component.
+     * 设置缓存下载组件能够保存的内存缓存上限。
      * 
-     * - When this API is used to adjust the cache size, the LRU mode is used by default to clear redundant cached data 
-     * in the memory.
-     * - This API returns the result synchronously, without blocking the calling thread.
+     * - 使用该接口调整缓存大小时，默认使用“LRU”（最近最少使用）方式清除多余的已缓存的内存缓存内容。
+     * - 该方法为同步方法，不阻塞调用线程。
      *
-     * @param { long } bytes - Upper limit of the cache, in bytes. The default value is **0**, and the maximum value
-     *     cannot exceed **1073741824** (1 GB).
+     * @param { long } bytes - 设置的缓存上限。默认值为0B，最大值不超过1073741824B（即1GB）。
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -484,15 +467,13 @@ declare namespace cacheDownload {
     function setMemoryCacheSize(bytes: long): void;
 
     /**
-     * Sets the upper limit of the file cache size for the **cacheDownload** component.
+     * 设置缓存下载组件能够保存的文件缓存的上限。
      * 
-     * - When this API is used to adjust the cache size, the LRU mode is used by default to clear redundant cached data 
-     * in the file.
-     * - If **bytes** is set to **0**, all cached files will be deleted.
-     * - This API returns the result synchronously, without blocking the calling thread.
+     * - 使用该接口调整缓存大小时，默认使用“LRU”（最近最少使用）方式清除多余的已缓存的文件缓存内容。
+     * - 使用该接口时，若bytes设置为0，将会删除所有缓存文件。
+     * - 该方法为同步方法，不会阻塞调用线程。
      *
-     * @param { long } bytes - Upper limit of the cache, in bytes. The default value is **104857600** (100 MB), and the
-     *     maximum value is **4294967296** (4 GB).
+     * @param { long } bytes - 设置的缓存上限。默认值为104857600B（即100MB），最大值不超过4294967296B（即4GB）。
      * @throws { BusinessError } 401 - parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -504,20 +485,16 @@ declare namespace cacheDownload {
     function setFileCacheSize(bytes: long): void;
 
     /**
-     * Obtains the download information based on the URL. The download information is stored in the download information
-     * list in memory and is cleared when the application exits.
+     * 基于url获取预下载的下载信息。信息存储在内存中的下载信息列表，当应用程序退出时清除。
      * 
-     * - If the specified URL is found in the download information list, the latest 
-     * [DownloadInfo]{@link cacheDownload.DownloadInfo} corresponding to the URL is returned.
-     * - If the specified URL cannot be found in the download information list, **undefined** is returned.
-     * - If the download information has already cached in the URL, the new cached information will overwrite the old 
-     * one.
-     * - When the target information is stored in the memory, the existing cache data is replaced in the LRU mode.
+     * - 如果下载信息列表中能够找到指定url，返回该url对应的最新[DownloadInfo]{@link cacheDownload.DownloadInfo}。
+     * - 如果下载信息列表中找不到指定url，返回undefined。
+     * - 在缓存下载信息时，如果在该url下已存在缓存信息，新的缓存内容会覆盖旧缓存。
+     * - 目标信息在存储到内存时，使用“LRU”（最近最少使用）方式替换已存在的缓存数据。
      *
      * @permission ohos.permission.GET_NETWORK_INFO
-     * @param { string } url - URL to be queried, with a maximum length of 8192 bytes.
-     * @returns { DownloadInfo | undefined } Returns the download information of the corresponding URL if the operation
-     *     is successful; returns **undefined** if the specified URL does not exist.
+     * @param { string } url - 待查询的url，最大长度为8192字节。
+     * @returns { DownloadInfo | undefined } 返回对应url的下载信息，url未记录时返回undefined。
      * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -526,16 +503,13 @@ declare namespace cacheDownload {
     function getDownloadInfo(url: string): DownloadInfo | undefined;
 
     /**
-     * Sets the size of the download information list.
+     * 设置下载信息列表的大小。
      * 
-     * - The download information list is used to store pre-downloaded information.
-     * - Each pre-download generates a piece of download information with a unique URL. Only the latest download 
-     * information is saved for the same URL.
-     * - If the list size is increased using this API, the original information in the list remains unchanged; if the 
-     * list size is decreased, the LRU mode is used by default to clear excess cached data in the list.
+     * - 下载信息列表用于存储预下载信息。
+     * - 下载信息和url一一对应，每次预下载都会生成一个下载信息，相同url下只会保存最新的下载信息。
+     * - 使用该接口调整列表大小时，size更新增大，列表中原有的信息不变，更新减小，默认使用“LRU”（最近最少使用）方式清除多余的已缓存信息。
      *
-     * @param { long } size - Size of the download information list. The value ranges from 0 to 8192. The default value
-     *     is **0**, indicating that no download information is stored.
+     * @param { long } size - 设置的下载信息列表大小。取值范围：[0, 8192]，默认为0，表示不会存储任何下载信息。
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
      * @since 23 static
@@ -543,7 +517,7 @@ declare namespace cacheDownload {
     function setDownloadInfoListSize(size: long): void;
 
     /**
-     * Clears this memory cache.
+     * 清除缓存下载内容的内存缓存。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
@@ -551,51 +525,47 @@ declare namespace cacheDownload {
     function clearMemoryCache(): void;
    
     /**
-     * Clears this file cache.
+     * 清除保存下载内容的文件缓存。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function clearFileCache(): void;
     /**
-     * Subscribes to the pre-download completion events. This API uses an asynchronous callback to return the result.
+     * 订阅预下载的完成事件。使用callback异步回调。
      *
-     * @param { string } url - Callback URL to be registered, with a maximum of 8,192 bytes.
-     * @param { Callback<void> } callback - Callback used to return the result.
+     * @param { string } url - 待注册回调的url，url字符串的最大长度为8192字节。
+     * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function onDownloadSuccess(url: string, callback: Callback<void>): void;
 
     /**
-     * Subscribes to the pre-download error events. This API uses an asynchronous callback to return the result.
+     * 订阅预下载的错误事件。使用callback异步回调。
      *
-     * @param { string } url - URL to be registered, with a maximum of 8192 bytes.
-     * @param { Callback<DownloadError> } callback - Callback used to return the error information about the pre-
-     *     download.
+     * @param { string } url - 待注册回调的url，URL字符串的最大长度为8192字节。
+     * @param { Callback<DownloadError> } callback - 回调函数，返回预下载的错误信息。
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function onDownloadError(url: string, callback: Callback<DownloadError>): void;
 
     /**
-     * Unsubscribes from the pre-download completion events. This API uses an asynchronous callback to return the
-     * result.
+     * 取消订阅预下载的完成事件。使用callback异步回调。
      *
-     * @param { string } url - Callback URL to be registered, with a maximum of 8,192 bytes.
-     * @param { Callback<void> } [callback] - Callback to unregister. If this parameter is left blank, all completion
-     *     callback functions of the URL are unregistered.
+     * @param { string } url - 待注册回调的url，url字符串的最大长度为8192字节。
+     * @param { Callback<void> } [callback] - 回调函数。若不填该参数，表示url下的所有完成回调函数。
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function offDownloadSuccess(url: string, callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from the pre-download error events. This API uses an asynchronous callback to return the result.
+     * 取消订阅预下载的错误事件。使用callback异步回调。
      *
-     * @param { string } url - URL to be unregistered, with a maximum of 8192 bytes.
-     * @param { Callback<DownloadError> } [callback] - Callback used to return the error information about the pre-
-     *     download. If this parameter is left blank, all error callback functions of the URL are unregistered.
+     * @param { string } url - 待注册回调的url，url字符串最大长度为8192字节。
+     * @param { Callback<DownloadError> } [callback] - 回调函数，返回预下载的错误信息。若不填该参数，表示url下的所有错误回调函数。
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */

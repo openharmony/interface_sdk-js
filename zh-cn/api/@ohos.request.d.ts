@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Upload and Download
+ * @file 上传下载
  * @kit BasicServicesKit
  */
 
@@ -24,10 +24,9 @@ import BaseContext from './application/BaseContext';
 import { WantAgent } from './@ohos.app.ability.wantAgent';
 
 /**
- * The **request** module provides applications with basic upload, download, and background transmission agent 
- * capabilities.
+ * request模块给应用提供上传下载文件、后台代理传输的基础功能。
  * 
- * - Currently, the **request** module cannot be called in extensions.
+ * - request暂不支持在Extension中调用。
  *
  * @syscap SystemCapability.Request.FileTransferAgent [since 10]
  * @crossplatform [since 10]
@@ -37,7 +36,7 @@ import { WantAgent } from './@ohos.app.ability.wantAgent';
  */
 declare namespace request {
   /**
-   * (Universal error codes) Permission verification failed.
+   * 通用错误码：权限校验失败。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -46,7 +45,7 @@ declare namespace request {
    */
   const EXCEPTION_PERMISSION: int;
   /**
-   * (Universal error codes) Parameter check failed.
+   * 通用错误码：参数检查失败。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -55,7 +54,7 @@ declare namespace request {
    */
   const EXCEPTION_PARAMCHECK: int;
   /**
-   * (Universal error codes) The device does not support this API.
+   * 通用错误码：该设备不支持此API。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -64,7 +63,7 @@ declare namespace request {
    */
   const EXCEPTION_UNSUPPORTED: int;
   /**
-   * (Specific error codes) Abnormal file operation.
+   * 特有错误码：文件操作异常。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -73,7 +72,7 @@ declare namespace request {
    */
   const EXCEPTION_FILEIO: int;
   /**
-   * (Specific error codes) Abnormal file path.
+   * 特有错误码：文件路径异常。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -82,7 +81,7 @@ declare namespace request {
    */
   const EXCEPTION_FILEPATH: int;
   /**
-   * (Specific error codes) Abnormal service.
+   * 特有错误码：服务异常。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -91,7 +90,7 @@ declare namespace request {
    */
   const EXCEPTION_SERVICE: int;
   /**
-   * (Specific error codes) Other errors.
+   * 特有错误码：其他错误。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -101,7 +100,7 @@ declare namespace request {
   const EXCEPTION_OTHERS: int;
 
   /**
-   * (Network type) Bit flag download allowed on a mobile network.
+   * 网络类型：使用蜂窝网络时允许下载的位标志。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -111,7 +110,7 @@ declare namespace request {
   const NETWORK_MOBILE: int;
 
   /**
-   * (Network type) Bit flag download allowed on a WLAN.
+   * 网络类型：使用WLAN时允许下载的位标志。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -121,7 +120,7 @@ declare namespace request {
   const NETWORK_WIFI: int;
 
   /**
-   * (Download error codes) Failure to resume the download due to network errors.
+   * 下载任务错误码：网络原因导致恢复下载失败。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -131,7 +130,7 @@ declare namespace request {
   const ERROR_CANNOT_RESUME: int;
 
   /**
-   * (Download error codes) Failure to find a storage device such as a memory card.
+   * 下载任务错误码：找不到SD卡等存储设备。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -141,7 +140,7 @@ declare namespace request {
   const ERROR_DEVICE_NOT_FOUND: int;
 
   /**
-   * (Download error codes) Failure to download the file because it already exists.
+   * 下载任务错误码：要下载的文件已存在，下载会话无法覆盖现有文件。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -151,7 +150,7 @@ declare namespace request {
   const ERROR_FILE_ALREADY_EXISTS: int;
 
   /**
-   * (Download error codes) File operation failed.
+   * 下载任务错误码：文件操作失败。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -161,7 +160,7 @@ declare namespace request {
   const ERROR_FILE_ERROR: int;
 
   /**
-   * (Download error codes) HTTP transmission failed.
+   * 下载任务错误码：HTTP传输失败。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -171,7 +170,7 @@ declare namespace request {
   const ERROR_HTTP_DATA_ERROR: int;
 
   /**
-   * (Download error codes) Insufficient storage space.
+   * 下载任务错误码：存储空间不足。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -181,7 +180,7 @@ declare namespace request {
   const ERROR_INSUFFICIENT_SPACE: int;
 
   /**
-   * (Download error codes) Error caused by too many network redirections.
+   * 下载任务错误码：网络重定向过多导致的错误。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -191,7 +190,7 @@ declare namespace request {
   const ERROR_TOO_MANY_REDIRECTS: int;
 
   /**
-   * (Download error codes) Unidentified HTTP code.
+   * 下载任务错误码：无法识别的HTTP代码。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -201,11 +200,9 @@ declare namespace request {
   const ERROR_UNHANDLED_HTTP_CODE: int;
 
   /**
-   * (Download error codes) Unknown error.
+   * 下载任务错误码：未知错误。
    * 
-   * In API version 12 or earlier, only serial connection to the IP addresses associated with the specified domain name 
-   * is supported, and the connection time for a single IP address is not controllable. If the first IP address returned
-   * by the DNS is blocked, a handshake timeout may occur, leading to an ERROR_UNKNOWN error.
+   * 例如：API version 12及以下版本，系统仅支持串行地尝试连接域名相关IP，不支持单个IP的连接时间控制。若DNS返回的首个IP被阻塞，可能会由于握手超时导致ERROR_UNKNOWN错误。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -215,7 +212,7 @@ declare namespace request {
   const ERROR_UNKNOWN: int;
 
   /**
-   * (Download error codes) No network connection.
+   * 下载任务错误码：网络未连接。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -225,7 +222,7 @@ declare namespace request {
   const ERROR_OFFLINE: int;
 
   /**
-   * (Download error codes) Network type mismatch.
+   * 下载任务错误码：网络类型不匹配。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -235,8 +232,7 @@ declare namespace request {
   const ERROR_UNSUPPORTED_NETWORK_TYPE: int;
 
   /**
-   * (Causes of download pause) Download paused and queuing for a WLAN connection because the file size exceeds the 
-   * maximum value allowed for a mobile network session.
+   * 下载任务暂停原因：文件大小超过了使用蜂窝网络会话允许的最大值，下载被暂停并等待WLAN连接。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -246,9 +242,9 @@ declare namespace request {
   const PAUSED_QUEUED_FOR_WIFI: int;
 
   /**
-   * (Causes of download pause) Download paused due to a network connection problem.
+   * 下载任务暂停原因：网络问题导致下载暂停。
    * 
-   * Example: network disconnection
+   * 例如：网络断开。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -258,7 +254,7 @@ declare namespace request {
   const PAUSED_WAITING_FOR_NETWORK: int;
 
   /**
-   * (Causes of download pause) Download paused due to network error and then retried.
+   * 下载任务暂停原因：网络错误导致下载会话将被重试。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -268,7 +264,7 @@ declare namespace request {
   const PAUSED_WAITING_TO_RETRY: int;
 
   /**
-   * (Causes of download pause) The user paused the session.
+   * 下载任务暂停原因：用户暂停会话。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -278,7 +274,7 @@ declare namespace request {
   const PAUSED_BY_USER: int;
 
   /**
-   * (Causes of download pause) Download paused due to unknown reasons.
+   * 下载任务暂停原因：未知原因导致暂停下载。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -288,7 +284,7 @@ declare namespace request {
   const PAUSED_UNKNOWN: int;
 
   /**
-   * (Download task status codes) Successful download.
+   * 下载任务状态码：下载会话已完成。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -298,7 +294,7 @@ declare namespace request {
   const SESSION_SUCCESSFUL: int;
 
   /**
-   * (Download task status codes) Download in progress.
+   * 下载任务状态码：下载会话正在进行中。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -308,7 +304,7 @@ declare namespace request {
   const SESSION_RUNNING: int;
 
   /**
-   * (Download task status codes) Download pending.
+   * 下载任务状态码：下载会话正在被调度中。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -318,7 +314,7 @@ declare namespace request {
   const SESSION_PENDING: int;
 
   /**
-   * (Download task status codes) Download paused.
+   * 下载任务状态码：下载会话已暂停。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -328,7 +324,7 @@ declare namespace request {
   const SESSION_PAUSED: int;
 
   /**
-   * (Download task status codes) Download failure without retry.
+   * 下载任务状态码：下载会话已失败，将不会重试。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -338,13 +334,11 @@ declare namespace request {
   const SESSION_FAILED: int;
 
   /**
-   * Downloads a file. This API uses an asynchronous callback to return the result.
+   * 创建并启动一个下载任务，使用callback异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { DownloadConfig } config - Download configuration.
-   * @param { AsyncCallback<DownloadTask> } callback - Callback used to return the result. If the operation is
-   *     successful, **err** is **undefined** and **data** is the **DownloadTask** object obtained. Otherwise, **err**
-   *     is an error object.
+   * @param { DownloadConfig } config - 下载的配置信息。
+   * @param { AsyncCallback<DownloadTask> } callback - 回调函数。当下载任务成功，err为undefined，data为获取到的DownloadTask对象；否则为错误对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
@@ -355,24 +349,19 @@ declare namespace request {
   function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
-   * Downloads a file. This API uses an asynchronous callback to return the result. HTTP is supported. You can use 
+   * 创建并启动一个下载任务，使用callback异步回调，支持HTTP协议。通过
    * [on('complete'|'pause'|'remove')]{@link request.DownloadTask.on(type: 'complete' | 'pause' | 'remove', callback: () => void)}
-   * to obtain the download task state, including task completion, pause, and removal. You can also use 
-   * [on('fail')]{@link request.DownloadTask.on(type: 'fail', callback: (err: int) => void)} to obtain the task download
-   * error information.
+   * 可获取任务下载时的状态信息，包括任务完成、暂停或移除。通过
+   * [on('fail')]{@link request.DownloadTask.on(type: 'fail', callback: (err: int) => void)}可获取任务下载时的错误信息。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about how to obtain the context in the example, see 
-   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-   * > .
+   * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context - Application-based context.
-   * @param { DownloadConfig } config - Download configuration.
-   * @param { AsyncCallback<DownloadTask> } callback - Callback used to return the result. If the operation is
-   *     successful, **err** is **undefined** and **data** is the **DownloadTask** object obtained. Otherwise, **err**
-   *     is an error object.
+   * @param { BaseContext } context - 基于应用程序的上下文。
+   * @param { DownloadConfig } config - 下载的配置信息。
+   * @param { AsyncCallback<DownloadTask> } callback - 回调函数。当下载任务成功，err为undefined，data为获取到的DownloadTask对象；否则为错误对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
    *     <br> 1. Missing mandatory parameters.
@@ -389,11 +378,11 @@ declare namespace request {
   function downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
-   * Downloads a file. This API uses a promise to return the result.
+   * 创建并启动一个下载任务，使用Promise异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { DownloadConfig } config - Download configuration.
-   * @returns { Promise<DownloadTask> } Promise used to return the **DownloadTask** object.
+   * @param { DownloadConfig } config - 下载的配置信息。
+   * @returns { Promise<DownloadTask> } 使用Promise方式，异步返回下载任务DownloadTask的Promise对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
@@ -404,22 +393,19 @@ declare namespace request {
   function download(config: DownloadConfig): Promise<DownloadTask>;
 
   /**
-   * Downloads a file. This API uses a promise to return the result. HTTP is supported. You can use 
+   * 创建并启动一个下载任务，使用Promise异步回调，支持HTTP协议。通过
    * [on('complete'|'pause'|'remove')]{@link request.DownloadTask.on(type: 'complete' | 'pause' | 'remove', callback: () => void)}
-   * to obtain the download task state, including task completion, pause, and removal. You can also use 
-   * [on('fail')]{@link request.DownloadTask.on(type: 'fail', callback: (err: int) => void)} to obtain the task download
-   * error information.
+   * 可以获取任务下载时的状态信息，包括任务完成、暂停或移除。通过
+   * [on('fail')]{@link request.DownloadTask.on(type: 'fail', callback: (err: int) => void)}可以获取任务下载时的错误信息。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about how to obtain the context in the example, see 
-   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-   * > .
+   * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context - Application-based context.
-   * @param { DownloadConfig } config - Download configuration.
-   * @returns { Promise<DownloadTask> } Promise used to return the **DownloadTask** object.
+   * @param { BaseContext } context - 基于应用程序的上下文。
+   * @param { DownloadConfig } config - 下载的配置信息。
+   * @returns { Promise<DownloadTask> } 使用Promise方式，异步返回下载任务DownloadTask的Promise对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
    *     <br> 1. Missing mandatory parameters.
@@ -436,13 +422,12 @@ declare namespace request {
   function downloadFile(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
-   * Uploads a file. This API uses an asynchronous callback to return the result.
+   * 创建并启动一个上传任务，使用callback异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { UploadConfig } config - Upload configurations.
-   * @param { AsyncCallback<UploadTask> } callback - Callback used to return the **UploadTask** object. If the operation
-   *     is successful, **err** is **undefined**, and **data** is the **UploadTask** object obtained. Otherwise, **err**
-   *     is an error object.
+   * @param { UploadConfig } config - 上传的配置信息。
+   * @param { AsyncCallback<UploadTask> } callback - 回调函数，异步返回UploadTask对象。当上传成功，err为undefined，data为获取到的UploadTask对象；否则为
+   *     错误对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
@@ -453,22 +438,19 @@ declare namespace request {
   function upload(config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
-   * Uploads a file. This API uses an asynchronous callback to return the result. HTTP is supported. You can use 
+   * 创建并启动一个上传任务，使用callback异步回调，支持HTTP协议。通过
    * [on('complete'|'fail')]{@link request.UploadTask.on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>)}
-   * to obtain the upload success or error information.
+   * 可获取任务上传时的成功信息或错误信息。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about how to obtain the context in the example, see 
-   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-   * > .
+   * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context - Application-based context.
-   * @param { UploadConfig } config - Upload configurations.
-   * @param { AsyncCallback<UploadTask> } callback - Callback used to return the **UploadTask** object. If the operation
-   *     is successful, **err** is **undefined**, and **data** is the **UploadTask** object obtained. Otherwise, **err**
-   *     is an error object.
+   * @param { BaseContext } context - 基于应用程序的上下文。
+   * @param { UploadConfig } config - 上传的配置信息。
+   * @param { AsyncCallback<UploadTask> } callback - 回调函数，异步返回UploadTask对象。当上传成功，err为undefined，data为获取到的UploadTask对象；否则为
+   *     错误对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
    *     <br> 1. Missing mandatory parameters.
@@ -483,11 +465,11 @@ declare namespace request {
   function uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
-   * Uploads a file. This API uses a promise to return the result.
+   * 创建并启动一个上传任务，使用Promise异步回调。
    *
    * @permission ohos.permission.INTERNET
-   * @param { UploadConfig } config - Upload configurations.
-   * @returns { Promise<UploadTask> } Promise used to return the **UploadTask** object.
+   * @param { UploadConfig } config - 上传的配置信息。
+   * @returns { Promise<UploadTask> } 使用Promise方式，异步返回上传任务UploadTask的Promise对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
@@ -498,20 +480,18 @@ declare namespace request {
   function upload(config: UploadConfig): Promise<UploadTask>;
 
   /**
-   * Uploads a file. This API uses a promise to return the result. HTTP is supported. You can use 
+   * 创建并启动一个上传任务，使用Promise异步回调，支持HTTP协议。通过
    * [on('complete'|'fail')]{@link request.UploadTask.on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>)}
-   * to obtain the upload success or error information.
+   * 可获取任务上传时的成功信息或错误信息。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > For details about how to obtain the context in the example, see 
-   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-   * > .
+   * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context - Application-based context.
-   * @param { UploadConfig } config - Upload configurations.
-   * @returns { Promise<UploadTask> } Promise used to return the **UploadTask** object.
+   * @param { BaseContext } context - 基于应用程序的上下文。
+   * @param { UploadConfig } config - 上传的配置信息。
+   * @returns { Promise<UploadTask> } 使用Promise方式，异步返回上传任务UploadTask的Promise对象。
    * @throws { BusinessError } 201 - The permissions check fails.
    * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
    *     <br> 1. Missing mandatory parameters.
@@ -526,7 +506,7 @@ declare namespace request {
   function uploadFile(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
-   * Defines the download task configuration.
+   * 下载任务的配置信息。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -536,9 +516,8 @@ declare namespace request {
    */
   interface DownloadConfig {
     /**
-     * Resource URL. From API version 6 to 14, the value contains a maximum of 2048 characters; since API version 15, 
-     * the value contains a maximum of 8192 characters. 
-     * [Intercepting HTTP](docroot://basic-services/request/app-file-upload-download.md#intercepting-http) is supported.
+     * 资源地址。从API 6到API 14，最大长度为2048个字符；从API 15开始，最大长度为8192个字符。支持
+     * [HTTP拦截](docroot://basic-services/request/app-file-upload-download.md#http拦截)功能。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -547,7 +526,7 @@ declare namespace request {
      */
     url: string;
     /**
-     * HTTPS flag header to be included in the download request. The default value is empty.
+     * 添加要包含在下载请求中的HTTPS标志头。默认值为空。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -562,12 +541,11 @@ declare namespace request {
      */
     header?: Record<string, string>;
     /**
-     * Whether download is allowed on a metered connection. The value **true** means the download is allowed, and 
-     * **false** means the opposite. The default value is **false**.
+     * 表示设置是否允许在按流量计费的连接下下载任务的配置信息。true表示允许，false表示不允许。默认值为false。
      * 
-     * > **NOTE**
+     * > **说明：**
      * > 
-     * > In general cases, a mobile data connection is metered, while a Wi-Fi connection is not.
+     * > Wi-Fi为非计费网络，数据流量为计费网络。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -576,8 +554,7 @@ declare namespace request {
      */
     enableMetered?: boolean;
     /**
-     * Whether download is allowed on a roaming network. The value **true** means the download is allowed, and **false**
-     * means the opposite. The default value is **false**.
+     * 表示设置是否允许在漫游网络中下载任务的配置信息。true表示允许，false表示不允许。默认值为false。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -586,7 +563,7 @@ declare namespace request {
      */
     enableRoaming?: boolean;
     /**
-     * Description of the download session. The default value is an empty string.
+     * 设置下载会话的描述。默认值为空字符串。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -595,14 +572,15 @@ declare namespace request {
      */
     description?: string;
     /**
-     * Network type that can be used for download. The allowed network type is determined by bitwise operation of 
-     * [network type constants](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
-     * . The following settings are supported:
+     * 设置允许下载的网络类型，通过
+     * [网络类型常量](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)的位运算方式决定允许
+     * 的网络类型，支持如下几种设置方式: 
      * 
-     * - Only the cellular network is supported. The parameter is **NETWORK_MOBILE** or **0x00000001**.
-     * - Only WLAN is supported. The parameter is **NETWORK_WIFI** or **0x00010000**.
-     * - Both cellular network and WLAN are supported, which is the default settings. The parameter is 
-     * **NETWORK_MOBILE **
+     * - 仅支持蜂窝网络下载，参数为NETWORK_MOBILE或0x00000001 
+     * - 仅支持WLAN网络下载，参数为NETWORK_WIFI或0x00010000
+     * - 参数默认值，支持蜂窝/WLAN网络下载，参数为NETWORK_MOBILE | NETWORK_WIFI或0x00010001。
+     * 
+     * 当参数为NETWORK_MOBILE | NETWORK_WIFI时，enableMetered和enableRoaming参数不生效。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -611,14 +589,13 @@ declare namespace request {
      */
     networkType?: int;
     /**
-     * Path where the downloaded file is stored. The default value is the cache directory of the caller (that is, the 
-     * input **context**). The default file name is the part truncated from the last slash (/) in the URL.
+     * 设置下载路径。默认为调用方（即传入的context）对应的缓存路径。默认文件名从url的最后一个"/"后截取。
      * 
-     * - In the FA model, use the 
-     * [Context.getCacheDir](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetcachedir) 
-     * method to obtain the application storage path.
-     * - In the Stage model, use the **AbilityContext** class in 
-     * [Context (Context Base Class of the Stage Model)]{@link ./application/Context:Context} to obtain the file path.
+     * - FA模型下使用
+     * [Context.getCacheDir](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetcachedir)方法获取应用
+     * 存储路径。
+     * 
+     * - Stage模型下使用[Context (Stage模型的上下文基类)]{@link ./application/Context:Context}中AbilityContext的类获取文件路径。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -627,7 +604,7 @@ declare namespace request {
      */
     filePath?: string;
     /**
-     * Download task name. The default value is **download**.
+     * 设置下载任务名称。默认值为download。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -636,9 +613,7 @@ declare namespace request {
      */
     title?: string;
     /**
-     * Whether to enable the background task notification. When this parameter is enabled, the download status is 
-     * displayed in the notification panel. The value **true** means the parameter is enabled, and **false** means the 
-     * opposite. The default value is **false**.
+     * 后台任务通知开关，启用后可在通知中显示下载状态。true表示启用，false表示禁用。默认值为false。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -649,8 +624,7 @@ declare namespace request {
   }
 
   /**
-   * Defines the download task information, which is the callback parameter of the 
-   * [getTaskInfo]{@link request.DownloadTask.getTaskInfo()} API.
+   * 下载任务信息，[getTaskInfo]{@link request.DownloadTask.getTaskInfo()}接口的回调参数。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -660,7 +634,7 @@ declare namespace request {
    */
   interface DownloadInfo {
     /**
-     * Description of the download task.
+     * 待下载任务的描述信息。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -669,7 +643,7 @@ declare namespace request {
      */
     description: string;
     /**
-     * Real-time download size, in bytes.
+     * 实时下载大小，单位为字节（B）。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -678,7 +652,7 @@ declare namespace request {
      */
     downloadedBytes: long;
     /**
-     * Download task ID.
+     * 下载任务id。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -687,9 +661,8 @@ declare namespace request {
      */
     downloadId: long;
     /**
-     * Cause of the download failure. The value can be any constant in 
-     * [Download Error Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
-     * .
+     * 下载失败原因，可以是任何
+     * [下载任务的错误码](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)常量。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -698,7 +671,7 @@ declare namespace request {
      */
     failedReason: int;
     /**
-     * Name of the downloaded file.
+     * 下载的文件名。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -707,7 +680,7 @@ declare namespace request {
      */
     fileName: string;
     /**
-     * URI of the saved file.
+     * 存储文件的URI。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -716,9 +689,8 @@ declare namespace request {
      */
     filePath: string;
     /**
-     * Cause of download pause. The value can be any constant in 
-     * [Causes of Download Pause](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
-     * .
+     * 会话暂停的原因，可以是任何
+     * [下载任务暂停原因](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)常量。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -727,9 +699,8 @@ declare namespace request {
      */
     pausedReason: int;
     /**
-     * Download task status code. The value can be any constant in 
-     * [Download Task Status Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
-     * .
+     * 下载状态码，可以是任何
+     * [下载任务状态码](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)常量。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -738,7 +709,7 @@ declare namespace request {
      */
     status: int;
     /**
-     * URI of the downloaded file.
+     * 下载文件的URI。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -747,7 +718,7 @@ declare namespace request {
      */
     targetURI: string;
     /**
-     * Name of the download task.
+     * 下载任务名称。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -756,7 +727,7 @@ declare namespace request {
      */
     downloadTitle: string;
     /**
-     * Total size of the files to download, in bytes.
+     * 下载的文件的总大小，单位为字节（B）。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -802,20 +773,19 @@ declare namespace request {
 
   /**
    * The callback function for the download fail event.
+   *     <br>The value should be an integer.
    *
    * @param { int } err - the error code for download task.
-   *     <br>The value should be an integer.
    * @syscap SystemCapability.MiscServices.Download
    * @since 23 static
    */
   export type DownloadFailCallback = (err: int) => void;
 
   /**
-   * Implements file downloads. Before using any APIs of this class, you must obtain a **DownloadTask** object, from a 
-   * promise through [request.downloadFile]{@link request.downloadFile(context: BaseContext, config: DownloadConfig)} or
-   * from a callback through 
+   * 下载任务，使用下列方法前，需要先获取DownloadTask对象，promise形式通过
+   * [request.downloadFile]{@link request.downloadFile(context: BaseContext, config: DownloadConfig)}获取，callback形式通过
    * [request.downloadFile]{@link request.downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>)}
-   * .
+   * 获取。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -824,17 +794,15 @@ declare namespace request {
    */
   interface DownloadTask {
     /**
-     * Subscribes to download progress events. This API uses an asynchronous callback to return the result.
+     * 订阅下载任务进度事件，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > To maintain a balance between power consumption and performance, this API cannot be called when the application
-     * > is running in the background.
+     * > 应用处于后台时，为满足功耗性能要求，不支持调用此接口进行回调。
      *
-     * @param { 'progress' } type - Event type.<br>- **'progress'**: download progress.
-     * @param { function } callback - Callback used to return the size of the uploaded file and the total size of the
-     *     file to upload, in bytes. If the server uses the chunk mode for data transmission and the total file size
-     *     cannot be obtained from the request header, the value of **totalSize** is treated as **-1**.
+     * @param { 'progress' } type - 订阅的事件类型。<br>- 取值为'progress'，表示下载的进度信息，当任务进度有进展时触发该事件。
+     * @param { function } callback - 下载任务进度的回调函数，返回已上传文件大小和上传文件大小总和，单位为字节（B）。在下载过程中，若服务器使用chunk方式传输导致无法从请求头中获取文件总大小时，
+     *     totalSize为 -1。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -855,11 +823,10 @@ declare namespace request {
     onProgress(callback: DownloadProgressCallback): void;
 
     /**
-     * Unsubscribes from download progress events.
+     * 取消订阅下载任务进度事件。
      *
-     * @param { 'progress' } type - Event type.<br>- **'progress'**: download progress.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
-     *     current type will be unregistered.
+     * @param { 'progress' } type - 取消订阅的事件类型。<br>- 取值为'progress'，表示下载的进度信息。
+     * @param { function } [callback] - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -880,11 +847,11 @@ declare namespace request {
     offProgress(callback?: DownloadProgressCallback): void;
 
     /**
-     * Subscribes to download events. This API uses an asynchronous callback to return the result.
+     * 订阅下载任务相关的事件，使用callback异步回调。
      *
-     * @param { 'complete' | 'pause' | 'remove' } type - Event type.<br>- **'complete'**: download task completion.<br>-
-     *     **'pause'**: download task pause.<br>- **'remove'**: download task removal.
-     * @param { function } callback - Callback used to return the result.
+     * @param { 'complete' | 'pause' | 'remove' } type - 订阅的事件类型。<br>- 取值为'complete'，表示下载任务完成，任务完成时触发该事件。<br/>- 取值为'
+     *     pause'，表示下载任务暂停，任务暂停时触发该事件。<br/>- 取值为'remove'，表示下载任务移除，任务移除时触发该事件。
+     * @param { function } callback - 下载任务相关的回调函数。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -923,12 +890,11 @@ declare namespace request {
     onRemove(callback: DownloadRemoveCallback): void;
 
     /**
-     * Unsubscribes from download events.
+     * 取消订阅下载任务相关的事件。
      *
-     * @param { 'complete' | 'pause' | 'remove' } type - Event type.<br>- **'complete'**: download task completion.<br>-
-     *     **'pause'**: download task pause.<br>- **'remove'**: download task removal.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
-     *     current type will be unregistered.
+     * @param { 'complete' | 'pause' | 'remove' } type - 取消订阅的事件类型。<br/>- 取值为'complete'，表示下载任务完成。<br/>- 取值为'pause'，表示下载任
+     *     务暂停。<br/>- 取值为'remove'，表示下载任务移除。
+     * @param { function } [callback] - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -967,13 +933,11 @@ declare namespace request {
     offRemove(callback?: DownloadRemoveCallback): void;
 
     /**
-     * Subscribes to download failure events. This API uses an asynchronous callback to return the result.
+     * 订阅下载任务失败事件，使用callback异步回调。
      *
-     * @param { 'fail' } type - Event type.<br>- **'fail'**: download task failure.
-     * @param { function } callback - Callback for the download task failure event.For details about the error codes,
-     *     see
-     *     [Download Error Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
-     *     .
+     * @param { 'fail' } type - 订阅的事件类型。<br>- 取值为'fail'，表示下载失败，任务失败时触发该事件。
+     * @param { function } callback - 下载失败的回调函数。错误原因见
+     *     [下载任务的错误码](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -994,13 +958,10 @@ declare namespace request {
     onFail(callback: DownloadFailCallback): void;
 
     /**
-     * Unsubscribes from download failure events.
+     * 取消订阅下载任务失败事件。
      *
-     * @param { 'fail' } type - Event type.<br>- **'fail'**: download task failure.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
-     *     current type will be unregistered.For details about the error codes, see
-     *     [Download Error Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
-     *     .
+     * @param { 'fail' } type - 取消订阅的事件类型。<br>- 取值为'fail'，表示下载失败。
+     * @param { function } [callback] - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -1021,11 +982,15 @@ declare namespace request {
     offFail(callback?: DownloadFailCallback): void;
 
     /**
-     * Deletes the download task. This API uses an asynchronous callback to return the result.
+     * 移除下载的任务，使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 6开始支持，从API version 9开始废弃，建议使用
+     * > [delete]{@link request.UploadTask.delete(callback: AsyncCallback<boolean>)}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
-     *     that the operation is successful; **false** indicates the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示移除下载任务成功；返回false表示移除下载任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6 dynamiconly
@@ -1035,11 +1000,14 @@ declare namespace request {
     remove(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Deletes the download task. This API uses a promise to return the result.
+     * 移除下载的任务，使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 6开始支持，从API version 9开始废弃，建议使用[delete]{@link request.UploadTask.delete()}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
-     *     is successful; **false** indicates the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示移除下载任务成功；返回false表示移除下载任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6 dynamiconly
@@ -1049,11 +1017,15 @@ declare namespace request {
     remove(): Promise<boolean>;
 
     /**
-     * Pauses this download task. This API uses an asynchronous callback to return the result.
+     * 暂停下载正在运行中的任务，使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * > [suspend]{@link request.DownloadTask.suspend(callback: AsyncCallback<boolean>)}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当暂停下载任务成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1063,10 +1035,14 @@ declare namespace request {
     pause(callback: AsyncCallback<void>): void;
 
     /**
-     * Pauses this download task. This API uses a promise to return the result.
+     * 暂停下载正在运行中的任务，使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用[suspend]{@link request.DownloadTask.suspend()}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1076,11 +1052,15 @@ declare namespace request {
     pause(): Promise<void>;
 
     /**
-     * Restores the download task. This API uses an asynchronous callback to return the result.
+     * 重新启动被暂停的下载任务，使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * > [restore]{@link request.DownloadTask.restore(callback: AsyncCallback<boolean>)}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - 回调函数。当重新启动已暂停的下载任务成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1090,10 +1070,14 @@ declare namespace request {
     resume(callback: AsyncCallback<void>): void;
 
     /**
-     * Restores the download task. This API uses a promise to return the result.
+     * 重新启动被暂停的下载任务，使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用[restore]{@link request.DownloadTask.restore()}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1103,12 +1087,15 @@ declare namespace request {
     resume(): Promise<void>;
 
     /**
-     * Queries this download task. This API uses an asynchronous callback to return the result.
+     * 查询下载任务，返回下载任务的信息，使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * > [getTaskInfo]{@link request.DownloadTask.getTaskInfo(callback: AsyncCallback<DownloadInfo>)}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<DownloadInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the **DownloadInfo** object obtained. Otherwise, **err**
-     *     is an error object.
+     * @param { AsyncCallback<DownloadInfo> } callback - 回调函数。当查询下载任务成功，err为undefined，data为获取到的DownloadInfo对象；否则为错误对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1118,10 +1105,14 @@ declare namespace request {
     query(callback: AsyncCallback<DownloadInfo>): void;
 
     /**
-     * Queries this download task. This API uses a promise to return the result.
+     * 查询下载任务，返回下载任务的信息，使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃,建议使用[getTaskInfo]{@link request.DownloadTask.getTaskInfo()}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<DownloadInfo> } Promise used to return the **DownloadInfo** object.
+     * @returns { Promise<DownloadInfo> } Promise对象。返回DownloadInfo。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1131,11 +1122,15 @@ declare namespace request {
     query(): Promise<DownloadInfo>;
 
     /**
-     * Queries the MIME type of this download task. This API uses an asynchronous callback to return the result.
+     * 查询下载的任务的MimeType，使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * > [getTaskMimeType]{@link request.DownloadTask.getTaskMimeType(callback: AsyncCallback<string>)}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and data is the **MimeType** object obtained. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<string> } callback - 回调函数。当查询下载任务的MimeType成功，err为undefined，data为获取到的任务的MimeType对象；否则为错误对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1145,10 +1140,14 @@ declare namespace request {
     queryMimeType(callback: AsyncCallback<string>): void;
 
     /**
-     * Queries the MIME type of this download task. This API uses a promise to return the result.
+     * 查询下载任务的MimeType，使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用[getTaskMimeType]{@link request.DownloadTask.getTaskMimeType()}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<string> } Promise used to return the MIME type of a download task.
+     * @returns { Promise<string> } Promise对象。返回下载任务的MimeType。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
@@ -1158,16 +1157,14 @@ declare namespace request {
     queryMimeType(): Promise<string>;
 
     /**
-     * Deletes the download task. This API uses an asynchronous callback to return the result.
+     * 移除下载的任务，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
-     *     that the operation is successful; **false** indicates the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示移除下载任务成功；返回false表示移除下载任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1177,16 +1174,14 @@ declare namespace request {
     delete(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Deletes the download task. This API uses a promise to return the result.
+     * 移除下载的任务，使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
-     *     is successful; **false** indicates the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示移除下载任务成功；返回false表示移除下载任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1196,17 +1191,14 @@ declare namespace request {
     delete(): Promise<boolean>;
 
     /**
-     * Suspends this download task. You can use [restore]{@link request.DownloadTask.restore()} to restore the download.
-     * This API uses an asynchronous callback to return the result.
+     * 暂停下载正在运行中的任务，已暂停的任务可被[restore]{@link request.DownloadTask.restore()}恢复，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
-     *     that the operation is successful; **false** indicates the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示暂停下载任务成功；返回false表示暂停下载任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1216,17 +1208,14 @@ declare namespace request {
     suspend(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Suspends this download task. You can use [restore]{@link request.DownloadTask.restore()} to restore the download.
-     * This API uses a promise to return the result.
+     * 暂停下载正在运行中的任务，已暂停的任务可被[restore]{@link request.DownloadTask.restore()}恢复，使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
-     *     is successful; **false** indicates the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示暂停下载正在运行中的任务成功；返回false表示暂停下载正在运行中的任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1236,16 +1225,14 @@ declare namespace request {
     suspend(): Promise<boolean>;
 
     /**
-     * Restores the download task. This API uses an asynchronous callback to return the result.
+     * 重新启动被暂停的下载任务，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
-     *     that the operation is successful; **false** indicates the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示重新启动已暂停的下载任务成功；返回false表示重新启动下载任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1255,16 +1242,14 @@ declare namespace request {
     restore(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Restores the download task. This API uses a promise to return the result.
+     * 重新启动被暂停的下载任务，使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
-     *     is successful; **false** indicates the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示重新启动被暂停的下载任务成功；返回false表示重新启动被暂停的下载任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1274,17 +1259,14 @@ declare namespace request {
     restore(): Promise<boolean>;
 
     /**
-     * Obtains the information about this download task. This API uses an asynchronous callback to return the result.
+     * 查询下载的任务，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<DownloadInfo> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the **DownloadInfo** object obtained. Otherwise, **err**
-     *     is an error object.
+     * @param { AsyncCallback<DownloadInfo> } callback - 回调函数。当查询下载任务操作成功，err为undefined，data为获取到的DownloadInfo对象；否则为错误对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1294,15 +1276,14 @@ declare namespace request {
     getTaskInfo(callback: AsyncCallback<DownloadInfo>): void;
 
     /**
-     * Obtains the information about this download task. This API uses a promise to return the result.
+     * 查询下载任务的信息，使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<DownloadInfo> } Promise used to return a **DownloadInfo** object.
+     * @returns { Promise<DownloadInfo> } Promise对象，返回DownloadInfo对象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1312,17 +1293,15 @@ declare namespace request {
     getTaskInfo(): Promise<DownloadInfo>;
 
     /**
-     * Obtains the MIME type (that is, media type of resources in HTTP) of a download task. This API uses an 
-     * asynchronous callback to return the result.
+     * 查询下载任务的 MimeType（HTTP中表示资源的媒体类型），使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and data is the **MimeType** object obtained. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<string> } callback - 回调函数。当查询下载任务MimeType成功，err为undefined，data为获取到的下载任务的MimeType的对象；否则为错误对
+     *     象。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1332,16 +1311,14 @@ declare namespace request {
     getTaskMimeType(callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the MIME type (that is, media type of resources in HTTP) of a download task. This API uses a promise to 
-     * return the result.
+     * 查询下载的任务的MimeType(HTTP中表示资源的媒体类型)，使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<string> } Promise used to return the MIME type of a download task.
+     * @returns { Promise<string> } Promise对象。返回下载任务的MimeType。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1352,7 +1329,7 @@ declare namespace request {
   }
 
   /**
-   * Describes the list of files in [UploadConfig]{@link request.UploadConfig}.
+   * [UploadConfig]{@link request.UploadConfig}中的文件列表。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -1362,7 +1339,7 @@ declare namespace request {
    */
   interface File {
     /**
-     * File name in the header when **multipart** is used.
+     * multipart提交时，请求头中的文件名。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1371,7 +1348,7 @@ declare namespace request {
      */
     filename: string;
     /**
-     * Name of a form item when **multipart** is used. The default value is **file**.
+     * multipart提交时，表单项目的名称，缺省为file。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1380,12 +1357,11 @@ declare namespace request {
      */
     name: string;
     /**
-     * Local path for storing files.
+     * 文件的本地存储路径。
      * 
-     * Only **internal://cache/** is supported, that is, **context.cacheDir** of the caller (namely, cache directory of 
-     * the input **context**).
+     * 仅支持"internal://cache/"，即调用方（传入的context）对应的缓存路径context.cacheDir。
      * 
-     * Example: **internal://cache/path/to/file.txt**.
+     * 示例：internal://cache/path/to/file.txt
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1394,7 +1370,7 @@ declare namespace request {
      */
     uri: string;
     /**
-     * Type of the file content. By default, the type is obtained based on the extension of the file name or URI.
+     * 文件的内容类型，默认根据文件名或路径的后缀获取。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1405,7 +1381,7 @@ declare namespace request {
   }
 
   /**
-   * Describes the form data in [UploadConfig]{@link request.UploadConfig}.
+   * [UploadConfig]{@link request.UploadConfig}中的表单数据。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -1415,7 +1391,7 @@ declare namespace request {
    */
   interface RequestData {
     /**
-     * Name of a form element.
+     * 表示表单元素的名称。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1424,7 +1400,7 @@ declare namespace request {
      */
     name: string;
     /**
-     * Value of a form element.
+     * 表示表单元素的值。
      *
      * @syscap SystemCapability.MiscServices.Download
      * @crossplatform [since 10]
@@ -1435,7 +1411,7 @@ declare namespace request {
   }
 
   /**
-   * Describes the configuration of an upload task.
+   * 上传任务的配置信息。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform [since 10]
@@ -1445,9 +1421,8 @@ declare namespace request {
    */
   interface UploadConfig {
     /**
-     * Resource URL. From API version 6 to 14, the value contains a maximum of 2048 characters; since API version 15, 
-     * the value contains a maximum of 8192 characters. 
-     * [Intercepting HTTP](docroot://basic-services/request/app-file-upload-download.md#intercepting-http) is supported.
+     * 资源地址。从API 6到API 14，最大长度为2048个字符；从API 15开始，最大长度为8192个字符。支持
+     * [HTTP拦截](docroot://basic-services/request/app-file-upload-download.md#http拦截)功能。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1456,7 +1431,7 @@ declare namespace request {
      */
     url: string;
     /**
-     * HTTP or HTTPS header added to an upload request.
+     * 添加要包含在上传请求中的HTTP或HTTPS标志头。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1471,8 +1446,7 @@ declare namespace request {
      */
     header: Record<string, string>;
     /**
-     * HTTP request method. The value can be **POST** or **PUT**. The default value is **POST**. Use **POST** to add 
-     * resources and **PUT** to modify resources.
+     * HTTP请求方法：POST、PUT，缺省为POST。使用POST新增资源，使用PUT修改资源。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1481,7 +1455,7 @@ declare namespace request {
      */
     method: string;
     /**
-     * Path index of the task. The default value is **0**.
+     * 任务的路径索引，默认值为0。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 20]
@@ -1490,8 +1464,7 @@ declare namespace request {
      */
     index?: int;
     /**
-     * File start point to read when the upload task begins, in bytes. The default value is **0**. The value is a closed
-     * interval, indicating that the file is read from the beginning.
+     * 上传任务开始时读取的文件起点，单位为字节（B）。默认值为0，取值范围为闭区间，表示从头开始传输。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 20]
@@ -1500,8 +1473,7 @@ declare namespace request {
      */
     begins?: long;
     /**
-     * File end point to read when the upload task ends, in bytes. The default value is **-1**. The value is a closed 
-     * interval, indicating that the file is read till the end.
+     * 上传任务结束时读取的文件终点，单位为字节（B）。默认值为-1，取值范围为闭区间，表示传输到整个文件末尾结束。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 20]
@@ -1510,7 +1482,7 @@ declare namespace request {
      */
     ends?: long;
     /**
-     * List of files to upload. The files are submitted in multipart/form-data format.
+     * 要上传的文件列表。文件以HTTP的multipart/form-data格式提交。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1519,7 +1491,7 @@ declare namespace request {
      */
     files: Array<File>;
     /**
-     * Form data in the request body.
+     * 请求的表单数据。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1530,11 +1502,11 @@ declare namespace request {
   }
 
   /**
-   * Upload task information, which is the callback parameter of the 
+   * 上传任务的任务信息，是
    * [on('complete' | 'fail')]{@link request.UploadTask.on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>)}
-   * and 
+   * 和
    * [off('complete' | 'fail')]{@link request.UploadTask.off(type: 'complete' | 'fail', callback?: Callback<Array<TaskState>>)}
-   * APIs.
+   * 接口的回调参数。
    *
    * @syscap SystemCapability.MiscServices.Upload
    * @crossplatform [since 10]
@@ -1544,7 +1516,7 @@ declare namespace request {
    */
   interface TaskState {
     /**
-     * File path.
+     * 文件路径。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1553,12 +1525,11 @@ declare namespace request {
      */
     path: string;
     /**
-     * Return value of an upload task. The value **0** means that the task is successful, and other values means that 
-     * the task fails. For details about the task result, see **message**.
+     * 上传任务返回码。返回0表示上传任务成功，返回其它值表示上传任务失败，具体请参见message参数中的上传任务结果描述信息。
      * 
-     * You are advised to create an upload task by using 
-     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config)}and
-     * handle exceptions based on standard error codes.
+     * 此处推荐使用
+     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config)}创建上传
+     * 任务，并获取标准错误码处理异常分支。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1567,7 +1538,7 @@ declare namespace request {
      */
     responseCode: int;
     /**
-     * Description of the upload task result.
+     * 上传任务结果描述信息。
      *
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1597,11 +1568,10 @@ declare namespace request {
   export type UploadHeaderReceiveCallback = (header: object) => void;
 
   /**
-   * Implements file uploads. Before using any APIs of this class, you must obtain an **UploadTask** object, from a 
-   * promise through [request.uploadFile]{@link request.uploadFile(context: BaseContext, config: UploadConfig)} or from 
-   * a callback through 
+   * 上传任务，使用下列方法前，需要先获取UploadTask对象，promise形式通过
+   * [request.uploadFile]{@link request.uploadFile(context: BaseContext, config: UploadConfig)}获取，callback形式通过
    * [request.uploadFile]{@link request.uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>)}
-   * .
+   * 获取。
    *
    * @syscap SystemCapability.MiscServices.Download
    * @crossplatform [since 10]
@@ -1610,16 +1580,14 @@ declare namespace request {
    */
   interface UploadTask {
     /**
-     * Subscribes to upload progress events. This API uses an asynchronous callback to return the result.
+     * 订阅上传任务进度事件，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > To maintain a balance between power consumption and performance, this API cannot be called when the application
-     * > is running in the background.
+     * > 应用处于后台时，为满足功耗性能要求，不支持调用此接口进行回调。
      *
-     * @param { 'progress' } type - Event type. The value is fixed at **'progress'**, indicating upload progress.
-     * @param { function } callback - Callback used to return the size of the uploaded file and the total size of the
-     *     file to upload, in bytes.
+     * @param { 'progress' } type - 订阅的事件类型。取值为'progress'，表示上传的进度信息，任务进度有进展时触发该事件。
+     * @param { function } callback - 上传任务进度的回调函数，返回已上传文件大小和上传文件总大小，单位为字节（B）。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -1640,11 +1608,10 @@ declare namespace request {
     onProgress(callback: UploadProgressCallback): void;
 
     /**
-     * Unsubscribes from upload progress events.
+     * 取消订阅上传任务进度事件。
      *
-     * @param { 'progress' } type - Event type.<br>- **'progress'**: upload progress.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
-     *     current type will be unregistered.
+     * @param { 'progress' } type - 取消订阅的事件类型。<br>- 取值为'progress'，表示上传的进度信息。
+     * @param { function } [callback] - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -1665,11 +1632,10 @@ declare namespace request {
     offProgress(callback?: UploadProgressCallback): void;
 
     /**
-     * Subscribes to HTTP response events for the upload task.This API uses an asynchronous callback to return the 
-     * result.
+     * 订阅上传任务HTTP响应事件，使用callback异步回调。
      *
-     * @param { 'headerReceive' } type - Event type.<br>- **'headerReceive'**: The HTTP request receives a response.
-     * @param { function } callback - Callback used to return the response content.
+     * @param { 'headerReceive' } type - 订阅的事件类型。<br>- 取值为'headerReceive'，HTTP请求接收到响应时触发该事件。
+     * @param { function } callback - HTTP Response事件的回调函数，返回响应请求内容。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -1690,11 +1656,10 @@ declare namespace request {
     onHeaderReceive(callback: UploadHeaderReceiveCallback): void;
 
     /**
-     * Unsubscribes from HTTP response events for the upload task.
+     * 取消订阅上传任务HTTP响应事件。
      *
-     * @param { 'headerReceive' } type - Event type.<br>- **'headerReceive'**: The HTTP request receives a response.
-     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
-     *     current type will be unregistered.
+     * @param { 'headerReceive' } type - 取消订阅的事件类型。<br>- 取值为'headerReceive'，表示HTTP请求接收到响应。
+     * @param { function } [callback] - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -1715,10 +1680,11 @@ declare namespace request {
     offHeaderReceive(callback?: UploadHeaderReceiveCallback): void;
 
     /**
-     * Subscribes to upload completion or failure events. This API uses an asynchronous callback to return the result.
+     * 订阅上传任务完成或失败事件，使用callback异步回调。
      *
-     * @param { 'complete' | 'fail' } type - Type of the event to subscribe to.
-     * @param { Callback<Array<TaskState>> } callback - Callback used to return the state of the upload task.
+     * @param { 'complete' | 'fail' } type - 订阅的事件类型，支持的事件包括：`'complete'`|`'fail'`。<br/>- `'complete'`：表示上传任务完成，任务完成时触发该
+     *     事件。 <br/>- `'fail'`：表示上传任务失败，任务失败时触发该事件。
+     * @param { Callback<Array<TaskState>> } callback - 上传任务完成或失败的回调函数。返回上传任务的任务状态信息。
      * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -1748,12 +1714,10 @@ declare namespace request {
     onFail(callback: Callback<Array<TaskState>>): void;
 
     /**
-     * Unsubscribes from upload completion or failure events.
+     * 取消订阅上传任务的完成或失败事件。
      *
-     * @param { 'complete' | 'fail' } type - Event type.<br>- **'complete'**: upload task completion.<br>- **'fail'**:
-     *     upload task failure.
-     * @param { Callback<Array<TaskState>> } [callback] - Callback to unregister. If this parameter is not specified,
-     *     all callbacks of the current type will be unregistered.
+     * @param { 'complete' | 'fail' } type - 取消订阅的事件类型。<br>- 取值为'complete'，表示上传任务完成。<br>- 取值为'fail'，表示上传任务失败。
+     * @param { Callback<Array<TaskState>> } [callback] - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
      * @throws { BusinessError } 401 - the parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -1783,11 +1747,15 @@ declare namespace request {
     offFail(callback?: Callback<Array<TaskState>>): void;
 
     /**
-     * Deletes the upload task. This API uses an asynchronous callback to return the result.
+     * 移除上传的任务，使用callback异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 6开始支持，从API version 9开始废弃，建议使用
+     * > [delete]{@link request.UploadTask.delete(callback: AsyncCallback<boolean>)}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
-     *     that the operation is successful; **false** indicates the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示移除上传任务成功；返回false表示移除上传任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6 dynamiconly
@@ -1797,11 +1765,14 @@ declare namespace request {
     remove(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Deletes the upload task. This API uses a promise to return the result.
+     * 移除上传的任务，使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > 从API version 6开始支持，从API version 9开始废弃，建议使用[delete]{@link request.UploadTask.delete()}替代。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
-     *     is successful; **false** indicates the opposite.
+     * @returns { Promise<boolean> } 使用Promise方式异步回调，返回true表示移除上传任务成功；返回false表示移除上传任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6 dynamiconly
@@ -1811,16 +1782,14 @@ declare namespace request {
     remove(): Promise<boolean>;
 
     /**
-     * Deletes the upload task. This API uses an asynchronous callback to return the result.
+     * 移除上传的任务，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
-     *     that the operation is successful; **false** indicates the opposite.
+     * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示移除上传任务成功；返回false表示移除上传任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1830,16 +1799,14 @@ declare namespace request {
     delete(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Deletes the upload task. This API uses a promise to return the result.
+     * 移除上传的任务，使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
-     * > code is removed from API version 12.
+     * > 由于不存在401报错场景，在api12中 `401 the parameters check fails` 这个错误码被移除。
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
-     *     is successful; **false** indicates the opposite.
+     * @returns { Promise<boolean> } Promise对象。返回true表示移除上传任务成功；返回false表示移除上传任务失败。
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @crossplatform [since 10]
@@ -1864,7 +1831,7 @@ declare namespace request {
    * A `Content-Disposition: attachment; filename=<filename>` response from server leads to download.
    * More details, please see the architecture documents of the request subsystem.
    * Only front-end mode is supported in cross-platform scenarios.
-   * 
+   *
    * @syscap SystemCapability.Request.FileTransferAgent
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -1873,8 +1840,7 @@ declare namespace request {
    */
   namespace agent {
     /**
-     * ([Notification]{@link request.agent.Notification} 
-     * visibility type) Displays completion notifications.
+     * [通知栏]{@link request.agent.Notification} 展示类型：显示完成通知
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 21 dynamic
@@ -1889,8 +1855,7 @@ declare namespace request {
      */
     const VISIBILITY_COMPLETION: int = 1;
     /**
-     * ([Notification]{@link request.agent.Notification} 
-     * visibility type) Displays progress notifications.
+     * [通知栏]{@link request.agent.Notification} 展示类型：显示进度通知
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 21 dynamic
@@ -1905,7 +1870,7 @@ declare namespace request {
      */
     const VISIBILITY_PROGRESS: int = 2;
     /**
-     * Defines action options.
+     * 定义操作选项。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -1915,7 +1880,7 @@ declare namespace request {
      */
     enum Action {
       /**
-       * Download.
+       * 表示下载任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -1925,7 +1890,7 @@ declare namespace request {
        */
       DOWNLOAD,
       /**
-       * Upload.
+       * 表示上传任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -1937,10 +1902,9 @@ declare namespace request {
     }
 
     /**
-     * Defines mode options.
+     * 定义模式选项。
      * 
-     * After foreground tasks of an application are switched to the background for a period of time, background tasks 
-     * are not affected but foreground tasks will fail or pause.
+     * 当应用的前台任务切换到后台一段时间后会显示运行失败或暂停，而后台任务不受此操作影响。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -1950,7 +1914,7 @@ declare namespace request {
      */
     enum Mode {
       /**
-       * Background task.
+       * 表示后台任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice [since 11]
@@ -1959,7 +1923,7 @@ declare namespace request {
        */
       BACKGROUND,
       /**
-       * Foreground task.
+       * 表示前台任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -1971,10 +1935,9 @@ declare namespace request {
     }
 
     /**
-     * Defines network options.
+     * 定义网络选项。
      * 
-     * If the network does not meet the preset conditions, the tasks that have not been executed will await for 
-     * execution, and the tasks that are being executed will fail or pause.
+     * 网络不满足设置条件时，未执行的任务会等待执行，执行中的任务将失败或暂停。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -1984,7 +1947,7 @@ declare namespace request {
      */
     enum Network {
       /**
-       * Network of any type.
+       * 表示不限网络类型。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -1994,7 +1957,7 @@ declare namespace request {
        */
       ANY,
       /**
-       * Wi-Fi network.
+       * 表示无线网络。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2004,7 +1967,7 @@ declare namespace request {
        */
       WIFI,
       /**
-       * Cellular data network.
+       * 表示蜂窝数据网络。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2016,21 +1979,17 @@ declare namespace request {
     }
 
     /**
-     * Defines a custom system event. You can use a common event API to obtain the event.
+     * 定义自定义系统事件。用户可以使用公共事件接口获取该事件。
      * 
-     * The upload and download SA has the **ohos.permission.SEND_TASK_COMPLETE_EVENT** permission. You can configure the
-     * level-2 configuration file to which the metadata of an event points to intercept other event senders.
+     * 上传下载SA具有'ohos.permission.SEND_TASK_COMPLETE_EVENT'权限，用户可以配置事件的metadata指向的二级配置文件来拦截其他事件发送者。
      * 
-     * Use the **CommonEventData** type to transmit data related to common events. The members in **CommonEventData** 
-     * are different from those described in [CommonEventData]{@link ./commonEvent/commonEventData:CommonEventData}. 
-     * Specifically, **CommonEventData.code** indicates the task status, which is **0x40 COMPLETE** or **0x41 FAILED**, 
-     * and **CommonEventData.data** indicates the task ID.
+     * 调用CommonEventData类型传输公共事件相关数据，成员的内容填写和 [CommonEventData]{@link ./commonEvent/commonEventData:CommonEventData} 介绍的
+     * 有所区别，其中CommonEventData.code表示任务的状态，目前为0x40 COMPLETE或0x41 FAILED；CommonEventData.data表示任务的taskId。
      * 
      * <!--Del-->
      * 
-     * For details about how to obtain the event configuration and configure the level-2 configuration file, see 
-     * [Subscribing to Common Events in Static Mode (for System Applications Only)](docroot://basic-services/common-event/common-event-static-subscription-sys.md)
-     * .<!--DelEnd-->
+     * 请参考[静态订阅公共事件](docroot://basic-services/common-event/common-event-static-subscription-sys.md)以获取事件配置信息和二级配置文件的配置方式
+     * 。<!--DelEnd-->
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 11 dynamic
@@ -2038,8 +1997,7 @@ declare namespace request {
      */
     enum BroadcastEvent {
       /**
-       * Task completion event. The returned event code can be **0x40** or **0x41**, depending on whether the task is 
-       * successful or fails.
+       * 表示自定义系统事件完成。在任务结束后会触发该事件，根据任务的成功或失败，事件的code返回0x40或者0x41。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11 dynamic
@@ -2049,7 +2007,7 @@ declare namespace request {
     }
 
     /**
-     * Provides the file information of a table item.
+     * 表单项的文件信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -2059,30 +2017,27 @@ declare namespace request {
      */
     interface FileSpec {
       /**
-       * File path.
+       * 文件路径。
        * 
-       * - Relative path, which is in the cache directory of the caller.
+       * - 相对路径，位于调用方的缓存路径下。
        * 
-       * Example: **./xxx/yyy/zzz.html** or **xxx/yyy/zzz.html**
+       * 例如："./xxx/yyy/zzz.html"、"xxx/yyy/zzz.html"。
        * 
-       * - Internal protocol path, which can be **internal://** or its subdirectory. **internal** indicates the cache 
-       * directory of the caller (that is, the input **context**), and **internal://cache** corresponds to 
-       * **context.cacheDir**.
+       * - internal协议路径，支持"internal://"及其子路径。internal为调用方（即传入的context）对应路径，"internal://cache"对应context.cacheDir。
        * 
-       * Example: **internal://cache/path/to/file.txt**
+       * 例如："internal://cache/path/to/file.txt"。
        * 
-       * - Application sandbox directory. Only the **base** directory and its subdirectories are supported.
+       * - 应用沙箱目录，只支持到base及其子目录下。
        * 
-       * Example: **./data/storage/el1/base/path/to/file.txt**
+       * 例如："/data/storage/el1/base/path/to/file.txt"。
        * 
-       * - File protocol path, which must match the application bundle name. Only the **base** directory and its 
-       * subdirectories are supported.
+       * - file协议路径，必须匹配应用包名，只支持到base及其子目录下。
        * 
-       * Example: **file://com.example.test/data/storage/el2/base/file.txt**
+       * 例如："file://com.example.test/data/storage/el2/base/file.txt"。
        * 
-       * - Public files of users. Only upload tasks are supported.
+       * - 用户公共文件，仅支持上传任务。
        * 
-       * Example: **file://media/Photo/path/to/file.img**. Only foreground tasks are supported.
+       * 例如："file://media/Photo/path/to/file.img"。仅支持前台任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2092,9 +2047,9 @@ declare namespace request {
        */
       path: string;
       /**
-       * MIME type of the file, which is obtained from the file name. The default value is the file name extension.
+       * 文件的mimeType，通过文件名获取，默认值为文件名后缀。
        * 
-       * This API is deprecated since API version 18. You are advised to use **contentType** instead.
+       * 从 API version 18 开始废弃，建议使用contentType替代。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2105,7 +2060,7 @@ declare namespace request {
        */
       mimeType?: string;
       /**
-       * File name. The default value is obtained from the file path.
+       * 文件名，默认值通过路径获取。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2115,7 +2070,7 @@ declare namespace request {
        */
       filename?: string;
       /**
-       * Additional information. This parameter is not included in HTTP requests. The default value is empty.
+       * 文件信息的附加内容，该参数不会体现在HTTP请求中。默认值为空。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2131,8 +2086,7 @@ declare namespace request {
        */
       extras?: Record<string, string>;
       /**
-       * Content type of the file. The default value is the file name extension. This option is filled in the 
-       * **Content-Type** field specified in the HTTP form.
+       * 文件内容类型，默认值为文件名后缀。该选项会被填写到HTTP表单指定的Content-Type字段中。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 18 dynamic
@@ -2142,7 +2096,7 @@ declare namespace request {
     }
 
     /**
-     * Describes the form item of a task.
+     * 任务的表单项信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -2152,7 +2106,7 @@ declare namespace request {
      */
     interface FormItem {
       /**
-       * Form parameter name.
+       * 表单参数名。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2162,7 +2116,7 @@ declare namespace request {
        */
       name: string;
       /**
-       * Form parameter value.
+       * 表单参数值。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2174,7 +2128,7 @@ declare namespace request {
     }
 
     /**
-     * Describes the custom information of the notification bar.
+     * 通知栏自定义信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
@@ -2182,7 +2136,7 @@ declare namespace request {
      */
     interface Notification {
       /**
-       * Custom title, with a maximum of 1024 bytes. The default title is used if this parameter is not set.
+       * 通知栏自定义标题。若不设置则使用默认显示方式。title长度上限为1024B。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -2190,7 +2144,7 @@ declare namespace request {
        */
       title?: string;
       /**
-       * Custom body text, with a maximum of 3072 bytes. The default text is used if this parameter is not set.
+       * 通知栏自定义正文。若不设置则使用默认显示方式。text长度上限为3072B。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -2209,20 +2163,16 @@ declare namespace request {
        */
       disable?: boolean;
       /**
-       * Task visibility mode for the notification bar, which is determined by bitwise operations on the
-       * [VISIBILITY constant](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants-1). The options
-       * are as follows:
-       * - Only the completion notification is displayed. The parameter is **VISIBILITY_COMPLETION** or **1**. The
-       * corresponding notification is displayed after the task is complete or fails.
-       * - Only the progress notification is displayed when the task is in progress. The parameter is
-       * **VISIBILITY_PROGRESS** or **2**. Completion notification is not displayed when the download task is complete
-       * or fails.
-       * - The progress notification and completion notification are displayed. The parameter is VISIBILITY_COMPLETION |
-       * VISIBILITY_PROGRESS or **3**. The progress notification is displayed when the task is in progress. When the
-       * download task is complete or fails, the completion notification is displayed as well.
-       * If this parameter is not set, the **gauge** field is used for determination. If there is no **gauge** field,
-       * only the completion notification is displayed.
-       * The value should be an integer.
+       * 设置任务的通知栏显示方式，通过[VISIBILITY常量](docroot://reference/apis-basic-services-kit/js-apis-request.md#常量-1)的位运算方式决定显示方式，
+       * 任务通知的显示方式，包括如下几种：
+       * 
+       * - 仅显示完成通知，参数为VISIBILITY_COMPLETION或1，任务完成/失败后展示对应通知。
+       * - 仅显示进度通知，参数为VISIBILITY_PROGRESS或2，任务在进行中显示进度通知，当任务下载成功/失败后会直接退出进度通知，不会显示完成通知。
+       * - 显示进度通知/完成通知，参数为VISIBILITY_COMPLETION | VISIBILITY_PROGRESS或3，任务在进行中显示进度通知，当任务下载成功/失败后会退出进度通知，并显示完成通知。
+       * 
+       * 若不设置该参数，则根据gauge字段来判断；若无gauge字段，则仅显示完成通知。
+	   *
+	   * The value should be an integer.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 21 dynamic
@@ -2230,8 +2180,7 @@ declare namespace request {
        */
       visibility?: int;
       /**
-       * Notification parameter, which is used to implement redirection after a task notification is tapped. The default
-       * value is empty.
+       * 通知参数，用于实现点击任务通知后跳转的功能。默认值为空。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 22 dynamic
@@ -2241,9 +2190,8 @@ declare namespace request {
     }
 
     /**
-     * Defines the minimum speed of a task. If the task speed is lower than the preset value for a specified period of 
-     * time, the task fails. The failure cause is 
-     * [LOW_SPEED]{@link request.agent.Faults}.
+     * 任务的最低限速配置。若任务速度持续低于设定值并达到指定时长，则任务失败，失败原因为
+     * [LOW_SPEED]{@link request.agent.Faults}。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -2251,8 +2199,7 @@ declare namespace request {
      */
     interface MinSpeed {
       /**
-       * Minimum speed of a task, in byte/s. If the task speed is lower than this value for a specified period of time, 
-       * the task fails. If the value is set to **0**, there is no minimum speed limit.
+       * 任务最低速度，单位为字节每秒（B/s）。若任务速度持续低于该值达到指定时长，则任务失败。设置为0表示不启用最低速度限制。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -2260,9 +2207,7 @@ declare namespace request {
        */
       speed: long;
       /**
-       * Duration during which the task speed can be lower than the minimum speed, in seconds. If the task speed is 
-       * lower than the preset value for a specified period of time, the task fails. If the value is set to **0**, there
-       * is no minimum speed limit.
+       * 允许低于最低速度的持续时间，单位为秒。若任务速度持续低于设定值达到该时长，则任务失败。设置为0表示不启用最低速度限制。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -2272,10 +2217,9 @@ declare namespace request {
     }
 
     /**
-     * Defines the timeout configuration of a task. The task waiting duration is not counted. For details about the 
-     * waiting reasons, see 
+     * 任务的超时配置。任务处于等待状态的时间不参与计算，上传下载任务会存在以下任务等待的原因:
      * [WaitingReason<sup>20+</sup>]{@link request.agent.WaitingReason}
-     * .
+     * 。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -2283,9 +2227,7 @@ declare namespace request {
      */
     interface Timeout {
       /**
-       * Task connection timeout interval, in seconds. The connection timeout interval indicates the maximum time 
-       * required for establishing a connection between the client and server. If this parameter is not set, the default
-       * value **60** is used. The minimum value is **1**.
+       * 任务连接超时时间，单位为秒。连接超时是指客户端与服务器建立连接的最大耗时。若不设置则使用默认值60秒，允许设置的最小值为1秒。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -2293,10 +2235,7 @@ declare namespace request {
        */
       connectionTimeout?: int;
       /**
-       * Total timeout interval of a task, in seconds. The total timeout interval includes the time required for 
-       * establishing a connection, sending a request, and receiving a response. If this parameter is not set, the 
-       * default value **604800** is used. The minimum value is **1**, and the maximum value is **604800** (that is, one
-       * week).
+       * 任务总超时时间，单位为秒。总超时包括建立连接、发送请求和接收响应的全部时间。未指定时使用默认值604800秒（1周）。允许设置的最小值为1秒，最大值为604800秒（1周）。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -2306,7 +2245,7 @@ declare namespace request {
     }
 
     /**
-     * Provides the configuration information of an upload or download task.
+     * 上传/下载任务的配置信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -2316,10 +2255,10 @@ declare namespace request {
      */
     interface Config {
       /**
-       * Task action.
+       * 任务操作选项。
        * 
-       * - **UPLOAD**: Upload tasks.
-       * - **DOWNLOAD**: Download tasks.
+       * - UPLOAD表示上传任务。
+       * - DOWNLOAD表示下载任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2329,10 +2268,8 @@ declare namespace request {
        */
       action: Action;
       /**
-       * Resource URL. From API version 6 to 14, the value contains a maximum of 2048 characters; since API version 15, 
-       * the value contains a maximum of 8192 characters. 
-       * [Intercepting HTTP](docroot://basic-services/request/app-file-upload-download.md#intercepting-http) is 
-       * supported.
+       * 资源地址。从API 6到API 14，最大长度为2048个字符；从API 15开始，最大长度为8192个字符。支持
+       * [HTTP拦截](docroot://basic-services/request/app-file-upload-download.md#http拦截)功能。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2342,8 +2279,7 @@ declare namespace request {
        */
       url: string;
       /**
-       * Task title. The value contains a maximum of 256 characters. The default value is **upload** or **download** in 
-       * lowercase. Set the value to that of **action**.
+       * 任务标题，其最大长度为256个字符，默认值为小写的 upload 或 download，与上面的 action 保持一致。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2353,7 +2289,7 @@ declare namespace request {
        */
       title?: string;
       /**
-       * Task description. The value contains a maximum of 1024 characters. The default value is a null string.
+       * 任务的详细信息，其最大长度为1024个字符，默认值为空字符串。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2363,8 +2299,7 @@ declare namespace request {
        */
       description?: string;
       /**
-       * Task mode. The default mode is background. Since API version 20, the task mode for downloading files to the 
-       * user file folder must be set to **request.agent.Mode.FOREGROUND**.
+       * 任务模式，默认为后台任务。从API version 20开始，下载到用户文件场景必须为request.agent.Mode.FOREGROUND。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2374,15 +2309,14 @@ declare namespace request {
        */
       mode?: Mode;
       /**
-       * Whether to overwrite an existing file during the download. The default value is **false**.
+       * 下载过程中路径已存在时的解决方案选择，默认为false。
        * 
-       * - **true**: Overwrite the existing file.
-       * - **false**: Do not overwrite the existing file. In this case, the download fails.
+       * - true，覆盖已存在的文件。
+       * - false，下载失败。
        * 
-       * Since API version 20, the overwrite mode for downloading files to the user file folder must be set to **true**.
+       * 从API version 20开始，下载到用户文件场景必须为true。
        * 
-       * In this case, do not create multiple tasks to download content to the same file at a time. Otherwise, the file 
-       * content will be disordered.
+       * 设置为 `true` 时，不建议创建多个任务同时往同一个文件下载内容，会导致文件内容混乱。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2392,10 +2326,10 @@ declare namespace request {
        */
       overwrite?: boolean;
       /**
-       * Standard HTTP method for the task. The value can be **GET**, **POST**, or **PUT**, which is case-insensitive.
+       * 上传或下载HTTP的标准方法，包括GET、POST和PUT，不区分大小写。
        * 
-       * - For the upload task, use **PUT** or **POST**. The default value is **PUT**.
-       * - For the download task, use **GET** or **POST**. The default value is **GET**.
+       * - 上传时，使用PUT或POST，默认值为PUT。
+       * - 下载时，使用GET或POST，默认值为GET。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2405,10 +2339,10 @@ declare namespace request {
        */
       method?: string;
       /**
-       * HTTP headers to be included in the task.
+       * 添加要包含在任务中的HTTP协议标志头。
        * 
-       * - For the upload task, the default **Content-Type** is **multipart/form-data**.
-       * - For the download task, the default **Content-Type** is **application/json**.
+       * - 上传请求，默认的Content-Type为"multipart/form-data"。
+       * - 下载请求，默认的Content-Type为"application/json"。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2426,11 +2360,10 @@ declare namespace request {
        */
       headers?: Record<string, string>;
       /**
-       * - For the download task, the value is a string, typically in JSON format (an object will be converted to a JSON
-       * string); the default value is null.
-       * - For the upload task, the value is Array<
-       * [FormItem]{@link request.agent.FormItem}>. Since API 
-       * version 15, a maximum of 100 files can be uploaded in a single task. This parameter is left empty by default.
+       * - 下载时，data为字符串类型，通常情况下使用json格式（object将被转换为json文本），默认为空。
+       * - 上传时，data是表单项数组Array<
+       * [FormItem]{@link request.agent.FormItem}>。从API version
+       * 15开始，创建单个任务可以上传最多100个文件。默认为空。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2440,24 +2373,17 @@ declare namespace request {
        */
       data?: string | Array<FormItem>;
       /**
-       * Path for storing downloaded files. The options are as follows:
+       * 保存下载文件的路径，包括如下几种：
        * 
-       * - Relative path, which is in the cache directory of the caller, for example, **./xxx/yyy/zzz.html** or 
-       * **xxx/yyy/zzz.html**.
-       * - Internal protocol path, which can be **internal://** or its subdirectory. **internal** indicates the cache 
-       * directory of the caller (that is, the input **context**), and **internal://cache** corresponds to 
-       * **context.cacheDir**, for example, **internal://cache/path/to/file.txt**.
-       * - Application sandbox path. Only the **base** directory and its subdirectories are supported, for example, 
-       * **./data/storage/el1/base/path/to/file.txt**.
-       * - File protocol path, which can be the path of an application file or a user file. For the application file, 
-       * the application bundle name must be matched and only the **base** directory and its subdirectories are 
-       * supported, for example, **file://com.example.test/data/storage/el2/base/file.txt**. For the user file, its path
-       * must be the user file URI created by the caller.
+       * - 相对路径，位于调用方的缓存路径下，如"./xxx/yyy/zzz.html"、"xxx/yyy/zzz.html"。
+       * - internal协议路径，支持"internal://"及其子路径，internal为调用方（传入的context）对应路径，"internal://cache"对应context.cacheDir。如"
+       * internal://cache/path/to/file.txt"。
+       * - 应用沙箱目录，只支持到base及其子目录下，如"/data/storage/el1/base/path/to/file.txt"。
+       * - file协议路径，支持应用文件和用户文件，应用文件必须匹配应用包名，只支持到base及其子目录下，如"file://com.example.test/data/storage/el2/base/file.txt"。用户
+       * 文件必须为调用方创建好的用户文件uri。
        * 
-       * Since API version 20, the default file path can be the cache path of the caller (that is, the passed context), 
-       * except for 
-       * [downloading network resource files to the user file](docroot://basic-services/request/app-file-upload-download.md#downloading-network-resource-files-to-the-user-file)
-       * . The default file name is the part truncated from the last slash (/) in the URL.
+       * 从API version 20开始，除[下载网络资源文件至用户文件](docroot://basic-services/request/app-file-upload-download.md#下载网络资源文件至用户文件)外
+       * ，其他可默认为调用方（即传入的context）对应的缓存路径。默认文件名从url的最后一个"/"后截取。
        *
        * @default ./
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2468,7 +2394,7 @@ declare namespace request {
        */
       saveas?: string;
       /**
-       * Network used for the task. The default value is **ANY** (Wi-Fi or cellular).
+       * 网络选项，当前支持无线网络WIFI和蜂窝数据网络CELLULAR，默认为ANY（WIFI或CELLULAR）。
        *
        * @default Network.ANY
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2479,10 +2405,10 @@ declare namespace request {
        */
       network?: Network;
       /**
-       * Whether the task is allowed on a metered network. The default value is **false**.
+       * 是否允许在按流量计费的网络中工作，默认为false。
        * 
-       * - **true**: allowed
-       * - **false**: not allowed
+       * - true：是 
+       * - false：否
        *
        * @default false
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -2493,10 +2419,10 @@ declare namespace request {
        */
       metered?: boolean;
       /**
-       * Whether the task is allowed on a roaming network. The default value is **true**.
+       * 是否允许在漫游网络中工作，默认为true。
        * 
-       * - **true**: allowed
-       * - **false**: not allowed
+       * - true：是 
+       * - false：否
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2506,11 +2432,10 @@ declare namespace request {
        */
       roaming?: boolean;
       /**
-       * Whether automatic retry is enabled for the task. This parameter is only applicable to background tasks. The 
-       * default value is **true**.
+       * 是否为后台任务启用自动重试，仅应用于后台任务，默认为true。
        * 
-       * - **true**: enabled
-       * - **false**: not allowed
+       * - true：是 
+       * - false：否
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice [since 11]
@@ -2519,10 +2444,10 @@ declare namespace request {
        */
       retry?: boolean;
       /**
-       * Whether redirection is allowed. The default value is **true**.
+       * 是否允许重定向，默认为true。
        * 
-       * - **true**: allowed
-       * - **false**: not allowed
+       * - true：是 
+       * - false：否
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2532,10 +2457,9 @@ declare namespace request {
        */
       redirect?: boolean;
       /**
-       * Proxy address. The value contains a maximum of 512 characters.
+       * 设置代理地址，其最大长度为512个字符，默认为空。
        * 
-       * It is in the format of **http://<***domain or address***>:<***port***>**. By default, this parameter is left 
-       * empty.
+       * 代理地址格式:"http://<domain or address>:<port>"
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 20]
@@ -2544,7 +2468,7 @@ declare namespace request {
        */
       proxy?: string;
       /**
-       * Path index of the task. It is usually used for resumable transfers. The default value is **0**.
+       * 任务的路径索引，通常情况下用于任务断点续传，默认为0。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2554,12 +2478,10 @@ declare namespace request {
        */
       index?: int;
       /**
-       * File start point of the task, in bytes. It is usually used for resumable transfers. The default value is **0**.
-       * The value is a closed interval.
+       * 文件起点，单位为字节（B），通常情况下用于断点续传。默认值为0，取值为闭区间，表示从头开始传输。
        * 
-       * - For the download task, the value is obtained by sending an HTTP range request to read the start position when
-       * the server starts to download files.
-       * - For the upload task, the value is obtained at the start position of the upload.
+       * - 下载时，请求读取服务器开始下载文件时的起点位置（HTTP协议中设置"Range"选项）。
+       * - 上传时，读取需上传的文件的起点位置。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2569,12 +2491,10 @@ declare namespace request {
        */
       begins?: long;
       /**
-       * File end point of the task, in bytes. It is usually used for resumable transfers. The default value is **-1**. 
-       * The value is a closed interval.
+       * 文件终点，单位为字节（B），通常情况下用于断点续传。默认值为-1，取值为闭区间，表示传输到整个文件末尾结束。
        * 
-       * - For the download task, the value is obtained by sending an HTTP range request to read the end position when 
-       * the server starts to download files.
-       * - For the upload task, the value is obtained at the end position of the upload.
+       * - 下载时，请求读取服务器开始下载文件时的结束位置（HTTP协议中设置"Range"选项）。
+       * - 上传时，读取需上传的文件的结束位置。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2584,12 +2504,10 @@ declare namespace request {
        */
       ends?: long;
       /**
-       * Whether to send progress notifications. This parameter applies only to background tasks. The default value is 
-       * **false**.
+       * 后台任务的过程进度通知策略，仅应用于后台任务，默认值为false。
        * 
-       * - **false**: Progress notifications are not sent. This means that a notification is sent only to indicate the 
-       * result of the total task.
-       * - **true**: Progress notifications are sent to indicate the result of each file.
+       * - false：代表仅完成或失败的通知。
+       * - true：发出每个进度已完成或失败的通知。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @atomicservice [since 11]
@@ -2598,10 +2516,10 @@ declare namespace request {
        */
       gauge?: boolean;
       /**
-       * - If this parameter is set to **true**, the task fails when the file size cannot be obtained.
-       * - If this parameter is set to **false**, the task continues when the file size is set to **-1**.
+       * - 如果设置为true，在上传/下载无法获取文件大小时任务失败。
+       * - 如果设置为false，将文件大小设置为-1时任务继续。
        * 
-       * The default value is **false**.
+       * 默认值为false。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2611,10 +2529,9 @@ declare namespace request {
        */
       precise?: boolean;
       /**
-       * Task token. To query a task with a token, you need to provide the token and use 
-       * [request.agent.touch]{@link request.agent.touch(id: string, token: string, callback: AsyncCallback<TaskInfo>)}. 
-       * Otherwise, the specified task cannot be queried. The value contains 8 to 2048 bytes. This parameter is left 
-       * empty by default.
+       * 任务令牌。查询带有token的任务需提供token并通过
+       * [request.agent.touch]{@link request.agent.touch(id: string, token: string, callback: AsyncCallback<TaskInfo>)}查询，否则无
+       * 法查询到指定任务。其最小为8个字节，最大为2048个字节。默认为空。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2624,10 +2541,7 @@ declare namespace request {
        */
       token?: string;
       /**
-       * Priority of the task. The priority of a foreground task is higher than that of a background task. For tasks in 
-       * the same mode, a smaller value indicates a higher priority.
-       * 
-       * Default value: **0**
+       * 任务的优先级。前台任务的优先级比后台任务高。任务模式相同的情况下，该配置项的数字越小优先级越高，默认值为0。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11 dynamic
@@ -2635,7 +2549,7 @@ declare namespace request {
        */
       priority?: int;
       /**
-       * Additional information of the task. This parameter is left empty by default.
+       * 配置的附加功能，默认为空。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2651,12 +2565,12 @@ declare namespace request {
        */
       extras?: Record<string, string>;
       /**
-       * Whether to use a single request to upload multiple files. If yes, **multipart/form-data** must be used.
+       * 是否使用单个请求进行上传，单个请求上传时必定使用multipart/form-data。
        * 
-       * - **false**: A single request is used to upload one file.
-       * - **true**: A single request is used to upload multiple files.
+       * - false：每个文件使用一个请求传输。 
+       * - true：使用多文件单请求上传。 
        * 
-       * The default value is **false**.
+       * 默认值为false。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -2664,7 +2578,7 @@ declare namespace request {
        */
       multipart?: boolean;
       /**
-       * Custom settings for the notification bar. The default value is **{}**.
+       * 通知栏自定义设置。默认值为`{}`。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -2672,7 +2586,7 @@ declare namespace request {
        */
       notification?: Notification;
       /**
-       * Minimum speed, which is disabled by default.
+       * 最低限速自定义设置，默认不启用最低限速。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -2680,15 +2594,11 @@ declare namespace request {
        */
       minSpeed?: MinSpeed;
       /**
-       * Custom timeout interval. The default connection timeout interval is 60 seconds, and the default total timeout 
-       * interval is 604800 seconds (one week). If retry is set to **true**, the 
-       * [timeout]{@link request.agent.Timeout} event triggers 
-       * immediate retry, which will obscure the timeout event itself. As a result, the internal 
-       * [timeout]{@link request.agent.Timeout} condition has 
-       * been triggered but the 
-       * [timeout]{@link request.agent.Timeout} event is not 
-       * observable. Set **retry** to **false** to explicitly observe the 
-       * [timeout]{@link request.agent.Timeout} event.
+       * 超时时间自定义设置，连接超时时间默认60秒，总超时时间默认604800秒（1周）。当retry参数为true时，
+       * [timeout]{@link request.agent.Timeout}事件会触发立即重试，导致
+       * [timeout]{@link request.agent.Timeout}在外部观察中被重试动作所掩盖，但
+       * 内部[timeout]{@link request.agent.Timeout}条件已实际触发。若需显性观察
+       * [timeout]{@link request.agent.Timeout}事件，需关闭retry参数。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -2698,7 +2608,7 @@ declare namespace request {
     }
 
     /**
-     * Defines the current task status.
+     * 定义任务当前的状态。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -2708,8 +2618,8 @@ declare namespace request {
      */
     enum State {
       /**
-       * The task is initialized based on the configuration specified in 
-       * [Config]{@link request.agent.Config}.
+       * 表示通过配置信息（[Config]{@link request.agent.Config}）创建的任务已初始
+       * 化。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2719,7 +2629,7 @@ declare namespace request {
        */
       INITIALIZED = 0x00,
       /**
-       * The task lacks resources for running or the resources for retries, or does not match the network status.
+       * 表示任务缺少运行或重试的资源，又或是网络状态不匹配。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2729,7 +2639,7 @@ declare namespace request {
        */
       WAITING = 0x10,
       /**
-       * The task is being executed.
+       * 表示任务正在运行中。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2739,7 +2649,7 @@ declare namespace request {
        */
       RUNNING = 0x20,
       /**
-       * The task has failed at least once and is being executed again.
+       * 表示任务至少失败一次，现在正在再次处理中。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2749,7 +2659,7 @@ declare namespace request {
        */
       RETRYING = 0x21,
       /**
-       * The task is suspended and will be resumed later.
+       * 表示任务暂停，通常后续会恢复任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2759,7 +2669,7 @@ declare namespace request {
        */
       PAUSED = 0x30,
       /**
-       * The task is stopped.
+       * 表示任务停止。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2769,7 +2679,7 @@ declare namespace request {
        */
       STOPPED = 0x31,
       /**
-       * The task is complete.
+       * 表示任务完成。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2779,7 +2689,7 @@ declare namespace request {
        */
       COMPLETED = 0x40,
       /**
-       * The task fails.
+       * 表示任务失败。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2789,7 +2699,7 @@ declare namespace request {
        */
       FAILED = 0x41,
       /**
-       * The task is removed.
+       * 表示任务移除。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2801,7 +2711,7 @@ declare namespace request {
     }
 
     /**
-     * Describes the data structure of the task progress.
+     * 任务进度的数据结构。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -2811,7 +2721,7 @@ declare namespace request {
      */
     interface Progress {
       /**
-       * Current task status.
+       * 任务当前的状态。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2821,7 +2731,7 @@ declare namespace request {
        */
       readonly state: State;
       /**
-       * Index of the file that is being processed in the task.
+       * 任务中当前正在处理的文件索引。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2831,7 +2741,7 @@ declare namespace request {
        */
       readonly index: int;
       /**
-       * Size of processed data in the current file in the task, in bytes.
+       * 任务中当前文件的已处理数据大小，单位为字节（B）。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2841,8 +2751,7 @@ declare namespace request {
        */
       readonly processed: long;
       /**
-       * Size of a file in a task, in bytes. If the server uses the chunk mode for data transmission and the total file 
-       * size cannot be obtained from the request header, the value of **sizes** is treated as **-1**.
+       * 任务中文件的大小，单位为字节（B）。在下载过程中，若服务器使用chunk方式传输导致无法从请求头中获取文件总大小时，sizes为 -1。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2852,8 +2761,7 @@ declare namespace request {
        */
       readonly sizes: Array<long>;
       /**
-       * Extra information of the task, for example, the header and body of the response from the server. The default 
-       * value is empty.
+       * 交互的额外内容，例如：来自服务器的响应的header和body。默认值为空。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2876,13 +2784,11 @@ declare namespace request {
     }
 
     /**
-     * Defines the cause of a task failure.
+     * 定义任务失败的原因。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > In API version 12 or earlier, only serial connection to the IP addresses associated with the specified domain 
-     * > name is supported, and the connection time for a single IP address is not controllable. If the first IP address
-     * > returned by the DNS is blocked, a handshake timeout may occur, leading to a **TIMEOUT** error.
+     * > API version 12及以下版本，只支持串行的尝试连接域名相关ip，且不支持单个ip的连接时间控制，如果DNS返回的首个ip是阻塞的，可能会导致握手超时，进而引发TIMEOUT错误。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -2892,7 +2798,7 @@ declare namespace request {
      */
     enum Faults {
       /**
-       * Other fault.
+       * 表示其他故障。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2902,7 +2808,7 @@ declare namespace request {
        */
       OTHERS = 0xFF,
       /**
-       * Network disconnection.
+       * 表示网络断开连接。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2912,7 +2818,7 @@ declare namespace request {
        */
       DISCONNECTED = 0x00,
       /**
-       * Timeout.
+       * 表示任务超时。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2922,7 +2828,7 @@ declare namespace request {
        */
       TIMEOUT = 0x10,
       /**
-       * Protocol error, for example, an internal server error (500) or a data range that cannot be processed (416).
+       * 表示协议错误，例如：服务器内部错误（500）、无法处理的数据区间（416）等。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2932,7 +2838,7 @@ declare namespace request {
        */
       PROTOCOL = 0x20,
       /**
-       * Parameter error, for example, incorrect URL format.
+       * 表示参数错误，例如：url格式错误等。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -2942,8 +2848,7 @@ declare namespace request {
        */
       PARAM = 0x30,
       /**
-       * File system I/O error, for example, an error that occurs during the open, search, read, write, or close 
-       * operation.
+       * 表示文件系统io错误，例如：打开/查找/读取/写入/关闭。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -2953,7 +2858,7 @@ declare namespace request {
        */
       FSIO = 0x40,
       /**
-       * DNS resolution error.
+       * 表示DNS解析错误。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -2963,7 +2868,7 @@ declare namespace request {
        */
       DNS = 0x50,
       /**
-       * TCP connection error.
+       * 表示TCP连接错误。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -2973,7 +2878,7 @@ declare namespace request {
        */
       TCP = 0x60,
       /**
-       * SSL connection error, for example, a certificate error or certificate verification failure.
+       * 表示SSL连接错误，例如：证书错误、证书校验失败错误等。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -2983,7 +2888,7 @@ declare namespace request {
        */
       SSL = 0x70,
       /**
-       * Redirection error.
+       * 表示重定向错误。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
@@ -2993,7 +2898,7 @@ declare namespace request {
        */
       REDIRECT = 0x80,
       /**
-       * Low speed.
+       * 表示任务速度过低。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -3003,7 +2908,7 @@ declare namespace request {
     }
 
     /**
-     * Defines the filter criteria.
+     * 过滤条件。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -3023,7 +2928,7 @@ declare namespace request {
        */
       bundle?: string;
       /**
-       * Unix timestamp of the end time, in milliseconds. The default value is the invoking time.
+       * 结束的Unix时间戳（毫秒），默认为调用时刻。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3032,7 +2937,7 @@ declare namespace request {
        */
       before?: long;
       /**
-       * Unix timestamp of the start time, in milliseconds. The default value is the invoking time minus 24 hours.
+       * 开始的Unix时间戳（毫秒），默认值为调用时刻减24小时。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3041,7 +2946,7 @@ declare namespace request {
        */
       after?: long;
       /**
-       * Task state. If this parameter is not set, all tasks are queried.
+       * 指定任务的状态。如果未填写，则查询所有任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3050,11 +2955,11 @@ declare namespace request {
        */
       state?: State;
       /**
-       * Task action.
+       * 任务操作选项。
        * 
-       * - **UPLOAD**: Upload tasks.
-       * - **DOWNLOAD**: Download tasks.
-       * - If this parameter is not set, all tasks are queried.
+       * - UPLOAD表示上传任务。
+       * - DOWNLOAD表示下载任务。
+       * - 如果未填写，则查询所有任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3063,11 +2968,11 @@ declare namespace request {
        */
       action?: Action;
       /**
-       * Task mode.
+       * 任务模式。
        * 
-       * - **FOREGROUND**: foreground task.
-       * - **BACKGROUND**: background task.
-       * - If this parameter is not set, all tasks are queried.
+       * - FOREGROUND表示前台任务。
+       * - BACKGROUND表示后台任务。
+       * - 如果未填写，则查询所有任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3078,8 +2983,7 @@ declare namespace request {
     }
 
     /**
-     * Defines the data structure of the task information for query. The fields available vary depending on the query 
-     * type.
+     * 查询结果的任务信息数据结构，提供普通查询和系统查询，两种字段的可见范围不同。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -3108,7 +3012,7 @@ declare namespace request {
        */
       readonly bundle?: string;
       /**
-       * Path for storing downloaded files.
+       * 保存下载文件的路径。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3117,11 +3021,11 @@ declare namespace request {
        */
       readonly saveas?: string;
       /**
-       * Task URL.
+       * 任务的url。
        * 
-       * - Use [request.agent.show]{@link request.agent.show(id: string)}
-       * and [request.agent.touch]{@link request.agent.touch(id: string, token: string)}
-       * to query the value.
+       * - 通过[request.agent.show]{@link request.agent.show(id: string)}、
+       * [request.agent.touch]{@link request.agent.touch(id: string, token: string)}进行查询
+       * 。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3130,11 +3034,11 @@ declare namespace request {
        */
       readonly url?: string;
       /**
-       * Task value.
+       * 任务值。
        * 
-       * - Use [request.agent.show]{@link request.agent.show(id: string)}
-       * and [request.agent.touch]{@link request.agent.touch(id: string, token: string)}
-       * to query the value.
+       * - 通过[request.agent.show]{@link request.agent.show(id: string)}、
+       * [request.agent.touch]{@link request.agent.touch(id: string, token: string)}进行查询
+       * 。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3143,7 +3047,7 @@ declare namespace request {
        */
       readonly data?: string | Array<FormItem>;
       /**
-       * Task ID.
+       * 任务id。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3152,7 +3056,7 @@ declare namespace request {
        */
       readonly tid: string;
       /**
-       * Task title.
+       * 任务标题。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3161,7 +3065,7 @@ declare namespace request {
        */
       readonly title: string;
       /**
-       * Task description.
+       * 任务描述。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3170,10 +3074,10 @@ declare namespace request {
        */
       readonly description: string;
       /**
-       * Task action.
+       * 任务操作选项。
        * 
-       * - **UPLOAD**: Upload tasks.
-       * - **DOWNLOAD**: Download tasks.
+       * - UPLOAD表示上传任务。
+       * - DOWNLOAD表示下载任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3182,10 +3086,10 @@ declare namespace request {
        */
       readonly action: Action;
       /**
-       * Task mode.
+       * 任务模式。
        * 
-       * - **FOREGROUND**: foreground task.
-       * - **BACKGROUND**: background task.
+       * - FOREGROUND表示前台任务。
+       * - BACKGROUND表示后台任务。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3194,10 +3098,7 @@ declare namespace request {
        */
       readonly mode: Mode;
       /**
-       * Priority of the task. The priority of a foreground task is higher than that of a background task. For tasks in 
-       * the same mode, a smaller value indicates a higher priority.
-       * 
-       * Default value: **0**
+       * 任务的优先级。前台任务的优先级比后台任务高。任务模式相同的情况下，该配置项的数字越小优先级越高，默认值为0。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11 dynamic
@@ -3205,7 +3106,7 @@ declare namespace request {
        */
       readonly priority: int;
       /**
-       * MIME type in the task configuration.
+       * 任务配置中的mimetype。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3214,7 +3115,7 @@ declare namespace request {
        */
       readonly mimeType: string;
       /**
-       * Task progress.
+       * 任务的过程进度。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3223,11 +3124,10 @@ declare namespace request {
        */
       readonly progress: Progress;
       /**
-       * Whether to send progress notifications. This parameter applies only to background tasks.
+       * 后台任务的进度通知策略。
        * 
-       * - **false**: Progress notifications are not sent. This means that a notification is sent only to indicate the 
-       * result of the total task.
-       * - **true**: Progress notifications are sent to indicate the result of each file.
+       * - false：代表仅完成或失败的通知。
+       * - true，发出每个进度已完成或失败的通知。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10 dynamic
@@ -3235,14 +3135,12 @@ declare namespace request {
        */
       readonly gauge: boolean;
       /**
-       * Unix timestamp when the task is created, in milliseconds. The value is generated by the system of the current 
-       * device.
+       * 创建任务的Unix时间戳（毫秒），由当前设备的系统生成。
        * 
-       * Note: When 
-       * [request.agent.search]{@link request.agent.search(filter: Filter, callback: AsyncCallback<Array<string>>)} 
-       * is used for query, this value must be within the range of [after,before] for the task ID to be obtained. For 
-       * details about **before** and **after**, see 
-       * [Filter]{@link request.agent.Filter}.
+       * 说明：使用
+       * [request.agent.search]{@link request.agent.search(filter: Filter, callback: AsyncCallback<Array<string>>)}进行
+       * 查询时，该值需处于[after,before]区间内才可正常查询到任务id，before和after信息详见
+       * [Filter]{@link request.agent.Filter}。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3251,8 +3149,7 @@ declare namespace request {
        */
       readonly ctime: long;
       /**
-       * Unix timestamp when the task state changes, in milliseconds. The value is generated by the system of the 
-       * current device.
+       * 任务状态改变时的Unix时间戳（毫秒），由当前设备的系统生成。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3261,10 +3158,10 @@ declare namespace request {
        */
       readonly mtime: long;
       /**
-       * Whether automatic retry is enabled for the task. This parameter applies only to background tasks.
+       * 任务的重试开关，仅应用于后台任务。
        * 
-       * - **true**: enabled
-       * - **false**: The automatic retry is disabled.
+       * - true：是 
+       * - false：否
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10 dynamic
@@ -3272,7 +3169,7 @@ declare namespace request {
        */
       readonly retry: boolean;
       /**
-       * Number of retries of the task.
+       * 任务的尝试次数。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10 dynamic
@@ -3280,7 +3177,7 @@ declare namespace request {
        */
       readonly tries: int;
       /**
-       * Failure cause of the task.
+       * 任务的失败原因。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3289,7 +3186,7 @@ declare namespace request {
        */
       readonly faults: Faults;
       /**
-       * Reason why the task is waiting, failed, stopped, or paused.
+       * 等待/失败/停止/暂停任务的原因。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3298,7 +3195,7 @@ declare namespace request {
        */
       readonly reason: string;
       /**
-       * Extra information of the task.
+       * 任务的额外部分。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3316,7 +3213,7 @@ declare namespace request {
     }
 
     /**
-     * Describes the data structure of the task response header.
+     * 任务响应头的数据结构。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 20]
@@ -3326,7 +3223,7 @@ declare namespace request {
      */
     interface HttpResponse {
       /**
-       * HTTP version.
+       * Http版本。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 20]
@@ -3336,7 +3233,7 @@ declare namespace request {
        */
       readonly version: string,
       /**
-       * HTTP response status code.
+       * Http响应状态码。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 20]
@@ -3346,7 +3243,7 @@ declare namespace request {
        */
       readonly statusCode: int,
       /**
-       * HTTP response cause.
+       * Http响应原因。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 20]
@@ -3356,7 +3253,7 @@ declare namespace request {
        */
       readonly reason: string,
       /**
-       * HTTP response header.
+       * Http响应头部。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 20]
@@ -3368,7 +3265,7 @@ declare namespace request {
     }
 
     /**
-     * Enumerates the reasons why a task is waiting.
+     * 枚举，定义任务等待的原因。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -3376,7 +3273,7 @@ declare namespace request {
      */
     enum WaitingReason {
       /**
-       * The task queue is full.
+       * 表示任务因任务队列已满而进入等待状态。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -3384,7 +3281,7 @@ declare namespace request {
        */
       TASK_QUEUE_FULL = 0x00,
       /**
-       * The required network conditions are not met.
+       * 表示任务因所需网络条件不满足而进入等待状态。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -3392,7 +3289,7 @@ declare namespace request {
        */
       NETWORK_NOT_MATCH = 0x01,
       /**
-       * The application has been running in the background for a long time.
+       * 表示任务因应用长时间处于后台而进入等待状态。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -3400,7 +3297,7 @@ declare namespace request {
        */
       APP_BACKGROUND = 0x02,
       /**
-       * The user is inactive.
+       * 表示任务因所属用户处于非激活状态而进入等待状态。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
@@ -3419,16 +3316,14 @@ declare namespace request {
     export type ProgressCallback = (progress: Progress) => void;
 
     /**
-     * Implements an upload or download task. Before using this API, you must obtain a **Task** object, from a promise 
-     * through 
-     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config)} or 
-     * from a callback through 
-     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config, callback: AsyncCallback<Task>)}.
+     * 上传或下载任务。使用该方法前需要先获取Task对象，promise形式通过
+     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config)}获取，
+     * callback形式通过
+     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config, callback: AsyncCallback<Task>)}获取。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > The **Task** object and its mounting callback function are released and automatically reclaimed by the system 
-     * > after the **remove** method is called.
+     * > Task对象及其挂载回调函数会在调用remove方法后释放并被系统自动回收。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @crossplatform [since 11]
@@ -3438,7 +3333,7 @@ declare namespace request {
      */
     interface Task {
       /**
-       * Task ID, which is unique and automatically generated by the system.
+       * 任务id，由系统自动生成且唯一。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3448,7 +3343,7 @@ declare namespace request {
        */
       readonly tid: string;
       /**
-       * Task configuration.
+       * 任务的配置信息。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform [since 11]
@@ -3458,16 +3353,14 @@ declare namespace request {
        */
       config: Config;
       /**
-       * Subscribes to task progress changes. This API uses an asynchronous callback to return the result.
+       * 订阅任务进度的事件，使用callback异步回调。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'progress' } event - Event type.<br>- **'progress'**: task progress.
-       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @param { 'progress' } event - 订阅的事件类型。<br>- 取值为'progress'，表示任务进度，任务进度有进展时触发该事件。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3488,17 +3381,14 @@ declare namespace request {
        */
       onProgress(callback: ProgressCallback): void;
       /**
-       * Unsubscribes from task progress events.
+       * 取消订阅任务进度事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'progress' } event - Event type.<br>- **'progress'**: task progress.
-       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
-       *     specified, all callbacks of the task progress events are unregistered.
+       * @param { 'progress' } event - 取消订阅的事件类型。<br>- 取值为'progress'，表示任务进度。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有进度回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3519,16 +3409,14 @@ declare namespace request {
        */
       offProgress(callback?: ProgressCallback): void;
       /**
-       * Subscribes to task completion events. This API uses an asynchronous callback to return the result.
+       * 订阅任务完成事件，使用callback异步回调。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'completed' } event - Event type.<br>- **'completed'**: task completion.
-       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @param { 'completed' } event - 订阅的事件类型。<br>- 取值为'completed'，表示任务完成，任务完成时触发该事件。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3549,17 +3437,14 @@ declare namespace request {
        */
       onCompleted(callback: ProgressCallback): void;
       /**
-       * Unsubscribes from task completion events.
+       * 取消订阅任务完成事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'completed' } event - Event type.<br>- **'completed'**: task completion.
-       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
-       *     specified, all callbacks of the task completion events are unregistered.
+       * @param { 'completed' } event - 取消订阅的事件类型。<br>- 取值为'completed'，表示任务完成。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有完成回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3580,18 +3465,16 @@ declare namespace request {
        */
       offCompleted(callback?: ProgressCallback): void;
       /**
-       * Subscribes to task failure events. This API uses an asynchronous callback to return the result. You can call 
-       * [request.agent.show]{@link request.agent.show(id: string)} to 
-       * view the error cause.
+       * 订阅任务失败事件，使用callback异步回调。可通过调用
+       * [request.agent.show]{@link request.agent.show(id: string)}查看错误原因
+       * 。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'failed' } event - Event type.<br>- **'failed'**: task failure.
-       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @param { 'failed' } event - 订阅的事件类型。<br>- 取值为'failed'，表示任务失败，任务失败时触发该事件。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3612,17 +3495,14 @@ declare namespace request {
        */
       onFailed(callback: ProgressCallback): void;
       /**
-       * Unsubscribes from task failure events.
+       * 取消订阅任务失败事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'failed' } event - Event type.<br>- **'failed'**: task failure.
-       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
-       *     specified, all callbacks of the task failure events are unregistered.
+       * @param { 'failed' } event - 取消订阅的事件类型。<br>- 取值为'failed'，表示任务失败。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有失败回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3643,16 +3523,14 @@ declare namespace request {
        */
       offFailed(callback?: ProgressCallback): void;
       /**
-       * Subscribes to task pause events. This API uses an asynchronous callback to return the result.
+       * 订阅任务暂停事件，使用callback异步回调。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'pause' } event - Event type.<br>- **'pause'**: task pause.
-       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @param { 'pause' } event - 订阅的事件类型。<br>- 取值为'pause'，表示任务已暂停，任务暂停时触发该事件。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3671,17 +3549,14 @@ declare namespace request {
        */
       onPause(callback: ProgressCallback): void;
       /**
-       * Unsubscribes from the foreground task pause event.
+       * 取消订阅任务暂停事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'pause' } event - Event type.<br>- **'pause'**: task pause.
-       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
-       *     specified, all callbacks of the task pause events are unregistered.
+       * @param { 'pause' } event - 取消订阅的事件类型。<br>- 取值为'pause'，表示任务暂停。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有暂停回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3700,16 +3575,14 @@ declare namespace request {
        */
       offPause(callback?: ProgressCallback): void;
       /**
-       * Subscribes to task resume events. This API uses an asynchronous callback to return the result.
+       * 订阅任务恢复事件，使用callback异步回调。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'resume' } event - Event type.<br>- **'resume'**: task resume.
-       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @param { 'resume' } event - 订阅的事件类型。<br>- 取值为'resume'，表示任务恢复，任务恢复时触发该事件。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3728,17 +3601,14 @@ declare namespace request {
        */
       onResume(callback: ProgressCallback): void;
       /**
-       * Unsubscribes from foreground task resume events.
+       * 取消订阅任务恢复事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'resume' } event - Event type.<br>- **'resume'**: task resume.
-       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
-       *     specified, all callbacks of the task resume events are unregistered.
+       * @param { 'resume' } event - 取消订阅的事件类型。<br>- 取值为'resume'，表示任务恢复。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有恢复回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3757,16 +3627,14 @@ declare namespace request {
        */
       offResume(callback?: ProgressCallback): void;
       /**
-       * Subscribes to task removal events. This API uses an asynchronous callback to return the result.
+       * 订阅任务移除事件，使用callback异步回调。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'remove' } event - Event type.<br>- **'remove'**: task removal.
-       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @param { 'remove' } event - 订阅的事件类型。<br>- 取值为'remove'，表示任务被移除，任务移除时触发该事件。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3785,18 +3653,15 @@ declare namespace request {
        */
       onRemove(callback: ProgressCallback): void;
       /**
-       * Unsubscribes from the task removal event.
+       * 取消订阅任务移除事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'remove' } event - Event type.<br>- **'remove'**: task removal.
-       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
-       *     specified, all callbacks of the task removal events are unregistered.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       * @param { 'remove' } event - 取消订阅的事件类型。<br>- 取值为'remove'，表示任务被移除。
+       * @param { function } callback - 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有移除回调函数。
+       * @throws { BusinessError } 401 - Parameter error. Possible causes: 
        *     <br> 1. Mandatory parameters are left unspecified.
        *     <br> 2. Incorrect parameter types.
        *     <br> 3. Parameter verification failed.
@@ -3814,17 +3679,14 @@ declare namespace request {
        */
       offRemove(callback?: ProgressCallback): void;
       /**
-       * Subscribes to task response headers. This API uses an asynchronous callback to return the result.
+       * 订阅任务响应头，使用callback异步回调。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'response' } event - Event type.<br>- **'response'**: task response.
-       * @param { Callback<HttpResponse> } callback - Callback used to return the data structure of the task response
-       *     header.
+       * @param { 'response' } event - 订阅的事件类型。<br>- 取值为'response'，表示任务响应，请求接收到响应时触发该事件。
+       * @param { Callback<HttpResponse> } callback - 回调函数，发生相关的事件时触发该回调方法，返回任务响应头的数据结构。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3844,17 +3706,14 @@ declare namespace request {
        */
       onResponse(callback: Callback<HttpResponse>): void;
       /**
-       * Unsubscribes from task response headers.
+       * 取消订阅任务响应事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'response' } event - Event type.<br>- **response**: task response.
-       * @param { Callback<HttpResponse> } callback - Callback to unregister. If this parameter is not specified, all
-       *     callbacks of the current type will be unregistered.
+       * @param { 'response' } event - 取消订阅的事件类型。<br>- 取值为'response'，表示任务响应。
+       * @param { Callback<HttpResponse> } callback - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3874,16 +3733,14 @@ declare namespace request {
        */
       offResponse(callback?: Callback<HttpResponse>): void;
       /**
-       * Subscribes to task failure events. This API uses a callback to return the result.
+       * 订阅任务失败原因，使用callback形式返回结果。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'faultOccur' } event - Event type.<br>- **'faultOccur'**: task failure.
-       * @param { Callback<Faults> } callback - Callback used to return the failure cause of the task.
+       * @param { 'faultOccur' } event - 订阅的事件类型。<br>- 取值为'faultOccur'，表示任务失败。
+       * @param { Callback<Faults> } callback - 发生相关的事件时触发该回调方法，返回任务失败的原因。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3903,17 +3760,14 @@ declare namespace request {
        */
       onFaultOccur(callback: Callback<Faults>): void;
       /**
-       * Unsubscribes from task failure events.
+       * 取消订阅任务失败原因相关的事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'faultOccur' } event - Event type.<br>- **'faultOccur'**: task failure.
-       * @param { Callback<Faults> } callback - Callback to unregister. If this parameter is not specified, all
-       *     callbacks of the current type will be unregistered.
+       * @param { 'faultOccur' } event - 订阅的事件类型。<br>- 取值为'faultOccur'，表示任务失败。
+       * @param { Callback<Faults> } callback - 需要取消订阅的回调函数。若无此参数，则默认取消订阅当前类型的所有回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3931,16 +3785,14 @@ declare namespace request {
        */
       offFaultOccur(callback?: Callback<Faults>): void;
       /**
-       * Subscribes to task wait events. This API uses a callback to return the result.
+       * 订阅任务等待原因，使用callback形式返回结果。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'wait' } event - Event type.<br>- 'wait': The task is waiting.
-       * @param { Callback<WaitingReason> } callback - Callback used to return the waiting reason of the task.
+       * @param { 'wait' } event - 订阅的事件类型。<br>- 取值为'wait'，表示任务等待。
+       * @param { Callback<WaitingReason> } callback - 发生相关的事件时触发该回调方法，返回任务等待的原因。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3960,17 +3812,14 @@ declare namespace request {
        */
       onWait(callback: Callback<WaitingReason>): void;
       /**
-       * Unsubscribes from task waiting events.
+       * 取消订阅任务等待原因相关的事件。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
-       * @param { 'wait' } event - Event type.<br>- 'wait': The task is waiting.
-       * @param { Callback<WaitingReason> } callback - Callback to unregister. If this parameter is not specified, all
-       *     callbacks of the current type will be unregistered.
+       * @param { 'wait' } event - 订阅的事件类型。<br>- 取值为'wait'，表示任务等待。
+       * @param { Callback<WaitingReason> } callback - 需要取消订阅的回调函数。若无此参数，则默认取消订阅当前类型的所有回调函数。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -3988,22 +3837,19 @@ declare namespace request {
        */
       offWait(callback?: Callback<WaitingReason>): void;
       /**
-       * Starts a task. This API uses an asynchronous callback to return the result.
+       * 启动一个任务。使用callback异步回调。
        * 
-       * Tasks in the following states can be started:
+       * 以下状态的任务可以被启动：
        * 
-       * 1. Task created by **request.agent.create**.
-       * 2. Download tasks that are created by **request.agent.create** but have failed or paused.
+       * 1. 刚被request.agent.create接口创建的任务。
+       * 2. 使用request.agent.create接口创建的已经失败或者停止的下载任务。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
        * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-       *     **err** is **undefined**. Otherwise, **err** is an error object.
+       * @param { AsyncCallback<void> } callback - 回调函数。当开启任务成功，err为undefined，否则为错误对象。
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
@@ -4015,21 +3861,19 @@ declare namespace request {
        */
       start(callback: AsyncCallback<void>): void;
       /**
-       * Starts a task. This API uses a promise to return the result.
+       * 启动一个任务。使用Promise异步回调。
        * 
-       * Tasks in the following states can be started:
+       * 以下状态的任务可以被启动：
        * 
-       * 1. Task created by **request.agent.create**.
-       * 2. Download tasks that are created by **request.agent.create** but have failed or paused.
+       * 1. 刚被request.agent.create接口创建的任务。
+       * 2. 使用request.agent.create接口创建的已经失败或者停止的下载任务。
        * 
-       * > **NOTE**
+       * > **说明：**
        * >
-       * > For details about how to obtain the context in the example, see 
-       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-       * > .
+       * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
        *
        * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } Promise that returns no value.
+       * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
@@ -4041,12 +3885,10 @@ declare namespace request {
        */
       start(): Promise<void>;
       /**
-       * Pauses a task that is waiting, running, or retrying. A paused task can be resumed by 
-       * [resume]{@link request.agent.Task.resume(callback: AsyncCallback<void>)}. This API uses an 
-       * asynchronous callback to return the result.
+       * 暂停任务，可以暂停正在等待/正在运行/正在重试的任务，已暂停的任务可被
+       * [resume]{@link request.agent.Task.resume(callback: AsyncCallback<void>)}恢复。使用callback异步回调。
        *
-       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-       *     **err** is **undefined**. Otherwise, **err** is an error object.
+       * @param { AsyncCallback<void> } callback - 回调函数。当暂停任务成功，err为undefined，否则为错误对象。
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
@@ -4057,11 +3899,10 @@ declare namespace request {
        */
       pause(callback: AsyncCallback<void>): void;
       /**
-       * Pauses a task that is waiting, running, or retrying. A paused task can be resumed by 
-       * [resume]{@link request.agent.Task.resume(callback: AsyncCallback<void>)}. This API uses a promise to 
-       * return the result.
+       * 暂停任务，可以暂停正在等待/正在运行/正在重试的任务，已暂停的任务可被
+       * [resume]{@link request.agent.Task.resume(callback: AsyncCallback<void>)}恢复。使用Promise异步回调。
        *
-       * @returns { Promise<void> } Promise that returns no value.
+       * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
@@ -4072,11 +3913,10 @@ declare namespace request {
        */
       pause(): Promise<void>;
       /**
-       * Resumes a paused task. This API uses an asynchronous callback to return the result.
+       * 重新启动任务，可以恢复被暂停的任务。使用callback异步回调。
        *
        * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-       *     **err** is **undefined**. Otherwise, **err** is an error object.
+       * @param { AsyncCallback<void> } callback - 回调函数。当重新启动任务成功，err为undefined，否则为错误对象。
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
@@ -4088,10 +3928,10 @@ declare namespace request {
        */
       resume(callback: AsyncCallback<void>): void;
       /**
-       * Resumes a paused task. This API uses a promise to return the result.
+       * 重新启动任务，可以恢复被暂停的任务。使用Promise异步回调。
        *
        * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } Promise that returns no value.
+       * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
@@ -4103,12 +3943,10 @@ declare namespace request {
        */
       resume(): Promise<void>;
       /**
-       * Stops a task that is running, waiting, or retrying. A paused task can be resumed by 
-       * [start]{@link request.agent.Task.start(callback: AsyncCallback<void>)}. This API uses an asynchronous 
-       * callback to return the result.
+       * 停止任务，可以停止正在运行/正在等待/正在重试的任务，已停止的任务可被
+       * [start]{@link request.agent.Task.start(callback: AsyncCallback<void>)}恢复。使用callback异步回调。
        *
-       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-       *     **err** is **undefined**. Otherwise, **err** is an error object.
+       * @param { AsyncCallback<void> } callback - 回调函数。当停止任务成功，err为undefined，否则为错误对象。
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -4119,11 +3957,10 @@ declare namespace request {
        */
       stop(callback: AsyncCallback<void>): void;
       /**
-       * Stops a task that is running, waiting, or retrying. A paused task can be resumed by 
-       * [start]{@link request.agent.Task.start(callback: AsyncCallback<void>)}. This API uses a promise to 
-       * return the result.
+       * 停止任务，可以停止正在运行/正在等待/正在重试的任务，已停止的任务可被
+       * [start]{@link request.agent.Task.start(callback: AsyncCallback<void>)}恢复。使用Promise异步回调。
        *
-       * @returns { Promise<void> } Promise that returns no value.
+       * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
@@ -4134,13 +3971,11 @@ declare namespace request {
        */
       stop(): Promise<void>;
       /**
-       * Sets the maximum number of bytes that can be transmitted by a task per second. This API uses a promise to 
-       * return the result.
+       * 设置任务每秒能传输的字节数上限。使用Promise异步回调。
        *
-       * @param { long } speed - Maximum number of bytes that can be transmitted by a task per second, with a minimum of
-       *     16384 bytes. The value cannot be less than the minimum speed value specified by
-       *     [MinSpeed]{@link request.agent.MinSpeed}.
-       * @returns { Promise<void> } Promise that returns no value.
+       * @param { long } speed - 设置任务每秒能传输的字节数上限，单位为字节（B），最小值为16384字节，同时该值不得低于
+       *     [MinSpeed]{@link request.agent.MinSpeed}设置的最低速度。
+       * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
        * @throws { BusinessError } 401 - Parameter error. Possible causes:
        *     <br> 1. Missing mandatory parameters.
        *     <br> 2. Incorrect parameter type.
@@ -4154,20 +3989,16 @@ declare namespace request {
     }
 
     /**
-     * Creates an upload or download task and adds it to the queue. This API uses an asynchronous callback to return the
-     * result. HTTP/HTTPS is supported.
+     * 创建需要上传或下载的任务，并将其排入队列。支持HTTP/HTTPS协议，使用callback异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about how to obtain the context in the example, see 
-     * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-     * > .
+     * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
      *
      * @permission ohos.permission.INTERNET
-     * @param { BaseContext } context - Application-based context.
-     * @param { Config } config - Task configuration.
-     * @param { AsyncCallback<Task> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the **Task** object obtained. Otherwise, **err** is an error object.
+     * @param { BaseContext } context - 基于应用程序的上下文。
+     * @param { Config } config - 上传/下载任务的配置信息。
+     * @param { AsyncCallback<Task> } callback - 回调函数。当创建上传或下载任务成功，err为undefined，data为获取到的Task对象；否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
@@ -4186,19 +4017,16 @@ declare namespace request {
     function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
     /**
-     * Creates an upload or download task and adds it to the queue. This API uses a promise to return the result. HTTP/
-     * HTTPS is supported.
+     * 创建需要上传或下载的任务，并将其排入队列。支持HTTP/HTTPS协议，使用Promise异步回调。
      * 
-     * > **NOTE**
+     * > **说明：**
      * >
-     * > For details about how to obtain the context in the example, see 
-     * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
-     * > .
+     * > 示例中context的获取方式请参见[获取UIAbility的上下文信息](docroot://application-models/uiability-usage.md#获取uiability的上下文信息)。
      *
      * @permission ohos.permission.INTERNET
-     * @param { BaseContext } context - Application-based context.
-     * @param { Config } config - Task configuration.
-     * @returns { Promise<Task> } Promise used to return the created task.
+     * @param { BaseContext } context - 基于应用程序的上下文。
+     * @param { Config } config - 上传/下载任务的配置信息。
+     * @returns { Promise<Task> } Promise对象。返回任务配置信息的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
@@ -4217,12 +4045,12 @@ declare namespace request {
     function create(context: BaseContext, config: Config): Promise<Task>;
 
     /**
-     * Obtains task information based on the task ID. This API uses a promise to return the result.
+     * 根据任务id查询任务。使用Promise异步回调。
      *
-     * @param { BaseContext } context - Application-based context.
-     * @param { string } id - Task ID.
-     * @param { string } token - Token for task query. The default value is empty.
-     * @returns { Promise<Task> } Promise used to return the created task.
+     * @param { BaseContext } context - 基于应用程序的上下文。
+     * @param { string } id - 任务id。
+     * @param { string } token - 任务查询token。默认值为空。
+     * @returns { Promise<Task> } Promise对象。返回任务配置信息的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4236,13 +4064,10 @@ declare namespace request {
     function getTask(context: BaseContext, id: string, token?: string): Promise<Task>;
 
     /**
-     * Removes a specified task of the invoker. If the task is being executed, the task is forced to stop. This API uses
-     * an asynchronous callback to return the result. After this API is called, the **task** object and its callback 
-     * function are released.
+     * 移除属于调用方的指定任务，如果正在处理中，该任务将被迫停止。使用callback异步回调。在调用后任务对象和其回调函数会被释放。
      *
-     * @param { string } id - Task ID.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @param { string } id - 任务id。
+     * @param { AsyncCallback<void> } callback - 回调函数。当移除指定任务成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4257,12 +4082,10 @@ declare namespace request {
     function remove(id: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Removes a specified task of the invoker. If the task is being executed, the task is forced to stop. This API uses
-     * a promise to return the result. After this API is called, the **task** object and its callback function are 
-     * released.
+     * 移除属于调用方的指定任务，如果正在处理中，该任务将被迫停止。使用Promise异步回调。在调用后任务对象和其回调函数会被释放。
      *
-     * @param { string } id - Task ID.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } id - 任务id。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4277,12 +4100,10 @@ declare namespace request {
     function remove(id: string): Promise<void>;
 
     /**
-     * Queries the task details based on the task ID. This API uses an asynchronous callback to return the result.
+     * 根据任务id查询任务的详细信息。使用callback异步回调。
      *
-     * @param { string } id - Task ID.
-     * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the **TaskInfo** object obtained. Otherwise, **err** is an error
-     *     object.
+     * @param { string } id - 任务id。
+     * @param { AsyncCallback<TaskInfo> } callback - 回调函数。当查询任务操作成功，err为undefined，data为查询到的任务TaskInfo信息；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4296,10 +4117,10 @@ declare namespace request {
     function show(id: string, callback: AsyncCallback<TaskInfo>): void;
 
     /**
-     * Queries the task details based on the task ID. This API uses a promise to return the result.
+     * 根据任务id查询任务的详细信息。使用Promise异步回调。
      *
-     * @param { string } id - Task ID.
-     * @returns { Promise<TaskInfo> } Promise used to return the **TaskInfo** object.
+     * @param { string } id - 任务id。
+     * @returns { Promise<TaskInfo> } Promise对象。返回任务详细信息TaskInfo的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4313,14 +4134,11 @@ declare namespace request {
     function show(id: string): Promise<TaskInfo>;
 
     /**
-     * Queries the task details based on the task ID and token. This API uses an asynchronous callback to return the 
-     * result.
+     * 根据任务id和token查询任务的详细信息。使用callback异步回调。
      *
-     * @param { string } id - Task ID.
-     * @param { string } token - Token for task query.
-     * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined** and **data** is the **TaskInfo** object obtained. Otherwise, **err** is an error
-     *     object.
+     * @param { string } id - 任务id。
+     * @param { string } token - 任务查询token。
+     * @param { AsyncCallback<TaskInfo> } callback - 回调函数。当查询任务操作成功，err为undefined，data为查询到的任务TaskInfo信息；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4335,11 +4153,11 @@ declare namespace request {
     function touch(id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
 
     /**
-     * Queries the task details based on the task ID and token. This API uses a promise to return the result.
+     * 根据任务id和token查询任务的详细信息。使用Promise异步回调。
      *
-     * @param { string } id - Task ID.
-     * @param { string } token - Token for task query.
-     * @returns { Promise<TaskInfo> } Promise used to return the **TaskInfo** object.
+     * @param { string } id - 任务id。
+     * @param { string } token - 任务查询token。
+     * @returns { Promise<TaskInfo> } Promise对象。返回任务详细信息TaskInfo的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4354,13 +4172,10 @@ declare namespace request {
     function touch(id: string, token: string): Promise<TaskInfo>;
 
     /**
-     * Searches for task IDs based on 
-     * [Filter]{@link request.agent.Filter}. The IDs of all 
-     * tasks from the invoking time to 24 hours ago are searched. This API uses an asynchronous callback to return the 
-     * result.
+     * 根据默认[Filter]{@link request.agent.Filter}过滤条件查找任务id，即查询调用
+     * 时刻至24小时前的所有任务的任务id。使用callback异步回调。
      *
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the task ID. Otherwise, **err** is an error object.
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数。当根据过滤条件查找任务成功，err为undefined，data为满足条件的任务id；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Incorrect parameter type.
      *     <br> 2. Parameter verification failed.
@@ -4373,13 +4188,11 @@ declare namespace request {
     function search(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Searches for task IDs based on 
-     * [Filter]{@link request.agent.Filter}. This API uses an 
-     * asynchronous callback to return the result.
+     * 根据[Filter]{@link request.agent.Filter}过滤条件查找任务id。使用
+     * callback异步回调。
      *
-     * @param { Filter } filter - Filter criteria.
-     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
-     *     successful, **err** is **undefined** and **data** is the task ID. Otherwise, **err** is an error object.
+     * @param { Filter } filter - 过滤条件。
+     * @param { AsyncCallback<Array<string>> } callback - 回调函数。当根据过滤条件查找任务成功，err为undefined，data为满足条件的任务id；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Incorrect parameter type.
      *     <br> 2. Parameter verification failed.
@@ -4392,12 +4205,11 @@ declare namespace request {
     function search(filter: Filter, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Searches for task IDs based on 
-     * [Filter]{@link request.agent.Filter}. This API uses a 
-     * promise to return the result.
+     * 根据[Filter]{@link request.agent.Filter}过滤条件查找任务id。使用
+     * Promise异步回调。
      *
-     * @param { Filter } filter - Filter criteria. The default value is empty.
-     * @returns { Promise<Array<string>> } Promise used to return the task IDs that meet the filter criteria.
+     * @param { Filter } filter - 过滤条件。默认值为空。
+     * @returns { Promise<Array<string>> } Promise对象。返回满足条件任务id的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Incorrect parameter type.
      *     <br> 2. Parameter verification failed.
@@ -4454,7 +4266,7 @@ declare namespace request {
     function query(id: string): Promise<TaskInfo>;
 
     /**
-     * Describes group configuration options for download tasks.
+     * 下载任务分组配置选项。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
@@ -4462,12 +4274,12 @@ declare namespace request {
      */
     interface GroupConfig {
       /**
-       * Whether to send progress notifications. This parameter applies only to background tasks.
+       * 后台任务的进度通知策略。 
        * 
-       * - **true**: The progress, success, and failure notifications are displayed.
-       * - **false**: Only success and failure notifications are displayed.
+       * - true，显示进度、成功、失败通知。 
+       * - false，仅显示成功、失败通知。
        * 
-       * The default value is **false**.
+       * 默认为false。
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -4475,7 +4287,7 @@ declare namespace request {
        */
       gauge?: boolean;
       /**
-       * Custom settings for the notification bar. The default value is **{}**.
+       * 通知栏自定义设置。默认值为`{}`
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
@@ -4485,12 +4297,11 @@ declare namespace request {
     }
 
     /**
-     * Creates a group based on 
-     * [GroupConfig]{@link request.agent.GroupConfig}. This API
-     * uses a promise to return the result.
+     * 根据[GroupConfig]{@link request.agent.GroupConfig}分组条件创建分组
+     * ，并返回分组id。使用Promise异步回调。
      *
-     * @param { GroupConfig } config - Group options for a download task.
-     * @returns { Promise<string> } Promise used to return the ID of the created group.
+     * @param { GroupConfig } config - 下载任务分组选项。
+     * @returns { Promise<string> } Promise对象。返回创建完成的分组id。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4503,13 +4314,13 @@ declare namespace request {
     function createGroup(config: GroupConfig): Promise<string>;
 
     /**
-     * Attaches multiple download task IDs to a specified group ID. This API uses a promise to return the result.
+     * 向指定分组id中绑定多个下载任务id。使用Promise异步回调。
      * 
-     * If any task ID does not meet the attachment conditions, all tasks in the list will not be added to the group.
+     * 如果任意一个任务id不满足添加条件，则所有列表中的任务都不会添加到分组中。
      *
-     * @param { string } gid - Target group ID.
-     * @param { string[] } tids - List of task IDs to attach.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { string } gid - 目标分组id。
+     * @param { string[] } tids - 待绑定的任务id列表。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
@@ -4526,16 +4337,14 @@ declare namespace request {
     function attachGroup(gid: string, tids: string[]): Promise<void>;
 
     /**
-     * Deletes a specified group. No task ID can be added to the group. This API uses a promise to return the result.
+     * 移除指定分组，后续不能再往该分组中添加任务id。使用Promise异步回调。
      * 
-     * When all tasks in a group are succeeded, failed, or removed and the group is deleted, the completion and failure 
-     * notifications of this group are displayed.
+     * 当分组中的所有任务处于完成、失败或移除状态，并且分组被移除时，显示该分组的完成或失败通知。
      *
-     * @param { string } gid - Target group ID. The value must be the same as the ID of the created task group, that is,
-     *     the return value of the task group created using the
+     * @param { string } gid - 目标分组id。与创建的任务分组ID保持一致，即使用
      *     [request.agent.createGroup]{@link request.agent.createGroup(config: GroupConfig)}
-     *     API.
-     * @returns { Promise<void> } Promise that returns no value.
+     *     接口成功创建任务分组时的返回值。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
