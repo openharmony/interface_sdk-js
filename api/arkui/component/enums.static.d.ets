@@ -4345,16 +4345,6 @@ export declare enum PageFlipMode {
  */
 export declare enum CrownAction {
   /**
-   * Rotation crown behavior begins.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   * @deprecated since 24
-   */
-  BEGIN = 0,
-
-  /**
    * Rotation crown behavior update.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
