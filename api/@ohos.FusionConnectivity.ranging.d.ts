@@ -18,7 +18,7 @@
  * @kit ConnectivityKit
  */
 
-import type { BusinessError, Callback } from "./@ohos.base";
+import type { BusinessError, Callback } from './@ohos.base';
 
 /**
  * Provides APIs for Fusion Connectivity ranging.
@@ -448,4 +448,3 @@ declare namespace ranging {
     }
 }
 export default ranging;
-
