@@ -14808,7 +14808,9 @@ declare namespace camera {
      * Barcode detection type.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14818,10 +14820,22 @@ declare namespace camera {
      * Basic face detection type.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     BASIC_FACE_DETECTION = 8,
+  
+    /**
+     * Text detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TEXT_DETECTION = 9
   }
 
   /**
@@ -15309,7 +15323,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 14 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 14 dynamic
    * @since 23 static
    */
@@ -15553,6 +15569,42 @@ declare namespace camera {
      * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
+
+    /**
+     * Confirm if lock metadata object tracking supported.
+     *
+     * @returns { boolean } TRUE if the lock metadata object tracking is supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isLockMetadataObjectTrackingSupported(): boolean;
+
+    /**
+     * Lock metadata object tracking.
+     *
+     * @param { Point } point - lock metadata object tracking point.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    lockMetadataObjectTracking(point: Point): void;
+
+    /**
+     * Unlock metadata object tracking.
+     *
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    unlockMetadataObjectTracking(): void;
   }
 
   /**
