@@ -174,46 +174,6 @@ declare namespace volumeManager {
   }
 
   /**
-   * Media type of disk.
-   *
-   * @syscap SystemCapability.FileManagement.StorageService.Volume
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  export enum MediaType {
-    /**
-     * The media type of ssd.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SSD = 0,
-
-    /**
-     * The media type of hdd.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    HDD = 1,
-
-    /**
-     * Unknown media type.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    UNKNOWN_MEDIA_TYPE = 2
-  }
-
-  /**
    * Disk type.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
