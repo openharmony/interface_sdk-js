@@ -18,6 +18,7 @@
  * @kit BasicServicesKit
  */
 
+import type PrintExtensionAbility from './application/PrintExtensionContext';
 import type Want from './@ohos.app.ability.Want';
 import type print from './@ohos.print';
 
@@ -38,7 +39,16 @@ import type print from './@ohos.print';
  * @since 23 static
  */
 declare class PrintExtensionAbility {
-
+  
+  /**
+   * Indicates print service extension ability context
+   * 
+   * @syscap SystemCapability.Print.PrintFramework
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  context: PrintExtensionAbility;
+  
   /**
    * Called once to initialize the extensionAbility.
    * @param { Want } want - call print page want params.
