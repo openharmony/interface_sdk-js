@@ -53,7 +53,7 @@ export class CommentSuppressWarningsValidator implements NodeValidator {
       return comments;
     }
 
-    const nodePos = startPos.offset || 0;
+    const nodePos = startPos?.index() || 0;
 
     const commentRegex = /\/\/[^\n]*@SuppressWarnings[^\n]*\n/g;
     let match;

@@ -52,8 +52,8 @@ export class SinceWarningSuppressor extends BaseWarningSuppressor {
       new SdkComparisonValidator(
         projectCompatibleSdkVersion,
         minRequiredVersion,
-        declaration,
-        minAvailableVersion
+        minAvailableVersion,
+        declaration
       )
     ]);
   }

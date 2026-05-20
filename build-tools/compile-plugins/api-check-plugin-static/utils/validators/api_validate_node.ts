@@ -39,6 +39,8 @@ import {
   getValidAnnotationFromNode,
   checkFileHasAvailableByFileName
 } from './available_decorator_utils';
+import { SdkComparisonHelper, SDK_CONSTANTS } from './sdk_comparison_helper';
+
 export interface NodeValidator {
   validate(node: arkts.AstNode): boolean;
   addValidator?(validator: NodeValidator[]): void;
@@ -132,9 +134,9 @@ export abstract class BaseValidator {
       return false;
     }
 
-    const nodeStartPos = node.startPosition?.offset || 0;
-    const thenStartPos = ifNode.consequent.startPosition?.offset || 0;
-    const thenEndPos = ifNode.consequent.endPosition?.offset || 0;
+    const nodeStartPos = node.startPosition?.index() || 0;
+    const thenStartPos = ifNode.consequent.startPosition?.index() || 0;
+    const thenEndPos = ifNode.consequent.endPosition?.index() || 0;
 
     return nodeStartPos >= thenStartPos && nodeStartPos <= thenEndPos;
   }
@@ -275,18 +277,37 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
   private minRequiredVersion: string;
   private declaration: arkts.AstNode | undefined;
   private minAvailableVersion: ParsedVersion | undefined;
+  private sdkComparisonHelper: SdkComparisonHelper;
+  private readonly deviceInfoChecker: Map<string, string[]>;
 
   constructor(
     projectCompatibleSdkVersion: string,
     minRequiredVersion: string,
-    declaration?: arkts.AstNode,
-    minAvailableVersion?: ParsedVersion
+    minAvailableVersion?: ParsedVersion,
+    declaration?: arkts.AstNode
   ) {
     super();
     this.projectCompatibleSdkVersion = projectCompatibleSdkVersion;
     this.minRequiredVersion = minRequiredVersion;
-    this.declaration = declaration;
     this.minAvailableVersion = minAvailableVersion;
+    this.declaration = declaration;
+
+    this.deviceInfoChecker = new Map([
+      [SDK_CONSTANTS.OTHER_SOURCE_DEVICE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]],
+      [SDK_CONSTANTS.OPEN_SOURCE_DEVICE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]],
+      [SDK_CONSTANTS.OPEN_SOURCE_APIAVAILABLE_INFO, [SDK_CONSTANTS.DEVICE_INFO_PACKAGE]]
+    ]);
+
+    this.sdkComparisonHelper = new SdkComparisonHelper(
+      projectCompatibleSdkVersion,
+      minRequiredVersion,
+      minAvailableVersion,
+      this.deviceInfoChecker,
+      SDK_CONSTANTS.OTHER_SOURCE_DEVICE_INFO,
+      SDK_CONSTANTS.OPEN_SOURCE_DEVICE_INFO,
+      SDK_CONSTANTS.OPEN_SOURCE_RUNTIME,
+      declaration
+    );
   }
 
   validate(node: arkts.AstNode): boolean {
@@ -297,17 +318,20 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
   }
 
   private isNodeWrappedInSdkComparison(node: arkts.AstNode): boolean {
-    const program = arkts.getProgramFromAstNode(node);
+    const nodeDecl = arkts.getDecl(node);
+    const program = arkts.getProgramFromAstNode(nodeDecl);
     const sourceText = program?.astNode.dumpSrc() || '';
 
     if (!sourceText) {
       return false;
     }
 
-    const hasDeviceInfo = /deviceInfo/.test(sourceText) || /sdkApiVersion/.test(sourceText);
-    if (!hasDeviceInfo) {
-      return false;
-    }
+    // const hasApiAvailableCheck = /apiAvailable/.test(sourceText);
+    // const hasDeviceInfoCheck = /deviceInfo/.test(sourceText) || /sdkApiVersion/.test(sourceText);
+
+    // if (!hasApiAvailableCheck && !hasDeviceInfoCheck) {
+    //   return false;
+    // }
 
     let currentNode: arkts.AstNode | null = node.parent;
 
@@ -326,181 +350,13 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
       return false;
     }
 
-    return this.checkSdkVersionComparison(ifNode.test);
-  }
+    try {
 
-  private checkSdkVersionComparison(testNode: arkts.AstNode): boolean {
-    const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, testNode.peer);
-    if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION) {
+      return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test);
+      // return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test) ||
+      //        this.sdkComparisonHelper.isApiAvailableHelper(ifNode.test);
+    } catch {
       return false;
-    }
-
-    const leftText = this.getNodeText(testNode.left);
-    const rightText = this.getNodeText(testNode.right);
-
-    const matchedApi = this.findDeviceInfoApi(leftText, rightText);
-    if (!matchedApi) {
-      return false;
-    }
-
-    const parts = this.extractComparisonParts(testNode, matchedApi);
-    if (!parts) {
-      return false;
-    }
-
-    return this.validateSdkVersionCompatibility(parts.operator, parts.value, parts.apiPosition);
-  }
-
-  private getNodeText(node: arkts.AstNode | null): string {
-    if (!node) {
-      return '';
-    }
-    if (node.name) {
-      return node.name;
-    }
-    if (node.text) {
-      return node.text.toString();
-    }
-    if (node.dumpSrc()) {
-      return node.dumpSrc();
-    }
-    return '';
-  }
-
-  private findDeviceInfoApi(leftText: string, rightText: string): string | null {
-    const apis = ['sdkApiVersion', 'distributionOSApiVersion'];
-    for (const api of apis) {
-      if (leftText.includes(api) || rightText.includes(api)) {
-        return api;
-      }
-    }
-    return null;
-  }
-
-  private extractComparisonParts(
-    binaryNode: arkts.AstNode,
-    matchedApi: string
-  ): { operator: string; value: string; apiPosition: 'left' | 'right'; } | null {
-    const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, binaryNode.peer);
-    if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION || !binaryNode.operatorType) {
-      return null;
-    }
-
-    const operatorKind = binaryNode.operatorType;
-    const operator = this.getOperatorText(operatorKind);
-
-    const leftText = this.getNodeText(binaryNode.left);
-    const rightText = this.getNodeText(binaryNode.right);
-
-    let targetValue: string;
-    let apiPosition: 'left' | 'right';
-
-    if (leftText.includes(matchedApi)) {
-      targetValue = this.extractVersionValue(binaryNode.right);
-      apiPosition = 'left';
-    } else if (rightText.includes(matchedApi)) {
-      targetValue = this.extractVersionValue(binaryNode.left);
-      apiPosition = 'right';
-    } else {
-      return null;
-    }
-
-    return { operator, value: targetValue, apiPosition };
-  }
-
-  private getOperatorText(kind: arkts.Es2pandaTokenType): string {
-    switch (kind) {
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_GREATER_THAN_EQUAL:
-        return '>=';
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_GREATER_THAN:
-        return '>';
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_LESS_THAN_EQUAL:
-        return '<=';
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_LESS_THAN:
-        return '<';
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_EQUAL:
-        return '==';
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_STRICT_EQUAL:
-        return '===';
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_NOT_EQUAL:
-        return '!=';
-      case arkts.Es2pandaTokenType.TOKEN_TYPE_PUNCTUATOR_NOT_STRICT_EQUAL:
-        return '!==';
-      default:
-        return '';
-    }
-  }
-
-  private extractVersionValue(node: arkts.AstNode | null): string {
-    if (!node) {
-      return '';
-    }
-    if (arkts.isIdentifier(node) && arkts.getDecl(node) && arkts.getDecl(node).parent) {
-      const variableDecl = arkts.getDecl(node).parent;
-      return variableDecl.initializer ? variableDecl.initializer.dumpSrc() : '';
-    }
-    if (arkts.isNumberLiteral(node)) {
-      return node.dumpSrc();
-    }
-    return this.getNodeText(node);
-  }
-
-  private validateSdkVersionCompatibility(operator: string, value: string, apiPosition: 'left' | 'right'): boolean {
-    const numValue = Number(value);
-    if (isNaN(numValue)) {
-      return false;
-    }
-
-    const assignedSdkVersion = this.calculateAssignedSdkVersion(operator, numValue, apiPosition);
-    if (assignedSdkVersion === null) {
-      return false;
-    }
-
-    const minVersion = this.minAvailableVersion?.version || this.minRequiredVersion;
-    const compareResult = comparePointVersion(String(assignedSdkVersion), minVersion);
-
-    return compareResult !== ComparisonResult.Less;
-  }
-
-  private calculateAssignedSdkVersion(
-    operator: string,
-    comparisonValue: number,
-    apiPosition: 'left' | 'right'
-  ): number | null {
-    const effectiveOperator = apiPosition === 'right' ? this.flipOperator(operator) : operator;
-
-    switch (effectiveOperator) {
-      case '>':
-        return comparisonValue + 1;
-      case '>=':
-        return comparisonValue;
-      case '<':
-      case '<=':
-        return null;
-      case '==':
-      case '===':
-        return comparisonValue;
-      case '!=':
-      case '!==':
-        return null;
-      default:
-        return null;
-    }
-  }
-
-  private flipOperator(operator: string): string {
-    switch (operator) {
-      case '>': return '<';
-      case '<': return '>';
-      case '>=': return '<=';
-      case '<=': return '>=';
-      case '==':
-      case '===':
-      case '!=':
-      case '!==':
-        return operator;
-      default:
-        return operator;
     }
   }
 }

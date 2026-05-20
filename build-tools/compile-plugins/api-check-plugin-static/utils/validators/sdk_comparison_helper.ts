@@ -225,11 +225,7 @@ export class SdkComparisonHelper {
     matchedApi: string
   ): { operator: string; value: string; apiPosition: 'left' | 'right' } | undefined {
     const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, expression.peer);
-    if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION) {
-      return undefined;
-    }
-
-    if (!expression.operatorType) {
+    if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION || !expression.operatorType) {
       return undefined;
     }
 
@@ -241,16 +237,30 @@ export class SdkComparisonHelper {
     let apiPosition: 'left' | 'right';
 
     if (leftText.includes(matchedApi)) {
-      targetValue = this.getNodeText(expression.right);
+      targetValue = this.extractVersionValue(expression.right);
       apiPosition = 'left';
     } else if (rightText.includes(matchedApi)) {
-      targetValue = this.getNodeText(expression.left);
+      targetValue = this.extractVersionValue(expression.left);
       apiPosition = 'right';
     } else {
       return undefined;
     }
 
     return { operator, value: targetValue, apiPosition };
+  }
+
+  private extractVersionValue(node: arkts.AstNode | null): string {
+    if (!node) {
+      return '';
+    }
+    if (arkts.isIdentifier(node) && arkts.getDecl(node) && arkts.getDecl(node).parent) {
+      const variableDecl = arkts.getDecl(node).parent;
+      return variableDecl.initializer ? variableDecl.initializer.dumpSrc() : '';
+    }
+    if (arkts.isNumberLiteral(node)) {
+      return node.dumpSrc();
+    }
+    return this.getNodeText(node);
   }
 
   private getNodeText(node: arkts.AstNode | null): string {
