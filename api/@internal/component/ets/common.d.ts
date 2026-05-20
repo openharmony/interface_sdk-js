@@ -19419,6 +19419,17 @@ declare interface PopupCommonOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -20382,6 +20393,17 @@ declare interface PopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -21118,6 +21140,17 @@ declare interface CustomPopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
