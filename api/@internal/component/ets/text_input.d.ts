@@ -2929,7 +2929,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * <br>By default, the custom keyboard is closed when the input component loses the focus.
    * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
    * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+   * <br>When setting a custom keyboard, you can bind the onKeyPreIme event to prevent input from the physical keyboard.
    * </p>
    *
    * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
@@ -2955,7 +2955,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * <br>By default, the custom keyboard is closed when the input component loses the focus.
    * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
    * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+   * <br>When setting a custom keyboard, you can bind the onKeyPreIme event to prevent input from the physical keyboard.
    * </p>
    * 
    * @param { CustomBuilder | ComponentContent | undefined } value - Set up a custom keyboard of TextInput
