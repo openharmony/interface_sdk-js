@@ -196,9 +196,10 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
   max?: int;
 
   /**
-   * Set text width of the CounterV2 component, ranges greater than or equal to 0
+   * Set text width of the CounterV2 component, ranges greater than or equal to 0.
+   * If undefined is passed, the text width will adapt to the text content.
    *
-   * @default 0
+   * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
