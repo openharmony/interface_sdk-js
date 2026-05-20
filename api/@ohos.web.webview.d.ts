@@ -6742,7 +6742,7 @@ declare namespace webview {
      *     **false**.
      * @returns { WebBlanklessErrorCode } Whether the API is successfully called. For details, see
      *     [WebBlanklessErrorCode]{@link @ohos.web.webview:webview.WebBlanklessErrorCode}.
-     * @throws { BusinessError } 801 The functionality is not supported.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
