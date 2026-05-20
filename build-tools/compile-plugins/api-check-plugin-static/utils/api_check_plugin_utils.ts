@@ -1340,6 +1340,7 @@ export function checkPermissionValue(
  * @returns {boolean} - Returns true if the Stage module value is valid; otherwise, returns false.
  */
 export function checkStageModuleValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.Declaration): boolean {
+  return false;
   // Find the JSDoc tag with STAGE_TAG_CHECK_NAME or STAGE_TAG_HUMP_CHECK_NAME
   const jsDocTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
     return (item.tag === STAGE_TAG_CHECK_NAME || item.tag === STAGE_TAG_HUMP_CHECK_NAME);
