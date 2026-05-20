@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ranging Module
  * @kit ConnectivityKit
  */
 
@@ -43,10 +43,10 @@ declare namespace ranging {
      * Queries whether the current device supports ranging capability.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<RangingCapabilitySupported> } Promise resolving to the ranging capability support status.
+     * @returns { Promise<RangingCapabilitySupported> } Promise used to return the result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 34900099 - Internal error.
+     * @throws { BusinessError } 34900053 - The ranging service is disabled.
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -55,25 +55,22 @@ declare namespace ranging {
 
     /**
      * Initiates ranging with a specified device.
-     *
      * If the link to the target device is already established, ranging starts directly.
      * If not connected, this interface will:
-     *   1. Attempt to establish connection and perform pairing/encryption
-     *   2. Query service to verify the device supports ranging. Initiate ranging upon confirmation
-     *
+     *     1. Attempt to establish connection and perform pairing/encryption.
+     *     2. Query service to verify the device supports ranging. Initiate ranging upon confirmation.
      * Ranging state updates are notified via onRangingStateChange callback.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @param { RangingParams } params - Parameters for ranging.
-     *     <br>The device address, ranging type must be included.
      * @param { Callback<RangingResult> } callback - Indicates the callback for reporting the ranging result.
-     *     <br>Callback
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid param.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 34900051 - The ranging device already exists.
-     * @throws { BusinessError } 34900053 - The switch is off
-     * @throws { BusinessError } 34900099 - Internal error.
+     * @throws { BusinessError } 34900051 - The device has already initiated ranging.
+     * @throws { BusinessError } 34900052 - The specified type of ranging service is not supported.
+     * @throws { BusinessError } 34900053 - The ranging service is disabled.
+     * @throws { BusinessError } 34900054 - The parameter value does not meet specifications.
+     * @throws { BusinessError } 34900099 - Internal system error. For example, Internal object is invalid.
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -82,22 +79,21 @@ declare namespace ranging {
 
     /**
      * Stops ongoing ranging operations.
-     *
      * If no target device is specified, stops ranging for all devices associated with the callback.
      * If a target device is specified, only stops ranging for that specific device.
-     *
      * This method also releases all occupied resources. For proper resource management,
      * stopRanging must be called after startRanging to avoid resource leaks.
-     *
      * State changes are notified via the onRangingStateChange callback.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @param { Callback<RangingResult> } callback - Indicates the callback for reporting the ranging result.
-     *     <br>None
+     * @param { Callback<RangingResult> } callback - Callback used to return the ranging result.
+     * @param { RangingParams } [params] - Parameters for ranging include deviceId and ranging types.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 34000050 - Not found device.
-     * @throws { BusinessError } 34900099 - Internal error.
+     * @throws { BusinessError } 34900050 - The device has not initiated ranging.
+     * @throws { BusinessError } 34900052 - The specified type of ranging service is not supported.
+     * @throws { BusinessError } 34900054 - The parameter value does not meet specifications.
+     * @throws { BusinessError } 34900099 - Internal system error. For example, Internal object is invalid.
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -113,11 +109,13 @@ declare namespace ranging {
      * The returned handle can be used to stop the passive ranging broadcast via stopPassiveRanging.
      *
      * @permission ohos.permission.ACCESS_NEARLINK
-     * @returns { Promise<int> } Promise used to return the handle for starts ranging listening.
      * @param { RangingTypes } capabilityType - Indicates the capability type for ranging.
+     * @returns { Promise<int> } Promise used to return the handle for starts ranging listening.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 34900099 - Internal error.
+     * @throws { BusinessError } 34900052 - The specified type of ranging service is not supported.
+     * @throws { BusinessError } 34900053 - The ranging service is disabled.
+     * @throws { BusinessError } 34900099 - Internal system error. For example, Internal object is invalid.
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -135,7 +133,9 @@ declare namespace ranging {
      * @param { RangingTypes } capabilityType - Indicates the capability type for ranging.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 34900099 - Internal error.
+     * @throws { BusinessError } 34900052 - The specified type of ranging service is not supported.
+     * @throws { BusinessError } 34900054 - The parameter value does not meet specifications.
+     * @throws { BusinessError } 34900099 - Internal system error. For example, Internal object is invalid.
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -149,10 +149,9 @@ declare namespace ranging {
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<RangingStateChangeInfo> } callback - Callback used to listen for the ranging state.
-     *     <br>Callback object
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 34900099 - Internal error.
+     * @throws { BusinessError } 34900099 - Internal system error. For example, Internal object is invalid. 
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -164,15 +163,14 @@ declare namespace ranging {
      *
      * @permission ohos.permission.ACCESS_NEARLINK
      * @param { Callback<RangingStateChangeInfo> } [callback] - Callback used to listen to the ranging state.
-     *     <br>Callback type
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 34900099 - Internal error.
+     * @throws { BusinessError } 34900099 - Internal system error. For example, Internal object is invalid.
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    function offRangingStateChange(callback: Callback<RangingStateChangeInfo>): void;
+    function offRangingStateChange(callback?: Callback<RangingStateChangeInfo>): void;
 
     /**
      * Parameters for ranging operation.
@@ -181,7 +179,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    interface RangingParams {
+    interface RangingParams {    
         /**
          * Address of the ranging device.
          *
@@ -207,7 +205,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    interface RangingStateChangeInfo {
+    interface RangingStateChangeInfo {    
         /**
          * Ranging state.
          *
@@ -216,7 +214,6 @@ declare namespace ranging {
          * @since 26.0.0 dynamic&static
          */
         state: RangingState;
-
         /**
          * Cause of ranging stop.
          *
@@ -225,7 +222,6 @@ declare namespace ranging {
          * @since 26.0.0 dynamic&static
          */
         cause: RangingStoppedCause;
-
         /**
          * Address of the ranging device.
          *
@@ -234,9 +230,9 @@ declare namespace ranging {
          * @since 26.0.0 dynamic&static
          */
         deviceId?: string;
-
         /**
          * Indicates the handle number of ranging monitoring.
+         * The value should be an integer.
          *
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
@@ -252,7 +248,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    interface RangingResult {
+    interface RangingResult {    
         /**
          * Address of the ranging device.
          *
@@ -294,7 +290,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    interface RangingCapabilitySupported {
+    interface RangingCapabilitySupported {    
         /**
          * Indicates whether the Nearlink HADM ranging type supported.
          *
@@ -312,7 +308,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    interface RangingMeasurement {
+    interface RangingMeasurement {    
         /**
          * Measurement result value. The value is expressed in centimeters.
          *
@@ -338,7 +334,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    enum RangingTypes {
+    enum RangingTypes {    
         /**
          * Nearlink HADM ranging type. This process will trigger automatic link establishment.
          *
@@ -356,7 +352,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    enum RangingState {
+    enum RangingState {    
         /**
          * The current ranging state is stopped.
          *
@@ -382,7 +378,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    enum RangingStoppedCause {
+    enum RangingStoppedCause {    
         /**
          * No error.
          *
@@ -408,7 +404,7 @@ declare namespace ranging {
          */
         BUSINESS_CONFLICT = 2,
         /**
-         * Insufficient system resources.
+         * Ranging is stopped when the app goes to background.
          *
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
@@ -424,7 +420,7 @@ declare namespace ranging {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    enum RangingConfidence {
+    enum RangingConfidence {    
         /**
          * High confidence measurement.
          *
