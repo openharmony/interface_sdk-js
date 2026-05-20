@@ -78,7 +78,7 @@ declare namespace displaySync {
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
      *     <br> 3. Parameter verification failed.
-     *     or check ExpectedFrameRateRange if valid.
+     *     or check if ExpectedFrameRateRange is valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
      * @since 23 static
