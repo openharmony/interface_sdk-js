@@ -6712,16 +6712,6 @@ declare namespace avSession {
    */
   enum DeviceType {
     /**
-     * The device type is unknown, which cannot be recogized.
-     *
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    DEVICE_TYPE_UNKNOWN = -1,
-
-    /**
      * A device type indicating the route is on internal speakers or audio jack on the device itself.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -6764,32 +6754,52 @@ declare namespace avSession {
     /**
      * The device type is a car.
      *
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    DEVICE_TYPE_CAR = 131,
+    DEVICE_TYPE_CAR = 4,
+
+    /**
+     * The device type is a pad.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_TYPE_PAD = 6,
+
+    /**
+     * A default device which supports Cast+ Stream protocol.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEVICE_TYPE_DEFAULT_CAST_PLUS_STREAM = 7,
 
     /**
      * The device type is a 2in1.
      *
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    DEVICE_TYPE_2IN1 = 2607,
+    DEVICE_TYPE_2IN1 = 8,
 
     /**
      * The device which supports HiPlay protocol.
      *
-     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    DEVICE_TYPE_HIPLAY = 2611,
+    DEVICE_TYPE_HIPLAY = 15,
   }
 
   /**
