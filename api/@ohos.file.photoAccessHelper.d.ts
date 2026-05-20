@@ -12116,6 +12116,21 @@ declare namespace photoAccessHelper {
     setEditData(editData: MediaAssetEditData): void;
 
     /**
+     * Saves MovingPhoto version which is used to determine what special efficacy is supported.
+     *
+     * @param { int } version - Motion picture version number
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - Parameter error, only supports 9.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    setMovingPhotoVersion(version: int): void;
+
+    /**
      * Obtains the handler used for writing a file to cache.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
