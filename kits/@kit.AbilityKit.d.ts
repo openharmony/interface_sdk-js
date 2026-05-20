@@ -111,7 +111,7 @@ import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionA
 import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 import skillManager from '@ohos.bundle.skillManager';
-import scriptManager from '@ohos.app.ability.scriptManager.d.ts';
+import scriptManager from '@ohos.app.ability.scriptManager';
 import skillDriver from '@ohos.app.ability.skillDriver';
 import application from '@ohos.app.ability.application';
 import appDomainVerify from '@ohos.bundle.appDomainVerify';
