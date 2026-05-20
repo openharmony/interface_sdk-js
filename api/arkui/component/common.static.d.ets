@@ -5822,6 +5822,7 @@ export type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecog
  * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
  * @returns { GestureRecognizer } gesture recognizer of the component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 26.0.0 static
  */
 export type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
