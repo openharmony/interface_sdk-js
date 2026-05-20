@@ -1355,7 +1355,7 @@ declare interface AlertDialogParam {
   /**
    * Sets the edgeLight animation Mode of the dialog.
    *
-   * @default EdgeLightMode.EDGELIGHT_DISABLED
+   * @default EdgeLightMode.EDGELIGHT_AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
