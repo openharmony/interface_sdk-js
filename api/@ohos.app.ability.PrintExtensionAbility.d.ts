@@ -41,8 +41,8 @@ import type print from './@ohos.print';
 declare class PrintExtensionAbility {
   
   /**
-   * Indicates print service extension ability context
-   * 
+   * Indicates print service extension ability context.
+   *
    * @syscap SystemCapability.Print.PrintFramework
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
