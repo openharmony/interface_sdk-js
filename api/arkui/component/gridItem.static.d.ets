@@ -147,6 +147,16 @@ export declare interface GridItemAttribute extends CommonMethod {
      */
     default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
     /**
+     * Set GridItem options.
+     *
+     * @param { GridItemOptions } [value] - GridItem constructor options
+     * @returns { GridItemAttribute } Returns the instance of the GridItemAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setGridItemOptions(value?: GridItemOptions): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<GridItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -173,6 +183,23 @@ export declare function GridItem(
     value?: GridItemOptions, 
     content_?: CustomBuilder,
 ): GridItemAttribute
+
+/**
+ * Defines GridItem Component.
+ *
+ * @param { CustomBuilderT<GridItemAttribute> } style_ - The style to create a GridItem.
+ * @param { CustomBuilder } [content_]
+ * @returns { GridItemAttribute } The attribute of the GridItem.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function GridItem(
+    style_: CustomBuilderT<GridItemAttribute>,
+    content_?: CustomBuilder
+): GridItemAttribute;
 
 /**
  * Defines the Extendable GridItem.

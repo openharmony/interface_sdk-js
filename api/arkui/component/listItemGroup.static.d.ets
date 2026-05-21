@@ -18,10 +18,9 @@
  * @kit ArkUI
  */
 import { ChildrenMainSize, CommonMethod } from './common';
-import { CustomBuilder } from './builder';
+import { Builder, CustomBuilder, ComponentBuilder, CustomBuilderT } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 import { ListDividerOptions } from "./list";
-import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { Resource, Dimension} from './units';
 /**
@@ -208,6 +207,16 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
      */
     default childrenMainSize(value: ChildrenMainSize | undefined): this;
     /**
+     * Set ListItemGroup options.
+     *
+     * @param { ListItemGroupOptions } [options] - ListItemGroup constructor options
+     * @returns { ListItemGroupAttribute } Returns the instance of the ListItemGroupAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setListItemGroupOptions(options?: ListItemGroupOptions): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ListItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -234,3 +243,20 @@ export declare function ListItemGroup(
     options?: ListItemGroupOptions, 
     content_?: CustomBuilder,
 ): ListItemGroupAttribute
+
+/**
+ * Defines ListItemGroup Component.
+ *
+ * @param { CustomBuilderT<ListItemGroupAttribute> } style_ - The style to create a ListItemGroup.
+ * @param { CustomBuilder } [content_]
+ * @returns { ListItemGroupAttribute } The attribute of the ListItemGroup.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ListItemGroup(
+    style_: CustomBuilderT<ListItemGroupAttribute>,
+    content_?: CustomBuilder
+): ListItemGroupAttribute;
