@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,15 +12,50 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
- * @file
- * @kit PerformanceAnalysisKit
+ * # How to Use
+ * 
+ * You can obtain a **FaultLogExtensionContext** object through a **FaultLogExtensionAbility** child class instance.
+ * 
+ * ```ts
+ * import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
+ * export default class MyFaultLogExtension extends FaultLogExtensionAbility {
+ *     onFaultReportReady() {
+ *         let context = this.context; // Obtain FaultLogExtensionContext.
+ *         console.info('cache dir is ' + context.cacheDir); // Access the members in the context.
+ *     }
+ * }
+ * ```
  */
 
 import ExtensionContext from './application/ExtensionContext';
 /**
- * The context of FaultLog extension.
+ * # How to Use
+ *
+ * You can obtain a **FaultLogExtensionContext** object through a **FaultLogExtensionAbility** child class instance.
+ *
+ * ```ts
+ * import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
+ * export default class MyFaultLogExtension extends FaultLogExtensionAbility {
+ *     onFaultReportReady() {
+ *         let context = this.context; // Obtain FaultLogExtensionContext.
+ *         console.info('cache dir is ' + context.cacheDir); // Access the members in the context.
+ *     }
+ * }
+ * ```
+ */
+/**
+ * FaultLogExtensionContext is the context of
+ * [FaultLogExtensionAbility]{@link @ohos.hiviewdfx.FaultLogExtensionAbility:FaultLogExtensionAbility} and inherits from
+ * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+ *
+ * This module provides APIs for accessing resources of a specific
+ * [FaultLogExtensionAbility]{@link @ohos.hiviewdfx.FaultLogExtensionAbility:FaultLogExtensionAbility}. An
+ * ExtensionAbility can use the context directly provided by ExtensionContext or that extended from ExtensionContext.
+ *
+ * > **NOTE**
+ * >
+ * > - The APIs of this module can be used only in the stage model.
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
@@ -28,5 +63,4 @@ import ExtensionContext from './application/ExtensionContext';
  * @since 21 dynamic
  * @since 23 static
  */
-export default class FaultLogExtensionContext extends ExtensionContext {
-}
+export default class FaultLogExtensionContext extends ExtensionContext {}
