@@ -38,6 +38,7 @@ import { Builder } from './arkui/component/builder';
 export declare struct PhotoPickerComponent {
   /**
    * PickerOptions
+   *
    * @type { ?PickerOptions }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -47,6 +48,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when select photos or videos
+   *
    * @type { ?SelectCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -56,6 +58,11 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when Deselect photos or videos
+   *
+   *
+   *
+   *
+   *
    * @type { ?DeSelectCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -65,6 +72,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when click item. include click camera item and thumbnail item, will return itemInfo
+   *
    * @type { ?ItemClickedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -74,6 +82,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when enter photo browser, will return photoBrowserInfo
+   *
    * @type { ?EnterPhotoBrowserCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -83,6 +92,8 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when exit photo browser, will return photoBrowserInfo
+   *
+   *
    * @type { ?ExitPhotoBrowserCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -93,6 +104,7 @@ export declare struct PhotoPickerComponent {
   /**
    * Callback when pickerController is ready.
    * Set data to picker component by pickerController is supported after pickerController is ready
+   *
    * @type { ?PickerControllerReadyCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -102,6 +114,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when photo browser change, will return browserItemInfo
+   *
    * @type { ?PhotoBrowserChangedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -111,6 +124,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when selected items are deleted
+   *
    * @type { ?ItemsDeletedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -119,7 +133,8 @@ export declare struct PhotoPickerComponent {
   onSelectedItemsDeleted?: ItemsDeletedCallback;
 
   /**
-   * Callback when exceed max selected
+   * Callback when selected items are deleted
+   *
    * @type { ?ExceedMaxSelectedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -129,6 +144,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when the current album is deleted
+   *
    * @type { ?CurrentAlbumDeletedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -138,6 +154,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * Callback when the video play state changed
+   *
    * @type { ?VideoPlayStateChangedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -147,6 +164,7 @@ export declare struct PhotoPickerComponent {
 
   /**
    * PickerController
+   *
    * @type { PickerController }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -250,11 +268,11 @@ export declare class PickerController {
   public setPhotoBrowserUIElementVisibility(elements: PhotoBrowserUIElement[], isVisible: boolean): void;
 
   /**
-   * Display the photo after edit.
+   * 显示编辑后的照片。
    *
-   * @param { string } originalUri - Original uri
-   * @param { string } newUri - New uri after replacement
-   * @param { AsyncCallback<void> } callback - Returns void
+   * @param { string } originalUri - 原始uri
+   * @param { string } newUri - 替换后的新uri
+   * @param { AsyncCallback<void> } callback - 返回void
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @since 26.0.0 static
@@ -262,12 +280,12 @@ export declare class PickerController {
   public replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Save the photo assets of uris.
+   * 保存uris的图片资源。
    *
-   * @param { string[] } trustedUris - Uris need to be saved
-   * @param { AsyncCallback<string[]> } callback - Returns the uri list
-   * @param { photoAccessHelper.PhotoCreationConfig[] } [configs] - Photo asset creation configs
-   * @param { SaveMode } [saveMode] - Mode of save
+   * @param { string[] } trustedUris - 需要被保存的Uris
+   * @param { AsyncCallback<string[]> } callback - 返回uri列表
+   * @param { photoAccessHelper.PhotoCreationConfig[] } [configs] - 图片资源创建配置
+   * @param { SaveMode } [saveMode] - 保存方式
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @since 26.0.0 static
@@ -277,9 +295,9 @@ export declare class PickerController {
 
 
   /**
-   * Call this method to obtain the complete data after a selection operation has finished.
+   * 在选择操作完成后，调用此方法获取完整的数据。
    *
-   * @returns { Promise<CompletedResult> } Promise<CompletedResult>
+   * @returns { 完成结果 } 完成结果
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @since 26.0.0 static
@@ -298,6 +316,7 @@ export declare class PickerController {
 export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support set checkBox color
+   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -307,6 +326,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support set backgroundColor
+   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -316,6 +336,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support repeat select
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -325,6 +346,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set checkbox text color
+   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -334,6 +356,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set photo browser background color mode
+   *
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -342,7 +365,8 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   public photoBrowserBackgroundColorMode?: PickerColorMode;
 
   /**
-   * Support to set max select number remind mode.
+   * Support to set photo browser background color mode
+   *
    * @type { ?ReminderMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -352,6 +376,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set display orientation
+   *
    * @type { ?PickerOrientation }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -361,6 +386,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set select mode
+   *
    * @type { ?SelectMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -370,6 +396,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set max photo select number
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -378,7 +405,8 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   public maxPhotoSelectNumber?: int;
 
   /**
-   * Support to set max video select number
+   * Support to set max photo select number
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -388,6 +416,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set sliding selection
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -397,6 +426,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set photo browser checkbox position
+   *
    * @type { ?[double, double] }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -408,7 +438,8 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
     ];
 
   /**
-   * Support set photoBrowserMargin
+   * Support set gridMargin
+   *
    * @type { ?Margin }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -418,6 +449,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support set gridMargin
+   *
    * @type { ?Margin }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -427,6 +459,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Single-line display mode for the PhotoPickerComponent.
+   *
    * @type { ?SingleLineConfig }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -436,6 +469,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set UIComponent color mode.
+   *
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -445,6 +479,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set offset between first grid item and the top of the grid
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -453,7 +488,8 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   public gridStartOffset?: int;
 
   /**
-   * Support to set offset between last grid item and the bottom of the grid
+   * Support to set offset between first grid item and the top of the grid
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -463,6 +499,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
 
   /**
    * Support to set a serial number to distinguish different picker components. Default value is -1.
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -473,6 +510,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   /**
    * Support automatically selecting the user-selected image/video on the PhotoPickerComponent
    * at the specified picker index.
+   *
    * @type { ?PreselectedInfo[] }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -481,8 +519,9 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   public preselectedInfos?: PreselectedInfo[];
 
   /**
-   * Support to config special badge display.
-   * The picker component supports only one type of badge
+     * Support to config special badge display.
+     * *
+     * *
    * @type { ?BadgeConfig }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -491,7 +530,8 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
   public badgeConfig?: BadgeConfig;
 
   /**
-   * Context recovery information for restoring the last selection session.
+   * 用于恢复上次选择会话的上下文恢复信息。
+   *
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -509,7 +549,8 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
  */
 export declare class BaseItemInfo {
   /**
-   * Uri. if the itemType is CAMERA, it will be null
+   * Uri
+   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -519,6 +560,7 @@ export declare class BaseItemInfo {
 
   /**
    * MimeType. if the itemType is CAMERA, it will be null
+   *
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -528,6 +570,7 @@ export declare class BaseItemInfo {
 
   /**
    * Width. if the itemType is CAMERA, it will be null
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -537,6 +580,7 @@ export declare class BaseItemInfo {
 
   /**
    * Height. if the itemType is CAMERA, it will be null
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -546,6 +590,7 @@ export declare class BaseItemInfo {
 
   /**
    * Size. if the itemType is CAMERA, it will be null
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -554,7 +599,8 @@ export declare class BaseItemInfo {
   public size?: int;
 
   /**
-   * Duration. if the itemType is CAMERA, it will be null; if photos, return -1
+   * 时长
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -564,7 +610,8 @@ export declare class BaseItemInfo {
 
   /**
    * DynamicRangeType. Dynamic range type of media files.
-   *     For movingPhoto, this specifically refers to the dynamic range type of the cover image.
+   * For movingPhoto, this specifically refers to the dynamic range type of the cover image.
+   *
    * @type { ?photoAccessHelper.DynamicRangeType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -574,7 +621,7 @@ export declare class BaseItemInfo {
 }
 
 /**
- * ItemInfo
+ * Iteminfo
  *
  * @extends BaseItemInfo
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -584,6 +631,7 @@ export declare class BaseItemInfo {
 export declare class ItemInfo extends BaseItemInfo {
   /**
    * itemType. include CAMERA and THUMBNAIL.
+   *
    * @type { ?ItemType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -602,6 +650,7 @@ export declare class ItemInfo extends BaseItemInfo {
 export declare class PhotoBrowserInfo {
   /**
    * AnimatorParams. include duration and curve
+   *
    * @type { ?AnimatorParams }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -619,7 +668,8 @@ export declare class PhotoBrowserInfo {
  */
 export declare class AnimatorParams {
   /**
-   * Animate duration
+   * AnimatorParams
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -629,6 +679,7 @@ export declare class AnimatorParams {
 
   /**
    * Animate curve
+   *
    * @type { ?(Curve | ICurve | string) }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -647,6 +698,7 @@ export declare class AnimatorParams {
 export declare class MaxSelected {
   /**
    * data. support to set max_total_count, max_photo_count and max_video_count.
+   *
    * @type { ?Map<MaxCountType, int> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -665,6 +717,7 @@ export declare class MaxSelected {
 export declare class SingleLineConfig {
   /**
    * item display ratio
+   *
    * @type { ?ItemDisplayRatio }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -674,6 +727,7 @@ export declare class SingleLineConfig {
 
   /**
    * Rounded corner radius of grid items.
+   *
    * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -683,6 +737,7 @@ export declare class SingleLineConfig {
 
   /**
    * item gap
+   *
    * @type { ?Length }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -701,6 +756,7 @@ export declare class SingleLineConfig {
 export declare class PreselectedInfo {
   /**
    * Uri. Uri of the media file to be automatically selected.
+   *
    * @type { string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -710,6 +766,7 @@ export declare class PreselectedInfo {
 
   /**
    * PreselectablePickerIndex. Serial number of the picker component that will automatically select this media file.
+   *
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -728,6 +785,7 @@ export declare class PreselectedInfo {
 export declare class BadgeConfig {
   /**
    * The type of the special badge.
+   *
    * @type { ?BadgeType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -737,6 +795,7 @@ export declare class BadgeConfig {
 
   /**
    * The uri data of the asset that displays the badge.
+   *
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -746,7 +805,7 @@ export declare class BadgeConfig {
 }
 
 /**
- * CompletedResult
+ * 已完成结果
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
@@ -754,8 +813,8 @@ export declare class BadgeConfig {
  */
 export declare class CompletedResult {
   /**
-   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets
-   * with temporary authorization. For details about how to use the media file URI, see Using a Media File URI.
+   * 选择的图片或视频的URI。只有在临时授权的情况下调用photoAccessHelper.getAssets才能使用URI数组。
+   * 媒体文件URI的使用请参见媒体文件URI的使用。
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -764,7 +823,8 @@ export declare class CompletedResult {
   photoUris: Array<string>;
 
   /**
-   * Contextual information about the PhotoPicker's exit state.
+   * 有关PhotoPicker退出状态的上下文信息。
+   *
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -773,9 +833,9 @@ export declare class CompletedResult {
   contextRecoveryInfo: photoAccessHelper.ContextRecoveryInfo;
 
   /**
-   * M?oving photo badge states for the selected media files in the gallery.
-   * When isMovingPhotoBadgeShown is true, movingPhotoBadgeStates contains the moving photo states;
-   * otherwise, it is empty.
+   * 为图库中的选定媒体文件动态照片角标状态。
+   * 当isMovingPhotoBadgeShown为true时，movePhotoBadgeStates包含动态照片状态；
+   * 否则为空。
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -1241,6 +1301,7 @@ export declare enum BadgeType {
 
 /**
  * The callback of onSelected event
+ *
  * @typedef { function }
  * @param { string } uri
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1251,6 +1312,7 @@ export type SelectCallback = (uri: string) => void;
 
 /**
  * The callback of onDeSelected event
+ *
  * @typedef { function }
  * @param { string } uri
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1261,6 +1323,7 @@ export type DeSelectCallback = (uri: string) => void;
 
 /**
  * The callback of itemClicked event
+ *
  * @typedef { function }
  * @param { ItemInfo } itemInfo
  * @param { ClickType } clickType
@@ -1273,6 +1336,7 @@ export type ItemClickedCallback = (itemInfo: ItemInfo, clickType: ClickType) => 
 
 /**
  * The callback of enterPhotoBrowser event
+ *
  * @typedef { function }
  * @param { PhotoBrowserInfo } photoBrowserInfo
  * @returns { boolean }
@@ -1284,6 +1348,7 @@ export type EnterPhotoBrowserCallback = (photoBrowserInfo: PhotoBrowserInfo) => 
 
 /**
  * The callback of exitPhotoBrowser event
+ *
  * @typedef { function }
  * @param { PhotoBrowserInfo } photoBrowserInfo
  * @returns { boolean }
@@ -1295,6 +1360,7 @@ export type ExitPhotoBrowserCallback = (photoBrowserInfo: PhotoBrowserInfo) => b
 
 /**
  * The callback of pickerControllerReady event
+ *
  * @typedef { function }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
@@ -1304,6 +1370,7 @@ export type PickerControllerReadyCallback = () => void;
 
 /**
  * The callback of onSelectedItemsDeleted event
+ *
  * @typedef { function }
  * @param { BaseItemInfo[] } baseItemInfos
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1314,6 +1381,7 @@ export type ItemsDeletedCallback = (baseItemInfos: BaseItemInfo[]) => void;
 
 /**
  * The callback of onPhotoBrowserChanged event
+ *
  * @typedef { function }
  * @param { BaseItemInfo } browserItemInfo
  * @returns { boolean }
@@ -1324,7 +1392,8 @@ export type ItemsDeletedCallback = (baseItemInfos: BaseItemInfo[]) => void;
 export type PhotoBrowserChangedCallback = (browserItemInfo: BaseItemInfo) => boolean;
 
 /**
- * The callback of onExceedMaxSelected event
+ * The callback of onSelectedItemsDeleted event
+ *
  * @typedef { function }
  * @param { MaxCountType } exceedMaxCountType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1335,6 +1404,7 @@ export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => vo
 
 /**
  * The callback of onCurrentAlbumDeleted event
+ *
  * @typedef { function }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
@@ -1344,6 +1414,7 @@ export type CurrentAlbumDeletedCallback = () => void;
 
 /**
  * The callback of onVideoPlayStateChanged event
+ *
  * @typedef { function }
  * @param { VideoPlayerState } state - Indicates the video player state.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
