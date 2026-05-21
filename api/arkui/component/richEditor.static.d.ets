@@ -1615,7 +1615,6 @@ export declare interface SelectionMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
- * @noninterop
  */
 export declare interface PreviewMenuOptions {
     /**
@@ -1756,8 +1755,7 @@ export declare class RichEditorBaseController implements TextEditControllerEx {
     scrollToVisible(range?: TextRange): void;
 
     /**
-     * Delete the character before the caret of the input field component in editing state.
-     * Otherwise, delete the last character of the input field component.
+     * Delete the last character of the input field component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1832,7 +1830,7 @@ export declare class RichEditorController extends RichEditorBaseController {
      * Modify span style.
      *
      * @param { RichEditorUpdateTextSpanStyleOptions | RichEditorUpdateImageSpanStyleOptions |
-     *     RichEditorUpdateSymbolSpanStyleOptions } value
+     *    RichEditorUpdateSymbolSpanStyleOptions } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1891,7 +1889,7 @@ export declare class RichEditorController extends RichEditorBaseController {
      * return a empty Array<RichEditorSpan> if convert failed
      *
      * @param { StyledString } value - StyledString.
-     * @returns { Array<RichEditorSpan> | undefined }
+     * @returns { Array<RichEditorSpan> | undefined } return convert value
      * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2306,7 +2304,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * Define the max length content of the richEditor.
      *
-     * @param { Optional<int> } maxLength - The maximun length content of the richEditor.
+     * @param { int | undefined } maxLength - The maximun length content of the richEditor.
      * @returns { RichEditorAttribute }  returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2316,7 +2314,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * Define max lines of the richEditor.
      *
-     * @param { Optional<int> } maxLines - The maximun Lines of the richEditor.
+     * @param { int | undefined } maxLines - The maximun Lines of the richEditor.
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2327,7 +2325,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * Whether to enable automatic spacing between Chinese and Latin characters.
      *
      * @param { boolean | undefined } enable - The default value is false, indicates the flag whether to enable
-     *     automatic spacing.
+     *     automatic spacing. Passing `undefined` resets it to the default value.
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2337,7 +2335,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * Set the keyboard appearance.
      *
-     * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+     * @param { KeyboardAppearance | undefined } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2357,7 +2355,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * Set scrollbar color of rich editor.
      *
-     * @param { ColorMetrics | undefined } color  - Color of the rich editor scrollbar.
+     * @param { ColorMetrics | undefined } color - Color of the rich editor scrollbar.
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -2367,20 +2365,19 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * Set whether stop backPressed callback event or not.
      *
-     * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+     * @param { boolean | undefined } isStopped - Default value is true, set false to trigger the latest callback event.
      * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     default stopBackPress(isStopped: boolean | undefined): this;
-
     /**
      * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
      *
      * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
      *     Passing `undefined` resets it to the default value.
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2392,7 +2389,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
      *     Passing `undefined` resets it to the default value.
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2402,7 +2399,8 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * Whether to enable single line mode.
      *
      * @param { boolean | undefined } isEnable - Whether to enable single line mode, default is false.
-     * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+     *     True means enable singleLine mode, false means disable singleLine mode.
+     * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -1776,7 +1776,6 @@ export declare interface SelectionMenuOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
- * @noninterop
  */
 export declare interface PreviewMenuOptions {
     /**
@@ -2431,7 +2430,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - 自定义键盘。<br>传入undefined时默认使用系统键盘。
      * @param { KeyboardOptions | undefined } [options] - 设置自定义键盘是否支持避让功能。 <br>传入undefined或缺省时默认不支持避让。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2442,7 +2441,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 粘贴时，触发回调。开发者可以通过该方法，覆盖系统默认行为，实现图文的粘贴。
      *
      * @param { PasteEventCallback | undefined } callback - 订阅粘贴时的回调。<br/>取值为undefined时，无回调。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2640,7 +2639,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构建的RichEditor组件，默认支持图文的剪切。
      *
      * @param { Callback<CutEvent> | undefined } callback - 剪切事件前调用。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2652,7 +2651,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构建的RichEditor组件，默认支持图文的复制。
      *
      * @param { Callback<CopyEvent> | undefined } callback - 定义用户复制事件。<br/>取值为undefined时，无回调。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2701,7 +2700,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } isEnabled - 通过点击以外的方式获焦时，是否主动拉起软键盘。<br/>true表示主动拉起软键盘，false表示不主动拉起软键盘。<br/>取值为
      *     undefined时，按照默认值处理。<br/>默认值： true
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2718,7 +2717,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } isEnabled - 是否支持触控反馈。<br/>true表示开启触控反馈，false表示不开启触控反馈。<br/>取值为undefined时，按照默认值处理。<
      *     br/>默认值：true。<br/>设置为true后是否生效，还取决于系统的硬件是否支持。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2734,7 +2733,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > 中调用。
      *
      * @param { BarState | undefined } state - 输入框滚动条的显示模式。<br/>取值为undefined时，按照默认值处理。<br/>默认值：BarState.Auto
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2743,9 +2742,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置组件内容的最大长度。当内容（包含文本、图片、Symbol和Builder）的总长度达到此值时，将无法继续添加内容。
      *
-     * @param { Optional<int> } maxLength - 文本的最大输入字符数。<br/>默认值：Infinity，可以无限输入，支持undefined类型。<br/>**说明：** <br/>当不设置该属性或
-     *     设置为undefined或设置异常值时，取默认值，设置小数时，取整数部分。
-     * @returns { RichEditorAttribute }  返回RichEditorAttribute实例。
+     * @param { int | undefined } maxLength - 文本的最大输入字符数。<br/>默认值：Infinity，可以无限输入，支持undefined类型。<br/>**说明：** <br/>当不设置该属
+     *     性或设置为undefined或设置异常值时，取默认值，设置小数时，取整数部分。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2754,9 +2753,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置富文本可显示的最大行数。maxLines为可显示行数，当设置maxLines时，超出内容可滚动显示。同时设置组件高度和最大行数，组件高度优先生效。
      *
-     * @param { Optional<int> } maxLines - 设置富文本可显示的最大行数。<br/>maxLines为可显示行数，当设置maxLines时，超出内容可滚动显示。<br/>同时设置组件高度和最大行数，组
-     *     件高度优先生效。<br/>取值为undefined时，按照默认值处理。<br/>默认值：Infinity，可以无限输入。 <br/>取值范围：(0, +∞)
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @param { int | undefined } maxLines - 设置富文本可显示的最大行数。<br/>maxLines为可显示行数，当设置maxLines时，超出内容可滚动显示。<br/>同时设置组件高度和最大行数
+     *     ，组件高度优先生效。<br/>取值为undefined时，按照默认值处理。<br/>默认值：Infinity，可以无限输入。 <br/>取值范围：(0, +∞)
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2767,7 +2766,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } enable - 是否开启中文与西文的自动间距。<br/>true为开启自动间距，false为不开启。<br/>取值为undefined时，按照默认值处理。<br
      *     />默认值：false
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -2776,9 +2775,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置键盘外观。
      *
-     * @param { Optional<KeyboardAppearance> } appearance - 键盘外观。<br/>取值为undefined时，按照默认值处理。<br/>默认值：
+     * @param { KeyboardAppearance | undefined } appearance - 键盘外观。<br/>取值为undefined时，按照默认值处理。<br/>默认值：
      *     KeyboardAppearance.NONE_IMMERSIVE
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2791,7 +2790,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 。
      *
      * @param { UndoStyle | undefined } style - 撤销还原是否保留原样式选项。取值为undefined时，按照UndoStyle.CLEAR_STYLE处理，撤销还原内容不保留原样式。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -2802,7 +2801,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { ColorMetrics | undefined } color - 设置组件滚动条颜色。<br />默认值：'#66182431'，显示为灰色。<br />**说明：** 设置为undefined或设置异常
      *     值时，按默认值处理。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -2811,9 +2810,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
     /**
      * 设置是否阻止返回键传递。
      *
-     * @param { Optional<boolean> } isStopped - 是否阻止返回键。<br/>默认值：true，true表示阻止返回键，false表示不阻止返回键。<br/>**说明：** <br/>当不设置该属
-     *     性或设置为undefined或设置异常值时，取默认值。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @param { boolean | undefined } isStopped - 是否阻止返回键。<br/>默认值：true，true表示阻止返回键，false表示不阻止返回键。<br/>**说明：** <br/>当不设置
+     *     该属性或设置为undefined或设置异常值时，取默认值。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2825,7 +2824,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } include - 是否在首行和尾行增加间距以避免文字截断。<br/>true表示在首行和尾行增加间距；false表示在首行和尾行不增加间距。<br/>设置为
      *     undefined时，首行和尾行不增加间距。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2840,7 +2839,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } enabled - 行高是否基于文字实际高度自适应。<br/>true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。<br/>设置为
      *     undefined时，行高不基于文字实际高度自适应。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2857,7 +2856,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } isEnable - 是否启用单行模式。<br/>true表示启用单行模式；false表示不启用单行模式。<br/>设置为undefined或null时，按照
      *     false处理，不启用单行模式。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2884,7 +2883,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 设置属性修改器。
      *
      * @param { AttributeModifier<RichEditorAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2893,10 +2892,10 @@ export declare interface RichEditorAttribute extends CommonMethod {
         undefined): this;
 
     /**
-     * Set RichEditor options.
+     * 设置 RichEditor 选项。
      *
-     * @param { RichEditorOptions | RichEditorStyledStringOptions } options - RichEditor constructor options.
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @param { RichEditorOptions | RichEditorStyledStringOptions } options - RichEditor 构造函数选项。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -2933,7 +2932,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } enabled - 是否启用水平滚动。<br/>true表示启用水平滚动，false表示禁用水平滚动，文本将自动换行。设置为undefined或null时，不启用水
      *     平滚动。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
@@ -2944,7 +2943,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } enabled - 是否启用行尾标点符号悬挂。<br/>true表示启用行尾标点符号悬挂，false表示不启用行尾标点符号悬挂。设置为undefined或null时
      *     ，不启用标点符号悬挂。
-     * @returns { RichEditorAttribute } 返回RichEditorAttribute实例。
+     * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static

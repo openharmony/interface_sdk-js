@@ -27,5 +27,6 @@ import { RichEditorAttribute } from '@ohos.arkui.component';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare class RichEditorModifier implements RichEditorAttribute, AttributeModifier<RichEditorAttribute> {}

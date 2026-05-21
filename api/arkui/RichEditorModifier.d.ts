@@ -29,6 +29,7 @@
  * @crossplatform [since 20]
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop [since 20]
  */
 export declare class RichEditorModifier extends RichEditorAttribute implements AttributeModifier<RichEditorAttribute> {
 
