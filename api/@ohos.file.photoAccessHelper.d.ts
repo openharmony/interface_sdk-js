@@ -8785,6 +8785,97 @@ declare namespace photoAccessHelper {
       creationSettings: CreationSetting[],
       isRealTimeThumb: boolean,
       albumUri?: string): Promise<string[]>;
+
+    /**
+     * Whether deep storage space optimization can be performed.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates
+     *     [startDeepOptimizeSpace()]{@link photoAccessHelper.startDeepOptimizeSpace} can be invoked,
+     *     **false** indicates that [startDeepOptimizeSpace()]{@link photoAccessHelper.startDeepOptimizeSpace}
+     *     cannot be invoked.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    canPerformDeepOptimizeSpace(): Promise<boolean>;
+
+    /**
+     * Obtains the size of the deep storage space.
+     * <br>Unit:Byte{s}.
+     *
+     * This API is time-consuming. Before using this API, you are advised to call [canPerformDeepOptimizeSpace()]
+     * {@link photoAccessHelper.canPerformDeepOptimizeSpace} and call this API only when true is returned.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @returns { Promise<long> } - Promise used to return size. The size indicates the size of the deep storage space.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDeepOptimizeSpace(): Promise<long>;
+
+    /**
+     * Start deep optimize storage space.
+     *
+     * Before using this API, you are advised to call [canPerformDeepOptimizeSpace()]
+     * {@link photoAccessHelper.canPerformDeepOptimizeSpace} and call this API only when true is returned.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Callback<DeepOptimizeSpaceProgress> } [callback] - Callback used to return the result
+     *     `DeepOptimizeSpaceProgress` argument info, Default value: null.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800201 - Unsupported operation type, Possible causes:
+     *     <br>1. Restarted repeatedly;
+     *     <br>2. system is busy. Please try again later;
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    startDeepOptimizeSpace(callback?: Callback<DeepOptimizeSpaceProgress>): Promise<void>;
+
+    /**
+     * Stop deep optimize storage space.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    stopDeepOptimizeSpace(): Promise<void>;
   }
 
   /**
@@ -16536,6 +16627,96 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     attrValue?: string;
+  }
+
+  /**
+   * Describes the state type of deep optimize space.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum DeepOptimizeState {
+    /**
+     * Indicates that the deep optimize space in process now.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RUNNING = 0,
+
+    /**
+     * Indicates that the deep optimize space finished successfully.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMPLETED = 1,
+
+    /**
+     * Indicates that the deep optimize space failed.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FAILED = 2,
+
+    /**
+     * Indicates that the deep optimize space stopped.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STOPPED = 3,
+
+    /**
+     * Indicates that the deep optimize space interrupted.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INTERRUPTED = 4
+  }
+
+  /**
+   * Defines the DeepOptimizeSpaceProgress data structure.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface DeepOptimizeSpaceProgress {
+    /**
+     * The current deep optimize space state.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    state: DeepOptimizeState;
+    /**
+     * The percentage of deep optimize space state.
+     * Unit: Percentage, The value range is all integers, Value range: [0, 100].
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    progress: int;
   }
 }
 
