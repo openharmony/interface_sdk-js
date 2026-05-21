@@ -313,6 +313,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -322,6 +323,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -331,6 +333,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -340,6 +343,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -349,6 +353,7 @@ declare enum PlaybackSpeed {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -491,6 +496,7 @@ interface PlaybackInfo {
  * @interface PosterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 26.0.0]
  * @atomicservice
  * @since 18 dynamic
  */
@@ -502,6 +508,7 @@ declare interface PosterOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
    */
@@ -692,6 +699,7 @@ declare interface VideoOptions {
    * @type { ?PosterOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
    */
@@ -948,6 +956,7 @@ declare class VideoController {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1658,6 +1667,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 15 dynamic
    */
