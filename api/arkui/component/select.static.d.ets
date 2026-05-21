@@ -562,7 +562,7 @@ export declare interface SelectAttribute extends CommonMethod {
      *     retaining the original visual style of the select's menu.
      * @returns { SelectAttribute } - The attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
+     * @systemapi [since 23-24]
      * @stagemodelonly
      * @since 23 static
      */
