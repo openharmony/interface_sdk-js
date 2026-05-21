@@ -190,7 +190,7 @@ declare namespace ethernet {
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register a callback for the ethernet interface active state change.

@@ -44,14 +44,14 @@
  */
 interface ColumnSplitInterface {
   /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+   * Layout the subassemblies vertically and insert a horizontal divider line between each subassembly.
    *
    * @returns { ColumnSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
   /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+   * Layout the subassemblies vertically and insert a horizontal divider line between each subassembly.
    *
    * @returns { ColumnSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -59,7 +59,7 @@ interface ColumnSplitInterface {
    * @since 10
    */
   /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassemblies.
+   * Layout the subassemblies vertically and insert a horizontal divider line between each subassembly.
    *
    * @returns { ColumnSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -75,6 +75,7 @@ interface ColumnSplitInterface {
  *
  * @interface ColumnSplitDividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -83,6 +84,7 @@ interface ColumnSplitInterface {
  *
  * @interface ColumnSplitDividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -94,6 +96,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -103,6 +106,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -115,6 +119,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -124,6 +129,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -187,19 +193,21 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
 
   /**
    * Set margin of the split line.
-   * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
+   * @param { ColumnSplitDividerStyle | null } value - indicates the style of the divider.
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * Set margin of the split line.
-   * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
+   * @param { ColumnSplitDividerStyle | null } value - indicates the style of the divider.
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

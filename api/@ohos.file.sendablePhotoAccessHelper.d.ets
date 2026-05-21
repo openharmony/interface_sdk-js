@@ -335,7 +335,8 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Sets a PhotoAsset member parameter.
      *
-     * @param { string } member - Name of the parameter to set, for example, PhotoKeys.TITLE. The value contains 1 to 255 characters.
+     * @param { string } member - Name of the parameter to set, for example, PhotoKeys.TITLE.
+     * The value contains 1 to 255 characters.
      * @param { string } value - Value to set. Only the value of PhotoKeys. TITLE can be changed. 
      * The title must meet the following requirements:
      * - It does not contain a file name extension.
@@ -454,7 +455,8 @@ declare namespace sendablePhotoAccessHelper {
     getFirstObject(): Promise<T>;
     /**
      * Obtains the next asset in the result set. This API uses a promise to return the result.
-     * Before using this API, you must use isAfterLast() to check whether the current position is the end of the result set.
+     * Before using this API, you must use isAfterLast() to check whether the current position is the end of
+     * <br>the result set.
      *
      * @returns { Promise<T> } Returns the next object
      * @throws { BusinessError } 14000011 - Internal system error
@@ -1208,6 +1210,8 @@ declare namespace sendablePhotoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000001 - Invalid display name
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1225,6 +1229,8 @@ declare namespace sendablePhotoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @throws { BusinessError } 13900020 - Invalid argument
+     * @throws { BusinessError } 14000001 - Invalid display name
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1233,8 +1239,10 @@ declare namespace sendablePhotoAccessHelper {
     createAsset(displayName: string, options: photoAccessHelper.PhotoCreateOptions): Promise<PhotoAsset>;
     /**
      * Creates an image or video asset with the specified file type, file name extension, and options.
-     * This API uses a promise to return the result. If the caller does not have the ohos.permission.WRITE_IMAGEVIDEO permission,
-     * you can create a media asset by using a security component. For details, see Creating a Media Asset Using a Security Component.
+     * This API uses a promise to return the result.
+     * If the caller does not have the ohos.permission.WRITE_IMAGEVIDEO permission,
+     * you can create a media asset by using a security component.
+     * For details, see Creating a Media Asset Using a Security Component.
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { PhotoType } photoType - Type of the file to create, which can be IMAGE or VIDEO.
@@ -1333,6 +1341,27 @@ declare namespace sendablePhotoAccessHelper {
      * @since 14 dynamiconly
      */
     getSharedPhotoAssets(options: photoAccessHelper.FetchOptions): Array<SharedPhotoAsset>;
+    /**
+     * Get PhotoAsset objects from ValuesBucket record info.
+     *
+     * @param { photoAccessHelper.ValuesBucket[] } assetsData - Array of asset records. Each element in the array
+     *     contains the asset's column names and their values. The array size cannot exceed 500. Each element in the
+     *     array must contain the following asset column information: file_id, data, display_name, media_type, and
+     *     subtype.
+     * @returns { Promise<PhotoAsset[]> } Returns an array of PhotoAsset objects (may be empty).
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Invalid value type in ValuesBucket;
+     *     <br>2. Missing required column in ValuesBucket;
+     *     <br>3. Array size exceeds 500.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamiconly
+     */
+    getPhotoAssets(assetsData: photoAccessHelper.ValuesBucket[]): Promise<PhotoAsset[]>;
   }
 }
 

@@ -19,39 +19,26 @@
  */
 
 /**
- * The observer will be called by system when application main thread loop
- * execute timeout
- * @interface LoopObserver
+ * The module defines an observer to listen for event processing timeout. It can be used as an input parameter in 
+ * [ErrorManager.on]{@link ./../@ohos.app.ability.errorManager:errorManager.on(type: 'loopObserver', timeout: number, observer: LoopObserver)}
+ * to listen for the event processing timeout of the current application's main thread.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform [since 19]
  * @atomicservice
- * @since 12
- */
-/**
- * The observer will be called by system when application main thread loop
- * execute timeout
- * @interface LoopObserver
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @crossplatform
- * @atomicservice
- * @since 19 dynamic
+ * @since 12 dynamiconly
  */
 export interface LoopObserver {
   /**
-   * Will be called when the application main thread loop execute timeout.
+   * Called when a timeout occurs for the main thread to process an event in the JS runtime.
    *
-   * @param { number } timeout - the actual executing time of loop event.
+   * @param { int } timeout - Actual execution time of the main thread.
+   * The value must be greater than **0**. The unit is milliseconds (ms).
+   * The value should be an integer.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @crossplatform [since 19]
    * @atomicservice
-   * @since 12
+   * @since 12 dynamiconly
    */
-  /**
-   * Will be called when the application main thread loop execute timeout.
-   *
-   * @param { number } timeout - the actual executing time of loop event.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 19 dynamic
-   */
-  onLoopTimeOut?(timeout: number): void;
+  onLoopTimeOut?(timeout: int): void;
 }

@@ -12,116 +12,97 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 /**
  * @file Identify sensitive file
  * @kit DataProtectionKit
  */
-
 /**
- * identifySensitiveContent
- * @namespace identifySensitiveContent
+ * This module identifies sensitive information in a specified file based on the input [scan policy]{@link identifySensitiveContent.policy}.
+ *
  * @syscap SystemCapability.Security.DataLossPrevention
  * @since 21
  */
- declare namespace identifySensitiveContent {
-
-  /**
-   * Identify Policy
-   * @typedef Policy
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
-   */
-  export interface Policy {
-
+declare namespace identifySensitiveContent {
     /**
-     * Sensitive Label
-     * Label Length:[1, 30]
-     * @type { string }
+     * Defines the policy for sensitive content identification.
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
-    sensitiveLabel: string;
-
+    export interface Policy {
+        /**
+         * Label of an identification policy. The value can contain a maximum of 30 bytes.
+         *
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @since 21
+         */
+        sensitiveLabel: string;
+        /**
+         * Keyword set. The array can contain a maximum of 50 elements, and each element can contain a maximum of 30 bytes.
+         *
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @since 21
+         */
+        keywords: Array<string>;
+        /**
+         * Regular expression. The value can contain a maximum of 512 bytes.
+         *
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @since 21
+         */
+        regex: string;
+    }
     /**
-     * Collection of keyword
-     * Keyword Length:[1, 30]
-     * Array Length:[0,50]
-     * @type { Array<string> }
+     * Displays the identification result of sensitive content.
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
-    keywords: Array<string>;
-
+    export interface MatchResult {
+        /**
+         * Label of an identification policy.
+         *
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @since 21
+         */
+        readonly sensitiveLabel: string;
+        /**
+         * Matched content.
+         *
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @since 21
+         */
+        readonly matchContent: string;
+        /**
+         * Total number of matched items.
+         *
+         * @syscap SystemCapability.Security.DataLossPrevention
+         * @since 21
+         */
+        readonly matchNumber: number;
+    }
     /**
-     * Regular expression
-     * Regex Length:[0, 512]
-     * @type { string }
+     * Identifies sensitive content in a specified file based on the configured policy. This API uses a promise to return  
+     * the result.
+     *
+     * @permission ohos.permission.ENTERPRISE_DATA_IDENTIFY_FILE
+     * @param { string } filePath - Path of the file to be identified.
+     * @param { Array<Policy> } identifyPolicies - Identification policy.
+     * @returns { Promise<Array<MatchResult>> } Promise used to return the identification result of sensitive content.
+     * @throws { BusinessError } 201 - permission denied.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 19110001 - Parameter error. Possible causes:
+     *     1. Incorrect policy format.
+     *     2. Invalid parameter range.
+     * @throws { BusinessError } 19110002 - Sensitive file content identification timed out.
+     * @throws { BusinessError } 19110003 - The file is not supported. Possible causes:
+     *     1. The file path does not exist.
+     *     2. The file type is not supported.
+     *     3. The file permission is not supported.
+     * @throws { BusinessError } 19110004 - A system error has occurred.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
-    regex: string;
-  }
-
-  /**
-   * Match result
-   * @typedef MatchResult
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
-   */
-  export interface MatchResult {
-
-    /**
-     * Identify Label
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
-     */
-    readonly sensitiveLabel: string;
-
-    /**
-     * Match content
-     * @type { string }
-     * @readonly
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
-     */
-    readonly matchContent: string;
-
-    /**
-     * Total number of identified content
-     * @type { number }
-     * @readonly
-     * @syscap SystemCapability.Security.DataLossPrevention
-     * @since 21
-     */
-    readonly matchNumber: number;
-  }
-
-  /**
-   * Identify sensitive content from file based on policy.
-   * @permission ohos.permission.ENTERPRISE_DATA_IDENTIFY_FILE
-   * @param { string } filePath - To be idetified file path
-   * @param { Array<Policy> } identifyPolicies - Identify Policy
-   * @returns { Promise<Array<MatchResult>> } Identify result of Sensitive content
-   * @throws { BusinessError } 201 - permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 19110001 - Parameter error. Possible causes:
-   *     1. Incorrect policy format.
-   *     2. Invalid parameter range.
-   * @throws { BusinessError } 19110002 - Sensitive file content identification timed out.
-   * @throws { BusinessError } 19110003 - The file is not supported. Possible causes:
-   *     1. The file path does not exist.
-   *     2. The file type is not supported.
-   *     3. The file permission is not supported.
-   * @throws { BusinessError } 19110004 - A system error has occurred.
-   * @syscap SystemCapability.Security.DataLossPrevention
-   * @since 21
-   */
-  function scanFile(filePath: string, identifyPolicies: Array<Policy>)
-    : Promise<Array<MatchResult>>;
- }
- 
- export default identifySensitiveContent;
-
+    function scanFile(filePath: string, identifyPolicies: Array<Policy>): Promise<Array<MatchResult>>;
+}
+export default identifySensitiveContent;

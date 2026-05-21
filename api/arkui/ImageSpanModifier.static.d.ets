@@ -29,6 +29,7 @@ import { ImageSpanAttribute } from '@ohos.arkui.component';
  *
  * @implements { ImageSpanAttribute, AttributeModifier<ImageSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ImageSpanModifier implements ImageSpanAttribute, AttributeModifier<ImageSpanAttribute> {}

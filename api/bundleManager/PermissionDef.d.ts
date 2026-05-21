@@ -19,60 +19,59 @@
  */
 
 /**
- * Indicates the defined permission details in file config.json
+ * The module provides permission details defined in the
+ * [module.json5](docroot://quick-start/module-configuration-file.md) file. The information can be obtained using
+ * [bundleManager.getPermissionDef]{@link ./../@ohos.bundle.bundleManager:bundleManager.getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>)}
+ * .
  *
- * @typedef PermissionDef
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PermissionDef {
   /**
-   * Indicates the name of this permission
+   * Name of the permission.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly permissionName: string;
 
   /**
-   * Indicates the grant mode of this permission
+   * [Grant mode of the permission](docroot://security/AccessToken/app-permission-mgmt-overview.md#authorization-mode).
+   * The value **0** means user authorization, and **1** means system authorization.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly grantMode: int;
 
   /**
-   * Indicates the labelId of this permission
+   * ID of the permission label.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
   /**
-   * Indicates the descriptionId of this permission
+   * ID of the permission description.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 }

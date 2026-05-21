@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,6 +28,7 @@ import type * as _CustomData from './application/CustomData';
 import type * as _AutoFillRect from './application/AutoFillRect';
 import type * as _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupPlacement } from './application/AutoFillPopupConfig';
+import { AutoFillTriggerType } from './application/AutoFillTriggerType';
 /*** endif */
 /*** if arkts static */
 import { UIContext } from './@ohos.arkui.UIContext';
@@ -43,66 +44,74 @@ import _AutoFillRect from './application/AutoFillRect';
 import _AutoFillPopupConfig from './application/AutoFillPopupConfig';
 import { PopupSize as _PopupSize } from './application/AutoFillPopupConfig';
 import { PopupPlacement as _PopupPlacement } from './application/AutoFillPopupConfig';
+import { AutoFillTriggerType as _AutoFillTriggerType } from './application/AutoFillTriggerType';
 /*** endif */
+import { FillFailureResult as _FillFailureResult } from './application/AutoFillRequest';
 
 /**
- * This module provides the function of auto fill manager.
+ * The autoFillManager module provides APIs for saving accounts and passwords.
  *
- * @namespace autoFillManager
+ * Unlike the system's auto-save feature that triggers during page transitions, this feature requires manual activation
+ * by the user. For example, the user must input their account and password on a website and click the **Save** button
+ * to initiate the saving process.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
- * @since 11
- */
-/**
- * This module provides the function of auto fill manager.
- *
- * @namespace autoFillManager
- * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @stagemodelonly
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @since 23 static
  */
 declare namespace autoFillManager {
   /**
-   * Called when auto save request is successfully handled.
+   * Called when auto-save is successful.
    *
-   * @typedef { function }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 23 static
    */
   type OnSuccessFn = () => void;
 
   /**
-   * Called when auto save request is failed to be handled.
+   * Called when auto-save fails.
    *
-   * @typedef { function }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 23 static
    */
   type OnFailureFn = () => void;
 
   /**
-   * Auto save callback.
+   * Called when auto fill request is successfully handled.
    *
-   * @interface AutoSaveCallback
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Auto save callback.
-   *
-   * @interface AutoSaveCallback
+   * @param { ViewData } viewData - Indicates the ui context where the filling operation will be performed.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 26.0.0 dynamic&static
+   */
+  type OnFillSuccessFn = (viewData: ViewData) => void;
+
+  /**
+   * Called when auto fill request is failed to be handled.
+   *
+   * @param { FillFailureResult } result - Indicates the ui context where the filling operation will be performed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  type OnFillFailureFn = (result: FillFailureResult) => void;
+
+  /**
+   * Implements callbacks triggered when auto-save is complete.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   export interface AutoSaveCallback {
     /**
@@ -110,24 +119,23 @@ declare namespace autoFillManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
-     * @since 11
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
+    onSuccess(): void;
+
     /**
-     * Called when auto save request is successfully handled.
+     * Called when auto-save is successful.
+     *
+     * **NOTE**
+     *
+     * Starting from API version 23, the original **onSuccess()** API is changed to a property, but its usage remains
+     * unchanged.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 12
-     */
-    /**
-     * Called when auto save request is successfully handled.
-     *
-     * @type { OnSuccessFn }
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 static
      */
     onSuccess: OnSuccessFn;
 
@@ -136,131 +144,146 @@ declare namespace autoFillManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
-     * @since 11
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
+    onFailure(): void;
+
     /**
-     * Called when auto save request is failed to be handled.
+     * Called when auto-save fails.
+     *
+     * **NOTE**
+     *
+     * Starting from API version 23, the original **onFailure()** API is changed to a property, but its usage remains
+     * unchanged.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @stagemodelonly
      * @atomicservice
-     * @since 12
-     */
-    /**
-     * Called when auto save request is failed to be handled.
-     *
-     * @type { OnFailureFn }
-     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-     * @stagemodelonly
-     * @atomicservice
-     * @since 22 dynamic&static
+     * @since 23 static
      */
     onFailure: OnFailureFn;
-  }
+}
 
   /**
-   * Trigger an auto save request.
+   * Auto fill callback.
    *
-   * @param { UIContext } context - Indicates the ui context where the save operation will be performed.
-   * @param { AutoSaveCallback } [callback] - Indicates the callback that used to receive the result.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Get instance id failed;
-   * <br>2. Parse instance id failed; 3. The second parameter is not of type callback.
-   * @throws { BusinessError } 16000050 - Internal error.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Trigger an auto save request.
-   *
-   * @param { UIContext } context - Indicates the ui context where the save operation will be performed.
-   * @param { AutoSaveCallback } [callback] - Indicates the callback that used to receive the result.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Get instance id failed;
-   * <br>2. Parse instance id failed; 3. The second parameter is not of type callback.
-   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @since 26.0.0 dynamic&static
+   */
+  export interface AutoFillCallback {
+    /**
+     * Called when auto fill request is successfully handled.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onSuccess: OnFillSuccessFn;
+
+    /**
+     * Called when auto fill request is failed to be handled.
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onFailure: OnFillFailureFn;
+  }
+
+  /**
+   * Requests to automatically save the widget data. This API uses an asynchronous callback to return the result.
+   * If the current widget does not support widget switching, you can call this API to save historical widget input
+   * data. The callback is triggered when the auto-save request is complete.
+   *
+   * @param { UIContext } context - UI context in which the auto-save operation will be performed.
+   * @param { AutoSaveCallback } [callback] - Implements callbacks triggered when auto-save is complete.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Get instance id failed;
+   *     <br>2. Parse instance id failed; 3. The second parameter is not of type callback.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   export function requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void;
 
   /**
-   * The interface of view data.
+   * Trigger an auto save request.
    *
+   * @param { UIContext } context - Indicates the ui context where the save operation will be performed.
+   * @param { SaveRequest } request - Indicates the struct of automatic save request.
+   * @param { AutoSaveCallback } [callback] - Indicates the callback that used to receive the result.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
+  export function requestAutoSave(context: UIContext, request: SaveRequest, callback?: AutoSaveCallback): void;
+
   /**
-   * The interface of view data.
+   * Trigger an auto fill request.
    *
-   * @typedef { _ViewData.default } ViewData
+   * @param { UIContext } context - Indicates the ui context where the filling operation will be performed.
+   * @param { FillRequest } request - Indicates the struct of automatic filling request.
+   * @param { AutoFillCallback } [callback] - Indicates the callback that used to receive the result.
+   * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 12 dynamic
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export function requestAutoFill(context: UIContext, request: FillRequest, callback?: AutoFillCallback): void;
+
+  /**
+   * Defines the view data used for auto-fill.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export type ViewData = _ViewData.default;
 
   /**
-   * The interface of view data.
+   * Defines the view data used for auto-fill.
    *
-   * @typedef { _ViewData } ViewData
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 26.0.0 static
    */
   export type ViewData = _ViewData;
 
   /**
-   * The interface of page node info.
+   * Defines the page node information used for auto-fill.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * The interface of page node info.
-   *
-   * @typedef { _PageNodeInfo.default } PageNodeInfo
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export type PageNodeInfo = _PageNodeInfo.default;
 
   /**
-   * The interface of page node info.
+   * Defines the page node information used for auto-fill.
    *
-   * @typedef { _PageNodeInfo } PageNodeInfo
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 26.0.0 static
    */
   export type PageNodeInfo = _PageNodeInfo;
 
-  /**
+/**
    * The enum of auto fill type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * The enum of auto fill type.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export { AutoFillType };
 
@@ -268,76 +291,53 @@ declare namespace autoFillManager {
    * The enum of auto fill type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 26.0.0 static
    */
   export type AutoFillType = _AutoFillType;
 
   /**
-   * The interface of fill request.
+   * Defines the information about an auto-fill request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * The interface of fill request.
-   *
-   * @typedef { _AutoFillRequest.FillRequest } FillRequest
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export type FillRequest = _AutoFillRequest.FillRequest;
 
   /**
-   * The interface of fill request.
+   * Defines the information about an auto-fill request.
    *
-   * @typedef { _FillRequest } FillRequest
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 26.0.0 static
    */
   export type FillRequest = _FillRequest;
 
   /**
-   * The interface of save request.
+   * Defines the information about an auto-save request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * The interface of save request.
-   *
-   * @typedef { _AutoFillRequest.SaveRequest } SaveRequest
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export type SaveRequest = _AutoFillRequest.SaveRequest;
 
   /**
-   * The interface of save request.
+   * Defines the information about an auto-save request.
    *
-   * @typedef { _SaveRequest } SaveRequest
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @atomicservice
+   * @since 26.0.0 static
    */
   export type SaveRequest = _SaveRequest;
 
   /**
-   * The interface of update request.
+   * Defines the information about an auto-update request.
    *
-   * @typedef { _AutoFillRequest.UpdateRequest } UpdateRequest
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -346,110 +346,90 @@ declare namespace autoFillManager {
   export type UpdateRequest = _AutoFillRequest.UpdateRequest;
 
   /**
-   * The interface of update request.
+   * Defines the information about an auto-update request.
    *
-   * @typedef { _UpdateRequest } UpdateRequest
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type UpdateRequest = _UpdateRequest;
 
   /**
-   * The interface of fill response.
+   * Defines the information about the response to an auto-fill request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * The interface of fill response.
-   *
-   * @typedef { _AutoFillRequest.FillResponse } FillResponse
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   export type FillResponse = _AutoFillRequest.FillResponse;
 
   /**
-   * The interface of fill response.
+   * Defines the information about the response to an auto-fill request.
    *
-   * @typedef { _FillResponse } FillResponse
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type FillResponse = _FillResponse;
 
   /**
-   * The interface of fill request callback.
+   * Defines the callback for an auto-fill request, which is used to automatically fill in or generate a password. The
+   * callback can be used to notify the client of the success or failure of the request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * The interface of fill request callback.
-   *
-   * @typedef { _AutoFillRequest.FillRequestCallback } FillRequestCallback
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   export type FillRequestCallback = _AutoFillRequest.FillRequestCallback;
 
   /**
-   * The interface of fill request callback.
+   * Defines the callback for an auto-fill request, which is used to automatically fill in or generate a password. The
+   * callback can be used to notify the client of the success or failure of the request.
    *
-   * @typedef { _FillRequestCallback } FillRequestCallback
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type FillRequestCallback = _FillRequestCallback;
 
   /**
-   * The interface of save request callback.
+   * Defines the callback for an automatic or a manual saving request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * The interface of save request callback.
-   *
-   * @typedef { _AutoFillRequest.SaveRequestCallback } SaveRequestCallback
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   export type SaveRequestCallback = _AutoFillRequest.SaveRequestCallback;
 
   /**
-   * The interface of save request callback.
+   * Defines the callback for an automatic or a manual saving request.
    *
-   * @typedef { _SaveRequestCallback } SaveRequestCallback
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type SaveRequestCallback = _SaveRequestCallback;
 
   /**
-   * The custom data.
+   * The interface of filling failure result.
    *
-   * @typedef { _CustomData.default } CustomData
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  export type FillFailureResult = _FillFailureResult;
+
+  /**
+   * Defines the custom data.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -458,42 +438,37 @@ declare namespace autoFillManager {
   export type CustomData = _CustomData.default;
 
   /**
-   * The custom data.
+   * Defines the custom data.
    *
-   * @typedef { _CustomData } CustomData
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type CustomData = _CustomData;
 
   /**
-   * Auto fill rectangle.
+   * Defines the rectangle used for auto-fill.
    *
-   * @typedef { _AutoFillRect.default } AutoFillRect
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 12 dynamic
+   * @atomicservice
+   * @since 26.0.0 dynamic
    */
   export type AutoFillRect = _AutoFillRect.default;
 
   /**
-   * Auto fill rectangle.
+   * Defines the rectangle used for auto-fill.
    *
-   * @typedef { _AutoFillRect } AutoFillRect
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 26.0.0 static
    */
   export type AutoFillRect = _AutoFillRect;
 
   /**
-   * The auto fill popup config.
+   * Defines the size and position information of an auto-fill pop-up.
    *
-   * @typedef { _AutoFillPopupConfig.default } AutoFillPopupConfig
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -502,20 +477,18 @@ declare namespace autoFillManager {
   export type AutoFillPopupConfig = _AutoFillPopupConfig.default;
 
   /**
-   * The auto fill popup config.
+   * Defines the size and position information of an auto-fill pop-up.
    *
-   * @typedef { _AutoFillPopupConfig } AutoFillPopupConfig
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type AutoFillPopupConfig = _AutoFillPopupConfig;
 
   /**
-   * The popup size of auto fill popup config.
+   * Defines the width and height of an auto-fill pop-up.
    *
-   * @typedef { _AutoFillPopupConfig.PopupSize } PopupSize
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
@@ -524,13 +497,12 @@ declare namespace autoFillManager {
   export type PopupSize = _AutoFillPopupConfig.PopupSize;
 
   /**
-   * The popup size of auto fill popup config.
+   * Defines the width and height of an auto-fill pop-up.
    *
-   * @typedef { _PopupSize } PopupSize
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type PopupSize = _PopupSize;
 
@@ -550,9 +522,28 @@ declare namespace autoFillManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   export type PopupPlacement = _PopupPlacement;
+
+  /**
+  * The enum of auto fill trigget type.
+  *
+  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+  * @stagemodelonly
+  * @atomicservice
+  * @since 26.0.0 dynamic
+  */
+  export { AutoFillTriggerType };
+
+  /**
+   * The enum of auto fill trigget type.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export type AutoFillTriggerType = _AutoFillTriggerType;
 }
 
 export default autoFillManager;

@@ -21,24 +21,20 @@
 import { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
- * Provides thermal level-related callback and query APIs to obtain the information required for
- * temperature control. The APIs are as follows:
- * {@link registerThermalLevelCallback}: subscribes to callbacks of thermal level changes.
- * {@link getLevel}: obtains the thermal level of the system in real time.
+ * The **thermal** module provides thermal level-related callback and query APIs to obtain the information required for
+ * thermal control.
  *
- * @namespace thermal
  * @syscap SystemCapability.PowerManager.ThermalManager
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace thermal {
   /**
-   * Enumerates the {@link ThermalLevel} types.
+   * Enumerates thermal levels.
    *
-   * @enum {int}
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ThermalLevel {
     /**
@@ -46,15 +42,16 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     COOL = 0,
     /**
-     * The device is operational but is not cool. You need to pay attention to its heating.
+     * The device is in the normal temperature range but it is getting warm. You need to downgrade or reduce the load of
+     * imperceptible services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NORMAL = 1,
     /**
@@ -62,120 +59,124 @@ declare namespace thermal {
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WARM = 2,
     /**
-     * The device is heating up. You need to stop all imperceptible services and downgrade
-     * or reduce the load of other services.
+     * The device is heating up. You need to stop all imperceptible services and downgrade or reduce the load of non-
+     * critical services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HOT = 3,
     /**
-     * The device is overheated. You need to stop all imperceptible services and downgrade
-     * or reduce the load of major services.
+     * The device is overheated. You need to stop all imperceptible services and downgrade or reduce the load of major
+     * foreground services.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     OVERHEATED = 4,
     /**
-     * The device is overheated and is about to enter the emergency state. You need to stop
-     * all imperceptible services and downgrade major services to the maximum extent.
+     * The device is overheated and is about to enter the emergency state. You need to stop all imperceptible services
+     * and downgrade major foreground services to the maximum extent.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     WARNING = 5,
     /**
-     * The device has entered the emergency state. The supply of equipment resources has been
-     * minimized, leaving only the basic functions available.
+     * The device has entered the emergency state. You need to stop all services except those for fundamental use.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EMERGENCY = 6,
     /**
-     * The device is about to enter a thermal escape state. All abilities will be forcibly 
-     * stopped, you need to implement escape measures.
+     * The device is about to enter the escape state. You need to stop all services and take necessary emergency
+     * measures such as data backup.
      *
      * @syscap SystemCapability.PowerManager.ThermalManager
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     ESCAPE = 7
   }
 
   /**
-   * Subscribes to callbacks of thermal level changes.
+   * Subscribes to the thermal level changes. This API uses an asynchronous callback to return thermal level.
    *
-   * @param { AsyncCallback<ThermalLevel> } callback Callback of thermal level changes. Returns the thermal level.
+   * @param { AsyncCallback<ThermalLevel> } callback - Callback used to return thermal level. The return value contains
+   *     only one parameter, that is, thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead thermal#registerThermalLevelCallback
+   * @useinstead thermal.registerThermalLevelCallback
    */
   function subscribeThermalLevel(callback: AsyncCallback<ThermalLevel>): void;
 
   /**
-   * Registers to callbacks of thermal level changes.
+   * Registers a callback to be invoked when the thermal level changes. This API uses an asynchronous callback to return
+   * the result.
    *
-   * @param { Callback<ThermalLevel> } callback Callback of thermal level changes.
-   * this param is a function type.
+   * @param { Callback<ThermalLevel> } callback - Callback used to return thermal level. This parameter is of the
+   *     function type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function registerThermalLevelCallback(callback: Callback<ThermalLevel>): void;
 
   /**
-   * Unsubscribes from the callbacks of thermal level changes.
+   * Unsubscribes from the thermal level changes. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback Callback of thermal level changes.
+   * @param { AsyncCallback<void> } callback - Callback that returns no value. If this parameter is not set, all
+   *     callbacks will be unregistered.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead thermal#unregisterThermalLevelCallback
+   * @useinstead thermal.unregisterThermalLevelCallback
    */
   function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
 
   /**
-   * Unregisters from the callbacks of thermal level changes.
+   * Unregisters the callback to be invoked when the thermal level changes. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { Callback<void> } callback Callback of thermal level changes.
+   * @param { Callback<void> } callback - (Optional) Callback that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function unregisterThermalLevelCallback(callback?: Callback<void>): void;
 
   /**
-   * Obtains the current thermal level.
+   * Obtains this thermal level.
    *
-   * @returns { ThermalLevel } Returns the thermal level.
+   * @returns { ThermalLevel } Thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead thermal#getLevel
+   * @useinstead thermal.getLevel
    */
   function getThermalLevel(): ThermalLevel;
 
   /**
-   * Obtains the current thermal level.
+   * Obtains this thermal level.
    *
-   * @returns { ThermalLevel } The thermal level.
+   * @returns { ThermalLevel } Thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getLevel(): ThermalLevel;
 }
+
 export default thermal;

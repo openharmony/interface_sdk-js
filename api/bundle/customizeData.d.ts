@@ -19,36 +19,49 @@
  */
 
 /**
- * Indicates the custom metadata
+ * The CustomizeData module provides custom metadata.
  *
- * @typedef CustomizeData
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use
+ * > [Metadata]{@link ./../bundleManager/Metadata:Metadata} instead.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.Metadata
+ * @useinstead ./../bundleManager/Metadata:Metadata
  */
 export interface CustomizeData {
   /**
+   * Key that identifies a data element.
+   *
    * @default Indicates the custom metadata name
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.Metadata#name
    */
   name: string;
 
   /**
+   * Value of the data element.
+   *
    * @default Indicates the custom metadata value
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.Metadata#value
    */
   value: string;
 
   /**
+   * Custom format of the data element. The value is an index to the resource that identifies the data.
+   *
    * @default Indicates the custom metadata resource
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.Metadata#resource
    */
   extra: string;
 }

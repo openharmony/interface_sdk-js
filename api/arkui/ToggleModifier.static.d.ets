@@ -26,6 +26,7 @@ import { ToggleAttribute } from './component/toggle';
  *
  * @implements { ToggleAttribute, AttributeModifier<ToggleAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ToggleModifier implements ToggleAttribute, AttributeModifier<ToggleAttribute> {}

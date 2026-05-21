@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { ResourceColor } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -26,7 +26,8 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface BlankAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare interface BlankAttribute extends CommonMethod {
@@ -34,10 +35,11 @@ export declare interface BlankAttribute extends CommonMethod {
      * Sets the color to fill the blank.<br>
      * Default value: **Color.Transparent**.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -46,25 +48,48 @@ export declare interface BlankAttribute extends CommonMethod {
      * @param { AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BlankAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<BlankAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set Blank options.
+     *
+     * @param { double | string } [min] - Minimum size of the Blank component in the container along the main axis.
+     * @returns { BlankAttribute } Returns instance of BlankAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setBlankOptions(min?: double | string): this;
 }
 
 /**
  * Defines Blank Component.
  *
- * @param { number | string } [min] - Blank options.
- * @param { function } [content_] - container
+ * @param { double | string } [min] - Blank options.
  * @returns { BlankAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Blank(
-    min?: number | string, 
-    @memo
-    content_?: () => void,
-): BlankAttribute
+    min?: double | string,
+): BlankAttribute;
+
+/**
+ * Defines Blank Component.
+ *
+ * @param { CustomBuilderT<BlankAttribute> } style - Blank options.
+ * @returns { BlankAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Blank(
+    style: CustomBuilderT<BlankAttribute>
+): BlankAttribute;

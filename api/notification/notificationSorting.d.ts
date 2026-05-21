@@ -21,48 +21,45 @@
 import { NotificationSlot } from './notificationSlot';
 
 /**
- * Provides sorting information about an active notification.
+ * The **NotificationSorting** module provides APIs for defining the sorting information of active notifications.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
  *
- * @typedef NotificationSorting
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface NotificationSorting {
   /**
-   * Notify the channel content.
+   * Notification slot type.
    *
-   * @type { NotificationSlot }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly slot: NotificationSlot;
 
   /**
-   * Notify the unique ID.
+   * Unique ID of the notification.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly hashCode: string;
 
   /**
-   * Notify the sort number.
+   * Notification level. If this parameter is not set, the default value is used based on the notification slot type.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly ranking: long;
 }

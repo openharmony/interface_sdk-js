@@ -21,12 +21,14 @@
 /**
  * Defines the popup text options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
  /**
  * Defines the popup text options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -38,6 +40,7 @@ export interface PopupTextOptions {
    * Set the text display content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -45,6 +48,7 @@ export interface PopupTextOptions {
    * Set the text display content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -55,6 +59,7 @@ export interface PopupTextOptions {
    * Set the text font size.
    * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -62,6 +67,7 @@ export interface PopupTextOptions {
    * Set the text font size.
    * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -72,6 +78,7 @@ export interface PopupTextOptions {
    * Set the text font color.
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -79,6 +86,7 @@ export interface PopupTextOptions {
    * Set the text font color.
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -89,6 +97,7 @@ export interface PopupTextOptions {
    * Set the text font weight.
    * @type { ?(number | FontWeight | string) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -96,6 +105,7 @@ export interface PopupTextOptions {
    * Set the text font weight.
    * @type { ?(number | FontWeight | string) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -106,12 +116,14 @@ export interface PopupTextOptions {
 /**
  * Defines the popup button options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
  /**
  * Defines the popup button options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -121,6 +133,7 @@ export interface PopupButtonOptions {
    * Set the button display content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -128,6 +141,7 @@ export interface PopupButtonOptions {
    * Set the button display content.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -138,6 +152,7 @@ export interface PopupButtonOptions {
    * Set the button callback.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -145,6 +160,7 @@ export interface PopupButtonOptions {
    * Set the button callback.
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -155,6 +171,7 @@ export interface PopupButtonOptions {
    * Set the button font size.
    * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -162,6 +179,7 @@ export interface PopupButtonOptions {
    * Set the button font size.
    * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -172,6 +190,7 @@ export interface PopupButtonOptions {
    * Set the button font color.
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -179,6 +198,7 @@ export interface PopupButtonOptions {
    * Set the button font color.
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -189,12 +209,14 @@ export interface PopupButtonOptions {
 /**
  * Defines the popup icon options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
  /**
  * Defines the popup icon options
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -204,6 +226,7 @@ export interface PopupIconOptions {
    * Set the icon image.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -211,6 +234,7 @@ export interface PopupIconOptions {
    * Set the icon image.
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -221,6 +245,7 @@ export interface PopupIconOptions {
    * Set the icon width.
    * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -228,6 +253,7 @@ export interface PopupIconOptions {
    * Set the icon width.
    * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -238,6 +264,7 @@ export interface PopupIconOptions {
    * Set the icon height.
    * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -245,6 +272,7 @@ export interface PopupIconOptions {
    * Set the icon height.
    * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -255,6 +283,7 @@ export interface PopupIconOptions {
    * Set the icon fill color.
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -262,6 +291,7 @@ export interface PopupIconOptions {
    * Set the icon fill color.
    * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -272,6 +302,7 @@ export interface PopupIconOptions {
    * Set the icon border radius.
    * @type { ?(Length | BorderRadiuses) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -279,6 +310,7 @@ export interface PopupIconOptions {
    * Set the icon border radius.
    * @type { ?(Length | BorderRadiuses) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -289,12 +321,14 @@ export interface PopupIconOptions {
 /**
  * Defines the popup options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
  /**
  * Defines the popup options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -305,6 +339,7 @@ export interface PopupOptions {
    *
    * @type { ?PopupIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -313,6 +348,7 @@ export interface PopupOptions {
    *
    * @type { ?PopupIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -324,6 +360,7 @@ export interface PopupOptions {
    *
    * @type { ?PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -332,6 +369,7 @@ export interface PopupOptions {
    *
    * @type { ?PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -343,6 +381,7 @@ export interface PopupOptions {
    *
    * @type { PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -351,6 +390,7 @@ export interface PopupOptions {
    *
    * @type { PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -362,6 +402,7 @@ export interface PopupOptions {
    *
    * @type { ?(boolean | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -370,6 +411,7 @@ export interface PopupOptions {
    *
    * @type { ?(boolean | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -381,6 +423,7 @@ export interface PopupOptions {
    *
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -389,6 +432,7 @@ export interface PopupOptions {
    *
    * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -400,6 +444,7 @@ export interface PopupOptions {
    *
    * @type { ?[PopupButtonOptions?, PopupButtonOptions?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -408,6 +453,7 @@ export interface PopupOptions {
    *
    * @type { ?[PopupButtonOptions?, PopupButtonOptions?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -419,6 +465,7 @@ export interface PopupOptions {
    *
    * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -430,6 +477,7 @@ export interface PopupOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -442,6 +490,7 @@ export interface PopupOptions {
  *
  * @param { PopupOptions } options - popup option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -450,6 +499,7 @@ export interface PopupOptions {
  *
  * @param { PopupOptions } options - popup option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic

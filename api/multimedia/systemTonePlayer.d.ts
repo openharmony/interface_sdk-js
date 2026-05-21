@@ -26,7 +26,7 @@ import { ErrorCallback, Callback } from '../@ohos.base';
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface SystemTonePlayer {
   /**
@@ -37,13 +37,13 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getTitle(): Promise<string>;
 
   /**
    * Sets the volume scale of audio.
-   * @param { double } scale - Audio volume scale, should be float in [0,1]
+   * @param { double } scale - Audio volume scale, should be float in [0,1].
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *                                 1.Mandatory parameters are left unspecified;
@@ -53,18 +53,18 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setAudioVolumeScale(scale: double): void;
 
   /**
    * Gets the volume scale of audio.
-   * @returns { double } Audio volume scale.
+   * @returns { double } Audio volume scale, should be float in [0,1].
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getAudioVolumeScale(): double;
 
@@ -76,7 +76,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getSupportedHapticsFeatures(): Promise<Array<systemSoundManager.ToneHapticsFeature>>;
 
@@ -92,7 +92,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   setHapticsFeature(hapticsFeature: systemSoundManager.ToneHapticsFeature): void;
 
@@ -104,7 +104,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   getHapticsFeature(): systemSoundManager.ToneHapticsFeature;
 
@@ -117,7 +117,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   prepare(): Promise<void>;
 
@@ -136,7 +136,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   start(toneOptions?: SystemToneOptions): Promise<int>;
 
@@ -152,7 +152,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   stop(id: int): Promise<void>;
 
@@ -163,7 +163,7 @@ export declare interface SystemTonePlayer {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   release(): Promise<void>;
 
@@ -190,7 +190,7 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   onPlayFinished(streamId: int, callback: Callback<int>): void;
 
@@ -213,7 +213,7 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   offPlayFinished(callback?: Callback<int>): void;
 
@@ -236,7 +236,7 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   onError(callback: ErrorCallback): void;
 
@@ -259,7 +259,7 @@ export declare interface SystemTonePlayer {
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   offError(callback?: ErrorCallback): void;
 }
@@ -270,7 +270,7 @@ export declare interface SystemTonePlayer {
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SystemToneOptions {
   /**
@@ -279,7 +279,7 @@ export interface SystemToneOptions {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   muteAudio?: boolean;
 
@@ -289,7 +289,7 @@ export interface SystemToneOptions {
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   muteHaptics?: boolean;
 }

@@ -26,6 +26,7 @@ import { GridRowAttribute } from '@ohos.arkui.component';
  *
  * @implements GridRowAttribute, AttributeModifier<GridRowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
 */
 export declare class GridRowModifier implements GridRowAttribute, AttributeModifier<GridRowAttribute> {}

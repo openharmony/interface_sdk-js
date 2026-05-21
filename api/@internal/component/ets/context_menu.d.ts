@@ -35,6 +35,7 @@
  * Defines Close contextMenu.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic

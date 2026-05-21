@@ -27,7 +27,7 @@ import { NavDestinationAttribute } from '@ohos.arkui.component';
  *
  * @implements { NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class NavDestinationModifier implements NavDestinationAttribute, AttributeModifier<NavDestinationAttribute> {
   /**
@@ -35,7 +35,7 @@ export declare class NavDestinationModifier implements NavDestinationAttribute, 
    * 
    * @param { NavDestinationAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   applyNormalAttribute(instance: NavDestinationAttribute): void;
 }

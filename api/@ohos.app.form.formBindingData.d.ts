@@ -18,99 +18,88 @@
  * @kit FormKit
  */
 
+import { BusinessError } from './@ohos.base';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
+
 /**
- * Interface of formBindingData.
+ * The **FormBindingData** module provides APIs for widget data binding. You can use the APIs to create a 
+ * **FormBindingData** object and obtain related information.
  *
- * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
- * @since 9
- */
-/**
- * Interface of formBindingData.
- *
- * @namespace formBindingData
- * @syscap SystemCapability.Ability.Form
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace formBindingData {
   /**
-   * Create an FormBindingData instance.
+   * Creates a **FormBindingData** object.
    *
-   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
-   * @returns { FormBindingData } Returns the FormBindingData.
+   * @param { Object | string } [obj] - Data to be displayed on the widget. The value can be an object containing multiple 
+   *     key-value pairs or a JSON string. The image data is identified by **'formImages'**, and the content is multiple key-
+   *     value pairs, each of which consists of an image identifier and image file descriptor. The final format is {'
+   *     formImages': {'key1': fd1, 'key2': fd2}}.<br>**NOTE**<br>During 
+   *     [widget update](docroot://form/arkts-ui-widget-interaction-overview.md), when the widget UI receives widget data 
+   *     through @LocalStorageProp, the **FormBindingData** object is serialized, that is, the widget data is converted into 
+   *     the string type. Since API version 20, if the widget data is updated using shared memory, the total size of the 
+   *     updated data cannot exceed 10 MB, and the number of updated images cannot exceed 20. In API version 19 and earlier 
+   *     versions, the maximum number of image files is 5, and the maximum memory size of each image is 2 MB. Exceeding this 
+   *     2 MB limit for any image will result in abnormal display.
+   * @returns { FormBindingData } **FormBindingData** object created based on the passed data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
-   * @since 9
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
+  function createFormBindingData(obj?: Object | string): FormBindingData;
+
   /**
    * Create an FormBindingData instance.
    *
-   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
+   * @param { RecordData } [obj] - Indicates the FormBindingData instance data.
    * @returns { FormBindingData } Returns the FormBindingData.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function createFormBindingData(obj?: Object | string): FormBindingData;
+  function createFormBindingData(obj?: RecordData): FormBindingData;
 
   /**
    * Defines the createFormBindingData result interface.
    *
    * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
-   * @since 9
-   */
-  /**
-   * Defines the createFormBindingData result interface.
-   *
-   * @typedef FormBindingData
-   * @syscap SystemCapability.Ability.Form
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface FormBindingData {
     /**
      * Data for updating.
      *
-     * @type { Object }
      * @syscap SystemCapability.Ability.Form
-     * @since 9
-     */
-    /**
-     * Data for updating.
-     *
-     * @type { Object }
-     * @syscap SystemCapability.Ability.Form
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     data: Object;
 
     /**
-     * proxies for updating.
+     * Data for updating.
      *
-     * @type { ?Array<ProxyData> }
      * @syscap SystemCapability.Ability.Form
-     * @StageModelOnly
-     * @since 10
+     * @since 23 static
      */
+    data: RecordData;
+
     /**
      * proxies for updating.
      *
-     * @type { ?Array<ProxyData> }
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     proxies?: Array<ProxyData>;
   }
@@ -121,56 +110,30 @@ declare namespace formBindingData {
    * @typedef ProxyData
    * @syscap SystemCapability.Ability.Form
    * @StageModelOnly
-   * @since 10
-   */
-  /**
-   * Defines the form proxy data.
-   *
-   * @typedef ProxyData
-   * @syscap SystemCapability.Ability.Form
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @since 23 static
    */
   interface ProxyData {
     /**
-     * Key for proxy. The value depend data publisher.
+     * Key for proxy. The value depends on the data publisher.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Key for proxy. The value depend data publisher.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.Form
-     * @StageModelOnly
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     key: string;
 
     /**
-     * SubscriberId. The value depend data publisher. The default value is current formId.
+     * SubscriberId. The value depends on the data publisher. The default value is current formId.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Ability.Form
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * SubscriberId. The value depend data publisher. The default value is current formId.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Ability.Form
-     * @StageModelOnly
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     subscriberId?: string;
   }

@@ -38,6 +38,7 @@
  *
  * @interface SheetInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -59,10 +60,11 @@ interface SheetInfo {
    * @since 10
    */
   /**
-   * Sheet text.
+   * Title Properties
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -85,10 +87,11 @@ interface SheetInfo {
    * @since 10
    */
   /**
-   * Sheet icon. By default, no icon is displayed.
+   * Icon Properties.
    *
    * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -120,11 +123,12 @@ interface SheetInfo {
    * @since 11
    */
   /**
-   * Callback when the sheet is selected.
+   * Callback method after the operation.
    * Anonymous Object Rectification.
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -137,6 +141,7 @@ interface SheetInfo {
  *
  * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -147,6 +152,7 @@ declare interface DismissDialogAction {
    *
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -159,6 +165,7 @@ declare interface DismissDialogAction {
    *
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -171,6 +178,7 @@ declare interface DismissDialogAction {
  *
  * @interface ActionSheetButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -181,6 +189,7 @@ interface ActionSheetButtonOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -189,6 +198,7 @@ interface ActionSheetButtonOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -201,6 +211,7 @@ interface ActionSheetButtonOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -212,6 +223,7 @@ interface ActionSheetButtonOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -220,6 +232,7 @@ interface ActionSheetButtonOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -232,6 +245,7 @@ interface ActionSheetButtonOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -243,6 +257,7 @@ interface ActionSheetButtonOptions {
    * @type { ?DialogButtonStyle }
    * @default DialogButtonStyle.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -251,6 +266,7 @@ interface ActionSheetButtonOptions {
    * @type { ?DialogButtonStyle }
    * @default DialogButtonStyle.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -262,6 +278,7 @@ interface ActionSheetButtonOptions {
    * @type { ?DialogButtonStyle }
    * @default DialogButtonStyle.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -293,11 +310,12 @@ interface ActionSheetButtonOptions {
    * @since 11
    */
   /**
-   * Button text.
+   * Text content of the confirmation button.
    * Anonymous Object Rectification.
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -329,11 +347,12 @@ interface ActionSheetButtonOptions {
    * @since 11
    */
   /**
-   * Callback invoked when the button is selected.
+   * Method executed by the callback.
    * Anonymous Object Rectification.
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -346,6 +365,7 @@ interface ActionSheetButtonOptions {
  *
  * @interface ActionSheetOffset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -357,6 +377,7 @@ interface ActionSheetOffset {
    *
    * @type { number | string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -368,6 +389,7 @@ interface ActionSheetOffset {
    *
    * @type { number | string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -380,6 +402,7 @@ interface ActionSheetOffset {
  *
  * @typedef { import('../api/@ohos.promptAction').LevelMode } LevelMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -391,6 +414,7 @@ declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
  *
  * @typedef { import('../api/@ohos.promptAction').ImmersiveMode } ImmersiveMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -417,6 +441,7 @@ declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
  *
  * @interface ActionSheetOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -439,10 +464,11 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Title of the dialog box.
+   * Title Properties
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -453,6 +479,7 @@ interface ActionSheetOptions
    * Subtitle Properties
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -460,6 +487,7 @@ interface ActionSheetOptions
    * Subtitle of the dialog box.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -482,10 +510,11 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Content of the dialog box.
+   * message Properties
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -517,12 +546,12 @@ interface ActionSheetOptions
    * @since 11
    */
   /**
-   * Information about the confirm button. When the dialog box has focus and focus has not been shifted using the Tab
-   * key, the button responds to the Enter key by default, and multiple dialog boxes can gain focus consecutively
-   * to respond automatically. The default response to the Enter key does not work when defaultFocus is set to true.
+   * Invoke the commit function.
+   * Anonymous Object Rectification.
    *
    * @type { ?ActionSheetButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -554,11 +583,12 @@ interface ActionSheetOptions
    * @since 11
    */
   /**
-   * Callback invoked when the dialog box is closed after the overlay is clicked.
+   * Execute Cancel Function.
    * Anonymous Object Rectification.
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -581,10 +611,11 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Options in the dialog box. Each option supports the image, text, and callback.
+   * The Array of sheets
    *
    * @type { Array<SheetInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -607,12 +638,11 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Whether to close the dialog box when the overlay is clicked.
+   * Allows users to click the mask layer to exit.
    *
    * @type { ?boolean }
-   * @default true - The value true means to close the dialog box when the overlay is clicked, and false means
-   * the opposite.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -635,15 +665,11 @@ interface ActionSheetOptions
    * @since 10
    */
   /**
-   * Alignment mode of the dialog box in the vertical direction.
-   * <p><strong>NOTE</strong>:
-   * <br>If showInSubWindow is set to true in UIExtension, the dialog box is aligned with the host window based
-   * on UIExtension.
-   * </p>
+   * Alignment in the vertical direction.
    *
    * @type { ?DialogAlignment }
-   * @default DialogAlignment.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -675,12 +701,12 @@ interface ActionSheetOptions
    * @since 11
    */
   /**
-   * Offset of the dialog box relative to the alignment position.
-   * <br>When alignment is set to Top, TopStart, or TopEnd: {dx: 0,dy: "40vp"}
-   * <br>When alignment is set to any other value: {dx: 0,dy: "-40vp"}
+   * Offset of the pop-up window relative to the alignment position.
+   * Anonymous Object Rectification.
    *
    * @type { ?ActionSheetOffset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -692,6 +718,7 @@ interface ActionSheetOptions
    *
    * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -705,6 +732,7 @@ interface ActionSheetOptions
    * @type { ?Rectangle }
    * @default - {x:0,y:0, width:'100%', height:'100%'}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -717,6 +745,7 @@ interface ActionSheetOptions
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -730,6 +759,7 @@ interface ActionSheetOptions
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -741,6 +771,7 @@ interface ActionSheetOptions
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -749,6 +780,7 @@ interface ActionSheetOptions
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -761,6 +793,7 @@ interface ActionSheetOptions
    * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -774,6 +807,7 @@ interface ActionSheetOptions
    * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -786,6 +820,7 @@ interface ActionSheetOptions
    * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -800,6 +835,7 @@ interface ActionSheetOptions
    * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -811,6 +847,7 @@ interface ActionSheetOptions
    *
    * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -822,6 +859,7 @@ interface ActionSheetOptions
    *
    * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -840,6 +878,7 @@ interface ActionSheetOptions
    *
    * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -858,6 +897,7 @@ interface ActionSheetOptions
    *
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -873,6 +913,7 @@ interface ActionSheetOptions
    * negative, the default value is used. When set to a percentage, the value defines the radius as a percentage of the
    * parent component's width or height.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -887,6 +928,7 @@ interface ActionSheetOptions
    * When this parameter is set to a percentage, the reference width of the dialog box is the width of the window
    * where the dialog box is located. You can decrease or increase the width as needed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -901,6 +943,7 @@ interface ActionSheetOptions
    * <br>When this parameter is set to a percentage, the reference height of the dialog box is the height of the
    * window where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -916,6 +959,7 @@ interface ActionSheetOptions
    * box's width. If the left and right borders are greater than its width, or the top and bottom borders are greater
    * than its height, the dialog box may not display as expected.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -932,6 +976,7 @@ interface ActionSheetOptions
    * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @default Color.Black - borderColor must be used with borderWidth in pairs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -944,6 +989,7 @@ interface ActionSheetOptions
    * @type { ?(BorderStyle | EdgeStyles) }
    * @default BorderStyle.Solid - borderStyle must be used with borderWidth in pairs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -957,6 +1003,7 @@ interface ActionSheetOptions
    * @default - Default value on 2-in-1 devices: ShadowStyle.OUTER_FLOATING_MD when the dialog box is focused and
    * ShadowStyle.OUTER_FLOATING_SM otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -969,6 +1016,7 @@ interface ActionSheetOptions
    * @type { ?boolean }
    * @default false - meaning not to enable the hover mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -981,6 +1029,7 @@ interface ActionSheetOptions
    * @type { ?HoverModeAreaType }
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -992,6 +1041,7 @@ interface ActionSheetOptions
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1003,6 +1053,7 @@ interface ActionSheetOptions
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1014,6 +1065,7 @@ interface ActionSheetOptions
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1025,6 +1077,7 @@ interface ActionSheetOptions
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1037,6 +1090,7 @@ interface ActionSheetOptions
    * @type { ?LevelMode }
    * @default LevelMode.OVERLAY - This parameter takes effect only when showInSubWindow is set to false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1051,6 +1105,7 @@ interface ActionSheetOptions
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1063,6 +1118,7 @@ interface ActionSheetOptions
    * @type { ?ImmersiveMode }
    * @default ImmersiveMode.DEFAULT - This parameter takes effect only when levelMode is set to LevelMode.EMBEDDED.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1075,11 +1131,49 @@ interface ActionSheetOptions
    * @type { ?LevelOrder }
    * @default The value returns by LevelOrder.clamp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
   levelOrder?: LevelOrder;
+
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects, which can influence
+   * backgroundColor, border, shadow, and other visual attributes of dialog.
+   * 
+   * Device Behavior Differences:The effect of same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @type { ?SystemUiMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation Mode of the dialog.
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edgeLight animation Mode of the dialog.
+   *
+   * @default EdgeLightMode.EDGELIGHT_DISABLED
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**
@@ -1099,9 +1193,12 @@ interface ActionSheetOptions
  * Declare the ActionSheet
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
- * @since 11 dynamic
+ * @since 11 dynamiconly
+ * @deprecated since 26.0.0
+ * @useinstead ohos.arkui.UIContext.UIContext#showActionSheet
  */
 declare class ActionSheet {
   /**
@@ -1124,6 +1221,7 @@ declare class ActionSheet {
    *
    * @param { ActionSheetOptions } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly

@@ -14,6 +14,17 @@
  */
 
 /**
+ * The WantAgent module encapsulates a [Want]{@link ./@ohos.app.ability.Want:Want} object, enabling an application to 
+ * trigger a WantAgent object to perform specified operations (such as starting an ability or publishing a common event)
+ * at a future time.
+ * 
+ * The module provides the APIs for creating a WantAgent object, obtaining the bundle name and UID of the application to
+ * which a WantAgent object belongs, proactively triggering a WantAgent object, and checking whether two WantAgent 
+ * objects are the same. A typical use scenario of WantAgent is notification processing. For example, when a user 
+ * touches a notification, the [trigger]{@link wantAgent.trigger} API of WantAgent is triggered and the target 
+ * application is started. For details, see 
+ * [Notification](docroot://notification/notification-with-wantagent.md).
+ *
  * @file
  * @kit AbilityKit
  */
@@ -24,44 +35,27 @@ import { WantAgentInfo as _WantAgentInfo } from './wantAgent/wantAgentInfo';
 import { TriggerInfo as _TriggerInfo } from './wantAgent/triggerInfo';
 import Context from './application/Context';
 import { LocalWantAgentInfo as _LocalWantAgentInfo } from './wantAgent/wantAgentInfo';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
- * Provide the method obtain trigger, cancel, and compare and to obtain
- * the bundle name, UID of an WantAgent object.
- *
- * @namespace wantAgent
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * app.ability.WantAgent is a class that encapsulates a {@link Want} object and allows the application to execute the
- * Want at a future time point. The module provides APIs for creating and comparing WantAgent objects, and obtaining
- * the user ID and bundle name of a WantAgent object.
+ * The WantAgent module encapsulates a [Want]{@link ./@ohos.app.ability.Want:Want} object, enabling an application to 
+ * trigger a WantAgent object to perform specified operations (such as starting an ability or publishing a common event)
+ * at a future time.
  * 
- * A typical use scenario of WantAgent is notification processing. For example, when a user touches a notification,
- * the {@link trigger} API of WantAgent is triggered and the target application is started. For details, see
- * {@link Notification}. You are advised to use this module, since it will replace the @ohos.wantAgent module
- * in the near future.
+ * The module provides the APIs for creating a WantAgent object, obtaining the bundle name and UID of the application to
+ * which a WantAgent object belongs, proactively triggering a WantAgent object, and checking whether two WantAgent 
+ * objects are the same. A typical use scenario of WantAgent is notification processing. For example, when a user 
+ * touches a notification, the [trigger]{@link trigger} API of WantAgent is triggered and the target application is 
+ * started. For details, see [Notification](docroot://notification/notification-with-wantagent.md).
  *
- * @namespace wantAgent
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @atomicservice [since 12]
+ * @since 9 dynamic
+ * @since 23 static
  */
 declare namespace wantAgent {
-  /**
-   * Obtains the bundle name of a WantAgent.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<string> } callback - The callback is used to return the bundle name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Obtains the bundle name of a WantAgent object.
    * This API uses an asynchronous callback to return the result.
@@ -69,28 +63,16 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @param { AsyncCallback<string> } callback - Callback used to return the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getBundleName(agent: WantAgent, callback: AsyncCallback<string>): void;
 
-  /**
-   * Obtains the bundle name of a WantAgent.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<string> } Returns the bundle name.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Obtains the bundle name of a WantAgent object.
    * This API uses a promise to return the result.
@@ -98,28 +80,16 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @returns { Promise<string> } Promise used to return the bundle name.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getBundleName(agent: WantAgent): Promise<string>;
 
-  /**
-   * Obtains the UID of a WantAgent.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the UID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Obtains the user ID of a WantAgent object.
    * This API uses an asynchronous callback to return the result.
@@ -127,28 +97,16 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @param { AsyncCallback<int> } callback - Callback used to return the user ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getUid(agent: WantAgent, callback: AsyncCallback<int>): void;
 
-  /**
-   * Obtains the UID of a WantAgent.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<number> } Returns the UID.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Obtains the user ID of a WantAgent object.
    * This API uses a promise to return the result.
@@ -156,13 +114,13 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @returns { Promise<int> } Promise used to return the user ID.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getUid(agent: WantAgent): Promise<int>;
 
@@ -173,14 +131,14 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @param { AsyncCallback<Want> } callback - Callback used to return the Want.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
@@ -191,29 +149,17 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @returns { Promise<Want> } Promise used to return the Want.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getWant(agent: WantAgent): Promise<Want>;
 
-  /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<void> } callback - The callback of cancel.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Cancels a WantAgent object.
    * This API uses an asynchronous callback to return the result.
@@ -221,28 +167,16 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
-  /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Cancels a WantAgent object.
    * This API uses a promise to return the result.
@@ -250,27 +184,16 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function cancel(agent: WantAgent): Promise<void>;
 
-  /**
-   * Triggers a WantAgent.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { TriggerInfo } triggerInfo - Indicates the information required for triggering a WantAgent.
-   * @param { AsyncCallback<CompleteData> } [callback] - The callback is used to return the CompleteData.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Proactively triggers a WantAgent object.
    * This API uses an asynchronous callback to return the result.
@@ -279,16 +202,17 @@ declare namespace wantAgent {
    * @param { TriggerInfo } triggerInfo - {@link TriggerInfo} object.
    * @param { AsyncCallback<CompleteData> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>): void;
 
   /**
-   * Asynchronously triggers a predefined operation encration encapsulated in a Wantagent with specified trigger information.
+   * Asynchronously triggers a predefined operation encration encapsulated in a Wantagent with specified trigger
+   * information.
    * If the specified wantAgent is local, you need to apply for permission:
    * ohos.permission.TRIGGER_LOCAL_WANTAGENT permission.
    *
@@ -305,21 +229,10 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function triggerAsync(agent: WantAgent, triggerInfo: TriggerInfo, context: Context): Promise<CompleteData>;
 
-  /**
-   * Checks whether two WantAgent objects are equal.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { WantAgent } otherAgent - Indicates the other WantAgent.
-   * @param { AsyncCallback<boolean> } callback - Returns true if the two WantAgents are the same.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Checks whether two WantAgent objects are equal, so as to determine whether the same operation is from the
    * same application.
@@ -328,27 +241,16 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - The first WantAgent object.
    * @param { WantAgent } otherAgent - The second WantAgent object.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value <code>true</code> means
-   * that the two WantAgent objects are equal, and <code>false</code> means the opposite.
+   *     that the two WantAgent objects are equal, and <code>false</code> means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
 
-  /**
-   * Checks whether two WantAgent objects are equal.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { WantAgent } otherAgent - Indicates the other WantAgent.
-   * @returns { Promise<boolean> } Returns true if the two WantAgents are the same.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Checks whether two WantAgent objects are equal, so as to determine whether the same operation is from the
    * same application.
@@ -357,28 +259,16 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - The first WantAgent object.
    * @param { WantAgent } otherAgent - The second WantAgent object.
    * @returns { Promise<boolean> } Promise used to return the result. The value <code>true</code> means that the two
-   * WantAgent objects are equal, and <code>false</code> means the opposite.
+   *     WantAgent objects are equal, and <code>false</code> means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
-  /**
-   * Obtains a WantAgent object.
-   *
-   * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
-   * @param { AsyncCallback<WantAgent> } callback - The callback is used to return the created WantAgent.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Obtains a WantAgent object.
    * This API uses an asynchronous callback to return the result.
@@ -391,63 +281,38 @@ declare namespace wantAgent {
    * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
    * @param { AsyncCallback<WantAgent> } callback - Callback used to return the WantAgent object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
 
   /**
    * Obtains a WantAgent object.
-   *
-   * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
-   * @returns { Promise<WantAgent> } Returns the created WantAgent.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
-   * Obtains a WantAgent object.
    * This API uses a promise to return the result.
    * If the creation fails, a null WantAgent object is returned.
-   *
+   * 
    * <p>**NOTE**:
    * <br>Third-party applications can set only their own abilities.
    * </p>
-   * 
+   *
    * @param { WantAgentInfo } info - Information about the WantAgent object to obtain.
    * @returns { Promise<WantAgent> } Promise used to return the WantAgent object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getWantAgent(info: WantAgentInfo): Promise<WantAgent>;
 
-  /**
-   * Obtains the {@link OperationType} of a WantAgent.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @param { AsyncCallback<number> } callback - The callback is used to return the OperationType of the WantAgent.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Obtains the operation type of a WantAgent object.
    * This API uses an asynchronous callback to return the result.
@@ -455,30 +320,17 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Target WantAgent object.
    * @param { AsyncCallback<int> } callback - Callback used to return the operation type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getOperationType(agent: WantAgent, callback: AsyncCallback<int>): void;
 
-  /**
-   * Obtains the {@link OperationType} of a WantAgent.
-   *
-   * @param { WantAgent } agent - Indicates the WantAgent.
-   * @returns { Promise<number> } Returns the OperationType of the WantAgent.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
-   * @throws { BusinessError } 16000015 - Service timeout.
-   * @throws { BusinessError } 16000151 - Invalid wantAgent object.
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
   /**
    * Obtains the operation type of a WantAgent object.
    * This API uses a promise to return the result.
@@ -486,14 +338,14 @@ declare namespace wantAgent {
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { Promise<int> } Returns the OperationType of the WantAgent.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
    * @throws { BusinessError } 16000015 - Service timeout.
    * @throws { BusinessError } 16000151 - Invalid wantAgent object.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function getOperationType(agent: WantAgent): Promise<int>;
 
@@ -501,14 +353,15 @@ declare namespace wantAgent {
    * Enables or disables the WantAgent multithreading feature.
    *
    * @param { boolean } isMultithreadingSupported - Whether to enable the multithreading feature. The value
-   * <code>true</code> means to enable multithreading, and <code>false</code> means the opposite.
+   *     <code>true</code> means to enable multithreading, and <code>false</code> means the opposite.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 18 dynamic
+   * @since 23 static
    */
   function setWantAgentMultithreading(isMultithreadingSupported: boolean) : void;
 
@@ -526,13 +379,13 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createLocalWantAgent(info: LocalWantAgentInfo): WantAgent;
 
   /**
    * Checks whether the specified WantAgent is local.
-   * 
+   *
    * @param { WantAgent } agent - Indicates the WantAgent.
    * @returns { boolean } Returns true if the WantAgent is local.
    * @throws { BusinessError } 202 - Not System app. Interface caller is not a system app.
@@ -540,247 +393,141 @@ declare namespace wantAgent {
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isLocalWantAgent(agent: WantAgent): boolean;
 
   /**
-   * Enumerates flags for using a WantAgent.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
    * Enumerates the flags used by the WantAgent objects.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   export enum WantAgentFlags {
-    /**
-     * Indicates that the WantAgent can be used only once.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
     /**
      * The WantAgent object can be used only once.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     ONE_TIME_FLAG = 0,
 
     /**
-     * Indicates that null is returned if the WantAgent does not exist.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The WantAgent object does not exist and hence it is not created. In this case, <code>null</code> is returned.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     NO_BUILD_FLAG,
 
     /**
-     * Indicates that the existing WantAgent should be canceled before a new object is generated.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The existing WantAgent object should be canceled before a new object is generated.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     CANCEL_PRESENT_FLAG,
 
     /**
-     * Indicates that the system only replaces the extra data of the existing WantAgent with that of the new object.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * Extra information of the existing WantAgent object is replaced with that of the new object.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     UPDATE_PRESENT_FLAG,
 
     /**
-     * Indicates that the created WantAgent should be immutable.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The WantAgent object is immutable.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     CONSTANT_FLAG,
 
     /**
-     * Indicates that the current value of element can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The element property in the current Want can be replaced by the element property in the Want passed in
-     * WantAgent.trigger().
-     * 
-     * <p>**NOTE**:
-     * <br>This processing is not supported yet.
-     * </p>
+     * WantAgent.trigger().This processing is not supported yet.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     REPLACE_ELEMENT,
 
     /**
-     * Indicates that the current value of action can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The action property in the current Want can be replaced by the action property in the Want passed in
-     * WantAgent.trigger().
-     * 
-     * <p>**NOTE**:
-     * <br>This processing is not supported yet.
-     * </p>
+     * WantAgent.trigger().This processing is not supported yet.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     REPLACE_ACTION,
 
     /**
-     * Indicates that the current value of uri can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The uri property in the current Want can be replaced by the uri property in the Want passed in
-     * WantAgent.trigger().
-     * 
-     * <p>**NOTE**:
-     * <br>This processing is not supported yet.
-     * </p>
+     * WantAgent.trigger().This processing is not supported yet.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     REPLACE_URI,
 
     /**
-     * Indicates that the current value of entities can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The <code>entities</code> property in the current Want can be replaced by the <code>entities</code> property in
-     * the Want passed in WantAgent.trigger().
-     * 
-     * <p>**NOTE**:
-     * <br>This processing is not supported yet.
-     * </p>
+     * the Want passed in WantAgent.trigger().This processing is not supported yet.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     REPLACE_ENTITIES,
 
     /**
-     * Indicates that the current value of packageName can be replaced when the WantAgent is triggered.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * The <code>bundleName</code> property in the current Want can be replaced by the <code>bundleName</code> property
-     * in the Want passed in WantAgent.trigger().
-     * 
-     * <p>**NOTE**:
-     * <br>This processing is not supported yet.
-     * </p>
+     * in the Want passed in WantAgent.trigger().This processing is not supported yet.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     REPLACE_BUNDLE
   }
 
   /**
-   * Identifies the operation for using a WantAgent, such as starting an ability or sending a common event.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
    * Enumerates the operation types of the WantAgent objects.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   export enum OperationType {
-    /**
-     * Unknown operation.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
     /**
      * Unknown operation type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     UNKNOWN_TYPE = 0,
 
@@ -788,15 +535,9 @@ declare namespace wantAgent {
      * Starts an ability with a UI.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Starts an ability with a UI.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     START_ABILITY,
 
@@ -804,31 +545,19 @@ declare namespace wantAgent {
      * Starts multiple abilities with a UI.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Starts multiple abilities with a UI.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     START_ABILITIES,
 
     /**
-     * Starts an ability without a UI.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * Starts an ability without a UI (valid only in the FA model).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     START_SERVICE,
 
@@ -836,15 +565,9 @@ declare namespace wantAgent {
      * Sends a common event.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Sends a common event.
-     *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     SEND_COMMON_EVENT,
 
@@ -855,170 +578,105 @@ declare namespace wantAgent {
      * @systemapi
      * @stagemodelonly
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     START_SERVICE_EXTENSION = 6
   }
 
   /**
-   * Describes the data returned by after wantAgent.trigger is called.
-   *
-   * @typedef CompleteData
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
    * Describes the data returned by the operation of proactive triggering a WantAgent object.
    *
-   * @typedef CompleteData
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   export interface CompleteData {
     /**
-     * Triggered WantAgent.
-     *
-     * @type { WantAgent }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * WantAgent object that is triggered.
      *
-     * @type { WantAgent }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     info: WantAgent;
 
     /**
      * Existing Want that is triggered.
      *
-     * @type { Want }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Existing Want that is triggered.
-     *
-     * @type { Want }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     want: Want;
 
     /**
-     * Request code used to trigger the WantAgent.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
      * Request code that triggers the WantAgent object.
      *
-     * @type { int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     finalCode: int;
 
     /**
      * Final data collected by the common event.
      *
-     * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
-     */
-    /**
-     * Final data collected by the common event.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
      */
     finalData: string;
 
     /**
-     * Extra data collected by the common event.
+     * Extra information.
      *
-     * @type { ?object }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 9
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      */
-    /**
-     * Extra data collected by the common event.
-     *
-     * @type { ?Record<string, Object> }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @since 11
-     */
+    extraInfo?: Record<string, Object>;
+
     /**
      * Extra information.
      *
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    extraInfo?: Record<string, Object>;
+    extraInfo?: Record<string, RecordData>;
   }
 
   /**
-   * Provides the information required for triggering a WantAgent.
-   *
-   * @typedef { _TriggerInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
    * Defines the TriggerInfo object.
    *
-   * @typedef { _TriggerInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   export type TriggerInfo = _TriggerInfo;
 
   /**
-   * Provides the information required for triggering a WantAgent.
-   *
-   * @typedef { _WantAgentInfo }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @since 9
-   */
-  /**
    * Defines the WantAgentInfo object.
    *
-   * @typedef { _WantAgentInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice [since 12]
+   * @since 9 dynamic
+   * @since 23 static
    */
   export type WantAgentInfo = _WantAgentInfo;
 
   /**
    * Provides the information required to create a local WantAgent.
-   * 
-   * @typedef { _LocalWantAgentInfo }
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export type LocalWantAgentInfo = _LocalWantAgentInfo;
 
@@ -1027,10 +685,9 @@ declare namespace wantAgent {
 /**
  * Target WantAgent object.
  *
- * @typedef { object }
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type WantAgent = object;
 

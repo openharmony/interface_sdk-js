@@ -20,35 +20,39 @@
 import { Resource } from '../../global/resource';
 import { ResourceColor } from './units';
 import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Declare the type of status button
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum ToggleType {
     /**
      * Checkbox
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Checkbox,
     /**
      * Switch
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Switch,
     /**
      * Button
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Button
 }
@@ -57,7 +61,8 @@ export declare enum ToggleType {
  *
  * @interface SwitchStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface SwitchStyle {
     /**
@@ -65,7 +70,8 @@ export declare interface SwitchStyle {
      *
      * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     pointRadius?: double | Resource;
     /**
@@ -73,7 +79,8 @@ export declare interface SwitchStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     unselectedColor?: ResourceColor;
     /**
@@ -81,7 +88,8 @@ export declare interface SwitchStyle {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     pointColor?: ResourceColor;
     /**
@@ -89,7 +97,8 @@ export declare interface SwitchStyle {
      *
      * @type { ?(double | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     trackBorderRadius?: double | Resource;
 }
@@ -99,7 +108,8 @@ export declare interface SwitchStyle {
  * @extends CommonConfiguration<ToggleConfiguration>
  * @interface ToggleConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
     /**
@@ -107,23 +117,17 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     isOn: boolean;
-    /**
-     * Indicates whether the Toggle is enabled.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
-     */
-    enabled: boolean;
     /**
      * Trigger toggle select change
      *
      * @type { Callback<boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     triggerChange: Callback<boolean>;
 }
@@ -132,7 +136,8 @@ export declare interface ToggleConfiguration extends CommonConfiguration<ToggleC
  *
  * @interface ToggleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ToggleOptions {
     /**
@@ -141,7 +146,8 @@ export declare interface ToggleOptions {
      *
      * @type { ToggleType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     type: ToggleType;
     /**
@@ -149,7 +155,8 @@ export declare interface ToggleOptions {
      *
      * @type { ?(boolean | undefined | Bindable<boolean>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     isOn?: boolean | undefined | Bindable<boolean>;
 }
@@ -160,7 +167,8 @@ export declare interface ToggleOptions {
  * @extends CommonMethod
  * @interface ToggleAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ToggleAttribute extends CommonMethod {
     /**
@@ -169,7 +177,8 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ((isOn: boolean) => void) | undefined } callback
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onChange(callback: ((isOn: boolean) => void) | undefined): this;
     /**
@@ -178,7 +187,8 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ContentModifier<ToggleConfiguration> | undefined } modifier - The content modifier of toggle.
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default contentModifier(modifier: ContentModifier<ToggleConfiguration> | undefined): this;
     /**
@@ -187,7 +197,8 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectedColor(value: ResourceColor | undefined): this;
     /**
@@ -196,7 +207,8 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } color
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default switchPointColor(color: ResourceColor | undefined): this;
     /**
@@ -205,7 +217,8 @@ export declare interface ToggleAttribute extends CommonMethod {
      * @param { SwitchStyle | undefined } value
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default switchStyle(value: SwitchStyle | undefined): this;
     /**
@@ -215,24 +228,108 @@ export declare interface ToggleAttribute extends CommonMethod {
      *     The attribute modifier of toggle.
      * @returns { ToggleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ToggleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set toggle options.
+     *
+     * @param { ToggleOptions } options - toggle constructor options
+     * @returns { ToggleAttribute } Returns the instance of the ToggleAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setToggleOptions(options: ToggleOptions): this;
+ }
 
 /**
  * Defines Toggle Component.
  *
  * @param { ToggleOptions } options - the options of Toggle.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ToggleAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function Toggle(
     options: ToggleOptions,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
+): ToggleAttribute
+
+/**
+ * Defines the Extendable Toggle.
+ *
+ * @implements ToggleAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableToggle implements ToggleAttribute {
+    /**
+     * Constructor of Extendable Toggle.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ToggleOptions } options
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableToggle>(
+        factory: ConstructorT<T>, 
+        options: ToggleOptions,
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Toggle.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableToggle>(
+        styles: CustomBuilderT<T>,  
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+
+    /**
+     * Set the Toggle Options.
+     *
+     * @param { ToggleOptions } options
+     * @returns { ExtendableToggle }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setToggleOptions(options: ToggleOptions): this;
+}
+
+/**
+ * Defines Toggle Component.
+ *
+ * @param { CustomBuilderT<ToggleAttribute> } style_ - toggle attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ToggleAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Toggle(
+    style_: CustomBuilderT<ToggleAttribute>,
+    content_?: CustomBuilder,
 ): ToggleAttribute

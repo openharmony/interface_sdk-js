@@ -302,6 +302,7 @@ export interface AnimatorOptions {
  * Defines the SimpleAnimatorOptions class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -313,6 +314,7 @@ export declare class SimpleAnimatorOptions {
    * @param { number } begin - Starting point of animator interpolation.
    * @param { number } end - Ending point of animator interpolation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -325,6 +327,7 @@ export declare class SimpleAnimatorOptions {
    * @param { number } duration - if not set, default is 1000.
    * @returns { SimpleAnimatorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -351,6 +354,7 @@ export declare class SimpleAnimatorOptions {
    * @param { string } curve - if not set, default is ease.
    * @returns { SimpleAnimatorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -363,6 +367,7 @@ export declare class SimpleAnimatorOptions {
    * @param { number } delay - if not set, default is 0.
    * @returns { SimpleAnimatorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -375,6 +380,7 @@ export declare class SimpleAnimatorOptions {
    * @param { FillMode } fillMode - if not set, default is FillMode.Forwards.
    * @returns { SimpleAnimatorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -387,6 +393,7 @@ export declare class SimpleAnimatorOptions {
    * @param { PlayMode } direction - if not set, default is PlayMode.Normal.
    * @returns { SimpleAnimatorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -399,6 +406,7 @@ export declare class SimpleAnimatorOptions {
    * @param { number } iterations - if not set, default is 1.
    * @returns { SimpleAnimatorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -485,6 +493,7 @@ export interface AnimatorResult {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -619,6 +628,7 @@ export interface AnimatorResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -652,6 +662,7 @@ export interface AnimatorResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -685,6 +696,7 @@ export interface AnimatorResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -718,6 +730,7 @@ export interface AnimatorResult {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -728,6 +741,7 @@ export interface AnimatorResult {
    * The expected frame rate of dynamical of rate range.
    * @param { ExpectedFrameRateRange } rateRange - Indicates ExpectedFrameRateRange.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -747,6 +761,7 @@ export interface AnimatorResult {
  */
 /**
  * Defines the Animator class.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @atomicservice
@@ -806,18 +821,20 @@ export default class Animator {
 
   /**
    * Create an animator object for custom animation.
+   * This interface depends on the UI context and cannot be used when the UI context is unclear. It is recommended to
+   * use {@link ohos.arkui.UIContext.UIContext#createAnimator}.
+   * 
    * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
-   * @returns { AnimatorResult } animator result
+   * @returns { AnimatorResult } - animator result
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18 dynamiconly
-   * @deprecated since 22
-   * @useinstead ohos.arkui.UIContext.UIContext#createAnimator
+   * @since 18 dynamic
    */
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 }

@@ -19,29 +19,33 @@
  */
 import { Scroller } from "./scroll";
 import { BarState } from './enums';
-import { Optional, CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { CommonMethod } from './common';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
+import { ColorMetrics } from '../Graphics';
 /**
  * Content scroll direction.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum ScrollBarDirection {
     /**
      * Vertical scrolling is supported.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Vertical,
     /**
      * Horizontal scrolling is supported.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Horizontal
 }
@@ -50,7 +54,8 @@ export declare enum ScrollBarDirection {
  *
  * @interface ScrollBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ScrollBarOptions {
     /**
@@ -58,7 +63,8 @@ export declare interface ScrollBarOptions {
      *
      * @type { Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     scroller: Scroller;
     /**
@@ -66,7 +72,8 @@ export declare interface ScrollBarOptions {
      *
      * @type { ?ScrollBarDirection }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     direction?: ScrollBarDirection;
     /**
@@ -74,7 +81,8 @@ export declare interface ScrollBarOptions {
      *
      * @type { ?BarState }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     state?: BarState;
 }
@@ -85,7 +93,8 @@ export declare interface ScrollBarOptions {
  * @extends CommonMethod
  * @interface ScrollBarAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ScrollBarAttribute extends CommonMethod {
     /**
@@ -93,16 +102,40 @@ export declare interface ScrollBarAttribute extends CommonMethod {
      * @param { Optional<boolean> } enabled - Whether to enable nested scroll.
      * @returns { this } The attribute of the scroll bar
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableNestedScroll(enabled: boolean | undefined): this;
+    /**
+     * Color of the scrollbar.
+     *
+     * @param { ColorMetrics | undefined } color - Color of the scrollbar.
+     *      Passing undefined will restore the default value.
+     *      Default value: <em>'\#182431'</em> (40% opacity),
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollBarColor(color: ColorMetrics | undefined): this;
+    /**
+     * Set ScrollBar options.
+     *
+     * @param { ScrollBarOptions } value - ScrollBar constructor options
+     * @returns { ScrollBarAttribute } Returns the instance of the ScrollBarAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setScrollBarOptions(value: ScrollBarOptions): this;
     /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -111,15 +144,31 @@ export declare interface ScrollBarAttribute extends CommonMethod {
  * Defines ScrollBar Component.
  *
  * @param { ScrollBarOptions } value - value
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ScrollBarAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function ScrollBar(
-    value: ScrollBarOptions, 
-    @memo
-    content_?: () => void,
-): ScrollBarAttribute
+    value: ScrollBarOptions,
+    content_?: CustomBuilder,
+): ScrollBarAttribute;
+
+/**
+ * Defines ScrollBar Component.
+ *
+ * @param { CustomBuilderT<ScrollBarAttribute> } style_ - The style to create a ScrollBar.
+ * @param { CustomBuilder } [content_]
+ * @returns { ScrollBarAttribute } The attribute of the ScrollBar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ScrollBar(
+    style_: CustomBuilderT<ScrollBarAttribute>,
+    content_?: CustomBuilder
+): ScrollBarAttribute;

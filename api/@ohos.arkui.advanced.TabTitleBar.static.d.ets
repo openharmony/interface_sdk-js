@@ -26,7 +26,8 @@ import { BuilderParam, Builder } from '@ohos.arkui.component';
  * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare class TabTitleBarMenuItem {
@@ -34,7 +35,8 @@ export declare class TabTitleBarMenuItem {
    * Icon resource for this menu item.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public value: ResourceStr;
   /**
@@ -42,7 +44,8 @@ export declare class TabTitleBarMenuItem {
    *
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
   /**
@@ -50,7 +53,8 @@ export declare class TabTitleBarMenuItem {
    *
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public label?: ResourceStr;
   /**
@@ -58,7 +62,8 @@ export declare class TabTitleBarMenuItem {
    *
    * @type { ?boolean }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public isEnabled?: boolean;
   /**
@@ -66,7 +71,8 @@ export declare class TabTitleBarMenuItem {
    *
    * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public action?: () => void;
   /**
@@ -74,7 +80,8 @@ export declare class TabTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -82,7 +89,8 @@ export declare class TabTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -91,7 +99,8 @@ export declare class TabTitleBarMenuItem {
    * @type { ?string }
    * @default 'auto'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityLevel?: string;
 }
@@ -99,7 +108,8 @@ export declare class TabTitleBarMenuItem {
  * Declaration of the tab item.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare class TabTitleBarTabItem {
@@ -108,7 +118,8 @@ export declare class TabTitleBarTabItem {
    *
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public title: ResourceStr;
   /**
@@ -116,7 +127,8 @@ export declare class TabTitleBarTabItem {
    *
    * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public icon?: ResourceStr;
   /**
@@ -124,7 +136,8 @@ export declare class TabTitleBarTabItem {
    *
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
 }
@@ -132,7 +145,8 @@ export declare class TabTitleBarTabItem {
  * Declaration of the tabbed title bar.
  * @struct { TabTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -142,7 +156,8 @@ export declare struct TabTitleBar {
    *
    * @type { Array<TabTitleBarTabItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   tabItems: Array<TabTitleBarTabItem>;
   /**
@@ -150,7 +165,8 @@ export declare struct TabTitleBar {
    *
    * @type { ?Array<TabTitleBarMenuItem> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   menuItems?: Array<TabTitleBarMenuItem>;
   /**
@@ -159,15 +175,16 @@ export declare struct TabTitleBar {
    *
    * @type { function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   @BuilderParam
   swiperContent: () => void;
   /**
    * The method to build component.
-   * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder
   build(): void;

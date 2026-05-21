@@ -21,23 +21,27 @@
 import formBindingData from './@ohos.app.form.formBindingData';
 import Want from './@ohos.app.ability.Want';
 import { AsyncCallback } from './@ohos.base';
+/*** if arkts static */
+import { Builder, MenuItemOptions } from '@ohos.arkui.component';
+/*** endif */
 
 /**
  * Defines the form menu item style.
  *
- * @interface FormMenuItemStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @noninterop
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
  */
 export interface FormMenuItemStyle {
   /**
    * Defines options of the form menu.
    *
-   * @type { ?MenuItemOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   options?: MenuItemOptions;
 }
@@ -45,39 +49,40 @@ export interface FormMenuItemStyle {
 /**
  * Defines the add form options.
  *
- * @interface AddFormOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @noninterop
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
  */
 export interface AddFormOptions {
   /**
    * Indicates the form data.
    *
-   * @type { ?formBindingData.FormBindingData }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   formBindingData?: formBindingData.FormBindingData;
 
   /**
    * The callback is used to return the form id.
    *
-   * @type { ?AsyncCallback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   callback?: AsyncCallback<string>;
 
   /**
    * The style of the menu item.
    *
-   * @type { ?FormMenuItemStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   style?: FormMenuItemStyle;
 }
@@ -89,8 +94,10 @@ export interface AddFormOptions {
  * @param { string } componentId - The id of the component used to get form snapshot.
  * @param { AddFormOptions } [options] - Add form options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @noninterop
  * @atomicservice
  * @since 12 dynamic
+ * @since 23 static
  */
 @Builder
 export declare function AddFormMenuItem(

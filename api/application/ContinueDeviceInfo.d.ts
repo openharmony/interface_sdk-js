@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,56 +19,57 @@
  */
 
 /**
- * Parameters corresponding to continue mission.
+ * The module defines the parameters required for initiating mission continuation. For details about mission
+ * continuation, see
+ * [continueMission]{@link @ohos.distributedMissionManager:distributedMissionManager.continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback, callback: AsyncCallback<void>)}
  *
- * @typedef ContinueDeviceInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
+ * @stagemodelonly
  * @since 9 dynamic
+ * @since 23 static
  */
 export interface ContinueDeviceInfo {
   /**
    * Indicates the original deviceId to continue mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   srcDeviceId: string;
   /**
    * Indicates the target deviceId to continue mission.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
   dstDeviceId: string;
   /**
    * Indicates the mission to continue.
    *
-   * @type { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
+   * @stagemodelonly
    * @since 9 dynamic
+   * @since 23 static
    */
-  missionId: number;
+  missionId: int;
   /**
    * Indicates the extended param.
    *
-   * @type { object }
+   * @type { object } [since 9 - 10]
+   * @type { Record<string, Object> } [since 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the extended param.
-   *
-   * @type { Record<string, Object> }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
-   * @systemapi
-   * @since 11 dynamic
+   * @stagemodelonly
+   * @since 9 dynamic
+   * @since 23 static
    */
   wantParam: Record<string, Object>;
 }

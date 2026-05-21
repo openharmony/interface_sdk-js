@@ -21,22 +21,24 @@ import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 import FormEditExtensionContext from './application/FormEditExtensionContext';
 
 /**
- * The class of form edit extension ability.
- *
- * @extends UIExtensionAbility
+ * The **FormEditExtensionAbility** module, inherited from 
+ * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}, provides the widget editing 
+ * function.
+ * 
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 18 dynamic
+ * @since 23 static
  */
 declare class FormEditExtensionAbility extends UIExtensionAbility {
 /**
-   * Indicates configuration infomation about an form edit extension ability context.
-   *
-   * @type { FormEditExtensionContext }
-   * @syscap SystemCapability.Ability.Form
-   * @stagemodelonly
-   * @since 18 dynamic
-   */
+  * Indicates configuration information about a form edit extension ability context.
+  *
+  * @syscap SystemCapability.Ability.Form
+  * @stagemodelonly
+  * @since 18 dynamic
+  * @since 23 static
+  */
 	context: FormEditExtensionContext;
 }
 export default FormEditExtensionAbility;

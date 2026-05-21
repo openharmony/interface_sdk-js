@@ -23,11 +23,11 @@ import mediaQuery from './@ohos.mediaquery';
 import type inspector from './@ohos.arkui.inspector';
 import type observer from '@ohos.arkui.observer';
 import promptAction from './@ohos.promptAction';
-import { LevelOrder } from './@ohos.promptAction';
+import { LevelOrder, LevelMode } from './@ohos.promptAction';
 import router from './@ohos.router';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { SimpleAnimatorOptions } from './@ohos.animator';
-import type { Callback, AsyncCallback } from './@ohos.base';
+import type { AsyncCallback } from './@ohos.base';
 import { MeasureOptions } from './@ohos.measure';
 import type componentSnapshot from './@ohos.arkui.componentSnapshot';
 import type dragController from './@ohos.arkui.dragController';
@@ -35,30 +35,34 @@ import image from './@ohos.multimedia.image';
 import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
+import { ComponentContentBase } from 'arkui.ComponentContent';
 import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState,
-  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, Optional,
+  SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, MouseEvent, TouchEvent,
   ContentCoverOptions } from '@ohos.arkui.component';
+import { InputEventMonitor, InputEventListener } from '@ohos.arkui.component';
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
 import { ResourceStr, SizeOptions, VoidCallback } from '@ohos.arkui.component';
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode } from '@ohos.arkui.component';
+import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode, RawInputEventType } from '@ohos.arkui.component';
 import { TimePickerDialogOptions } from '@ohos.arkui.component';
 import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from '@ohos.arkui.component';
 import { ActionSheetOptions } from '@ohos.arkui.component';
-import { TextPickerDialogOptions } from '@ohos.arkui.component';
+import { TextPickerDialogOptions, TextPickerDialogOptionsExt } from '@ohos.arkui.component';
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 import { DatePickerDialogOptions } from '@ohos.arkui.component';
 import { TabsController } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { KeyProcessingMode } from '@ohos.arkui.component';
-import { TextMenuOptions } from '@ohos.arkui.component';
-
+import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph } from '@ohos.arkui.component';
+import { SmartGestureAction, OperateIntention } from '@ohos.arkui.component';
+import type { Callback } from './arkui/component/common';
 /**
  * class Font
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class Font {
   /**
@@ -66,7 +70,8 @@ export declare class Font {
    *
    * @param { font.FontOptions } options - FontOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   registerFont(options: font.FontOptions): void;
 
@@ -74,7 +79,8 @@ export declare class Font {
    * Gets a list of fonts supported by system.
    * @returns { Array<string> } A list of font names
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getSystemFontList(): Array<string>;
 
@@ -83,7 +89,8 @@ export declare class Font {
    * @param { string } fontName - font name
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getFontByName(fontName: string): font.FontInfo;
 }
@@ -92,7 +99,8 @@ export declare class Font {
  * class MediaQuery
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class MediaQuery {
   /**
@@ -101,7 +109,8 @@ export declare class MediaQuery {
    * @param { string } condition - media conditions
    * @returns { mediaQuery.MediaQueryListener } the corresponding listening handle
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   matchMediaSync(condition: string): mediaQuery.MediaQueryListener;
 }
@@ -109,25 +118,37 @@ export declare class MediaQuery {
 /**
  * class UIInspector
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class UIInspector {
   /**
    * Sets the component after layout or draw criteria and returns the corresponding listening handle
    * @param { string } id - component id.
-   * @returns { inspector.ComponentObserver | undefined } create listener for observer component event.
-   *     If unable to obtain current ui context, the function will return undefined.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  createComponentObserver(id: string): inspector.ComponentObserver | undefined;
+  createComponentObserver(id: string): inspector.ComponentObserver;
+  /**
+   * Sets the component after layout or draw criteria and returns the corresponding listening handle.
+   *
+   * @param { string | int } id - component id or uniqueId of the component.
+   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  createComponentObserver(id: string | int): inspector.ComponentObserver;
 }
 
 /**
  * class Router
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class Router {
   /**
@@ -143,7 +164,8 @@ export declare class Router {
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
 
@@ -160,7 +182,8 @@ export declare class Router {
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushUrl(options: router.RouterOptions): Promise<void>;
 
@@ -178,7 +201,8 @@ export declare class Router {
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -196,7 +220,8 @@ export declare class Router {
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
 
@@ -214,7 +239,8 @@ export declare class Router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
    * not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void;
 
@@ -232,7 +258,8 @@ export declare class Router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
    * not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceUrl(options: router.RouterOptions): Promise<void>;
 
@@ -251,7 +278,8 @@ export declare class Router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
    * not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -270,7 +298,8 @@ export declare class Router {
    * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
    * not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>;
 
@@ -279,7 +308,8 @@ export declare class Router {
    *
    * @param { router.RouterOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   back(options?: router.RouterOptions): void;
 
@@ -289,7 +319,8 @@ export declare class Router {
    * @param { int } index - index of page.
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   back(index: int, params?: Object): void;
 
@@ -297,7 +328,8 @@ export declare class Router {
    * Clears all historical pages and retains only the current page at the top of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   clear(): void;
 
@@ -306,16 +338,28 @@ export declare class Router {
    *
    * @returns { string } Number of pages in the stack. The maximum value is 32.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getLength(): string;
+
+  /**
+   * Obtains the number of pages in the current stack.
+   *
+   * @returns { int } Number of pages in the stack. The maximum value is 32.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getStackSize(): int;
 
   /**
    * Obtains information about the current page state.
    *
    * @returns { router.RouterState } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getState(): router.RouterState;
 
@@ -325,7 +369,8 @@ export declare class Router {
    * @param { int } index - Index of page.
    * @returns { router.RouterState | undefined } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getStateByIndex(index: int): router.RouterState | undefined;
 
@@ -335,7 +380,8 @@ export declare class Router {
    * @param { string } url - URL of page.
    * @returns { Array<router.RouterState> } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getStateByUrl(url: string): Array<router.RouterState>;
 
@@ -349,7 +395,8 @@ export declare class Router {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   showAlertBeforeBackPage(options: router.EnableAlertOptions): void;
 
@@ -357,7 +404,8 @@ export declare class Router {
    * Hide alert before back page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   hideAlertBeforeBackPage(): void;
 
@@ -366,7 +414,8 @@ export declare class Router {
    *
    * @returns { Object } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getParams(): Object;
 
@@ -382,7 +431,8 @@ export declare class Router {
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
 
@@ -398,7 +448,8 @@ export declare class Router {
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushNamedRoute(options: router.NamedRouterOptions): Promise<void>;
 
@@ -415,7 +466,8 @@ export declare class Router {
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -432,7 +484,8 @@ export declare class Router {
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
 
@@ -448,7 +501,8 @@ export declare class Router {
    * standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void;
 
@@ -462,7 +516,8 @@ export declare class Router {
    * standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>;
 
@@ -477,7 +532,8 @@ export declare class Router {
    * standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void;
 
@@ -494,7 +550,8 @@ export declare class Router {
    * system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>;
 }
@@ -504,7 +561,8 @@ export declare class Router {
  *
  * @typedef { function } CustomBuilderWithId
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 declare type CustomBuilderWithId = (id: int) => void;
 
@@ -513,7 +571,8 @@ declare type CustomBuilderWithId = (id: int) => void;
  *
  * @interface TargetInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface TargetInfo {
   /**
@@ -521,7 +580,8 @@ export interface TargetInfo {
    *
    * @type { string | int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   id: string | int;
 
@@ -530,7 +590,8 @@ export interface TargetInfo {
    *
    * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   componentId?: int;
 }
@@ -539,7 +600,7 @@ export interface TargetInfo {
  * class PromptAction
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @since 23 static
  */
 export declare class PromptAction {
   /**
@@ -552,7 +613,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   showToast(options: promptAction.ShowToastOptions): void;
 
@@ -567,7 +628,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   openToast(options: promptAction.ShowToastOptions): Promise<int>;
 
@@ -582,7 +643,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   closeToast(toastId: int): void;
 
@@ -597,7 +658,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions,
     callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
@@ -613,7 +674,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
@@ -628,7 +689,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions,
     callback: AsyncCallback<promptAction.ActionMenuSuccessResponse>): void;
@@ -644,7 +705,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
 
@@ -661,7 +722,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
     options?: promptAction.BaseDialogOptions): Promise<void>;
@@ -680,7 +741,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>,
     controller: promptAction.DialogController,
@@ -699,7 +760,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
     options: promptAction.BaseDialogOptions): Promise<void>;
@@ -716,7 +777,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
 
@@ -731,7 +792,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<int>;
 
@@ -748,7 +809,7 @@ export declare class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   presentCustomDialog(builder: CustomBuilder | CustomBuilderT<int>, controller?: promptAction.DialogController,
     options?: promptAction.DialogOptions): Promise<int>;
@@ -763,7 +824,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   closeCustomDialog(dialogId: int): void;
 
@@ -772,7 +833,7 @@ export declare class PromptAction {
    *
    * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getTopOrder(): LevelOrder | undefined;
 
@@ -781,7 +842,7 @@ export declare class PromptAction {
    *
    * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   getBottomOrder(): LevelOrder | undefined;
 
@@ -801,7 +862,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103304 - The target does not exist.
    * @throws { BusinessError } 103305 - The target node is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo,
     options?: PopupCommonOptions): Promise<void>;
@@ -822,7 +883,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions,
     partialUpdate?: boolean): Promise<void>;
@@ -839,7 +900,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>;
 
@@ -859,7 +920,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103304 - The target does not exist.
    * @throws { BusinessError } 103305 - The target node is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
 
@@ -879,7 +940,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions,
     partialUpdate?: boolean): Promise<void>;
@@ -896,7 +957,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @since 23 static
    */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
 }
@@ -910,7 +971,8 @@ export declare class PromptAction {
  * @param { ClickEvent } event - the information of ClickEvent
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 /**
@@ -923,7 +985,8 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
  * @param { GestureRecognizer } current - the information of panRecognizer
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 /**
@@ -935,7 +998,8 @@ type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, nod
  * @param { GestureEvent } event - the information of GestureEvent
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 /**
@@ -947,7 +1011,8 @@ type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => v
  *
  * @interface PageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface PageInfo {
   /**
@@ -955,7 +1020,8 @@ export interface PageInfo {
    *
    * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   routerPageInfo?: observer.RouterPageInfo;
 
@@ -964,7 +1030,8 @@ export interface PageInfo {
    *
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   navDestinationInfo?: observer.NavDestinationInfo;
 }
@@ -974,7 +1041,8 @@ export interface PageInfo {
  *
  * @interface OverlayManagerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface OverlayManagerOptions {
   /**
@@ -983,7 +1051,8 @@ export interface OverlayManagerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   renderRootOverlay?: boolean;
 
@@ -993,21 +1062,63 @@ export interface OverlayManagerOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   enableBackPressedEvent?: boolean;
 }
 
 /**
+ * Options for opening an overlay with order.
+ *
+ * @interface OrderOverlayOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface OrderOverlayOptions {
+  /**
+   * The display order of the overlay.
+   *
+   * @type { ?LevelOrder }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  levelOrder?: LevelOrder;
+
+  /**
+   * The display mode of the overlay.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  levelMode?: LevelMode;
+
+  /**
+   * The uniqueId of any node in the router or navigation page.
+   *
+   * @type { ?int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  levelUniqueId?: int;
+}
+
+/**
  * Defines the type can be used for identiting the node, for the string type, it's the inspector id
- * set through .id attribute, and for the number type, it's the unique ID got from the FrameNode by
+ * set through .id attribute, and for the int type, it's the unique ID got from the FrameNode by
  * getUniqueID method.
  *
- * @typedef { string | number } NodeIdentity
+ * @typedef { string | int } NodeIdentity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
-export declare type NodeIdentity = string | number;
+export declare type NodeIdentity = string | int;
 
 /**
  * An enumeration type that identifies the current node's rendering state. The UI components used in
@@ -1020,7 +1131,8 @@ export declare type NodeIdentity = string | number;
  *
  * @enum { number } NodeRenderState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export const enum NodeRenderState {
   /**
@@ -1031,7 +1143,8 @@ export const enum NodeRenderState {
    * trigger the callback once, and the state notified at this time typically represents the current state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   ABOUT_TO_RENDER_IN = 0,
 
@@ -1042,7 +1155,8 @@ export const enum NodeRenderState {
    * trigger the callback once, and the state notified at this time typically represents the current state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   ABOUT_TO_RENDER_OUT = 1
 }
@@ -1054,7 +1168,8 @@ export const enum NodeRenderState {
  * @param { NodeRenderState } state - the node's render state
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
@@ -1066,7 +1181,8 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
  *
  * @enum { number } GestureActionPhase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export const enum GestureActionPhase {
   /**
@@ -1074,7 +1190,8 @@ export const enum GestureActionPhase {
    * executed immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   WILL_START = 0,
 
@@ -1083,7 +1200,8 @@ export const enum GestureActionPhase {
    * fingers, ending the entire interaction, and the action-end callback will be executed immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   WILL_END = 1
 }
@@ -1093,14 +1211,16 @@ export const enum GestureActionPhase {
  *
  * @enum { number } GestureListenerType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export const enum GestureListenerType {
   /**
    * The tap gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   TAP = 0,
 
@@ -1108,7 +1228,8 @@ export const enum GestureListenerType {
    * The long press gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   LONG_PRESS = 1,
 
@@ -1116,7 +1237,8 @@ export const enum GestureListenerType {
    * The pan gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   PAN = 2,
 
@@ -1124,7 +1246,8 @@ export const enum GestureListenerType {
    * The pinch gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   PINCH = 3,
 
@@ -1132,7 +1255,8 @@ export const enum GestureListenerType {
    * The swipe gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   SWIPE = 4,
 
@@ -1140,7 +1264,8 @@ export const enum GestureListenerType {
    * The rotation gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   ROTATION = 5
 }
@@ -1150,7 +1275,8 @@ export const enum GestureListenerType {
  *
  * @interface GestureTriggerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export interface GestureTriggerInfo {
   /**
@@ -1158,7 +1284,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureEvent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   event: GestureEvent;
 
@@ -1168,7 +1295,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureRecognizer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   current: GestureRecognizer;
 
@@ -1177,7 +1305,8 @@ export interface GestureTriggerInfo {
    *
    * @type { GestureActionPhase }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   currentPhase: GestureActionPhase;
 
@@ -1186,7 +1315,8 @@ export interface GestureTriggerInfo {
    *
    * @type { ?FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   node?: FrameNode;
 }
@@ -1196,17 +1326,18 @@ export interface GestureTriggerInfo {
  *
  * @interface GestureObserverConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export interface GestureObserverConfigs {
   /**
-   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the gesture is
-   * triggered.
-   * If empty array provided, the register will has no any effect.
+   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the
+   * gesture is triggered. If empty array provided, the register will has no any effect.
    *
    * @type { Array<GestureActionPhase> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   actionPhases: Array<GestureActionPhase>;
 }
@@ -1216,9 +1347,9 @@ export interface GestureObserverConfigs {
  *
  * @typedef { function } GestureListenerCallback
  * @param { GestureTriggerInfo } info - the gesture details triggered with user interaction
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
@@ -1226,7 +1357,8 @@ export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void
  * Register callbacks to observe ArkUI behavior.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class UIObserver {
   /**
@@ -1236,7 +1368,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
    *     when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onNavDestinationUpdate(
     options: observer.NavDestinationSwitchObserverOptions,
@@ -1250,7 +1383,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove.
    *     If not provided, all callbacks for the given event type and navigation ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   offNavDestinationUpdate(
     options: observer.NavDestinationSwitchObserverOptions,
@@ -1263,7 +1397,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
    *     when the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onNavDestinationUpdate(callback: Callback<observer.NavDestinationInfo>): void;
 
@@ -1273,7 +1408,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove.
    *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   offNavDestinationUpdate(callback?: Callback<observer.NavDestinationInfo>): void;
 
@@ -1284,7 +1420,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called when
    *     the navigation destination is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onNavDestinationUpdateByUniqueId(navigationUniqueId: int, callback: Callback<observer.NavDestinationInfo>): void;
 
@@ -1295,57 +1432,56 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   offNavDestinationUpdateByUniqueId(navigationUniqueId: int, callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * Registers a callback function to be called when the scroll event starts or stops.
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
    * @param { observer.ObserverOptions } options - The options object.
    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
    * start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to remove. If not provided, all
-   * callbacks for the given event type and
-   *                                                    scroll ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the scroll event start or stop.
-   *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
-   * start or stop.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void;
+  onScrollEvent(options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
    * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
    * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
-   * callbacks for the given event type
-   *                                                      will be removed.
+   * callbacks for the given event type and scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void;
+  offScrollEvent(options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the scroll event starts or stops.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
+   * start or stop.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onScrollEvent(callback: Callback<observer.ScrollEventInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with `onScrollEvent()`.
+   *
+   * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
+   * callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offScrollEvent(callback?: Callback<observer.ScrollEventInfo>): void;
 
   /**
    * Registers a callback function to be called when the router page in a ui context is updated.
@@ -1353,7 +1489,8 @@ export declare class UIObserver {
    * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called
    *     when the router page is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onRouterPageUpdate(callback: Callback<observer.RouterPageInfo>): void;
 
@@ -1363,74 +1500,75 @@ export declare class UIObserver {
    * @param { Callback<observer.RouterPageInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   offRouterPageUpdate(callback?: Callback<observer.RouterPageInfo>): void;
 
   /**
    * Registers a callback function to be called when the screen density in a ui context is updated.
    *
-   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
    * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is
    * updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
+  onDensityUpdate(callback: Callback<observer.DensityInfo>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
    * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all
    * callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
+  offDensityUpdate(callback?: Callback<observer.DensityInfo>): void;
 
   /**
    * Registers a callback function to be called when the draw command will be drawn.
    *
-   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
    * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'willDraw', callback: Callback<void>): void;
+  onWillDraw(callback: Callback<void>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the
    * given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'willDraw', callback?: Callback<void>): void;
+  offWillDraw(callback?: Callback<void>): void;
 
   /**
    * Registers a callback function to be called when the layout is done.
    *
-   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
    * @param { Callback<void> } callback - The callback function to be called when the layout is done.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'didLayout', callback: Callback<void>): void;
+  onDidLayout(callback: Callback<void>): void;
 
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
    * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the
    * given event type
    *                                                        will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'didLayout', callback?: Callback<void>): void;
+  offDidLayout(callback?: Callback<void>): void;
 
   /**
    * Registers a callback function to be called when the navigation switched to a new navDestination.
@@ -1438,7 +1576,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when
    *     the navigation switched to a new navDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onNavDestinationSwitch(callback: Callback<observer.NavDestinationSwitchInfo>): void;
 
@@ -1448,7 +1587,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove.
    *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   offNavDestinationSwitch(callback?: Callback<observer.NavDestinationSwitchInfo>): void;
 
@@ -1459,7 +1599,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationSwitchInfo> } callback - The callback function to be called when the
    *     navigation switched to a new navDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onNavDestinationSwitch(
     observerOptions: observer.NavDestinationSwitchObserverOptions,
@@ -1473,7 +1614,8 @@ export declare class UIObserver {
    * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove.
    *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   offNavDestinationSwitch(
     observerOptions: observer.NavDestinationSwitchObserverOptions,
@@ -1481,180 +1623,298 @@ export declare class UIObserver {
   ): void;
 
   /**
-   * Registers a callback function to be called before clickEvent is called.
+   * Registers a callback function to be called when the window size layout breakpoint changes.
+   * This method allows observing changes in window size breakpoints which can be used to
+   * adapt UI layouts responsively based on window dimensions.
    *
-   * @param { 'willClick' } type - The type of event to listen for.
-   * @param { ClickEventListenerCallback } callback - The callback function to be called
-   *                                                  when the clickEvent will be trigger or after.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
+   *     called when the window size layout breakpoint changes. The callback receives a
+   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
+   *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  on(type: 'willClick', callback: ClickEventListenerCallback): void;
+  onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
   /**
-   * Removes a callback function to be called before clickEvent is called.
+   * Removes a previously registered callback function for window size layout breakpoint changes.
+   * If no callback is provided, all callbacks for the specified context will be removed.
    *
-   * @param { 'willClick' } type - The type of event to remove the listener for.
-   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                    all callbacks for the given event type will be removed.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
+   *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  off(type: 'willClick', callback?: ClickEventListenerCallback): void;
+  offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
   /**
-   * Registers a callback function to be called after clickEvent is called.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
-   * @param { 'didClick' } type - The type of event to listen for.
-   * @param { ClickEventListenerCallback } callback - The callback function to be called
-   *                                                  when the clickEvent will be trigger or after.
+   * @param { observer.ObserverOptions } options - The options object.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
+   *     when the tabContent show or hide.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'didClick', callback: ClickEventListenerCallback): void;
+  onTabContentUpdate(options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Removes a callback function to be called after clickEvent is called.
+   * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'didClick' } type - The type of event to remove the listener for.
-   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                    all callbacks for the given event type will be removed.
+   * @param { observer.ObserverOptions } options - The options object.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type and Tabs ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'didClick', callback?: ClickEventListenerCallback): void;
+  offTabContentUpdate(options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Registers a callback function to be called before tapGesture is called.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
-   * @param { 'willClick' } type - The type of event to listen for.
-   * @param { GestureEventListenerCallback } callback - The callback function to be called
-   *                                                    when the clickEvent will be trigger or after.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
+   *     when the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'willClick', callback: GestureEventListenerCallback): void;
+  onTabContentUpdate(callback: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Removes a callback function to be called before tapGesture is called.
+   * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'willClick' } type - The type of event to remove the listener for.
-   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type and Tabs ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'willClick', callback?: GestureEventListenerCallback): void;
+  offTabContentUpdate(callback?: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Registers a callback function to be called after tapGesture is called.
+   * Registers a callback function to be called when text field's content is changed.
    *
-   * @param { 'didClick' } type - The type of event to listen for.
-   * @param { GestureEventListenerCallback } callback - The callback function to be called
-   *                                                    when the clickEvent will be trigger or after.
+   * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
+   *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  on(type: 'didClick', callback: GestureEventListenerCallback): void;
+  onTextChange(callback: Callback<observer.TextChangeEventInfo>): void;
 
   /**
-   * Removes a callback function to be called after tapGesture is called.
+   * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'didClick' } type - The type of event to remove the listener for.
-   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  off(type: 'didClick', callback?: GestureEventListenerCallback): void;
+  offTextChange(callback?: Callback<observer.TextChangeEventInfo>): void;
 
   /**
-   * Registers a callback function to be called before panGesture onActionStart is called.
+   * Registers a callback function to be called when text field's content is changed.
    *
-   * @param { 'beforePanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { observer.ObserverOptions } identity - Identity options.
+   * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when the
+   *     text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  on(type: 'beforePanStart', callback: PanListenerCallback): void;
+  onTextChange(identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
 
   /**
-   * Removes a callback function to be called before panGesture onActionStart is called.
+   * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'beforePanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { observer.ObserverOptions } identity - Identity options.
+   * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 24 static
    */
-  off(type: 'beforePanStart', callback?: PanListenerCallback): void;
+  offTextChange(identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
 
   /**
-   * Registers a callback function to be called before panGesture onActionEnd is called.
+   * Registers a callback to monitor the gesture trigger information.
    *
-   * @param { 'beforePanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { GestureListenerType } type - The type of gesture to monitor.
+   * @param { GestureObserverConfigs } option - The options when bind the global listener.
+   * @param { GestureListenerCallback } callback - The callback function to be called when any gesture's state
+   *     is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  on(type: 'beforePanEnd', callback: PanListenerCallback): void;
+  addGlobalGestureListener(type: GestureListenerType,
+      option: GestureObserverConfigs, callback: GestureListenerCallback): void;
 
   /**
-   * Removes a callback function to be called before panGesture onActionEnd is called.
+   * Removes a callback function for one gesture listener type.
    *
-   * @param { 'beforePanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { GestureListenerType } type - The type of event to remove the listener for.
+   * @param { GestureListenerCallback } [callback] - The callback function to be removed. If not provided,
+   *     all callbacks for the given gesture type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
+  removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
 
   /**
-   * Registers a callback function to be called after panGesture onActionStart is called.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
-   * @param { 'afterPanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when when
+   *     the tabContent is showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'afterPanStart', callback: PanListenerCallback): void;
+  onTabChange(config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Removes a callback function to be called after panGesture onActionStart is called.
+   * Removes a callback function that was previously registered with `onTabChange`.
    *
-   * @param { 'afterPanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'afterPanStart', callback?: PanListenerCallback): void;
+  offTabChange(config: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Registers a callback function to be called after panGesture onActionEnd is called.
+   * Registers a callback function to be called when the tabContent is showed or hidden.
    *
-   * @param { 'afterPanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when the tabContent is
+   *     showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  on(type: 'afterPanEnd', callback: PanListenerCallback): void;
+  onTabChange(callback: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Removes a callback function to be called after panGesture onActionEnd is called.
+   * Removes a callback function that was previously registered with `onTabChange`.
    *
-   * @param { 'afterPanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
+   *     If not provided, all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  off(type: 'afterPanEnd', callback?: PanListenerCallback): void;
+  offTabChange(callback?: Callback<observer.TabContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the swiper content is updated.
+   *
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called
+   *     when the content is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
+   *
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offSwiperContentUpdate(callback?: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the swiper content is updated.
+   *
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called
+   *     when the swiper content is updated.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
+   *
+   * @param { observer.ObserverOptions } config - The options object.
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the visible router page's size is changed.
+   *
+   * @param { Callback<observer.RouterPageInfo> } callback - The callback function to be called
+   *     when the visible router page's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onRouterPageSizeChange(callback: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onRouterPageSizeChange()'.
+   *
+   * @param { Callback<observer.RouterPageInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the visible NavDestination's size is changed.
+   *
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
+   *     when the visible NavDestination's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onNavDestinationSizeChange(callback: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onNavDestinationSizeChange()'.
+   *
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called when the size of the visible NavDestination of the navigation
+   * with the specified uniqueId changes.
+   *
+   * @param { int } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
+   *     when the visible NavDestination's size is changed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onNavDestinationSizeChangeByUniqueId(navigationUniqueId: int, callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
    * Registers a callback function to be called when the specific node's render state changed.
@@ -1679,206 +1939,215 @@ export declare class UIObserver {
    *     not used. As a result, there will be no changes to the render state. Once you understand the principles
    *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
    *
-   * @param { 'nodeRenderState' } type - The type of event to listen for.
    * @param { NodeIdentity } nodeIdentity - The identity of the target node
-   * @param { NodeRenderStateChangeCallback } callback - The callback function to be called
-   *                                                    when the clickEvent will be trigger or after.
+   * @param { NodeRenderStateChangeCallback } callback - The callback function executed when the rendering state
+   *     of the component node changes.
    * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  on(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
+  onNodeRenderState(nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Removes a callback function for node render state monitoring.
+   *
+   * @param { NodeIdentity } nodeIdentity - The identity of the target node
+   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offNodeRenderState(nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
+
+  /**
+   * Removes a callback function that was previously registered with 'onNavDestinationSizeChangeByUniqueId()'.
+   *
+   * @param { int } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  offNavDestinationSizeChangeByUniqueId(navigationUniqueId: int, callback?: Callback<observer.NavDestinationInfo>): void;
+
+  /**
+   * Registers a callback function to be called before clickEvent is called.
+   *
+   * @param { ClickEventListenerCallback } callback - The callback function to be called
+   *     when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onWillClick(callback: ClickEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before clickEvent is called.
+   *
+   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offWillClick(callback?: ClickEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after clickEvent is called.
+   *
+   * @param { ClickEventListenerCallback } callback - The callback function to be called
+   *     when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onDidClick(callback: ClickEventListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after clickEvent is called.
+   *
+   * @param { ClickEventListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offDidClick(callback?: ClickEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before tapGesture is called.
+   *
+   * @param { GestureEventListenerCallback } callback - The callback function to be called
+   *     when the clickEvent will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onWillTap(callback: GestureEventListenerCallback): void;
 
   /**
    * Removes a callback function to be called before tapGesture is called.
    *
-   * @param { 'nodeRenderState' } type - The type of event to remove the listener for.
-   * @param { NodeIdentity } nodeIdentity - The identity of the target node
-   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
-
-  /**
-   * Registers a callback function to be called when the window size layout breakpoint changes.
-   * This method allows observing changes in window size breakpoints which can be used to
-   * adapt UI layouts responsively based on window dimensions.
-   *
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
-   *     called when the window size layout breakpoint changes. The callback receives a
-   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
-   *     breakpoint classifications.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
-
-  /**
-   * Removes a previously registered callback function for window size layout breakpoint changes.
-   * If no callback is provided, all callbacks for the specified context will be removed.
-   *
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
-   *     If not provided, all callbacks for the given event type and context will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   *
-   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
-   * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
-   *                                                         when the tabContent show or hide.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  on(type: 'tabContentUpdate', options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabContentUpdate' } type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
-   * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to remove. If not provided,
-   *                                              all callbacks for the given event type and Tabs ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   *
-   * @param { 'tabContentUpdate' } type - The type of event to listen for. Must be 'tabContentUpdate'.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called
-   *                                                         when the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { 'tabContentUpdate'} type - The type of event to remove the listener for. Must be 'tabContentUpdate'.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to remove. If not provided,
-   *                                              all callbacks for the given event type and Tabs ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Registers a callback to monitor the gesture trigger information.
-   *
-   * @param { GestureListenerType } type - The type of gesture to monitor.
-   * @param { GestureObserverConfigs } option - The options when bind the global listener.
-   * @param { GestureListenerCallback } callback - The callback function to be called when any gesture's state
-   *                                               is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  addGlobalGestureListener(type: GestureListenerType,
-      option: GestureObserverConfigs, callback: GestureListenerCallback): void;
-
-  /**
-   * Removes a callback function for one gesture listener type.
-   *
-   * @param { GestureListenerType } type - The type of event to remove the listener for.
-   * @param { GestureListenerCallback } [callback] - The callback function to be removed. If not provided,
-   *                                                      all callbacks for the given gesture type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   *
-   * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when when
-   *     the tabContent is showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  onTabChange(config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
-   *     If not provided, all callbacks for the given event type and Tabs ID will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  offTabChange(config: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the tabContent is showed or hidden.
-   *
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when the tabContent is
-   *     showed or hidden.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  onTabChange(callback: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with `on()`.
-   *
-   * @param { Callback<observer.TabContentInfo> } [callback] - The callback function to remove.
-   *     If not provided, all callbacks for the given event type will be removed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  offTabChange(callback?: Callback<observer.TabContentInfo>): void;
-
-  /**
-   * Registers a callback function to be called when the swiper content is updated.
-   *
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called
-   *     when the content is updated.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
-   */
-  onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void;
-
-  /**
-   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
-   *
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  offSwiperContentUpdate(callback?: Callback<SwiperContentInfo>): void;
+  offWillTap(callback?: GestureEventListenerCallback): void;
 
   /**
-   * Registers a callback function to be called when the swiper content is updated.
+   * Registers a callback function to be called after tapGesture is called.
    *
-   * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called
-   *     when the swiper content is updated.
+   * @param { GestureEventListenerCallback } callback - The callback function to be called
+   *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void;
+  onDidTap(callback: GestureEventListenerCallback): void;
 
   /**
-   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
+   * Removes a callback function to be called after tapGesture is called.
    *
-   * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { GestureEventListenerCallback } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 23 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void;
+  offDidTap(callback?: GestureEventListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onBeforePanStart(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offBeforePanStart(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onBeforePanEnd(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called before panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offBeforePanEnd(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onAfterPanStart(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionStart is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offAfterPanStart(callback?: PanListenerCallback): void;
+
+  /**
+   * Registers a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } callback - The callback function to be called
+   *     when the panGesture will be trigger or after.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onAfterPanEnd(callback: PanListenerCallback): void;
+
+  /**
+   * Removes a callback function to be called after panGesture onActionEnd is called.
+   *
+   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
+   *     all callbacks for the given event type will be removed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  offAfterPanEnd(callback?: PanListenerCallback): void;
 }
 
 /**
@@ -1886,6 +2155,7 @@ export declare class UIObserver {
  *
  * @interface SwiperContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface SwiperContentInfo {
@@ -1894,6 +2164,7 @@ export interface SwiperContentInfo {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   id: string;
@@ -1903,6 +2174,7 @@ export interface SwiperContentInfo {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   uniqueId: int;
@@ -1912,6 +2184,7 @@ export interface SwiperContentInfo {
    *
    * @type { Array<SwiperItemInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   swiperItemInfos: Array<SwiperItemInfo>;
@@ -1922,6 +2195,7 @@ export interface SwiperContentInfo {
  *
  * @interface SwiperContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface SwiperItemInfo {
@@ -1930,6 +2204,7 @@ export interface SwiperItemInfo {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   uniqueId: int;
@@ -1939,6 +2214,7 @@ export interface SwiperItemInfo {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   index: int;
@@ -1947,7 +2223,8 @@ export interface SwiperItemInfo {
 /**
  * class ComponentUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ComponentUtils {
   /**
@@ -1957,7 +2234,8 @@ export declare class ComponentUtils {
    * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getRectangleById(id: string): componentUtils.ComponentInfo;
 }
@@ -1965,7 +2243,8 @@ export declare class ComponentUtils {
 /**
  * class OverlayManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class OverlayManager {
   /**
@@ -1974,7 +2253,8 @@ export declare class OverlayManager {
    * @param { ComponentContent<T> } content - The content will be added to the OverlayManager.
    * @param { int } [ index ] - The index at which to add the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   addComponentContent<T>(content: ComponentContent<T>, index?: int): void;
 
@@ -1984,7 +2264,8 @@ export declare class OverlayManager {
    * @param { ComponentContent<T> } content - The content will be added to the OverlayManager.
    * @param { LevelOrder } [ levelOrder ] - The display order of the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   addComponentContentWithOrder<T>(content: ComponentContent<T>, levelOrder?: LevelOrder): void;
 
@@ -1993,7 +2274,8 @@ export declare class OverlayManager {
    *
    * @param { ComponentContent<T> } content - The content will be removed from the OverlayManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   removeComponentContent<T>(content: ComponentContent<T>): void;
 
@@ -2002,7 +2284,8 @@ export declare class OverlayManager {
    *
    * @param { ComponentContent<T> } content - The content will be shown.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   showComponentContent<T>(content: ComponentContent<T>): void;
 
@@ -2011,7 +2294,8 @@ export declare class OverlayManager {
    *
    * @param { ComponentContent<T> } content - The content will be hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   hideComponentContent<T>(content: ComponentContent<T>): void;
 
@@ -2019,7 +2303,8 @@ export declare class OverlayManager {
    * Show all ComponentContents on the OverlayManager.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   showAllComponentContents(): void;
 
@@ -2027,16 +2312,72 @@ export declare class OverlayManager {
    * Hide all ComponentContents on the OverlayManager.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   hideAllComponentContents(): void;
+
+  /**
+   * Opens an overlay with the specified ComponentContent and options.
+   *
+   * @param { ComponentContent<Object> } content - The content will be added to the OverlayManager.
+   * @param { OrderOverlayOptions } [ options ] - Options for the overlay.
+   * @returns { Promise<void> } the promise returned by the function.
+   * @throws { BusinessError } 103307 - The overlay cannot be opened due to the system pop-up window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  openOrderOverlay(content: ComponentContent<Object>, options?: OrderOverlayOptions): Promise<void>;
+}
+
+/**
+ * Provides the method for magnifier capabilities.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class Magnifier {
+  /**
+   * Bind magnifier to a component.
+   *
+   * @param { string } id - component id.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  bind(id: string): void;
+
+  /**
+   * Set the position of the magnified content.
+   *
+   * @param { double } x - the x position of the magnified content relative to the component.
+   *     The unit of x is vp.
+   * @param { double } y - the y position of the magnified content relative to the component.
+   *     The unit of y is vp.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  show(x: double, y: double): void;
+
+  /**
+   * Unbind the magnifier from its associated component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  unbind(): void;
 }
 
 /**
  * interface AtomicServiceBar
  * @interface AtomicServiceBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface AtomicServiceBar {
   /**
@@ -2044,25 +2385,28 @@ export interface AtomicServiceBar {
    *
    * @param { boolean } visible - whether this bar is visible.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setVisible(visible: boolean): void;
 
   /**
    * Set the background color of the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  setBackgroundColor(color: Nullable< Color | number | string>): void;
+  setBackgroundColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Set the title of the bar.
    *
    * @param { string } content - the content of the bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setTitleContent(content: string): void;
 
@@ -2071,25 +2415,28 @@ export interface AtomicServiceBar {
    *
    * @param { FontStyle } font - the font style of the bar's title.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setTitleFontStyle(font: FontStyle): void;
 
   /**
    * Set the color of the icon on the bar.
    *
-   * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
+   * @param { Nullable< Color | int | string> } color - the color to set to icon, undefined indicates using default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  setIconColor(color: Nullable< Color | number | string>): void;
+  setIconColor(color: Nullable< Color | int | string>): void;
 
   /**
    * Get size and position of the bar.
    *
    * @returns { Frame } The size and position of bar in vp relative to window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getBarRect(): Frame;
 }
@@ -2098,7 +2445,8 @@ export interface AtomicServiceBar {
  * Represents a dynamic synchronization scene.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class DynamicSyncScene {
   /**
@@ -2106,7 +2454,8 @@ export declare class DynamicSyncScene {
    *
    * @param { ExpectedFrameRateRange } range - The range of frameRate.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setFrameRateRange(range: ExpectedFrameRateRange): void;
 
@@ -2115,7 +2464,8 @@ export declare class DynamicSyncScene {
    *
    * @returns { ExpectedFrameRateRange } The range of frameRate.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getFrameRateRange(): ExpectedFrameRateRange;
 }
@@ -2125,7 +2475,8 @@ export declare class DynamicSyncScene {
  *
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
   /**
@@ -2133,7 +2484,8 @@ export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
    * @type { SwiperDynamicSyncSceneType }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   readonly type: SwiperDynamicSyncSceneType;
 }
@@ -2143,7 +2495,8 @@ export declare class SwiperDynamicSyncScene extends DynamicSyncScene {
  *
  * @extends DynamicSyncScene
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
   /**
@@ -2151,7 +2504,8 @@ export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
    * @type { MarqueeDynamicSyncSceneType }
    * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   readonly type: MarqueeDynamicSyncSceneType;
 }
@@ -2159,7 +2513,8 @@ export declare class MarqueeDynamicSyncScene extends DynamicSyncScene {
 /**
  * class DragController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class DragController {
   /**
@@ -2175,7 +2530,8 @@ export declare class DragController {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo,
     callback: AsyncCallback<dragController.DragEventParam>): void;
@@ -2185,17 +2541,20 @@ export declare class DragController {
    * @param { CustomBuilder | DragItemInfo | undefined } custom - Object used for prompts displayed when the object
    * is dragged.
    * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
+   * @returns { Promise<dragController.DragEventParam> | null } A Promise with the drag event information. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   executeDrag(custom: CustomBuilder | DragItemInfo | undefined, dragInfo: dragController.DragInfo)
-    : Promise<dragController.DragEventParam>;
+    : Promise<dragController.DragEventParam> | null;
 
   /**
    * Create one drag action object, which can be used for starting drag later or monitoring the drag status after
@@ -2210,7 +2569,8 @@ export declare class DragController {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo> | undefined,
     dragInfo: dragController.DragInfo): dragController.DragAction;
@@ -2219,7 +2579,8 @@ export declare class DragController {
    * Get a drag preview object.
    * @returns { dragController.DragPreview } A drag preview object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getDragPreview(): dragController.DragPreview;
 
@@ -2234,7 +2595,8 @@ export declare class DragController {
    * not fully strict.
    * @param { boolean } enable - Indicating enable drag event strict reporting or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setDragEventStrictReportingEnabled(enable: boolean): void;
 
@@ -2242,7 +2604,8 @@ export declare class DragController {
    * Notify the drag start request to specific pending or continue.
    * @param { dragController.DragStartRequestStatus } requestStatus - Status about the drag start behavior.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void;
 
@@ -2253,9 +2616,22 @@ export declare class DragController {
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 190004 - Operation failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   cancelDataLoading(key: string): void;
+
+  /**
+   * Interrupt the pending follow-hand morph drop animation and trigger the finish sequence immediately.
+   *
+   * @returns { boolean } Returns true if interrupted successfully; false if there is no pending
+   *     follow-hand morph drop animation to interrupt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  interruptFollowHandMorphDropAnimation(): boolean;
 
   /**
    * Sets whether to enable the disallow badge icon show.
@@ -2274,7 +2650,8 @@ export declare class DragController {
    *
    * @param { boolean } enabled - Indicating enable the disallow status showing or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   enableDropDisallowedBadge(enabled: boolean): void;
 }
@@ -2282,7 +2659,8 @@ export declare class DragController {
 /**
  * class MeasureUtils
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class MeasureUtils {
   /**
@@ -2291,7 +2669,8 @@ export declare class MeasureUtils {
    * @param { MeasureOptions } options - Options.
    * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   measureText(options: MeasureOptions): double;
 
@@ -2301,21 +2680,35 @@ export declare class MeasureUtils {
    * @param { MeasureOptions } options - Options of measure area occupied by text.
    * @returns { SizeOptions } width and height for text to display
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   measureTextSize(options: MeasureOptions): SizeOptions;
+  /**
+   * Get layout info of the styled string.
+   *
+   * @param { StyledString } styledString - The styled string value.
+   * @param { TextLayoutOptions } [options] - The layout options.
+   * @returns { Array<Paragraph> } paragraph result
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array<Paragraph>;
 }
 
 /**
  * class FocusController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class FocusController {
   /**
    * clear focus to the root container.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   clearFocus(): void;
 
@@ -2326,7 +2719,8 @@ export declare class FocusController {
    * @throws { BusinessError } 150002 - This component has an unfocusable ancestor.
    * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   requestFocus(key: string): void;
 
@@ -2336,7 +2730,8 @@ export declare class FocusController {
    * @param { boolean } [autoInactive] - deactivate the focus style when touch event or mouse event triggers,
    * the default value is true.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   activate(isActive: boolean, autoInactive?: boolean): void;
 
@@ -2344,7 +2739,8 @@ export declare class FocusController {
    * Get whether the focus style is active.
    * @returns { boolean } Whether the focus style is active.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   isActive(): boolean;
 
@@ -2352,7 +2748,8 @@ export declare class FocusController {
    * Set whether to enable autofocus transfer.
    * @param { boolean } isAutoFocusTransfer - A Boolean value that indicates whether autofocus transfer is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
 
@@ -2360,7 +2757,8 @@ export declare class FocusController {
    * Set the priority of key event processing when component cannot handle the key event..
    * @param { KeyProcessingMode } mode - Key processing mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setKeyProcessingMode(mode: KeyProcessingMode): void;
 }
@@ -2370,7 +2768,7 @@ export declare class FocusController {
  *
  * @typedef {pointer.PointerStyle} PointerStyle
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
- * @since 22 static
+ * @since 23 static
  */
 export type PointerStyle = pointer.PointerStyle;
 
@@ -2378,14 +2776,16 @@ export type PointerStyle = pointer.PointerStyle;
  * class CursorController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class CursorController {
   /**
    * Restore default cursor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   restoreDefault(): void;
   /**
@@ -2393,23 +2793,39 @@ export declare class CursorController {
    *
    * @param { PointerStyle } value - cursor style enum.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setCursor(value: PointerStyle): void;
+  /**
+   * Sets the custom cursor style.
+   *
+   * @param { image.PixelMap } value - custom cursor style.
+   * @param { int } [focusX] - Focus x of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @param { int } [focusY] - Focus y of the custom cursor. The value is greater than or equal to 0. The default
+   *     value is 0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setCustomCursor(value: image.PixelMap, focusX?: int, focusY?: int): void;
 }
 
 /**
  * class ContextMenuController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ContextMenuController {
   /**
    * Close context menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   close(): void;
 }
@@ -2418,26 +2834,29 @@ export declare class ContextMenuController {
  * Class FrameCallback
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare abstract class FrameCallback {
   /**
    * Call when a new display frame is being rendered.
    *
-   * @param { number } frameTimeInNano - The frame time in nanoseconds.
+   * @param { long } frameTimeInNano - The frame time in nanoseconds.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  onFrame(frameTimeInNano: number): void;
+  onFrame(frameTimeInNano: long): void;
 
   /**
    * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
    *
-   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame.
+   * @param { long } timeLeftInNano - The remaining time from the deadline for this frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  onIdle(timeLeftInNano: number): void;
+  onIdle(timeLeftInNano: long): void;
 }
 
 /**
@@ -2447,14 +2866,15 @@ export declare abstract class FrameCallback {
  * @typedef { common.Context } Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
- * @since 22 static
+ * @since 23 static
  */
 export type Context = common.Context;
 
 /**
  * class ComponentSnapshot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ComponentSnapshot {
   /**
@@ -2468,8 +2888,10 @@ export declare class ComponentSnapshot {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void;
 
@@ -2478,58 +2900,66 @@ export declare class ComponentSnapshot {
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Generate a snapshot from a custom component builder.
    *
    * @param { CustomBuilder } builder - Builder function of a custom component.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { int } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   * the ready state is required when the checkImageStatus option is enabled.
+   *     the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
-    delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void;
+    delay?: int, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void;
 
   /**
    * Generate a snapshot from a custom component builder.
    *
    * @param { CustomBuilder } builder - Builder function of a custom component.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { int } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
    * the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  createFromBuilder(builder: CustomBuilder, delay?: number,
-    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  createFromBuilder(builder: CustomBuilder, delay?: int,
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Take a screenshot of the specified component in synchronous mode,
@@ -2538,73 +2968,84 @@ export declare class ComponentSnapshot {
    *
    * @param { string } id - Target component ID, set by developer through .id attribute.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * @returns { image.PixelMap | null } The snapshot result in PixelMap format. Null will be returned
+   *     if the parameters' checking failed or some internal errors occur, for example: the runtime environment is
+   *     broken.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
+  getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap | null;
 
   /**
    * Get a component snapshot by uniqueId.
    *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
+   * @param { int } uniqueId - The uniqueId of the node, can get through getUniqueId.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  getWithUniqueId(uniqueId: int, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Take a screenshot of the specified component in synchronous mode,
    * this mode will block the main thread, please use it with caution, the maximum
    * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
    *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
+   * @param { int } uniqueId - The uniqueId of the node, can get through getUniqueId.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
    * @returns { image.PixelMap } The snapshot result in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
+  getSyncWithUniqueId(uniqueId: int, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 
   /**
    * Generate a snapshot from a custom component content.
    *
    * @param { ComponentContent<T> } content - The content to be taken snapshot.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
+   * @param { int } [delay] - Defines the delay time to render the snapshot.
    * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   * the ready state is required when the checkImageStatus option is enabled.
+   *     the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
-    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+  createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: int,
+    checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
    * Get a component snapshot by component range.
@@ -2619,27 +3060,478 @@ export declare class ComponentSnapshot {
    * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 100001 - Invalid ID detected.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
-    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+    options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
+
+  /**
+   * Query the size limitation for taking a component snapshot.
+   *
+   * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getSizeLimitation(): componentSnapshot.SnapshotSizeLimitation;
+}
+
+/**
+ * Class BaseGestureHandlingProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export abstract class BaseGestureHandlingProposal {
+  /**
+   * The smart gesture action to be performed. Defines the specific operation triggered by the gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  action: SmartGestureAction;
+
+  /**
+   * The underlying user operation intention. Represents the fundamental user interaction goal.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  operateIntention: OperateIntention;
+}
+
+/**
+ * Class TargetedGestureProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export abstract class TargetedGestureProposal extends BaseGestureHandlingProposal {
+  /**
+   * The target frame node for gesture handling. This node will receive and process the gesture events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  node: FrameNode;
+}
+
+/**
+ * Class ClickActionProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ClickActionProposal extends TargetedGestureProposal {
+  /**
+   * ClickActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to click action.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode);
+}
+
+/**
+ * Class SelectActionProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class SelectActionProposal extends TargetedGestureProposal {
+  /**
+   * SelectActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to select action.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode);
+}
+
+/**
+ * Class NoneActionProposal.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class NoneActionProposal extends BaseGestureHandlingProposal {
+  /**
+   * NoneActionProposal constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor();
+}
+
+/**
+ * Class BackPressActionProposal.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class BackPressActionProposal extends BaseGestureHandlingProposal {
+  /**
+   * BackPressActionProposal constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor();
+}
+
+/**
+ * Class PageSwitchActionProposal. The default page switch direction is forward.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class PageSwitchActionProposal extends TargetedGestureProposal {
+  /**
+   * PageSwitchActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to page switch action.
+   * @param { int } pageCount - The number of pages to navigate.
+   *     The value should be an integer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode, pageCount: int);
+
+  /**
+   * Page count parameter for gesture operations. Specifies the number of pages to navigate.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  pageCount: int;
+}
+
+/**
+ * Class ScrollActionProposal. The default scroll direction is forward.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ScrollActionProposal extends TargetedGestureProposal {
+  /**
+   * ScrollActionProposal constructor.
+   *
+   * @param { FrameNode } node - The node responding to scroll action.
+   * @param { double } distance - The distance to scroll or slide.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(node: FrameNode, distance: double);
+
+  /**
+   * Distance parameter for gesture operations. Used for actions like scrolling or sliding to specify travel distance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  distance: double;
+}
+
+/**
+ * Class GestureHandlingResolution. Represents the developer's decision result for smart gesture handling.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class GestureHandlingResolution {
+  /**
+   * GestureHandlingResolution constructor.
+   *
+   * @param { boolean } isConsumed - Whether to consume the current gesture event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  constructor(isConsumed: boolean);
+
+  /**
+   * Determines whether to consume the current gesture event. If the gesture is not consumed, it will inform the
+   * consumer that the gesture is not supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isConsumed: boolean;
+
+  /**
+   * The final gesture handling proposal selected by the developer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  selectedProposal?: BaseGestureHandlingProposal;
+}
+
+/**
+ * Class SmartGestureController.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class SmartGestureController {
+  /**
+   * Enable or disable smart tap and slide gestures for watch. This switch controls the new implementation
+   * of tap and slide gestures. When enabled, the new smart gesture handling pipeline is used. When disabled, the
+   * legacy implementation is used for compatibility.
+   *
+   * @param { boolean } enabled - Whether to enable smart tap and slide gesture handling.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableSmartTapAndSlideGestures(enabled: boolean): void;
+
+  /**
+   * Register a callback function to monitor gesture events. This method enables the application to receive the
+   * processing intention of the current gesture and carry out customized intervention before the system processes
+   * the gesture event.
+   *
+   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - Callback function 
+   *     invoked when a gesture is recognized.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  registerMonitor(monitorCallback: Callback<BaseGestureHandlingProposal, GestureHandlingResolution>): void;
+
+  /**
+   * Unregister a callback function to monitor gesture events.
+   *
+   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - Callback function
+   *     invoked when a gesture is recognized.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  unregisterMonitor(monitorCallback: Callback<BaseGestureHandlingProposal, GestureHandlingResolution>): void;
+
+  /**
+   * Clear the callback functions to monitor gesture events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  clearMonitors(): void;
+
+  /**
+   * Request smart gesture selection of a frame node by its identifier.
+   *
+   * @param { string } id - The identifier of the frame node to select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  requestSelected(id: string): void;
+
+  /**
+   * Clear the current smart gesture selection.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  clearSelected(): void;
+}
+
+/**
+ * Enum of strategy of resolved UIContext.
+ * @enum { number } strategy of resolved UIContext.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export const enum ResolveStrategy {
+  /**
+   * Get UIContext of calling scope.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CALLING_SCOPE = 0,
+
+  /**
+   * Get UIContext of last focused instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  LAST_FOCUS = 1,
+
+  /**
+   * Get UIContext with maximum instanceId.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  MAX_INSTANCE_ID = 2,
+
+  /**
+   * Get UIContext of unique UI instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  UNIQUE = 3,
+
+  /**
+   * Get UIContext of last foregrounded instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  LAST_FOREGROUND = 4,
+
+  /**
+   * Get UIContext of undefined calling scope.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  UNDEFINED = 5
+}
+
+/**
+ * Defines the result of UIContext.resolveUIContext.
+ * This class is a subclass of UIContext and additionally provides the strategy used to
+ * obtain this UIContext.
+ * @extends UIContext
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare class ResolvedUIContext extends UIContext {
+  /**
+   * Resolving strategy of the UIContext.
+   * @type { ResolveStrategy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  strategy: ResolveStrategy;
 }
 
 /**
  * class UIContext
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class UIContext {
+  /**
+   * UIContext constructor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  constructor();
+
+  /**
+   * Gets the UIContext associated with the current calling scope.
+   * @returns { UIContext | undefined } - The UIContext for the current calling scope,
+   *     or undefined if no context can be determined from the call stack.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  static getCallingScopeUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last focused UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  static getLastFocusedUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last foregrounded UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
+   *     exists
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  static getLastForegroundUIContext(): UIContext | undefined;
+
+  /**
+   * Gets all currently active UIContext instances.
+   * @returns { UIContext[] } - An array containing all valid UIContext instances,
+   *     returns an empty array if no contexts are available.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  static getAllUIContexts(): UIContext[];
+
+  /**
+   * Resolves a UIContext using priority strategy.
+   *
+   * Resolves and returns a UIContext instance following a predefined priority sequence.
+   * resolution rules in order:
+   * <br>1. the UIContext with current calling scope
+   * <br>2. Returns the unique UIContext if only one UI instance exists.
+   * <br>3. Returns the UIContext of the last focused UI instance if one exists.
+   * <br>4. Returns the UIContext of the last foregrounded UI instance if one exists.
+   * <br>5. Returns the UIContext of the most recently created UI instance if any UI instance exists.
+   * <br>6. Returns an invalid UIContext instance if none of the above conditions are met.
+   * @returns { ResolvedUIContext } - ResolvedUIContext instance
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  static resolveUIContext(): ResolvedUIContext;
+
   /**
    * get object font.
    *
    * @returns { Font } object Font.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getFont(): Font;
 
@@ -2648,7 +3540,8 @@ export declare class UIContext {
    *
    * @returns { boolean } Returns true if the UIContext object is available.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   isAvailable(): boolean;
 
@@ -2657,7 +3550,8 @@ export declare class UIContext {
    *
    * @returns { MediaQuery } object MediaQuery.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getMediaQuery(): MediaQuery;
 
@@ -2665,7 +3559,8 @@ export declare class UIContext {
    * get object UIInspector.
    * @returns { UIInspector } object UIInspector.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getUIInspector(): UIInspector;
 
@@ -2675,7 +3570,8 @@ export declare class UIContext {
    * @returns { string } the specified attributes of the component tree in json string.
    * @throws { BusinessError } 100023 - Unable to obtain current ui context.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getFilteredInspectorTree(filters?: Array<string>): string;
 
@@ -2688,16 +3584,18 @@ export declare class UIContext {
    * @throws { BusinessError } 100023 - Unable to obtain current ui context.
    * @throws { BusinessError } 100024 - The parameter depth must be greater than 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
+  getFilteredInspectorTreeById(id: string, depth: int, filters?: Array<string>): string;
 
   /**
    * get object router.
    *
    * @returns { Router } object Router.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getRouter(): Router;
 
@@ -2706,7 +3604,8 @@ export declare class UIContext {
    *
    * @returns { PromptAction } object PromptAction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getPromptAction(): PromptAction;
 
@@ -2714,7 +3613,8 @@ export declare class UIContext {
    * get object ComponentUtils.
    * @returns { ComponentUtils } object ComponentUtils.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getComponentUtils(): ComponentUtils;
 
@@ -2723,7 +3623,8 @@ export declare class UIContext {
    *
    * @returns { UIObserver } The UI observer.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getUIObserver(): UIObserver;
 
@@ -2732,9 +3633,19 @@ export declare class UIContext {
    *
    * @returns { OverlayManager } object OverlayManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getOverlayManager(): OverlayManager;
+  /**
+   * Obtains the Magnifier object.
+   *
+   * @returns { Magnifier } Magnifier instance obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getMagnifier(): Magnifier;
 
   /**
    * Init OverlayManager.
@@ -2743,7 +3654,8 @@ export declare class UIContext {
    * @returns { boolean } Returns true if it is called first and before getting an OverlayManager instance; returns
    * false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setOverlayManagerOptions(options: OverlayManagerOptions): boolean;
 
@@ -2752,7 +3664,8 @@ export declare class UIContext {
    *
    * @returns { OverlayManagerOptions } object OverlayManagerOptions.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getOverlayManagerOptions(): OverlayManagerOptions;
 
@@ -2766,7 +3679,8 @@ export declare class UIContext {
    * <br> 2. Incorrect parameters types.
    * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 
@@ -2776,7 +3690,8 @@ export declare class UIContext {
    * @param { AnimateParam } value - parameters for animation.
    * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   animateTo(value: AnimateParam, event: () => void): void;
 
@@ -2786,7 +3701,8 @@ export declare class UIContext {
    * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options -
    * Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   showAlertDialog(
     options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
@@ -2796,7 +3712,8 @@ export declare class UIContext {
    *
    * @param { ActionSheetOptions } value - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   showActionSheet(value: ActionSheetOptions): void;
 
@@ -2805,7 +3722,8 @@ export declare class UIContext {
    *
    * @param { DatePickerDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   showDatePickerDialog(options: DatePickerDialogOptions): void;
 
@@ -2814,18 +3732,20 @@ export declare class UIContext {
    *
    * @param { TimePickerDialogOptions } options - Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   showTimePickerDialog(options: TimePickerDialogOptions): void;
 
   /**
    * textPickerDialog display.
    *
-   * @param { TextPickerDialogOptions } options - Options.
+   * @param { TextPickerDialogOptions | TextPickerDialogOptionsExt } style - Dialog style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  showTextPickerDialog(options: TextPickerDialogOptions): void;
+  showTextPickerDialog(style: TextPickerDialogOptions | TextPickerDialogOptionsExt): void;
 
   /**
    * Set image cache capacity of decoded image count.
@@ -2833,7 +3753,8 @@ export declare class UIContext {
    *
    * @param { int } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setImageCacheCount(value: int): void;
 
@@ -2843,7 +3764,8 @@ export declare class UIContext {
    *
    * @param { int } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setImageRawDataCacheSize(value: int): void;
 
@@ -2852,7 +3774,8 @@ export declare class UIContext {
    *
    * @param { function } callback - The function called through UIContext.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   runScopedTask(callback: () => void): void;
 
@@ -2861,7 +3784,8 @@ export declare class UIContext {
    *
    * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
 
@@ -2869,7 +3793,8 @@ export declare class UIContext {
    * Get KeyboardAvoidMode.
    * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
@@ -2878,7 +3803,8 @@ export declare class UIContext {
    *
    * @param { PixelRoundMode } mode - The mode of pixel round.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setPixelRoundMode(mode: PixelRoundMode): void;
 
@@ -2887,25 +3813,28 @@ export declare class UIContext {
    *
    * @returns { PixelRoundMode } the mode of pixel round.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getPixelRoundMode(): PixelRoundMode;
 
   /**
    * Dispach keyboard event to the frameNode with inspector key.
    *
-   * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
+  dispatchKeyEvent(node: int | string, event: KeyEvent): boolean;
 
   /**
    * Get AtomicServiceBar.
    * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getAtomicServiceBar(): Nullable<AtomicServiceBar>;
 
@@ -2913,7 +3842,8 @@ export declare class UIContext {
    * Get DragController.
    * @returns { DragController } the DragController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getDragController(): DragController;
 
@@ -2921,7 +3851,8 @@ export declare class UIContext {
    * Get MeasureUtils.
    * @returns { MeasureUtils } the MeasureUtils
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getMeasureUtils(): MeasureUtils;
 
@@ -2931,7 +3862,8 @@ export declare class UIContext {
    * @param { KeyframeAnimateParam } param - overall animation parameters
    * @param { Array<KeyframeState> } keyframes - all keyframe states
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
 
@@ -2939,7 +3871,8 @@ export declare class UIContext {
    * Get FocusController.
    * @returns { FocusController } the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getFocusController(): FocusController;
 
@@ -2951,18 +3884,8 @@ export declare class UIContext {
    *     and the system will automatically insert transition animations for
    *     state changes caused by the closure function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 20 static
-   */
-  /**
-   * Define animation functions for immediate distribution.
-   *
-   * @param { AnimateParam } param - Set animation effect parameters.
-   * @param { VoidCallback } processor - Specify the closure function that displays dynamic effects,
-   *     and the system will automatically insert transition animations for
-   *     state changes caused by the closure function.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   animateToImmediately(param: AnimateParam, processor: VoidCallback): void;
 
@@ -2972,7 +3895,8 @@ export declare class UIContext {
    * @param { string } id - The id of FrameNode.
    * @returns { FrameNode | null } The instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getFrameNodeById(id: string): FrameNode | null;
 
@@ -2982,70 +3906,150 @@ export declare class UIContext {
    * @param { string } id - The id of FrameNode.
    * @returns { FrameNode | null } The instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getAttachedFrameNodeById(id: string): FrameNode | null;
 
   /**
    * Get FrameNode by uniqueId.
    *
-   * @param { number } id - The uniqueId of the FrameNode.
+   * @param { int } id - The uniqueId of the FrameNode.
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  getFrameNodeByUniqueId(id: number): FrameNode | null;
+  getFrameNodeByUniqueId(id: int): FrameNode | null;
 
   /**
    * Get page information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
    * navDestination and router page information. If the frame node does not have navDestination and
    * router page information, it will return an empty object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  getPageInfoByUniqueId(id: number): PageInfo;
+  getPageInfoByUniqueId(id: int): PageInfo;
 
   /**
    * Get navigation information of the frameNode with uniqueId.
    *
-   * @param { number } id - The uniqueId of the target FrameNode.
+   * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
    * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+  getNavigationInfoByUniqueId(id: int): observer.NavigationInfo | undefined;
 
   /**
    * Dynamic dimming.
    *
    * @param { string } id - The id of FrameNode.
-   * @param { number } value - Compared to the original level of dimming.value range [0,1],
-   * set values less than 0 to 0 and values greater than 1 to 1.
+   * @param { double } value - Compared to the original level of dimming.value range [0,1],
+   *     set values less than 0 to 0 and values greater than 1 to 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  setDynamicDimming(id: string, value: number): void;
+  setDynamicDimming(id: string, value: double): void;
 
   /**
    * Get object cursor controller.
    *
    * @returns { CursorController } object cursor controller.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getCursorController(): CursorController;
+
+  /**
+   * Registers a local input event monitor.
+   *
+   * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
+   * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
+   *
+   * Performance Warning: Do not perform time-consuming operations in the callback!
+   *
+   * Monitor Object Notes:
+   * - The returned Monitor object is a unique identifier created by the system.
+   * - Developers cannot actively construct or forge this object.
+   * - Must save the returned monitor object reference for subsequent cancellation.
+   * - It is recommended to use a variable to save it to avoid losing the reference.
+   *
+   * Usage Examples:
+   * ```typescript
+   * // Monitor a single event type
+   * const monitor1 = uiContext.addLocalInputEventMonitor(
+   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+   *   (wrapper: RawInputEventWrapper) => {
+   *     if (wrapper.isMouseEvent()) {
+   *       const mouseEvent = wrapper.asMouseEvent();
+   *       console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
+   *       return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
+   *     }
+   *     return { action: InputEventInterceptAction.BLOCK };  // Block event
+   *   }
+   * );
+   *
+   * // Monitor multiple event types (using bitwise operations)
+   * const monitor2 = uiContext.addLocalInputEventMonitor(
+   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
+   *   (wrapper: RawInputEventWrapper) => {
+   *     if (wrapper.isMouseEvent()) {
+   *       const mouseEvent = wrapper.asMouseEvent()!;
+   *       console.log(`Mouse button: ${mouseEvent.button}`);
+   *       return { action: InputEventInterceptAction.BLOCK };
+   *     }
+   *     return { action: InputEventInterceptAction.CONTINUE };
+   *   }
+   * );
+   *
+   * // When unregistering the monitor, use the returned Monitor object
+   * uiContext.removeLocalInputEventMonitor(monitor1);
+   * uiContext.removeLocalInputEventMonitor(monitor2);
+   * ```
+   *
+   * @param { int } eventMask - Event type mask, specifying the types of events to monitor through
+   *     bitwise operations.
+   * @param { InputEventListener } listener - Event listener callback function.
+   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent
+   *     cancellation of registration.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  addLocalInputEventMonitor(eventMask: int, listener: InputEventListener): InputEventMonitor;
+
+  /**
+   * Removes a local input event monitor.
+   *
+   * **Important Notes**:
+   * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.
+   * - Cannot unregister a monitor by manually constructing an object.
+   * - If an invalid object is passed, the system silently ignores it.
+   *
+   * @param { InputEventMonitor } monitor - Monitor identifier object (returned by addLocalInputEventMonitor).
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  removeLocalInputEventMonitor(monitor: InputEventMonitor): void;
 
   /**
    * Get object context menu controller.
    *
    * @returns { ContextMenuController } object context menu controller.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getContextMenuController(): ContextMenuController;
 
@@ -3053,63 +4057,70 @@ export declare class UIContext {
    * Get ComponentSnapshot.
    * @returns { ComponentSnapshot } the ComponentSnapshot
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getComponentSnapshot(): ComponentSnapshot;
 
   /**
    * Converts a value in vp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  vp2px(value: number): number;
+  vp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in vp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  px2vp(value: number): number;
+  px2vp(value: double): double;
 
   /**
    * Converts a value in fp units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  fp2px(value: number): number;
+  fp2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in fp.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  px2fp(value: number): number;
+  px2fp(value: double): double;
 
   /**
    * Converts a value in lpx units to a value in px.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  lpx2px(value: number): number;
+  lpx2px(value: double): double;
 
   /**
    * Converts a value in px units to a value in lpx.
-   * @param { number } value
-   * @returns { number }
+   * @param { double } value
+   * @returns { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  px2lpx(value: number): number;
+  px2lpx(value: double): double;
 
   /**
    * Get current LocalStorage shared from stage.
@@ -3117,7 +4128,7 @@ export declare class UIContext {
    * @returns { LocalStorage | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   getSharedLocalStorage(): LocalStorage | undefined;
 
@@ -3127,7 +4138,7 @@ export declare class UIContext {
    * @returns { Context | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 22 static
+   * @since 23 static
    */
   getHostContext(): Context | undefined;
 
@@ -3136,16 +4147,32 @@ export declare class UIContext {
    *
    * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getWindowName(): string | undefined;
+
+  /**
+   * Get window id to which the current UIContext belongs.
+   * <p>**NOTE**:
+   * If the current UIContext is in a UIExtensionAbility running within the host process,
+   * this method returns the top-level window ID of the host application.
+   * </p>
+   *
+   * @returns { int | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getWindowId(): int | undefined;
 
   /**
    * Get the width breakpoint of current window.
    *
    * @returns { WidthBreakpoint } The width breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getWindowWidthBreakpoint(): WidthBreakpoint;
 
@@ -3154,75 +4181,81 @@ export declare class UIContext {
    *
    * @returns { HeightBreakpoint } The height breakpoint of current window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
    * Open the BindSheet.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
-   * @param { SheetOptions } sheetOptions - The options of sheet.
-   * @param { number } targetId - The uniqueId of the FrameNode to which BindSheet is attached.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
+   * @param { SheetOptions } [sheetOptions] - The options of sheet.
+   * @param { int } [targetId] - The uniqueId of the FrameNode to which BindSheet is attached.
+   *     <br>Value range:(0, +∞)
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120002 - The bindSheetContent already exists.
    * @throws { BusinessError } 120004 - The targetId does not exist.
    * @throws { BusinessError } 120005 - The node of targetId is not in the component tree.
    * @throws { BusinessError } 120006 - The node of targetId is not a child of the page node or NavDestination node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions,
-    targetId?: number): Promise<void>;
+  openBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
    * Update the BindSheet with sheetOptions.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @param { SheetOptions } sheetOptions - The update options of sheet.
-   * @param { boolean } partialUpdate - If true, only the specified properties in the sheetOptions are updated,
-   *                                    otherwise the rest of the properties are overwritten with the default values.
-   *                                    Default value is false.
+   * @param { boolean } [partialUpdate] - If true, only the specified properties in the sheetOptions are updated,
+   *     otherwise the rest of the properties are overwritten with the default values.
+   *     Default value is false.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions,
-    partialUpdate?: boolean): Promise<void>;
+  updateBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
    * Close the BindSheet.
    *
-   * @param { ComponentContent<T> } bindSheetContent - The content of BindSheet.
+   * @param { ComponentContentBase } bindSheetContent - The content of BindSheet.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
    * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
+  closeBindSheet(bindSheetContent: ComponentContentBase): Promise<void>;
 
   /**
    * Post a frame callback to run on the next frame.
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   postFrameCallback(frameCallback: FrameCallback): void;
 
@@ -3230,11 +4263,12 @@ export declare class UIContext {
    * Post a frame callback to run on the next frame after the specified delay.
    *
    * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
-   * @param { number } delayTime - The delay time in milliseconds,
+   * @param { long } delayTime - The delay time in milliseconds,
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: long): void;
 
   /**
    * Require DynamicSyncScene by id.
@@ -3242,7 +4276,8 @@ export declare class UIContext {
    * @param { string } id - The id of DynamicSyncScene.
    * @returns { Array<DynamicSyncScene>} The instance of SwiperDynamicSyncScene.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   requireDynamicSyncScene(id: string): Array<DynamicSyncScene>;
 
@@ -3251,10 +4286,10 @@ export declare class UIContext {
    * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during page
    * overload.
    *
-   * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   clearResourceCache(): void;
 
@@ -3263,7 +4298,8 @@ export declare class UIContext {
    *
    * @returns { boolean } Returns true if current font scale follows the system; returns false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   isFollowingSystemFontScale(): boolean;
 
@@ -3272,7 +4308,8 @@ export declare class UIContext {
    *
    * @returns { double } The max font scale.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getMaxFontScale(): double;
 
@@ -3282,7 +4319,8 @@ export declare class UIContext {
    * @param { TabsController } tabsController - The controller of the tabs.
    * @param { Scroller } scroller - The controller of the scrollable container component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   bindTabsToScrollable(tabsController: TabsController, scroller: Scroller): void;
 
@@ -3292,7 +4330,8 @@ export declare class UIContext {
    * @param { TabsController } tabsController - The controller of the tabs.
    * @param { Scroller } scroller - The controller of the scrollable container component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): void;
 
@@ -3303,7 +4342,8 @@ export declare class UIContext {
    * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
    * @param { Scroller } childScroller - The controller of the child scrollable container component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
 
@@ -3314,7 +4354,8 @@ export declare class UIContext {
    * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
    * @param { Scroller } childScroller - The controller of the child scrollable container component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller,
     childScroller: Scroller): void;
@@ -3322,33 +4363,12 @@ export declare class UIContext {
   /**
    * whether to enable or disable swipe to back event.
    *
-   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @param { boolean | undefined } enabled - enable or disable swipe to back event.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  enableSwipeBack(enabled: Optional<boolean>): void;
-
-  /**
-   * Open the BindContentCover.
-   *
-   * @param { ComponentContent<T> } content - The content of BindContentCover.
-   * @param { ContentCoverController } controller - ContentCover controller.
-   * @param { ContentCoverOptions } [contentCoverOptions] - The options of contentCover.
-   * @param { number } [targetId] - The uniqueId of the FrameNode to which BindContentCover is attached.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 120301 - The BindContentCover is incorrect.
-   * @throws { BusinessError } 120302 - The BindContentCover already exists.
-   * @throws { BusinessError } 120304 - The targetId does not exist.
-   * @throws { BusinessError } 120305 - The node of targetId is not in the component tree.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  openBindContentCover<T extends Object>(content: ComponentContent<T>, controller: ContentCoverController,
-    contentCoverOptions?: ContentCoverOptions, targetId?: number): Promise<void>;
+  enableSwipeBack(enabled: boolean | undefined): void;
 
   /**
    * Sets the component freezing flag based on the component id to prevent the
@@ -3358,28 +4378,31 @@ export declare class UIContext {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   freezeUINode(id: string, isFrozen: boolean): void;
 
   /**
    * Sets the component freezing flag based on the component uniqueId to prevent the
    * UI component from marking and updating dirty areas.
-   * @param { number } uniqueId - Unique Id of the frame node.
+   * @param { int } uniqueId - Unique Id of the frame node.
    * @param { boolean } isFrozen - whether the component is frozen.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
-  freezeUINode(uniqueId: number, isFrozen: boolean): void;
+  freezeUINode(uniqueId: int, isFrozen: boolean): void;
 
   /**
    * Get object text menu controller.
    *
    * @returns { TextMenuController } object text menu controller.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getTextMenuController(): TextMenuController;
 
@@ -3394,7 +4417,8 @@ export declare class UIContext {
    * @throws { BusinessError } 100001 - Internal error.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   static createUIContextWithoutWindow(
     context: common.UIAbilityContext | common.ExtensionContext): UIContext | undefined;
@@ -3404,7 +4428,8 @@ export declare class UIContext {
    *
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   static destroyUIContextWithoutWindow(): void;
 
@@ -3413,29 +4438,96 @@ export declare class UIContext {
    *
    * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   setUIStates(callback: VoidCallback): void;
-
-  /**
-   * Retrieves the UIContext corresponding to the UI instance of the currently focused window.
-   * Returns undefined if it does not exist.
-   *
-   * @returns { UIContext | undefined } The focused UIContext, or undefined if it does not exist.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  static getFocusedUIContext(): UIContext | undefined;
 
   /**
    * Get id of the UI instance.
    *
    * @returns { int } Returns id of the UI instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   getId(): int;
+
+  /**
+   * Set the switch for memory recycling of invisible image nodes
+   * 
+   * @param { boolean } enabled - The switch for memory recycling.
+   *    <br>Default value: false, Passing `undefined` restores the default value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  recycleInvisibleImageMemory(enabled: boolean): void;
+
+  /**
+   * Set custom keyboard continue feature.
+   *
+   * @param { CustomKeyboardContinueFeature } feature - The custom keyboard continue feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
+
+  /**
+   * Retrieve the root node of the corresponding page of the UIContext.
+   *
+   * @returns { FrameNode | null } The root node of the corresponding page of the UIContext,
+   *     or null if no root node exists.
+   * @throws { BusinessError } 120007 - The UIContext is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  getPageRootNode(): FrameNode | null;
+
+  /**
+   * Checks whether the current UI instance is in easy split mode.
+   *
+   * @returns { boolean } Returns true if the current UI instance is in easy split mode; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean | undefined } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableEventPassthrough(enabled: boolean | undefined, eventType: RawInputEventType): void;
+
+  /**
+   * Sets the text selection clear policy for text component.
+   * Default policy: **TextSelectionClearPolicy.KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH**
+   *
+   * @param { TextSelectionClearPolicy } policy - The text selection clear policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void;
+
+  /**
+   * Get object smart gesture controller.
+   *
+   * @returns { SmartGestureController } object smart gesture controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getSmartGestureController(): SmartGestureController;
 }
 
 /**
@@ -3443,43 +4535,76 @@ export declare class UIContext {
  *
  * @enum { number } KeyBoardAvoidMethodType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export const enum KeyboardAvoidMode {
   /**
    * Default Type, offset the whole page when keyBoard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   OFFSET = 0,
 
   /**
    * Resize Type, resize the page when keyBoard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   RESIZE = 1,
 
   /**
    * Offset Type, offset the whole page when caret position or keyboard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   OFFSET_WITH_CARET = 2,
 
   /**
    * Resize Type, resize the whole page when when caret position or keyboard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   RESIZE_WITH_CARET = 3,
 
   /**
    * None Type, nothing to do when keyboard height changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   NONE = 4
+}
+
+/**
+ * Enum of TextSelectionClearPolicy
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export const enum TextSelectionClearPolicy {
+  /**
+  * Keep the selected text when touch outside of text component.
+  *
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @since 26.0.0 static
+  */
+  KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 0,
+
+  /**
+   * Clear the selected text when touch outside of text component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1,
 }
 
 /**
@@ -3487,14 +4612,16 @@ export const enum KeyboardAvoidMode {
  *
  * @enum { number } SwiperDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export const enum SwiperDynamicSyncSceneType {
   /**
    * Scene type is GESTURE.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   GESTURE = 0,
 
@@ -3502,7 +4629,8 @@ export const enum SwiperDynamicSyncSceneType {
    * Scene type is ANIMATION.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   ANIMATION = 1
 }
@@ -3512,14 +4640,16 @@ export const enum SwiperDynamicSyncSceneType {
  *
  * @enum { number } MarqueeDynamicSyncSceneType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export const enum MarqueeDynamicSyncSceneType {
   /**
    * Scene type is ANIMATION.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   ANIMATION = 1
 }
@@ -3528,7 +4658,8 @@ export const enum MarqueeDynamicSyncSceneType {
  * class TextMenuController
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class TextMenuController {
   /**
@@ -3536,7 +4667,8 @@ export declare class TextMenuController {
    *
    * @param { TextMenuOptions } options - the options of the text menu.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   setMenuOptions(options: TextMenuOptions): void;
 
@@ -3547,43 +4679,37 @@ export declare class TextMenuController {
    * @param { boolean } disable - flag to disable service menu items
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   static disableSystemServiceMenuItems(disable: boolean): void;
 }
 
 /**
- * The class used to control ContentConver
- *
+ * Enum of CustomKeyboardContinueFeature
+ * 
+ * @enum { int } CustomKeyboardContinueFeature
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-export declare class ContentCoverController {
+ export const enum CustomKeyboardContinueFeature {
+ 
   /**
-   * The constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * Enable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
    */
-  constructor();
-
+  ENABLED = 0,
+ 
   /**
-   * Update cotentCoverOptions.
-   *
-   * @param { ContentCoverOptions } contentCoverOptions - The options of contentCover.
-   * @param { boolean } [partialUpdate] - If true, only the specified properties in the sheetOptions are updated,
-   *     otherwise the rest of the properties are overwritten with the default values.
-   *     Default value is false.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * Disable custom keyboard continuation.
+   * 
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
    */
-  update(contentCoverOptions: ContentCoverOptions, partialUpdate?: boolean): void;
-
-  /**
-   * Close contentConver.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  close(): void;
+  DISABLED = 1
 }

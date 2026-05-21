@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The FlowItemAttribute.
@@ -26,7 +26,8 @@ import { AttributeModifier, CommonMethod } from "./common";
  * @extends CommonMethod
  * @interface FlowItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface FlowItemAttribute extends CommonMethod {
     /**
@@ -35,7 +36,8 @@ export declare interface FlowItemAttribute extends CommonMethod {
      * @param { AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -43,14 +45,13 @@ export declare interface FlowItemAttribute extends CommonMethod {
 /**
  * Defines FlowItem Component
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { FlowItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function FlowItem(
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): FlowItemAttribute

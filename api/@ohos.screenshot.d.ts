@@ -21,90 +21,94 @@
 import { AsyncCallback, ErrorCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 
- /**
- * Declares the screenshot APIs.
+/**
+ * Provides the screen capture capability.
  *
- * @namespace screenshot
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace screenshot {
   /**
-   * Takes a screenshot and saves it as a PixelMap object.
+   * Obtains a screenshot. This API uses an asynchronous callback to return the result.
    *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
+   * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
+   *     , the snapshot is a white screen.
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object. The size of the
+   *     PixelMap object is **imageSize**. If **imageSize** is not specified, the size of the logical screen associated
+   *     with the specified display ID is used.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+   *     API. [since 11]
+   * @throws { BusinessError } 1400001 - Invalid display or screen. [since 11]
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 7
-   */
-  /**
-   * Takes a screenshot and saves it as a PixelMap object.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { ScreenshotOptions } options - Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
-   * @since 20 static
-   */
-  /**
-   * Takes a screenshot and saves it as a PixelMap object.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
-   * @param { ScreenshotOptions } [options] - Screenshot options, which consist of screenRect, imageSize, and rotation.
-   *     You need to set these parameters
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 22 dynamic&static
+   * @since 7 dynamic
+   * @since 23 static
    */
   function save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * Screen capture, supporting HDR screenshots when there is HDR content.
-   * If HdrScreenshotOptions is null, save primary display Hdr picture.
+   * Obtains a screenshot. This API uses an asynchronous callback to return the result.
    *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { HdrScreenshotOptions } [options] - Screenshot parameters. Default value is null.
-   * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
-   *     return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available,
-   *     only return one SDR PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
-   * @syscap SystemCapability.Window.SessionManager
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 20 dynamic
+   * @since 7 dynamic
+   * @since 23 static
    */
+  function save(callback: AsyncCallback<image.PixelMap>): void;
+
   /**
-   * Screen capture, supporting HDR screenshots when there is HDR content.
-   * If HdrScreenshotOptions is null, save primary display Hdr picture.
+   * Obtains a screenshot. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
-   * @param { HdrScreenshotOptions } [options] - Screenshot parameters. Default value is null.
-   * @returns { Promise<Array<image.PixelMap>> } Promise used to return a PixelMap array. When HDR content is available,
-   *     return two PixelMap objects: the first one as SDR and the second one as HDR. When no HDR content is available,
-   *     only return one SDR PixelMap object.
+   * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
+   *     , the snapshot is a white screen. [since 7 - 21]
+   * @param { ScreenshotOptions } [options] - Information about the snapshot. If the screen to capture is a virtual
+   *     screen, the snapshot is a white screen. [since 22]
+   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 7 dynamic
+   * @since 23 static
+   */
+  function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
+
+  /**
+   * Obtains a screenshot. This API uses a promise to return the result. SDR stands for Standard Dynamic Range, and HDR
+   * stands for High Dynamic Range.
+   *
+   * - If the screen contains HDR resources (even if they are partially obscured), this API returns an array with both
+   * SDR and HDR PixelMaps, regardless of whether HDR is enabled.
+   * - If there are no HDR resources, it returns an array with a single SDR PixelMap. Unlike the
+   * [save]{@link screenshot.save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>)} API, which
+   * returns a single SDR PixelMap, this API always returns an array. Additionally, this API does not support cropping,
+   * stretching, or rotating features available in the
+   * [save]{@link screenshot.save(options: ScreenshotOptions, callback: AsyncCallback<image.PixelMap>)} API.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN [since 20 - 21]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @param { HdrScreenshotOptions } [options] - Information about the HDR snapshot. This parameter is left unspecified
+   *     by default.
+   * @returns { Promise<Array<image.PixelMap>> } Promise used to return an array of PixelMap objects. If the screen
+   *     contains HDR resources (even if they are partially obscured), the array contains two PixelMaps: the first is an
+   *     SDR PixelMap, and the second is an HDR PixelMap. If there are no HDR resources, the array contains a single SDR
+   *     PixelMap.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -115,136 +119,80 @@ declare namespace screenshot {
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
-   * @since 22 dynamic&static
+   * @since 20 dynamic
+   * @since 23 static
    */
   function saveHdrPicture(options?: HdrScreenshotOptions): Promise<Array<image.PixelMap>>;
 
   /**
-   * Takes a screenshot and saves it as a PixelMap object.
+   * Takes a screenshot of the entire screen. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 7 dynamic
-   * @since 20 static
-   */
-  /**
-   * Takes a screenshot and saves it as a PixelMap object.
+   * This API allows you to take screenshots of different screens by setting various **displayId** values, but only full
+   * -screen captures are supported. The [pick]{@link screenshot.pick} API allows you to take screenshots of a specified
+   * region.
    *
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
-   * @param { AsyncCallback<image.PixelMap> } callback Callback used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 22 dynamic&static
-   */
-  function save(callback: AsyncCallback<image.PixelMap>): void;
-
-  /**
-   * Takes a screenshot and saves it as a PixelMap object.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { ScreenshotOptions } options Screenshot options, which consist of screenRect, imageSize, and rotation. You need to set these parameters
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE [since 14 - 21]
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @param { CaptureOption } options - Capture options. If this parameter is left blank, the display with ID 0 is
+   *     captured by default. [since 14 - 21]
+   * @param { CaptureOption } [options] - Capture options. If this parameter is left blank, the display with ID 0 is
+   *     captured by default. [since 22]
    * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   * <br>2.Incorrect parameter types.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 7 dynamic
-   * @since 20 static
-   */
-  /**
-   * Takes a screenshot and saves it as a PixelMap object.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING
-   * @param { ScreenshotOptions } [options] Screenshot options, which consist of screenRect, imageSize, and rotation.
-   *     You need to set these parameters
-   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 22 dynamic&static
-   */
-  function save(options?: ScreenshotOptions): Promise<image.PixelMap>;
-
-  /**
-   * Takes a capture and return as a PixelMap object.
-   *
-   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE
-   * @param { CaptureOption } options which consist of CaptureOption.
-   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-   *                                                                   2.Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Incorrect parameter types.
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
-   * @since 14
-   */
-  /**
-   * Takes a capture and return as a PixelMap object.
-   *
-   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING
-   * @param { CaptureOption } [options] which consist of CaptureOption.
-   * @returns { Promise<image.PixelMap> } Promise used to return a PixelMap object.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @atomicservice
-   * @since 22 dynamic&static
+   * @since 14 dynamic
+   * @since 23 static
    */
   function capture(options?: CaptureOption): Promise<image.PixelMap>;
 
   /**
-   * Takes a screenshot and picks it as a PickInfo object.
+   * Obtains this screenshot. Currently, only the screenshot of the display whose ID is **0** can be obtained. (If a
+   * screenshot of the extended screen is needed, you can use the [capture]{@link screenshot.capture} API.) This API
+   * uses a promise to return the result.
    *
-   * @returns { Promise<PickInfo> } Promise used to return a PickInfo object.
+   * @returns { Promise<PickInfo> } Promise used to return the PickInfo object.
    * @throws { BusinessError } 801 - Capability not supported on this device.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   function pick(): Promise<PickInfo>;
 
   /**
-   * Describes the region of the screen to pick info.
+   * Describes the screenshot options.
    *
-   * @interface PickInfo
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
+   * @since 23 static
    */
   interface PickInfo {
     /**
-     * the region of the screen to capture.
+     * Region of the screen to capture.
      *
-     * @type { Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     pickRect: Rect;
 
     /**
-     * the region of the screen to capture pixelMap.
+     * PixelMap object of the captured image.
      *
-     * @type { image.PixelMap }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
   }
@@ -252,54 +200,49 @@ declare namespace screenshot {
   /**
    * Describes the region of the screen to capture.
    *
-   * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Rect {
     /**
-     * The X-axis coordinate of the upper left vertex of the rectangle.
+     * Left boundary of the screen region to capture, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     left: long;
 
     /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle.
+     * Top boundary of the screen region to capture, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     top: long;
 
     /**
-     * Width of the rectangle.
+     * Width of the screen region to capture, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: long;
 
     /**
-     * Height of the rectangle.
+     * Height of the screen region to capture, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: long;
   }
@@ -307,182 +250,231 @@ declare namespace screenshot {
   /**
    * Describes the size of the screen region to capture.
    *
-   * @interface Size
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Size {
     /**
-     * Defines the width property.
+     * Width of the screen region to capture, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: long;
 
     /**
-     * Defines the height property.
+     * Height of the screen region to capture, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: long;
   }
 
   /**
-   * Describes capture options.
+   * Describes the capture options.
    *
-   * @interface CaptureOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
    * @since 14 dynamic
+   * @since 23 static
    */
   interface CaptureOption {
     /**
-     * ID of the screen to be captured.
+     * ID of the [display]{@link @ohos.display:display.DisplayState} to capture. The default value is **0**. The value
+     * must be an integer greater than or equal to 0. If a non-integer is passed, a parameter error is reported.
      *
-     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 14 dynamic
+     * @since 23 static
      */
     displayId?: long;
 
     /**
-     * List of window ids excluded in the screenshot.
+     * List of window IDs that are not displayed during screen capture. By default, this list is empty. Valid window IDs
+     * must be positive integers. Currently, this parameter applies only to
+     * [floating ball windows]{@link @ohos.window.floatingBall:floatingBall}. If a window ID does not correspond to a
+     * floating ball window, is not a positive integer, or does not exist, error code 401 is reported. You are advised
+     * to call
+     * [getFloatingBallWindowInfo()]{@link @ohos.window.floatingBall:floatingBall.FloatingBallController.getFloatingBallWindowInfo}
+     * to obtain the window ID of a floating ball window.
      *
-     * @type { ?Array<int> }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     blackWindowIds?: Array<int>;
   }
 
   /**
-   * Describes screenshot options.
+   * Describes the screenshot options.
    *
-   * @interface ScreenshotOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ScreenshotOptions {
     /**
-     * Region of the screen to capture. If this parameter is null, the full screen will be captured.
+     * Region of the screen to capture. If no value is passed, the region of the logical screen associated with the
+     * specified display ID is returned.
      *
-     * @type { ?Rect }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     screenRect?: Rect;
     /**
-     * Region of the screen to capture. If this parameter is null, the full screen will be captured.
+     * Region of the screen to capture. If no value is passed, the region of the logical screen associated with the
+     * specified display ID is returned.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     imageSize?: Size;
     /**
-     * Rotation angle of the screenshot. The value can be 0, 90, 180, or 270. The default value is 0.
+     * Angle by which the captured image should be rotated. Currently, the value can be **0** only. The default value is
+     * **0**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     rotation?: int;
     /**
-     * ID of the screen to be captured.
+     * ID of the [display]{@link @ohos.display:display.DisplayState} device on which the screen region is to be
+     * captured. The value must be an integer.
      *
-     * @type { ?long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayId?: long;
     /**
-     * The capture action is need notification.
+     * Whether to send a notification after a snapshot is captured. **true** to send, **false** otherwise. The default
+     * value is **true**. Such a notification can be listened for through
+     * [captureStatusChange]{@link @ohos.display:display.on(type: 'captureStatusChange', callback: Callback<boolean>)}.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isNotificationNeeded?: boolean;
     /**
-     * The capture action is need take screenshots of all displays on this screen.
+     * Whether to capture all displays on the current screen. If the screen contains multiple displays, the value
+     * **true** means that the entire screen is captured, and **false** means that only the region of the logical screen
+     * associated with the specified display ID is captured.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isCaptureFullOfScreen?: boolean;
   }
 
   /**
-   * Describes hdr screenshot options.
+   * Describes the HDR screenshot options.
    *
-   * @interface HdrScreenshotOptions
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HdrScreenshotOptions {
     /**
-     * ID of the screen to be captured.
+     * ID of the [display]{@link @ohos.display:display.DisplayState} device on which the screen region is to be
+     * captured. The value must be an integer. The default value is **0**.
      *
-     * @type { ?long }
-     * @default The ID of current display. The value is a positive integer greater than or equal to 0.
+     * @default The ID of the current display. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     displayId?: long;
     /**
-     * The capture action is need notification.
+     * Whether to send a notification after a snapshot is captured. **true** to send, **false** otherwise. The default
+     * value is **true**. Such a notification can be listened for through
+     * [captureStatusChange]{@link @ohos.display:display.on(type: 'captureStatusChange', callback: Callback<boolean>)}.
      *
-     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isNotificationNeeded?: boolean;
     /**
-     * The capture action is need take screenshots of all displays on this screen.
+     * Whether to capture all displays on the current screen. If the screen contains multiple displays, the value
+     * **true** means that the entire screen is captured, and **false** means that only the region of the logical screen
+     * associated with the specified display ID is captured. The default value is **false**.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isCaptureFullOfScreen?: boolean;
+    /**
+     * screenshot display intent type.
+     *
+     * @type { ?DisplayIntentType }
+     * @default DisplayIntentType.CANONICAL
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    displayIntent?: DisplayIntentType;
+  }
+
+  /**
+   * Enumerates the screenshot display intent type.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum DisplayIntentType {
+    /**
+     * Specifies that the screenshot renders with canonical display attributes optimizing output for
+     * presentation on the HDR display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CANONICAL = 0,
+
+    /**
+     * Specifies that the screenshot renders with local display attributes optimizing output for
+     * presentation on the capture display.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LOCAL = 1
   }
 }
 

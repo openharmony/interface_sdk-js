@@ -275,23 +275,23 @@ declare enum NavigationMode {
   Split,
 
   /**
-   * If the window width is greater than 520vp, the navigation component is displayed in split mode.
+   * If the navigation width is greater than 520vp, the navigation component is displayed in split mode.
    * Otherwise it's displayed in stack mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 9
    */
   /**
-   * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
-   * Otherwise it's displayed in stack mode.
+   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
-   * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is displayed in split mode.
-   * Otherwise it's displayed in stack mode.
+   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -299,6 +299,19 @@ declare enum NavigationMode {
    * @since 11 dynamic
    */
   Auto,
+
+  /**
+   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
+   * and the navigation component's aspect ratio (height to width) is less than or equal to 1.2,
+   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  AUTO_WITH_ASPECT_RATIO,
 }
 
 /**
@@ -2301,6 +2314,94 @@ declare interface ToolbarItem {
 }
 
 /**
+ * Enumerates the scroll effect types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum ScrollEffectType {
+  /**
+   * Common blur style. It applies uniform blur to the background.
+   * The blurred background appear/disappear with transparent gradient.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  COMMON_BLUR = 0,
+
+  /**
+   * Gradual blur style. It applies uniform blur to the title background with clear boundaries.
+   * The title bar content changes color/state before and after scrolling.
+   * During scrolling, it changes linearly following the gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  GRADUAL_BLUR = 1,
+}
+
+/**
+ * Defines the scroll effect options for the title bar.
+ *
+ * @interface ScrollEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface ScrollEffectOptions {
+  /**
+   * Title bar scroll blur style.
+   * Default value: ScrollEffectType.COMMON_BLUR
+   *
+   * @type { ?ScrollEffectType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollEffectType?: ScrollEffectType;
+
+  /**
+   * The minimum sliding distance of the content area to enable the title bar sliding blur effect.
+   * Default value: 0vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  blurEffectiveStartOffset?: LengthMetrics;
+
+  /**
+   * The maximum sliding distance of the content area to enable the final blur style of the title bar.
+   * Default value: 8vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  blurEffectiveEndOffset?: LengthMetrics;
+}
+
+/**
  * Indicates the options of Navigation's Titlebar.
  *
  * @interface NavigationTitleOptions
@@ -2427,6 +2528,18 @@ declare interface NavigationTitleOptions {
    * @since 13 dynamic
    */
   enableHoverMode?: boolean;
+
+  /**
+   * Title scroll blur style.
+   *
+   * @type { ?ScrollEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollEffectOptions?: ScrollEffectOptions;
 }
 
 /**
@@ -2586,7 +2699,7 @@ declare interface NavigationMenuOptions {
 }
 
 /**
- * Indicates the options of Navigation's Menu.
+ * The more button options of Navigation's menu or toolbar.
  *
  * @interface MoreButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3417,6 +3530,20 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
   
   /**
+   * Set the navigation divider style in split mode.
+   *
+   * @param { NavigationDividerStyle | null } style - navigation divider style in split mode.
+   *      null indicates that the divider is hidden.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  divider(style: NavigationDividerStyle | null): NavigationAttribute;
+
+  /**
    * whether to enable modeChangeAnimation
    * 
    * @param { Optional<boolean> } isEnabled - enableModeChangeAnimation.
@@ -3754,6 +3881,50 @@ declare interface NavContentInfo {
    * @since 12 dynamic
    */
   navDestinationId?: string;
+}
+
+/**
+* Define the style of the Navigation divider.
+*
+* @interface NavigationDividerStyle
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @crossplatform
+* @atomicservice
+* @since 23 dynamic
+*/
+declare interface NavigationDividerStyle {
+  /**
+   * Define the color of the navigation divider.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color?: ResourceColor;
+
+  /**
+   * Define the start margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  startMargin?: Length;
+
+  /**
+   * Define the end margin of the navigation divider.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  endMargin?: Length;
 }
 
 /**

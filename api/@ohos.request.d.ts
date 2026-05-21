@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Upload and Download
  * @kit BasicServicesKit
  */
 
@@ -24,2484 +24,1831 @@ import BaseContext from './application/BaseContext';
 import { WantAgent } from './@ohos.app.ability.wantAgent';
 
 /**
- * Upload and download
+ * The **request** module provides applications with basic upload, download, and background transmission agent 
+ * capabilities.
+ * 
+ * - Currently, the **request** module cannot be called in extensions.
  *
- * @namespace request
- * @since 6
- */
-/**
- * Upload and download
- *
- * @namespace request
- * @syscap SystemCapability.Request.FileTransferAgent
- * @crossplatform
- * @since 10
- */
-/**
- * Upload and download
- *
- * @namespace request
- * @syscap SystemCapability.Request.FileTransferAgent
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @syscap SystemCapability.Request.FileTransferAgent [since 10]
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
+ * @since 23 static
  */
 declare namespace request {
   /**
-   * Error code 201 - The permissions check fails.
+   * (Universal error codes) Permission verification failed.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 201 - The permissions check fails.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const EXCEPTION_PERMISSION: int;
   /**
-   * Error code 401 - The parameters check fails.
+   * (Universal error codes) Parameter check failed.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 401 - The parameters check fails.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const EXCEPTION_PARAMCHECK: int;
   /**
-   * Error code 801 - Call unsupported api.
+   * (Universal error codes) The device does not support this API.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 801 - Call unsupported api.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const EXCEPTION_UNSUPPORTED: int;
   /**
-   * Error code 13400001 - Invalid file or file system error.
+   * (Specific error codes) Abnormal file operation.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 13400001 - Invalid file or file system error.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const EXCEPTION_FILEIO: int;
   /**
-   * Error code 13400002 - File path not supported or invalid.
+   * (Specific error codes) Abnormal file path.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 13400002 - File path not supported or invalid.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const EXCEPTION_FILEPATH: int;
   /**
-   * Error code 13400003 - Task service ability error.
+   * (Specific error codes) Abnormal service.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 13400003 - Task service ability error.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const EXCEPTION_SERVICE: int;
   /**
-   * Error code 13499999 - Others error.
+   * (Specific error codes) Other errors.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 13499999 - Others error.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const EXCEPTION_OTHERS: int;
 
   /**
-   * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
+   * (Network type) Bit flag download allowed on a mobile network.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 6
-   */
-  /**
-   * Code 0x00000001 - Bit flag indicating download is allowed when using the cellular network.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
    */
   const NETWORK_MOBILE: int;
 
   /**
-   * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
+   * (Network type) Bit flag download allowed on a WLAN.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 6
-   */
-  /**
-   * Code 0x00010000 - Bit flag indicating download is allowed when using the WLAN.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
    */
   const NETWORK_WIFI: int;
 
   /**
-   * Error code 0 - Indicates that the download cannot be resumed for network reasons.
+   * (Download error codes) Failure to resume the download due to network errors.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 0 - Indicates that the download cannot be resumed for network reasons.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_CANNOT_RESUME: int;
 
   /**
-   * Error code 1 - Indicates that no storage device, such as an SD card, is found.
+   * (Download error codes) Failure to find a storage device such as a memory card.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 1 - Indicates that no storage device, such as an SD card, is found.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_DEVICE_NOT_FOUND: int;
 
   /**
-   * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
+   * (Download error codes) Failure to download the file because it already exists.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 2 - Indicates that files to be downloaded already exist, and that the download session cannot overwrite the existing files.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_FILE_ALREADY_EXISTS: int;
 
   /**
-   * Error code 3 - Indicates that a file operation fails.
+   * (Download error codes) File operation failed.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 3 - Indicates that a file operation fails.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_FILE_ERROR: int;
 
   /**
-   * Error code 4 - Indicates that the HTTP transmission fails.
+   * (Download error codes) HTTP transmission failed.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 4 - Indicates that the HTTP transmission fails.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_HTTP_DATA_ERROR: int;
 
   /**
-   * Error code 5 - Indicates insufficient storage space.
+   * (Download error codes) Insufficient storage space.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 5 - Indicates insufficient storage space.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_INSUFFICIENT_SPACE: int;
 
   /**
-   * Error code 6 - Indicates an error caused by too many network redirections.
+   * (Download error codes) Error caused by too many network redirections.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 6 - Indicates an error caused by too many network redirections.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_TOO_MANY_REDIRECTS: int;
 
   /**
-   * Error code 7 - Indicates an HTTP code that cannot be identified.
+   * (Download error codes) Unidentified HTTP code.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 7 - Indicates an HTTP code that cannot be identified.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_UNHANDLED_HTTP_CODE: int;
 
   /**
-   * Error code 8 - Indicates an undefined error.
+   * (Download error codes) Unknown error.
+   * 
+   * In API version 12 or earlier, only serial connection to the IP addresses associated with the specified domain name 
+   * is supported, and the connection time for a single IP address is not controllable. If the first IP address returned
+   * by the DNS is blocked, a handshake timeout may occur, leading to an ERROR_UNKNOWN error.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Error code 8 - Indicates an undefined error.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const ERROR_UNKNOWN: int;
 
   /**
-   * Error code 9 - Indicates network offline.
+   * (Download error codes) No network connection.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 9 - Indicates network offline.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const ERROR_OFFLINE: int;
 
   /**
-   * Error code 10 - Indicates network type configuration error.
+   * (Download error codes) Network type mismatch.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Error code 10 - Indicates network type configuration error.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const ERROR_UNSUPPORTED_NETWORK_TYPE: int;
 
   /**
-   * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
-   * because the file size exceeds the maximum allowed for a session using the cellular network.
+   * (Causes of download pause) Download paused and queuing for a WLAN connection because the file size exceeds the 
+   * maximum value allowed for a mobile network session.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Paused code 0 - Indicates that the download is paused and waiting for a WLAN connection,
-   * because the file size exceeds the maximum allowed for a session using the cellular network.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const PAUSED_QUEUED_FOR_WIFI: int;
 
   /**
-   * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
+   * (Causes of download pause) Download paused due to a network connection problem.
+   * 
+   * Example: network disconnection
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Paused code 1 - Indicates that the download is paused due to a network problem, for example, network disconnection.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const PAUSED_WAITING_FOR_NETWORK: int;
 
   /**
-   * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
+   * (Causes of download pause) Download paused due to network error and then retried.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Paused code 2 - Indicates that a network error occurs, and the download session will be retried.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const PAUSED_WAITING_TO_RETRY: int;
 
   /**
-   * Paused code 3 - Indicates that the download is paused due to the user.
+   * (Causes of download pause) The user paused the session.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Paused code 3 - Indicates that the download is paused due to the user.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const PAUSED_BY_USER: int;
 
   /**
-   * Paused code 4 - Indicates that the download is paused for some reasons.
+   * (Causes of download pause) Download paused due to unknown reasons.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Paused code 4 - Indicates that the download is paused for some reasons.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const PAUSED_UNKNOWN: int;
 
   /**
-   * Session status code 0 - Indicates that the download session is completed.
+   * (Download task status codes) Successful download.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Session status code 0 - Indicates that the download session is completed.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const SESSION_SUCCESSFUL: int;
 
   /**
-   * Session status code 1 - Indicates that the download session is in progress.
+   * (Download task status codes) Download in progress.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Session status code 1 - Indicates that the download session is in progress.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const SESSION_RUNNING: int;
 
   /**
-   * Session status code 2 - Indicates that the download session is being scheduled.
+   * (Download task status codes) Download pending.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Session status code 2 - Indicates that the download session is being scheduled.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const SESSION_PENDING: int;
 
   /**
-   * Session status code 3 - Indicates that the download session has been paused.
+   * (Download task status codes) Download paused.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Session status code 3 - Indicates that the download session has been paused.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const SESSION_PAUSED: int;
 
   /**
-   * Session status code 4 - Indicates that the download session has failed and will not be retried.
+   * (Download task status codes) Download failure without retry.
    *
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   */
-  /**
-   * Session status code 4 - Indicates that the download session has failed and will not be retried.
-   *
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const SESSION_FAILED: int;
 
   /**
-   * Starts a download task.
+   * Downloads a file. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.INTERNET
-   * @param { DownloadConfig } config Download config
-   * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
+   * @param { DownloadConfig } config - Download configuration.
+   * @param { AsyncCallback<DownloadTask> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined** and **data** is the **DownloadTask** object obtained. Otherwise, **err**
+   *     is an error object.
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.request.downloadFile
+   * @useinstead request.downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>)
    */
   function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
-   * Starts a download task.
+   * Downloads a file. This API uses an asynchronous callback to return the result. HTTP is supported. You can use 
+   * [on('complete'|'pause'|'remove')]{@link request.DownloadTask.on(type: 'complete' | 'pause' | 'remove', callback: () => void)}
+   * to obtain the download task state, including task completion, pause, and removal. You can also use 
+   * [on('fail')]{@link request.DownloadTask.on(type: 'fail', callback: (err: int) => void)} to obtain the task download
+   * error information.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about how to obtain the context in the example, see 
+   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+   * > .
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { DownloadConfig } config Download config
-   * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
+   * @param { BaseContext } context - Application-based context.
+   * @param { DownloadConfig } config - Download configuration.
+   * @param { AsyncCallback<DownloadTask> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined** and **data** is the **DownloadTask** object obtained. Otherwise, **err**
+   *     is an error object.
    * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400001 - Invalid file or file system error.
-   * @throws { BusinessError } 13400002 - File path not supported or invalid.
-   * @throws { BusinessError } 13400003 - task service ability error
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Starts a download task.
-   *
-   * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { DownloadConfig } config Download config
-   * @param { AsyncCallback<DownloadTask> } callback Indicate the callback function to receive DownloadTask.
-   * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+   *     <br> 1. Missing mandatory parameters.
+   *     <br> 2. Incorrect parameter type.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 13400001 - Invalid file or file system error.
    * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @throws { BusinessError } 13400003 - Task service ability error.
    * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void;
 
   /**
-   * Starts a download task.
+   * Downloads a file. This API uses a promise to return the result.
    *
    * @permission ohos.permission.INTERNET
-   * @param { DownloadConfig } config Download config
-   * @returns { Promise<DownloadTask> } the promise returned by the function.
+   * @param { DownloadConfig } config - Download configuration.
+   * @returns { Promise<DownloadTask> } Promise used to return the **DownloadTask** object.
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Download
    * @FAModelOnly
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.request.downloadFile
+   * @useinstead request.downloadFile(context: BaseContext, config: DownloadConfig)
    */
   function download(config: DownloadConfig): Promise<DownloadTask>;
 
   /**
-   * Starts a download task.
+   * Downloads a file. This API uses a promise to return the result. HTTP is supported. You can use 
+   * [on('complete'|'pause'|'remove')]{@link request.DownloadTask.on(type: 'complete' | 'pause' | 'remove', callback: () => void)}
+   * to obtain the download task state, including task completion, pause, and removal. You can also use 
+   * [on('fail')]{@link request.DownloadTask.on(type: 'fail', callback: (err: int) => void)} to obtain the task download
+   * error information.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about how to obtain the context in the example, see 
+   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+   * > .
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { DownloadConfig } config Download config
-   * @returns { Promise<DownloadTask> } the promise returned by the function.
+   * @param { BaseContext } context - Application-based context.
+   * @param { DownloadConfig } config - Download configuration.
+   * @returns { Promise<DownloadTask> } Promise used to return the **DownloadTask** object.
    * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400001 - Invalid file or file system error.
-   * @throws { BusinessError } 13400002 - File path not supported or invalid.
-   * @throws { BusinessError } 13400003 - task service ability error
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 9
-   */
-  /**
-   * Starts a download task.
-   *
-   * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { DownloadConfig } config Download config
-   * @returns { Promise<DownloadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+   *     <br> 1. Missing mandatory parameters.
+   *     <br> 2. Incorrect parameter type.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 13400001 - Invalid file or file system error.
    * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @throws { BusinessError } 13400003 - Task service ability error.
    * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function downloadFile(context: BaseContext, config: DownloadConfig): Promise<DownloadTask>;
 
   /**
-   * Starts an upload task.
+   * Uploads a file. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.INTERNET
-   * @param { UploadConfig } config Upload config
-   * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
+   * @param { UploadConfig } config - Upload configurations.
+   * @param { AsyncCallback<UploadTask> } callback - Callback used to return the **UploadTask** object. If the operation
+   *     is successful, **err** is **undefined**, and **data** is the **UploadTask** object obtained. Otherwise, **err**
+   *     is an error object.
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
+   * @useinstead request.uploadFile(context: BaseContext, config: UploadConfig)
    */
   function upload(config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
-   * Starts an upload task.
+   * Uploads a file. This API uses an asynchronous callback to return the result. HTTP is supported. You can use 
+   * [on('complete'|'fail')]{@link request.UploadTask.on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>)}
+   * to obtain the upload success or error information.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about how to obtain the context in the example, see 
+   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+   * > .
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { UploadConfig } config Upload config
-   * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
+   * @param { BaseContext } context - Application-based context.
+   * @param { UploadConfig } config - Upload configurations.
+   * @param { AsyncCallback<UploadTask> } callback - Callback used to return the **UploadTask** object. If the operation
+   *     is successful, **err** is **undefined**, and **data** is the **UploadTask** object obtained. Otherwise, **err**
+   *     is an error object.
    * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+   *     <br> 1. Missing mandatory parameters.
+   *     <br> 2. Incorrect parameter type.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
-   */
-  /**
-   * Starts an upload task.
-   *
-   * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { UploadConfig } config Upload config
-   * @param { AsyncCallback<UploadTask> } callback Indicate the callback function to receive UploadTask.
-   * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400002 - File path not supported or invalid.
-   * @syscap SystemCapability.MiscServices.Upload
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>): void;
 
   /**
-   * Starts an upload task.
+   * Uploads a file. This API uses a promise to return the result.
    *
    * @permission ohos.permission.INTERNET
-   * @param { UploadConfig } config Upload config
-   * @returns { Promise<UploadTask> } the promise returned by the function.
+   * @param { UploadConfig } config - Upload configurations.
+   * @returns { Promise<UploadTask> } Promise used to return the **UploadTask** object.
    * @throws { BusinessError } 201 - The permissions check fails.
    * @syscap SystemCapability.MiscServices.Upload
    * @FAModelOnly
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.request.uploadFile
+   * @useinstead request.uploadFile(context: BaseContext, config: UploadConfig)
    */
   function upload(config: UploadConfig): Promise<UploadTask>;
 
   /**
-   * Starts an upload task.
+   * Uploads a file. This API uses a promise to return the result. HTTP is supported. You can use 
+   * [on('complete'|'fail')]{@link request.UploadTask.on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>)}
+   * to obtain the upload success or error information.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about how to obtain the context in the example, see 
+   * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+   * > .
    *
    * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { UploadConfig } config Upload config
-   * @returns { Promise<UploadTask> } the promise returned by the function.
+   * @param { BaseContext } context - Application-based context.
+   * @param { UploadConfig } config - Upload configurations.
+   * @returns { Promise<UploadTask> } Promise used to return the **UploadTask** object.
    * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+   *     <br> 1. Missing mandatory parameters.
+   *     <br> 2. Incorrect parameter type.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 13400002 - File path not supported or invalid.
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
-   */
-  /**
-   * Starts an upload task.
-   *
-   * @permission ohos.permission.INTERNET
-   * @param { BaseContext } context Indicates the application BaseContext.
-   * @param { UploadConfig } config Upload config
-   * @returns { Promise<UploadTask> } the promise returned by the function.
-   * @throws { BusinessError } 201 - The permissions check fails.
-   * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-   * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-   * @throws { BusinessError } 13400002 - File path not supported or invalid.
-   * @syscap SystemCapability.MiscServices.Upload
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function uploadFile(context: BaseContext, config: UploadConfig): Promise<UploadTask>;
 
   /**
-   * DownloadConfig data structure.
    * Defines the download task configuration.
    *
-   * @interface DownloadConfig
    * @syscap SystemCapability.MiscServices.Download
-   * @since 6
-   * @name DownloadConfig
-   */
-  /**
-   * DownloadConfig data structure.
-   * Defines the download task configuration.
-   *
-   * @typedef DownloadConfig
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
    * @name DownloadConfig
    */
   interface DownloadConfig {
     /**
-     * Resource address.
-     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
+     * Resource URL. From API version 6 to 14, the value contains a maximum of 2048 characters; since API version 15, 
+     * the value contains a maximum of 8192 characters. 
+     * [Intercepting HTTP](docroot://basic-services/request/app-file-upload-download.md#intercepting-http) is supported.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Resource address.
-     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Resource address.
-     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 15 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     url: string;
     /**
-     * Adds an HTTP or HTTPS header to be included with the download request.
+     * HTTPS flag header to be included in the download request. The default value is empty.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Adds an HTTP or HTTPS header to be included with the download request.
-     *
-     * @type { ?Object }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      */
     header?: Object;
     /**
-     * Allows download under a metered connection.
+     * Adds an HTTP or HTTPS header to be included with the download request.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
+     * @since 23 static
      */
+    header?: Record<string, string>;
     /**
-     * Allows download under a metered connection.
+     * Whether download is allowed on a metered connection. The value **true** means the download is allowed, and 
+     * **false** means the opposite. The default value is **false**.
+     * 
+     * > **NOTE**
+     * > 
+     * > In general cases, a mobile data connection is metered, while a Wi-Fi connection is not.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     enableMetered?: boolean;
     /**
-     * Allows download in a roaming network.
+     * Whether download is allowed on a roaming network. The value **true** means the download is allowed, and **false**
+     * means the opposite. The default value is **false**.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Allows download in a roaming network.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     enableRoaming?: boolean;
     /**
-     * Sets the description of a download session.
+     * Description of the download session. The default value is an empty string.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Sets the description of a download session.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     description?: string;
     /**
-     * Sets the network type allowed for download.
+     * Network type that can be used for download. The allowed network type is determined by bitwise operation of 
+     * [network type constants](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
+     * . The following settings are supported:
+     * 
+     * - Only the cellular network is supported. The parameter is **NETWORK_MOBILE** or **0x00000001**.
+     * - Only WLAN is supported. The parameter is **NETWORK_WIFI** or **0x00010000**.
+     * - Both cellular network and WLAN are supported, which is the default settings. The parameter is 
+     * **NETWORK_MOBILE **
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Sets the network type allowed for download.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     networkType?: int;
     /**
-     * Sets the path where the downloaded file is stored.
+     * Path where the downloaded file is stored. The default value is the cache directory of the caller (that is, the 
+     * input **context**). The default file name is the part truncated from the last slash (/) in the URL.
+     * 
+     * - In the FA model, use the 
+     * [Context.getCacheDir](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetcachedir) 
+     * method to obtain the application storage path.
+     * - In the Stage model, use the **AbilityContext** class in 
+     * [Context (Context Base Class of the Stage Model)]{@link ./application/Context:Context} to obtain the file path.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * Sets the path where the downloaded file is stored.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     filePath?: string;
     /**
-     * Sets a download session title.
+     * Download task name. The default value is **download**.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Sets a download session title.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     title?: string;
     /**
-     * Allow download background task notifications.
+     * Whether to enable the background task notification. When this parameter is enabled, the download status is 
+     * displayed in the notification panel. The value **true** means the parameter is enabled, and **false** means the 
+     * opposite. The default value is **false**.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Allow download background task notifications.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     background?: boolean;
   }
 
   /**
-   * DownloadInfo data structure.
-   * Defines the download task information.
+   * Defines the download task information, which is the callback parameter of the 
+   * [getTaskInfo]{@link request.DownloadTask.getTaskInfo()} API.
    *
-   * @interface DownloadInfo
    * @syscap SystemCapability.MiscServices.Download
-   * @since 7
-   * @name DownloadInfo
-   */
-  /**
-   * DownloadInfo data structure.
-   * Defines the download task information.
-   *
-   * @typedef DownloadInfo
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 7 dynamic
+   * @since 23 static
+   * @name DownloadInfo [since 7 - 9]
    */
   interface DownloadInfo {
     /**
-     * The description of a file to be downloaded.
+     * Description of the download task.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The description of a file to be downloaded.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     description: string;
     /**
-     * The real-time downloads size (in bytes).
+     * Real-time download size, in bytes.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The real-time downloads size (in bytes).
-     *
-     * @type { long }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     downloadedBytes: long;
     /**
-     * The ID of a file to be downloaded.
+     * Download task ID.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The ID of a file to be downloaded.
-     *
-     * @type { long }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     downloadId: long;
     /**
-     * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
+     * Cause of the download failure. The value can be any constant in 
+     * [Download Error Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
+     * .
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * Cause of the download failure, which can be any DownloadSession.ERROR_* constant.
-     *
-     * @type { int }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     failedReason: int;
     /**
-     * The name of a file to be downloaded.
+     * Name of the downloaded file.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The name of a file to be downloaded.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     fileName: string;
     /**
-     * The URI of a stored file.
+     * URI of the saved file.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The URI of a stored file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     filePath: string;
     /**
-     * Cause of download pause which can be any DownloadSession.PAUSED_* constant.
+     * Cause of download pause. The value can be any constant in 
+     * [Causes of Download Pause](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
+     * .
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * Cause of download pause, which can be any DownloadSession.PAUSED_* constant.
-     *
-     * @type { int }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     pausedReason: int;
     /**
-     * The download task status code, which can be any DownloadSession.SESSION_* constant.
+     * Download task status code. The value can be any constant in 
+     * [Download Task Status Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
+     * .
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The download task status code, which can be any DownloadSession.SESSION_* constant.
-     *
-     * @type { int }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     status: int;
     /**
-     * The URI of files to be downloaded.
+     * URI of the downloaded file.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The URI of files to be downloaded.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     targetURI: string;
     /**
-     * The title of a file to be downloaded.
+     * Name of the download task.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The title of a file to be downloaded.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     downloadTitle: string;
     /**
-     * The total size of files to be downloaded (in bytes).
+     * Total size of the files to download, in bytes.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
-     */
-    /**
-     * The total size of files to be downloaded (in bytes).
-     *
-     * @type { long }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
+     * @since 23 static
      */
     downloadTotalBytes: long;
   }
 
   /**
-   * Download task interface.
-   * Implements file downloads.
+   * The callback function for the download progress event.
    *
-   * @interface DownloadTask
+   * @param { long } receivedSize - the length of downloaded data, in bytes.
+   * @param { long } totalSize - the length of data expected to be downloaded, in bytes.
    * @syscap SystemCapability.MiscServices.Download
-   * @since 6
+   * @since 23 static
    */
+  export type DownloadProgressCallback = (receivedSize: long, totalSize: long) => void;
+
   /**
-   * Download task interface.
-   * Implements file downloads.
+   * The callback function for the download complete event.
    *
-   * @typedef DownloadTask
    * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @since 23 static
+   */
+  export type DownloadCompleteCallback = () => void;
+
+  /**
+   * The callback function for the download pause event.
+   *
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 23 static
+   */
+  export type DownloadPauseCallback = () => void;
+
+  /**
+   * The callback function for the download remove event.
+   *
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 23 static
+   */
+  export type DownloadRemoveCallback = () => void;
+
+  /**
+   * The callback function for the download fail event.
+   *
+   * @param { int } err - the error code for download task.
+   *     <br>The value should be an integer.
+   * @syscap SystemCapability.MiscServices.Download
+   * @since 23 static
+   */
+  export type DownloadFailCallback = (err: int) => void;
+
+  /**
+   * Implements file downloads. Before using any APIs of this class, you must obtain a **DownloadTask** object, from a 
+   * promise through [request.downloadFile]{@link request.downloadFile(context: BaseContext, config: DownloadConfig)} or
+   * from a callback through 
+   * [request.downloadFile]{@link request.downloadFile(context: BaseContext, config: DownloadConfig, callback: AsyncCallback<DownloadTask>)}
+   * .
+   *
+   * @syscap SystemCapability.MiscServices.Download
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
    */
   interface DownloadTask {
     /**
-     * Called when the current download session is in process.
-     * Subscribes to download progress events.
+     * Subscribes to download progress events. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > To maintain a balance between power consumption and performance, this API cannot be called when the application
+     * > is running in the background.
      *
-     * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { function } callback
-     *        The callback function for the download progress change event
-     *        receivedSize the length of downloaded data, in bytes
-     *        totalSize the length of data expected to be downloaded, in bytes.
+     * @param { 'progress' } type - Event type.<br>- **'progress'**: download progress.
+     * @param { function } callback - Callback used to return the size of the uploaded file and the total size of the
+     *     file to upload, in bytes. If the server uses the chunk mode for data transmission and the total file size
+     *     cannot be obtained from the request header, the value of **totalSize** is treated as **-1**.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Called when the current download session is in process.
-     * Subscribes to download progress events.
-     *
-     * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { function } callback
-     *        The callback function for the download progress change event
-     *        receivedSize the length of downloaded data, in bytes
-     *        totalSize the length of data expected to be downloaded, in bytes.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the current download session is in process.
-     * Subscribes to download progress events.
-     *
-     * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { function } callback
-     * <br>The callback function for the download progress change event
-     * <br>receivedSize the length of downloaded data, in bytes
-     * <br>totalSize the length of data expected to be downloaded, in bytes.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      */
     on(type: 'progress', callback: (receivedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current download session is in process.
-     * Unsubscribes from download progress events.
      *
-     * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { function } [callback]
-     *        The callback function for the download progress change event
-     *        receivedSize the length of downloaded data, in bytes
-     *        totalSize the length of data expected to be downloaded, in bytes.
+     * @param { DownloadProgressCallback } callback - The callback function for the download progress event.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
+     * @since 23 static
      */
+    onProgress(callback: DownloadProgressCallback): void;
+
     /**
-     * Called when the current download session is in process.
      * Unsubscribes from download progress events.
      *
-     * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { function } [callback]
-     *        The callback function for the download progress change event
-     *        receivedSize the length of downloaded data, in bytes
-     *        totalSize the length of data expected to be downloaded, in bytes.
+     * @param { 'progress' } type - Event type.<br>- **'progress'**: download progress.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
+     *     current type will be unregistered.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the current download session is in process.
-     * Unsubscribes from download progress events.
-     *
-     * @param { 'progress' } type progress Indicates the download task progress.
-     * @param { function } [callback]
-     * <br>The callback function for the download progress change event
-     * <br>receivedSize the length of downloaded data, in bytes
-     * <br>totalSize the length of data expected to be downloaded, in bytes.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      */
     off(type: 'progress', callback?: (receivedSize: long, totalSize: long) => void): void;
 
     /**
-     * Called when the current download session complete pause or remove.
-     * Subscribes to download events.
+     * Called when the current download session is in process.
      *
-     * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
-     *        complete: download task completed,
-     *        pause: download task stopped,
-     *        remove: download task deleted.
-     * @param { function } callback The callback function for the download complete pause or remove change event.
+     * @param { DownloadProgressCallback } [callback] - The callback function for the download progress event.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 23 static
      */
+    offProgress(callback?: DownloadProgressCallback): void;
+
     /**
-     * Called when the current download session complete pause or remove.
-     * Subscribes to download events.
+     * Subscribes to download events. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
-     *        complete: download task completed,
-     *        pause: download task stopped,
-     *        remove: download task deleted.
-     * @param { function } callback The callback function for the download complete pause or remove change event.
+     * @param { 'complete' | 'pause' | 'remove' } type - Event type.<br>- **'complete'**: download task completion.<br>-
+     *     **'pause'**: download task pause.<br>- **'remove'**: download task removal.
+     * @param { function } callback - Callback used to return the result.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the current download session complete pause or remove.
-     * Subscribes to download events.
-     *
-     * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
-     * <br>complete: download task completed,
-     * <br>pause: download task stopped,
-     * <br>remove: download task deleted.
-     * @param { function } callback The callback function for the download complete pause or remove change event.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     on(type: 'complete' | 'pause' | 'remove', callback: () => void): void;
 
     /**
-     * Called when the current download session complete pause or remove.
-     * Unsubscribes from download events.
+     * Called when the current download session complete.
      *
-     * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
-     *        complete: download task completed,
-     *        pause: download task stopped,
-     *        remove: download task deleted.
-     * @param { function } [callback] The callback function for the download complete pause or remove change event.
+     * @param { DownloadCompleteCallback } callback - The callback function for the download complete event.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 23 static
      */
-    /**
-     * Called when the current download session complete pause or remove.
-     * Unsubscribes from download events.
+    onComplete(callback: DownloadCompleteCallback): void;
+
+	  /**
+     * Called when the current download session pause.
      *
-     * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
-     *        complete: download task completed,
-     *        pause: download task stopped,
-     *        remove: download task deleted.
-     * @param { function } [callback] The callback function for the download complete pause or remove change event.
+     * @param { DownloadPauseCallback } callback - The callback function for the download pause event.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
+     * @since 23 static
      */
+    onPause(callback: DownloadPauseCallback): void;
+
     /**
-     * Called when the current download session complete pause or remove.
+     * Called when the current download session remove.
+     *
+     * @param { DownloadRemoveCallback } callback - The callback function for the download remove event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 23 static
+     */
+    onRemove(callback: DownloadRemoveCallback): void;
+
+    /**
      * Unsubscribes from download events.
      *
-     * @param { 'complete' | 'pause' | 'remove' } type Indicates the download session event type
-     * <br>complete: download task completed,
-     * <br>pause: download task stopped,
-     * <br>remove: download task deleted.
-     * @param { function } [callback] The callback function for the download complete pause or remove change event.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { 'complete' | 'pause' | 'remove' } type - Event type.<br>- **'complete'**: download task completion.<br>-
+     *     **'pause'**: download task pause.<br>- **'remove'**: download task removal.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
+     *     current type will be unregistered.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     off(type: 'complete' | 'pause' | 'remove', callback?: () => void): void;
 
     /**
-     * Called when the current download session fails.
-     * Subscribes to download failure events.
+     * Called when the current download session complete.
      *
-     * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { function } callback The callback function for the download fail change event
-     *        err The error code for download task.
+     * @param { DownloadCompleteCallback } [callback] - The callback function for the download complete event.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 23 static
      */
-    /**
-     * Called when the current download session fails.
-     * Subscribes to download failure events.
+    offComplete(callback?: DownloadCompleteCallback): void;
+
+	  /**
+     * Called when the current download session pause.
      *
-     * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { function } callback The callback function for the download fail change event
-     *        err The error code for download task.
+     * @param { DownloadPauseCallback } [callback] - The callback function for the download pause event.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
+     * @since 23 static
      */
-    /**
-     * Called when the current download session fails.
-     * Subscribes to download failure events.
+    offPause(callback?: DownloadPauseCallback): void;
+
+	/**
+     * Called when the current download session remove.
      *
-     * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { function } callback The callback function for the download fail change event
-     * <br>err The error code for download task.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { DownloadRemoveCallback } [callback] - The callback function for the download remove event.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 23 static
+     */
+    offRemove(callback?: DownloadRemoveCallback): void;
+
+    /**
+     * Subscribes to download failure events. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'fail' } type - Event type.<br>- **'fail'**: download task failure.
+     * @param { function } callback - Callback for the download task failure event.For details about the error codes,
+     *     see
+     *     [Download Error Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
+     *     .
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
+     * @syscap SystemCapability.MiscServices.Download
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     on(type: 'fail', callback: (err: int) => void): void;
 
     /**
      * Called when the current download session fails.
-     * Unsubscribes from download failure events.
      *
-     * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { function } [callback] Indicate the callback function to receive err.
-     *        err The error code for download task.
+     * @param { DownloadFailCallback } callback - The callback function for the download fail event.
      * @syscap SystemCapability.MiscServices.Download
-     * @since 7
+     * @since 23 static
      */
+    onFail(callback: DownloadFailCallback): void;
+
     /**
-     * Called when the current download session fails.
      * Unsubscribes from download failure events.
      *
-     * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { function } [callback] Indicate the callback function to receive err.
-     *        err The error code for download task.
+     * @param { 'fail' } type - Event type.<br>- **'fail'**: download task failure.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
+     *     current type will be unregistered.For details about the error codes, see
+     *     [Download Error Codes](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants)
+     *     .
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the current download session fails.
-     * Unsubscribes from download failure events.
-     *
-     * @param { 'fail' } type Indicates the download session type, fail: download task has failed.
-     * @param { function } [callback] Indicate the callback function to receive err.
-     * <br>err The error code for download task.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     off(type: 'fail', callback?: (err: int) => void): void;
 
     /**
-     * Deletes a download session and the downloaded files.
+     * Called when the current download session fails.
+     *
+     * @param { DownloadFailCallback } [callback] - The callback function for the download fail event.
+     * @syscap SystemCapability.MiscServices.Download
+     * @since 23 static
+     */
+    offFail(callback?: DownloadFailCallback): void;
+
+    /**
+     * Deletes the download task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.delete
+     * @useinstead request.UploadTask.delete(callback: AsyncCallback<boolean>)
      */
     remove(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Deletes a download session and the downloaded files.
+     * Deletes the download task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.delete
+     * @useinstead request.UploadTask.delete()
      */
     remove(): Promise<boolean>;
 
     /**
-     * Pause a download session.
+     * Pauses this download task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.suspend
+     * @useinstead request.DownloadTask.suspend(callback: AsyncCallback<boolean>)
      */
     pause(callback: AsyncCallback<void>): void;
 
     /**
-     * Pause a download session.
+     * Pauses this download task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.suspend
+     * @useinstead request.DownloadTask.suspend()
      */
     pause(): Promise<void>;
 
     /**
-     * Resume a paused download session.
+     * Restores the download task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<void> } callback Indicates asynchronous invoking Result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.restore
+     * @useinstead request.DownloadTask.restore(callback: AsyncCallback<boolean>)
      */
     resume(callback: AsyncCallback<void>): void;
 
     /**
-     * Resume a paused download session.
+     * Restores the download task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<void> } the promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.restore
+     * @useinstead request.DownloadTask.restore()
      */
     resume(): Promise<void>;
 
     /**
-     * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
+     * Queries this download task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<DownloadInfo> } callback Indicate the callback function to receive download info.
+     * @param { AsyncCallback<DownloadInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the **DownloadInfo** object obtained. Otherwise, **err**
+     *     is an error object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.getTaskInfo
+     * @useinstead request.DownloadTask.getTaskInfo(callback: AsyncCallback<DownloadInfo>)
      */
     query(callback: AsyncCallback<DownloadInfo>): void;
 
     /**
-     * Queries download information of a session, which is defined in DownloadSession.DownloadInfo.
+     * Queries this download task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<DownloadInfo> } the promise returned by the function.
+     * @returns { Promise<DownloadInfo> } Promise used to return the **DownloadInfo** object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.getTaskInfo
+     * @useinstead request.DownloadTask.getTaskInfo()
      */
     query(): Promise<DownloadInfo>;
 
     /**
-     * Queries the MIME type of the download file.
+     * Queries the MIME type of this download task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<string> } callback Indicate the callback function to receive download file MIME type.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and data is the **MimeType** object obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.getTaskMimeType
+     * @useinstead request.DownloadTask.getTaskMimeType(callback: AsyncCallback<string>)
      */
     queryMimeType(callback: AsyncCallback<string>): void;
 
     /**
-     * Queries the MIME type of the download file.
+     * Queries the MIME type of this download task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<string> } the promise returned by the function.
+     * @returns { Promise<string> } Promise used to return the MIME type of a download task.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.getTaskMimeType
+     * @useinstead request.DownloadTask.getTaskMimeType()
      */
     queryMimeType(): Promise<string>;
 
     /**
-     * Delete the download task
+     * Deletes the download task. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Delete the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Delete the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Delete the download task
+     * Deletes the download task. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Delete the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Delete the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(): Promise<boolean>;
 
     /**
-     * Suspend the download task
+     * Suspends this download task. You can use [restore]{@link request.DownloadTask.restore()} to restore the download.
+     * This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Suspend the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Suspend the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     suspend(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Suspend the download task
+     * Suspends this download task. You can use [restore]{@link request.DownloadTask.restore()} to restore the download.
+     * This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Suspend the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Suspend the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     suspend(): Promise<boolean>;
 
     /**
-     * Restore the download task
+     * Restores the download task. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Restore the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Restore the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     restore(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Restore the download task
+     * Restores the download task. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Restore the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Restore the download task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     restore(): Promise<boolean>;
 
     /**
-     * Get the download task info.
-     * Obtains the information about this download task.
+     * Obtains the information about this download task. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<DownloadInfo> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Get the download task info.
-     * Obtains the information about this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<DownloadInfo> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Get the download task info.
-     * Obtains the information about this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<DownloadInfo> } callback
+     * @param { AsyncCallback<DownloadInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the **DownloadInfo** object obtained. Otherwise, **err**
+     *     is an error object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getTaskInfo(callback: AsyncCallback<DownloadInfo>): void;
 
     /**
-     * Get the download task info.
-     * Obtains the information about this download task.
+     * Obtains the information about this download task. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<DownloadInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Get the download task info.
-     * Obtains the information about this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<DownloadInfo> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Get the download task info.
-     * Obtains the information about this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<DownloadInfo> } the promise returned by the function.
+     * @returns { Promise<DownloadInfo> } Promise used to return a **DownloadInfo** object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getTaskInfo(): Promise<DownloadInfo>;
 
     /**
-     * Get mimetype of the download task.
-     * Obtains the MimeType of this download task.
+     * Obtains the MIME type (that is, media type of resources in HTTP) of a download task. This API uses an 
+     * asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<string> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Get mimetype of the download task.
-     * Obtains the MimeType of this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<string> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Get mimetype of the download task.
-     * Obtains the MimeType of this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<string> } callback
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and data is the **MimeType** object obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getTaskMimeType(callback: AsyncCallback<string>): void;
 
     /**
-     * Get mimetype of the download task.
-     * Obtains the MimeType of this download task.
+     * Obtains the MIME type (that is, media type of resources in HTTP) of a download task. This API uses a promise to 
+     * return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @since 9
-     */
-    /**
-     * Get mimetype of the download task.
-     * Obtains the MimeType of this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<string> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Get mimetype of the download task.
-     * Obtains the MimeType of this download task.
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<string> } the promise returned by the function.
+     * @returns { Promise<string> } Promise used to return the MIME type of a download task.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getTaskMimeType(): Promise<string>;
   }
 
   /**
-   * File data structure.
-   * Defines the file list in UploadConfig.
+   * Describes the list of files in [UploadConfig]{@link request.UploadConfig}.
    *
-   * @interface File
    * @syscap SystemCapability.MiscServices.Download
-   * @since 6
-   * @name File
-   */
-  /**
-   * File data structure.
-   * Defines the file list in UploadConfig.
-   *
-   * @typedef File
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
+   * @name File [since 6 - 9]
    */
   interface File {
     /**
-     * When multipart is submitted, the file name in the request header.
+     * File name in the header when **multipart** is used.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * When multipart is submitted, the file name in the request header.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     filename: string;
     /**
-     * When multipart is submitted, the name of the form item. The default is file.
+     * Name of a form item when **multipart** is used. The default value is **file**.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * When multipart is submitted, the name of the form item. The default is file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     name: string;
     /**
-     * The local storage path of the file (please refer to the storage directory definition for path usage).
+     * Local path for storing files.
+     * 
+     * Only **internal://cache/** is supported, that is, **context.cacheDir** of the caller (namely, cache directory of 
+     * the input **context**).
+     * 
+     * Example: **internal://cache/path/to/file.txt**.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * The local storage path of the file (please refer to the storage directory definition for path usage).
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     uri: string;
     /**
-     * The content type of the file is obtained by default according to the suffix of the file name or path.
+     * Type of the file content. By default, the type is obtained based on the extension of the file name or URI.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * The content type of the file is obtained by default according to the suffix of the file name or path.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     type: string;
   }
 
   /**
-   * RequestData data structure.
-   * Defines the form data in UploadConfig.
+   * Describes the form data in [UploadConfig]{@link request.UploadConfig}.
    *
-   * @interface RequestData
    * @syscap SystemCapability.MiscServices.Download
-   * @since 6
-   * @name RequestData
-   */
-  /**
-   * RequestData data structure.
-   * Defines the form data in UploadConfig.
-   *
-   * @typedef RequestData
-   * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
+   * @name RequestData [since 6 - 9]
    */
   interface RequestData {
     /**
-     * Represents the name of the form element.
+     * Name of a form element.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Represents the name of the form element.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     name: string;
     /**
-     * Represents the value of the form element.
+     * Value of a form element.
      *
      * @syscap SystemCapability.MiscServices.Download
-     * @since 6
-     */
-    /**
-     * Represents the value of the form element.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Download
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     value: string;
   }
 
   /**
-   * UploadConfig data structure.
    * Describes the configuration of an upload task.
    *
-   * @interface UploadConfig
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 6
-   * @name UploadConfig
-   */
-  /**
-   * UploadConfig data structure.
-   * Describes the configuration of an upload task.
-   *
-   * @typedef UploadConfig
-   * @syscap SystemCapability.MiscServices.Upload
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
+   * @name UploadConfig [since 6 - 9]
    */
   interface UploadConfig {
     /**
-     * Resource address.
-     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
+     * Resource URL. From API version 6 to 14, the value contains a maximum of 2048 characters; since API version 15, 
+     * the value contains a maximum of 8192 characters. 
+     * [Intercepting HTTP](docroot://basic-services/request/app-file-upload-download.md#intercepting-http) is supported.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
-     */
-    /**
-     * Resource address.
-     * Verification rule: Starting with http (s)://and with a length not exceeding 2048 characters.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Resource address.
-     * Verification rule: Starting with http (s)://and with a length not exceeding 8192 characters.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 15 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     url: string;
     /**
-     * Adds an HTTP or HTTPS header to be included with the upload request.
+     * HTTP or HTTPS header added to an upload request.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
-     */
-    /**
-     * Adds an HTTP or HTTPS header to be included with the upload request.
-     *
-     * @type { Object }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      */
     header: Object;
     /**
-     * Request method: POST, PUT. The default POST.
+     * Adds an HTTP or HTTPS header to be included with the upload request.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
+     * @since 23 static
      */
+    header: Record<string, string>;
     /**
-     * Request method: POST, PUT. The default POST.
+     * HTTP request method. The value can be **POST** or **PUT**. The default value is **POST**. Use **POST** to add 
+     * resources and **PUT** to modify resources.
      *
-     * @type { string }
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     method: string;
     /**
-     * The index of paths for a task.
-     * Usually used for a continuous job.
-     * The default is 0.
+     * Path index of the task. The default value is **0**.
      *
-     * @type { ?number }
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 11
-     */
-    /**
-     * The index of paths for a task.
-     * Usually used for a continuous job.
-     * The default is 0.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
+     * @since 23 static
      */
     index?: int;
     /**
-     * The start point of a file.
-     * Usually used for a continuous job.
-     * It will start read at the point in upload.
-     * The default is 0.
+     * File start point to read when the upload task begins, in bytes. The default value is **0**. The value is a closed
+     * interval, indicating that the file is read from the beginning.
      *
-     * @type { ?number }
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 11
-     */
-    /**
-     * The start point of a file.
-     * Usually used for a continuous job.
-     * It will start read at the point in upload.
-     * The default is 0.
-     *
-     * @type { ?long }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
+     * @since 23 static
      */
     begins?: long;
     /**
-     * The end point of a file.
-     * Usually used for a continuous job.
-     * It will end read at the point in upload.
-     * The default is -1 indicating the end of the data for upload.
+     * File end point to read when the upload task ends, in bytes. The default value is **-1**. The value is a closed 
+     * interval, indicating that the file is read till the end.
      *
-     * @type { ?number }
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 11
-     */
-    /**
-     * The end point of a file.
-     * Usually used for a continuous job.
-     * It will end read at the point in upload.
-     * The default is -1 indicating the end of the data for upload.
-     *
-     * @type { ?long }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 20 dynamic
+     * @crossplatform [since 20]
+     * @since 11 dynamic
+     * @since 23 static
      */
     ends?: long;
     /**
-     * A list of files to be uploaded. Please use multipart/form-data to submit.
+     * List of files to upload. The files are submitted in multipart/form-data format.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
-     */
-    /**
-     * A list of files to be uploaded. Please use multipart/form-data to submit.
-     *
-     * @type { Array<File> }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     files: Array<File>;
     /**
-     * The requested form data in the request body.
+     * Form data in the request body.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
-     */
-    /**
-     * The requested form data in the request body.
-     *
-     * @type { Array<RequestData> }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
+     * @since 23 static
      */
     data: Array<RequestData>;
   }
 
   /**
-   * TaskState data structure.
-   * Implements a TaskState object.
+   * Upload task information, which is the callback parameter of the 
+   * [on('complete' | 'fail')]{@link request.UploadTask.on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>)}
+   * and 
+   * [off('complete' | 'fail')]{@link request.UploadTask.off(type: 'complete' | 'fail', callback?: Callback<Array<TaskState>>)}
+   * APIs.
    *
-   * @interface TaskState
    * @syscap SystemCapability.MiscServices.Upload
-   * @since 9
-   * @name TaskState
-   */
-  /**
-   * TaskState data structure.
-   * Implements a TaskState object.
-   *
-   * @typedef TaskState
-   * @syscap SystemCapability.MiscServices.Upload
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 9 dynamic
+   * @since 23 static
+   * @name TaskState [since 9 - 9]
    */
   interface TaskState {
     /**
-     * Upload file path.
+     * File path.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     */
-    /**
-     * Upload file path.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     path: string;
     /**
-     * Return value of an upload task.
-     * The value 0 means that the task is successful,
-     * and other values means that the task fails.
+     * Return value of an upload task. The value **0** means that the task is successful, and other values means that 
+     * the task fails. For details about the task result, see **message**.
+     * 
+     * You are advised to create an upload task by using 
+     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config)}and
+     * handle exceptions based on standard error codes.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     */
-    /**
-     * Return value of an upload task.
-     * The value 0 means that the task is successful,
-     * and other values means that the task fails.
-     *
-     * @type { int }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     responseCode: int;
     /**
-     * Upload task information.
+     * Description of the upload task result.
      *
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     */
-    /**
-     * Upload task information.
-     *
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     message: string;
   }
 
   /**
-   * Upload task interface.
-   * Implements file uploads.
+   * The callback function for the download progress event.
    *
-   * @interface UploadTask
-   * @syscap SystemCapability.MiscServices.Download
-   * @since 6
+   * @param { long } uploadedSize - the length of uploaded data, in bytes
+   * @param { long } totalSize - the length of data expected to be uploaded, in bytes.
+   * @syscap SystemCapability.MiscServices.Upload
+   * @since 23 static
    */
+  export type UploadProgressCallback = (uploadedSize: long, totalSize: long) => void;
+
   /**
-   * Upload task interface.
-   * Implements file uploads.
+   * The callback function for the HTTP Response Header event.
    *
-   * @typedef UploadTask
+   * @param { object } header - HTTP Response Header returned by the developer server.
+   * @syscap SystemCapability.MiscServices.Upload
+   * @since 23 static
+   */
+  export type UploadHeaderReceiveCallback = (header: object) => void;
+
+  /**
+   * Implements file uploads. Before using any APIs of this class, you must obtain an **UploadTask** object, from a 
+   * promise through [request.uploadFile]{@link request.uploadFile(context: BaseContext, config: UploadConfig)} or from 
+   * a callback through 
+   * [request.uploadFile]{@link request.uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback<UploadTask>)}
+   * .
+   *
    * @syscap SystemCapability.MiscServices.Download
-   * @crossplatform
-   * @since 10 dynamic
+   * @crossplatform [since 10]
+   * @since 6 dynamic
+   * @since 23 static
    */
   interface UploadTask {
     /**
-     * Called when the current upload session is in process.
-     * Subscribes to upload progress events.
+     * Subscribes to upload progress events. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > To maintain a balance between power consumption and performance, this API cannot be called when the application
+     * > is running in the background.
      *
-     * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { function } callback
-     *        The callback function for the upload progress change event
-     *        uploadedSize The length of uploaded data, in bytes
-     *        totalSize The length of data expected to be uploaded, in bytes.
+     * @param { 'progress' } type - Event type. The value is fixed at **'progress'**, indicating upload progress.
+     * @param { function } callback - Callback used to return the size of the uploaded file and the total size of the
+     *     file to upload, in bytes.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
-     */
-    /**
-     * Called when the current upload session is in process.
-     * Subscribes to upload progress events.
-     *
-     * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { function } callback
-     *        The callback function for the upload progress change event
-     *        uploadedSize The length of uploaded data, in bytes
-     *        totalSize The length of data expected to be uploaded, in bytes.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the current upload session is in process.
-     * Subscribes to upload progress events.
-     *
-     * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { function } callback
-     * <br>The callback function for the upload progress change event
-     * <br>uploadedSize The length of uploaded data, in bytes
-     * <br>totalSize The length of data expected to be uploaded, in bytes.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      */
     on(type: 'progress', callback: (uploadedSize: long, totalSize: long) => void): void;
 
     /**
      * Called when the current upload session is in process.
-     * Unsubscribes from download progress events.
      *
-     * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { function } [callback]
-     *        The callback function for the upload progress change event
-     *        uploadedSize The length of uploaded data, in bytes
-     *        totalSize The length of data expected to be uploaded, in bytes.
+     * @param { UploadProgressCallback } callback - The callback function for the upload progress event.
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 6
+     * @since 23 static
      */
+    onProgress(callback: UploadProgressCallback): void;
+
     /**
-     * Called when the current upload session is in process.
-     * Unsubscribes from download progress events.
+     * Unsubscribes from upload progress events.
      *
-     * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { function } [callback]
-     *        The callback function for the upload progress change event
-     *        uploadedSize The length of uploaded data, in bytes
-     *        totalSize The length of data expected to be uploaded, in bytes.
+     * @param { 'progress' } type - Event type.<br>- **'progress'**: upload progress.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
+     *     current type will be unregistered.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the current upload session is in process.
-     * Unsubscribes from download progress events.
-     *
-     * @param { 'progress' } type progress Indicates the upload task progress.
-     * @param { function } [callback]
-     * <br>The callback function for the upload progress change event
-     * <br>uploadedSize The length of uploaded data, in bytes
-     * <br>totalSize The length of data expected to be uploaded, in bytes.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      */
     off(type: 'progress', callback?: (uploadedSize: long, totalSize: long) => void): void;
 
     /**
-     * Called when the header of the current upload session has been received.
-     * Subscribes to HTTP response events for the upload task.
+     * Called when the current upload session is in process.
      *
-     * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { function } callback The callback function for the HTTP Response Header event
-     *        header HTTP Response Header returned by the developer server.
+     * @param { UploadProgressCallback } [callback] - The callback function for the upload progress event.
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 7
+     * @since 23 static
      */
+    offProgress(callback?: UploadProgressCallback): void;
+
     /**
-     * Called when the header of the current upload session has been received.
-     * Subscribes to HTTP response events for the upload task.
+     * Subscribes to HTTP response events for the upload task.This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { function } callback The callback function for the HTTP Response Header event
-     *        header HTTP Response Header returned by the developer server.
+     * @param { 'headerReceive' } type - Event type.<br>- **'headerReceive'**: The HTTP request receives a response.
+     * @param { function } callback - Callback used to return the response content.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the header of the current upload session has been received.
-     * Subscribes to HTTP response events for the upload task.
-     *
-     * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { function } callback The callback function for the HTTP Response Header event
-     * <br>header HTTP Response Header returned by the developer server.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     on(type: 'headerReceive', callback: (header: object) => void): void;
 
     /**
      * Called when the header of the current upload session has been received.
-     * Unsubscribes from HTTP response events for the upload task.
      *
-     * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { function } [callback] The callback function for the HTTP Response Header event
-     *        header HTTP Response Header returned by the developer server.
+     * @param { UploadHeaderReceiveCallback } callback - The callback function for the HTTP Response Header event.
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 7
+     * @since 23 static
      */
+    onHeaderReceive(callback: UploadHeaderReceiveCallback): void;
+
     /**
-     * Called when the header of the current upload session has been received.
      * Unsubscribes from HTTP response events for the upload task.
      *
-     * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { function } [callback] The callback function for the HTTP Response Header event
-     *        header HTTP Response Header returned by the developer server.
+     * @param { 'headerReceive' } type - Event type.<br>- **'headerReceive'**: The HTTP request receives a response.
+     * @param { function } [callback] - Callback to unregister. If this parameter is not specified, all callbacks of the
+     *     current type will be unregistered.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the header of the current upload session has been received.
-     * Unsubscribes from HTTP response events for the upload task.
-     *
-     * @param { 'headerReceive' } type headerReceive Indicates the upload task headed receive.
-     * @param { function } [callback] The callback function for the HTTP Response Header event
-     * <br>header HTTP Response Header returned by the developer server.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 7 dynamic
      */
     off(type: 'headerReceive', callback?: (header: object) => void): void;
 
     /**
-     * Called when the current upload session complete or fail.
+     * Called when the header of the current upload session has been received.
      *
-     * @param { 'complete' | 'fail' } type Indicates the upload session event type
-     *        complete: upload task completed
-     *        fail: upload task failed
-     * @param { Callback<Array<TaskState>> } callback The callback function for the upload complete or fail change event.
+     * @param { UploadHeaderReceiveCallback } [callback] - The callback function for the HTTP Response Header event.
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
+     * @since 23 static
      */
+    offHeaderReceive(callback?: UploadHeaderReceiveCallback): void;
+
     /**
-     * Called when the current upload session complete or fail.
+     * Subscribes to upload completion or failure events. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'complete' | 'fail' } type Indicates the upload session event type
-     *        complete: upload task completed
-     *        fail: upload task failed
-     * @param { Callback<Array<TaskState>> } callback The callback function for the upload complete or fail change event.
+     * @param { 'complete' | 'fail' } type - Type of the event to subscribe to.
+     * @param { Callback<Array<TaskState>> } callback - Callback used to return the state of the upload task.
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Called when the current upload session complete or fail.
-     *
-     * @param { 'complete' | 'fail' } type Indicates the upload session event type
-     * <br>complete: upload task completed
-     * <br>fail: upload task failed
-     * @param { Callback<Array<TaskState>> } callback The callback function for the upload complete or fail change event.
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     on(type: 'complete' | 'fail', callback: Callback<Array<TaskState>>): void;
 
     /**
-     * Called when the current upload session complete or fail.
+     * Called when the current upload session complete.
      *
-     * @param { 'complete' | 'fail' } type Indicates the upload session event type
-     *        complete: upload task completed
-     *         fail: upload task failed
-     * @param { Callback<Array<TaskState>> } [callback]
+     * @param { Callback<Array<TaskState>> } callback - The callback function for the upload complete event.
      * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
+     * @since 23 static
      */
+    onComplete(callback: Callback<Array<TaskState>>): void;
+
     /**
-     * Called when the current upload session complete or fail.
+     * Called when the current upload session fail.
      *
-     * @param { 'complete' | 'fail' } type Indicates the upload session event type
-     *        complete: upload task completed
-     *         fail: upload task failed
-     * @param { Callback<Array<TaskState>> } [callback]
+     * @param { Callback<Array<TaskState>> } callback - The callback function for the upload fail event.
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
+     * @since 23 static
      */
+    onFail(callback: Callback<Array<TaskState>>): void;
+
     /**
-     * Called when the current upload session complete or fail.
+     * Unsubscribes from upload completion or failure events.
      *
-     * @param { 'complete' | 'fail' } type Indicates the upload session event type
-     * <br>complete: upload task completed
-     * <br>fail: upload task failed
-     * @param { Callback<Array<TaskState>> } [callback]
-     * @throws { BusinessError } 401 - The parameters check fails. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { 'complete' | 'fail' } type - Event type.<br>- **'complete'**: upload task completion.<br>- **'fail'**:
+     *     upload task failure.
+     * @param { Callback<Array<TaskState>> } [callback] - Callback to unregister. If this parameter is not specified,
+     *     all callbacks of the current type will be unregistered.
+     * @throws { BusinessError } 401 - the parameters check fails. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed. [since 12]
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      */
     off(type: 'complete' | 'fail', callback?: Callback<Array<TaskState>>): void;
 
     /**
-     * Deletes an upload session.
+     * Called when the current upload session complete.
+     *
+     * @param { Callback<Array<TaskState>> } [callback] - The callback function for the upload complete event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 23 static
+     */
+    offComplete(callback?: Callback<Array<TaskState>>): void;
+
+    /**
+     * Called when the current upload session fail.
+     *
+     * @param { Callback<Array<TaskState>> } [callback] - The callback function for the upload fail change event.
+     * @syscap SystemCapability.MiscServices.Upload
+     * @since 23 static
+     */
+    offFail(callback?: Callback<Array<TaskState>>): void;
+
+    /**
+     * Deletes the upload task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback Indicates asynchronous invoking Result.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.delete
+     * @useinstead request.UploadTask.delete(callback: AsyncCallback<boolean>)
      */
     remove(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Deletes an upload session.
+     * Deletes the upload task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.request.delete
+     * @useinstead request.UploadTask.delete()
      */
     remove(): Promise<boolean>;
 
     /**
-     * Delete the upload task
+     * Deletes the upload task. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     */
-    /**
-     * Delete the upload task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Delete the upload task
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { AsyncCallback<boolean> } callback
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** indicates
+     *     that the operation is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Delete the upload task
+     * Deletes the upload task. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > The scenarios for triggering error code **401 the parameters check fails** do not exist. Therefore, this error 
+     * > code is removed from API version 12.
      *
      * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @since 9
-     */
-    /**
-     * Delete the upload task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @throws { BusinessError } 201 - The permissions check fails.
-     * @throws { BusinessError } 401 - The parameters check fails.
-     * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Delete the upload task
-     *
-     * @permission ohos.permission.INTERNET
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation
+     *     is successful; **false** indicates the opposite.
      * @throws { BusinessError } 201 - The permissions check fails.
      * @syscap SystemCapability.MiscServices.Upload
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(): Promise<boolean>;
   }
 
-  /**
-   * The request agent api.
-   * Supports "background" and "frontend" tasks as while.
-   * Though "background" and "frontend" here do not the same with process's concept.
-   * All tasks will be executed at request manager service and recorded.
-   * Background tasks is for concurrent transfer, such as caching videos for a later play.
-   * Frontend tasks is for instant transfer, such as submitting forms for a consumption bill.
-   * Background tasks use notification to tell user tasks' status information.
-   * Frontend tasks use callback to tell caller tasks' status information.
-   * Background has some automatically restore mechanism.
-   * Frontend tasks controlled by caller.
-   * Uses `multipart/form-data` in client request for upload.
-   * A `Content-Disposition: attachment; filename=<filename>` response from server leads to download.
-   * More details, please see the architecture documents of the request subsystem.
-   *
-   * @namespace agent
-   * @syscap SystemCapability.Request.FileTransferAgent
-   * @since 10
-   */
   /**
    * The request agent api.
    * Supports "background" and "frontend" tasks as while.
@@ -2517,388 +1864,311 @@ declare namespace request {
    * A `Content-Disposition: attachment; filename=<filename>` response from server leads to download.
    * More details, please see the architecture documents of the request subsystem.
    * Only front-end mode is supported in cross-platform scenarios.
-   *
-   * @namespace agent
+   * 
    * @syscap SystemCapability.Request.FileTransferAgent
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @since 23 static
    */
   namespace agent {
     /**
-     * Indicates to show completion notification.
-     * 
-     * @constant
+     * ([Notification]{@link request.agent.Notification} 
+     * visibility type) Displays completion notifications.
+     *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 21 dynamic
      */
     const VISIBILITY_COMPLETION: 1;
     /**
-     * Indicates to show progress notification.
-     * 
-     * @constant
+     * Indicates to show completion notification.
+     *
+     * @syscap SystemCapability.Request.FileTransferAgent
+     * @stagemodelonly
+     * @since 23 static
+     */
+    const VISIBILITY_COMPLETION: int = 1;
+    /**
+     * ([Notification]{@link request.agent.Notification} 
+     * visibility type) Displays progress notifications.
+     *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 21 dynamic
      */
     const VISIBILITY_PROGRESS: 2;
     /**
-     * The action options.
+     * Indicates to show progress notification.
      *
-     * @enum { number } Action
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
+     * @stagemodelonly
+     * @since 23 static
      */
+    const VISIBILITY_PROGRESS: int = 2;
     /**
-     * The action options.
+     * Defines action options.
      *
-     * @enum { number } Action
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     enum Action {
       /**
-       * Indicates download task.
+       * Download.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates download task.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       DOWNLOAD,
       /**
-       * Indicates upload task.
+       * Upload.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates upload task.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       UPLOAD
     }
 
     /**
-     * The mode options.
+     * Defines mode options.
+     * 
+     * After foreground tasks of an application are switched to the background for a period of time, background tasks 
+     * are not affected but foreground tasks will fail or pause.
      *
-     * @enum { number } Mode
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The mode options.
-     *
-     * @enum { number } Mode
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     enum Mode {
       /**
-       * Indicates background task.
+       * Background task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates background task.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @atomicservice
-       * @since 11 dynamic
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       BACKGROUND,
       /**
-       * Indicates foreground task.
+       * Foreground task.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates foreground task.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       FOREGROUND
     }
 
     /**
-     * The network options.
+     * Defines network options.
+     * 
+     * If the network does not meet the preset conditions, the tasks that have not been executed will await for 
+     * execution, and the tasks that are being executed will fail or pause.
      *
-     * @enum { number } Network
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The network options.
-     *
-     * @enum { number } Network
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     enum Network {
       /**
-       * Indicates no restriction on network type.
+       * Network of any type.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates no restriction on network type.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       ANY,
       /**
-       * Indicates Wi-Fi only.
+       * Wi-Fi network.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates Wi-Fi only.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       WIFI,
       /**
-       * Indicates cellular only.
+       * Cellular data network.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates cellular only.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       CELLULAR
     }
 
     /**
-     * Broadcast events for the request.
+     * Defines a custom system event. You can use a common event API to obtain the event.
+     * 
+     * The upload and download SA has the **ohos.permission.SEND_TASK_COMPLETE_EVENT** permission. You can configure the
+     * level-2 configuration file to which the metadata of an event points to intercept other event senders.
+     * 
+     * Use the **CommonEventData** type to transmit data related to common events. The members in **CommonEventData** 
+     * are different from those described in [CommonEventData]{@link ./commonEvent/commonEventData:CommonEventData}. 
+     * Specifically, **CommonEventData.code** indicates the task status, which is **0x40 COMPLETE** or **0x41 FAILED**, 
+     * and **CommonEventData.data** indicates the task ID.
+     * 
+     * <!--Del-->
+     * 
+     * For details about how to obtain the event configuration and configure the level-2 configuration file, see 
+     * [Subscribing to Common Events in Static Mode (for System Applications Only)](docroot://basic-services/common-event/common-event-static-subscription-sys.md)
+     * .<!--DelEnd-->
      *
-     * @enum { string } BroadcastEvent
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 11 dynamic
+     * @since 23 static
      */
     enum BroadcastEvent {
       /**
-       * Completion event for the task.
-       * The code in the commonEventData can only be "0x40"(COMPLETE) or "0x41"(FAILED), same as "State".
-       * The data in the commonEventData contains the id of the task.
+       * Task completion event. The returned event code can be **0x40** or **0x41**, depending on whether the task is 
+       * successful or fails.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11 dynamic
+       * @since 23 static
        */
       COMPLETE = 'ohos.request.event.COMPLETE'
     }
 
     /**
-     * The file information for a form item.
+     * Provides the file information of a table item.
      *
-     * @typedef FileSpec
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The file information for a form item.
-     *
-     * @typedef FileSpec
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     interface FileSpec {
       /**
-       * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
-       * Provides the file information of a table item.
+       * File path.
+       * 
+       * - Relative path, which is in the cache directory of the caller.
+       * 
+       * Example: **./xxx/yyy/zzz.html** or **xxx/yyy/zzz.html**
+       * 
+       * - Internal protocol path, which can be **internal://** or its subdirectory. **internal** indicates the cache 
+       * directory of the caller (that is, the input **context**), and **internal://cache** corresponds to 
+       * **context.cacheDir**.
+       * 
+       * Example: **internal://cache/path/to/file.txt**
+       * 
+       * - Application sandbox directory. Only the **base** directory and its subdirectories are supported.
+       * 
+       * Example: **./data/storage/el1/base/path/to/file.txt**
+       * 
+       * - File protocol path, which must match the application bundle name. Only the **base** directory and its 
+       * subdirectories are supported.
+       * 
+       * Example: **file://com.example.test/data/storage/el2/base/file.txt**
+       * 
+       * - Public files of users. Only upload tasks are supported.
+       * 
+       * Example: **file://media/Photo/path/to/file.img**. Only foreground tasks are supported.
        *
-       * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * A relative path string, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", in the caller's cache directory.
-       * Provides the file information of a table item.
-       *
-       * @type { string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11
-       */
-      /**
-       * The path to save the uploaded file.
-       * Currently support:
-       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: internal protocol path, starting with "internal://", like "internal://cache/path/to/file.txt".
-       * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
-       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
-       * 5: user file url, like "file://media/Photo/path/to/file.png".
-       *
-       * @type { string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 12 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       path: string;
       /**
-       * The MIME type of the file.
-       * The default is obtained by the suffix of the filename.
+       * MIME type of the file, which is obtained from the file name. The default value is the file name extension.
+       * 
+       * This API is deprecated since API version 18. You are advised to use **contentType** instead.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The MIME type of the file.
-       * The default is obtained by the suffix of the filename.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamiconly
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamiconly
        * @deprecated since 18
-       * @useinstead ohos.request.agent.FileSpec.contentType
+       * @useinstead request.agent.FileSpec.contentType
        */
       mimeType?: string;
       /**
-       * Sets the content-type field of the part.
-       * The default is obtained by the suffix of the filename.
+       * File name. The default value is obtained from the file path.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 18 dynamic
-       */
-      contentType?: string;
-      /**
-       * The filename, the default is obtained by path.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The filename, the default is obtained by path.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       filename?: string;
       /**
-       * The extras for the file information.
-       * This parameter is not included in HTTP requests.
+       * Additional information. This parameter is not included in HTTP requests. The default value is empty.
        *
-       * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The extras for the file information.
-       * This parameter is not included in HTTP requests.
-       *
-       * @type { ?object }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       extras?: object;
+      /**
+       * The extras for the file information.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 23 static
+       */
+      extras?: Record<string, string>;
+      /**
+       * Content type of the file. The default value is the file name extension. This option is filled in the 
+       * **Content-Type** field specified in the HTTP form.
+       *
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 18 dynamic
+       * @since 23 static
+       */
+      contentType?: string;
     }
 
     /**
-     * The form item information for a task.
+     * Describes the form item of a task.
      *
-     * @typedef FormItem
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The form item information for a task.
-     *
-     * @typedef FormItem
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     interface FormItem {
       /**
-       * The item's name.
+       * Form parameter name.
        *
-       * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The item's name.
-       *
-       * @type { string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       name: string;
       /**
-       * The item's value.
+       * Form parameter value.
        *
-       * @type { string | FileSpec | Array<FileSpec> }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The item's value.
-       *
-       * @type { string | FileSpec | Array<FileSpec> }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       value: string | FileSpec | Array<FileSpec>;
     }
@@ -2906,29 +2176,25 @@ declare namespace request {
     /**
      * Describes the custom information of the notification bar.
      *
-     * @typedef Notification
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
+     * @since 23 static
      */
     interface Notification {
       /**
-       * The title of the notification.
-       * If not specified, use default style instead.
-       * The maximum size of title is 1024 bytes.
+       * Custom title, with a maximum of 1024 bytes. The default title is used if this parameter is not set.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
+       * @since 23 static
        */
       title?: string;
       /**
-       * The text of the notification.
-       * If not specified, use the file name of the task instead.
-       * The maximum size of text is 3072 bytes.
+       * Custom body text, with a maximum of 3072 bytes. The default text is used if this parameter is not set.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
+       * @since 23 static
        */
       text?: string;
       /**
@@ -2936,1169 +2202,813 @@ declare namespace request {
        * If the value is false, a notification will be displayed, otherwise nothing will be displayed.
        * If not specified, the value is false.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
        * @since 20 dynamic
+       * @since 23 static
        */
       disable?: boolean;
       /**
-       * The visibility of the notification.
-       * The notification information will be determined by the binary bit of the given value.
-       * The default value is 1, which means only completion notifications are displayed.
-       * The value cannot be set to 0.
-       * 
-       * @type { ?number }
+       * Task visibility mode for the notification bar, which is determined by bitwise operations on the
+       * [VISIBILITY constant](docroot://reference/apis-basic-services-kit/js-apis-request.md#constants-1). The options
+       * are as follows:
+       * - Only the completion notification is displayed. The parameter is **VISIBILITY_COMPLETION** or **1**. The
+       * corresponding notification is displayed after the task is complete or fails.
+       * - Only the progress notification is displayed when the task is in progress. The parameter is
+       * **VISIBILITY_PROGRESS** or **2**. Completion notification is not displayed when the download task is complete
+       * or fails.
+       * - The progress notification and completion notification are displayed. The parameter is VISIBILITY_COMPLETION |
+       * VISIBILITY_PROGRESS or **3**. The progress notification is displayed when the task is in progress. When the
+       * download task is complete or fails, the completion notification is displayed as well.
+       * If this parameter is not set, the **gauge** field is used for determination. If there is no **gauge** field,
+       * only the completion notification is displayed.
+       * The value should be an integer.
+       *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 21 dynamic
+       * @since 23 static
        */
-      visibility?: number;
+      visibility?: int;
       /**
-       * The intent to send when click the notification.
-       * 
-       * @type { ?WantAgent }
+       * Notification parameter, which is used to implement redirection after a task notification is tapped. The default
+       * value is empty.
+       *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 22 dynamic
+       * @since 23 static
        */
       wantAgent?: WantAgent;
     }
 
     /**
-     * Options of the minimum speed of the task.
+     * Defines the minimum speed of a task. If the task speed is lower than the preset value for a specified period of 
+     * time, the task fails. The failure cause is 
+     * [LOW_SPEED]{@link request.agent.Faults}.
      *
-     * @typedef MinSpeed
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
+     * @since 23 static
      */
     interface MinSpeed {
       /**
-       * The minimum speed of the task, in bytes per second.
-       * If the speed of the task is lower than this value for a period of time, the task fails.
-       * If the value is set to 0, no minimum speed limit will be activated.
+       * Minimum speed of a task, in byte/s. If the task speed is lower than this value for a specified period of time, 
+       * the task fails. If the value is set to **0**, there is no minimum speed limit.
        *
-       * @type { long }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       speed: long;
       /**
-       * Duration of the speed which is allowed to be below the minimum speed, in seconds.
-       * If the speed of the task is lower than this value for a period of time, the task fails.
-       * If the value is set to 0, no minimum speed limit will be activated.
+       * Duration during which the task speed can be lower than the minimum speed, in seconds. If the task speed is 
+       * lower than the preset value for a specified period of time, the task fails. If the value is set to **0**, there
+       * is no minimum speed limit.
        *
-       * @type { int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       duration: int;
     }
 
     /**
-     * Options of the custom task timeout.
+     * Defines the timeout configuration of a task. The task waiting duration is not counted. For details about the 
+     * waiting reasons, see 
+     * [WaitingReason<sup>20+</sup>]{@link request.agent.WaitingReason}
+     * .
      *
-     * @typedef Timeout
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
+     * @since 23 static
      */
     interface Timeout {
       /**
-       * The connection timeout of the task, in seconds.
-       * Connection timeout is the maximum time required for a client and a server to establish a connection.
-       * If this value is not specified, use default value instead. The default value is 60 seconds.
-       * The minimum value allowed is 1 second.
+       * Task connection timeout interval, in seconds. The connection timeout interval indicates the maximum time 
+       * required for establishing a connection between the client and server. If this parameter is not set, the default
+       * value **60** is used. The minimum value is **1**.
        *
-       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       connectionTimeout?: int;
       /**
-       * Total timeout of the task, in seconds.
-       * Total timeout includes the time to establish a connection, send a request and receive a response.
-       * If this value is not specified, use default value instead. The default value is 604,800 seconds(1 week).
-       * The minimum value allowed is 1 second.
-       * The maximum value allowed is 604,800 seconds(1 week).
+       * Total timeout interval of a task, in seconds. The total timeout interval includes the time required for 
+       * establishing a connection, sending a request, and receiving a response. If this parameter is not set, the 
+       * default value **604800** is used. The minimum value is **1**, and the maximum value is **604800** (that is, one
+       * week).
        *
-       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       totalTimeout?: int;
     }
 
     /**
-     * The configurations for a task.
      * Provides the configuration information of an upload or download task.
-     * Using a flexible configuration for clear upload and download functions.
-     * If without emphasis, an option is for any task.
      *
-     * @typedef Config
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The configurations for a task.
-     * Provides the configuration information of an upload or download task.
-     * Using a flexible configuration for clear upload and download functions.
-     * If without emphasis, an option is for any task.
-     *
-     * @typedef Config
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     interface Config {
       /**
-       * The task action, upload or download.
+       * Task action.
+       * 
+       * - **UPLOAD**: Upload tasks.
+       * - **DOWNLOAD**: Download tasks.
        *
-       * @type { Action }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The task action, upload or download.
-       *
-       * @type { Action }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       action: Action;
       /**
-       * The Universal Resource Locator for a task.
-       * Starting with http(s)://
-       * The maximum length is 2048 characters.
-       * Using raw `url` option, even url parameters in it.
+       * Resource URL. From API version 6 to 14, the value contains a maximum of 2048 characters; since API version 15, 
+       * the value contains a maximum of 8192 characters. 
+       * [Intercepting HTTP](docroot://basic-services/request/app-file-upload-download.md#intercepting-http) is 
+       * supported.
        *
-       * @type { string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The Universal Resource Locator for a task.
-       * The maximum length is 2048 characters.
-       * Using raw `url` option, even url parameters in it.
-       *
-       * @type { string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11
-       */
-      /**
-       * The Universal Resource Locator for a task.
-       * The maximum length is 8192 characters.
-       * Using raw `url` option, even url parameters in it.
-       *
-       * @type { string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 15 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       url: string;
       /**
-       * The title for a task, give a meaningful title please.
-       * The maximum length is 256 characters.
-       * The default is the same with its action.
+       * Task title. The value contains a maximum of 256 characters. The default value is **upload** or **download** in 
+       * lowercase. Set the value to that of **action**.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The title for a task, give a meaningful title please.
-       * The maximum length is 256 characters.
-       * The default is upload or download, consistent with its action.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       title?: string;
       /**
-       * The details for a task.
-       * The maximum length is 1024 characters.
-       * The default is empty string.
+       * Task description. The value contains a maximum of 1024 characters. The default value is a null string.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The details for a task.
-       * The maximum length is 1024 characters.
-       * The default is empty string.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       description?: string;
       /**
-       * Indicates task's mode.
-       * The default is background.
-       * For frontend task, it has callbacks.
-       * For background task, it has notifications and fallback.
+       * Task mode. The default mode is background. Since API version 20, the task mode for downloading files to the 
+       * user file folder must be set to **request.agent.Mode.FOREGROUND**.
        *
-       * @type { ?Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates task's mode.
-       * The default is BACKGROUND.
-       * For frontend task, it has callbacks.
-       * For background task, it has notifications and fallback.
-       * The cross-platform default is FOREGROUND.
-       *
-       * @type { ?Mode }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       mode?: Mode;
       /**
-       * The solution choice when path already exists during download.
-       * Currently support:
-       * true, rewrite the existed file;
-       * false, go to fail.
+       * Whether to overwrite an existing file during the download. The default value is **false**.
+       * 
+       * - **true**: Overwrite the existing file.
+       * - **false**: Do not overwrite the existing file. In this case, the download fails.
+       * 
+       * Since API version 20, the overwrite mode for downloading files to the user file folder must be set to **true**.
+       * 
+       * In this case, do not create multiple tasks to download content to the same file at a time. Otherwise, the file 
+       * content will be disordered.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The solution choice when path already exists during download.
-       * The default is false.
-       * Currently support:
-       * true, rewrite the existed file;
-       * false, go to fail.
-       *
-       * @type { ?boolean }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       overwrite?: boolean;
       /**
-       * The HTTP standard method for upload or download: GET/POST/PUT.
-       * Case insensitive.
-       * For upload, use PUT/POST, the default is PUT.
-       * For download, use GET/POST, the default is GET.
+       * Standard HTTP method for the task. The value can be **GET**, **POST**, or **PUT**, which is case-insensitive.
+       * 
+       * - For the upload task, use **PUT** or **POST**. The default value is **PUT**.
+       * - For the download task, use **GET** or **POST**. The default value is **GET**.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The HTTP standard method for upload or download: GET/POST/PUT.
-       * Case insensitive.
-       * For upload, use PUT/POST, the default is PUT.
-       * For download, use GET/POST, the default is GET.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       method?: string;
       /**
-       * The HTTP headers.
-       * For upload request, the `Content-Type` is forced to `multipart/form-data`.
-       * For download request, the default `Content-Type` is `application/json`.
+       * HTTP headers to be included in the task.
+       * 
+       * - For the upload task, the default **Content-Type** is **multipart/form-data**.
+       * - For the download task, the default **Content-Type** is **application/json**.
        *
-       * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The HTTP headers.
-       * For upload request, the `Content-Type` is forced to `multipart/form-data`.
-       * For download request, the default `Content-Type` is `application/json`.
-       *
-       * @type { ?object }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       headers?: object;
       /**
-       * The arguments, it can be any text, uses json usually.
-       * For download, it can be raw string, the default is empty string.
-       * For upload, it can be form items, the default is a empty form.
-       * There must be one `FileSpec` item at least or will be a parameter error.
+       * The HTTP headers.
+       * For upload request, the `Content-Type` is forced to `multipart/form-data`.
+       * For download request, the default `Content-Type` is `application/json`.
        *
-       * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 23 static
        */
+      headers?: Record<string, string>;
       /**
-       * The arguments, it can be any text, uses json usually.
-       * For download, it can be raw string, the default is empty string.
-       * For upload, it can be form items, the default is a empty form.
-       * There must be one `FileSpec` item at least or will be a parameter error.
+       * - For the download task, the value is a string, typically in JSON format (an object will be converted to a JSON
+       * string); the default value is null.
+       * - For the upload task, the value is Array<
+       * [FormItem]{@link request.agent.FormItem}>. Since API 
+       * version 15, a maximum of 100 files can be uploaded in a single task. This parameter is left empty by default.
        *
-       * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       data?: string | Array<FormItem>;
       /**
-       * The path to save the downloaded file, the default is "./".
-       * Currently support:
-       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
+       * Path for storing downloaded files. The options are as follows:
+       * 
+       * - Relative path, which is in the cache directory of the caller, for example, **./xxx/yyy/zzz.html** or 
+       * **xxx/yyy/zzz.html**.
+       * - Internal protocol path, which can be **internal://** or its subdirectory. **internal** indicates the cache 
+       * directory of the caller (that is, the input **context**), and **internal://cache** corresponds to 
+       * **context.cacheDir**, for example, **internal://cache/path/to/file.txt**.
+       * - Application sandbox path. Only the **base** directory and its subdirectories are supported, for example, 
+       * **./data/storage/el1/base/path/to/file.txt**.
+       * - File protocol path, which can be the path of an application file or a user file. For the application file, 
+       * the application bundle name must be matched and only the **base** directory and its subdirectories are 
+       * supported, for example, **file://com.example.test/data/storage/el2/base/file.txt**. For the user file, its path
+       * must be the user file URI created by the caller.
+       * 
+       * Since API version 20, the default file path can be the cache path of the caller (that is, the passed context), 
+       * except for 
+       * [downloading network resource files to the user file](docroot://basic-services/request/app-file-upload-download.md#downloading-network-resource-files-to-the-user-file)
+       * . The default file name is the part truncated from the last slash (/) in the URL.
        *
-       * @type { ?string }
        * @default ./
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The path to save the downloaded file, the default is "./".
-       * Currently support:
-       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: uri path, like "datashare://bundle/xxx/yyy/zzz.html", the data provider must allow the caller's access.
-       *
-       * @type { ?string }
-       * @default ./
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11
-       */
-      /**
-       * The path to save the downloaded file, the default is "./".
-       * Currently support:
-       * 1: relative path, like "./xxx/yyy/zzz.html", "xxx/yyy/zzz.html", under caller's cache folder.
-       * 2: internal protocol path, starting with "internal://", like "internal://cache/path/to/file.txt".
-       * 3: application storage path, only the base directory and its subdirectories are supported, like "/data/storage/el1/base/path/to/file.txt".
-       * 4: file protocol path with self bundle name, only the base directory and its subdirectories are supported, like "file://com.example.test/data/storage/el2/base/file.txt".
-       *
-       * @type { ?string }
-       * @default ./
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 12 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       saveas?: string;
       /**
-       * Network used for the task.
-       * The default value is ANY (Wi-Fi or cellular).
+       * Network used for the task. The default value is **ANY** (Wi-Fi or cellular).
        *
-       * @type { ?Network }
        * @default Network.ANY
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Network used for the task.
-       * The default value is ANY (Wi-Fi or cellular).
-       *
-       * @type { ?Network }
-       * @default Network.ANY
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       network?: Network;
       /**
-       * Allows work in metered network or not.
-       * The default is false.
+       * Whether the task is allowed on a metered network. The default value is **false**.
+       * 
+       * - **true**: allowed
+       * - **false**: not allowed
        *
-       * @type { ?boolean }
        * @default false
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Allows work in metered network or not.
-       * The default is false.
-       *
-       * @type { ?boolean }
-       * @default false
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       metered?: boolean;
       /**
-       * Allows work in roaming network or not.
-       * The default is true.
+       * Whether the task is allowed on a roaming network. The default value is **true**.
+       * 
+       * - **true**: allowed
+       * - **false**: not allowed
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Allows work in roaming network or not.
-       * The default is true.
-       *
-       * @type { ?boolean }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       roaming?: boolean;
       /**
-       * Enable automatic retry or not for the background task.
-       * The frontend task is always fast-fail.
+       * Whether automatic retry is enabled for the task. This parameter is only applicable to background tasks. The 
+       * default value is **true**.
+       * 
+       * - **true**: enabled
+       * - **false**: not allowed
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Enable automatic retry or not for the background task.
-       * The frontend task is always fast-fail.
-       *
-       * @type { ?boolean }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @atomicservice
-       * @since 11 dynamic
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       retry?: boolean;
       /**
-       * Allows redirect or not.
-       * The default is yes.
+       * Whether redirection is allowed. The default value is **true**.
+       * 
+       * - **true**: allowed
+       * - **false**: not allowed
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Allows redirect or not.
-       * The default is true.
-       *
-       * @type { ?boolean }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       redirect?: boolean;
       /**
-       * The proxy url for the task.
-       * Only this format is supported: http://<domain or IP-address>:<port>
-       * Username and password are not supported.
+       * Proxy address. The value contains a maximum of 512 characters.
+       * 
+       * It is in the format of **http://<***domain or address***>:<***port***>**. By default, this parameter is left 
+       * empty.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 12
-       */
-      /**
-       * The proxy url for the task.
-       * Only this format is supported: http://<domain or IP-address>:<port>
-       * Username and password are not supported.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 12 dynamic
+       * @since 23 static
        */
       proxy?: string;
       /**
-       * The index of paths for a task.
-       * Usually used for a continuous job.
-       * The default is 0.
+       * Path index of the task. It is usually used for resumable transfers. The default value is **0**.
        *
-       * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The index of paths for a task.
-       * Usually used for a continuous job.
-       * The default is 0.
-       *
-       * @type { ?int }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       index?: int;
       /**
-       * The start point of a file.
-       * Usually used for a continuous job.
-       * It will set the "Range" header in download.
-       * It will start read at the point in upload.
-       * The default is 0.
+       * File start point of the task, in bytes. It is usually used for resumable transfers. The default value is **0**.
+       * The value is a closed interval.
+       * 
+       * - For the download task, the value is obtained by sending an HTTP range request to read the start position when
+       * the server starts to download files.
+       * - For the upload task, the value is obtained at the start position of the upload.
        *
-       * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The start point of a file.
-       * Usually used for a continuous job.
-       * It will set the "Range" header in download.
-       * It will start read at the point in upload.
-       * The default is 0.
-       *
-       * @type { ?long }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       begins?: long;
       /**
-       * The end point of a file.
-       * Usually used for a continuous job.
-       * It will set The "Range" header in download.
-       * It will end read at the point in upload.
-       * The default is -1 indicating the end of the data for upload or download.
+       * File end point of the task, in bytes. It is usually used for resumable transfers. The default value is **-1**. 
+       * The value is a closed interval.
+       * 
+       * - For the download task, the value is obtained by sending an HTTP range request to read the end position when 
+       * the server starts to download files.
+       * - For the upload task, the value is obtained at the end position of the upload.
        *
-       * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The end point of a file.
-       * Usually used for a continuous job.
-       * It will set The "Range" header in download.
-       * It will end read at the point in upload.
-       * The default is -1 indicating the end of the data for upload or download.
-       *
-       * @type { ?long }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       ends?: long;
       /**
-       * The policy of the progress notification for background task.
-       * If false: only completed or failed notification, the default.
-       * If true, emits every progress, completed or failed notifications.
+       * Whether to send progress notifications. This parameter applies only to background tasks. The default value is 
+       * **false**.
+       * 
+       * - **false**: Progress notifications are not sent. This means that a notification is sent only to indicate the 
+       * result of the total task.
+       * - **true**: Progress notifications are sent to indicate the result of each file.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The policy of the progress notification for background task.
-       * If false: only completed or failed notification, the default.
-       * If true, emits every progress, completed or failed notifications.
-       *
-       * @type { ?boolean }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @atomicservice
-       * @since 11 dynamic
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       gauge?: boolean;
       /**
-       * Breaks when fail to fetch filesize before upload/download or not.
-       * Uses filesize for a precise gauge.
-       * The default is not, set size as -1 indicating the case.
+       * - If this parameter is set to **true**, the task fails when the file size cannot be obtained.
+       * - If this parameter is set to **false**, the task continues when the file size is set to **-1**.
+       * 
+       * The default value is **false**.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Breaks when fail to fetch filesize before upload/download or not.
-       * Uses filesize for a precise gauge.
-       * The default is false, set size as -1 indicating the case.
-       *
-       * @type { ?boolean }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       precise?: boolean;
       /**
-       * For in-application layer isolation.
-       * If given:
-       *   the minimum is 8 bytes.
-       *   the maximum is 2048 bytes.
-       * Creates a task with token, then must provide it during normal query.
-       * So saves the token carefully, it can not be retrieved by query.
-       * Or leave it empty.
+       * Task token. To query a task with a token, you need to provide the token and use 
+       * [request.agent.touch]{@link request.agent.touch(id: string, token: string, callback: AsyncCallback<TaskInfo>)}. 
+       * Otherwise, the specified task cannot be queried. The value contains 8 to 2048 bytes. This parameter is left 
+       * empty by default.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * For in-application layer isolation.
-       * If given:
-       *   the minimum is 8 bytes.
-       *   the maximum is 2048 bytes.
-       * Creates a task with token, then must provide it during normal query.
-       * So saves the token carefully, it can not be retrieved by query.
-       * Or leave it empty.
-       *
-       * @type { ?string }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       token?: string;
       /**
-       * The priority of this task.
-       * Front-end tasks have higher priority than back-end tasks.
-       * In tasks of the same mode, the smaller the number, the higher the priority.
-       * The default is 0.
+       * Priority of the task. The priority of a foreground task is higher than that of a background task. For tasks in 
+       * the same mode, a smaller value indicates a higher priority.
+       * 
+       * Default value: **0**
        *
-       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11 dynamic
+       * @since 23 static
        */
       priority?: int;
       /**
-       * The extras for the configuration.
-       * This parameter is left empty by default.
+       * Additional information of the task. This parameter is left empty by default.
        *
-       * @type { ?object }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The extras for the configuration.
-       * This parameter is left empty by default.
-       *
-       * @type { ?object }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       extras?: object;
       /**
-       * Use a single request to upload multiple files.
-       * If true, use the form format to merge multiple files into one request.
-       * If false, use independent requests to send each file.
-       * The default is false.
+       * The extras for the configuration.
        *
-       * @type { ?boolean }
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 23 static
+       */
+      extras?: Record<string, string>;
+      /**
+       * Whether to use a single request to upload multiple files. If yes, **multipart/form-data** must be used.
+       * 
+       * - **false**: A single request is used to upload one file.
+       * - **true**: A single request is used to upload multiple files.
+       * 
+       * The default value is **false**.
+       *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
+       * @since 23 static
        */
       multipart?: boolean;
       /**
-       * Customizes the notification of the backend task.
+       * Custom settings for the notification bar. The default value is **{}**.
        *
-       * @type { ?Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
+       * @since 23 static
        */
       notification?: Notification;
       /**
-       * Customizes the minimum speed of the task.
+       * Minimum speed, which is disabled by default.
        *
-       * @type { ?MinSpeed }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       minSpeed?: MinSpeed;
       /**
-       * Customizes the timeout of the task.
+       * Custom timeout interval. The default connection timeout interval is 60 seconds, and the default total timeout 
+       * interval is 604800 seconds (one week). If retry is set to **true**, the 
+       * [timeout]{@link request.agent.Timeout} event triggers 
+       * immediate retry, which will obscure the timeout event itself. As a result, the internal 
+       * [timeout]{@link request.agent.Timeout} condition has 
+       * been triggered but the 
+       * [timeout]{@link request.agent.Timeout} event is not 
+       * observable. Set **retry** to **false** to explicitly observe the 
+       * [timeout]{@link request.agent.Timeout} event.
        *
-       * @type { ?Timeout }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       timeout?: Timeout;
     }
 
     /**
-     * Indicate the current state of the task.
+     * Defines the current task status.
      *
-     * @enum { number } State
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Indicate the current state of the task.
-     *
-     * @enum { number } State
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     enum State {
       /**
-       * Indicates a task created by `new Task(Config)`.
+       * The task is initialized based on the configuration specified in 
+       * [Config]{@link request.agent.Config}.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a task created by `new Task(Config)`.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       INITIALIZED = 0x00,
       /**
-       * Indicates a task lack of resources or conditions to run or retry.
+       * The task lacks resources for running or the resources for retries, or does not match the network status.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a task lack of resources or conditions to run or retry.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       WAITING = 0x10,
       /**
-       * Indicates a task in processing now.
+       * The task is being executed.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a task in processing now.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       RUNNING = 0x20,
       /**
-       * Indicates a task failed once at least and in processing again now.
+       * The task has failed at least once and is being executed again.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a task failed once at least and in processing again now.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       RETRYING = 0x21,
       /**
-       * Indicates a paused task which tends to be resumed for continuous work.
+       * The task is suspended and will be resumed later.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a paused task which tends to be resumed for continuous work.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       PAUSED = 0x30,
       /**
-       * Indicates a stopped task which must be started again.
+       * The task is stopped.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a stopped task which must be started again.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       STOPPED = 0x31,
       /**
-       * Indicates a completed task which finish its data transfer.
+       * The task is complete.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a completed task which finish its data transfer.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       COMPLETED = 0x40,
       /**
-       * Indicates a failed task which interrupted by some error.
+       * The task fails.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a failed task which interrupted by some error.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       FAILED = 0x41,
       /**
-       * Indicates a removed task which can not be processed again.
+       * The task is removed.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates a removed task which can not be processed again.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       REMOVED = 0x50
     }
 
     /**
-     * The progress data structure.
-     * Upload allows multiple files per upload task.
-     * Only one file in a download task.
-     * So using a unified data structure for progress.
-     * Generally:
-     * 1: sum(sizes) is total files size of the task.
-     * 2: float(processed)/sizes[counter] is the progress for the current processing file.
-     * 3: float(sum(sizes[:index])+processed)/sum(sizes) is the summary progress for a task.
-     * If fetch file size in failure, the size of the file in sizes will be set as -1.
+     * Describes the data structure of the task progress.
      *
-     * @typedef Progress
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The progress data structure.
-     * Upload allows multiple files per upload task.
-     * Only one file in a download task.
-     * So using a unified data structure for progress.
-     * Generally:
-     * 1: sum(sizes) is total files size of the task.
-     * 2: float(processed)/sizes[counter] is the progress for the current processing file.
-     * 3: float(sum(sizes[:index])+processed)/sum(sizes) is the summary progress for a task.
-     * If fetch file size in failure, the size of the file in sizes will be set as -1.
-     *
-     * @typedef Progress
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     interface Progress {
       /**
-       * The current state of the task.
+       * Current task status.
        *
-       * @type { State }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The current state of the task.
-       *
-       * @type { State }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly state: State;
       /**
-       * The current processing file index in a task.
+       * Index of the file that is being processed in the task.
        *
-       * @type { number }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The current processing file index in a task.
-       *
-       * @type { int }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly index: int;
       /**
-       * The processed data size for the current file in a task.
+       * Size of processed data in the current file in the task, in bytes.
        *
-       * @type { number }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The processed data size for the current file in a task.
-       *
-       * @type { long }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly processed: long;
       /**
-       * The sizes of files in a task, in bytes.
+       * Size of a file in a task, in bytes. If the server uses the chunk mode for data transmission and the total file 
+       * size cannot be obtained from the request header, the value of **sizes** is treated as **-1**.
        *
-       * @type { Array<number> }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The sizes of files in a task, in bytes.
-       *
-       * @type { Array<long> }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly sizes: Array<long>;
       /**
-       * The extras for an interaction.
-       * Such as headers and body of response from server.
-       * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the body here is empty.
-       * {"headers": {"key": v}, "body": "contents"}.
+       * Extra information of the task, for example, the header and body of the response from the server. The default 
+       * value is empty.
        *
-       * @type { ?object }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
+      readonly extras?: object;
       /**
        * The extras for an interaction.
        * Such as headers and body of response from server.
-       * But when the Content-Disposition header responded, the body will be into the uri of its attachment only, the body here is empty.
+       * But when the Content-Disposition header responded,
+       * <br>the body will be into the uri of its attachment only, the body here is empty.
        * {"headers": {"key": v}, "body": "contents"}.
        * The "body" field is not supported in cross-platform scenarios.
        *
-       * @type { ?object }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @since 23 static
        */
-      readonly extras?: object;
+      readonly extras?: Record<string, string>;
     }
 
     /**
-     * Indicates the reason for the failure.
+     * Defines the cause of a task failure.
+     * 
+     * > **NOTE**
+     * >
+     * > In API version 12 or earlier, only serial connection to the IP addresses associated with the specified domain 
+     * > name is supported, and the connection time for a single IP address is not controllable. If the first IP address
+     * > returned by the DNS is blocked, a handshake timeout may occur, leading to a **TIMEOUT** error.
      *
-     * @enum { number }
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Indicates the reason for the failure.
-     *
-     * @enum { number }
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     enum Faults {
       /**
-       * Indicates others failure.
+       * Other fault.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates others failure.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       OTHERS = 0xFF,
       /**
-       * Indicates network disconnection.
+       * Network disconnection.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates network disconnection.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       DISCONNECTED = 0x00,
       /**
-       * Indicates task timeout.
+       * Timeout.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates task timeout.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       TIMEOUT = 0x10,
       /**
-       * Indicates protocol error, such as 5xx response from server.
+       * Protocol error, for example, an internal server error (500) or a data range that cannot be processed (416).
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates protocol error, such as 5xx response from server.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       PROTOCOL = 0x20,
       /**
-       * Indicates parameter error, such as url format error.
+       * Parameter error, for example, incorrect URL format.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
+       * @since 23 static
        */
       PARAM = 0x30,
       /**
-       * Indicates filesystem io error, such as open/seek/read/write/close.
+       * File system I/O error, for example, an error that occurs during the open, search, read, write, or close 
+       * operation.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Indicates filesystem io error, such as open/seek/read/write/close.
-       *
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       FSIO = 0x40,
       /**
-       * Indicates DNS resolution error.
+       * DNS resolution error.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
+       * @since 23 static
        */
       DNS = 0x50,
       /**
-       * Indicates TCP connection error.
+       * TCP connection error.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
+       * @since 23 static
        */
       TCP = 0x60,
       /**
-       * Indicates SSL connection error, such as a certificate error or certificate verification failure.
+       * SSL connection error, for example, a certificate error or certificate verification failure.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
+       * @since 23 static
        */
       SSL = 0x70,
       /**
-       * Indicates redirect error.
+       * Redirection error.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @crossplatform
        * @atomicservice
        * @since 12 dynamic
+       * @since 23 static
        */
       REDIRECT = 0x80,
       /**
-       * Indicates the speed of the task is too slow.
+       * Low speed.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       LOW_SPEED = 0x90
     }
 
     /**
-     * The filter data structure.
-     * Used for search, given fields works as **LOGICAL AND**.
-     * Invalid value may cause a parameter error.
+     * Defines the filter criteria.
      *
-     * @typedef Filter
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The filter data structure.
-     * Used for search, given fields works as **LOGICAL AND**.
-     * Invalid value may cause a parameter error.
-     *
-     * @typedef Filter
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     interface Filter {
       /**
@@ -4106,1720 +3016,1396 @@ declare namespace request {
        * Only for advanced search, common search will be fixed to the caller.
        * A "*" means any bundle.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
        * @since 10 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       bundle?: string;
       /**
-       * Specify the end Unix timestamp.
-       * The default is the moment of calling.
+       * Unix timestamp of the end time, in milliseconds. The default value is the invoking time.
        *
-       * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Specify the end Unix timestamp.
-       * The default is the moment of calling.
-       *
-       * @type { ?long }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       before?: long;
       /**
-       * Specify the start Unix timestamp.
-       * The default is "`before` - 24 hours".
+       * Unix timestamp of the start time, in milliseconds. The default value is the invoking time minus 24 hours.
        *
-       * @type { ?number }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Specify the start Unix timestamp.
-       * The default is "`before` - 24 hours".
-       *
-       * @type { ?long }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       after?: long;
       /**
-       * Specify the state of tasks.
-       * The default is any state.
+       * Task state. If this parameter is not set, all tasks are queried.
        *
-       * @type { ?State }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Specify the state of tasks.
-       * The default is any state.
-       *
-       * @type { ?State }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       state?: State;
       /**
-       * Specify the action of tasks, "upload" or "download", case insensitive.
-       * The default is upload and download.
+       * Task action.
+       * 
+       * - **UPLOAD**: Upload tasks.
+       * - **DOWNLOAD**: Download tasks.
+       * - If this parameter is not set, all tasks are queried.
        *
-       * @type { ?Action }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Specify the action of tasks, "upload" or "download", case insensitive.
-       * The default is upload and download.
-       *
-       * @type { ?Action }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       action?: Action;
       /**
-       * Specify task's mode.
-       * The default is frontend and background.
+       * Task mode.
+       * 
+       * - **FOREGROUND**: foreground task.
+       * - **BACKGROUND**: background task.
+       * - If this parameter is not set, all tasks are queried.
        *
-       * @type { ?Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Specify task's mode.
-       * The default is FOREGROUND and BACKGROUND.
-       *
-       * @type { ?Mode }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       mode?: Mode;
     }
 
     /**
-     * The task information data structure for query results.
-     * Provides common query and advanced query, visible range of fields is different.
+     * Defines the data structure of the task information for query. The fields available vary depending on the query 
+     * type.
      *
-     * @typedef TaskInfo
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * The task information data structure for query results.
-     * Provides common query and advanced query, visible range of fields is different.
-     *
-     * @typedef TaskInfo
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     interface TaskInfo {
       /**
        * The UID of an application.
        * For system query only.
        *
-       * @type { ?string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
        * @since 10 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       readonly uid?: string;
       /**
        * The bundle name.
        * For system query only.
        *
-       * @type { ?string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @systemapi Hide this for inner system use.
        * @since 10 dynamic
-       * @since 22 static
+       * @since 23 static
        */
       readonly bundle?: string;
       /**
-       * The path to save the downloaded file.
+       * Path for storing downloaded files.
        *
-       * @type { ?string }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The path to save the downloaded file.
-       *
-       * @type { ?string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly saveas?: string;
       /**
-       * The url of a task.
-       * For `${ show }` and `${ touch }`.
-       * It is empty string in `${ query }`.
+       * Task URL.
+       * 
+       * - Use [request.agent.show]{@link request.agent.show(id: string)}
+       * and [request.agent.touch]{@link request.agent.touch(id: string, token: string)}
+       * to query the value.
        *
-       * @type { ?string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The url of a task.
-       * For `${ show }` and `${ touch }`.
-       *
-       * @type { ?string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly url?: string;
       /**
-       * The arguments.
-       * For `${ show }` and `${ touch }`.
-       * It is empty string in `${ query }`.
+       * Task value.
+       * 
+       * - Use [request.agent.show]{@link request.agent.show(id: string)}
+       * and [request.agent.touch]{@link request.agent.touch(id: string, token: string)}
+       * to query the value.
        *
-       * @type { ?(string | Array<FormItem>) }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The arguments.
-       * For `${ show }` and `${ touch }`.
-       *
-       * @type { ?(string | Array<FormItem>) }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly data?: string | Array<FormItem>;
       /**
-       * The task id.
+       * Task ID.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The task id.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly tid: string;
       /**
-       * The task title.
+       * Task title.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The task title.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly title: string;
       /**
-       * The task details.
+       * Task description.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The task details.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly description: string;
       /**
-       * The task action.
+       * Task action.
+       * 
+       * - **UPLOAD**: Upload tasks.
+       * - **DOWNLOAD**: Download tasks.
        *
-       * @type { Action }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The task action.
-       *
-       * @type { Action }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly action: Action;
       /**
-       * Specify task mode.
-       * The default is frontend and background.
+       * Task mode.
+       * 
+       * - **FOREGROUND**: foreground task.
+       * - **BACKGROUND**: background task.
        *
-       * @type { Mode }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Specify task mode.
-       * The default is frontend.
-       *
-       * @type { Mode }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly mode: Mode;
       /**
-       * The priority of this task.
-       * Front-end tasks have higher priority than back-end tasks.
-       * In tasks of the same mode, the smaller the number, the higher the priority.
-       * The default is 0.
+       * Priority of the task. The priority of a foreground task is higher than that of a background task. For tasks in 
+       * the same mode, a smaller value indicates a higher priority.
+       * 
+       * Default value: **0**
        *
-       * @type { int }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 11 dynamic
+       * @since 23 static
        */
       readonly priority: int;
       /**
-       * The MIME type in the configuration of the task.
+       * MIME type in the task configuration.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The MIME type in the configuration of the task.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly mimeType: string;
       /**
-       * An instance of `Progress` for a task.
+       * Task progress.
        *
-       * @type { Progress }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * An instance of `Progress` for a task.
-       *
-       * @type { Progress }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly progress: Progress;
       /**
-       * The progress notification policy of a background task.
+       * Whether to send progress notifications. This parameter applies only to background tasks.
+       * 
+       * - **false**: Progress notifications are not sent. This means that a notification is sent only to indicate the 
+       * result of the total task.
+       * - **true**: Progress notifications are sent to indicate the result of each file.
        *
-       * @type { boolean }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10 dynamic
+       * @since 23 static
        */
       readonly gauge: boolean;
       /**
-       * The creating date and time of a task in Unix timestamp.
-       * It is generated by system of current device.
+       * Unix timestamp when the task is created, in milliseconds. The value is generated by the system of the current 
+       * device.
+       * 
+       * Note: When 
+       * [request.agent.search]{@link request.agent.search(filter: Filter, callback: AsyncCallback<Array<string>>)} 
+       * is used for query, this value must be within the range of [after,before] for the task ID to be obtained. For 
+       * details about **before** and **after**, see 
+       * [Filter]{@link request.agent.Filter}.
        *
-       * @type { number }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The creating date and time of a task in Unix timestamp.
-       * It is generated by system of current device.
-       *
-       * @type { long }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly ctime: long;
       /**
-       * The modified date and time of a task in Unix timestamp.
-       * It is generated by system of current device.
+       * Unix timestamp when the task state changes, in milliseconds. The value is generated by the system of the 
+       * current device.
        *
-       * @type { number }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The modified date and time of a task in Unix timestamp.
-       * It is generated by system of current device.
-       *
-       * @type { long }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly mtime: long;
       /**
-       * The retry switch of a task.
-       * Just for background, frontend always disabled.
+       * Whether automatic retry is enabled for the task. This parameter applies only to background tasks.
+       * 
+       * - **true**: enabled
+       * - **false**: The automatic retry is disabled.
        *
-       * @type { boolean }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10 dynamic
+       * @since 23 static
        */
       readonly retry: boolean;
       /**
-       * The tried times of a task.
+       * Number of retries of the task.
        *
-       * @type { int }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 10 dynamic
+       * @since 23 static
        */
       readonly tries: int;
       /**
-       * The faults case of a task.
+       * Failure cause of the task.
        *
-       * @type { Faults }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The faults case of a task.
-       *
-       * @type { Faults }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly faults: Faults;
       /**
-       * The reason of a waiting/failed/stopped/paused task.
+       * Reason why the task is waiting, failed, stopped, or paused.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The reason of a waiting/failed/stopped/paused task.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly reason: string;
       /**
-       * The extras of a task.
-       * For background, the last response from server.
-       * For frontend, nothing now.
+       * Extra information of the task.
        *
-       * @type { ?object }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @crossplatform [since 11]
+       * @since 10 dynamic
        */
+      readonly extras?: object;
       /**
        * The extras of a task.
        * For frontend, nothing now.
        *
-       * @type { ?object }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 11 dynamic
+       * @since 23 static
        */
-      readonly extras?: object;
+      readonly extras?: Record<string, string>;
     }
 
     /**
-     * The HTTP response.
      * Describes the data structure of the task response header.
      *
-     * @interface HttpResponse
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 20]
      * @atomicservice
-     * @since 12
-     */
-    /**
-     * The HTTP response.
-     * Describes the data structure of the task response header.
-     *
-     * @interface HttpResponse
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     * @since 22 static
+     * @since 12 dynamic
+     * @since 23 static
      */
     interface HttpResponse {
       /**
-       * The version of the HTTP response.
+       * HTTP version.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform [since 20]
        * @atomicservice
-       * @since 12
-       */
-      /**
-       * The version of the HTTP response.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 20 dynamic
-       * @since 22 static
+       * @since 12 dynamic
+       * @since 23 static
        */
       readonly version: string,
       /**
-       * The status code of the HTTP response.
+       * HTTP response status code.
        *
-       * @type { number }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform [since 20]
        * @atomicservice
-       * @since 12
-       */
-      /**
-       * The status code of the HTTP response.
-       *
-       * @type { int }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 20 dynamic
-       * @since 22 static
+       * @since 12 dynamic
+       * @since 23 static
        */
       readonly statusCode: int,
       /**
-       * The reason of the HTTP response.
+       * HTTP response cause.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform [since 20]
        * @atomicservice
-       * @since 12
-       */
-      /**
-       * The reason of the HTTP response.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 20 dynamic
-       * @since 22 static
+       * @since 12 dynamic
+       * @since 23 static
        */
       readonly reason: string,
       /**
-       * The headers of the HTTP response.
+       * HTTP response header.
        *
-       * @type { Map<string, Array<string>> }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
+       * @crossplatform [since 20]
        * @atomicservice
-       * @since 12
-       */
-      /**
-       * The headers of the HTTP response.
-       *
-       * @type { Map<string, Array<string>> }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 20 dynamic
+       * @since 12 dynamic
+       * @since 23 static
        */
       readonly headers: Map<string, Array<string>>,
     }
 
     /**
-     * Reason for task waiting.
+     * Enumerates the reasons why a task is waiting.
      *
-     * @enum { number }
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
+     * @since 23 static
      */
     enum WaitingReason {
       /**
-       * Indicates the task is waiting for running queue to be free.
+       * The task queue is full.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       TASK_QUEUE_FULL = 0x00,
       /**
-       * Indicates the task is waiting for network to recover.
+       * The required network conditions are not met.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       NETWORK_NOT_MATCH = 0x01,
       /**
-       * Indicates the task is waiting for app to return to the foreground.
+       * The application has been running in the background for a long time.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       APP_BACKGROUND = 0x02,
       /**
-       * Indicates the task is waiting for user to become activated.
+       * The user is inactive.
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
+       * @since 23 static
        */
       USER_INACTIVATED = 0x03,
     }
 
     /**
-     * The task entry.
-     * New task' status is "initialized" and enqueue.
-     * Can `start` a initialized task.
-     * Can `pause` a waiting/running/retrying background task.
-     * Can `resume` a paused background task.
-     * Can `stop` a running/waiting/retrying task and dequeue it.
+     * The callback function for the download progress event.
      *
-     * @typedef Task
+     * @param { Progress } progress - callback function with a `Progress` argument.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
+     * @since 23 static
      */
+    export type ProgressCallback = (progress: Progress) => void;
+
     /**
-     * The task entry.
-     * New task' status is "initialized" and enqueue.
-     * Can `start` a initialized task.
-     * Can `pause` a waiting/running/retrying background task.
-     * Can `resume` a paused background task.
-     * Can `stop` a running/waiting/retrying task and dequeue it.
+     * Implements an upload or download task. Before using this API, you must obtain a **Task** object, from a promise 
+     * through 
+     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config)} or 
+     * from a callback through 
+     * [request.agent.create]{@link request.agent.create(context: BaseContext, config: Config, callback: AsyncCallback<Task>)}.
+     * 
+     * > **NOTE**
+     * >
+     * > The **Task** object and its mounting callback function are released and automatically reclaimed by the system 
+     * > after the **remove** method is called.
      *
-     * @typedef Task
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     interface Task {
       /**
-       * The task id, unique on system.
-       * Generated automatically by system.
+       * Task ID, which is unique and automatically generated by the system.
        *
-       * @type { string }
-       * @readonly
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The task id, unique on system.
-       * Generated automatically by system.
-       *
-       * @type { string }
-       * @readonly
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       readonly tid: string;
       /**
-       * The configurations for the task.
+       * Task configuration.
        *
-       * @type { Config }
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * The configurations for the task.
-       *
-       * @type { Config }
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       config: Config;
       /**
-       * Enable the specified callback for a frontend task.
-       * Subscribes to task progress changes.
+       * Subscribes to task progress changes. This API uses an asynchronous callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'progress' } event event types.
-       * @param { function } callback callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - task mode error.
+       * @param { 'progress' } event - Event type.<br>- **'progress'**: task progress.
+       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
+       * @throws { BusinessError } 21900005 - task mode error. [since 10 - 10]
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Enables the specified callback.
-       * Subscribes to task progress changes.
-       *
-       * @param { 'progress' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       on(event: 'progress', callback: (progress: Progress) => void): void;
       /**
-       * Disable the specified callback for a frontend task.
-       * Unsubscribes from task progress events.
+       * Enables the specified callback.
        *
-       * @param { 'progress' } event event types.
-       * @param { function } callback callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - task mode error.
+       * @param { ProgressCallback } callback - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 23 static
        */
+      onProgress(callback: ProgressCallback): void;
       /**
-       * Disables the specified callback.
        * Unsubscribes from task progress events.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'progress' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'progress' } event - Event type.<br>- **'progress'**: task progress.
+       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
+       *     specified, all callbacks of the task progress events are unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
+       * @throws { BusinessError } 21900005 - task mode error. [since 10 - 10]
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       off(event: 'progress', callback?: (progress: Progress) => void): void;
       /**
-       * Enable the specified callback for a frontend task.
-       * Subscribes to task completion events.
+       * Disables the specified callback.
        *
-       * @param { 'completed' } event event types.
-       * @param { function } callback callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @param { ProgressCallback } [callback] - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 23 static
        */
+      offProgress(callback?: ProgressCallback): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task completion events.
+       * Subscribes to task completion events. This API uses an asynchronous callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'completed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'completed' } event - Event type.<br>- **'completed'**: task completion.
+       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
+       * @throws { BusinessError } 21900005 - task mode error. [since 10 - 10]
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       on(event: 'completed', callback: (progress: Progress) => void): void;
       /**
-       * Disable the specified callback for a frontend task.
-       * Unsubscribes from task completion events.
+       * Enables the specified callback.
        *
-       * @param { 'completed' } event event types.
-       * @param { function } callback callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @param { ProgressCallback } callback - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 23 static
        */
+      onCompleted(callback: ProgressCallback): void;
       /**
-       * Disables the specified callback.
        * Unsubscribes from task completion events.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'completed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'completed' } event - Event type.<br>- **'completed'**: task completion.
+       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
+       *     specified, all callbacks of the task completion events are unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       off(event: 'completed', callback?: (progress: Progress) => void): void;
       /**
-       * Enable the specified callback for a frontend task.
-       * Subscribes to task failure events.
+       * Disables the specified callback.
        *
-       * @param { 'failed' } event event types.
-       * @param { function } callback callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @param { ProgressCallback } [callback] - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 23 static
        */
+      offCompleted(callback?: ProgressCallback): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task failure events.
+       * Subscribes to task failure events. This API uses an asynchronous callback to return the result. You can call 
+       * [request.agent.show]{@link request.agent.show(id: string)} to 
+       * view the error cause.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'failed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'failed' } event - Event type.<br>- **'failed'**: task failure.
+       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       on(event: 'failed', callback: (progress: Progress) => void): void;
       /**
-       * Disable the specified callback for a frontend task.
-       * Unsubscribes from task failure events.
+       * Enables the specified callback.
        *
-       * @param { 'failed' } event event types.
-       * @param { function } callback callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @param { ProgressCallback } callback - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 23 static
        */
+      onFailed(callback: ProgressCallback): void;
       /**
-       * Disables the specified callback.
        * Unsubscribes from task failure events.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'failed' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'failed' } event - Event type.<br>- **'failed'**: task failure.
+       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
+       *     specified, all callbacks of the task failure events are unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
        */
       off(event: 'failed', callback?: (progress: Progress) => void): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task pause events.
+       * Disables the specified callback.
        *
-       * @param { 'pause' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { ProgressCallback } [callback] - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 23 static
        */
+      offFailed(callback?: ProgressCallback): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task pause events.
+       * Subscribes to task pause events. This API uses an asynchronous callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'pause' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'pause' } event - Event type.<br>- **'pause'**: task pause.
+       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 11 dynamic
        */
       on(event: 'pause', callback: (progress: Progress) => void): void;
       /**
-       * Disables the specified callback.
-       * Unsubscribes from the foreground task pause event.
+       * Enables the specified callback.
        *
-       * @param { 'pause' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { ProgressCallback } callback - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 23 static
        */
+      onPause(callback: ProgressCallback): void;
       /**
-       * Disables the specified callback.
        * Unsubscribes from the foreground task pause event.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'pause' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'pause' } event - Event type.<br>- **'pause'**: task pause.
+       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
+       *     specified, all callbacks of the task pause events are unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 11 dynamic
        */
       off(event: 'pause', callback?: (progress: Progress) => void): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task resume events.
+       * Disables the specified callback.
        *
-       * @param { 'resume' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { ProgressCallback } [callback] - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 23 static
        */
+      offPause(callback?: ProgressCallback): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task resume events.
+       * Subscribes to task resume events. This API uses an asynchronous callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'resume' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'resume' } event - Event type.<br>- **'resume'**: task resume.
+       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 11 dynamic
        */
       on(event: 'resume', callback: (progress: Progress) => void): void;
       /**
-       * Disables the specified callback.
-       * Unsubscribes from the foreground task resume event.
+       * Enables the specified callback.
        *
-       * @param { 'resume' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { ProgressCallback } callback - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 23 static
        */
+      onResume(callback: ProgressCallback): void;
       /**
-       * Disables the specified callback.
-       * Unsubscribes from the foreground task resume event.
+       * Unsubscribes from foreground task resume events.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'resume' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'resume' } event - Event type.<br>- **'resume'**: task resume.
+       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
+       *     specified, all callbacks of the task resume events are unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 11 dynamic
        */
       off(event: 'resume', callback?: (progress: Progress) => void): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task removal events.
+       * Disables the specified callback.
        *
-       * @param { 'remove' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { ProgressCallback } [callback] - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 23 static
        */
+      offResume(callback?: ProgressCallback): void;
       /**
-       * Enables the specified callback.
-       * Subscribes to task removal events.
+       * Subscribes to task removal events. This API uses an asynchronous callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'remove' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'remove' } event - Event type.<br>- **'remove'**: task removal.
+       * @param { function } callback - Callback to be invoked when the specified event occurs.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 11 dynamic
        */
       on(event: 'remove', callback: (progress: Progress) => void): void;
       /**
-       * Disables the specified callback.
-       * Unsubscribes from the task removal event.
+       * Enables the specified callback.
        *
-       * @param { 'remove' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { ProgressCallback } callback - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
+       * @since 23 static
        */
+      onRemove(callback: ProgressCallback): void;
       /**
-       * Disables the specified callback.
        * Unsubscribes from the task removal event.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'remove' } event - event types.
-       * @param { function } callback - callback function with a `Progress` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'remove' } event - Event type.<br>- **'remove'**: task removal.
+       * @param { function } callback - Callback to be invoked when the specified event occurs. If this parameter is not
+       *     specified, all callbacks of the task removal events are unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Mandatory parameters are left unspecified.
+       *     <br> 2. Incorrect parameter types.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 11 dynamic
        */
       off(event: 'remove', callback?: (progress: Progress) => void): void;
       /**
-       * Enables the response callback.
-       * Subscribes to task response headers.
+       * Disables the specified callback.
        *
-       * @param { 'response' } event - event types.
-       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { ProgressCallback } [callback] - callback function with a `Progress` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @atomicservice
-       * @since 12
+       * @since 23 static
        */
+      offRemove(callback?: ProgressCallback): void;
       /**
-       * Enables the response callback.
-       * Subscribes to task response headers.
+       * Subscribes to task response headers. This API uses an asynchronous callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'response' } event - event types.
-       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'response' } event - Event type.<br>- **'response'**: task response.
+       * @param { Callback<HttpResponse> } callback - Callback used to return the data structure of the task response
+       *     header.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
+       * @crossplatform [since 20]
        * @atomicservice
-       * @since 20 dynamic
-       * @since 22 static
+       * @since 12 dynamic
        */
       on(event: 'response', callback: Callback<HttpResponse>): void;
       /**
-       * Disables the response callback.
-       * Unsubscribes from task response headers.
+       * Enables the response callback.
        *
-       * @param { 'response' } event - event types.
        * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @atomicservice
-       * @since 12
+       * @since 23 static
        */
+      onResponse(callback: Callback<HttpResponse>): void;
       /**
-       * Disables the response callback.
        * Unsubscribes from task response headers.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
-       * @param { 'response' } event - event types.
-       * @param { Callback<HttpResponse> } callback - callback function with an `HttpResponse` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { 'response' } event - Event type.<br>- **response**: task response.
+       * @param { Callback<HttpResponse> } callback - Callback to unregister. If this parameter is not specified, all
+       *     callbacks of the current type will be unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
+       * @crossplatform [since 20]
        * @atomicservice
-       * @since 20 dynamic
+       * @since 12 dynamic
        */
       off(event: 'response', callback?: Callback<HttpResponse>): void;
       /**
-       * Enables the 'faultOccur' callback.
-       * This callback is triggered when the task failed.
-       * The returned `Faults` will contain the reason why the task failed.
+       * Disables the response callback.
        *
-       * @param { 'faultOccur' } event - event types.
-       * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { Callback<HttpResponse> } [callback] - callback function with an `HttpResponse` argument.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 23 static
+       */
+      offResponse(callback?: Callback<HttpResponse>): void;
+      /**
+       * Subscribes to task failure events. This API uses a callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
+       *
+       * @param { 'faultOccur' } event - Event type.<br>- **'faultOccur'**: task failure.
+       * @param { Callback<Faults> } callback - Callback used to return the failure cause of the task.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
        */
       on(event: 'faultOccur', callback: Callback<Faults>): void;
       /**
-       * Disables the 'faultOccur' callback.
+       * Enables the 'faultOccur' callback.
+       * This callback is triggered when the task failed.
+       * The returned `Faults` will contain the reason why the task failed.
        *
-       * @param { 'faultOccur' } event - event types.
        * @param { Callback<Faults> } callback - callback function with a `Faults` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 23 static
+       */
+      onFaultOccur(callback: Callback<Faults>): void;
+      /**
+       * Unsubscribes from task failure events.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
+       *
+       * @param { 'faultOccur' } event - Event type.<br>- **'faultOccur'**: task failure.
+       * @param { Callback<Faults> } callback - Callback to unregister. If this parameter is not specified, all
+       *     callbacks of the current type will be unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
        */
       off(event: 'faultOccur', callback?: Callback<Faults>): void;
       /**
-       * Enables the wait callback.
-       * This callback is triggered when the task changes from other states to the waiting state.
-       * The returned `WaitingReason` will contain the reason why the task enters waiting state.
+       * Disables the 'faultOccur' callback.
        *
-       * @param { 'wait' } event - event types.
-       * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { Callback<Faults> } [callback] - callback function with a `Faults` argument.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 23 static
+       */
+      offFaultOccur(callback?: Callback<Faults>): void;
+      /**
+       * Subscribes to task wait events. This API uses a callback to return the result.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
+       *
+       * @param { 'wait' } event - Event type.<br>- 'wait': The task is waiting.
+       * @param { Callback<WaitingReason> } callback - Callback used to return the waiting reason of the task.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
        */
       on(event: 'wait', callback: Callback<WaitingReason>): void;
       /**
-       * Disables the wait callback.
+       * Enables the wait callback.
+       * This callback is triggered when the task changes from other states to the waiting state.
+       * The returned `WaitingReason` will contain the reason why the task enters waiting state.
        *
-       * @param { 'wait' } event - event types.
        * @param { Callback<WaitingReason> } callback - callback function with an `WaitingReason` argument.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+       * @syscap SystemCapability.Request.FileTransferAgent
+       * @since 23 static
+       */
+      onWait(callback: Callback<WaitingReason>): void;
+      /**
+       * Unsubscribes from task waiting events.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
+       *
+       * @param { 'wait' } event - Event type.<br>- 'wait': The task is waiting.
+       * @param { Callback<WaitingReason> } callback - Callback to unregister. If this parameter is not specified, all
+       *     callbacks of the current type will be unregistered.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 20 dynamic
        */
       off(event: 'wait', callback?: Callback<WaitingReason>): void;
       /**
-       * Starts the task.
+       * Disables the wait callback.
        *
-       * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
+       * @param { Callback<WaitingReason> } [callback] - callback function with an `WaitingReason` argument.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
+       * @since 23 static
        */
+      offWait(callback?: Callback<WaitingReason>): void;
       /**
-       * Starts the task.
+       * Starts a task. This API uses an asynchronous callback to return the result.
+       * 
+       * Tasks in the following states can be started:
+       * 
+       * 1. Task created by **request.agent.create**.
+       * 2. Download tasks that are created by **request.agent.create** but have failed or paused.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
        * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+       *     **err** is **undefined**. Otherwise, **err** is an error object.
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11
-       */
-      /**
-       * Starts the task. The following tasks can be started:
-       * 1. Tasks just created.
-       * 2. Download tasks that are stopped or become FAILED.
-       *
-       * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 12 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       start(callback: AsyncCallback<void>): void;
       /**
-       * Starts the task.
+       * Starts a task. This API uses a promise to return the result.
+       * 
+       * Tasks in the following states can be started:
+       * 
+       * 1. Task created by **request.agent.create**.
+       * 2. Download tasks that are created by **request.agent.create** but have failed or paused.
+       * 
+       * > **NOTE**
+       * >
+       * > For details about how to obtain the context in the example, see 
+       * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+       * > .
        *
        * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } the promise returned by the function.
+       * @returns { Promise<void> } Promise that returns no value.
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Starts the task.
-       *
-       * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11
-       */
-      /**
-       * Starts the task. The following tasks can be started:
-       * 1. Tasks just created.
-       * 2. Download tasks that are stopped or become FAILED.
-       *
-       * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 12 dynamic
-       * @since 22 static
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       start(): Promise<void>;
       /**
-       * Pauses the background task.
+       * Pauses a task that is waiting, running, or retrying. A paused task can be resumed by 
+       * [resume]{@link request.agent.Task.resume(callback: AsyncCallback<void>)}. This API uses an 
+       * asynchronous callback to return the result.
        *
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+       *     **err** is **undefined**. Otherwise, **err** is an error object.
        * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Pauses a task that is waiting, running, or retrying.
-       *
-       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
-       */
-      /**
-       * Pauses a task that is waiting, running, or retrying.
-       *
-       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 10 dynamic
+       * @since 23 static
        */
       pause(callback: AsyncCallback<void>): void;
       /**
-       * Pauses the background task.
+       * Pauses a task that is waiting, running, or retrying. A paused task can be resumed by 
+       * [resume]{@link request.agent.Task.resume(callback: AsyncCallback<void>)}. This API uses a promise to 
+       * return the result.
        *
-       * @returns { Promise<void> } the promise returned by the function.
+       * @returns { Promise<void> } Promise that returns no value.
        * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Pauses a task that is waiting, running, or retrying.
-       *
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
-       */
-      /**
-       * Pauses a task that is waiting, running, or retrying.
-       *
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 10 dynamic
+       * @since 23 static
        */
       pause(): Promise<void>;
       /**
-       * Resumes the background task.
+       * Resumes a paused task. This API uses an asynchronous callback to return the result.
        *
        * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+       *     **err** is **undefined**. Otherwise, **err** is an error object.
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Resumes a paused task.
-       *
-       * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
-       */
-      /**
-       * Resumes a paused task.
-       *
-       * @permission ohos.permission.INTERNET
-       * @param { AsyncCallback<void> } callback - callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 10 dynamic
+       * @since 23 static
        */
       resume(callback: AsyncCallback<void>): void;
       /**
-       * Resumes the background task.
+       * Resumes a paused task. This API uses a promise to return the result.
        *
        * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } the promise returned by the function.
+       * @returns { Promise<void> } Promise that returns no value.
        * @throws { BusinessError } 201 - Permission denied.
        * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900005 - Operation with wrong task mode.
+       * @throws { BusinessError } 21900005 - Operation with wrong task mode. [since 10 - 10]
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Resumes a paused task.
-       *
-       * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 11
-       */
-      /**
-       * Resumes a paused task.
-       *
-       * @permission ohos.permission.INTERNET
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 201 - Permission denied.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @since 20 dynamic
+       * @crossplatform [since 20]
+       * @since 10 dynamic
+       * @since 23 static
        */
       resume(): Promise<void>;
       /**
-       * Stop a running, waiting, or retrying task.
+       * Stops a task that is running, waiting, or retrying. A paused task can be resumed by 
+       * [start]{@link request.agent.Task.start(callback: AsyncCallback<void>)}. This API uses an asynchronous 
+       * callback to return the result.
        *
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
+       * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+       *     **err** is **undefined**. Otherwise, **err** is an error object.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Stop a running, waiting, or retrying task.
-       *
-       * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating the calling result.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       stop(callback: AsyncCallback<void>): void;
       /**
-       * Stop a running, waiting, or retrying task.
+       * Stops a task that is running, waiting, or retrying. A paused task can be resumed by 
+       * [start]{@link request.agent.Task.start(callback: AsyncCallback<void>)}. This API uses a promise to 
+       * return the result.
        *
-       * @returns { Promise<void> } the promise returned by the function.
+       * @returns { Promise<void> } Promise that returns no value.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @throws { BusinessError } 21900007 - Operation with wrong task state.
        * @syscap SystemCapability.Request.FileTransferAgent
-       * @since 10
-       */
-      /**
-       * Stop a running, waiting, or retrying task.
-       *
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 13400003 - Task service ability error.
-       * @throws { BusinessError } 21900007 - Operation with wrong task state.
-       * @syscap SystemCapability.Request.FileTransferAgent
-       * @crossplatform
-       * @atomicservice
-       * @since 11 dynamic
+       * @crossplatform [since 11]
+       * @atomicservice [since 11]
+       * @since 10 dynamic
+       * @since 23 static
        */
       stop(): Promise<void>;
       /**
-       * Sets the maximum transfer speed of the task.
-       * The minimum value of the speed limit is 16,384 bytes per second(16 KB/s).
+       * Sets the maximum number of bytes that can be transmitted by a task per second. This API uses a promise to 
+       * return the result.
        *
-       * @param { long } speed - the maximum transfer speed of the task, in bytes per second.
-       * @returns { Promise<void> } the promise returned by the function.
-       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-       *     2. Incorrect parameter type. 3. Parameter verification failed.
+       * @param { long } speed - Maximum number of bytes that can be transmitted by a task per second, with a minimum of
+       *     16384 bytes. The value cannot be less than the minimum speed value specified by
+       *     [MinSpeed]{@link request.agent.MinSpeed}.
+       * @returns { Promise<void> } Promise that returns no value.
+       * @throws { BusinessError } 401 - Parameter error. Possible causes:
+       *     <br> 1. Missing mandatory parameters.
+       *     <br> 2. Incorrect parameter type.
+       *     <br> 3. Parameter verification failed.
        * @throws { BusinessError } 13400003 - Task service ability error.
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 18 dynamic
+       * @since 23 static
        */
       setMaxSpeed(speed: long): Promise<void>;
     }
 
     /**
-     * Creates a task for upload or download and enqueue it.
-     * Only foreground application can create the frontend task.
-     * It can deal only one frontend task at a time.
-     * A in processing frontend task will be forced to stop when its application had switched to background.
-     * A new frontend task will interrupt a existed in processing frontend task.
-     * The background task is highly recommended.
+     * Creates an upload or download task and adds it to the queue. This API uses an asynchronous callback to return the
+     * result. HTTP/HTTPS is supported.
+     * 
+     * > **NOTE**
+     * >
+     * > For details about how to obtain the context in the example, see 
+     * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+     * > .
      *
      * @permission ohos.permission.INTERNET
-     * @param { BaseContext } context context of the caller.
-     * @param { Config } config configurations for a task.
-     * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
+     * @param { BaseContext } context - Application-based context.
+     * @param { Config } config - Task configuration.
+     * @param { AsyncCallback<Task> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the **Task** object obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400001 - Invalid file or file system error.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900004 - the application task queue is full.
-     * @throws { BusinessError } 21900005 - Operation with wrong task mode.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Creates a task for upload or download and enqueue it.
-     * When an application enters the background, the frontend tasks associated
-     * with it will gradually be paused until the application returns to the foreground.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { BaseContext } context context of the caller.
-     * @param { Config } config configurations for a task.
-     * @param { AsyncCallback<Task> } callback indicate the callback function to receive Task.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400001 - Invalid file or file system error.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900004 - The application task queue is full.
      * @throws { BusinessError } 21900005 - Operation with wrong task mode.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function create(context: BaseContext, config: Config, callback: AsyncCallback<Task>): void;
 
     /**
-     * Creates a task for upload or download and enqueue it.
-     * Only foreground application can create the frontend task.
-     * It can deal only one frontend task at a time.
-     * A in processing frontend task will be forced to stop when its application had switched to background.
-     * A new frontend task will interrupt a existed in processing frontend task.
-     * The background task is highly recommended.
+     * Creates an upload or download task and adds it to the queue. This API uses a promise to return the result. HTTP/
+     * HTTPS is supported.
+     * 
+     * > **NOTE**
+     * >
+     * > For details about how to obtain the context in the example, see 
+     * > [Obtaining the Context of UIAbility](docroot://application-models/uiability-usage.md#obtaining-the-context-of-uiability)
+     * > .
      *
      * @permission ohos.permission.INTERNET
-     * @param { BaseContext } context context of the caller.
-     * @param { Config } config configurations for a task.
-     * @returns { Promise<Task> } the promise returned by the function.
+     * @param { BaseContext } context - Application-based context.
+     * @param { Config } config - Task configuration.
+     * @returns { Promise<Task> } Promise used to return the created task.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400001 - Invalid file or file system error.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900004 - the application task queue is full.
-     * @throws { BusinessError } 21900005 - Operation with wrong task mode.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Creates a task for upload or download and enqueue it.
-     * When an application enters the background, the frontend tasks associated.
-     * with it will gradually be paused until the application returns to the foreground.
-     *
-     * @permission ohos.permission.INTERNET
-     * @param { BaseContext } context context of the caller.
-     * @param { Config } config configurations for a task.
-     * @returns { Promise<Task> } the promise returned by the function.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400001 - Invalid file or file system error.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900004 - The application task queue is full.
      * @throws { BusinessError } 21900005 - Operation with wrong task mode.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function create(context: BaseContext, config: Config): Promise<Task>;
 
     /**
-     * Gets the task with the specified id.
-     * Obtains task information based on the task ID.
+     * Obtains task information based on the task ID. This API uses a promise to return the result.
      *
-     * @param { BaseContext } context - context of the caller.
-     * @param { string } id - the id of the task.
-     * @param { string } token - the token of the task, length between 8 and 2048 bytes.
-     * @returns { Promise<Task> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { BaseContext } context - Application-based context.
+     * @param { string } id - Task ID.
+     * @param { string } token - Token for task query. The default value is empty.
+     * @returns { Promise<Task> } Promise used to return the created task.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 11 dynamic
+     * @since 23 static
      */
     function getTask(context: BaseContext, id: string, token?: string): Promise<Task>;
 
     /**
-     * Removes specified task belongs to the caller.
-     * The task will be forced to stop if in processing.
+     * Removes a specified task of the invoker. If the task is being executed, the task is forced to stop. This API uses
+     * an asynchronous callback to return the result. After this API is called, the **task** object and its callback 
+     * function are released.
      *
-     * @param { string } id the task id.
-     * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating success or not.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
+     * @param { string } id - Task ID.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Removes specified task belongs to the caller.
-     * The task will be forced to stop if in processing.
-     *
-     * @param { string } id the task id.
-     * @param { AsyncCallback<void> } callback callback function with a boolean argument indicating success or not.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900006 - Task removed or not found.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function remove(id: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Removes specified task belongs to the caller.
-     * The task will be forced to stop if in processing.
+     * Removes a specified task of the invoker. If the task is being executed, the task is forced to stop. This API uses
+     * a promise to return the result. After this API is called, the **task** object and its callback function are 
+     * released.
      *
-     * @param { string } id the task id.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
+     * @param { string } id - Task ID.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Removes specified task belongs to the caller.
-     * The task will be forced to stop if in processing.
-     *
-     * @param { string } id the task id.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900006 - Task removed or not found.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function remove(id: string): Promise<void>;
 
     /**
-     * Shows specified task details belongs to the caller.
-     * Queries a task details based on the task ID.
+     * Queries the task details based on the task ID. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } id the task id.
-     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
+     * @param { string } id - Task ID.
+     * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the **TaskInfo** object obtained. Otherwise, **err** is an error
+     *     object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Shows specified task details belongs to the caller.
-     * Queries a task details based on the task ID.
-     *
-     * @param { string } id the task id.
-     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900006 - Task removed or not found.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function show(id: string, callback: AsyncCallback<TaskInfo>): void;
 
     /**
-     * Shows specified task details belongs to the caller.
-     * Queries a task details based on the task ID.
+     * Queries the task details based on the task ID. This API uses a promise to return the result.
      *
-     * @param { string } id the task id.
-     * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
+     * @param { string } id - Task ID.
+     * @returns { Promise<TaskInfo> } Promise used to return the **TaskInfo** object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Shows specified task details belongs to the caller.
-     * Queries a task details based on the task ID.
-     *
-     * @param { string } id the task id.
-     * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900006 - Task removed or not found.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function show(id: string): Promise<TaskInfo>;
 
     /**
-     * Touches specified task with token.
-     * Queries the task details based on the task ID and token.
+     * Queries the task details based on the task ID and token. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { string } id the task id.
-     * @param { string } token the in-application isolation key.
-     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { string } id - Task ID.
+     * @param { string } token - Token for task query.
+     * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the **TaskInfo** object obtained. Otherwise, **err** is an error
+     *     object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Touches specified task with token.
-     * Queries the task details based on the task ID and token.
-     *
-     * @param { string } id the task id.
-     * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
-     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900006 - Task removed or not found.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function touch(id: string, token: string, callback: AsyncCallback<TaskInfo>): void;
 
     /**
-     * Touches specified task with token.
-     * Queries the task details based on the task ID and token.
+     * Queries the task details based on the task ID and token. This API uses a promise to return the result.
      *
-     * @param { string } id the task id.
-     * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
-     * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { string } id - Task ID.
+     * @param { string } token - Token for task query.
+     * @returns { Promise<TaskInfo> } Promise used to return the **TaskInfo** object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Touches specified task with token.
-     * Queries the task details based on the task ID and token.
-     *
-     * @param { string } id the task id.
-     * @param { string } token the in-application isolation key, length between 8 and 2048 bytes.
-     * @returns { Promise<TaskInfo> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @throws { BusinessError } 21900006 - Task removed or not found.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function touch(id: string, token: string): Promise<TaskInfo>;
 
     /**
-     * Searches tasks, for system.
-     * Searches for task IDs based on Filter.
+     * Searches for task IDs based on 
+     * [Filter]{@link request.agent.Filter}. The IDs of all 
+     * tasks from the invoking time to 24 hours ago are searched. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
-     * <br>2. Parameter verification failed.
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the task ID. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Incorrect parameter type.
+     *     <br> 2. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Searches tasks, for system.
-     * Searches for task IDs based on Filter.
-     *
-     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
-     * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function search(callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Searches tasks, for system.
-     * Searches for task IDs based on Filter.
+     * Searches for task IDs based on 
+     * [Filter]{@link request.agent.Filter}. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { Filter } filter an instance of `Filter`.
-     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
-     * <br>2. Parameter verification failed.
+     * @param { Filter } filter - Filter criteria.
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the task ID. Otherwise, **err** is an error object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Incorrect parameter type.
+     *     <br> 2. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Searches tasks, for system.
-     * Searches for task IDs based on Filter.
-     *
-     * @param { Filter } filter an instance of `Filter`.
-     * @param { AsyncCallback<Array<string>> } callback callback function with a `Array<string>` argument contains task ids match filter.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
-     * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function search(filter: Filter, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Searches tasks, for system.
-     * Searches for task IDs based on Filter.
+     * Searches for task IDs based on 
+     * [Filter]{@link request.agent.Filter}. This API uses a 
+     * promise to return the result.
      *
-     * @param { Filter } filter an instance of `Filter`.
-     * @returns { Promise<Array<string>> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
-     * <br>2. Parameter verification failed.
+     * @param { Filter } filter - Filter criteria. The default value is empty.
+     * @returns { Promise<Array<string>> } Promise used to return the task IDs that meet the filter criteria.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Incorrect parameter type.
+     *     <br> 2. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
-     * @since 10
-     */
-    /**
-     * Searches tasks, for system.
-     * Searches for task IDs based on Filter.
-     *
-     * @param { Filter } filter an instance of `Filter`.
-     * @returns { Promise<Array<string>> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter type.
-     * <br>2. Parameter verification failed.
-     * @throws { BusinessError } 13400003 - Task service ability error.
-     * @syscap SystemCapability.Request.FileTransferAgent
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @since 10 dynamic
+     * @since 23 static
      */
     function search(filter?: Filter): Promise<Array<string>>;
 
@@ -5829,16 +4415,20 @@ declare namespace request {
      *
      * @permission ohos.permission.DOWNLOAD_SESSION_MANAGER or ohos.permission.UPLOAD_SESSION_MANAGER
      * @param { string } id the task id.
-     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the current task.
+     * @param { AsyncCallback<TaskInfo> } callback callback function with a `TaskInfo` argument for informations of the
+     *     current task.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
+     * @throws { BusinessError } 202 - permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 23 static
      */
     function query(id: string, callback: AsyncCallback<TaskInfo>): void;
 
@@ -5849,70 +4439,81 @@ declare namespace request {
      * @param { string } id the task id.
      * @returns { Promise<TaskInfo> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type.
+     * @throws { BusinessError } 202 - permission verification failed, application which is not a system application
+     *     uses system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900006 - Task removed or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 23 static
      */
     function query(id: string): Promise<TaskInfo>;
 
     /**
      * Describes group configuration options for download tasks.
      *
-     * @typedef GroupConfig
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
+     * @since 23 static
      */
     interface GroupConfig {
       /**
-       * Sets display strategy for background task notifications.
-       * If true, progress, completed, and failed notifications will be displayed.
-       * If false, only completed or failed notifications will be displayed.
-       * The default value is false.
+       * Whether to send progress notifications. This parameter applies only to background tasks.
+       * 
+       * - **true**: The progress, success, and failure notifications are displayed.
+       * - **false**: Only success and failure notifications are displayed.
+       * 
+       * The default value is **false**.
        *
-       * @type { ?boolean }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
+       * @since 23 static
        */
       gauge?: boolean;
       /**
-       * Customizes the notification of the task group.
+       * Custom settings for the notification bar. The default value is **{}**.
        *
-       * @type { Notification }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @since 15 dynamic
+       * @since 23 static
        */
       notification: Notification;
     }
 
     /**
-     * Creates a background download task notification group.
-     * Creates a group based on GroupConfig and returns the group ID.
+     * Creates a group based on 
+     * [GroupConfig]{@link request.agent.GroupConfig}. This API
+     * uses a promise to return the result.
      *
-     * @param { GroupConfig } config - config of the group.
-     * @returns { Promise<string> } the gid of the group.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { GroupConfig } config - Group options for a download task.
+     * @returns { Promise<string> } Promise used to return the ID of the created group.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
+     * @since 23 static
      */
     function createGroup(config: GroupConfig): Promise<string>;
 
     /**
-     * Attaches multiple download task IDs to a specified group ID.
-     * If any task ID does not meet the attachment conditions,
-     * all tasks in the list will not be added to the group.
+     * Attaches multiple download task IDs to a specified group ID. This API uses a promise to return the result.
+     * 
+     * If any task ID does not meet the attachment conditions, all tasks in the list will not be added to the group.
      *
-     * @param { string } gid - the gid of the target group.
-     * @param { string[] } tids - the tid list of tasks to be attached.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { string } gid - Target group ID.
+     * @param { string[] } tids - List of task IDs to attach.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900005 - Operation with wrong task mode.
      * @throws { BusinessError } 21900006 - Task removed or not found.
@@ -5920,21 +4521,30 @@ declare namespace request {
      * @throws { BusinessError } 21900008 - Group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
+     * @since 23 static
      */
     function attachGroup(gid: string, tids: string[]): Promise<void>;
 
     /**
-     * Deletes the target group, no more new tasks can be added to this group.
-     * If all tasks in this group end, completed or failed notifications will be displayed.
+     * Deletes a specified group. No task ID can be added to the group. This API uses a promise to return the result.
+     * 
+     * When all tasks in a group are succeeded, failed, or removed and the group is deleted, the completion and failure 
+     * notifications of this group are displayed.
      *
-     * @param { string } gid - the gid of the target group.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { string } gid - Target group ID. The value must be the same as the ID of the created task group, that is,
+     *     the return value of the task group created using the
+     *     [request.agent.createGroup]{@link request.agent.createGroup(config: GroupConfig)}
+     *     API.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 13400003 - Task service ability error.
      * @throws { BusinessError } 21900008 - Group deleted or not found.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 15 dynamic
+     * @since 23 static
      */
     function deleteGroup(gid: string): Promise<void>;
   }

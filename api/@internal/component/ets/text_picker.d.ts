@@ -23,6 +23,7 @@
  *
  * @interface TextPickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -31,6 +32,7 @@
  *
  * @interface TextPickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -42,6 +44,7 @@ declare interface TextPickerRangeContent {
    * 
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -51,6 +54,7 @@ declare interface TextPickerRangeContent {
    * 
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -67,6 +71,7 @@ declare interface TextPickerRangeContent {
    * @type { ?(string | Resource) }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -80,6 +85,7 @@ declare interface TextPickerRangeContent {
    * @type { ?(string | Resource) }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -92,6 +98,7 @@ declare interface TextPickerRangeContent {
  *
  * @interface TextCascadePickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -99,6 +106,7 @@ declare interface TextPickerRangeContent {
  *
  * @interface TextCascadePickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -113,6 +121,7 @@ declare interface TextCascadePickerRangeContent {
    * 
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -124,6 +133,7 @@ declare interface TextCascadePickerRangeContent {
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -135,6 +145,7 @@ declare interface TextCascadePickerRangeContent {
    *
    * @type { ?TextCascadePickerRangeContent[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -142,6 +153,7 @@ declare interface TextCascadePickerRangeContent {
    *
    * @type { ?TextCascadePickerRangeContent[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -154,6 +166,7 @@ declare interface TextCascadePickerRangeContent {
  *
  * @interface TextPickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -161,6 +174,7 @@ declare interface TextCascadePickerRangeContent {
  *
  * @interface TextPickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -169,6 +183,7 @@ declare interface TextCascadePickerRangeContent {
  *
  * @interface TextPickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -179,6 +194,7 @@ declare interface TextPickerOptions {
    *
    * @type {string[] | Resource}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -187,6 +203,7 @@ declare interface TextPickerOptions {
    *
    * @type {string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -196,6 +213,7 @@ declare interface TextPickerOptions {
    *
    * @type {string[] | string[][] | Resource | TextPickerRangeContent[] | TextCascadePickerRangeContent[]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -266,6 +284,7 @@ declare interface TextPickerOptions {
    * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -277,6 +296,7 @@ declare interface TextPickerOptions {
    * @type { ?(number | number[]) }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -289,6 +309,7 @@ declare interface TextPickerOptions {
    * @type { ?(number | number[]) }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -304,6 +325,7 @@ declare interface TextPickerOptions {
    *
    * @type { ?LengthMetrics[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -316,6 +338,7 @@ declare interface TextPickerOptions {
  *
  * @interface TextPickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -323,6 +346,7 @@ declare interface TextPickerOptions {
  *
  * @interface TextPickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -331,6 +355,7 @@ declare interface TextPickerOptions {
  *
  * @interface TextPickerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -342,6 +367,7 @@ interface TextPickerInterface {
    * @param { TextPickerOptions } options
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -350,6 +376,7 @@ interface TextPickerInterface {
    * @param { TextPickerOptions } options
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -359,6 +386,7 @@ interface TextPickerInterface {
    * @param { TextPickerOptions } options
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -371,6 +399,7 @@ interface TextPickerInterface {
  *
  * @interface DividerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -388,6 +417,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @default 2.0px
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -400,6 +430,7 @@ declare interface DividerOptions {
    * @type { ?ResourceColor }
    * @default '#33000000'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -417,6 +448,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -434,6 +466,7 @@ declare interface DividerOptions {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -447,6 +480,7 @@ declare interface DividerOptions {
  * @extends PickerTextStyle
  * @interface TextPickerTextStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -461,6 +495,7 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
    * 
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -472,6 +507,7 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
    *
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -487,6 +523,7 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
    *
    * @type { ?TextOverflow }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -499,6 +536,7 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
  *
  * @interface PickerBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -509,6 +547,7 @@ declare interface PickerBackgroundStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -520,6 +559,7 @@ declare interface PickerBackgroundStyle {
    *
    * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -534,6 +574,7 @@ declare interface PickerBackgroundStyle {
  * @param { string | string[] } value - Value of the selected item.
  * @param { number | number[] } index - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -547,6 +588,7 @@ declare type TextPickerScrollStopCallback = (value: string | string[], index: nu
  * @param { string | string[] } selectItem - Value of the selected item.
  * @param { number | number[] } index - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -560,6 +602,7 @@ declare type OnTextPickerChangeCallback = (selectItem: string | string[], index:
  * @param { string | string[] } value - Value of the selected item.
  * @param { number | number[] } index - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -571,6 +614,7 @@ declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], in
  *
  * @extends CommonMethod<TextPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -578,6 +622,7 @@ declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], in
  *
  * @extends CommonMethod<TextPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -586,6 +631,7 @@ declare type TextPickerEnterSelectedAreaCallback = (value: string | string[], in
  *
  * @extends CommonMethod<TextPickerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -597,6 +643,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { number | string } value
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -605,6 +652,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { number | string } value
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -617,6 +665,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @returns { TextPickerAttribute }
    * @default 56 vp (selected) and 36 vp (unselected).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -632,6 +681,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default 56 vp (selected) and 36 vp (unselected).
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -645,6 +695,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default true
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -654,6 +705,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default true
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -668,6 +720,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default true
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -680,6 +733,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { PickerTextStyle } value - Font color, font size, and font weight of the top and bottom items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -689,6 +743,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { PickerTextStyle } value - Font color, font size, and font weight of the top and bottom items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -702,6 +757,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<PickerTextStyle> } style - Font color, font size, and font weight of the top and bottom items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -714,6 +770,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<PickerTextStyle | TextPickerTextStyle> } style - indicates the text style of disappearing items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -727,6 +784,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * <br>bottom, and selected items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -736,6 +794,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { PickerTextStyle } value - indicates the text style of normal items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -750,6 +809,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * <br>items except the top, bottom, and selected items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -762,6 +822,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<PickerTextStyle | TextPickerTextStyle> } style - indicates the text style of normal items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -774,6 +835,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item..
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -783,6 +845,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { PickerTextStyle } value - Font color, font size, and font weight of the selected item.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -796,6 +859,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<PickerTextStyle> } style - Font color, font size, and font weight of the selected item.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -808,6 +872,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<PickerTextStyle | TextPickerTextStyle> } style - indicates the text style of selected items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -821,6 +886,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default false
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -833,6 +899,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { TextPickerTextStyle } style
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -845,7 +912,8 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @FaAndStageModel
+   * @since 8 dynamiconly
    * @deprecated since 10
    */
   onAccept(callback: (value: string, index: number) => void): TextPickerAttribute;
@@ -856,7 +924,8 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
+   * @FaAndStageModel
+   * @since 8 dynamiconly
    * @deprecated since 10
    */
   onCancel(callback: () => void): TextPickerAttribute;
@@ -867,6 +936,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback - the callback of onChange.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -878,6 +948,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback - the callback of onChange.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -890,6 +961,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { function } callback - the callback of onChange.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -903,6 +975,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<OnTextPickerChangeCallback> } callback - the callback of onChange.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -918,6 +991,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * <br>in the text picker stops.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -933,6 +1007,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * <br>in the text picker stops.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -948,6 +1023,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * <br>the text picker when an item enters the divider area.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -964,6 +1040,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default 0
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -977,6 +1054,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default 0
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -995,6 +1073,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default 0
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1007,6 +1086,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { DividerOptions | null } value
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1019,6 +1099,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<DividerOptions | null> } textDivider
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1037,6 +1118,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default 36vp
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1050,6 +1132,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default true
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -1069,6 +1152,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default 36vp
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1082,6 +1166,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @default CrownSensitivity.MEDIUM
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1094,6 +1179,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<PickerBackgroundStyle> } style - the background style of selected items.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1106,6 +1192,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
  *
  * @interface TextPickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -1113,6 +1200,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
  *
  * @interface TextPickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1121,6 +1209,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
  *
  * @interface TextPickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1131,6 +1220,7 @@ declare interface TextPickerResult {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1139,6 +1229,7 @@ declare interface TextPickerResult {
    *
    * @type { string | string[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1148,6 +1239,7 @@ declare interface TextPickerResult {
    *
    * @type { string | string[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1159,6 +1251,7 @@ declare interface TextPickerResult {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1166,6 +1259,7 @@ declare interface TextPickerResult {
    *
    * @type { number | number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1174,6 +1268,7 @@ declare interface TextPickerResult {
    *
    * @type { number | number[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1187,6 +1282,7 @@ declare interface TextPickerResult {
  * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
@@ -1195,6 +1291,7 @@ declare interface TextPickerResult {
  * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -1204,6 +1301,7 @@ declare interface TextPickerResult {
  * @extends TextPickerOptions
  * @interface TextPickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -1214,6 +1312,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1221,6 +1320,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1230,6 +1330,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?(number | string) }
    * @default 56 vp (selected) and 36 vp (unselected)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1242,6 +1343,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1251,6 +1353,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1262,6 +1365,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1270,6 +1374,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1281,6 +1386,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1289,6 +1395,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1306,6 +1413,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1323,6 +1431,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1334,6 +1443,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1342,6 +1452,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?PickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1356,6 +1467,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1371,6 +1483,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1408,6 +1521,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1415,6 +1529,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1423,6 +1538,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1434,6 +1550,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -1441,6 +1558,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -1449,6 +1567,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1460,6 +1579,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1483,6 +1603,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1494,6 +1615,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1504,6 +1626,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?Rectangle }
    * @default { x: 0, y: 0, width: '100%', height: '100%' }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1515,6 +1638,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?DialogAlignment }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1524,6 +1648,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?DialogAlignment }
    * @default DialogAlignment.Default
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1535,6 +1660,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?Offset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1544,6 +1670,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?Offset }
    * @default { dx: 0 , dy: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1556,6 +1683,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1565,6 +1693,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1577,6 +1706,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1586,6 +1716,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1597,6 +1728,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1608,6 +1740,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1629,6 +1762,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1645,6 +1779,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1663,6 +1798,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * 
@@ -1682,6 +1818,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1695,6 +1832,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1707,6 +1845,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default false - meaning not to enable the hover mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1719,6 +1858,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?HoverModeAreaType }
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1739,6 +1879,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
    */
@@ -1750,8 +1891,20 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @type { ?PickerBackgroundStyle }
    * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
 }
@@ -1762,6 +1915,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
  * @extends TextPickerOptions
  * @interface TextPickerDialogOptionsExt
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -1772,6 +1926,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1784,6 +1939,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1795,6 +1951,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1806,6 +1963,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1817,6 +1975,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1828,6 +1987,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1839,6 +1999,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1850,6 +2011,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1861,6 +2023,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?TextPickerTextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1872,6 +2035,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1883,6 +2047,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1894,6 +2059,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1905,6 +2071,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1916,6 +2083,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?Callback<TextPickerResult> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1927,6 +2095,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1938,6 +2107,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?DialogAlignment }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1949,6 +2119,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?Offset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1961,6 +2132,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1973,6 +2145,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1984,6 +2157,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1995,6 +2169,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2006,6 +2181,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2017,6 +2193,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2028,6 +2205,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2039,6 +2217,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2050,6 +2229,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    *
    * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2062,6 +2242,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2074,6 +2255,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @type { ?HoverModeAreaType }
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2086,6 +2268,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -2097,8 +2280,20 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @type { ?PickerBackgroundStyle }
    * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   */
+  /**
+   * Background style of selected items.
+   *
+   * @type { ?PickerBackgroundStyle }
+   * @default { color: $r('sys.color.comp_background_tertiary'), borderRadius: $r('sys.float.corner_radius_level12') }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
 }
@@ -2107,12 +2302,14 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines TextPickerDialog which uses show method to show TextPicker dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -2120,6 +2317,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
  * A text picker dialog box is a dialog box that allows users to select text from the given range.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -2130,6 +2328,7 @@ declare class TextPickerDialog {
    *
    * @param { TextPickerDialogOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8
    */
   /**
@@ -2137,6 +2336,7 @@ declare class TextPickerDialog {
    *
    * @param { TextPickerDialogOptions } options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @since 10
    */
@@ -2145,6 +2345,7 @@ declare class TextPickerDialog {
    *
    * @param { TextPickerDialogOptions } options - Parameters of the text picker dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 11 dynamiconly
@@ -2158,12 +2359,14 @@ declare class TextPickerDialog {
  * Defines TextPicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines TextPicker Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -2171,6 +2374,7 @@ declare class TextPickerDialog {
  * Creates a text picker based on the selection range specified by range.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -2181,12 +2385,14 @@ declare const TextPicker: TextPickerInterface;
  * Defines TextPicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @since 8
  */
 /**
  * Defines TextPicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @since 10
  */
@@ -2194,6 +2400,7 @@ declare const TextPicker: TextPickerInterface;
  * Defines TextPicker Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic

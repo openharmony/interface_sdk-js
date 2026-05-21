@@ -25,6 +25,7 @@
  *
  * @interface LazyVGridLayoutInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -35,6 +36,7 @@ interface LazyVGridLayoutInterface {
    *
    * @returns { LazyVGridLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -47,6 +49,7 @@ interface LazyVGridLayoutInterface {
  *
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -58,6 +61,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @param { LengthMetrics } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -70,11 +74,27 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @param { LengthMetrics } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
   columnsGap(value: LengthMetrics): T;
+
+  /**
+   * Triggered when the index of child components in the visible area changes.
+   *
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   *     when the index of child components in the visible area changes.
+   *     Passing undefined will unregister the callback.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): T;
 }
 
 /**
@@ -82,6 +102,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
  *
  * @extends LazyGridLayoutAttribute<LazyVGridLayoutAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -93,6 +114,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * @param { string } value
    * @returns { LazyVGridLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -104,6 +126,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * Defines the lazy vertical grid layout component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -114,6 +137,7 @@ declare const LazyVGridLayout: LazyVGridLayoutInterface;
  * Defines the lazy vertical grid layout component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic

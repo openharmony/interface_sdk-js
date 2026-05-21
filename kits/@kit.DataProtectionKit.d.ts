@@ -20,5 +20,6 @@
 
 import dlpPermission from '@ohos.dlpPermission';
 import identifySensitiveContent from '@ohos.security.identifySensitiveContent';
+import dlpSetDlpFeature from '@ohos.dlpSetDlpFeature';
 
-export { dlpPermission, identifySensitiveContent };
+export { dlpPermission, identifySensitiveContent, dlpSetDlpFeature };

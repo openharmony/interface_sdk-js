@@ -14,160 +14,156 @@
  */
 
 /**
+ * The module defines plugin information, which is obtained through the 
+ * [bundleManager.getAllPluginInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAllPluginInfo} API.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * Provides information about a plugin.
+ * Defines the plugin information.
  *
- * @typedef PluginBundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @systemapi
+ * @systemapi [since 19 - 24]
+ * @publicapi [since 26.0.0]
  * @since 19 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PluginBundleInfo {
   /**
-   * Indicates the label of the plugin
+   * Plugin name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label: string;
 
   /**
-   * Indicates the label id of the plugin
+   * Resource ID of the plugin name.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
   /**
-   * Indicates the icon of the plugin
+   * Plugin icon.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly icon: string;
 
   /**
-   * Indicates the icon id of the plugin
+   * Resource ID of the plugin icon.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId: long;
 
-   /**
-   * Indicates the name of the plugin
+  /**
+   * Bundle name of the application for which the plugin is installed.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly pluginBundleName: string;
 
   /**
-   * Indicates the version code of the plugin
+   * Version number of the plugin.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionCode: long;
 
   /**
-   * Indicates the version name of the plugin
+   * Version name of the plugin.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionName: string;
 
   /**
-   * Indicates the information about the plugin module
+   * Module information of the plugin.
    *
-   * @type { Array<PluginModuleInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly pluginModuleInfos: Array<PluginModuleInfo>;
 }
 
 /**
- * Indicates the plugin module info.
+ * Defines the module information of a plugin.
  *
- * @typedef PluginModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @systemapi
+ * @systemapi [since 19 - 24]
+ * @publicapi [since 26.0.0]
  * @since 19 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface PluginModuleInfo {
   /**
-   * Indicates the moduleName of the plugin
+   * Module name of the plugin.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
   /**
-   * Indicates the description of the plugin
+   * Resource ID of the module description.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 
   /**
-   * Describes the plugin
+   * Description of the module.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 19 - 24]
+   * @publicapi [since 26.0.0]
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly description: string;
 }

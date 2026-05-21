@@ -46,7 +46,9 @@ import {
   SINCE_TAG_CHECK_ERROR,
   SINCE_TAG_NAME,
   STAGE_COMPILE_MODE,
-  SYSCAP_TAG_CHECK_NAME
+  SYSCAP_TAG_CHECK_NAME,
+  SYSTEM_API_TAG_CHECK_NAME,
+  TEST_TAG_CHECK_NAME
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
@@ -120,7 +122,6 @@ export function isCardFile(file: string): boolean {
 }
 
 /**
- * 校验since标签，当前api版本是否小于等于compatibleSdkVersion。
  * 
  * @param { JSDoc[] } jsDocs 当前api的JSDoc
  * @param { JsDocNodeCheckConfigItem } config 当前的since标签校验规则
@@ -147,6 +148,7 @@ export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem)
  */
 function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
   let minorVersion: number = 0;
+
   if (!jsDocs || jsDocs.length === 0) {
     return minorVersion;
   }
@@ -164,6 +166,7 @@ function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
     }
     break;
   }
+
   return minorVersion;
 }
 
@@ -190,6 +193,20 @@ function getJSDocTag(jsDoc: JSDoc, tagName: string): JSDocTag | undefined {
     return item.tag === tagName;
   });
   return jsDocTag;
+}
+
+/**
+ * 从JSDoc注释对象中获取指定名称的标签，提取如permissiond多段注释标签。
+ * 
+ * @param { JSDoc } jsDoc
+ * @param { string } tagName
+ * @returns { JSDocTag }
+ */
+
+function getPermissionJSDocTag(jsDoc: JSDoc , tagName: string): JSDocTag[]  {
+  const tags =  jsDoc.tags;
+  const permissionTags = tags.filter((tag) => tag.tag === tagName);
+  return permissionTags;
 }
 
 /**
@@ -456,6 +473,7 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
   designatedChar: string
 ): string[] {
   const rightParenthesisItems: string[] = [];
+
   leftParenthesisItems.forEach((leftParenthesisItem: string) => {
     if (!leftParenthesisItem.includes(designatedChar)) {
       rightParenthesisItems.push(leftParenthesisItem);
@@ -467,6 +485,7 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
       rightParenthesisItems.push(item === '' ? designatedChar : item);
     });
   });
+
   return rightParenthesisItems;
 }
 
@@ -536,8 +555,17 @@ export function createOrCleanProjectConfig(): ProjectConfig {
     initApiCheckTag: true,
     dependentModuleList: [],
     entryFiles: [],
-    getHvigorConsoleLogger: () => {}
+    compileFiles: [],
+    getHvigorConsoleLogger: defaultLogger
   };
+}
+
+function defaultLogger(): Logger {
+  return {
+    printInfo: (message: string): void => {},
+    printWarn: (message: string): void => {},
+    printDebug: (message: string): void => {}
+  }
 }
 
 /**
@@ -615,7 +643,7 @@ export function readCardPageSet(projectConfig: ProjectConfig): void {
 }
 
 /**
- * 遍历筛选出类型为'form'的拓展，提取其emtadata中的资源信息。
+ * 筛选类型为'form'的扩展能力，提取其metadata中的资源信息
  * 
  * @param { ExtensionAbilities[] } extensionAbilities 扩展能力数组
  * @param { ProjectConfig } projectConfig 项目配置信息
@@ -640,7 +668,7 @@ function setCardPages(extensionAbilities: ExtensionAbilities[], projectConfig: P
 /**
  * 读取卡片资源配置，筛选符合条件的卡片路径并更新到cardPageSet
  * 
- * @param { string } resource 卡片资源标识字符串，格式可能包含$profile:前缀
+ * @param { string } resource 卡片资源标识（可能包含$profile:前缀）
  * @param { ProjectConfig } projectConfig 项目配置信息
  */
 function readCardResource(resource: string, projectConfig: ProjectConfig): void {
@@ -649,19 +677,19 @@ function readCardResource(resource: string, projectConfig: ProjectConfig): void 
   if (!fs.existsSync(modulePagePath)) {
     return;
   }
-  const CardConfig: CardConfig = JSON.parse(fs.readFileSync(modulePagePath, 'utf-8'));
-  if (!CardConfig.forms) {
+  const cardConfig: CardConfig = JSON.parse(fs.readFileSync(modulePagePath, 'utf-8'));
+  if (!cardConfig.forms) {
     return;
   }
-  CardConfig.forms.forEach((form) => {
+  cardConfig.forms.forEach((form) => {
     if (!(form.type === 'eTS' || form.uiSyntax === 'arkts')) {
       return;
     }
-    const cradPath: string = path.resolve(projectConfig.projectPath, '..', form.src);
-    if (!cradPath || !fs.existsSync(cradPath) || projectConfig.cardPageSet.includes(cradPath)) {
+    const cardPath: string = path.resolve(projectConfig.projectPath, '..', form.src);
+    if (!cardPath || !fs.existsSync(cardPath) || projectConfig.cardPageSet.includes(cardPath)) {
       return;
     }
-    projectConfig.cardPageSet.push(cradPath);
+    projectConfig.cardPageSet.push(cardPath);
   });
 }
 
@@ -842,11 +870,18 @@ function collectExternalSyscapInfos(
       externalDeviceDirs.push(externalDeviceDir);
     }
   });
-  externalDeviceDirs.forEach((externalDeviceDir: string) => {
+  externalDeviceDirs.forEach(externalDeviceDir => {
     processDeviceTypes(externalDeviceDir, deviceTypes, deviceInfoMap)
   });
 }
 
+/**
+ * 在外部SDK路径数组中遍历项目支持的设备类型数组，将对应的设备存入deviceInfoMap中
+ * 
+ * @param { string } externalDeviceDir 外部SDK路径
+ * @param { string[] } deviceTypes 项目支持的设备类型数组
+ * @param { Map<string, string[]> } deviceInfoMap 用于存储设备类型与对应Syscap数组的映射表
+ */
 function processDeviceTypes(externalDeviceDir: string, deviceTypes: string[], deviceInfoMap: Map<string, string[]>): void {
   deviceTypes.forEach((deviceType: string) => {
     const files: string[] = fs.readdirSync(externalDeviceDir);
@@ -859,10 +894,10 @@ function processDeviceTypes(externalDeviceDir: string, deviceTypes: string[], de
         return;
       }
       const content: SyscapConfig = JSON.parse(fs.readFileSync(syscapFilePath, 'utf-8'));
-      const existsingSysCaps: string[] = deviceInfoMap.get(deviceType) || [];
-      deviceInfoMap.set(deviceType, existsingSysCaps.concat(content.SysCaps));
-    })
-  })
+      const existingSysCaps: string[] = deviceInfoMap.get(deviceType) || [];
+      deviceInfoMap.set(deviceType, existingSysCaps.concat(content.SysCaps));
+    });
+  });
 }
 
 
@@ -899,15 +934,85 @@ export function readFile(dir: string, utFiles: string[]): void {
 */
 export function checkPermissionTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
   const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
-  const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
+  const jsDocTags: JSDocTag []  = getPermissionJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
+  if (jsDocTags ===  undefined || jsDocTags.length === 0  ) {
+    return false;
+  }
+  let commentAll = '';
+  for (const permissionTag of jsDocTags) {
+    let permissionExpression: string = permissionTag.comment ?? '';
+    if (permissionExpression === '') {
+      continue;
+    }
+    const versionRange = extractVersionRange(permissionTag.comment);
+    if (versionRange) {
+      if (checkVersionRangeIntersection(versionRange)) {
+        permissionExpression = permissionExpression.replace(/\[since (.*?)\]/, '').trim();
+      }
+      else {
+        continue
+      }
+    }
+    if (validPermission(permissionExpression, globalObject.projectConfig.permissionsArray)) {
+      continue;
+    }
+    commentAll += `${permissionExpression} and `;
+  }
+  if (commentAll !== '') {
+    commentAll = PERMISSION_TAG_CHECK_ERROR.replace('$DT', commentAll);
+    config.message = commentAll.replace(/\s*and\s*$/, '').trim();
+    return true;
+  }
+  return false;
+}
+
+/**
+ * 校验since标签，当前api版本是否小于等于compatibleSdkVersion。
+ * 
+ * @param { JSDoc[] } jsDocs 当前api的JSDoc
+ * @param { JsDocNodeCheckConfigItem } config 当前的systemapi标签校验规则
+ * @returns { boolean } 是否报错该systemapi标签
+ */
+export function checkSystemTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
+
+  const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
+  const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, SYSTEM_API_TAG_CHECK_NAME);
   if (!jsDocTag) {
     return false;
   }
-  const permissionExpression: string = jsDocTag.comment ?? '';
-  config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
-  return permissionExpression !== '' &&
-    !validPermission(permissionExpression, globalObject.projectConfig.permissionsArray);
+
+  const versionRange = extractVersionRange(jsDocTag.comment);
+
+  if (versionRange !== undefined) {
+    return checkVersionRangeIntersection(versionRange);
+  } else {
+    return true;
+  }
 }
+
+/**
+ * 
+ * @param { JSDoc[] } jsDocs 当前api的JSDoc
+ * @param { JsDocNodeCheckConfigItem } config 当前的test标签校验规则
+ * @returns { boolean } 是否报错该test标签
+ */
+export function checkTestTag(jsDocs: JSDoc[]): boolean {
+
+  const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
+  const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, TEST_TAG_CHECK_NAME);
+  if (!jsDocTag) {
+    return false;
+  }
+
+  const versionRange = extractVersionRange(jsDocTag.comment);
+
+  if (versionRange !== undefined) {
+    return checkVersionRangeIntersection(versionRange);
+  } else {
+    return true;
+  }
+}
+
 
 /**
  * 从最新版本的JSDoc注释中提取@syscap标签，验证其是否存在于所有设备类型共有的系统能力集合中，
@@ -1020,4 +1125,138 @@ function mkDir(path_: string): void {
     mkDir(parent);
   }
   fs.mkdirSync(path_);
+}
+
+/**
+ * 解析版本号字符串并返回表示版本值的整数。
+ *
+ * @param {string} versionStr - 版本号字符串，支持的格式包括：x.y.z(w)、单个数字、x.y.z。
+ * @returns {number} 返回表示版本的整数值；如果解析失败，则返回0。
+ */
+
+function parseVersion(versionStr): number {
+
+  // 不同版本格式的正则表达式
+  const distributionOSVersionPattern = /^(\d+)\.(\d+)\.(\d+)\((\d+)\)$/;
+  const simpleNumberPattern = /^\d{1,2}$/;  
+  const semanticVersionPattern = /^(\d{1,2})\.(\d{1,2})\.(\d{1,2})$/; 
+
+   // 检查构建版本格式 (x.y.z(w))
+  if (distributionOSVersionPattern !== undefined && distributionOSVersionPattern.test(versionStr)) {
+    const matchResult = versionStr.match(distributionOSVersionPattern);
+    const buildNumber = parseInt(matchResult[4], 10);s
+    return buildNumber * 10000;
+  }
+
+  // 检查简单数字格式
+  if (simpleNumberPattern.test(versionStr)) {
+    const numberValue = parseInt(versionStr, 10);
+    return numberValue * 10000;
+  }
+
+  // 检查版本格式 (x.y.z)
+  if (semanticVersionPattern.test(versionStr)) {
+    const versionParts = versionStr.split('.');
+    const majorVersion = parseInt(versionParts[0], 10);
+    const minorVersion = parseInt(versionParts[1], 10);
+    const patchVersion = parseInt(versionParts[2], 10);
+    return majorVersion * 10000 + minorVersion * 100 + patchVersion;
+  }
+
+  // 对于无法识别的格式，返回0
+  return 0;
+}
+
+
+/**
+ * 判断两个版本范围是否存在任何重叠
+ *
+ * @param {string} rangeStart1 - 第一个版本范围的起始值
+ * @param {string} rangeEnd1 - 第一个版本范围的结束值
+ * @param {string} rangeStart2 - 第二个版本范围的起始值
+ * @param {string} rangeEnd2 - 第二个版本范围的结束值
+ * @returns {boolean} 如果范围相交则返回 true，否则返回 false
+ */
+
+function isVersionRangeIntersect(rangeStart1, rangeEnd1, rangeStart2, rangeEnd2): boolean {
+  //将版本字符串转换为数字表示形式。
+  const range1StartNum = parseVersion(rangeStart1);
+  const range1EndNum = parseVersion(rangeEnd1);
+  const range2StartNum = parseVersion(rangeStart2);
+  const range2EndNum = parseVersion(rangeEnd2);
+
+  //规范化范围以确保开始 <= 结束。
+  const normalizedRange1Start = Math.min(range1StartNum, range1EndNum);
+  const normalizedRange1End = Math.max(range1StartNum, range1EndNum);
+  const normalizedRange2Start = Math.min(range2StartNum, range2EndNum);
+  const normalizedRange2End = Math.max(range2StartNum, range2EndNum);
+
+  //检查范围交集
+  const rangesIntersect = (normalizedRange1End < normalizedRange2Start || normalizedRange2End < normalizedRange1Start);
+
+  return rangesIntersect;
+}
+
+/**
+ * 从注释字符串中提取版本范围
+ *
+ * @param {string} commentText - 包含版本范围的注释字符串
+ * @returns {{start: string, end: string}|undefined} 如果提取成功则返回包含起始/结束版本的对象，否则返回 undefined
+ */
+
+function extractVersionRange(commentText): {start: string, end: string} | undefined {
+
+
+  if (typeof commentText !== 'string' || !commentText) {
+    return undefined;
+  }
+  
+  const VERSION_RANGE_PATTERN = /\[since (.*?)\]/;
+
+  if (typeof commentText !== 'string' || !commentText) {
+
+    return undefined;
+  }
+
+  //检查注释中是否存在该模式。
+
+  if (!commentText.match(VERSION_RANGE_PATTERN)) {
+    return undefined;
+  }
+  
+  const rawVersionRange = commentText.match(VERSION_RANGE_PATTERN)[0]
+      .replace('since', '')
+      .replace('[', '')
+      .replace(']', '')
+      .trim();
+
+  
+  const versionParts = rawVersionRange.split('-');
+  if (versionParts.length !== 2) {
+    return undefined;
+  }
+
+  return {
+    start: versionParts[0].trim(),
+    end: versionParts[1].trim()
+  };
+}
+
+/**
+ * 检查给定的版本范围是否与项目的 SDK 版本范围相交。
+ *
+ * @param {Object} versionRange - 要检查的版本范围对象。
+ * @param {string} versionRange.start - 版本范围的起始版本号。
+ * @param {string} versionRange.end - 版本范围的结束版本号。
+ * @returns {boolean} - 如果版本范围与项目的 SDK 版本范围相交，则返回 true；否则返回 false。
+ */
+
+function checkVersionRangeIntersection(versionRange): boolean {
+  let isflag = false;
+  const startVersion = versionRange.start;
+  const endVersion = versionRange.end;
+  const minSDKVersion = globalObject.projectConfig.compileSdkVersion;
+  const maxSDKVersion = globalObject.projectConfig.compileSdkVersion;
+  isflag = isVersionRangeIntersect(startVersion, endVersion, minSDKVersion, maxSDKVersion);
+  return !isflag;
 }

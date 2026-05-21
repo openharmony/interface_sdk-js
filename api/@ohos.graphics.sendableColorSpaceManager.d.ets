@@ -23,35 +23,38 @@ import collections from '../arkts/@arkts.collections';
 import colorSpaceManager from '@ohos.graphics.colorSpaceManager';
 
 /**
- * Color space manager.
+ * The **sendableColorSpaceManager** module provides APIs for creating and managing sendable color space objects and
+ * obtaining basic attributes of sendable color spaces.
  *
- * @namespace sendableColorSpaceManager
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @crossplatform
  * @since 12 dynamiconly
  */
 declare namespace sendableColorSpaceManager {
   /**
-   * Redefines ISendable for convenience.
+   * The ISendable type is redefined to align with the API specifications of the current module.
    *
-   * @typedef { lang.ISendable } ISendable
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 12 dynamiconly
    */
   type ISendable = lang.ISendable;
   /**
-   * Defines a color space object and manages its key information
-   * @interface ColorSpaceManager
+   * Implements management of color space objects.
+   * Before calling any of the following APIs, you must use
+   * [create()]{@link sendableColorSpaceManager.create(colorSpaceName: colorSpaceManager.ColorSpace)} to create a color
+   * space manager.
+   *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
    * @since 12 dynamiconly
    */
   interface ColorSpaceManager extends ISendable {
     /**
-     * Get the name of color space type.
-     * @returns { colorSpaceManager.ColorSpace } Returns the name of color space type.
-     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
+     * Obtains the color space type.
+     *
+     * @returns { colorSpaceManager.ColorSpace } Color space type.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal. [since 12 - 22]
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 12 dynamiconly
@@ -59,9 +62,10 @@ declare namespace sendableColorSpaceManager {
     getColorSpaceName(): colorSpaceManager.ColorSpace;
 
     /**
-     * Get white point(x, y) of color space.
-     * @returns { collections.Array<number> } Returns the white point value of color space.
-     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
+     * Obtains the coordinates of the white point in the color space.
+     *
+     * @returns { collections.Array<number> } Coordinates [x, y] of the white point.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal. [since 12 - 22]
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 12 dynamiconly
@@ -69,9 +73,10 @@ declare namespace sendableColorSpaceManager {
     getWhitePoint(): collections.Array<number>;
 
     /**
-     * Get gamma value of color space.
-     * @returns { number } Returns the gamma value of color space.
-     * @throws { BusinessError } 18600001 - The parameter value is abnormal.
+     * Obtains the gamma of the color space.
+     *
+     * @returns { number } Gamma of the color space.
+     * @throws { BusinessError } 18600001 - The parameter value is abnormal. [since 12 - 22]
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
      * @since 12 dynamiconly
@@ -80,11 +85,16 @@ declare namespace sendableColorSpaceManager {
   }
 
   /**
-   * Create a color space manager by provided color space type.
-   * @param { colorSpaceManager.ColorSpace } colorSpaceName - Indicates the type of color space
-   * @returns { ColorSpaceManager } Returns a color space manager object created by provided type.
+   * Creates a standard color space object that is sendable.
+   *
+   * @param { colorSpaceManager.ColorSpace } colorSpaceName - Type of the color space.<br>**UNKNOWN** and **CUSTOM**
+   *     cannot be used when creating standard color space objects.
+   * @returns { ColorSpaceManager } Sendable color space object created.
+   *     <br>This instance inherits from **ISendable** and can be passed by reference between concurrent ArkTS instances
+   *     (including the main thread and the worker threads of TaskPool or Worker). For details, see
+   *     [Using Sendable Objects](docroot://arkts-utils/sendable-guide.md).
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
-   *                                 2.Parameter verification failed.
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform
@@ -93,12 +103,18 @@ declare namespace sendableColorSpaceManager {
   function create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager;
 
   /**
-   * Create a customized color space manager by its color primaries and gamma value
-   * @param { colorSpaceManager.ColorSpacePrimaries } primaries - Indicates the customized color primaries
-   * @param { number } gamma - Indicates display gamma value
-   * @returns { ColorSpaceManager } Returns a color space manager object created by customized parameters.
+   * Creates a custom color space object that is sendable.
+   *
+   * @param { colorSpaceManager.ColorSpacePrimaries } primaries - Primaries of the color space.
+   * @param { number } gamma - Gamma value of the color space, which is a floating point number greater than 0.
+   * @returns { ColorSpaceManager } Sendable color space object created.
+   *     <br>The color space type is **CUSTOM**, which is one of the enumerated values of
+   *     [colorSpaceManager.ColorSpace]{@link @ohos.graphics.colorSpaceManager:colorSpaceManager.ColorSpace}.
+   *     <br>This instance inherits from **ISendable** and can be passed by reference between concurrent ArkTS instances
+   *     (including the main thread and the worker threads of TaskPool or Worker). For details, see
+   *     [Using Sendable Objects](docroot://arkts-utils/sendable-guide.md).
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
-   *                                 2.Parameter verification failed.
+   *     2.Parameter verification failed.
    * @throws { BusinessError } 18600001 - The parameter value is abnormal.
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform

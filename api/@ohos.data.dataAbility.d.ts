@@ -22,361 +22,368 @@ import { AsyncCallback } from './@ohos.base';
 import rdb from './@ohos.data.rdb';
 
 /**
- * Provides predicates for implementing diverse query methods.
+ * The **DataAbility** module provides APIs to create predicates for querying data from relational database (RDB)
+ * stores.
  *
- * @namespace dataAbility
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @since 7 dynamic
+ * @since 7 dynamiconly
  */
 declare namespace dataAbility {
   /**
-   * Create an RdbPredicates by table name and DataAbilityPredicates.
-   * This method is similar to = of the SQL statement.
+   * Creates an **RdbPredicates** object with a table name and **DataAbilityPredicates** object.
    *
-   * @param { string } name - Indicates the table name.
-   * @param { DataAbilityPredicates } dataAbilityPredicates - Indicates the dataAbility predicates.
-   * @returns { rdb.RdbPredicates } Returns an RdbPredicates.
+   * @param { string } name - Name of a database table.
+   * @param { DataAbilityPredicates } dataAbilityPredicates - **DataAbilityPredicates** object.
+   * @returns { rdb.RdbPredicates } **RdbPredicates** object created.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    */
   function createRdbPredicates(name: string, dataAbilityPredicates: DataAbilityPredicates): rdb.RdbPredicates;
 
   /**
-   * Manages relational database configurations.
+   * Provides APIs for creating diverse query conditions.
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    */
   class DataAbilityPredicates {
     /**
-     * Configure the DataAbilityPredicates to match the field whose data type is ValueType and value is equal
-     * to a specified value.
-     * This method is similar to = of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are equal to
+     * the given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * This API is similar to the SQL equal to (=) operator.
+     *
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     equalTo(field: string, value: ValueType): DataAbilityPredicates;
 
     /**
-     * Configure the DataAbilityPredicates to match the field whose data type is ValueType and value is unequal to
-     * a specified value.
-     * Configure the data capability predicate to match a field where the data type is a value type and the value is
-     * not equal to the specified value.
-     * This method is similar to != of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are not equal
+     * to the given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * This API is similar to the SQL not equal (!=) operator.
+     *
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     notEqualTo(field: string, value: ValueType): DataAbilityPredicates;
 
     /**
-     * Adds a left parenthesis to the DataAbilityPredicates.
-     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
+     * Creates a **DataAbilityPredicates** object to add a left parenthesis. This API is similar to "(" in an SQL
+     * statement and must be used with **endWrap**.
      *
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the left parenthesis.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object with a left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     beginWrap(): DataAbilityPredicates;
 
     /**
-     * Adds a right parenthesis to the DataAbilityPredicates.
-     * This method is similar to ) of the SQL statement and needs to be used together
-     * with beginWrap().
+     * Creates a **DataAbilityPredicates** object to add a right parenthesis. This API is similar to ")" in an SQL
+     * statement and must be used with **beginWrap**.
      *
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the right parenthesis.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object with a right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     endWrap(): DataAbilityPredicates;
 
     /**
-     * Adds an or condition to the DataAbilityPredicates.
-     * This method is similar to or of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to add the OR condition.
      *
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the or condition.
+     * This API is similar to the SQL **or** operator.
+     *
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object with the OR condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     or(): DataAbilityPredicates;
 
     /**
-     * Adds an and condition to the DataAbilityPredicates.
-     * This method is similar to and of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to add the AND condition.
      *
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the and condition.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object with the AND condition.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     and(): DataAbilityPredicates;
 
     /**
-     * Configure the DataAbilityPredicates to match the field whose data type is string and value
-     * contains a specified value.
-     * This method is similar to contains of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that contain the
+     * given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * @param { string } field - Column name in the table.
+     * @param { string } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     contains(field: string, value: string): DataAbilityPredicates;
 
     /**
-     * Configure the DataAbilityPredicates to match the field whose data type is string and value starts
-     * with a specified string.
-     * This method is similar to value% of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that begin with the
+     * given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * This API is similar to the percent sign (%) in SQL statements.
+     *
+     * @param { string } field - Column name in the table.
+     * @param { string } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     beginsWith(field: string, value: string): DataAbilityPredicates;
 
     /**
-     * Configure the DataAbilityPredicates to match the field whose data type is string and value
-     * ends with a specified string.
-     * This method is similar to %value of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that end with the
+     * given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * This API is similar to the percent sign (%) in SQL statements.
+     *
+     * @param { string } field - Column name in the table.
+     * @param { string } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     endsWith(field: string, value: string): DataAbilityPredicates;
 
     /**
-     * Configure the DataAbilityPredicates to match the fields whose value is null.
-     * This method is similar to is null of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are **null**.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * @param { string } field - Column name in the table.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     isNull(field: string): DataAbilityPredicates;
 
     /**
-     * Configure the DataAbilityPredicates to match the specified fields whose value is not null.
-     * This method is similar to is not null of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are not
+     * **null**.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * @param { string } field - Column name in the table.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     isNotNull(field: string): DataAbilityPredicates;
 
     /**
-     * Configure the DataAbilityPredicates to match the fields whose data type is string and value is
-     * similar to a specified string.
-     * This method is similar to like of the SQL statement.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are similar to
+     * the given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataAbilityPredicates. The percent sign (%)
-     *                           in the value is a wildcard (like * in a regular expression).
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates that match the specified field.
+     * This API is similar to the SQL **like** statement.
+     *
+     * @param { string } field - Column name in the table.
+     * @param { string } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     like(field: string, value: string): DataAbilityPredicates;
 
     /**
-     * Configure DataAbilityPredicates to match the specified field whose data type is string and the value contains
-     * a wildcard.Different from like, the input parameters of this method are case-sensitive.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that match the given
+     * string. Different from **like**, the input parameters of this API are case-sensitive.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns the SQL statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @param { string } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     glob(field: string, value: string): DataAbilityPredicates;
 
     /**
-     * Restricts the value of the field to the range between low value and high value.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are within the
+     * given range.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } low - Minimum value to match.
+     * @param { ValueType } high - Maximum value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     between(field: string, low: ValueType, high: ValueType): DataAbilityPredicates;
 
     /**
-     * Configure DataAbilityPredicates to match the specified field whose data type is int and value is
-     * out of a given range.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are out of the
+     * given range.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } low - Indicates the minimum value to match with DataAbilityPredicates}.
-     * @param { ValueType } high - Indicates the maximum value to match with DataAbilityPredicates}.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } low - Minimum value to match.
+     * @param { ValueType } high - Maximum value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     notBetween(field: string, low: ValueType, high: ValueType): DataAbilityPredicates;
 
     /**
-     * Restricts the value of the field to be greater than the specified value.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are greater
+     * than the given value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     greaterThan(field: string, value: ValueType): DataAbilityPredicates;
 
     /**
-     * Restricts the value of the field to be smaller than the specified value.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are less than
+     * the given value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     lessThan(field: string, value: ValueType): DataAbilityPredicates;
 
     /**
-     * Restricts the value of the field to be greater than or equal to the specified value.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are greater
+     * than or equal to the given value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     greaterThanOrEqualTo(field: string, value: ValueType): DataAbilityPredicates;
 
     /**
-     * Restricts the value of the field to be smaller than or equal to the specified value.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are less than
+     * or equal to the given value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @param { ValueType } value - Value to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     lessThanOrEqualTo(field: string, value: ValueType): DataAbilityPredicates;
 
     /**
-     * Restricts the ascending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
+     * Creates a **DataAbilityPredicates** object to sort the records in the specified column in ascending order. When
+     * there are multiple **orderByAsc**s, the first **orderByAsc** used has the highest priority.
      *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     orderByAsc(field: string): DataAbilityPredicates;
 
     /**
-     * Restricts the descending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
+     * Creates a **DataAbilityPredicates** object to sort the records in the specified column in descending order. When
+     * there are multiple **orderByDesc**s, the first **orderByDesc** used has the highest priority.
      *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { string } field - Column name in the table.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     orderByDesc(field: string): DataAbilityPredicates;
 
     /**
-     * Restricts each row of the query result to be unique.
+     * Creates a **DataAbilityPredicates** object to filter out duplicate records.
      *
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     distinct(): DataAbilityPredicates;
 
     /**
-     * Restricts the max number of return records.
+     * Creates a **DataAbilityPredicates** object to limit the number of records.
      *
-     * @param { number } value - Indicates the max length of the return list.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified DataAbilityPredicates.
+     * @param { number } value - Maximum number of records. The value should be a positive integer. If a value less than
+     *     or equal to **0** is specified, the number of records is not limited.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     limitAs(value: number): DataAbilityPredicates;
 
     /**
-     * Configure DataAbilityPredicates to specify the start position of the returned result.
-     * Use this method together with limit(int).
+     * Creates a **DataAbilityPredicates** object to set the start position of the query result. This API must be used
+     * together with **limitAs**. Otherwise, no result will be returned. To query all rows after the specified offset,
+     * pass in **-1** in **limitAs**.
      *
-     * @param { number } rowOffset - Indicates the start position of the returned result. The value is a positive integer.
-     * @returns { DataAbilityPredicates } Returns the SQL query statement with the specified AbsPredicates.
+     * @param { number } rowOffset - Start position. The value should be a positive integer. If a value less than or
+     *     equal to **0** is specified, the query result is returned from the first element.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     offsetAs(rowOffset: number): DataAbilityPredicates;
 
     /**
-     * Configure DataAbilityPredicates to group query results by specified columns.
+     * Creates a **DataAbilityPredicates** object to group the query results based on the specified columns.
      *
-     * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
-     * @returns { DataAbilityPredicates } Returns the DataAbilityPredicates with the specified columns by which query
-     *                                    results are grouped.
+     * @param { Array<string> } fields - Names of columns to group.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     groupBy(fields: Array<string>): DataAbilityPredicates;
 
     /**
-     * Configure DataAbilityPredicates to specify the index column.
-     * Before using this method, you need to create an index column.
+     * Creates a **DataAbilityPredicates** object to specify the index column. Before calling this API, you need to
+     * create an index column.
      *
-     * @param { string } field - Indicates the name of the index column.
-     * @returns { DataAbilityPredicates } Returns DataAbilityPredicates with the specified index column.
+     * @param { string } field - Name of the index.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     indexedBy(field: string): DataAbilityPredicates;
 
     /**
-     * Configure DataAbilityPredicates to match the specified field whose data type is ValueType array and values
-     * are within a given range.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are in the
+     * given range.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns DataAbilityPredicates that matches the specified field.
+     * @param { string } field - Column name in the table.
+     * @param { Array<ValueType> } value - Array of **ValueType**s to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     in(field: string, value: Array<ValueType>): DataAbilityPredicates;
 
     /**
-     * Configure {@code DataAbilityPredicates} to match the specified field whose data type is String array and values
-     * are out of a given range.
+     * Creates a **DataAbilityPredicates** object to search for the records in the specified column that are out of the
+     * given range.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataAbilityPredicates.
-     * @returns { DataAbilityPredicates } Returns DataAbilityPredicates that matches the specified field.
+     * @param { string } field - Column name in the table.
+     * @param { Array<ValueType> } value - Array of **ValueType**s to match.
+     * @returns { DataAbilityPredicates } **DataAbilityPredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      */
     notIn(field: string, value: Array<ValueType>): DataAbilityPredicates;
   }
   /**
-   * Indicates possible value types
+   * Defines the value types.
    *
-   * @typedef { number | string | boolean }
+   * @unionmember { number } The value is a number.
+   * @unionmember { string } The value is a string.
+   * @unionmember { boolean } The value is of Boolean type.
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    */
   type ValueType = number | string | boolean;
 }

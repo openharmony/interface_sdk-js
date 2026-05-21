@@ -14,127 +14,115 @@
  */
 
 /**
+ * The module provides information about the shared bundle. The information can be obtained by calling 
+ * [bundleManager.getSharedBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getSharedBundleInfo(bundleName: string,  moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>)}
+ * .
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @file
  * @kit AbilityKit
  */
-
-import { Dependency } from './HapModuleInfo';
 import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
- * Provides information about a shared bundle.
+ * Defines the shared bundle information.
  *
- * @typedef SharedBundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SharedBundleInfo {
   /**
-   * Indicates the name of the shared bundle
+   * Name of the shared bundle.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
   /**
-   * Enumerates types of the compatible policy of the shared bundle
+   * Compatibility type of the shared bundle.
    *
-   * @type { bundleManager.CompatiblePolicy }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly compatiblePolicy: bundleManager.CompatiblePolicy;
 
   /**
-   * Obtains configuration information about a shared module
+   * Information about the shared module.
    *
-   * @type { Array<SharedModuleInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly sharedModuleInfo: Array<SharedModuleInfo>;
 }
 
 /**
- * Indicates the shared module info.
+ * Defines the shared module information.
  *
- * @typedef SharedModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SharedModuleInfo {
   /**
-   * Indicates the moduleName of the shared bundle
+   * Module name of the shared bundle.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
   /**
-   * Indicates the version code of the shared module
+   * Version number of the shared bundle.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionCode: long;
 
   /**
-   * Indicates the version name of the shared module
+   * Version description of the shared bundle.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionName: string;
 
   /**
-   * Describes the shared module
+   * Description of the shared bundle.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly description: string;
 
   /**
-   * Indicates the description of this shared module
+   * Description ID of the shared bundle.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly descriptionId: long;
 }

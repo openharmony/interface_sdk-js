@@ -23,6 +23,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
@@ -31,6 +32,7 @@ declare enum ToolBarItemPlacement {
    * Place toolbar item at the leading of top bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 20 dynamic
    */
@@ -40,6 +42,7 @@ declare enum ToolBarItemPlacement {
    * Place toolbar item at the trailing of top bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 20 dynamic
    */
@@ -51,6 +54,7 @@ declare enum ToolBarItemPlacement {
  *
  * @interface ToolBarItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
@@ -60,6 +64,7 @@ interface ToolBarItemOptions {
    *
    * @type { ?ToolBarItemPlacement }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 20 dynamic
    */
@@ -71,6 +76,7 @@ interface ToolBarItemOptions {
  *
  * @interface ToolBarItemInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
@@ -81,6 +87,7 @@ interface ToolBarItemInterface {
    * @param { ToolBarItemOptions } [options] - column options
    * @returns { ToolBarItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 20 dynamic
    */
@@ -91,6 +98,7 @@ interface ToolBarItemInterface {
  * Defines the ToolBarItem component attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
@@ -101,6 +109,7 @@ declare class ToolBarItemAttribute { }
  *
  * @type { ToolBarItemInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
@@ -111,6 +120,7 @@ declare const ToolBarItem: ToolBarItemInterface;
  *
  * @type { ToolBarItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */

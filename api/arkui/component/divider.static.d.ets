@@ -18,7 +18,7 @@
  */
 import { ResourceColor } from './units';
 import { LineCapStyle } from './enums';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -27,7 +27,8 @@ import { AttributeModifier, CommonMethod } from './common';
  * @extends CommonMethod
  * @interface DividerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare interface DividerAttribute extends CommonMethod {
@@ -35,46 +36,60 @@ export declare interface DividerAttribute extends CommonMethod {
      * Indicates whether to use a horizontal splitter or a vertical splitter.
      * The options are as follows: false: horizontal splitter; true: vertical splitter.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default vertical(value: boolean | undefined): this;
     /**
      * Sets the color of the divider line.
      *
-     * @param { ResourceColor } value
+     * @param { ResourceColor | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
      * Sets the width of the dividing line.
      *
-     * @param { number | string } value
+     * @param { double | string | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    default strokeWidth(value: number | string | undefined): this;
+    default strokeWidth(value: double | string | undefined): this;
     /**
      * Sets the end style of the split line. The default value is Butt.
      *
-     * @param { LineCapStyle } value
+     * @param { LineCapStyle | undefined } value
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default lineCap(value: LineCapStyle | undefined): this;
+    /**
+     * Set Divider options.
+     *
+     * @returns { DividerAttribute } Returns the instance of the DividerAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setDividerOptions(): this;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<DividerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<DividerAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
@@ -83,16 +98,26 @@ export declare interface DividerAttribute extends CommonMethod {
 /**
  * Defines Divider Component.
  *
- * @param { function } [content_] - container
  * @returns { DividerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
+export declare function Divider(): DividerAttribute;
+
+/**
+ * Defines Divider Component.
+ *
+ * @param { CustomBuilderT<DividerAttribute> } style - the callback to set up component's attributes.
+ * @returns { DividerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
 export declare function Divider(
-    
-    @memo
-    content_?: () => void,
-): DividerAttribute
+    style: CustomBuilderT<DividerAttribute>
+): DividerAttribute;

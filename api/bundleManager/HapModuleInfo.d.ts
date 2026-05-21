@@ -14,6 +14,11 @@
  */
 
 /**
+ * The module defines the HAP module information. An application can obtain its own HAP module information through 
+ * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}, 
+ * with **GET_BUNDLE_INFO_WITH_HAP_MODULE** passed in for 
+ * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -24,772 +29,408 @@ import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * Obtains configuration information about a hap module.
+ * The module defines the HAP module information.
  *
- * @typedef HapModuleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Obtains configuration information about a hap module.
- *
- * @typedef HapModuleInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Obtains configuration information about a hap module.
- *
- * @typedef HapModuleInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface HapModuleInfo {
   /**
-   * Indicates the name of this hap module
+   * Module name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the name of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the name of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly name: string;
 
   /**
-   * Indicates the icon of this hap module
+   * [Icon](docroot://quick-start/layered-image.md) for the entry ability of the current module. It is the index of the
+   * icon resource file and should match the value of **icon** in the
+   * [abilities](docroot://quick-start/module-configuration-file.md#abilities) or
+   * [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) field in the module
+   * configuration file. If no entry ability is configured, this parameter is left empty.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the icon of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly icon: string;
 
   /**
-   * Indicates the icon id of this hap module
+   * [Resource ID](docroot://quick-start/resource-categories-and-access.md#resource-directories) of the icon for the
+   * entry ability of the current module. If no entry ability is configured, this parameter is left empty.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon id of this hap module
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the icon id of this hap module
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly iconId: long;
 
   /**
-   * Indicates the label of this hap module
+   * Label of the entry ability of the current module. It is the index of a string resource and should match the value
+   * of **label** in the [abilities](docroot://quick-start/module-configuration-file.md#abilities) or
+   * [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) field in the module
+   * configuration file. If no entry ability is configured, this parameter is left empty.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label of this hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly label: string;
 
   /**
-   * Indicates the label id of this hap module
+   * [Resource ID](docroot://quick-start/resource-categories-and-access.md#resource-directories) of the label for the
+   * entry ability of the current module. If no entry ability is configured, this parameter is left empty.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label id of this hap module
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label id of this hap module
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly labelId: long;
 
   /**
-   * Describes the hap module
+   * Module description.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Describes the hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Describes the hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly description: string;
 
   /**
-   * Indicates the description of this hap module
+   * ID of the module description.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the description of this hap module
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the description of this hap module
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly descriptionId: long;
 
   /**
-   * Indicates main elementName of the hap module
+   * Name of the UIAbility or ExtensionAbility that serves as the entry of the current module.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates main elementName of the hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates main elementName of the hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly mainElementName: string;
 
   /**
-   * Obtains configuration information about abilities
+   * Information about all ability components of the current module. The information can be obtained by passing in
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ABILITY** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<AbilityInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Obtains configuration information about abilities
-   *
-   * @type { Array<AbilityInfo> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains configuration information about abilities
-   *
-   * @type { Array<AbilityInfo> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly abilitiesInfo: Array<AbilityInfo>;
 
   /**
-   * Obtains configuration information about extension abilities
+   * Information about all ExtensionAbility components of the current module. The information can be obtained by passing
+   * in **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY** to the **bundleFlags**
+   * parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<ExtensionAbilityInfo> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Obtains configuration information about extension abilities
-   *
-   * @type { Array<ExtensionAbilityInfo> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
   /**
-   * Indicates the metadata of ability
+   * Metadata of the current module. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_HAP_MODULE**
+   * and **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<Metadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the metadata of ability
-   *
-   * @type { Array<Metadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata of ability
-   *
-   * @type { Array<Metadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly metadata: Array<Metadata>;
 
   /**
-   * The device types that this hap module can run on
+   * Array of [device types](docroot://quick-start/module-configuration-file.md#devicetypes) that the module supports
+   * for installation and running.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * The device types that this hap module can run on
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The device types that this hap module can run on
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly deviceTypes: Array<string>;
 
   /**
-   * Indicates whether free installation of the hap module is supported
+   * Whether the module supports the installation-free feature. Installation-free means that the module does not need to
+   * be explicitly installed through an app market. **true** if the module supports installation-free, **false**
+   * otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether free installation of the hap module is supported
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether free installation of the hap module is supported
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly installationFree: boolean;
 
   /**
-   * Indicates the hash value of the hap module
+   * Hash value of the module.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the hash value of the hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the hash value of the hap module
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly hashValue: string;
 
   /**
-   * Indicates the type of the module
+   * Type of the module.
    *
-   * @type { bundleManager.ModuleType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the type of the module
-   *
-   * @type { bundleManager.ModuleType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates the type of the module
-   *
-   * @type { bundleManager.ModuleType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly type: bundleManager.ModuleType;
 
   /**
-   * Indicates the dependency module that this module depends on
+   * Dynamic shared libraries on which the module depends.
    *
-   * @type { Array<Dependency> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the dependency module that this module depends on
-   *
-   * @type { Array<Dependency> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly dependencies: Array<Dependency>;
 
   /**
-   * Indicates the preload module
+   * Preloaded modules in the atomic service.
    *
-   * @type { Array<PreloadItem> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the preload module
-   *
-   * @type { Array<PreloadItem> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly preloads: Array<PreloadItem>;
 
   /**
-   * Indicates the menu configuration
+   * File menu configuration of the module. The information can be obtained by passing in
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_MENU** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly fileContextMenuConfig: string;
 
   /**
-   * Indicates the router information of the module
+   * [Router table configuration of the module](docroot://quick-start/module-configuration-file.md#routermap). The
+   * information can be obtained by passing in **GET_BUNDLE_INFO_WITH_HAP_MODULE** and
+   * **GET_BUNDLE_INFO_WITH_ROUTER_MAP** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
    *
-   * @type { Array<RouterItem> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly routerMap: Array<RouterItem>;
 
   /**
-   * Indicates native library path.
+   * Local library file path of the module in the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly nativeLibraryPath: string;
 
   /**
-   * Indicates the code path
+   * Installation path of the module.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly codePath: string;
 }
 
 /**
- * Indicates the dependency
+ * Describes the information about the dynamic shared library on which the module depends.
  *
- * @typedef Dependency
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Indicates the dependency
- *
- * @typedef Dependency
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface Dependency {
   /**
-   * Indicates the module name
+   * Module name of the shared bundle on which the current module depends.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the module name
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly moduleName: string;
 
   /**
-   * Indicates the bundle name of the dependency
+   * Name of the shared bundle on which the current module depends.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  /**
-   * Indicates the bundle name of the dependency
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly bundleName: string;
 
   /**
-   * Indicates the version code of the dependency
+   * Version number of the shared bundle.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 10
-   */
-  /**
-   * Indicates the version code of the dependency
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @since 23 static
    */
   readonly versionCode: long;
 }
 
 /**
- * Indicates the preloadItem
+ * Describes the preloaded module information in the atomic service.
  *
- * @typedef PreloadItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Indicates the preloadItem
- *
- * @typedef PreloadItem
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface PreloadItem {
   /**
-   * Indicates the module name need preload
+   * Module name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the module name need preload
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly moduleName: string;
 }
 
 /**
- * Indicates the router item
+ * Describes the router table configuration of the module.
  *
- * @typedef RouterItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface RouterItem {
   /**
-   * Indicates the name of the module to which the current page belongs
+   * Name of the page to be redirected to.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
   /**
-   * Indicates the file path of the current page within the module
+   * Path of the page in the module.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly pageSourceFile: string;
   /**
-   * Indicates the name of the function @Builder decorated
+   * Function decorated by @Builder. The function describes the UI of the page.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly buildFunction: string;
   /**
-   * Indicates the json string of custom data
+   * Any type of custom data in the
+   * [routing table configuration file](docroot://quick-start/module-configuration-file.md#routermap), that is, JSON
+   * string of the **customData** field. You need to call **JSON.parse** to parse the field.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly customData: string;
   /**
-   * Indicates the data
+   * User-defined string in the
+   * [routing table configuration file](docroot://quick-start/module-configuration-file.md#routermap), that is, value of
+   * the **data** field. This field is parsed by the system. You do not need to parse it.
    *
-   * @type { Array<DataItem> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly data: Array<DataItem>;
 }
 
 /**
- * Indicates the data item defined in router item
+ * Describes the user-defined data in the routing table configuration of the module.
  *
- * @typedef DataItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface DataItem {
   /**
-   * Indicates the key of the custom data item
+   * Key of the user-defined data.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly key: string;
   /**
-   * Indicates the value of the custom data item
+   * Value of the user-defined data.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly value: string;
 }

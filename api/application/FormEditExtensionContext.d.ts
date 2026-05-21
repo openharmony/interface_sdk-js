@@ -23,28 +23,52 @@ import type Want from '../@ohos.app.ability.Want';
 import type { AbilityResult } from '../ability/abilityResult';
 
 /**
- * The context of form edit extension. It allows access to
- * formEditExtension-specific resources.
+ * **FormEditExtensionContext**, inherited from 
+ * [UIExtensionContext]{@link ./application/UIExtensionContext:UIExtensionContext}, is the context of 
+ * [FormEditExtensionAbility]{@link @ohos.app.form.FormEditExtensionAbility:FormEditExtensionAbility}.
+ * 
+ * > **NOTE**
+ * 
+ * > - The APIs of this module can be used only in the stage model.
  *
- * @extends UIExtensionContext
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 18 dynamic
+ * @since 23 static
  */
 declare class FormEditExtensionContext extends UIExtensionContext {
 	/**
-     * Start second editor extension ability.
-     * 
-     * @param { Want } want - Including second extension ability name.
-     * @returns { Promise<AbilityResult> } Returns the result of start second form editor extension ability.
-     * @throws { BusinessError } 202 - The application is not a system application.
-     * @throws { BusinessError } 16500050 - An IPC connection error happened.
-     * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-     * @throws { BusinessError } 16501000 - An internal functional error occurred.
-     * @syscap SystemCapability.Ability.Form
-     * @stagemodelonly
-     * @since 18 dynamic
-     */
+  * Starts the widget provider page to be edited. This API uses a promise to return the result.
+  *
+  * @param { Want } want - Information about the editing page that needs to be started by the home screen of a third-party 
+  *     application.
+  * @returns { Promise<AbilityResult> } Promise used to return the ability result.
+  * @throws { BusinessError } 202 - The application is not a system application.
+  * @throws { BusinessError } 16500050 - An IPC connection error happened.
+  * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+  * @throws { BusinessError } 16501000 - An internal functional error occurred.
+  * @syscap SystemCapability.Ability.Form
+  * @stagemodelonly
+  * @since 18 dynamic
+  * @since 23 static
+  */
 	startSecondPage(want: Want): Promise<AbilityResult>;
+
+     /**
+      * Starts UIAbility of the application to which a widget belongs. This API uses a promise to return the result.
+      *
+      * @param { Want } want - Want information of the UIAbility of the application.
+      * @returns { Promise<void> } Promise that returns no value.
+      * @throws { BusinessError } 16500050 - An IPC connection error happened.
+      * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
+      * @throws { BusinessError } 16000130 - The target UIAbility does not belong to the caller.
+      * @throws { BusinessError } 16501014 - The form edit page is not in the foreground. The current operation is
+      *     not supported.
+      * @throws { BusinessError } 16000121 - The target component type is not a UIAbility.
+      * @syscap SystemCapability.Ability.Form
+      * @stagemodelonly
+      * @since 23 dynamic&static
+      */
+     startUIAbility(want: Want): Promise<void>;
 }
 export default FormEditExtensionContext;

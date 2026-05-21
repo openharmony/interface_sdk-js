@@ -23,6 +23,7 @@
  *
  * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -31,6 +32,7 @@
  *
  * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -41,6 +43,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -49,6 +52,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -60,6 +64,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?(Dimension | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -68,6 +73,7 @@ declare interface TextBackgroundStyle {
    *
    * @type { ?(Dimension | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -80,6 +86,7 @@ declare interface TextBackgroundStyle {
  *
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -88,6 +95,7 @@ declare interface TextBackgroundStyle {
  *
  * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -99,6 +107,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @param { TextBackgroundStyle } style - The background style of span.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -108,6 +117,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @param { TextBackgroundStyle } style - The background style of span.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -120,6 +130,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
    * @param { LengthMetrics } value - The base line offset of the Span.
    * @returns { T } The attribute of the Span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -236,6 +247,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Font } value - the span font size and weight and family and style.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -244,11 +256,26 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Font } value - the span font size and weight and family and style.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   font(value: Font): SpanAttribute;
+
+  /**
+   * Used to set the font of span.
+   *
+   * @param { Font } value - the span font size, font weight, font family and font style.
+   * @param { FontConfigs } [fontConfigs] - the configuration of font.
+   * @returns { SpanAttribute } The attribute of the span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  font(value: Font, fontConfigs?: FontConfigs): SpanAttribute;
 
   /**
    * Called when the font color is set.
@@ -420,6 +447,21 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @since 20 dynamic
    */
   fontWeight(value: number | FontWeight | ResourceStr): SpanAttribute;
+
+  /**
+   * Called when the font weight is set.
+   *
+   * @param { number | FontWeight | ResourceStr } weight - the span font weight.
+   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SpanAttribute;
 
   /**
    * Called when the font list of text is set.
@@ -609,6 +651,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Length } value - The line height of the span.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -617,6 +660,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { Length } value - The line height of the span.
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -629,6 +673,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -638,11 +683,25 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   textShadow(value: ShadowOptions | Array<ShadowOptions>): SpanAttribute;
+
+  /**
+   * Set the font variation.
+   *
+   * @param { Array<FontVariation> } fontVariations - Indicates the span font variation.
+   * @returns { SpanAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontVariations(fontVariations: Array<FontVariation>): SpanAttribute;
 }
 
 /**

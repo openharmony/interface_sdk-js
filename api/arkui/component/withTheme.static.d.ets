@@ -20,14 +20,15 @@
 
 import { CustomTheme } from '../../@ohos.arkui.theme';
 import { ThemeColorMode, AttributeModifier, CommonMethod } from './common';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 
 /**
  * Defines the struct of WithThemeOptions.
  *
  * @interface WithThemeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface WithThemeOptions {
   /**
@@ -35,7 +36,8 @@ export declare interface WithThemeOptions {
    *
    * @type { ?CustomTheme }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   theme?: CustomTheme;
 
@@ -44,7 +46,8 @@ export declare interface WithThemeOptions {
    *
    * @type { ?ThemeColorMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   colorMode?: ThemeColorMode;
 }
@@ -53,23 +56,72 @@ export declare interface WithThemeOptions {
  * Defines the WithTheme attribute functions..
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-export declare interface WithThemeAttribute {}
+export declare interface WithThemeAttribute {
+  /**
+   * Set the component's source code redirection information. 
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 staticonly
+   */
+  default debugLine(sourceLine: string, moduleName?: string): this;
+
+  /**
+   * Sets the WithTheme options.
+   * 
+   * @param { WithThemeOptions | undefined } options - the options to create a WithTheme.
+   * @returns { WithThemeAttribute } Returns instance of WithThemeAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setWithThemeOptions(options: WithThemeOptions | undefined): this;
+
+  /**
+   * Notify the component is finished setting up its attributes.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default applyAttributesFinish(): void;
+}
 
 /**
  * Defines WithTheme Component
  *
- * @param { WithThemeOptions } options - options of WithTheme.
- * @param { function } [content_] - container
+ * @param { WithThemeOptions | undefined } options - options of WithTheme.
+ * @param { CustomBuilder } [content_] - the content of the component
  * @returns { WithThemeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function WithTheme(
-    options: WithThemeOptions, 
-    @memo
-    content_?: () => void,
+    options: WithThemeOptions | undefined, 
+    content_?: CustomBuilder,
+): WithThemeAttribute
+
+/**
+ * Defines WithTheme Component
+ *
+ * @param { CustomBuilderT<WithThemeAttribute> } style_ - WithTheme attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { WithThemeAttribute } WithThemeAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function WithTheme(
+    style_: CustomBuilderT<WithThemeAttribute>, 
+    content_?: CustomBuilder,
 ): WithThemeAttribute

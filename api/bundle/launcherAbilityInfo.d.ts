@@ -22,83 +22,87 @@ import { ApplicationInfo } from './applicationInfo';
 import { ElementName } from './elementName';
 
 /**
- * Contains basic Ability information, which uniquely identifies an ability.
- * You can use this class to obtain values of the fields set in an AbilityInfo,
- * such as the application Info , elementName, labelId, iconId, userId, installTime.
+ * The LauncherAbilityInfo module provides information about the launcher ability, which is obtained through
+ * [innerBundleManager.getLauncherAbilityInfos](docroot://reference/apis-ability-kit/js-apis-Bundle-InnerBundleManager-sys.md#innerbundlemanagergetlauncherabilityinfosdeprecated)
+ * .
  *
- * Contains basic launcher Ability information, which uniquely identifies an LauncherAbilityInfo
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use
+ * > [bundleManager-LauncherAbilityInfo]{@link launcherAbilityInfo:LauncherAbilityInfo} instead.
+ * >
+ * > The APIs provided by this module are system APIs.
  *
- * @typedef LauncherAbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.LauncherAbilityInfo
+ * @useinstead launcherAbilityInfo:LauncherAbilityInfo
  */
 export interface LauncherAbilityInfo {
   /**
-   * Obtains application info information about an launcher ability.
+   * Application information of the launcher ability.
    *
-   * @type { ApplicationInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#applicationInfo
    */
   readonly applicationInfo: ApplicationInfo;
 
   /**
-   * Obtains element name about an launcher ability.
+   * Element name of the launcher ability.
    *
-   * @type { ElementName }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#elementName
    */
   readonly elementName: ElementName;
 
   /**
-   * Obtains labelId about an launcher ability.
+   * ID of the launcher ability label.
    *
-   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#labelId
    */
   readonly labelId: number;
 
   /**
-   * Obtains iconId about an launcher ability.
+   * ID of the launcher ability icon.
    *
-   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#iconId
    */
   readonly iconId: number;
 
   /**
-   * Obtains userId about an launcher ability.
+   * User ID of the launcher ability.
    *
-   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#userId
    */
   readonly userId: number;
 
   /**
-   * Obtains installTime about an launcher ability.
+   * Timestamp when the launcher ability was installed, in milliseconds.
    *
-   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.LauncherAbilityInfo#installTime
    */
   readonly installTime: number;
 }

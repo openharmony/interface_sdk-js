@@ -23,63 +23,57 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import type WebNativeMessagingExtensionContext from './@ohos.web.WebNativeMessagingExtensionContext';
 
 /**
- * Indicates connection information about web native messaging connection
+ * Represents the information object of the web native messaging connection.
  *
  * @typedef ConnectionInfo
  * @syscap SystemCapability.Web.Webview.Core
  * @since 21 dynamic
- * @since 22 static
  */
 export interface ConnectionInfo {
   /**
-   * Indicates connection id
+   * Connection ID.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
-   * @since 22 static
    */
-  connectionId: int;
+  connectionId: number;
 
   /**
-   * Indicates the caller bundle name
+   * Application bundle name of the caller.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
-   * @since 22 static
    */
   bundleName: string;
 
   /**
-   * Indicates the caller extension origin url
+   * Original URL of the caller extension.
    *
    * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
-   * @since 22 static
    */
   extensionOrigin: string;
 
   /**
-   * Indicates the pipe read for connection
+   * Pipe file descriptor used to read data.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
-   * @since 22 static
    */
-  fdRead: int;
+  fdRead: number;
 
   /**
-   * Indicates the pipe write for connection
+   * Pipe file descriptor used to write data.
    *
-   * @type { int }
+   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
-   * @since 22 static
    */
-  fdWrite: int;
+  fdWrite: number;
 }
 
 /**
@@ -89,7 +83,6 @@ export interface ConnectionInfo {
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 21 dynamic
- * @since 22 static
  */
 export default class WebNativeMessagingExtensionAbility extends ExtensionAbility {
   /**
@@ -99,39 +92,35 @@ export default class WebNativeMessagingExtensionAbility extends ExtensionAbility
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   context: WebNativeMessagingExtensionContext;
 
   /**
-   * Called back when an web native messaging extension is first connected to an ability.
+   * Called when a web native messaging connection is established.
    *
    * @param { ConnectionInfo } info - Indicates connection information about new native connection.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   onConnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called back when all abilities connected to an web native messaging extension are disconnected.
+   * Called when a web native messaging connection is disconnected.
    *
    * @param { ConnectionInfo } info - Indicates connection information about new native connection.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   onDisconnectNative(info: ConnectionInfo): void;
 
   /**
-   * Called back before an web native messaging extension is destroyed.
+   * Called when the WebNativeMessagingExtensionAbility is destroyed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 21 dynamic
-   * @since 22 static
    */
   onDestroy(): void;
 }

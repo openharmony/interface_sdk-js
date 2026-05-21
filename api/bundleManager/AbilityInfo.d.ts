@@ -14,6 +14,11 @@
  */
 
 /**
+ * The module defines the ability information. An application can obtain its own ability information through 
+ * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+ * , with **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ABILITY** passed in to 
+ * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -24,366 +29,152 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 import { Skill } from './Skill';
 
 /**
- * Obtains configuration information about an ability
+ * The module defines the ability information.
  *
- * @typedef AbilityInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Obtains configuration information about an ability
- *
- * @typedef AbilityInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Obtains configuration information about an ability
- *
- * @typedef AbilityInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface AbilityInfo {
   /**
-   * Indicates the name of the bundle containing the ability
+   * Bundle name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the name of the bundle containing the ability
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the name of the bundle containing the ability
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly bundleName: string;
 
   /**
-   * Indicates the module name of the package to which the capability belongs
+   * Module name to which the ability belongs.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the module name of the package to which the capability belongs
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the module name of the package to which the capability belongs
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly moduleName: string;
 
   /**
-   * Ability simplified class name
+   * Ability name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Ability simplified class name
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Ability simplified class name
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly name: string;
 
   /**
-   * Indicates the label of the ability
+   * Resource descriptor of the ability name visible to users. It corresponds to the **label** field under **abilities**
+   * in the [module.json5](docroot://quick-start/module-configuration-file.md) file.
    *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label of the ability
+   * Note: Starting from API version 20, if
+   * [bundleManager.getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo} is used to
+   * obtain ability information, this field is the ability name visible to users.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label of the ability
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly label: string;
 
   /**
-   * Indicates the label id of the ability
+   * Resource ID of the ability label. It is automatically generated during compilation and build based on the label
+   * configured in **abilities** of the application.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the label id of the ability
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the label id of the ability
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly labelId: long;
 
   /**
-   * Indicates the ability
+   * Ability description, which describes the content and functions of the current ability. It corresponds to the
+   * **description** field under **abilities** in the [module.json5](docroot://quick-start/module-configuration-file.md)
+   * file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the ability
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the ability
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly description: string;
 
   /**
-   * Indicates the description id of the ability
+   * Resource ID of the ability description. It is automatically generated during compilation and build based on the
+   * description configured in **abilities** of the application.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the description id of the ability
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the description id of the ability
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly descriptionId: long;
 
   /**
-   * Indicates the icon of the ability
+   * Resource descriptor of the ability icon. It corresponds to the **icon** field under **abilities** in the
+   * [module.json5](docroot://quick-start/module-configuration-file.md) file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon of the ability
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the icon of the ability
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly icon: string;
 
   /**
-   * Indicates the icon id of the ability
+   * Resource ID of the ability icon. It is automatically generated during compilation and build based on the icon
+   * configured in **abilities** of the application.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the icon id of the ability
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the icon id of the ability
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly iconId: long;
 
   /**
-   * Process of ability, if user do not set it, the value equal application process
+   * Process name of the ability.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Process of ability, if user do not set it, the value equal application process
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Process of ability, if user do not set it, the value equal application process
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly process: string;
-
   /**
-   * Indicates whether this ability can be called by other abilities
+   * Whether the ability can be launched by other applications. **true** if the ability can be launched by other
+   * applications, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether this ability can be called by other abilities
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether this ability can be called by other abilities
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly exported: boolean;
 
   /**
-   * Enumerates types of templates that can be used by an ability
+   * Ability type.
    *
-   * @type { bundleManager.AbilityType }
-   * @readonly
+   * **Model restriction**: This API can be used only in the FA model.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9 dynamiconly
@@ -391,100 +182,50 @@ export interface AbilityInfo {
   readonly type: bundleManager.AbilityType;
 
   /**
-   * Enumerates ability display orientations
+   * Ability display orientation. It is derived from the **orientation** field under **abilities** in the
+   * [module.json5](docroot://quick-start/module-configuration-file.md) file. If **orientation** in the file is set to
+   * an enumerated value, this property is a non-zero value. For details about the available values, see
+   * [displayOrientation]{@link ./../@ohos.bundle.bundleManager:bundleManager.DisplayOrientation}. If **orientation** in
+   * the file is set to a resource index, the value of this property is **0**.
    *
-   * @type { bundleManager.DisplayOrientation }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Enumerates ability display orientations
-   *
-   * @type { bundleManager.DisplayOrientation }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enumerates ability display orientations
-   *
-   * @type { bundleManager.DisplayOrientation }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly orientation: bundleManager.DisplayOrientation;
 
   /**
-   * Enumerates ability launch type
+   * Ability launch mode, that is, whether it can be started in multiton mode. For details, see
+   * [LaunchType]{@link ./../@ohos.bundle.bundleManager:bundleManager.LaunchType}.
    *
-   * @type { bundleManager.LaunchType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Enumerates ability launch type
-   *
-   * @type { bundleManager.LaunchType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enumerates ability launch type
-   *
-   * @type { bundleManager.LaunchType }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly launchType: bundleManager.LaunchType;
 
   /**
-   * The permissions that others need to launch this ability
+   * Array of permissions that other applications must request to start or access this ability. The system checks
+   * whether the caller has these permissions only if the **exported** property in **AbilityInfo** is **true** (meaning
+   * that the ability allows itself to be started by other applications).
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * The permissions that others need to launch this ability
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The permissions that others need to launch this ability
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly permissions: Array<string>;
 
   /**
-   * Indicates the permission required for reading ability data
+   * Permission required for reading the ability data.
    *
-   * @type { string }
-   * @readonly
+   * **Model restriction**: This API can be used only in the FA model.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9 dynamiconly
@@ -492,10 +233,10 @@ export interface AbilityInfo {
   readonly readPermission: string;
 
   /**
-   * Indicates the permission required for writing data to the ability
+   * Permission required for writing data to the ability.
    *
-   * @type { string }
-   * @readonly
+   * **Model restriction**: This API can be used only in the FA model.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9 dynamiconly
@@ -503,10 +244,10 @@ export interface AbilityInfo {
   readonly writePermission: string;
 
   /**
-   * Uri of ability
+   * URI of the ability.
    *
-   * @type { string }
-   * @readonly
+   * **Model restriction**: This API can be used only in the FA model.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @FAModelOnly
    * @since 9 dynamiconly
@@ -514,446 +255,234 @@ export interface AbilityInfo {
   readonly uri: string;
 
   /**
-   * The device types that this ability can run on
+   * Device types supported by the ability. The value is derived from that of
+   * [deviceTypes](docroot://quick-start/module-configuration-file.md#devicetypes) in the **module.json5** file.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * The device types that this ability can run on
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The device types that this ability can run on
-   *
-   * @type { Array<string> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly deviceTypes: Array<string>;
 
   /**
-   * Obtains configuration information about an application
+   * Application configuration information <!--Del-->. The information can be obtained by passing in
+   * **GET_ABILITY_INFO_WITH_APPLICATION** to the **abilityFlags** parameter of
+   * [queryAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryAbilityInfo(want: Want, abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>)}
+   * <!--DelEnd-->.
    *
-   * @type { ApplicationInfo }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Obtains configuration information about an application
+   * This field is not returned when the
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   * or
+   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
+   * is used to obtain ability information. You can obtain the related information by obtaining the
+   * [bundleInfo]{@link BundleInfo:BundleInfo}.appInfo object.
    *
-   * @type { ApplicationInfo }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains configuration information about an application
-   *
-   * @type { ApplicationInfo }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   readonly applicationInfo: ApplicationInfo;
 
   /**
-   * Obtains configuration information about an application
+   * Application configuration information <!--Del-->. The information can be obtained by passing in
+   * **GET_ABILITY_INFO_WITH_APPLICATION** to the **abilityFlags** parameter of
+   * [queryAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryAbilityInfo(want: Want, abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>)}
+   * <!--DelEnd-->.
    *
-   * @type { ApplicationInfo | null }
-   * @readonly
+   * This field is not returned when the
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   * or
+   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
+   * is used to obtain ability information. You can obtain the related information by obtaining the
+   * [bundleInfo]{@link BundleInfo:BundleInfo}.appInfo object.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   readonly applicationInfo: ApplicationInfo | null;
 
   /**
-   * Indicates the metadata of ability
+   * Metadata of the ability. You can configure the system-defined parameters to use the capabilities provided by the
+   * system, for example, [shortcuts](docroot://quick-start/module-configuration-file.md#shortcuts) and
+   * [window metadata configuration](docroot://windowmanager/window-config-m.md). You can also customize the parameters
+   * and call
+   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   * to obtain the parameters by passing **GET_BUNDLE_INFO_WITH_HAP_MODULE**, **GET_BUNDLE_INFO_WITH_ABILITY**, and
+   * **GET_BUNDLE_INFO_WITH_METADATA** to **bundleFlags**.
    *
-   * @type { Array<Metadata> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the metadata of ability
-   *
-   * @type { Array<Metadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata of ability
-   *
-   * @type { Array<Metadata> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly metadata: Array<Metadata>;
 
   /**
-   * Indicates whether the ability is enabled
+   * Whether the ability is available, that is, whether it can be started or queried. **true** if available, **false**
+   * otherwise. If the ability is unavailable, you must call
+   * [getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo} with **AbilityFlag** set to
+   * **GET_ABILITY_INFO_WITH_DISABLE** to query the ability.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates whether the ability is enabled
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates whether the ability is enabled
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly enabled: boolean;
 
   /**
-   * Indicates which window mode is supported
+   * Window modes supported by the ability.
    *
-   * @type { Array<bundleManager.SupportWindowMode> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates which window mode is supported
-   *
-   * @type { Array<bundleManager.SupportWindowMode> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates which window mode is supported
-   *
-   * @type { Array<bundleManager.SupportWindowMode> }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly supportWindowModes: Array<bundleManager.SupportWindowMode>;
 
   /**
-   * Indicates window size
+   * Window size.
    *
-   * @type { WindowSize }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates window size
-   *
-   * @type { WindowSize }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates window size
-   *
-   * @type { WindowSize }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly windowSize: WindowSize;
 
   /**
-   * Indicates whether to hide the application icon from the dock area
+   * Whether the ability icon can be hidden in the dock area. **true** if the ability icon can be hidden in the dock
+   * area, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
+   * Note: This field does not take effect.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly excludeFromDock: boolean;
 
   /**
-   * Indicates skills of the ability
+   * Skills information of the ability. It represents the feature set of
+   * [wants](docroot://application-models/want-overview.md) that can be received by the UIAbility or ExtensionAbility.
    *
-   * @type { Array<Skill> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly skills: Array<Skill>;
 
   /**
-   * Indicates the appIndex of application, only work in clone app mode
+   * Index of an application clone. It takes effect only for [application clones](docroot://quick-start/app-clone.md).
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 
   /**
-   * Indicates the orientation id of the ability
+   * Resource ID of the ability display mode. It is derived from the **orientation** field under **abilities** in the
+   * [module.json5](docroot://quick-start/module-configuration-file.md) file. If the **orientation** field in the file
+   * is set to an enumerated value, **orientationId** is **0**. If the **orientation** field is set to a resource index,
+   * **orientationId** is a non-zero value, which is the resource ID generated during building. If **orientationId** is
+   * set to a value other than **0**, the current display mode is customized, and this ID must be used to obtain the
+   * corresponding resource from the resource manager module. If **orientationId** is set to **0**, no resource is
+   * configured.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly orientationId: long;
 }
 
 /**
- * Indicates the window size.
+ * Describes the window size.
  *
- * @typedef WindowSize
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Indicates the window size.
+ * **Atomic service API**: This API can be used in atomic services since API version 11.
  *
- * @typedef WindowSize
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Indicates the window size.
- *
- * @typedef WindowSize
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- * @since 22 static
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface WindowSize {
   /**
-   * Indicates maximum ratio of width over height of window under free window status.
+   * Maximum aspect ratio of the window in free window mode. The value ranges from 0 to 1. An example value is 0.12.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates maximum ratio of width over height of window under free window status.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates maximum ratio of width over height of window under free window status.
-   *
-   * @type { double }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly maxWindowRatio: double;
 
   /**
-   * Indicates minimum ratio of width over height of window under free window status.
+   * Minimum aspect ratio of the window in free window mode. The value ranges from 0 to 1. An example value is 0.5.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates minimum ratio of width over height of window under free window status.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates minimum ratio of width over height of window under free window status.
-   *
-   * @type { double }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly minWindowRatio: double;
 
   /**
-   * Indicates maximum width of window under free window status.
+   * Maximum width of the window in free window mode. The unit is vp.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates maximum width of window under free window status.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates maximum width of window under free window status.
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly maxWindowWidth: long;
 
   /**
-   * Indicates minimum width of window under free window status.
+   * Minimum width of the window in free window mode. The unit is vp.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates minimum width of window under free window status.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates minimum width of window under free window status.
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly minWindowWidth: long;
 
   /**
-   * Indicates maximum height of window under free window status.
+   * Maximum height of the window in free window mode. The unit is vp.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates maximum height of window under free window status.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates maximum height of window under free window status.
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly maxWindowHeight: long;
 
   /**
-   * Indicates minimum height of window under free window status.
+   * Minimum height of the window in free window mode. The unit is vp.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates minimum height of window under free window status.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Indicates minimum height of window under free window status.
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 22 static
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   readonly minWindowHeight: long;
 }

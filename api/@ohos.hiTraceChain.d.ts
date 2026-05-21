@@ -14,362 +14,404 @@
  */
 
 /**
- * @file
+ * @file Distributed Tracing
  * @kit PerformanceAnalysisKit
  */
 
 /**
- * Provides APIs to implement call chain tracing throughout a service process.
- * With HiTrace, you can quickly obtain the run log for the call chain of a
- * specified service process and locate faults in cross-device, cross-process,
- * or cross-thread communications.
+ * The **hiTraceChain** module implements call chain trace throughout a service process. It provides functions such as
+ * starting and stopping call chain trace and configuring trace points.
  *
- * @namespace hiTraceChain
  * @syscap SystemCapability.HiviewDFX.HiTrace
  * @since 8 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hiTraceChain {
   /**
-   * Enumerate trace flag
+   * Enumerates trace flag types.
    *
-   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HiTraceFlag {
     /**
-     * Default value
+     * Default flag.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
     /**
-     * Trace sync and async call. default: trace sync call only.
+     * Asynchronous call flag.
+     *
+     * When this flag is set, both synchronous and asynchronous calls are traced. By default, only synchronous calls are
+     * traced.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     INCLUDE_ASYNC = 1,
 
     /**
-     * Do not create child span. default: create child span.
+     * No span flag.
+     *
+     * When this flag is set, no span information is created. By default, span information is created.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DONOT_CREATE_SPAN = 1 << 1,
 
     /**
-     * Output tracepoint info in span. default: do not output tracepoint info.
+     * Trace point flag.
+     *
+     * When this flag is set in the debugging scenario, the HiLog logs of the trace point are printed upon calling the
+     * **[tracepoint()]{@link hiTraceChain.tracepoint}** API. By default, the HiLog logs are not printed.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TP_INFO = 1 << 2,
 
     /**
-     * Do not output begin and end info. default: output begin and end info.
+     * No begin and end flag.
+     *
+     * When this flag is set in the debugging scenario, the HiLog logs about the begin and end of tracing are printed
+     * when the [begin()]{@link hiTraceChain.begin} and [end()]{@link hiTraceChain.end} APIs are called. By default, the
+     * HiLog logs about the begin and end of tracing are not printed.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NO_BE_INFO = 1 << 3,
 
     /**
-     * Do not add id to log. default: add id to log.
+     * Log association flag.
+     *
+     * When this flag is set, the **HiTraceId** information is not added to the HiLog logs. By default, the
+     * **HiTraceId** information is added to the HiLog logs.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DISABLE_LOG = 1 << 4,
 
     /**
-     * The trace is triggered by fault.
+     * Failure trigger flag. This is a reserved flag.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FAILURE_TRIGGER = 1 << 5,
 
     /**
-     * Output device-to-device tracepoint info in span only. default: do not output device-to-device tracepoint info.
+     * Device-to-device trace point flag. It is a subset of **TP_INFO** and is used in debugging scenarios.
+     *
+     * When the **TP_INFO** flag is set, the **D2D_TP_INFO** flag does not take effect.
+     *
+     * When **TP_INFO** is not set and **D2D_TP_INFO** is set, the HiLog logs of the trace point are printed only when
+     * the mode parameter is set to **DEVICE** upon calling [tracepoint()]{@link hiTraceChain.tracepoint}.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     D2D_TP_INFO = 1 << 6
   }
 
   /**
-   * Enumerate trace point type
+   * Enumerates trace point types.
    *
-   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HiTraceTracepointType {
     /**
-     * Client send
+     * CS trace point.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CS = 0,
 
     /**
-     * Client receive
+     * CR trace point.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     CR = 1,
 
     /**
-     * Server send
+     * SS trace point.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SS = 2,
 
     /**
-     * Server receive
+     * SR trace point.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SR = 3,
 
     /**
-     * General info
+     * General type, which identifies the trace points except the CS, CR, SS, and SR trace points.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     GENERAL = 4
   }
 
   /**
-   * Enumerate trace communication mode
+   * Enumerates communication modes.
    *
-   * @enum { int }
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum HiTraceCommunicationMode {
     /**
-     * Unspecified
+     * Default communication.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEFAULT = 0,
 
     /**
-     * Thread-to-thread
+     * Inter-thread communication.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     THREAD = 1,
 
     /**
-     * Process-to-process
+     * Inter-process communication.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     PROCESS = 2,
 
     /**
-     * Device-to-device
+     * Inter-device communication.
      *
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     DEVICE = 3
   }
 
   /**
-   * Trace id, for tracing process.
+   * Defines a **HiTraceId** object.
    *
-   * @interface HiTraceId
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface HiTraceId {
     /**
-     * Chain id. The lower 60 bits are valid.
+     * Call chain ID.
      *
-     * @type { bigint }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     chainId: bigint;
 
     /**
-     * Span id. The lower 26 bits are valid.
+     * Span ID. The default value is **0**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     spanId?: int;
 
     /**
-     * Parent span id. The lower 26 bits are valid.
+     * Parent span ID. The default value is **0**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     parentSpanId?: int;
 
     /**
-     * Trace flag. The lower 12 bits are valid.
+     * Trace flag. The default value is **0**.
      *
-     * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiTrace
      * @since 8 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     flags?: int;
   }
 
   /**
-   * Start tracing a process impl.
+   * Starts call chain trace. This API returns the result synchronously.
    *
-   * @param { string } name Process name.
-   * @param { int } flags Trace function flag.
-   * @returns { HiTraceId } Valid if first call, otherwise invalid.
+   * If the current thread's TLS does not contain a valid HiTrace ID, this function generates one, stores it in TLS, and
+   * returns it.
+   *
+   * If the current thread's TLS already contains a valid HiTrace ID, this function does not start tracing and returns
+   * an invalid HiTrace ID with all property values being 0.
+   *
+   * @param { string } name - Traced service name.<br>It is recommended that the length of this parameter be less than
+   *     or equal to 63 bytes. The excess part will be truncated.
+   * @param { int } flags - Trace flag combination. For details, see [HiTraceFlag]{@link hiTraceChain.HiTraceFlag}. The
+   *     default value is **0**.
+   * @returns { HiTraceId } **HiTraceId** instance.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function begin(name: string, flags?: int): HiTraceId;
 
   /**
-   * Stop process tracing and clear trace id of current thread if the given trace
-   * id is valid, otherwise do nothing.
+   * Stops call chain trace. This API works in synchronous manner.
    *
-   * @param { HiTraceId } id The trace id that need to stop.
+   * If the given HiTrace ID is valid and is the same as the HiTrace ID in the current thread's TLS, the tracing is
+   * stopped and the HiTrace ID in the current thread's TLS is set to invalid.
+   *
+   * If the given HiTrace ID is invalid or is not the same as the HiTrace ID in the current thread's TLS, the tracing
+   * fails to be stopped, and a tracing stop failure log is printed.
+   *
+   * @param { HiTraceId } id - **HiTraceId** instance.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function end(id: HiTraceId): void;
 
   /**
-   * Get trace id of current thread, and return a invalid trace id if no
-   * trace id belong to current thread
+   * Obtains the trace ID. This API returns the result synchronously.
    *
-   * @returns { HiTraceId } Valid if current thread have a trace id, otherwise invalid.
+   * Obtains the HiTrace ID in the TLS of the current thread.
+   *
+   * @returns { HiTraceId } **HiTraceId** instance.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getId(): HiTraceId;
 
   /**
-   * Set id as trace id of current thread. Do nothing if id is invalid.
+   * Sets a trace ID. This API returns the result synchronously.
    *
-   * @param { HiTraceId } id Set id as trace id of current thread.
+   * Sets the given HiTrace ID to the TLS of the current thread. If the given HiTrace ID is invalid, no operation is
+   * performed.
+   *
+   * @param { HiTraceId } id - **HiTraceId** instance.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setId(id: HiTraceId): void;
 
   /**
-   * Clear trace id of current thread and set it invalid.
+   * Clears the trace ID. This API returns the result synchronously.
+   *
+   * Clears the HiTrace ID in the current thread's TLS.
    *
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearId(): void;
 
   /**
-   * Create a new span id according to the trace id of current thread.
+   * Creates a trace span. This API works in synchronous manner.
    *
-   * @returns { HiTraceId } A valid span trace id. Otherwise trace id of current thread if do not allow create span.
+   * Specifically, create a **HiTraceId**, use the **chainId** and **spanId** in the TLS of the current thread to
+   * initialize the **chainId** and **parentSpanId** of the **HiTraceId**, generate a new **spanId** for the
+   * **HiTraceId**, and return the **HiTraceId**.
+   *
+   * @returns { HiTraceId } **HiTraceId** instance.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createSpan(): HiTraceId;
 
   /**
-   * Print hitrace info, include trace id info.
+   * Adds a trace point for the [@ohos.hiTraceMeter (Performance Tracing)]{@link @ohos.hiTraceMeter:hiTraceMeter}
+   * logging, which is synchronous.
    *
-   * @param { HiTraceCommunicationMode } mode Trace communication mode.
-   * @param { HiTraceTracepointType } type Trace info type.
-   * @param { HiTraceId } id Trace id that need to print.
-   * @param { string } msg Customized info that need to print.
+   * When type is set to **CS** and **SR**, the HiTraceMeter tracing starts. When type is set to **CR** and **SS**, the
+   * HiTraceMeter tracing ends. When type is set to **GENERAL**, the HiTraceMeter tracing does not start.
+   *
+   * The trace points for **CS** and **CR** types must be used as a pair; likewise, trace points for **SR** and **SS**
+   * types must also be used together. Otherwise, the start and end trace points of HiTraceMeter cannot match each
+   * other.
+   *
+   * @param { HiTraceCommunicationMode } mode - Communication mode for the trace point.
+   * @param { HiTraceTracepointType } type - Trace point type.
+   * @param { HiTraceId } id - **HiTraceId** instance for trace point triggering.
+   * @param { string } msg - Trace description information passed by the HiTraceMeter logging. The default value is "".
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracepointType, id: HiTraceId, msg?: string): void;
 
   /**
-   * Judge whether the trace id is valid or not.
+   * Checks whether a **HiTraceId** instance is valid. This API returns the result synchronously.
    *
-   * @param { HiTraceId } id Trace id that need to judge.
-   * @returns { boolean } True for a valid trace id, otherwise false.
+   * @param { HiTraceId } id - **HiTraceId** instance.
+   * @returns { boolean } The value **true** indicates that **HiTraceId** is valid, and **false** indicates the
+   *     opposite.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isValid(id: HiTraceId): boolean;
 
   /**
-   * Judge whether the trace id has enabled a trace flag or not.
+   * Checks whether the trace flag is enabled for **HiTraceId**. This API returns the result synchronously.
    *
-   * @param { HiTraceId } id Trace id that need to judge.
-   * @param { HiTraceFlag } flag Trace flag that need to judge.
-   * @returns { boolean } true if the trace id has enabled the flag.
+   * @param { HiTraceId } id - **HiTraceId** instance to be checked.
+   * @param { HiTraceFlag } flag - Specified trace flag.
+   * @returns { boolean } The value **true** indicates that the flag for **HiTraceId** is enabled, and **false**
+   *     indicates the opposite.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isFlagEnabled(id: HiTraceId, flag: HiTraceFlag): boolean;
 
   /**
-   * Enable the designative trace flag for the trace id.
+   * Enables the trace flag specified in HiTraceId. This API returns the result synchronously.
    *
-   * @param { HiTraceId } id Trace id that need to enable a flag.
-   * @param { HiTraceFlag } flag the designative trace flag that need to be enabled in the trace id.
+   * @param { HiTraceId } id - **HiTraceId** instance for which the trace flag is enabled.
+   * @param { HiTraceFlag } flag - Specified trace flag.
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function enableFlag(id: HiTraceId, flag: HiTraceFlag): void;
 }

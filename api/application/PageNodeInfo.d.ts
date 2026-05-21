@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,145 +28,127 @@ import AutoFillRect from './AutoFillRect';
 /*** endif */
 
 /**
- * Page node info for automatic filling.
+ * PageNodeInfo defines the page node information used for auto-fill.
  *
- * @interface PageNodeInfo
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
  * @stagemodelonly
- * @since 11 dynamic
- * @since 22 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export default interface PageNodeInfo {
   /**
    * The id of page node.
+   * The value should be an integer
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   id: int;
 
   /**
    * The depth of page node.
    *
-   * @type { int }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   depth: int;
 
   /**
    * The auto fill type of page node.
    *
-   * @type { AutoFillType }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   autoFillType: AutoFillType;
 
   /**
    * The tag of page node.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   tag: string;
 
   /**
    * The value of page node.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   value: string;
 
   /**
    * The placeholder of page node.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   placeholder?: string;
 
   /**
    * The password rules of page node.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   passwordRules?: string;
 
   /**
    * The auto fill flag of page node.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enableAutoFill: boolean;
 
   /**
    * The rect of page node.
    *
-   * @type { AutoFillRect }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   rect: AutoFillRect;
 
   /**
    * Is the page node in the focus.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 12 dynamic
-   * @since 22 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   isFocus: boolean;
 
   /**
    * The metadata of a node.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   metadata?: string;
 }

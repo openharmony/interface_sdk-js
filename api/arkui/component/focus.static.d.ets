@@ -22,7 +22,8 @@ import { LengthMetrics, ColorMetrics } from '../Graphics';
  *
  * @interface FocusBoxStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface FocusBoxStyle {
     /**
@@ -30,7 +31,8 @@ export declare interface FocusBoxStyle {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     margin?: LengthMetrics;
     /**
@@ -38,7 +40,8 @@ export declare interface FocusBoxStyle {
      *
      * @type { ?ColorMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     strokeColor?: ColorMetrics;
     /**
@@ -46,7 +49,8 @@ export declare interface FocusBoxStyle {
      *
      * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     strokeWidth?: LengthMetrics;
 }
@@ -55,28 +59,32 @@ export declare interface FocusBoxStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum FocusPriority {
     /**
      * Default priority.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     AUTO = 0,
     /**
      * Prior priority.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PRIOR = 2000,
     /**
      * Previous focus priority.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PREVIOUS = 3000
 }
@@ -86,21 +94,24 @@ export declare enum FocusPriority {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum KeyProcessingMode {
     /**
      * Key events are used to move focus.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     FOCUS_NAVIGATION = 0,
     /**
      * Key events bubble up to ancestors.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     ANCESTOR_EVENT = 1
 }

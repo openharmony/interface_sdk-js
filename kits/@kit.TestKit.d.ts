@@ -23,13 +23,13 @@ import abilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry
 import TestRunner from '@ohos.application.testRunner';
 import {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
-  UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter, 
+  UIElementInfo, UIEventObserver, UiDirection, UiWindow, WindowMode, Point, WindowFilter,
   Rect, TouchPadSwipeOptions, InputTextMode,
-  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions, TouchOptions, KeyOptions,
+  PenKey, PenMode, PenKeyOperation, PenKeyOperationOptions
 } from '@ohos.UiTest';
-/*** endif */
-
 import {PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest} from '@ohos.test.PerfTest';
+/*** endif */
 
 import {
   UiComponent, UiDriver, BY, By
@@ -38,7 +38,9 @@ export {
   BY, By, Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiComponent, UiDirection, UiDriver, UiWindow,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions, InputTextMode,
-  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions,
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest, TouchOptions, KeyOptions,
+  PenKey, PenMode, PenKeyOperation, PenKeyOperationOptions
 };
 
 /*** if arkts static */
@@ -46,6 +48,8 @@ export {
   Component, DisplayRotation, Driver, MatchPattern, MouseButton, ON, On, PointerMatrix, ResizeDirection,
   TestRunner, UIElementInfo, UIEventObserver, UiDirection, UiWindow, InputTextMode,
   WindowMode, abilityDelegatorRegistry, Point, WindowFilter, Rect, TouchPadSwipeOptions,
-  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions
+  WindowChangeType, ComponentEventType, WindowChangeOptions, ComponentEventOptions,
+  PerfMetric, PerfTestStrategy, PerfMeasureResult, PerfTest, TouchOptions, KeyOptions,
+  PenKey, PenMode, PenKeyOperation, PenKeyOperationOptions
 };
 /*** endif */

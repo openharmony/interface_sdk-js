@@ -14,484 +14,265 @@
  */
 
 /**
+ * The module describes the shortcut information defined in the 
+ * [module.json5](docroot://quick-start/module-configuration-file.md#shortcuts) file of an application. The information 
+ * can be obtained by running 
+ * [getAllShortcutInfoForSelf]{@link ./../@ohos.bundle.shortcutManager:shortcutManager.getAllShortcutInfoForSelf}<!--Del
+ * --> or 
+ * [getShortcutInfo]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>)}
+ * <!--DelEnd-->.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * Provides information about a shortcut, including the shortcut ID and label.
+ * Describes the configuration information for a shortcut.
  *
- * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @systemapi
- * @since 9
- */
-/**
- * Provides information about a shortcut, including the shortcut ID and label.
- *
- * @typedef ShortcutInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20 dynamic
- * @since 22 static
+ * @systemapi [since 9 - 19]
+ * @publicapi [since 20]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface ShortcutInfo {
   /**
-   * Indicates the ID of the application to which this shortcut belongs
+   * ID of the shortcut.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the ID of the application to which this shortcut belongs
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the ID of the application to which this shortcut belongs
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   id: string;
 
   /**
-   * Indicates the name of the bundle containing the shortcut
+   * Bundle name of the application to which the shortcut belongs.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the name of the bundle containing the shortcut
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the name of the bundle containing the shortcut
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   bundleName: string;
 
   /**
-   * Indicates the moduleName of the shortcut
+   * Module name of the shortcut.
    *
-   * @type { string }
-   * @readonly
+   * @type { string } [since 9 - 11]
+   * @type { ?string } [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the moduleName of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the moduleName of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   moduleName?: string;
 
   /**
-   * Indicates the host ability of the shortcut
+   * Name of the ability that hosts the shortcut.
    *
-   * @type { string }
-   * @readonly
+   * @type { string } [since 9 - 11]
+   * @type { ?string } [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the host ability of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the host ability of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   hostAbility?: string;
 
   /**
-   * Indicates the icon of the shortcut
+   * Icon of the shortcut. The value is the index of a resource file.
    *
-   * @type { string }
-   * @readonly
+   * @type { string } [since 9 - 11]
+   * @type { ?string } [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the icon of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the icon of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   icon?: string;
 
   /**
-   * Indicates the icon id of the shortcut
+   * Resource ID of the shortcut icon.
    *
-   * @type { number }
-   * @readonly
+   * @type { number } [since 9 - 11]
+   * @type { ?number } [since 12 - 19]
+   * @type { ?long } [since 20]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the icon id of the shortcut
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the icon id of the shortcut
-   *
-   * @type { ?long }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   iconId?: long;
 
   /**
-   * Indicates the label of the shortcut
+   * Label of the shortcut. The value can be descriptive text or a resource index.
    *
-   * @type { string }
-   * @readonly
+   * @type { string } [since 9 - 11]
+   * @type { ?string } [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the label of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the label of the shortcut
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   label?: string;
 
   /**
-   * Indicates the label id of the shortcut
+   * Resource ID of the shortcut label.
    *
-   * @type { number }
-   * @readonly
+   * @type { number } [since 9 - 11]
+   * @type { ?number } [since 12 - 19]
+   * @type { ?long } [since 20]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the label id of the shortcut
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the label id of the shortcut
-   *
-   * @type { ?long }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   labelId?: long;
 
   /**
-   * Indicates the wants of the shortcut
+   * A collection of target Wants information defined within the shortcut.
    *
-   * @type { Array<ShortcutWant> }
-   * @readonly
+   * @type { Array<ShortcutWant> } [since 9 - 11]
+   * @type { ?Array<ShortcutWant> } [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the wants of the shortcut
-   *
-   * @type { ?Array<ShortcutWant> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the wants of the shortcut
-   *
-   * @type { ?Array<ShortcutWant> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   wants?: Array<ShortcutWant>;
 
   /**
-   * Indicates the index of application clone.
+   * Index of the application clone to which the shortcut belongs.
    *
-   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the index of application clone.
-   *
-   * @type { int }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   appIndex: int;
 
   /**
-   * Indicates the source type of shortcut.
+   * Source type of the shortcut. The value **0** means a custom shortcut, **1** means a static shortcut, and **2**
+   * means a dynamic shortcut. Dynamic shortcuts are supported since API version 23.
    *
-   * @type { number }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the source type of shortcut.
-   *
-   * @type { int }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   sourceType: int;
 
   /**
-   * Display control for indicating shortcut.
+   * Whether the shortcut is visible. **true** if visible, **false** otherwise. The default value is **true**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   visible?: boolean;
 }
 
 /**
- * Obtains information about the ability that a shortcut will start.
+ * Describes a collection of target [Wants](docroot://quick-start/module-configuration-file.md#wants) information
+ * defined within a shortcut.
  *
- * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @systemapi
- * @since 9
- */
-/**
- * Obtains information about the ability that a shortcut will start.
- *
- * @typedef ShortcutWant
- * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20 dynamic
- * @since 22 static
+ * @systemapi [since 9 - 19]
+ * @publicapi [since 20]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface ShortcutWant {
   /**
-   * Indicates the target bundle of the shortcut want
+   * Target bundle name of the shortcut.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the target bundle of the shortcut want
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the target bundle of the shortcut want
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   targetBundle: string;
 
   /**
-   * Indicates the target module of the shortcut want
+   * Target module name of the shortcut.
    *
-   * @type { string }
-   * @readonly
+   * @type { string } [since 9 - 11]
+   * @type { ?string } [since 12]
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the target module of the shortcut want
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the target module of the shortcut want
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   targetModule?: string;
 
   /**
-   * Indicates the target ability of the shortcut want
+   * Target ability name of the shortcut.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Indicates the target ability of the shortcut want
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the target ability of the shortcut want
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 9 - 19]
+   * @publicapi [since 20]
+   * @since 9 dynamic
+   * @since 23 static
    */
   targetAbility: string;
 
   /**
-   * Indicates the parameters of the shortcut want
+   * Custom data for launching the shortcut. The data must be strings. Both keys and values can be strings up to 1024
+   * characters long.
    *
-   * @type { ?Array<ParameterItem> }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the parameters of the shortcut want
-   *
-   * @type { ?Array<ParameterItem> }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   parameters?: Array<ParameterItem>;
 }
 
 /**
- * Obtains information about the ability that a shortcut will start.
+ * Describes the custom data in the shortcut configuration. You can define your own key-value pairs, and obtain the
+ * values using the keys.
  *
- * @typedef ParameterItem
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @systemapi
- * @since 12
- */
-/**
- * Obtains information about the ability that a shortcut will start.
- *
- * @typedef ParameterItem
- * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 20 dynamic
- * @since 22 static
+ * @systemapi [since 12 - 19]
+ * @publicapi [since 20]
+ * @since 12 dynamic
+ * @since 23 static
  */
 export interface ParameterItem {
   /**
-   * Indicates the key of the parameter item.
+   * Key of the custom data.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the key of the parameter item.
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   key: string;
 
   /**
-   * Indicates the value of the parameter item.
+   * Value of the custom data.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Indicates the value of the parameter item.
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
-   * @since 20 dynamic
-   * @since 22 static
+   * @systemapi [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
+   * @since 23 static
    */
   value: string;
 }

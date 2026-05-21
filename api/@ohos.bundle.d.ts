@@ -27,633 +27,977 @@ import image from './@ohos.multimedia.image';
 import { BundleInfo } from './bundle/bundleInfo';
 import { BundleInstaller } from './bundle/bundleInstaller';
 
+
 /**
- * bundle.
+ * The module provides APIs for obtaining information about an application, including
+ * [bundle information]{@link ./bundle/bundleInfo},
+ * [application information]{@link ./bundle/applicationInfo:ApplicationInfo}, and
+ * [ability information]{@link ./bundle/abilityInfo:AbilityInfo}. It also provides APIs to obtain and set the
+ * application disabling state.
  *
- * @namespace bundle
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use
+ * > [@ohos.bundle.bundleManager]{@link @ohos.bundle.bundleManager:bundleManager} instead.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager
+ * @useinstead @ohos.bundle.bundleManager:bundleManager
  */
 declare namespace bundle {
   /**
-   * BundleFlag
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+   * > [bundleManager.BundleFlag]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag} instead.
    *
-   * @enum { number }
+   * Enumerates the bundle flags, which indicate the type of bundle information to obtain.
+   *
+   * If an API does not match the flag, the flag is ignored. For example, using **GET_ABILITY_INFO_WITH_PERMISSION** to
+   * obtain the application information does not affect the result.
+   *
+   * Flags can be used together. For example, you can use the combination of **GET_APPLICATION_INFO_WITH_PERMISSION**
+   * and **GET_APPLICATION_INFO_WITH_DISABLE** to obtain the result that contains both application permission
+   * information and disabled application information.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.BundleFlag
+   * @useinstead @ohos.bundle.bundleManager:bundleManager.BundleFlag
    */
   enum BundleFlag {
     /**
+     * Obtains the default application information.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.BundleFlag#GET_BUNDLE_INFO_DEFAULT
      */
     GET_BUNDLE_DEFAULT = 0x00000000,
     /**
+     * Obtains the bundle information with the ability information.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.BundleFlag#GET_BUNDLE_INFO_WITH_ABILITY
      */
     GET_BUNDLE_WITH_ABILITIES = 0x00000001,
     /**
+     * Obtains the ability information with the permission information.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_PERMISSION
      */
     GET_ABILITY_INFO_WITH_PERMISSION = 0x00000002,
     /**
+     * Obtains the ability information with the application information.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_APPLICATION
      */
     GET_ABILITY_INFO_WITH_APPLICATION = 0x00000004,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     GET_APPLICATION_INFO_WITH_PERMISSION = 0x00000008,
     /**
+     * Obtains the bundle information with the information about the required permissions.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.BundleFlag#GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION
      */
     GET_BUNDLE_WITH_REQUESTED_PERMISSION = 0x00000010,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     GET_ALL_APPLICATION_INFO = 0xFFFF0000,
     /**
+     * Obtains the ability metadata information.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_METADATA
      */
     GET_ABILITY_INFO_WITH_METADATA = 0x00000020,
     /**
+     * No uninstallation permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     GET_APPLICATION_INFO_WITH_METADATA = 0x00000040,
     /**
+     * Obtains the ability information of system applications.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_ONLY_SYSTEM_APP
      */
     GET_ABILITY_INFO_SYSTEMAPP_ONLY = 0x00000080,
     /**
+     * Obtains information about disabled abilities.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityFlag#GET_ABILITY_INFO_WITH_DISABLE
      */
     GET_ABILITY_INFO_WITH_DISABLE = 0x00000100,
     /**
+     * No uninstallation permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     GET_APPLICATION_INFO_WITH_DISABLE = 0x00000200
   }
 
   /**
-   * ColorMode
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. No substitute is provided.
    *
-   * @enum { number }
+   * Enumerates the color modes of applications and widgets.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead null
    */
   export enum ColorMode {
     /**
+     * Auto mode.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_NOT_SET
      */
     AUTO_MODE = -1,
     /**
+     * Dark mode.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_DARK
      */
     DARK_MODE = 0,
     /**
+     * Light mode.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.app.ability.ConfigurationConstant/ConfigurationConstant.ColorMode#COLOR_MODE_LIGHT
      */
     LIGHT_MODE = 1
   }
 
   /**
-   * GrantStatus
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+   * > [bundleManager.PermissionGrantState]{@link @ohos.bundle.bundleManager:bundleManager.PermissionGrantState}
+   * > instead.
    *
-   * @enum { number }
+   * Enumerates the permission grant states.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.PermissionGrantState
+   * @useinstead @ohos.bundle.bundleManager:bundleManager.PermissionGrantState
    */
   export enum GrantStatus {
     /**
+     * Permission denied.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionGrantState#PERMISSION_DENIED
      */
     PERMISSION_DENIED = -1,
     /**
+     * Permission granted.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.PermissionGrantState#PERMISSION_GRANTED
      */
     PERMISSION_GRANTED = 0
   }
 
   /**
-   * AbilityType
+   * ModuleRemoveFlag
    *
-   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamiconly
-   * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.AbilityType
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
    */
-  export enum AbilityType {
+  export enum ModuleRemoveFlag {
     /**
-     * Indicates an unknown ability type
-     *
+     * Indicates the module is not used by the form.
+     * 
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
-     * @deprecated since 9
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
      */
-    UNKNOWN,
-
+    FLAG_MODULE_NOT_USED_BY_FORM = 0,
     /**
-     * Indicates that the ability has a UI
-     *
+     * Indicates the module is used by the form.
+     * 
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
-     * @deprecated since 9
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
      */
-    PAGE,
-
+    FLAG_MODULE_USED_BY_FORM = 1,
     /**
-     * Indicates that the ability does not have a UI
-     *
+     * Indicates the module is not used by the shortcut.
+     * 
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
-     * @deprecated since 9
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
      */
-    SERVICE,
-
+    FLAG_MODULE_NOT_USED_BY_SHORTCUT = 2,
     /**
-     * Indicates that the ability is used to provide data access services
-     *
+     * Indicates the module is used by the shortcut.
+     * 
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
-     * @deprecated since 9
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
      */
-    DATA
+    FLAG_MODULE_USED_BY_SHORTCUT = 3
   }
 
   /**
-   * AbilitySubType
+   * SignatureCompareResult
    *
-   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum SignatureCompareResult {
+    /**
+     * Indicates the signatures match.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_MATCHED = 0,
+    /**
+     * Indicates the signatures do not match.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_NOT_MATCHED = 1,
+    /**
+     * Indicates the bundle is unknown during signature comparison.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_UNKNOWN_BUNDLE = 2
+  }
+
+  /**
+   * ShortcutExistence
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum ShortcutExistence {
+    /**
+     * Indicates the shortcut exists.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_EXISTS = 0,
+    /**
+     * Indicates the shortcut does not exist.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_NOT_EXISTS = 1,
+    /**
+     * Indicates the shortcut existence is unknown.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_UNKNOW = 2
+  }
+
+  /**
+   * QueryShortCutFlag
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum QueryShortCutFlag {
+    /**
+     * Indicates query shortcut home.
+     * 
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    QUERY_SHORTCUT_HOME = 0
+  }
+
+  /**
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+   * > [bundleManager.AbilityType]{@link @ohos.bundle.bundleManager:bundleManager.AbilityType} instead.
+   *
+   * Enumerates the ability types.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7 dynamiconly
+   * @deprecated since 9
+   * @useinstead @ohos.bundle.bundleManager:bundleManager.AbilityType
+   */
+  export enum AbilityType {
+    /**
+     * Unknown ability type.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7 dynamiconly
+     * @deprecated since 9
+     */
+    UNKNOWN = 0,
+
+    /**
+     * FA developed using the Page template to provide the capability of interacting with users.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7 dynamiconly
+     * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityType#PAGE
+     */
+    PAGE = 1,
+
+    /**
+     * PA developed using the Service template to provide the capability of running tasks in the background.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7 dynamiconly
+     * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityType#SERVICE
+     */
+    SERVICE = 2,
+
+    /**
+     * PA developed using the Data template to provide unified data access for external systems.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @since 7 dynamiconly
+     * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.AbilityType#DATA
+     */
+    DATA = 3
+  }
+
+  /**
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. No substitute is provided.
+   *
+   * Enumerates the ability subtypes.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export enum AbilitySubType {
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     UNSPECIFIED = 0,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     CA = 1
   }
 
   /**
-   * DisplayOrientation
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+   * > [bundleManager.DisplayOrientation]{@link @ohos.bundle.bundleManager:bundleManager.DisplayOrientation} instead.
    *
-   * @enum { number }
+   * Enumerates display orientations.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.DisplayOrientation
+   * @useinstead @ohos.bundle.bundleManager:bundleManager.DisplayOrientation
    */
   export enum DisplayOrientation {
     /**
-     * Indicates that the system automatically determines the display orientation
+     * Unspecified display orientation.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#UNSPECIFIED
      */
-    UNSPECIFIED,
+    UNSPECIFIED = 0,
 
     /**
-     * Indicates the landscape orientation
+     * Landscape orientation.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#LANDSCAPE
      */
-    LANDSCAPE,
+    LANDSCAPE = 1,
 
     /**
-     * Indicates the portrait orientation
+     * Portrait orientation.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#PORTRAIT
      */
-    PORTRAIT,
+    PORTRAIT = 2,
 
     /**
-     * Indicates the page ability orientation is the same as that of the nearest ability in the stack
+     * Orientation same as that of the nearest ability in the stack.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.DisplayOrientation#FOLLOW_RECENT
      */
-    FOLLOW_RECENT
+    FOLLOW_RECENT = 3
   }
 
   /**
-   * LaunchMode
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+   * > [bundleManager.LaunchType]{@link @ohos.bundle.bundleManager:bundleManager.LaunchType} instead.
    *
-   * @enum { number }
+   * Enumerates the ability launch modes.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager.LaunchType
+   * @useinstead @ohos.bundle.bundleManager:bundleManager.LaunchType
    */
   export enum LaunchMode {
     /**
-     * Indicates that the ability has only one instance
+     * The ability has only one instance.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.LaunchType#SINGLETON
      */
     SINGLETON = 0,
 
     /**
-     * Indicates that the ability can have multiple instances
+     * The ability can have multiple instances.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
+     * @useinstead ohos.bundle.bundleManager/bundleManager.LaunchType#MULTITON
      */
     STANDARD = 1
   }
 
   /**
-   * BundleOptions
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. No substitute is provided.
    *
-   * @typedef BundleOptions
+   * Options that contain the user ID.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export interface BundleOptions {
     /**
-     * Indicates the user id
+     * User ID. The default value is the user ID of the caller. The value must be greater than or equal to 0.
      *
-     * @type { ?number }
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     userId?: number;
   }
 
   /**
-   * InstallErrorCode
+   * > **NOTE**
+   * >
+   * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+   * > [errorcode-bundle](docroot://reference/apis-ability-kit/errorcode-bundle.md) instead.
    *
-   * @enum { number }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   export enum InstallErrorCode {
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     SUCCESS = 0,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE = 1,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_ABORTED = 2,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_INVALID = 3,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_CONFLICT = 4,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_STORAGE = 5,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_INCOMPATIBLE = 6,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE = 7,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE_BLOCKED = 8,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE_ABORTED = 9,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_FAILURE_CONFLICT = 10,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT = 0x0B,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED = 0x0C,
     /**
+     * No uninstallation permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_RECOVER_FAILURE_INVALID = 0x0D,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_ABILITY_NOT_FOUND = 0x40,
     /**
+     * Installation conflict. (The basic information of the application to update is inconsistent with that of the
+     * existing application.)
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 7 dynamic
+     * @since 7 dynamiconly
      * @deprecated since 9
      */
     STATUS_BMS_SERVICE_ERROR = 0x41,
     /**
+     * No uninstallation permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_FAILED_NO_SPACE_LEFT = 0x42,
     /**
+     * No uninstallation permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_GRANT_REQUEST_PERMISSIONS_FAILED = 0x43,
     /**
+     * No uninstallation permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_INSTALL_PERMISSION_DENIED = 0x44,
     /**
+     * No uninstallation permission.
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework
-     * @since 8 dynamic
+     * @since 8 dynamiconly
      * @deprecated since 9
      */
     STATUS_UNINSTALL_PERMISSION_DENIED = 0x45
   }
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * Obtains the bundle information based on a given bundle name and bundle options. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the application bundle flags to be queried.
-   * @param { BundleOptions } options Indicates the bundle options object.
-   * @param { AsyncCallback<BundleInfo> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the bundle information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { BundleOptions } options - Includes **userId**.
+   * @param { AsyncCallback<BundleInfo> } callback - Callback used to return the bundle information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead null
    */
   function getBundleInfo(bundleName: string,
     bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * Obtains the bundle information based on a given bundle name. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the application bundle flags to be queried.
-   * @param { AsyncCallback<BundleInfo> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the bundle information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { AsyncCallback<BundleInfo> } callback - Callback used to return the bundle information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead null
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains bundleInfo based on bundleName, bundleFlags and options.
+   * Obtains the bundle information based on a given bundle name. This API uses a promise to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the application bundle flags to be queried.
-   * @param { BundleOptions } options Indicates the bundle options object.
-   * @returns { Promise<BundleInfo> } Returns the BundleInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the bundle information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { BundleOptions } options - Options that contain the user ID.
+   * @returns { Promise<BundleInfo> } Promise used to return the bundle information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead null
    */
   function getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>;
 
   /**
-   * Obtains the interface used to install bundles.
+   * Obtains the installation package. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { AsyncCallback<BundleInstaller> } callback
+   * @param { AsyncCallback<BundleInstaller> } callback - Callback used to return the installation package.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer#getBundleInstaller
+   * @useinstead null
    */
   function getBundleInstaller(callback: AsyncCallback<BundleInstaller>): void;
 
   /**
-   * Obtains the interface used to install bundles.
+   * Obtains the installation package. This API uses a promise to return the result.
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @returns { Promise<BundleInstaller> } Returns the IBundleInstaller interface.
+   * @returns { Promise<BundleInstaller> } Promise used to return the installation package.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.installer#getBundleInstaller
+   * @useinstead null
    */
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
-   * Obtains information about the current ability.
+   * Obtains the ability information based on a given bundle name and ability name. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { AsyncCallback<AbilityInfo> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { string } abilityName - Ability name.
+   * @param { AsyncCallback<AbilityInfo> } callback - Callback used to return the ability information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void;
 
   /**
-   * Obtains information about the current ability.
+   * Obtains the ability information based on a given bundle name and ability name. This API uses a promise to return
+   * the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { string } abilityName - Indicates the ability name.
-   * @returns { Promise<AbilityInfo> } Returns the AbilityInfo object for the current ability.
+   * @param { string } bundleName - Bundle name.
+   * @param { string } abilityName - Ability name.
+   * @returns { Promise<AbilityInfo> } Promise used to return the ability information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>;
 
   /**
-   * Obtains based on a given bundle name.
+   * Obtains the application information of the specified user based on a given bundle name. This API uses an
+   * asynchronous callback to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained
-   *                                 in the ApplicationInfo object that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
-   * @param { AsyncCallback<ApplicationInfo> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the application information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The value must be greater than or equal to 0.
+   * @param { AsyncCallback<ApplicationInfo> } callback - Callback used to return the application information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getApplicationInfo(bundleName: string,
     bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
-   * Obtains based on a given bundle name.
+   * Obtains the application information based on a given bundle name. This API uses an asynchronous callback to return
+   * the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained
-   *                                 in the ApplicationInfo object that will be returned.
-   * @param { AsyncCallback<ApplicationInfo> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the application information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { AsyncCallback<ApplicationInfo> } callback - Callback used to return the application information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>): void;
 
   /**
-   * Obtains based on a given bundle name.
+   * Obtains the application information based on a given bundle name. This API uses a promise to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the application bundle name to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained
-   *                                 in the ApplicationInfo object that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
-   * @returns { Promise<ApplicationInfo> } Returns the ApplicationInfo object.
+   * @param { string } bundleName - Bundle name.
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the application information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The default value is the user ID of the caller. The value must be greater than
+   *     or equal to 0.
+   * @returns { Promise<ApplicationInfo> } Promise used to return the application information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<ApplicationInfo>;
 
   /**
-   * Query the AbilityInfo by the given Want.
+   * Obtains the ability information of the specified user based on given Want. This API uses an asynchronous callback
+   * to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { Want } want - Indicates the Want containing the application bundle name
-   *                        to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that
-   *                                 will be returned.
-   * @param { number } userId - Indicates the user ID.
-   * @param { AsyncCallback<Array<AbilityInfo>> } callback
+   * @param { Want } want - Want containing the bundle name.
+   * @param { number } bundleFlags - Ability information to be returned. For details about the available enumerated
+   *     values, see the ability information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The value must be greater than or equal to 0.
+   * @param { AsyncCallback<Array<AbilityInfo>> } callback - Callback used to return the ability information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function queryAbilityByWant(want: Want,
     bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
-   * Query the AbilityInfo by the given Want.
+   * Obtains the ability information based on given Want. This API uses an asynchronous callback to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { Want } want - Indicates the Want containing the application bundle name
-   *                        to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that
-   *                                 will be returned.
-   * @param { AsyncCallback<Array<AbilityInfo>> } callback
+   * @param { Want } want - Want containing the bundle name.
+   * @param { number } bundleFlags - Ability information to be returned. For details about the available enumerated
+   *     values, see the ability information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { AsyncCallback<Array<AbilityInfo>> } callback - Callback used to return the ability information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void;
 
   /**
-   * Query the AbilityInfo by the given Want.
+   * Obtains the ability information based on given Want. This API uses a promise to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { Want } want - Indicates the Want containing the application bundle name
-   *                        to be queried.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the AbilityInfo objects that
-   *                                 will be returned.
-   * @param { number } userId - Indicates the user ID.
-   * @returns { Promise<Array<AbilityInfo>> } Returns a list of AbilityInfo objects.
+   * @param { Want } want - Want containing the bundle name.
+   * @param { number } bundleFlags - Ability information to be returned. For details about the available enumerated
+   *     values, see the ability information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The default value is the user ID of the caller. The value must be greater than
+   *     or equal to 0.
+   * @returns { Promise<Array<AbilityInfo>> } Promise used to return the ability information.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
@@ -663,38 +1007,93 @@ declare namespace bundle {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
-   *                                    in the BundleInfo that will be returned.
+   *     in the BundleInfo that will be returned.
    * @param { number } userId - Indicates the user ID.
-   * @param { AsyncCallback<Array<BundleInfo>> } callback
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - When obtaining the array of BundleInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of BundleInfo objects;
+   *     otherwise, the outcome is an error object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+
+  /**
+   * Obtains BundleInfo of all bundles available in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
+   *     in the BundleInfo that will be returned.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - When obtaining the array of BundleInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of BundleInfo objects;
+   *     otherwise, the outcome is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
+
+  /**
+   * Obtains BundleInfo of all bundles available in the system.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
+   *     in the BundleInfo that will be returned.
+   * @param { number } [userId] - Indicates the user ID.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return a list of BundleInfo objects.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
+
+  /**
+   * Obtains the information of all bundles of the specified user. This API uses an asynchronous callback to return the
+   * result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Type of information that will be returned. For details about the available
+   *     enumerated values, see the bundle information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The default value is the user ID of the caller. The value must be greater than
+   *     or equal to 0.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - Callback used to return the information of all bundles.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
-   * Obtains BundleInfo of all bundles available in the system.
+   * Obtains the information of all bundles of the current user. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
-   *                                    in the BundleInfo that will be returned.
-   * @param { AsyncCallback<Array<BundleInfo>> } callback
+   * @param { BundleFlag } bundleFlag - Type of information that will be returned. For details about the available
+   *     enumerated values, see the bundle information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - Callback used to return the information of all bundles.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
 
   /**
-   * Obtains BundleInfo of all bundles available in the system.
+   * Obtains the information of all bundles of the specified user. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { BundleFlag } bundleFlag - Indicates the flag used to specify information contained
-   *                                    in the BundleInfo that will be returned.
-   * @param { number } userId - Indicates the user ID.
-   * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
+   * @param { BundleFlag } bundleFlag - Type of information that will be returned. For details about the available
+   *     enumerated values, see the bundle information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The default value is the user ID of the caller. The value must be greater than
+   *     or equal to 0.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return the information of all bundles.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
@@ -704,14 +1103,18 @@ declare namespace bundle {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } bundleFlags - Indicates the flag used to specify information contained
-   *                                 in the ApplicationInfo objects that will be returned.
+   *     in the ApplicationInfo objects that will be returned.
    * @param { number } userId - Indicates the user ID.
-   * @param { AsyncCallback<Array<ApplicationInfo>> } callback
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - When obtaining the array of ApplicationInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of ApplicationInfo objects;
+   *     otherwise, the outcome is an error object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
-   * @deprecated since 9
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
-  function getAllApplicationInfo(bundleFlags: number,
+  function getApplicationInfos(bundleFlags: number,
     userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
@@ -719,24 +1122,75 @@ declare namespace bundle {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } bundleFlags - Indicates the flag used to specify information contained
-   *                                 in the ApplicationInfo objects that will be returned.
-   * @param { AsyncCallback<Array<ApplicationInfo>> } callback
+   *     in the ApplicationInfo objects that will be returned.
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - When obtaining the array of ApplicationInfo objects
+   *     succeeds, err is undefined, and data is the obtained array of ApplicationInfo objects;
+   *     otherwise, the outcome is an error object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
-   * @deprecated since 9
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
    */
-  function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+  function getApplicationInfos(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
 
   /**
    * Obtains information about all installed applications of a specified user.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { number } bundleFlags - Indicates the flag used to specify information contained
-   *                                 in the ApplicationInfo objects that will be returned.
-   * @param { number } userId - Indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<ApplicationInfo>> } Returns a list of ApplicationInfo objects.
+   *     in the ApplicationInfo objects that will be returned.
+   * @param { number } [userId] - Indicates the user ID or do not pass user ID.
+   * @returns { Promise<Array<ApplicationInfo>> } Promise used to return a list of ApplicationInfo objects.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
+   */
+  function getApplicationInfos(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
+
+  /**
+   * Obtains the information about all applications. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the application information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The default value is the user ID of the caller. The value must be greater than
+   *     or equal to 0.
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - Callback used to return the application information.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7 dynamiconly
+   * @deprecated since 9
+   */
+  function getAllApplicationInfo(bundleFlags: number,
+    userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+
+  /**
+   * Obtains the information about all applications of the current user. This API uses an asynchronous callback to
+   * return the result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the application information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - Callback used to return the application information.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7 dynamiconly
+   * @deprecated since 9
+   */
+  function getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+
+  /**
+   * Obtains the information about all applications of the specified user. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Type of information that will be returned. For details about the available
+   *     enumerated values, see the application information flags in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. The default value is the user ID of the caller. The value must be greater than
+   *     or equal to 0.
+   * @returns { Promise<Array<ApplicationInfo>> } Promise used to return the application information.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
@@ -747,294 +1201,309 @@ declare namespace bundle {
    * @param { number } uid - Indicates the UID of an application.
    * @param { AsyncCallback<string> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#getBundleNameByUid
    */
   function getNameForUid(uid: number, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains bundle name by the given uid.
+   * Obtains the bundle name based on a UID. This API uses a promise to return the result.
    *
-   * @param { number } uid - Indicates the UID of an application.
+   * @param { number } uid - UID based on which the bundle name is to obtain.
    * @returns { Promise<string> } Returns the bundle name.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead null
    */
   function getNameForUid(uid: number): Promise<string>;
 
   /**
-   * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
+   * Obtains information about the bundles contained in a HAP file. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path
-   *                                 to the data directory of the current application.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the
-   *                                 BundleInfo object to be returned.
-   * @param { AsyncCallback<BundleInfo> } callback
+   * @param { string } hapFilePath - Path where the HAP file is stored. The absolute path of the application and the
+   *     data directory sandbox path are supported.
+   * @param { number } bundleFlags - Flags used to specify information contained in the BundleInfo object that will be
+   *     returned. For details about the available enumerated values, see the bundle information flags in
+   *     [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { AsyncCallback<BundleInfo> } callback - Callback used to return the information about the bundles.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * Obtains information about an application bundle contained in an ohos Ability Package (HAP).
+   * Obtains information about the bundles contained in a HAP file. This API uses a promise to return the result.
    *
-   * @param { string } hapFilePath - Indicates the path storing the HAP. The path should be the relative path
-   *                                 to the data directory of the current application.
-   * @param { number } bundleFlags - Indicates the flag used to specify information contained in the
-   *                                 BundleInfo object to be returned.
+   * @param { string } hapFilePath - Path where the HAP file is stored. The absolute path of the application and the
+   *     data directory sandbox path are supported.
+   * @param { number } bundleFlags - Flags used to specify information contained in the BundleInfo object that will be
+   *     returned. For details about the available enumerated values, see the bundle information flags in
+   *     [BundleFlag]{@link bundle.BundleFlag}.
    * @returns { Promise<BundleInfo> } - Returns the BundleInfo object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: number): Promise<BundleInfo>;
 
   /**
-   * Obtains the Want for starting the main ability of an application based on the
-   * given bundle name. The main ability of an application is the ability that has the
-   * #ACTION_HOME and #ENTITY_HOME Want
-   * filters set in the application's <b>config.json</b> file.
+   * Obtains the Want object that launches the specified application. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { AsyncCallback<Want> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { AsyncCallback<Want> } callback - Callback used to return the Want object.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void;
 
   /**
-   * Obtains the Want for starting the main ability of an application based on the
-   * given bundle name. The main ability of an application is the ability that has the
-   * #ACTION_HOME and #ENTITY_HOME Want
-   * filters set in the application's <b>config.json</b> file.
+   * Obtains the Want object that launches the specified application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
+   * @param { string } bundleName - Bundle name.
    * @returns { Promise<Want> } Returns the Want for starting the application's main ability if any.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   function getLaunchWantForBundle(bundleName: string): Promise<Want>;
 
   /**
-   * Clears cache data of a specified application.
+   * Clears the cache data of an application. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REMOVE_CACHE_FILES
-   * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleared.
-   * @param { AsyncCallback<void> } callback Indicates the callback to be invoked for returning the operation result.
+   * @param { string } bundleName - Bundle name.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#cleanBundleCacheFiles
+   * @useinstead null
    */
   function cleanBundleCacheFiles(bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Clears cache data of a specified application.
+   * Clears the cache data of an application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REMOVE_CACHE_FILES
-   * @param { string } bundleName - Indicates the bundle name of the application whose cache data is to be cleared.
-   * @returns { Promise<void> }
+   * @param { string } bundleName - Bundle name.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#cleanBundleCacheFiles
+   * @useinstead null
    */
   function cleanBundleCacheFiles(bundleName: string): Promise<void>;
 
   /**
-   * Sets whether to enable a specified application.
+   * Sets whether to enable an application. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { boolean } isEnable - Specifies whether to enable the application. The value true means to enable it,
-   *                               and the value false means to disable it.
-   * @param { AsyncCallback<void> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { boolean } isEnable - Whether to enable the application. **true** to enable, **false** otherwise.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#setApplicationEnabled
+   * @useinstead null
    */
   function setApplicationEnabled(bundleName: string, isEnable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable a specified application.
+   * Sets whether to enable an application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { boolean } isEnable - Specifies whether to enable the application. The value true means to enable it,
-   *                               and the value false means to disable it.
-   * @returns { Promise<void> }
+   * @param { string } bundleName - Bundle name.
+   * @param { boolean } isEnable - Whether to enable the application. **true** to enable, **false** otherwise.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#setApplicationEnabled
+   * @useinstead null
    */
   function setApplicationEnabled(bundleName: string, isEnable: boolean): Promise<void>;
 
   /**
-   * Sets whether to enable a specified ability.
+   * Sets whether to enable an ability. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { AbilityInfo } info - Indicates information about the ability to set.
-   * @param { boolean } isEnable - Specifies whether to enable the application. The value true means to enable it,
-   *                               and the value false means to disable it.
-   * @param { AsyncCallback<void> } callback
+   * @param { AbilityInfo } info - Ability information.
+   * @param { boolean } isEnable - Whether to enable the application. **true** to enable, **false** otherwise.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#setAbilityEnabled
+   * @useinstead null
    */
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets whether to enable a specified ability.
+   * Sets whether to enable an ability. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { AbilityInfo } info - Indicates information about the ability to set.
-   * @param { boolean } isEnable - Specifies whether to enable the application. The value true means to enable it,
-   *                               and the value false means to disable it.
-   * @returns { Promise<void> }
+   * @param { AbilityInfo } info - Ability information.
+   * @param { boolean } isEnable - Whether to enable the application. **true** to enable, **false** otherwise.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#setAbilityEnabled
+   * @useinstead null
    */
   function setAbilityEnabled(info: AbilityInfo, isEnable: boolean): Promise<void>;
 
   /**
-   * Get the permission details by permissionName.
+   * Obtains the permission details by permission name. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } permissionName - Indicates permission name.
-   * @param { AsyncCallback<PermissionDef> } callback
+   * @param { string } permissionName - Name of the permission.
+   * @param { AsyncCallback<PermissionDef> } callback - Callback used to return the permission details.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getPermissionDef
+   * @useinstead null
    */
   function getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>): void;
 
   /**
-   * Get the permission details by permissionName.
+   * Obtains the permission details by permission name. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } permissionName - Indicates permission name.
-   * @returns { Promise<PermissionDef> } Returns permissionDef object.
+   * @param { string } permissionName - Name of the permission.
+   * @returns { Promise<PermissionDef> } Promise used to return the permission details.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.bundle.bundleManager#getPermissionDef
+   * @useinstead null
    */
   function getPermissionDef(permissionName: string): Promise<PermissionDef>;
 
   /**
-   * Obtains the label of a specified ability.
+   * Obtains the application name based on a given bundle name and ability name. This API uses an asynchronous callback
+   * to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { AsyncCallback<string> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { string } abilityName - Ability name.
+   * @param { AsyncCallback<string> } callback - Callback used to return the application name.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function getAbilityLabel(bundleName: string, abilityName: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the label of a specified ability.
+   * Obtains the application name based on a given bundle name and ability name. This API uses a promise to return the
+   * result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } abilityName - Indicates the ability name.
-   * @returns { Promise<string> } Returns the label representing the label of the specified ability.
+   * @param { string } bundleName - Bundle name.
+   * @param { string } abilityName - Ability name.
+   * @returns { Promise<string> } Promise used to return the application name.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function getAbilityLabel(bundleName: string, abilityName: string): Promise<string>;
 
   /**
-   * Obtains the icon of a specified ability.
+   * Obtains the [PixelMap]{@link @ohos.multimedia.image:image} of the icon corresponding to a given bundle name and
+   * ability name. This API uses an asynchronous callback to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { AsyncCallback<image.PixelMap> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { string } abilityName - Ability name.
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the
+   *     [PixelMap]{@link @ohos.multimedia.image:image}.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceManager#getMediaContent
+   * @useinstead null
    */
   function getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * Obtains the icon of a specified ability.
+   * Obtains the [PixelMap]{@link @ohos.multimedia.image:image} of the icon corresponding to a given bundle name and
+   * ability name. This API uses a promise to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } abilityName - Indicates the ability name.
+   * @param { string } bundleName - Bundle name.
+   * @param { string } abilityName - Ability name.
    * @returns { Promise<image.PixelMap> } Returns the PixelMap object representing the icon of the specified ability.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.resourceManager#getMediaContent
+   * @useinstead null
    */
   function getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>;
 
   /**
-   * Checks whether a specified ability is enabled.
+   * Checks whether the ability that matches a given AbilityInfo object is enabled. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { AbilityInfo } info - Indicates information about the ability to check.
-   * @param { AsyncCallback<boolean> } callback
+   * @param { AbilityInfo } info - Ability information.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** if enabled, **false**
+   *     otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isAbilityEnabled(info: AbilityInfo, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a specified ability is enabled.
+   * Checks whether the ability that matches a given AbilityInfo object is enabled. This API uses a promise to return
+   * the result.
    *
-   * @param { AbilityInfo } info - Indicates information about the ability to check.
-   * @returns { Promise<boolean> } Returns true if the ability is enabled; returns false otherwise.
+   * @param { AbilityInfo } info - Ability information.
+   * @returns { Promise<boolean> } Promise used to return the result. **true** if enabled, **false** otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isAbilityEnabled(info: AbilityInfo): Promise<boolean>;
 
   /**
-   * Checks whether a specified application is enabled.
+   * Checks whether an application is enabled based on a given bundle name. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { AsyncCallback<boolean> } callback
+   * @param { string } bundleName - Bundle name.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** if enabled, **false**
+   *     otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isApplicationEnabled(bundleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a specified application is enabled.
+   * Checks whether an application is enabled based on a given bundle name. This API uses a promise to return the
+   * result.
    *
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @returns { Promise<boolean> } Returns true if the application is enabled; returns false otherwise.
+   * @param { string } bundleName - Bundle name.
+   * @returns { Promise<boolean> } Promise used to return the result. **true** if enabled, **false** otherwise.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
    */
   function isApplicationEnabled(bundleName: string): Promise<boolean>;

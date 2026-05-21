@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 
+
 /**
  * Provides the method of switching the cursor position.
  *
@@ -97,6 +98,7 @@ declare class SearchController extends TextContentControllerBase {
    * Exit edit state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -104,6 +106,7 @@ declare class SearchController extends TextContentControllerBase {
    * Exit edit state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -131,6 +134,7 @@ declare class SearchController extends TextContentControllerBase {
    * A value greater than the maximum text length is handled as the maximum text length.
    * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -143,6 +147,7 @@ declare class SearchController extends TextContentControllerBase {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -151,6 +156,7 @@ declare class SearchController extends TextContentControllerBase {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -160,6 +166,7 @@ declare enum CancelButtonStyle {
    * The value of button style constant
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -167,6 +174,7 @@ declare enum CancelButtonStyle {
    * The value of button style constant
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -177,6 +185,7 @@ declare enum CancelButtonStyle {
    * The value of button style invisible
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -184,6 +193,7 @@ declare enum CancelButtonStyle {
    * The value of button style invisible
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -194,6 +204,7 @@ declare enum CancelButtonStyle {
    * The value of button style input
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -201,6 +212,7 @@ declare enum CancelButtonStyle {
    * The value of button style input
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -213,6 +225,7 @@ declare enum CancelButtonStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -221,6 +234,7 @@ declare enum CancelButtonStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -230,6 +244,7 @@ declare enum SearchType {
    * Basic input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -237,6 +252,7 @@ declare enum SearchType {
    * Basic input mode.
    * The value can contain digits, letters, underscores (_), spaces, and special characters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -247,6 +263,7 @@ declare enum SearchType {
    * Pure digital input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -254,6 +271,7 @@ declare enum SearchType {
    * Pure digital input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -264,6 +282,7 @@ declare enum SearchType {
    * Phone number entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -272,6 +291,7 @@ declare enum SearchType {
    * In this mode, the following are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and number signs (#);
    * the length is not limited.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -282,6 +302,7 @@ declare enum SearchType {
    * E-mail address input mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -290,6 +311,7 @@ declare enum SearchType {
    * This mode accepts only digits, letters, underscores (_), dots (.),
    * and the following special characters: ! # $ % & ' * + - / = ? ^ ` { | } ~ @ (which can only appear once)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -300,6 +322,7 @@ declare enum SearchType {
    * Number decimal entry mode.
    * The value can contain digits and one decimal point.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -310,6 +333,7 @@ declare enum SearchType {
    * URL entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -320,6 +344,7 @@ declare enum SearchType {
    * One time code mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
@@ -332,6 +357,7 @@ declare enum SearchType {
  * Anonymous Object Rectification.
  * @typedef SearchOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -372,6 +398,7 @@ declare interface SearchOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
@@ -403,8 +430,10 @@ declare interface SearchOptions {
    * Text displayed when there is no input.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -442,6 +471,7 @@ declare interface SearchOptions {
    * 
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -466,8 +496,10 @@ declare interface SearchOptions {
    * Controller of the <Search> component.
    *
    * Anonymous Object Rectification.
+   *
    * @type { ?SearchController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
@@ -545,6 +577,7 @@ interface SearchInterface {
  *
  * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -553,6 +586,7 @@ interface SearchInterface {
  *
  * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -563,6 +597,7 @@ interface IconOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -575,6 +610,7 @@ interface IconOptions {
    * 
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -586,6 +622,7 @@ interface IconOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -594,6 +631,7 @@ interface IconOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -605,6 +643,7 @@ interface IconOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -613,6 +652,7 @@ interface IconOptions {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -625,6 +665,7 @@ interface IconOptions {
  *
  * @interface SearchButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -633,6 +674,7 @@ interface IconOptions {
  *
  * @interface SearchButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -643,6 +685,7 @@ interface SearchButtonOptions {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -655,6 +698,7 @@ interface SearchButtonOptions {
    * 
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -666,6 +710,7 @@ interface SearchButtonOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -674,6 +719,7 @@ interface SearchButtonOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -691,6 +737,7 @@ interface SearchButtonOptions {
    * @type { ?Boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -703,6 +750,7 @@ interface SearchButtonOptions {
  *
  * @interface CancelButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -714,6 +762,7 @@ interface CancelButtonOptions {
    * 
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -726,6 +775,7 @@ interface CancelButtonOptions {
    * 
    * @type { ?IconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -738,6 +788,7 @@ interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
  */
@@ -746,6 +797,7 @@ interface CancelButtonOptions {
  *
  * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -758,6 +810,8 @@ interface CancelButtonSymbolOptions {
    * 
    * @type { ?CancelButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
@@ -769,6 +823,7 @@ interface CancelButtonSymbolOptions {
    * 
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -778,6 +833,7 @@ interface CancelButtonSymbolOptions {
    * 
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -792,6 +848,7 @@ interface CancelButtonSymbolOptions {
  * @param { string } searchContent - The submitted content of search.
  * @param { SubmitEvent } [event] - Provides the method of keeping Search editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -879,6 +936,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { ResourceColor } value - indicates the color of the text.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -892,6 +950,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { ResourceColor } value - indicates the color of the text.Default value is '#FF182431'.The default value on wearable devices is '#dbffffff'.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -904,6 +963,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { IconOptions } value - indicates the style of the search icon.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -913,6 +973,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { IconOptions } value - indicates the style of the search icon.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -943,6 +1004,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { IconOptions | SymbolGlyphModifier } value - indicates the style of the search icon.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -955,6 +1017,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { object } value - indicates the style of the cancel button.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -964,6 +1027,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { object } value - indicates the style of the cancel button.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -990,6 +1054,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { CancelButtonOptions | CancelButtonSymbolOptions } value - indicates the style of the cancel button.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1002,6 +1067,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { boolean | undefined } enable - whether to enable the selected data detector.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -1013,6 +1079,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Dimension } value - The length of text indent.Default value is 0.
    * @returns { SearchAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1034,6 +1101,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Callback<string> } error - Filtered-out content to return when regular expression matching fails.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1047,6 +1115,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Callback<boolean> } callback - Returns true if the component is in an editing state.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1063,6 +1132,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { ResourceColor } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1075,6 +1145,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { CaretStyle } value - indicates the style of the cursor.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1095,6 +1166,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { CaretStyle } value - indicates the style of the cursor.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1204,6 +1276,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { EnterKeyType } value - Default value is EnterKeyType.Search.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1256,6 +1329,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { SearchSubmitCallback } callback - callback of the listened event.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1312,6 +1386,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1321,6 +1396,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1332,6 +1408,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1344,6 +1421,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1353,6 +1431,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1364,6 +1443,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { OnContentScrollCallback } callback - Callback of the listened event.
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1411,6 +1491,19 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onCopy(callback: Callback<string>): SearchAttribute;
 
   /**
+   * Called before using the Clipboard copy menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): SearchAttribute;
+
+  /**
    * Called when using the Clipboard menu
    *
    * @param { function } callback
@@ -1449,6 +1542,19 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @since 18 dynamic
    */
   onCut(callback: Callback<string>): SearchAttribute;
+
+  /**
+   * Called before using the Clipboard cut menu.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether cut is allowed.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCut(callback: Callback<string, boolean>): SearchAttribute;
 
   /**
    * Called when using the Clipboard menu
@@ -1534,6 +1640,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -1547,6 +1654,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -1561,6 +1669,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1606,6 +1715,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { boolean } value
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1619,6 +1729,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { boolean } value - Default value is true.
    * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1631,6 +1742,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { boolean } value
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1647,6 +1759,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { boolean } value - Default value is false.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1665,6 +1778,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number | string | Resource } value - The unit is fp.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1683,6 +1797,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number | string | Resource } value - The unit is fp.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1703,6 +1818,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -1720,6 +1836,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<number | Resource> } scale
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1739,6 +1856,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
     * @param { Optional<number | Resource> } scale
     * @returns { SearchAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @atomicservice
     * @since 18
     */
@@ -1755,6 +1873,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
     * @param { Optional<number | Resource> } scale
     * @returns { SearchAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 20 dynamic
@@ -1767,6 +1886,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { CustomBuilder } value
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1775,6 +1895,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { CustomBuilder } value
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1792,17 +1913,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
    * <br>By default, the custom keyboard is closed when the input component loses the focus.
    * <br>You can also use the stopEditing API to close the keyboard.
-   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+   *  <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
+   * <br>When setting a custom keyboard, you can bind the onKeyPreIme event to prevent input from the physical keyboard.
    * </p>
    * 
    * @param { CustomBuilder } value - Set up a custom keyboard of Search
    * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
+   * @since 12 dynamic
    */
   /**
    * Define custom keyboard.
@@ -1818,13 +1940,14 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * <br>By default, the custom keyboard is closed when the input component loses the focus.
    * <br>You can also use the stopEditing API to close the keyboard.
    * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+   * <br>When setting a custom keyboard, you can bind the onKeyPreIme event to prevent input from the physical keyboard.
    * </p>
    * 
    * @param { CustomBuilder | ComponentContent | undefined } value - Set up a custom keyboard of Search
    * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of Search
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -1837,6 +1960,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { TextDecorationOptions } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1856,6 +1980,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number | string | Resource } value - The unit is fp.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1873,6 +1998,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { number | string | Resource } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1885,6 +2011,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { SearchType } value
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1894,6 +2021,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { SearchType } value - Default value is SearchType.Normal.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1910,6 +2038,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1928,6 +2057,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1944,6 +2074,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1962,6 +2093,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1978,6 +2110,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1990,6 +2123,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Callback<IMEClient> } callback - The triggered function before attach the InputMethod.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2004,6 +2138,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2021,6 +2156,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { boolean } enable - Indicates the preview text mode.Default value is true.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2045,6 +2181,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -2057,6 +2194,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2069,6 +2207,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<boolean> } halfLeading - Default value is false.The value true means that half leading is enabled, and false means the opposite.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2081,8 +2220,20 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
+   */
+  /**
+   * Set whether stop backPressed callback event or not.
+   *
+   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   stopBackPress(isStopped: Optional<boolean>): SearchAttribute;
 
@@ -2097,6 +2248,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * Returning true allows the change to proceed, while returning false cancels the change.
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2109,6 +2261,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
    */
@@ -2120,6 +2273,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<LengthMetrics> } width - indicates the stroke width.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2132,6 +2286,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<ResourceColor> } color - indicates the stroke color.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2144,11 +2299,122 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
    * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
   enableAutoSpacing(enabled: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Set the divider color.
+   * 
+   * @param { Optional<ColorMetrics> } color - Color of the divider.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  dividerColor(color: Optional<ColorMetrics>): SearchAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   *     True means enable the feature, false means disable the feature.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): SearchAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): SearchAttribute;
+
+  
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): SearchAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { SearchAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): SearchAttribute
+
+  /**
+   * Set the join style of the stroke.
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+   *     Passing `undefined` resets it to the default value
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): SearchAttribute;
+
+  /**
+   * Set the shader style of the text, such as lineargradient or radialgradient.
+   *
+   * @param { ShaderStyle | undefined } shader - The shader style of the text.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  shaderStyle(shader: ShaderStyle | undefined): SearchAttribute;
 }
 
 /**

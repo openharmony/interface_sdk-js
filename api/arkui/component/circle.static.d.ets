@@ -17,32 +17,36 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
+import { Length } from './units';
 
 /**
  * Defines circle options for Circle component.
  *
  * @interface CircleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface CircleOptions {
     /**
      * Defines the width property.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    width?: string | double;
+    width?: Length;
     /**
      * Defines the height property.
      *
-     * @type { ?(string | double) }
+     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    height?: string | double;
+    height?: Length;
 }
 
 /**
@@ -51,16 +55,28 @@ export declare interface CircleOptions {
  * @extends CommonShapeMethod
  * @interface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface CircleAttribute extends CommonShapeMethod {
+    /**
+     * Set Circle options.
+     *
+     * @param { CircleOptions } [options] - Circle constructor options
+     * @returns { CircleAttribute } Returns the instance of the CircleAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setCircleOptions(options?: CircleOptions): this;
     /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<CircleAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { CircleAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<CircleAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -68,16 +84,29 @@ export declare interface CircleAttribute extends CommonShapeMethod {
 /**
  * Circle is returned when the parameter is transferred.
  *
- * @param { CircleOptions } [options] - The options to create a Circle
- * @param { function } [content_]
+ * @param { CircleOptions } [options] - The options to create a Circle.
  * @returns { CircleAttribute } The attribute of the Circle.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Circle(
-    options?: CircleOptions, 
-    @memo
-    content_?: () => void,
-): CircleAttribute
+    options?: CircleOptions
+): CircleAttribute;
+
+/**
+ * Defines Circle Component.
+ *
+ * @param { CustomBuilderT<CircleAttribute> } style - Circle options.
+ * @returns { CircleAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Circle(
+    style: CustomBuilderT<CircleAttribute>
+): CircleAttribute;

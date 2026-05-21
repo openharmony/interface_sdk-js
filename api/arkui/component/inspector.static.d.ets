@@ -19,7 +19,6 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
 import { AttributeModifier, CommonMethod } from './common';
 import { Callback } from '../../@ohos.base';
 
@@ -29,7 +28,8 @@ import { Callback } from '../../@ohos.base';
  * @namespace Profiler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @test
  */
 export declare namespace Profiler {
@@ -39,7 +39,8 @@ export declare namespace Profiler {
      * @param { Callback<string> } callback - the callback info is json string with ui update info.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      * @test
      */
     function registerVsyncCallback(callback: Callback<string>): void;
@@ -48,7 +49,8 @@ export declare namespace Profiler {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      * @test
      */
     function unregisterVsyncCallback(): void;
@@ -59,7 +61,8 @@ export declare namespace Profiler {
  * @param { string } value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @test
  */
 export declare function setAppBgColor(value: string): void;

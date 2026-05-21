@@ -24,7 +24,7 @@
  * @namespace infraredEmitter
  * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace infraredEmitter {
   /**
@@ -41,7 +41,7 @@ declare namespace infraredEmitter {
    * @interface InfraredFrequency
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface InfraredFrequency {
     /**
@@ -58,7 +58,7 @@ declare namespace infraredEmitter {
      * @type { long }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     max: long;
 
@@ -76,7 +76,7 @@ declare namespace infraredEmitter {
      * @type { long }
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @since 15 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     min: long;
   }
@@ -123,7 +123,7 @@ declare namespace infraredEmitter {
    * <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function transmitInfrared(infraredFrequency: long, pattern: Array<long>): void;
 
@@ -146,7 +146,7 @@ declare namespace infraredEmitter {
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getInfraredFrequencies(): Array<InfraredFrequency>;
 }

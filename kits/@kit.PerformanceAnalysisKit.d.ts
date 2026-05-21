@@ -29,10 +29,11 @@ import hiTraceMeter from '@ohos.hiTraceMeter';
 import logLibrary from '@ohos.logLibrary';
 import FaultLogExtensionAbility from '@ohos.hiviewdfx.FaultLogExtensionAbility';
 import FaultLogExtensionContext from '@ohos.hiviewdfx.FaultLogExtensionContext';
+import hiRetrieval from '@ohos.hiviewdfx.hiRetrieval';
 
 export {
   hiAppEvent, hiSysEvent, hiTraceChain, hiTraceMeter, hichecker, hidebug, hilog,
-  logLibrary, FaultLogExtensionAbility, FaultLogExtensionContext
+  logLibrary, FaultLogExtensionAbility, FaultLogExtensionContext, hiRetrieval
 };
 /*** endif */
 

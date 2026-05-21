@@ -14,6 +14,15 @@
  */
 
 /**
+ * The **LiveFormExtensionAbility** module, inherited from 
+ * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}, provides interactive widget functions,
+ *  including creating and destroying interactive widgets.
+ * 
+ * > **NOTE**
+ * 
+ * > Exceptions may occur if some APIs are called. For details about the API list, see 
+ * > [Appendix](docroot://reference/apis-form-kit/js-apis-app-form-LiveFormExtensionAbility.md#appendix).
+ *
  * @file
  * @kit FormKit
  */
@@ -30,83 +39,89 @@ import formInfo from './@ohos.app.form.formInfo';
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
+ * @since 23 static
  */
 export interface LiveFormInfo {
   /**
-   * The form id.
+   * The form id of the live form.
    *
-   * @type { string }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   formId: string;
 
   /**
    * The live form display area.
    *
-   * @type { formInfo.Rect }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   rect: formInfo.Rect;
 
   /**
    * The form border radius.
+   * Unit: vp, The value must be greater than or equal to 0.
    *
-   * @type { number }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
-  borderRadius: number;
+  borderRadius: double;
 }
 
 /**
- * The class of live form extension ability.
+ * Interactive widget extension class. It provides APIs for the widget provider to receive notifications about widget 
+ * creation and destruction.
  *
- * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
+ * @since 23 static
  */
 declare class LiveFormExtensionAbility extends ExtensionAbility {
   /**
-   * Indicates configuration information about a live form extension ability context.
+   * Context of the **LiveFormExtensionAbility**. This context is inherited from 
+   * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
    *
-   * @type { LiveFormExtensionContext }
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   context: LiveFormExtensionContext;
 
   /**
-   * Called back when a live form extension is started for initialization.
+   * Called after the UI content of **LiveFormExtensionAbility** is created.
    *
-   * @param { LiveFormInfo } liveFormInfo - Indicates the live form info.
-   * @param { UIExtensionContentSession } session - Indicates the session of the UI extension page.
+   * @param { LiveFormInfo } liveFormInfo - Interactive widget information, including the widget ID.
+   * @param { UIExtensionContentSession } session - UI information.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession): void;
 
   /**
-   * Called back when a live form extension is destroyed.
+   * Called to clear resources when this **LiveFormExtensionAbility** is destroyed.
    *
-   * @param { LiveFormInfo } liveFormInfo - Indicates the live form info.
+   * @param { LiveFormInfo } liveFormInfo - Interactive widget information, including the widget ID.
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
+   * @since 23 static
    */
   onLiveFormDestroy(liveFormInfo: LiveFormInfo): void;
 }

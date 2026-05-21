@@ -27,14 +27,14 @@ import CustomData from './CustomData';
 /*** endif */
 
 /**
- * The context of auto fill extension. It allows access to AutoFillExtension-specific resources.
+ * The AutoFillExtensionContext module provides the context environment for the AutoFillExtensionAbility. It inherits 
+ * from [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare class AutoFillExtensionContext extends ExtensionContext {
   /**
@@ -51,7 +51,7 @@ declare class AutoFillExtensionContext extends ExtensionContext {
    * @systemapi
    * @stagemodelonly
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   reloadInModal(customData: CustomData): Promise<void>;
 }

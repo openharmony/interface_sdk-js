@@ -19,121 +19,63 @@
  */
 
 /**
- * Indicates the Metadata
+ * The module defines a metadata object. An application can obtain the metadata through
+ * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+ * , with **GET_BUNDLE_INFO_WITH_METADATA** passed in for
+ * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}. This object is contained in
+ * [ApplicationInfo]{@link ApplicationInfo}, [HapModuleInfo]{@link HapModuleInfo}, [AbilityInfo]{@link AbilityInfo}, and
+ * [ExtensionAbilityInfo]{@link ExtensionAbilityInfo:ExtensionAbilityInfo}.
  *
- * @typedef Metadata
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Indicates the Metadata
+ * The module provides the configuration about the module, UIAbility, and ExtensionAbility. The value is of the array
+ * type. The configuration is valid only for the current module, UIAbility, or ExtensionAbility.
  *
- * @typedef Metadata
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Indicates the Metadata
- *
- * @typedef Metadata
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface Metadata {
   /**
    * Indicates the metadata name
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the metadata name
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata name
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   name: string;
 
   /**
    * Indicates the metadata value
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the metadata value
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata value
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   value: string;
 
   /**
    * Indicates the metadata resource
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates the metadata resource
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the metadata resource
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   resource: string;
 
   /**
    * Indicates the value id of the metadata
    *
-   * @type { ?long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly valueId?: long;
 }

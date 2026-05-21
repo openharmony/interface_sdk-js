@@ -14,46 +14,36 @@
  */
 
 /**
+ * **ValuesBucket** is a dataset in the form of key-value (KV) pairs that can be inserted in the database.
+ *
  * @file
  * @kit ArkData
  */
 
 /**
- * Indicates possible value types
+ * Defines the value types allowed in a **ValuesBucket** instance.
  *
+ * @unionmember { number } The value is a number. [since 12 - 19]
+ * @unionmember { long } [since 20]
+ * @unionmember { double } [since 20]
+ * @unionmember { string } The value is a string. [since 12]
+ * @unionmember { boolean } The value is **true** or **false**. [since 12]
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 12]
+ * @atomicservice [since 20]
+ * @since 10 dynamic
+ * @since 23 static
  */
-/**
- * Indicates possible value types
- *
- * @typedef { number | string | boolean }
- * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @stagemodelonly
- * @crossplatform
- * @since 12
- */
-/**
- * Indicates possible value types
- *
- * @typedef { number | string | boolean }
- * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- * @since 22 static
- */
-export type ValueType = number | string | boolean;
+export type ValueType = long | double | string | boolean;
 
 /**
- * Values in buckets are stored in key-value pairs
+ * Defines the types of the key and value in a KV pair. This type is not multi-thread safe. If a **ValuesBucket**
+ * instance is operated by multiple threads at the same time in an application, use a lock for it.
  *
- * @typedef { Record<string, ValueType | Uint8Array | null> }
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @stagemodelonly
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export type ValuesBucket = Record<string, ValueType | Uint8Array | null>;

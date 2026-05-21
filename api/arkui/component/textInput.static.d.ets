@@ -18,40 +18,44 @@
  * @kit ArkUI
  */
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
-import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Optional, Bindable, AttributeModifier } from "./common";
-import { CustomBuilder } from './builder';
+import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
+import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
-import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length } from "./units";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance } from "./textCommon";
+import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, LengthMetrics } from "./units";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentContentBase } from '../ComponentContent';
 /**
  * Declare the type of input box
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum InputType {
     /**
      * Basic input mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Normal = 0,
     /**
      * Pure digital input mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NUMBER = 2,
     /**
      * Phone number entry mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PhoneNumber = 3,
     /**
@@ -63,7 +67,8 @@ export declare enum InputType {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Email = 5,
     /**
@@ -78,7 +83,8 @@ export declare enum InputType {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Password = 7,
     /**
@@ -92,7 +98,8 @@ export declare enum InputType {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NUMBER_PASSWORD = 8,
     /**
@@ -100,7 +107,8 @@ export declare enum InputType {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     SCREEN_LOCK_PASSWORD = 9,
     /**
@@ -111,7 +119,8 @@ export declare enum InputType {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     USER_NAME = 10,
     /**
@@ -125,7 +134,8 @@ export declare enum InputType {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NEW_PASSWORD = 11,
     /**
@@ -136,23 +146,34 @@ export declare enum InputType {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NUMBER_DECIMAL = 12,
     /**
      * URL entry mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    URL = 13
+    URL = 13,
+    /**
+     * One time code mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    ONE_TIME_CODE = 14
 }
 /**
  * Declare the type of input content
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum ContentType {
     /**
@@ -160,7 +181,8 @@ export declare enum ContentType {
      * Password Vault, when enabled, can automatically save and fill in usernames.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     USER_NAME = 0,
     /**
@@ -168,7 +190,8 @@ export declare enum ContentType {
      * Password Vault, when enabled, can automatically save and fill in passwords.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PASSWORD = 1,
     /**
@@ -176,7 +199,8 @@ export declare enum ContentType {
      * Password Vault, when enabled, can automatically generate a new password.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NEW_PASSWORD = 2,
     /**
@@ -185,7 +209,8 @@ export declare enum ContentType {
      * can automatically save and fill in full street addresses.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     FULL_STREET_ADDRESS = 3,
     /**
@@ -194,7 +219,8 @@ export declare enum ContentType {
      * can automatically save and fill in house numbers.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     HOUSE_NUMBER = 4,
     /**
@@ -203,7 +229,8 @@ export declare enum ContentType {
      * can automatically save and fill in districts and counties.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     DISTRICT_ADDRESS = 5,
     /**
@@ -212,7 +239,8 @@ export declare enum ContentType {
      * can automatically save and fill in cities.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     CITY_ADDRESS = 6,
     /**
@@ -221,7 +249,8 @@ export declare enum ContentType {
      * can automatically save and fill in provinces.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PROVINCE_ADDRESS = 7,
     /**
@@ -230,7 +259,8 @@ export declare enum ContentType {
      * can automatically save and fill in countries.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     COUNTRY_ADDRESS = 8,
     /**
@@ -239,7 +269,8 @@ export declare enum ContentType {
      * can automatically save and fill in full names.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PERSON_FULL_NAME = 9,
     /**
@@ -248,7 +279,8 @@ export declare enum ContentType {
      * can automatically save and fill in last names.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PERSON_LAST_NAME = 10,
     /**
@@ -257,7 +289,8 @@ export declare enum ContentType {
      * can automatically save and fill in first names.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PERSON_FIRST_NAME = 11,
     /**
@@ -266,7 +299,8 @@ export declare enum ContentType {
      * can automatically save and fill in phone numbers.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PHONE_NUMBER = 12,
     /**
@@ -275,7 +309,8 @@ export declare enum ContentType {
      * can automatically save and fill in country codes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PHONE_COUNTRY_CODE = 13,
     /**
@@ -284,7 +319,8 @@ export declare enum ContentType {
      * can automatically save and fill in phone numbers with country codes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     FULL_PHONE_NUMBER = 14,
     /**
@@ -293,7 +329,8 @@ export declare enum ContentType {
      * can automatically save and fill in email addresses.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     EMAIL_ADDRESS = 15,
     /**
@@ -302,7 +339,8 @@ export declare enum ContentType {
      * can automatically save and fill in bank card numbers.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     BANK_CARD_NUMBER = 16,
     /**
@@ -311,7 +349,8 @@ export declare enum ContentType {
      * can automatically save and fill in ID card numbers.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     ID_CARD_NUMBER = 17,
     /**
@@ -320,7 +359,8 @@ export declare enum ContentType {
      * can automatically save and fill in nicknames.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NICKNAME = 23,
     /**
@@ -329,7 +369,8 @@ export declare enum ContentType {
      * can automatically save and fill in address information without street addresses.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     DETAIL_INFO_WITHOUT_STREET = 24,
     /**
@@ -338,7 +379,8 @@ export declare enum ContentType {
      * can automatically save and fill in standard addresses.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     FORMAT_ADDRESS = 25,
     /**
@@ -347,7 +389,8 @@ export declare enum ContentType {
      * can automatically save and fill in passport numbers.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PASSPORT_NUMBER = 26,
     /**
@@ -356,7 +399,8 @@ export declare enum ContentType {
      * can automatically save and fill in passport validity periods.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     VALIDITY = 27,
     /**
@@ -365,7 +409,8 @@ export declare enum ContentType {
      * can automatically save and fill in the place of issue for passports.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     ISSUE_AT = 28,
     /**
@@ -374,7 +419,8 @@ export declare enum ContentType {
      * can automatically save and fill in invoice titles.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     ORGANIZATION = 29,
     /**
@@ -383,7 +429,8 @@ export declare enum ContentType {
      * can automatically save and fill in tax IDs.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     TAX_ID = 30,
     /**
@@ -392,7 +439,8 @@ export declare enum ContentType {
      * can automatically save and fill in locations.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     ADDRESS_CITY_AND_STATE = 31,
     /**
@@ -400,7 +448,8 @@ export declare enum ContentType {
      * Currently not supported for automatic saving and auto-filling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     FLIGHT_NUMBER = 32,
     /**
@@ -408,7 +457,8 @@ export declare enum ContentType {
      * Currently not supported for automatic saving and auto-filling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     LICENSE_NUMBER = 33,
     /**
@@ -416,7 +466,8 @@ export declare enum ContentType {
      * Currently not supported for automatic saving and auto-filling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     LICENSE_FILE_NUMBER = 34,
     /**
@@ -425,7 +476,8 @@ export declare enum ContentType {
      * can automatically save and fill in license plate numbers.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     LICENSE_PLATE = 35,
     /**
@@ -433,7 +485,8 @@ export declare enum ContentType {
      * Currently not supported for automatic saving and auto-filling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     ENGINE_NUMBER = 36,
     /**
@@ -441,7 +494,8 @@ export declare enum ContentType {
      * Currently not supported for automatic saving and auto-filling.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     LICENSE_CHASSIS_NUMBER = 37
 }
@@ -450,56 +504,64 @@ export declare enum ContentType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum EnterKeyType {
     /**
      * Go.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Go = 2,
     /**
      * Search.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Search = 3,
     /**
      * Send.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Send = 4,
     /**
      * Next.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Next = 5,
     /**
      * Done.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Done = 6,
     /**
      * Showed as 'previous' pattern.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PREVIOUS = 7,
     /**
      * Showed as 'new line' pattern.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NEW_LINE = 8
 }
@@ -508,7 +570,8 @@ export declare enum EnterKeyType {
   *
   * @interface UnderlineColor
   * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @since 22 static
+  * @stagemodelonly
+  * @since 23 static
   */
 export declare interface UnderlineColor {
     /**
@@ -521,7 +584,8 @@ export declare interface UnderlineColor {
       *
       * @type { ?(ResourceColor | undefined) }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @stagemodelonly
+      * @since 23 static
       */
     typing?: ResourceColor | undefined;
     /**
@@ -534,7 +598,8 @@ export declare interface UnderlineColor {
       *
       * @type { ?(ResourceColor | undefined) }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @stagemodelonly
+      * @since 23 static
       */
     normal?: ResourceColor | undefined;
     /**
@@ -549,7 +614,8 @@ export declare interface UnderlineColor {
       *
       * @type { ?(ResourceColor | undefined) }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @stagemodelonly
+      * @since 23 static
       */
     error?: ResourceColor | undefined;
     /**
@@ -562,7 +628,8 @@ export declare interface UnderlineColor {
       *
       * @type { ?(ResourceColor | undefined) }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @stagemodelonly
+      * @since 23 static
       */
     disable?: ResourceColor | undefined;
 }
@@ -571,14 +638,16 @@ export declare interface UnderlineColor {
  *
  * @interface SubmitEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface SubmitEvent {
     /**
      * Keeps TextInput editable state when submitted
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     keepEditableState(): void;
     /**
@@ -586,7 +655,8 @@ export declare interface SubmitEvent {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     text: string;
 }
@@ -595,7 +665,8 @@ export declare interface SubmitEvent {
  *
  * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class TextInputController extends TextContentControllerBase {
     /**
@@ -603,7 +674,8 @@ export declare class TextInputController extends TextContentControllerBase {
      * A constructor used to create a TextInputController object.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     constructor();
     /**
@@ -616,7 +688,8 @@ export declare class TextInputController extends TextContentControllerBase {
      *
      * @param { int } value
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     caretPosition(value: int): void;
     /**
@@ -634,14 +707,16 @@ export declare class TextInputController extends TextContentControllerBase {
      * @param { int } selectionEnd - The end position of the selected text.
      * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     setTextSelection(selectionStart: int, selectionEnd: int, options?: SelectionOptions): void;
     /**
      * Exit edit state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     stopEditing(): void;
 }
@@ -650,7 +725,8 @@ export declare class TextInputController extends TextContentControllerBase {
  *
  * @interface TextInputOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface TextInputOptions {
     /**
@@ -658,7 +734,8 @@ export declare interface TextInputOptions {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     placeholder?: ResourceStr;
     /**
@@ -666,7 +743,8 @@ export declare interface TextInputOptions {
      *
      * @type { ?(ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     text?: ResourceStr | Bindable<ResourceStr> | Bindable<Resource> | Bindable<string>;
     /**
@@ -674,7 +752,8 @@ export declare interface TextInputOptions {
      *
      * @type { ?TextInputController }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     controller?: TextInputController;
 }
@@ -683,7 +762,8 @@ export declare interface TextInputOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum TextInputStyle {
     /**
@@ -695,7 +775,8 @@ export declare enum TextInputStyle {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Default,
     /**
@@ -710,7 +791,8 @@ export declare enum TextInputStyle {
      * </p>
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Inline
 }
@@ -719,7 +801,8 @@ export declare enum TextInputStyle {
  *
  * @interface PasswordIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface PasswordIcon {
     /**
@@ -732,7 +815,8 @@ export interface PasswordIcon {
      *
      * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onIconSrc?: string | Resource;
     /**
@@ -745,7 +829,8 @@ export interface PasswordIcon {
      *
      * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     offIconSrc?: string | Resource;
 }
@@ -757,7 +842,8 @@ export interface PasswordIcon {
  * @param { EnterKeyType } enterKey - Input method Enter key type.
  * @param { SubmitEvent } event - The event submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 /**
@@ -768,7 +854,8 @@ export type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => v
  * @param { int } selectionStart - The starting position of the selected text, the starting position of the text is 0.
  * @param { int } selectionEnd - The end location of the selected text.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export type OnTextSelectionChangeCallback = (selectionStart: int, selectionEnd: int) => void;
 /**
@@ -779,7 +866,8 @@ export type OnTextSelectionChangeCallback = (selectionStart: int, selectionEnd: 
  * @param { double } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
  * @param { double } totalOffsetY - The text is offset in px on the vertical axis of the content area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export type OnContentScrollCallback = (totalOffsetX: double, totalOffsetY: double) => void;
 /**
@@ -790,7 +878,8 @@ export type OnContentScrollCallback = (totalOffsetX: double, totalOffsetY: doubl
  * @param { string } content - The text content of the paste.
  * @param { PasteEvent } event - User-defined paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export type OnPasteCallback = (content: string, event: PasteEvent) => void;
 /**
@@ -798,7 +887,8 @@ export type OnPasteCallback = (content: string, event: PasteEvent) => void;
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface TextInputAttribute extends CommonMethod {
     /**
@@ -807,7 +897,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { InputType | undefined } value - Default value is InputType.Normal.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default type(value: InputType | undefined): this;
     /**
@@ -816,7 +907,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ContentType | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default contentType(value: ContentType | undefined): this;
     /**
@@ -825,7 +917,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - Default value follows the theme.The default value on wearable devices is '#99ffffff'.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default placeholderColor(value: ResourceColor | undefined): this;
     /**
@@ -847,7 +940,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { TextOverflow | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default textOverflow(value: TextOverflow | undefined): this;
     /**
@@ -856,7 +950,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Dimension | undefined } value - The length of text indent.Default value is 0.
      * @returns { TextInputAttribute } The attribute of the text.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default textIndent(value: Dimension | undefined): this;
     /**
@@ -870,7 +965,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Font | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default placeholderFont(value?: Font | undefined): this;
     /**
@@ -879,7 +975,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { EnterKeyType | undefined } value - Default value is EnterKeyType.Done.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enterKeyType(value: EnterKeyType | undefined): this;
     /**
@@ -892,7 +989,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - Default value is '#007DFF'.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default caretColor(value: ResourceColor | undefined): this;
     /**
@@ -909,7 +1007,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<boolean> | undefined } callback
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onEditChange(callback: Callback<boolean> | undefined): this;
     /**
@@ -919,7 +1018,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { OnSubmitCallback | undefined } callback - Callback of the listened event.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onSubmit(callback: OnSubmitCallback | undefined): this;
     /**
@@ -933,7 +1033,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { EditableTextOnChangeCallback | undefined } callback
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onChange(callback: EditableTextOnChangeCallback | undefined): this;
     /**
@@ -943,7 +1044,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { OnTextSelectionChangeCallback | undefined } callback - Callback of the listened event.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onTextSelectionChange(callback: OnTextSelectionChangeCallback | undefined): this;
     /**
@@ -953,7 +1055,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { OnContentScrollCallback | undefined } callback - Callback of the listened event.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onContentScroll(callback: OnContentScrollCallback | undefined): this;
     /**
@@ -967,7 +1070,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { int | undefined } value - Default value is Infinity, indicating that there is no upper limit on the number of characters that can be entered.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default maxLength(value: int | undefined): this;
     /**
@@ -976,7 +1080,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value - The default value on wearable devices is '#dbffffff'.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default fontColor(value: ResourceColor | undefined): this;
     /**
@@ -992,7 +1097,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Length | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default fontSize(value: Length | undefined): this;
     /**
@@ -1001,18 +1107,21 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { FontStyle | undefined } value - Default value is FontStyle.Normal.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default fontStyle(value: FontStyle | undefined): this;
     /**
-    * Called when the font weight is set.
-    *
-    * @param { int | FontWeight | string | undefined } value
-    * @returns { TextInputAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @since 22 static
-    */
-    default fontWeight(value: int | FontWeight | string | undefined): this;
+     * Called when the font weight is set.
+     *
+     * @param { int | FontWeight | ResourceStr | undefined } value - The default value is FontWeight.Normal.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default fontWeight(value: int | FontWeight | ResourceStr | undefined): this;
     /**
      * Called when the font list of text is set.
      *
@@ -1025,7 +1134,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default fontFamily(value: ResourceStr | undefined): this;
     /**
@@ -1045,7 +1155,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<string> | undefined } [error]
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default inputFilter(value: ResourceStr | undefined, error?: Callback<string> | undefined): this;
     /**
@@ -1055,9 +1166,20 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<string> | undefined } callback - Callback used to return the copied text content.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onCopy(callback: Callback<string> | undefined): this;
+    /**
+     * Called before using the Clipboard copy menu.
+     *
+     * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether copy is allowed.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onWillCopy(callback: Callback<string, boolean> | undefined): this;
     /**
      * Called when using the Clipboard menu.
      *
@@ -1065,9 +1187,20 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<string> | undefined } callback
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onCut(callback: Callback<string> | undefined): this;
+    /**
+     * Called before using the Clipboard cut menu.
+     *
+     * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether cut is allowed.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onWillCut(callback: Callback<string, boolean> | undefined): this;
     /**
      * Called when using the Clipboard menu.
      *
@@ -1075,7 +1208,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { OnPasteCallback | undefined } callback - Executed when a paste operation is performed.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onPaste(callback: OnPasteCallback | undefined): this;
     /**
@@ -1090,7 +1224,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { CopyOptions | undefined } value - Default value is CopyOptions.LocalDevice.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default copyOption(value: CopyOptions | undefined): this;
     /**
@@ -1108,7 +1243,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Default value is false.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default showPasswordIcon(value: boolean | undefined): this;
     /**
@@ -1126,7 +1262,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { TextAlign | undefined } value - Default value is TextAlign.Start.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default textAlign(value: TextAlign | undefined): this;
     /**
@@ -1139,7 +1276,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { TextInputStyle | TextContentStyle | undefined } value - Text input style.Default value is TextInputStyle.Default.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default style(value: TextInputStyle | TextContentStyle | undefined): this;
     /**
@@ -1148,7 +1286,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { CaretStyle | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default caretStyle(value: CaretStyle | undefined): this;
     /**
@@ -1161,7 +1300,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectedBackgroundColor(value: ResourceColor | undefined): this;
     /**
@@ -1170,7 +1310,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { int | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default caretPosition(value: int | undefined): this;
     /**
@@ -1184,7 +1325,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Default value is true.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableKeyboardOnFocus(value: boolean | undefined): this;
     /**
@@ -1199,7 +1341,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { PasswordIcon | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default passwordIcon(value: PasswordIcon | undefined): this;
     /**
@@ -1216,7 +1359,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } [value]
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default showError(value?: ResourceStr | undefined): this;
     /**
@@ -1229,7 +1373,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { CustomBuilder | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default showUnit(value: CustomBuilder | undefined): this;
     /**
@@ -1243,7 +1388,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Default value is false.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default showUnderline(value: boolean | undefined): this;
     /**
@@ -1259,7 +1405,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { ResourceColor | UnderlineColor | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default underlineColor(value: ResourceColor | UnderlineColor | undefined): this;
     /**
@@ -1279,7 +1426,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Default value is false.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectionMenuHidden(value: boolean | undefined): this;
     /**
@@ -1288,7 +1436,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { BarState | undefined } value - Default value is BarState.Auto.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default barState(value: BarState | undefined): this;
     /**
@@ -1298,7 +1447,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { int | undefined } value - Default value is 3.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default maxLines(value: int | undefined): this;
     /**
@@ -1314,7 +1464,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { WordBreak | undefined } value - The word break type.Default value is WordBreak.BREAK_WORD.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default wordBreak(value: WordBreak | undefined): this;
     /**
@@ -1329,7 +1480,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { LineBreakStrategy | undefined } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
      * @returns { TextInputAttribute } The attribute of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default lineBreakStrategy(strategy: LineBreakStrategy | undefined): this;
     /**
@@ -1346,16 +1498,18 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>By default, the custom keyboard is closed when the input component loses the focus.
      * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-     * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * <br>When setting a custom keyboard,
+     * you can bind the onKeyPreIme event to prevent input from the physical keyboard.
      * </p>
      *
-     * @param { CustomBuilder | undefined } value - Set up a custom keyboard of TextInput
-     * @param { KeyboardOptions | undefined } [options] - Indicates the custom keyboard options of TextInput
+     * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextInput
+     * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    default customKeyboard(value: CustomBuilder | undefined, options?: KeyboardOptions | undefined): this;
+    default customKeyboard(value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
     /**
      * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
      *
@@ -1378,7 +1532,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { InputCounterOptions | undefined } options - Set the percentage of counter.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default showCounter(value: boolean | undefined, options?: InputCounterOptions | undefined): this;
     /**
@@ -1387,7 +1542,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { CancelButtonOptions | undefined } iconOptions - indicates the image style of the cancel button.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default cancelButton(iconOptions: CancelButtonOptions | undefined): this;
     /**
@@ -1396,7 +1552,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { CancelButtonSymbolOptions | undefined } symbolOptions - indicates the symbol style of the cancel button.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default cancelButton(symbolOptions: CancelButtonSymbolOptions | undefined): this;
     /**
@@ -1409,7 +1566,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Sets selection or not.Default value is false.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectAll(value: boolean | undefined): this;
     /**
@@ -1426,7 +1584,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value -  The unit is fp.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default minFontSize(value: double | string | Resource | undefined): this;
     /**
@@ -1443,7 +1602,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value -  The unit is fp.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default maxFontSize(value: double | string | Resource | undefined): this;
     /**
@@ -1452,7 +1612,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { double | Resource | undefined } scale
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default minFontScale(scale: double | Resource | undefined): this;
     /**
@@ -1461,7 +1622,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { double | Resource | undefined } scale
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default maxFontScale(scale: double | Resource | undefined): this;
     /**
@@ -1488,7 +1650,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { TextHeightAdaptivePolicy | undefined } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default heightAdaptivePolicy(value: TextHeightAdaptivePolicy | undefined): this;
     /**
@@ -1497,7 +1660,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } value - Indicates the flag whether autofill is enabled.Default value is rue.True: enable, false: disable.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableAutoFill(value: boolean | undefined): this;
     /**
@@ -1510,7 +1674,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { TextDecorationOptions | undefined } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default decoration(value: TextDecorationOptions | undefined): this;
     /**
@@ -1528,7 +1693,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value -  The unit is fp.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default letterSpacing(value: double | string | Resource | undefined): this;
     /**
@@ -1543,7 +1709,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { double | string | Resource | undefined } value
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default lineHeight(value: double | string | Resource | undefined): this;
     /**
@@ -1556,7 +1723,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { string | undefined } value - Indicates the password rules.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default passwordRules(value: string | undefined): this;
     /**
@@ -1574,7 +1742,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default fontFeature(value: string | undefined): this;
     /**
@@ -1592,7 +1761,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } visible - Indicates the password visible mode. Default value is false.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default showPassword(visible: boolean | undefined): this;
     /**
@@ -1601,7 +1771,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<boolean> | undefined } callback - callback of the password visible mode change event.
      * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onSecurityStateChange(callback: Callback<boolean> | undefined): this;
     /**
@@ -1616,7 +1787,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<InsertValue, boolean> | undefined } callback - The triggered function when text content is about to insert.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onWillInsert(callback: Callback<InsertValue, boolean> | undefined): this;
     /**
@@ -1629,7 +1801,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<InsertValue> | undefined } callback - The triggered function when text content has been inserted.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onDidInsert(callback: Callback<InsertValue> | undefined): this;
     /**
@@ -1644,7 +1817,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<DeleteValue, boolean> | undefined } callback - The triggered function when text content is about to delete.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onWillDelete(callback: Callback<DeleteValue, boolean> | undefined): this;
     /**
@@ -1657,7 +1831,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<DeleteValue> | undefined } callback - The triggered function when text content has been deleted.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onDidDelete(callback: Callback<DeleteValue> | undefined): this;
     /**
@@ -1668,7 +1843,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { EditMenuOptions | undefined } editMenu - Customize text menu options.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default editMenuOptions(editMenu: EditMenuOptions | undefined): this;
     /**
@@ -1682,7 +1858,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } enable - Indicates the preview text mode.Default value is true.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enablePreviewText(enable: boolean | undefined): this;
     /**
@@ -1691,7 +1868,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } isEnabled - Default value is true, set false to disable haptic feedback.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableHapticFeedback(isEnabled: boolean | undefined): this;
     /**
@@ -1700,7 +1878,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { AutoCapitalizationMode | undefined } mode - Automatic case mode switching.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default autoCapitalizationMode(mode: AutoCapitalizationMode | undefined): this;
     /**
@@ -1709,7 +1888,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } halfLeading
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default halfLeading(halfLeading: boolean | undefined): this;
     /**
@@ -1718,7 +1898,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { EllipsisMode | undefined } mode - The ellipsis mode.
      * @returns { TextInputAttribute } The attribute of TextInput.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default ellipsisMode(mode: EllipsisMode | undefined): this;
     /**
@@ -1727,7 +1908,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { boolean | undefined } isStopped - Default value is true, set false to trigger the latest callback event.
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default stopBackPress(isStopped: boolean | undefined): this;
     /**
@@ -1736,7 +1918,8 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { Callback<EditableTextChangeValue, boolean> | undefined } callback - The triggered function when text content is about to change.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onWillChange(callback: Callback<EditableTextChangeValue, boolean> | undefined): this;
     /**
@@ -1745,33 +1928,234 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @param { KeyboardAppearance | undefined } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
      * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default keyboardAppearance(appearance: KeyboardAppearance | undefined): this;
+    /**
+     * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+     *
+     * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default includeFontPadding(include: boolean | undefined): this;
+    /**
+     * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+     *
+     * @param { boolean | undefined } enabled - Whether enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default fallbackLineSpacing(enabled: boolean | undefined): this;
+    /**
+     * Sets whether enable auto fill animation effect or not.
+     *
+     * @param { boolean | undefined } enabled - Indicates the flag whether auto fill animation effect is enabled.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default enableAutoFillAnimation(enabled: boolean | undefined): this;
+
+    /**
+     * Called before the text input component attach the InputMethod.
+     *
+     * @param { Callback<IMEClient> | undefined } callback - The triggered function before attach the InputMethod.
+     *     If `undefined` is passed, the existing registered event will be removed.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default onWillAttachIME(callback: Callback<IMEClient> | undefined): this;
+
+    /**
+     * Set the stroke color.
+     *
+     * @param { ResourceColor | undefined } color - indicates the stroke color.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default strokeColor(color: ResourceColor | undefined): this;
+
+    /**
+     * Whether to enable automatic spacing between Chinese and Latin characters.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable automatic spacing.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default enableAutoSpacing(enabled: boolean | undefined): this;
+
+    /**
+     * Set the stroke width.
+     *
+     * @param { LengthMetrics | undefined } width - indicates the stroke width.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default strokeWidth(width: LengthMetrics | undefined): this;
+
+    /**
+     * Enable selected data detector.
+     *
+     * @param { boolean | undefined } enable - whether to enable the selected data detector.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    default enableSelectedDataDetector(enable: boolean | undefined): this;
+
     /**
      * Sets the attribute modifier.
      *
      * @param { AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { TextInputAttribute } the attribute of the TextInputAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    attributeModifier(modifier: AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    default attributeModifier(modifier: AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set TextInput options.
+     *
+     * @param { TextInputOptions } [value] - TextInput constructor options
+     * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextInputOptions(value?: TextInputOptions): this;
+
+    /**
+     * Whether to compress punctuation at the beginning of line.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default compressLeadingPunctuation(enabled: boolean | undefined): this;
+    /**
+     * Used to set the selected drag preview style.
+     *
+     * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+     *     If set undefined will reset the style.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): this;
+
+    /**
+     * Set the text direction.
+     *
+     * @param { TextDirection | undefined } direction - Indicates the text direction.
+     *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default textDirection(direction: TextDirection | undefined): this;
+
+    /**
+     * Set voice button options.
+     *
+     * @param { VoiceButtonOptions | undefined } options - Indicates the options of the voice button.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 23 static
+     */
+    default voiceButton(options: VoiceButtonOptions | undefined): this;
+
+    /**
+     * Whether to avoid an orphan word on the last line of the paragraph.
+     *
+     * @param { boolean | undefined } enabled - The default value is false,
+     *     indicates the flag whether to enable this feature.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @since 26.0.0 static
+     */
+    default orphanCharOptimization(enabled: boolean | undefined): this;
+ 
+    /**
+     * Set the join style of the stroke.
+     *
+     * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
+ 
+    /**
+     * Set the shader style of the text, such as lineargradient or radialgradient.
+     *
+     * @param { ShaderStyle | undefined } shader - The shader style of the text.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default shaderStyle(shader: ShaderStyle | undefined): this;
 }
 
 /**
  * Defines TextInput Component.
  *
  * @param { TextInputOptions } [value]
- * @param { function } [content_]
  * @returns { TextInputAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function TextInput(
-    value?: TextInputOptions, 
-    @memo
-    content_?: () => void,
+    value?: TextInputOptions
 ): TextInputAttribute
+
+/**
+ * Defines TextInput Component.
+ *
+ * @param { CustomBuilderT<TextInputAttribute> } style - TextInput attribute instance
+ * @returns { TextInputAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TextInput(
+    style: CustomBuilderT<TextInputAttribute>,
+): TextInputAttribute;

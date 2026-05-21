@@ -20,14 +20,15 @@
 import { Resource } from './../../../api/global/resource';
 import { CommonMethod, AttributeModifier } from "./common";
 import { Color } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * Defines the hyperlink attribute functions
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare interface HyperlinkAttribute extends CommonMethod {
@@ -37,7 +38,8 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { Color | int | string | Resource } value
      * @returns { HyperlinkAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default color(value: Color | int | string | Resource | undefined): this;
     /**
@@ -46,9 +48,22 @@ export declare interface HyperlinkAttribute extends CommonMethod {
      * @param { AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined } modifier.
      * @returns { HyperlinkAttribute } the attribute of the HyperlinkAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<HyperlinkAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set Hyperlink options.
+     *
+     * @param { string | Resource | undefined } address - The link address of component.
+     * @param { string | Resource } [content] - The title of the component.
+     * @returns { HyperlinkAttribute } Returns the instance of the HyperlinkAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setHyperlinkOptions(address: string | Resource | undefined, content?: string | Resource): this;
 }
 
 /**
@@ -58,16 +73,32 @@ export declare interface HyperlinkAttribute extends CommonMethod {
  *     The default value is an empty string.
  *     Passing `undefined` resets it to the default value.
  * @param { string | Resource } [content] - The title of the component.
- * @param { function } [content_] - The node of component.
+ * @param { CustomBuilder } [content_] - The node of component.
  * @returns { HyperlinkAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Hyperlink(
     address: string | Resource | undefined, content?: string | Resource, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): HyperlinkAttribute
+
+/**
+ * Defines Hyperlink Component.
+ *
+ * @param { CustomBuilderT<HyperlinkAttribute> } style - Hyperlink attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { HyperlinkAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Hyperlink(
+    style: CustomBuilderT<HyperlinkAttribute>,
+    content_?: CustomBuilder,
+): HyperlinkAttribute;

@@ -26,6 +26,7 @@ import { RectAttribute } from '@ohos.arkui.component';
  *
  * @implements RectAttribute, AttributeModifier<RectAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class RectModifier implements RectAttribute, AttributeModifier<RectAttribute> {}

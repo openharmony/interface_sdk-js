@@ -26,6 +26,7 @@
  * Declare FilterType
  * @enum { FilterType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 
@@ -34,13 +35,15 @@
  * Declare FilterType
  * @enum { FilterType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declare FilterType
  * @enum { FilterType }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -49,17 +52,20 @@ export declare enum FilterType {
     /**
      * The multi_line_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * The multi_line_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * The multi_line_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -69,17 +75,20 @@ export declare enum FilterType {
     /**
      * The list_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * The list_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * The list_filter type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -90,39 +99,45 @@ export declare enum FilterType {
 /**
  * This parameter is used to define the input of each filtering dimension.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * This parameter is used to define the input of each filtering dimension.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * This parameter is used to define the input of each filtering dimension.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 22 dynamiconly
+ * @since 22 dynamic
  */
 export declare class FilterParams {
     /**
      * filter item name.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * filter item name.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * filter item name.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -132,19 +147,22 @@ export declare class FilterParams {
      * filter options.
      * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * filter options.
      * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * filter options.
      * @type { Array<ResourceStr> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -156,41 +174,47 @@ export declare class FilterParams {
  * This parameter specifies the selection result of a filtering dimension.
  * The index starts from 0.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * This parameter specifies the selection result of a filtering dimension.
  * The index starts from 0.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * This parameter specifies the selection result of a filtering dimension.
  * The index starts from 0.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 22 dynamiconly
+ * @since 22 dynamic
  */
 export declare class FilterResult {
     /**
      * result name.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * result name.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * result name.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -200,19 +224,22 @@ export declare class FilterResult {
      * result index.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * result index.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * result index.
      * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -222,19 +249,22 @@ export declare class FilterResult {
      * result value.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * result value.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * result value.
      * @type { ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -245,17 +275,20 @@ export declare class FilterResult {
 /**
  * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
  * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
- * @since 11
+ * @since 11 dynamic
  */
 /**
  * Declare Filter.The Filter is used in scenarios where multi-dimensional filtering is required.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -266,19 +299,22 @@ export declare struct Filter {
      * Container in the user-defined filtering result display area.
      * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Container in the user-defined filtering result display area.
      * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Container in the user-defined filtering result display area.
      * @type { () => void }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -289,19 +325,22 @@ export declare struct Filter {
      * Multi-dimensional filtering parameters.
      * @type { Array<FilterParams> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * Multi-dimensional filtering parameters.
      * @type { Array<FilterParams> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * Multi-dimensional filtering parameters.
      * @type { Array<FilterParams> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -312,19 +351,22 @@ export declare struct Filter {
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
      * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
      * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * FilterParams, Additional filter item parameter. The filter item name is displayed and can be deselected.
      * @type { ?FilterParams }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -335,19 +377,22 @@ export declare struct Filter {
      * FilterParams, Callback method after a user clicks a filter item.
      * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * FilterParams, Callback method after a user clicks a filter item.
      * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * FilterParams, Callback method after a user clicks a filter item.
      * @param { (filterResults: Array<FilterResult>) => void } FilterType, Filter display style type.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic
@@ -358,19 +403,22 @@ export declare struct Filter {
      * FilterType, Filter display style type.
      * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 10
      */
     /**
      * FilterType, Filter display style type.
      * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @atomicservice
-     * @since 11
+     * @since 11 dynamic
      */
     /**
      * FilterType, Filter display style type.
      * @type { ?FilterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 22 dynamic

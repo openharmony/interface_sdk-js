@@ -24,6 +24,7 @@
  * Anonymous Object Rectification.
  * @interface TextOverflowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -192,6 +193,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Font } value - the text font size and weight and family and style.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -201,6 +203,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Font } value - the text font size and weight and family and style.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -218,6 +221,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { FontSettingOptions } options - font setting options.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -426,6 +430,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | Resource } scale
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -442,6 +447,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | Resource } scale
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -460,6 +466,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | Resource  } scale
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -475,6 +482,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | Resource  } scale
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -597,6 +605,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { FontSettingOptions } options - font setting options.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -609,6 +618,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { FontSettingOptions } options - font setting options.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -626,6 +636,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { LengthMetrics } value - Default value is 0.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -642,6 +653,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { LengthMetrics | undefined } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -659,6 +671,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { LengthMetrics | undefined } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -676,6 +689,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | undefined } value
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -690,6 +704,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { LineSpacingOptions } options
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -754,6 +769,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<TextVerticalAlign> } textVerticalAlign - The default value is BASELINE.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -767,6 +783,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<TextContentAlign> } textContentAlign - The default value is CENTER.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -984,6 +1001,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<number> } minLines - Set the minimum lines of text.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1280,6 +1298,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { ShadowOptions } value - The shadow options.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 10
@@ -1294,6 +1313,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1307,6 +1327,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1336,6 +1357,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1348,6 +1370,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Length } value - The length of text indent.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1357,6 +1380,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Length } value - The length of text indent.Default value is 0.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1374,6 +1398,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { WordBreak } value - The word break type.Default value is WordBreak.BREAK_WORD.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1391,6 +1416,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { LineBreakStrategy } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1404,11 +1430,26 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   onCopy(callback: (value: string) => void): TextAttribute;
+
+  /**
+   * Called before using the Clipboard copy menu.
+   * Currently, only text can be copied.
+   *
+   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onWillCopy(callback: Callback<string, boolean>): TextAttribute;
 
   /**
    * Text selection is achieved by specifying the start and end positions of the text.
@@ -1429,6 +1470,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number } selectionEnd - The end position of the selected text.Default value is -1.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1441,6 +1483,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { ResourceColor } color - The color of the selected text caret.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1453,6 +1496,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { ResourceColor } color - The color of the selected text background.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1465,6 +1509,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { ShaderStyle } shader - The shader style of the text.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1477,6 +1522,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { EllipsisMode } value - The ellipsis mode.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1492,6 +1538,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { EllipsisMode } value - The ellipsis mode.Default value is EllipsisMode.END.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1504,6 +1551,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { boolean } enable - Enable data detector.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -1534,6 +1582,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { boolean } enable - Enable data detector.Default value is false.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1545,6 +1594,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextDataDetectorConfig } config - The config of text data detector.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 11
    */
   /**
@@ -1565,6 +1615,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextDataDetectorConfig } config - The config of text data detector.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1576,6 +1627,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { boolean | undefined } enable - Whether to enable the selected data detector.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
@@ -1590,6 +1642,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { SelectionMenuOptions } [options] - Indicates the options of selection menu.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1609,6 +1662,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { SelectionMenuOptions } [options] - Indicates the options of selection menu.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1622,6 +1676,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1631,6 +1686,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { function } callback - callback of the listened event.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1647,6 +1703,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1660,6 +1717,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<TextMarqueeOptions> } options
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1672,6 +1730,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Callback<MarqueeState> } callback - callback of the marquee state change event.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1690,6 +1749,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { boolean } supported - Whether to support sensitive privacy information.Default value is false.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @form
    * @atomicservice
    * @since 12 dynamic
@@ -1702,6 +1762,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { TextSelectableMode } mode - Default value is TextSelectableMode.SELECTABLE_UNFOCUSABLE.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1716,6 +1777,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { EditMenuOptions } editMenu - Customize text menu options.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1733,6 +1795,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { boolean } halfLeading - Default value is false.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1745,6 +1808,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -1757,6 +1821,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<boolean> } optimize - Default value is false, set true to optimize the trailing spaces at the end of each line.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1769,6 +1834,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1781,10 +1847,131 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<ContentTransition> } transition - The transition of text.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
+  /**
+   * Set text transition.
+   *
+   * @param { Optional<ContentTransition> } transition - The transition of text.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
   contentTransition(transition: Optional<ContentTransition>): TextAttribute;
+
+  /**
+   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   *
+   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  includeFontPadding(include: Optional<boolean>): TextAttribute;
+
+  /**
+   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   *
+   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  fallbackLineSpacing(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Whether to compress punctuation at the beginning of line.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAttribute } - returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Used to set the selected drag preview style.
+   *
+   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
+   *     If set undefined will reset the style.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAttribute;
+
+  /**
+   * Set the text direction.
+   *
+   * @param { TextDirection | undefined } direction - Indicates the text direction.
+   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection(direction: TextDirection | undefined): TextAttribute;
+
+  /**
+   * Whether to avoid an orphan word on the last line of the paragraph.
+   *
+   * @param { Optional<boolean> } enabled - The default value is false,
+   *     indicates the flag whether to enable this feature.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): TextAttribute;
+
+  /**
+   * Set the font variation.
+   *
+   * @param { Array<FontVariation> } fontVariations - Indicates the text font variation.
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontVariations(fontVariations: Array<FontVariation>): TextAttribute;
+
+  /**
+   * Sets the incremental update policy for text rendering.
+   * This API takes effect only when Text content contains a StyledString.
+   * Default value is IncrementalUpdatePolicy.NONE.
+   *
+   * @param { IncrementalUpdatePolicy | undefined } policy - Indicates the incremental update policy.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { TextAttribute } - returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  incrementalUpdatePolicy(policy: IncrementalUpdatePolicy | undefined): TextAttribute;
 }
 
 /**
@@ -1856,6 +2043,7 @@ declare const Text: TextInterface;
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1875,6 +2063,7 @@ declare const Text: TextInterface;
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1884,6 +2073,7 @@ declare enum TextSpanType {
    * Only contains text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1891,6 +2081,7 @@ declare enum TextSpanType {
    * Only contains text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1901,6 +2092,7 @@ declare enum TextSpanType {
    * Only contains image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1908,6 +2100,7 @@ declare enum TextSpanType {
    * Only contains image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1918,6 +2111,7 @@ declare enum TextSpanType {
    * Contains both text and image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1925,6 +2119,7 @@ declare enum TextSpanType {
    * Contains both text and image.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1937,6 +2132,7 @@ declare enum TextSpanType {
    * this type will be triggered and displayed for those registered types.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1949,6 +2145,7 @@ declare enum TextSpanType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -1968,6 +2165,7 @@ declare enum TextSpanType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1977,6 +2175,7 @@ declare enum TextResponseType {
    * Right click.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1984,6 +2183,7 @@ declare enum TextResponseType {
    * Right click.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1994,6 +2194,7 @@ declare enum TextResponseType {
    * Long press.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2001,6 +2202,7 @@ declare enum TextResponseType {
    * Long press.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2011,6 +2213,7 @@ declare enum TextResponseType {
    * Selected by mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2018,6 +2221,7 @@ declare enum TextResponseType {
    * Selected by mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2030,6 +2234,7 @@ declare enum TextResponseType {
    * this type will be triggered and displayed for right-click, long press, and mouse selection actions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -2042,6 +2247,7 @@ declare enum TextResponseType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -2051,6 +2257,7 @@ declare enum MarqueeState {
    * The marquee started.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2061,6 +2268,7 @@ declare enum MarqueeState {
    * The marquee a round finished and start next round.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2071,6 +2279,7 @@ declare enum MarqueeState {
    * The marquee all finished.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2083,6 +2292,7 @@ declare enum MarqueeState {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -2092,6 +2302,7 @@ declare enum MarqueeStartPolicy {
    * Start marquee in any case. This is the default policy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2102,6 +2313,7 @@ declare enum MarqueeStartPolicy {
    * Start marquee only when get focus.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2110,10 +2322,45 @@ declare enum MarqueeStartPolicy {
 }
 
 /**
+ * Marquee scrolling policy after text update.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare enum MarqueeUpdatePolicy {
+  /**
+   * Reset scroll position and restart scroll.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  DEFAULT = 0,
+
+  /**
+   * Preserve scroll position, just change to new text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  PRESERVE_POSITION = 1
+}
+
+/**
  * Defines the options of Text.
  *
  * @interface TextOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -2122,6 +2369,7 @@ declare enum MarqueeStartPolicy {
  *
  * @interface TextOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -2132,6 +2380,7 @@ declare interface TextOptions {
    *
    * @type { TextController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2140,6 +2389,7 @@ declare interface TextOptions {
    *
    * @type { TextController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2152,6 +2402,7 @@ declare interface TextOptions {
  *
  * @interface TextMarqueeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -2162,6 +2413,7 @@ declare interface TextMarqueeOptions {
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2173,6 +2425,7 @@ declare interface TextMarqueeOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2180,10 +2433,27 @@ declare interface TextMarqueeOptions {
   step?: number;
 
   /**
+   * The spacing between two rounds of marquee.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>Default value is 48vp.
+   * </p>
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  spacing?: LengthMetrics;
+
+  /**
    * The rounds of the marquee.
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2195,6 +2465,7 @@ declare interface TextMarqueeOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2206,6 +2477,7 @@ declare interface TextMarqueeOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2217,6 +2489,7 @@ declare interface TextMarqueeOptions {
    * 
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -2228,17 +2501,37 @@ declare interface TextMarqueeOptions {
    * 
    * @type { ?MarqueeStartPolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
   marqueeStartPolicy?: MarqueeStartPolicy;
+
+  /**
+   * Marquee scrolling policy after text update.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>This attribute takes effect when the marquee is in the playing state
+   *     and the text content width exceeds the width of the marquee component.
+   *     Default value is MarqueeUpdatePolicy.DEFAULT.
+   * </p>
+   *
+   * @type { ?MarqueeUpdatePolicy }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  marqueeUpdatePolicy?: MarqueeUpdatePolicy;
 }
 
 /**
  * Defines the controller of Text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -2246,6 +2539,7 @@ declare interface TextMarqueeOptions {
  * Defines the controller of Text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -2255,6 +2549,7 @@ declare class TextController {
    * Close the select menu when menu is on.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2262,6 +2557,7 @@ declare class TextController {
    * Close the select menu when menu is on.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2277,6 +2573,7 @@ declare class TextController {
    *
    * @param { StyledString } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2288,6 +2585,7 @@ declare class TextController {
    *
    * @returns { LayoutManager } - Return the LayoutManager.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2310,6 +2608,7 @@ declare class TextController {
    * @param { SelectionOptions } [options] - Indicates the options of the text selection.
    *     Default value is MenuPolicy.DEFAULT.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic

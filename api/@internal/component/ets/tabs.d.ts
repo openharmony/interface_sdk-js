@@ -19,10 +19,23 @@
  */
 
 /**
+ * UIMaterial
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').uiMaterial } uiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type UIMaterial = import('../api/@ohos.arkui.uiMaterial').uiMaterial;
+
+/**
  * CommonModifier
  *
  * @typedef { import('../api/arkui/CommonModifier').CommonModifier } CommonModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -109,6 +122,7 @@ declare enum BarMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -118,6 +132,7 @@ declare enum AnimationMode {
    * Load the content of the target page before starting the switching animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -128,6 +143,7 @@ declare enum AnimationMode {
    * Start the switching animation before loading the content of the target page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -138,6 +154,7 @@ declare enum AnimationMode {
    * Disable the default switching animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -149,6 +166,7 @@ declare enum AnimationMode {
    * and finally jump to the target page with animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -160,6 +178,7 @@ declare enum AnimationMode {
    * then jump to the target page with animation, and finally load the content of the target page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -244,6 +263,7 @@ declare enum BarPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -252,6 +272,7 @@ declare enum BarPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -261,6 +282,7 @@ declare enum LayoutStyle {
    * The tab bar items are laid in the center of the tab bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -269,6 +291,7 @@ declare enum LayoutStyle {
    * If not, the tabs are compactly centered on the tab bar and not scrollable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -278,6 +301,7 @@ declare enum LayoutStyle {
    * The tab bar items are laid in the tab bar by an average split.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -286,6 +310,7 @@ declare enum LayoutStyle {
    * If not, the tabs are not scrollable, and the width of the tab bar is evenly distributed among all tabs.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -296,6 +321,7 @@ declare enum LayoutStyle {
    * Otherwise, they are laid in the center half of the tab bar with the same space between them. 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -306,6 +332,7 @@ declare enum LayoutStyle {
    * half the width of the tab bar with even spacing between them and are not scrollable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -318,6 +345,7 @@ declare enum LayoutStyle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -327,6 +355,7 @@ declare enum TabsCacheMode {
    * Caches the child components on both sides of the current child components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -337,11 +366,46 @@ declare enum TabsCacheMode {
    * Caches the latest switched child components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
   CACHE_LATEST_SWITCHED = 1
+}
+
+/**
+ * Tabs nested scroll nested mode
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare enum TabsNestedScrollMode {
+  /**
+   * The scrolling is contained within the Tabs component, and no scroll chaining occurs, that is,
+   * the parent container does not scroll when the component scrolling reaches the boundary.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  SELF_ONLY = 0,
+  /**
+   * The Tabs component scrolls first, and when it hits the boundary, the parent container scrolls.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  SELF_FIRST = 1,
 }
 
 /**
@@ -426,6 +490,7 @@ declare class TabsController {
    * <br> 2. The parameter is an empty array.
    * <br> 3. The parameter contains an invalid index.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -437,6 +502,7 @@ declare class TabsController {
    *
    * @param { TranslateOptions } translate - translate options
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -448,6 +514,7 @@ declare class TabsController {
    *
    * @param { number } opacity - opacity, default to 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -460,6 +527,7 @@ declare class TabsController {
  *
  * @typedef TabsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
@@ -550,6 +618,7 @@ declare interface TabsOptions {
    *
    * @type { ?CommonModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -628,6 +697,7 @@ interface TabsInterface {
  *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -637,6 +707,7 @@ interface TabsInterface {
  *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -648,6 +719,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -657,6 +729,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -668,6 +741,7 @@ interface DividerStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -677,6 +751,7 @@ interface DividerStyle {
    * @type { ?ResourceColor }
    * @default #33182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -689,6 +764,7 @@ interface DividerStyle {
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -698,6 +774,7 @@ interface DividerStyle {
    * @type { ?Length }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -710,6 +787,7 @@ interface DividerStyle {
    * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -719,6 +797,7 @@ interface DividerStyle {
    * @type { ?Length }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -731,6 +810,7 @@ interface DividerStyle {
  *
  * @interface TabsAnimationEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -739,6 +819,7 @@ interface DividerStyle {
  *
  * @interface TabsAnimationEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -750,6 +831,7 @@ declare interface TabsAnimationEvent {
    * @type { number }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -759,6 +841,7 @@ declare interface TabsAnimationEvent {
    * @type { number }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -771,6 +854,7 @@ declare interface TabsAnimationEvent {
    * @type { number }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -780,6 +864,7 @@ declare interface TabsAnimationEvent {
    * @type { number }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -792,6 +877,7 @@ declare interface TabsAnimationEvent {
    * @type { number }
    * @default 0.0 vp/s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -801,6 +887,7 @@ declare interface TabsAnimationEvent {
    * @type { number }
    * @default 0.0 vp/s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -813,6 +900,7 @@ declare interface TabsAnimationEvent {
  *
  * @interface BarGridColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -821,6 +909,7 @@ declare interface TabsAnimationEvent {
  *
  * @interface BarGridColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -831,6 +920,7 @@ interface BarGridColumnOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -841,6 +931,7 @@ interface BarGridColumnOptions {
    * @type { ?number }
    * @default -1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -852,6 +943,7 @@ interface BarGridColumnOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -862,6 +954,7 @@ interface BarGridColumnOptions {
    * @type { ?number }
    * @default -1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -873,6 +966,7 @@ interface BarGridColumnOptions {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -883,6 +977,7 @@ interface BarGridColumnOptions {
    * @type { ?number }
    * @default -1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -894,6 +989,7 @@ interface BarGridColumnOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -903,6 +999,7 @@ interface BarGridColumnOptions {
    * @type { ?Dimension }
    * @default 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -914,6 +1011,7 @@ interface BarGridColumnOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -923,6 +1021,7 @@ interface BarGridColumnOptions {
    * @type { ?Dimension }
    * @default 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -935,6 +1034,7 @@ interface BarGridColumnOptions {
  *
  * @interface ScrollableBarModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -943,6 +1043,7 @@ interface BarGridColumnOptions {
  *
  * @interface ScrollableBarModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -953,6 +1054,7 @@ interface ScrollableBarModeOptions {
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -962,6 +1064,7 @@ interface ScrollableBarModeOptions {
    * @type { ?Dimension }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -973,6 +1076,7 @@ interface ScrollableBarModeOptions {
    *
    * @type { ?LayoutStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -982,11 +1086,150 @@ interface ScrollableBarModeOptions {
    * @type { ?LayoutStyle }
    * @default LayoutStyle.ALWAYS_CENTER
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   nonScrollableLayoutStyle?: LayoutStyle;
+}
+
+/**
+ * Provides an interface for the options for the floating bar width of the tab width at different breakpoints.
+ *
+ * @interface FloatingTabBarWidth
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+interface FloatingTabBarWidth {
+  /**
+   * The bar width of the small devices. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  smallBarWidth?: Length;
+  /**
+   * The bar width of the medium devices. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  mediumBarWidth?: Length;
+  /**
+   * The bar width of the large devices. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  largeBarWidth?: Length;
+}
+
+/**
+ * Provides an interface for the options for the floating bar mode.
+ *
+ * @interface FloatingTabBarStyle
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+interface FloatingTabBarStyle {
+  /**
+   * The bar width of the tab width at different breakpoints.
+   *
+   * @type { ?FloatingTabBarWidth }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barWidth?: FloatingTabBarWidth;
+  /**
+   * The width of the left and right margins of the bar. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barSideMargin?: Length;
+  /**
+   * The distance between the bar and the bottom of tab. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barBottomMargin?: Length;
+  /**
+   * The color of the mask.
+   *
+   * @type { ?ResourceColor }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maskColor?: ResourceColor;
+  /**
+   * The height of the mask. It cannot be set in percentage.
+   *
+   * @type { ?Length }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maskHeight?: Length;
+  /**
+   * Whether to adapt to the handedness.
+   *
+   * @type { ?boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  adaptToHandedness?: boolean;
+
+  /**
+   * The style of the material.
+   *
+   * @type { ?UIMaterial.ImmersiveMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: UIMaterial.ImmersiveMaterial;
 }
 
 /**
@@ -997,6 +1240,7 @@ interface ScrollableBarModeOptions {
  * @param { number } targetIndex - The target index value of the tab that when animation start.
  * @param { TabsAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1010,6 +1254,7 @@ declare type OnTabsAnimationStartCallback = (index: number, targetIndex: number,
  * @param { number } index - The index value of the tab that when animation end.
  * @param { TabsAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1023,6 +1268,7 @@ declare type OnTabsAnimationEndCallback = (index: number, extraInfo: TabsAnimati
  * @param { number } index - The index value of the tab before gesture swipe.
  * @param { TabsAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1037,6 +1283,7 @@ declare type OnTabsGestureSwipeCallback = (index: number, extraInfo: TabsAnimati
  * @param { number } to - The index value of the target tab when the animation begins.
  * @returns { TabContentAnimatedTransition | undefined } Returns animated transition options of tab or undefined.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -1053,11 +1300,28 @@ declare type TabsCustomContentTransitionCallback = (from: number, to: number) =>
  * Tabs can change from currentIndex to comingIndex if function return true.
  * Tabs can not change from currentIndex to comingIndex if function return false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 declare type OnTabsContentWillChangeCallback = (currentIndex: number, comingIndex: number) => boolean;
+
+/**
+ * Defines a tabs callback when onContentDidScroll.
+ *
+ * @typedef { function } OnTabsContentDidScrollCallback
+ * @param { number } selectedIndex - the index value of the Tabs content selected before animation start.
+ * @param { number } index - the index value of the Tabs content.
+ * @param { number } position - the moving ratio of the Tabs content from the start position of the Tabs main axis.
+ * @param { number } mainAxisLength - the Tabs main axis length for calculating position.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
+declare type OnTabsContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;
 
 /**
  * Defines the tabs attribute functions.
@@ -1177,6 +1441,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { BarMode.Fixed } value
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1187,6 +1452,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * the number of tabs by the bar width (or bar height in the vertical layout).
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1200,6 +1466,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { ScrollableBarModeOptions } [options] - options indicate the options for the scrollable bar mode
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1213,6 +1480,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * This parameter is effective only when the tab bar is in scrollable mode.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1344,6 +1612,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * when height is set to auto, default value is false.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1362,6 +1631,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * the default value is cubicBezierCurve(0.2, 0.0, 0.1, 1.0).
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1410,6 +1680,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Default value is AnimationMode.CONTENT_FIRST.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1423,6 +1694,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Default value is EdgeEffect.Spring.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1483,6 +1755,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { Callback<number> } event - callback to notify which index has been selected
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1495,6 +1768,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { function } event
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1504,6 +1778,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { function } event
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -1515,6 +1790,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { Callback<number> } event
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1527,6 +1803,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { Callback<number> } event - callback to notify which index has been unselected
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1542,6 +1819,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * "event": the animation event callback info.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1554,6 +1832,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * "event": the animation event callback info.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -1565,6 +1844,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { OnTabsAnimationStartCallback } handler
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1579,6 +1859,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * "event": the animation event callback info.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1590,6 +1871,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * "event": the animation event callback info.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -1601,6 +1883,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { OnTabsAnimationEndCallback } handler
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1615,6 +1898,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * "event": the animation event callback info.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1626,6 +1910,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * "event": the animation event callback info.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -1637,6 +1922,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { OnTabsGestureSwipeCallback } handler
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1649,6 +1935,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { boolean } value - indicates whether the edges of tab bar are fading.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1664,6 +1951,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { boolean } value - Whether the tab fades out when it exceeds the container width. Default value is true.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1676,6 +1964,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { DividerStyle | null } value - indicates the style of the indicator.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1685,6 +1974,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { DividerStyle | null } value - indicates the style of the indicator. Default value is null.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1697,6 +1987,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { boolean } value - indicates whether the tab bar overlaps with the tab content.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1705,6 +1996,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { boolean } value - indicates whether the tab bar overlaps with the tab content. Default value is false.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1717,6 +2009,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { ResourceColor } value - indicates the background color of the tab bar.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -1726,6 +2019,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Default value is Color.Transparent.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1738,6 +2032,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { BarGridColumnOptions } value - indicates the bar grid alignment options.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1751,6 +2046,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { BarGridColumnOptions } value - indicates the bar grid alignment options.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1764,6 +2060,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { function } delegate - custom content transition animation.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -1775,6 +2072,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { function } delegate - custom content transition animation.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1809,6 +2107,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { TabsCustomContentTransitionCallback } delegate - Custom content transition animation.
    * @returns { TabsAttribute } The attribute of the tabs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1821,6 +2120,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { BlurStyle } value - Background blur style of the tab bar. Default value is BlurStyle.NONE.
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1833,6 +2133,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { Optional<PageFlipMode> } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1846,6 +2147,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { BackgroundBlurStyleOptions } options - options indicate the options for the tab bar
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1858,6 +2160,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { BackgroundEffectOptions } options - options indicate the options for the tab bar
    * @returns { TabsAttribute } the attribute of the tabs
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1871,6 +2174,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { TabsCacheMode } mode - the mode of caching child components.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1887,6 +2191,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * Tabs can not change from currentIndex to comingIndex if function return false.
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12
@@ -1908,6 +2213,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { OnTabsContentWillChangeCallback } handler
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1920,11 +2226,62 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @param { Callback<number> } event - callback to notify which index has been selected
    * @returns { TabsAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
   onSelected(event: Callback<number>): TabsAttribute;
+
+  /**
+   * Triggered when scrolling content within the Tabs component.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>During page scrolling, the OnTabContentDidScrollCallback callback is invoked for all pages in the viewport
+   * on a frame-by-frame basis.
+   * </p>
+   *
+   * @param { OnTabsContentDidScrollCallback | undefined } handler - callback of tabs,
+   *     selectedIndex is the index value of the Tabs content selected before animation start.
+   *     index is the index value of the Tabs content.
+   *     position is the moving ratio of the Tabs content from the start position of the Tabs main axis.
+   *     mainAxisLength is the Tabs main axis length for calculating position.
+   *     undefined means unbinding callback.
+   * @returns { TabsAttribute } - the attribute of the Tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): TabsAttribute;
+
+  /**
+   * Sets the nested scrolling mode of the tabs component and its parent container.
+   *
+   * @param { TabsNestedScrollMode | undefined } value - mode for nested scrolling.
+   * Default value is TabsNestedScrollMode.SELF_ONLY. Undefined means default value.
+   * @returns { TabsAttribute } -the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  nestedScroll(value: TabsNestedScrollMode | undefined): TabsAttribute;
+
+  /**
+   * Enable floating style for bar.
+   *
+   * @param { Optional<FloatingTabBarStyle> } style - floating style for bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  barFloatingStyle(style: Optional<FloatingTabBarStyle>): TabsAttribute;
 }
 
 /**
@@ -1932,6 +2289,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
  *
  * @interface TabContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 11
@@ -1941,6 +2299,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
  *
  * @interface TabContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -1954,6 +2313,7 @@ declare interface TabContentAnimatedTransition {
    * @type { ?number }
    * @default 1000 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -1965,6 +2325,7 @@ declare interface TabContentAnimatedTransition {
    * @type { ?number }
    * @default 1000 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1977,6 +2338,7 @@ declare interface TabContentAnimatedTransition {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -1986,6 +2348,7 @@ declare interface TabContentAnimatedTransition {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -1997,6 +2360,7 @@ declare interface TabContentAnimatedTransition {
    *
    * @type { Callback<TabContentTransitionProxy> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2010,6 +2374,7 @@ declare interface TabContentAnimatedTransition {
  *
  * @interface TabContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 11
@@ -2019,6 +2384,7 @@ declare interface TabContentAnimatedTransition {
  *
  * @interface TabContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -2030,6 +2396,7 @@ declare interface TabContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -2039,6 +2406,7 @@ declare interface TabContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2051,6 +2419,7 @@ declare interface TabContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -2060,6 +2429,7 @@ declare interface TabContentTransitionProxy {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -2071,6 +2441,7 @@ declare interface TabContentTransitionProxy {
    * Notifies Tabs component the custom content transition animation is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -2079,6 +2450,7 @@ declare interface TabContentTransitionProxy {
    * Notifies Tabs component the custom content transition animation is complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice

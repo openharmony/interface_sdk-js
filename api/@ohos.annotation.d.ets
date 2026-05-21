@@ -19,25 +19,101 @@
  */
 
 /**
- * Available is an Annotation and it supports class function varible type interface namespace etc
+ * Available is an Annotation and it supports class function variable type interface namespace etc
  * Apply this annotation at the source code location, then call the corresponding source code (e.g., class). 
- * During compilation, compatibility checks will be triggered. If minApiVersion exceeds the compatibleSDKVersion specified in build-profile.json5,
- * a compatibility warning will be generated.
+ * During compilation, compatibility checks will be triggered. If minApiVersion exceeds the compatibleSDKVersion
+ * specified in build-profile.json5, a compatibility warning will be generated.
  * @syscap SystemCapability.Base
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
- * @since 22
+ * @since 22 dynamic
  */
 export @interface Available {
   /**
    * minApiVersion is used to indicate the minimum Available version. Composed of two parts: System Type + Version Number. The system type can be omitted only when the type is OpenHarmony.For example: 'OpenHarmony 20' '20'
    * @type { string }
    * @syscap SystemCapability.Base
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 22
+   * @since 22 dynamic
    */
-  minApiVersion: string = ''
+  minApiVersion: string = '';
+}
+
+/**
+ * Indicate the supported suppress warnings type.
+ * 
+ * @enum { string } SuppressWarningsType
+ * @syscap SystemCapability.Base
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export const enum SuppressWarningsType {
+  /**
+   * Support for suppressing generated compatibility warnings.
+   * 
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  COMPATIBILITY = 'compatibility',
+  /**
+   * Support for suppressing generated syscap warnings.
+   * 
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  SYSCAP = 'syscap',
+  /**
+   * Support for suppressing generated permission warnings.
+   * 
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  PERMISSION = 'permission'
+}
+
+/**
+ * SuppressWarnings is an Annotation and it supports class function varible type interface namespace etc
+ * Apply this annotation at the source code location, then call the corresponding source code (e.g., class). 
+ * During compilation, you can suppress compatibility alarms or deprecated interface alarms by adding rules.
+ * 
+ * @syscap SystemCapability.Base
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
+export @interface SuppressWarnings {
+  /**
+   * Indicate the suppress warning type rules.
+   * 
+   * @type { Array<SuppressWarningsType> }
+   * @syscap SystemCapability.Base
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  rules: Array<SuppressWarningsType>;
 }

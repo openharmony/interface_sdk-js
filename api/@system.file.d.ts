@@ -15,534 +15,644 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 /**
- * @interface FileResponse
+ * Returns a file, including the file information.
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileResponse {
   /**
-   * File URI.
+   * URI of the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * File size, in bytes.
-   * If type is dir, the length value is fixed to 0.
+   * File length, in bytes.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   length: number;
 
   /**
-   * Timestamp when the file is stored, which is the number of milliseconds elapsed since 1970/01/01 00:00:00.
-   * For lite wearables, the value is fixed to 0, because this parameter is restricted by the underlying file system.
+   * Timestamp when the file is stored the last time, which is the number of milliseconds elapsed since
+   * 1970/01/01 00:00:00 GMT. For lite wearables, the value is fixed to 0, because this parameter
+   * is restricted by the underlying file system.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   lastModifiedTime: number;
 
   /**
-   * File type. The values are as follows:
-   * dir: directory
-   * file: file
+   * File type. Available values are as follows:
+   * **dir**: directory
+   * **file**: file
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   type: 'dir' | 'file';
 
   /**
-   * File list. When the recursive value is true and the type is dir, the file information under the subdirectory will be returned.
-   * Otherwise, no value will be returned.
+   * List of files. When the recursive value is true and the type is dir, the file information under the
+   * subdirectory will be returned. Otherwise, no value will be returned.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   subFiles?: Array<FileResponse>;
 }
 
 /**
- * @interface FileMoveOption
+ * Defines the options used in move().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileMoveOption {
   /**
-   * URI of the file to move.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the file to move. Restricted by the underlying file system of lite wearables, the value must meet the
+   * following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   srcUri: string;
 
   /**
-   * URI of the file moved to the target location.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the location to which the file is to move. Restricted by the underlying file system of lite wearables, the
+   * value must meet the following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   dstUri: string;
 
   /**
-   * Called when the source file is moved to the specified location successfully.
-   * This function returns the URI of the file moved to the target location.
+   * Callback invoked when the API call is successful. This API returns the URI of the destination location.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (uri: string) => void;
 
   /**
-   * Called when moving fails.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileListResponse
+ * Returns a file list, including the file list information.
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileListResponse {
   /**
+   * File list. The format of each file is as follows:
+   * {
+   * uri:'file1',
+   * lastModifiedTime:1589965924479,
+   * length:10240,
+   * type:?'file'
+   * }
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fileList: Array<FileResponse>;
 }
 
 /**
- * @interface FileListOption
+ * Defines the options used in list().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileListOption {
   /**
-   * URI of the directory.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
+   * requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Called when the list is obtained successfully.
+   * Callback invoked when the API call is successful. **data** is [FileListResponse]{@link FileListResponse}.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (data: FileListResponse) => void;
 
   /**
-   * Called when the list fails to be obtained.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileCopyOption
+ * Defines the options used in copy().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileCopyOption {
   /**
-   * URI of the file to copy.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the file to copy. Restricted by the underlying file system of lite wearables, the value must meet the
+   * following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   srcUri: string;
 
   /**
-   * URI of the file moved to the target location.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the location to which the copy is to be saved. The directory of application resources and URI of the tmp
+   * type are not supported. Restricted by the underlying file system of lite wearables, the value must meet the
+   * following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   dstUri: string;
 
   /**
-   * Called when the copy file is saved successful.
-   * This function returns the URI of the file saved to the target location.
+   * Callback invoked when the API call is successful. This API returns the URI of the destination location.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (uri: string) => void;
 
   /**
-   * Called when the copy or save operation fails.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileGetOption
+ * Defines the options used in get().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileGetOption {
   /**
-   * File URI, which cannot be an application resource path.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the file. Restricted by the underlying file system of lite wearables, the value must meet the following
+   * requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Whether to recursively obtain the file list under a subdirectory.
-   * The default value is false.
+   * Indicates whether to recursively obtain the file list in a subdirectory. The value **true** indicates to
+   * recursively obtain the file list, and **false** indicates the opposite. The default value is **false**.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   recursive?: boolean;
 
   /**
-   * Called when file information is obtained successfully.
+   * Callback invoked when the API call is successful. **file** is [FileResponse]{@link FileResponse}.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (file: FileResponse) => void;
 
   /**
-   * Called when file information fails to be obtained.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileDeleteOption
+ * Defines the options used in delete().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileDeleteOption {
   /**
-   * URI of the file to be deleted, which cannot be an application resource path.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the file to delete, which cannot be an application resource path. Restricted by the underlying file system
+   * of lite wearables, the value must meet the following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Called when local files are deleted successfully.
+   * Callback invoked when the API call is successful.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
   /**
-   * Called when the deletion fails.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileWriteTextOption
+ * Defines the options used in writeText().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileWriteTextOption {
   /**
-   * URI of a local file. If it does not exist, a file will be created.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of a local file. If it does not exist, a file will be created. Restricted by the underlying file system of lite
+   * wearables, the value must meet the following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Character string to write into the local file.
+   * String to write into the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   text: string;
 
   /**
-   * Encoding format. The default format is UTF-8.
+   * Encoding format. The default format is **UTF-8**.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   encoding?: string;
 
   /**
-   * Whether to enable the append mode. The default value is false.
+   * Whether to enable the append mode. The default value is **false**. The value **true** means to enable the append
+   * mode; the value **false** means the opposite.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   append?: boolean;
 
   /**
-   * Called when texts are written into a file successfully.
+   * Callback invoked when the API call is successful.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
   /**
-   * Called when texts fail to be written into a file.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileReadTextResponse
+ * Returns the text read, including the text content.
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadTextResponse {
   /**
+   * Text read from the specified file.
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   text: string;
 }
 
 /**
- * @interface FileReadTextOption
+ * Defines the options used in readText().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadTextOption {
   /**
-   * URI of a local file.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the file to which the content is written. Restricted by the underlying file system of lite wearables, the
+   * value must meet the following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Encoding format. The default format is UTF-8.
-   * Currently, only UTF-8 is supported.
+   * Encoding format. The default format is **UTF-8**.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   encoding?: string;
 
   /**
-   * Position where the reading starts.
-   * The default value is the start position of the file.
+   * Position where the reading starts, in bytes. The default value is the start position of the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   position?: number;
 
   /**
-   * Position where the reading starts.
-   * The default value is the start position of the file.
+   * Length of the text to be read, in bytes. The default value is **4096**.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   length?: number;
 
   /**
-   * Called when texts are read successfully.
+   * Callback invoked when the API call is successful. **data** is [FileReadTextResponse]{@link FileReadTextResponse}.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (data: FileReadTextResponse) => void;
 
   /**
-   * Called when texts fail to be read.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
+   * **302**: text to read exceeding 4 KB
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileWriteArrayBufferOption
+ * Defines the options used in writeArrayBuffer().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileWriteArrayBufferOption {
   /**
-   * URI of a local file. If it does not exist, a file will be created.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of a local file. If it does not exist, a file will be created. Restricted by the underlying file system of lite
+   * wearables, the value must meet the following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
@@ -552,435 +662,518 @@ export interface FileWriteArrayBufferOption {
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   buffer: Uint8Array;
 
   /**
-   * Offset to the position where the writing starts. The default value is 0.
+   * Offset of the position in the file where writing starts, in bytes. The default value is **0**.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   position?: number;
 
   /**
-   * Whether to enable the append mode.
-   * The default value is false. If the value is true, the position parameter will become invalid.
+   * Whether to enable the append mode. The default value is **false**. If the value is **true**, the **position**
+   * parameter will become invalid. The value **true** means to enable the append mode; the value **false** means the
+   * opposite.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   append?: boolean;
 
   /**
-   * Called when data from a buffer is written into a file successfully.
+   * Callback invoked when the API call is successful.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
   /**
-   * Called when data from a buffer fails to be written into a file.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileReadArrayBufferResponse
+ * Returns the file read, including the file content.
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadArrayBufferResponse {
   /**
+   * File list. The format of each file is as follows:
+   * {
+   * uri:'file1',
+   * lastModifiedTime:1589965924479,
+   * length:10240,
+   * type:?'file'
+   * }
+   *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   buffer: Uint8Array;
 }
 
 /**
- * @interface FileReadArrayBufferOption
+ * Defines the options used in readArrayBuffer().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileReadArrayBufferOption {
   /**
-   * URI of a local file.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the file to which the content is written. Restricted by the underlying file system of lite wearables, the
+   * value must meet the following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Position where the reading starts.
-   * The default value is the start position of the file.
+   * Position where the reading starts, in bytes. The default value is the start position of the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   position?: number;
 
   /**
-   * Length of the content to read.
-   * If this parameter is not set, all content of the file will be read.
+   * Length of data to read, in bytes. If this parameter is not set, the reading proceeds until the end of the file.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   length?: number;
 
   /**
-   * Called when the buffer data is read successfully.
+   * Callback invoked when the API call is successful. **data** is
+   * [FileReadArrayBufferResponse]{@link FileReadArrayBufferResponse}.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: (data: FileReadArrayBufferResponse) => void;
 
   /**
-   * Called when the buffer data fails to be read.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileAccessOption
+ * Defines the options used in access().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileAccessOption {
   /**
-   * URI of the directory or file.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the directory or file. Restricted by the underlying file system of lite wearables, the value must meet the
+   * following requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Called when the check result is obtained successfully.
+   * Callback invoked when the API call is successful.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
   /**
-   * Called when the check fails.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileMkdirOption
+ * Defines the options used in mkdir().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileMkdirOption {
   /**
-   * URI of the directory.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
-   * 3. A maximum of five recursions are allowed for creating the directory.
+   * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
+   * requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Whether to create the directory after creating its upper-level directory recursively.
-   * The default value is false.
+   * Whether to recursively create the upper-level directory of the specified directory. The default value is **false**.
+   * The value **true** means to create upper-level directory recursively; the value false means the opposite.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   recursive?: boolean;
 
   /**
-   * Called when the directory is created successfully.
+   * Callback invoked when the API call is successful.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
   /**
-   * Called when the creation fails.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
- * @interface FileRmdirOption
+ * Defines the options used in rmdir().
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export interface FileRmdirOption {
   /**
-   * URI of the directory.
-   * Restricted by the underlying file system of lite wearables, the value must meet the following requirements:
-   * 1. The URI cannot contain special characters such as \/"*+,:;<=>?[]|\x7F.
-   * 2. The maximum number of characters allowed is 128.
+   * URI of the directory. Restricted by the underlying file system of lite wearables, the value must meet the following
+   * requirements:
+   * 1. The URI cannot contain the following special characters: \"*+,:;<=>?[]|\x7F.
+   * 2. The value can contain a maximum of 128 characters.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   uri: string;
 
   /**
-   * Whether to delete files and subdirectories recursively.
-   * The default value is false.
+   * Whether to recursively delete files and subdirectories of the specified directory. The default value is **false**.
+   * The value **true** means to recursively delete files and subdirectories of the specified directory; the value
+   * **false** means the opposite.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   recursive?: boolean;
 
   /**
-   * Called when the directory is deleted successfully.
+   * Callback invoked when the API call is successful.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   success?: () => void;
 
   /**
-   * Called when the deletion fails.
+   * Callback invoked when the API call fails.
+   * **data** indicates the error information.
+   * **code** indicates the returned error code:
+   * **202**: invalid parameter
+   * **300**: I/O error
+   * **301**: file or directory not found
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
+   * @reserved ["liteWearable"]
    */
   complete?: () => void;
 }
 
 /**
+ * File
+ *
  * @syscap SystemCapability.FileManagement.File.FileIO.Lite
  * @since 3
  * @deprecated since 10
+ * @reserved ["liteWearable"]
  */
 export default class File {
   /**
-   * Moves the source file to a specified location.
+   * Moves a specified file to a given location.
    *
-   * @param { FileMoveOption } options - Options.
+   * @param { FileMoveOption } options - Options for moving the files.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.moveFile
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:moveFile
    */
   static move(options: FileMoveOption): void;
 
   /**
-   * Copies a source file and save the copy to a specified location.
+   * Copies a file to the given URI.
    *
-   * @param { FileCopyOption } options - Options.
+   * @param { FileCopyOption } options - Options for copying the files.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.copyFile
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:copyFile
    */
   static copy(options: FileCopyOption): void;
 
   /**
-   * Obtains the list of files in a specified directory.
+   * Obtains all files in the specified directory.
    *
-   * @param { FileListOption } options - Options.
+   * @param { FileListOption } options - Options for obtaining all files in the specified directory.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.listFile
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:listFile
    */
   static list(options: FileListOption): void;
 
   /**
    * Obtains information about a local file.
    *
-   * @param { FileGetOption } options - Options.
+   * @param { FileGetOption } options - Options for obtaining information about a local file.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.stat
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:stat
    */
   static get(options: FileGetOption): void;
 
   /**
-   * Deletes local files.
+   * Deletes a local file.
    *
-   * @param { FileDeleteOption } options - Options.
+   * @param { FileDeleteOption } options - Options for deleting a local file.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.unlink
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:unlink
    */
   static delete(options: FileDeleteOption): void;
 
   /**
-   * Writes texts into a file.
+   * Writes text into a file. Only text files can be read and written.
    *
-   * @param { FileWriteTextOption } options - Options.
+   * @param { FileWriteTextOption } options - Options for writing text into a file.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.write
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:write
    */
   static writeText(options: FileWriteTextOption): void;
 
   /**
-   * Reads texts from a file.
+   * Reads text from a file. Only text files can be read and written.
    *
-   * @param { FileReadTextOption } options - Options.
+   * @param { FileReadTextOption } options - Options for reading text from a file.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.readText
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:readText
    */
   static readText(options: FileReadTextOption): void;
 
   /**
-   * Writes data from a buffer into a file.
+   * Writes buffer data into a file. Only text files can be read and written.
    *
-   * @param { FileWriteArrayBufferOption } options - Options.
+   * @param { FileWriteArrayBufferOption } options - Options for writing buffer data into a file.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.write
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:write
    */
   static writeArrayBuffer(options: FileWriteArrayBufferOption): void;
 
   /**
-   * Reads buffer data from a file.
+   * Reads buffer data from a file. Only text files can be read and written.
    *
-   * @param { FileReadArrayBufferOption } options - Options.
+   * @param { FileReadArrayBufferOption } options - Options for reading buffer data from a file.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.read
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:read
    */
   static readArrayBuffer(options: FileReadArrayBufferOption): void;
 
   /**
    * Checks whether a file or directory exists.
    *
-   * @param { FileAccessOption } options - Options.
+   * @param { FileAccessOption } options - Options for checking whether a file or directory exists.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.access
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:access
    */
   static access(options: FileAccessOption): void;
 
   /**
    * Creates a directory.
    *
-   * @param { FileMkdirOption } options - Options.
+   * @param { FileMkdirOption } options - Options for creating a directory.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.mkdir
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:mkdir
    */
   static mkdir(options: FileMkdirOption): void;
 
   /**
    * Deletes a directory.
    *
-   * @param { FileRmdirOption } options - Options.
+   * @param { FileRmdirOption } options - Options for deleting a directory.
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3
    * @deprecated since 10
-   * @useinstead ohos.file.fs.rmdir
+   * @reserved ["liteWearable"]
+   * @useinstead @ohos.file.fs:rmdir
    */
   static rmdir(options: FileRmdirOption): void;
 }

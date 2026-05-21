@@ -18,1867 +18,1792 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback, RecordData } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
 
 /**
- * systemPasteboard
- * @namespace pasteboard
+ * This module provides the capabilities of managing the system pasteboard to support the copy and paste functions. You
+ * can use the APIs of this module to operate pasteboard content of the plain text, HTML, URI, Want, pixel map, and
+ * other types.
+ *
  * @syscap SystemCapability.MiscServices.Pasteboard
- * @since 6
- */
-/**
- * systemPasteboard
- * @namespace pasteboard
- * @syscap SystemCapability.MiscServices.Pasteboard
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @crossplatform [since 24]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
+ * @since 23 static
  */
 declare namespace pasteboard {
   /**
-   * Indicates the maximum number of records allowed in a PasteData object.
-   * @constant
+   * Maximum number of records in a **PasteData** object. In versions earlier than API version 10, the value is 512,
+   * indicating that no more records can be added once the number of records reaches 512.
+   *
+   * Since API version 10, no limit is placed on the number of records in a **PasteData** object.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
-   */
-  /**
-   * Indicates the maximum number of records allowed in a PasteData object.
-   * No limit the number of records in a PasteData object since API version 10.
-   * @constant
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 10
-   */
-  /**
-   * Indicates the maximum number of records allowed in a PasteData object.
-   * No limit the number of records in a PasteData object since API version 10.
-   * @constant
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const MAX_RECORD_NUM = 512;
   /**
-   * Indicates MIME types of HTML text.
-   * @constant
+   * MIME type of the HTML content.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
-   */
-  /**
-   * Indicates MIME types of HTML text.
-   * @constant
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_HTML = 'text/html';
   /**
-   * Indicates MIME types of wants.
-   * @constant
+   * MIME type of the Want content.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
-   */
-  /**
-   * Indicates MIME types of wants.
-   * @constant
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_WANT = 'text/want';
   /**
-   * Indicates MIME types of plain text.
-   * @constant
+   * MIME type of the plain text content.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
-   */
-  /**
-   * Indicates MIME types of plain text.
-   * @constant
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_PLAIN = 'text/plain';
   /**
-   * Indicates MIME types of URIs.
-   * @constant
+   * MIME type of the URI content.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
-   */
-  /**
-   * Indicates MIME types of URIs.
-   * @constant
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   const MIMETYPE_TEXT_URI = 'text/uri';
   /**
-   * Indicates MIME type of PixelMap.
-   * @constant
+   * MIME type of the PixelMap content.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 9
-   */
-  /**
-   * Indicates MIME type of PixelMap.
-   * @constant
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   const MIMETYPE_PIXELMAP = 'pixelMap';
 
   /**
    * Indicates type of value.
-   * @type { string | image.PixelMap | Want | ArrayBuffer }
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 9
-   */
-  /**
-   * Indicates type of value.
-   * @typedef { string | image.PixelMap | Want | ArrayBuffer }
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @unionmember { string } The value is of the string type.
+   * @unionmember { image.PixelMap } The value is of the [image.PixelMap]{@link @ohos.multimedia.image:image} type.
+   * @unionmember { Want } The value is of the [Want]{@link @ohos.app.ability.Want:Want} type.
+   * @unionmember { ArrayBuffer } The value is of the **ArrayBuffer** type.
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   type ValueType = string | image.PixelMap | Want | ArrayBuffer;
 
   /**
-   * Indicates the callback for pasteboard content changes.
-   * @typedef { function } UpdateCallback
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 22 dynamic&static
-   */
-  type UpdateCallback = () => void;
-
-  /**
-   * Creates a PasteData object for PasteData#MIMETYPE_TEXT_HTML.
-   * @param { string } htmlText - To save the Html text content.
-   * @returns { PasteData } Containing the contents of the clipboard content object.
+   * Creates a **PasteData** object of the HTML type.
+   *
+   * @param { string } htmlText - HTML content.
+   * @returns { PasteData } **PasteData** object.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createData
+   * @useinstead pasteboard.createData(mimeType: string, value: ValueType)
    */
   function createHtmlData(htmlText: string): PasteData;
 
   /**
-   * Creates a PasteData object for PasteData#MIMETYPE_TEXT_WANT.
-   * @param { Want } want - To save the want of content.
-   * @returns { PasteData } Containing the contents of the clipboard content object.
+   * Creates a **PasteData** object of the Want type.
+   *
+   * @param { Want } want - Want content.
+   * @returns { PasteData } **PasteData** object.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createData
+   * @useinstead pasteboard.createData(mimeType: string, value: ValueType)
    */
   function createWantData(want: Want): PasteData;
 
   /**
-   * Creates a PasteData object for PasteData#MIMETYPE_TEXT_PLAIN.
-   * @param { string } text - To save the text of content.
-   * @returns { PasteData } Containing the contents of the clipboard content object.
+   * Creates a **PasteData** object of the plain text type.
+   *
+   * @param { string } text - Plain text.
+   * @returns { PasteData } **PasteData** object.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createData
+   * @useinstead pasteboard.createData(mimeType: string, value: ValueType)
    */
   function createPlainTextData(text: string): PasteData;
 
   /**
-   * Creates a PasteData object for PasteData#MIMETYPE_TEXT_URI.
-   * @param { string } uri - To save the uri of content.
-   * @returns { PasteData } Containing the contents of the clipboard content object.
+   * Creates a **PasteData** object of the URI type.
+   *
+   * @param { string } uri - URI content.
+   * @returns { PasteData } **PasteData** object.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createData
+   * @useinstead pasteboard.createData(mimeType: string, value: ValueType)
    */
   function createUriData(uri: string): PasteData;
 
   /**
-   * Creates a PasteData object with MIME type and value.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
-   * @param { ValueType } value - indicates the content that is set to PasteData.
-   * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified; 
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   * Creates a **PasteData** object of the specified type.
+   *
+   * @param { string } mimeType - Type of PasteData. The value can be a predefined MIME type listed in
+   *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants), including HTML, WANT,
+   *     plain text, URI, and pixel map, or a custom type. The value of **mimeType** cannot exceed 1024 bytes.
+   * @param { ValueType } value - Content of PasteData.
+   * @returns { PasteData } **PasteData** object.
+   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 9
-   */
-  /**
-   * Creates a PasteData object of the specified type.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
-   * @param { ValueType } value - indicates the content that is set to PasteData.
-   * @returns { PasteData } a new PasteData object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified; 
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function createData(mimeType: string, value: ValueType): PasteData;
 
   /**
-   * Creates a PasteData object with the specified MIME types and values.
-   * @param { Record<string, ValueType> } data - indicates the MEME types and values of the PasteData object to create.
-   * @returns { PasteData } Returns the PasteData object created.
+   * Creates a **PasteData** object that contains multiple types of data.
+   *
+   * @param { Record<string, ValueType> } data - The key of **Record** can be the MIME type corresponding to the
+   *     PasteData, including HTML, WANT, plain text, URI, and PixelMap defined in
+   *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants). Alternatively,
+   *     the key could be a custom type, whose parameter, the length of **mimeType**,
+   *     cannot exceed 1024 bytes. The value of **Record** is the data corresponding to the type specified
+   *     in the key. The first type specified by the key-value in **Record** is used as the default type
+   *     of the first **PasteDataRecord** in the **PasteData** object. Data of non-default types can be read only by
+   *     using the [getData]{@link pasteboard.PasteDataRecord.getData(type: string)} API.
+   * @returns { PasteData } **PasteData** object.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
+   * @crossplatform [since 24]
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function createData(data: Record<string, ValueType>): PasteData;
 
   /**
-   * Creates a Record object for PasteData#MIMETYPE_TEXT_HTML.
-   * @param { string } htmlText - To save the Html text content.
-   * @returns { PasteDataRecord } The content of a new record
+   * Creates a **PasteDataRecord** object of the HTML text type.
+   *
+   * @param { string } htmlText - HTML content.
+   * @returns { PasteDataRecord } **PasteDataRecord** object of the HTML text type.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createRecord
+   * @useinstead pasteboard.createRecord(mimeType: string, value: ValueType)
    */
   function createHtmlTextRecord(htmlText: string): PasteDataRecord;
 
   /**
-   * Creates a Record object for PasteData#MIMETYPE_TEXT_WANT.
-   * @param { Want } want - To save the want of content.
-   * @returns { PasteDataRecord } The content of a new record
+   * Creates a **PasteDataRecord** object of the Want type.
+   *
+   * @param { Want } want - Want content.
+   * @returns { PasteDataRecord } New **PasteDataRecord** object of the Want type.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createRecord
+   * @useinstead pasteboard.createRecord(mimeType: string, value: ValueType)
    */
   function createWantRecord(want: Want): PasteDataRecord;
 
   /**
-   * Creates a Record object for PasteData#MIMETYPE_TEXT_PLAIN.
-   * @param { string } text - To save the text of content.
-   * @returns { PasteDataRecord } The content of a new record
+   * Creates a **PasteDataRecord** object of the plain text type.
+   *
+   * @param { string } text - Plain text.
+   * @returns { PasteDataRecord } New **PasteDataRecord** object of the plain text type.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createRecord
+   * @useinstead pasteboard.createRecord(mimeType: string, value: ValueType)
    */
   function createPlainTextRecord(text: string): PasteDataRecord;
 
   /**
-   * Creates a Record object for PasteData#MIMETYPE_TEXT_URI.
-   * @param { string } uri - To save the uri of content.
-   * @returns { PasteDataRecord } The content of a new record
+   * Creates a **PasteDataRecord** object of the URI type.
+   *
+   * @param { string } uri - URI content.
+   * @returns { PasteDataRecord } New **PasteDataRecord** object of the URI type.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.pasteboard.pasteboard#createRecord
+   * @useinstead pasteboard.createRecord(mimeType: string, value: ValueType)
    */
   function createUriRecord(uri: string): PasteDataRecord;
 
   /**
-   * Creates a record object with MIME type and value.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
-   * @param { ValueType } value - content to be saved.
-   * @returns { PasteDataRecord } a new PasteDataRecord object which contains mimeType and value.
-   * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 9
-   */
-  /**
-   * Creates a PasteDataRecord object of the specified type.
-   * @param { string } mimeType - indicates MIME type of value, its size cannot be greater than 1024 bytes.
-   * @param { ValueType } value - Data content of the specified type. 
+   * Creates a **PasteDataRecord** object of the specified type.
+   *
+   * @param { string } mimeType - The type of custom data. The value can be a predefined MIME type listed in
+   *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants), including HTML, WANT,
+   *     plain text, URI, and pixel map, or a custom type. The value of **mimeType** cannot exceed 1024 bytes.
+   * @param { ValueType } value - Data content of the specified type.
    * @returns { PasteDataRecord } A new paste data record of a specified type.
    * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-   *    2. Incorrect parameters types;
-   *    3. Parameter verification failed.
+   *     2. Incorrect parameters types;
+   *     3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   function createRecord(mimeType: string, value: ValueType): PasteDataRecord;
 
   /**
-   * get SystemPasteboard
-   * @returns { SystemPasteboard } The system clipboard object
+   * Obtains **SystemPasteboard** object.
+   *
+   * @returns { SystemPasteboard } **SystemPasteboard** object.
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 6
-   */
-  /**
-   * get SystemPasteboard
-   * @returns { SystemPasteboard } The system clipboard object
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
+   * @since 23 static
    */
   function getSystemPasteboard(): SystemPasteboard;
 
   /**
-   * Types of scope that PasteData can be pasted.
-   * @enum { number }
+   * Enumerates the pasteable ranges of PasteData.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 9
-   */
-  /**
-   * Types of scope that PasteData can be pasted.
-   * @enum { number }
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   enum ShareOption {
     /**
-     * INAPP indicates that only paste in the same app is allowed.
+     * Only intra-application pasting is allowed.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
+    INAPP = 0,
     /**
-     * INAPP indicates that only intra-application pasting is allowed. 
+     * Paste is allowed in any application.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    INAPP,
+    LOCALDEVICE = 1,
     /**
-     * LOCALDEVICE indicates that paste in any app in this device is allowed.
+     * Paste is allowed in any application across devices.
+     *
+     * This API is deprecated since API version 12 without any alternative API or method.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * LOCALDEVICE indicates that paste is allowed in any application.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
-     */
-    LOCALDEVICE,
-    /**
-     * CROSSDEVICE indicates that paste in any app across devices is allowed.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * CROSSDEVICE indicates that paste is allowed in any application across devices.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamiconly
      * @deprecated since 12
      */
-    CROSSDEVICE
+    CROSSDEVICE = 2
   }
 
   /**
-   * Enumerates the patterns allowed in the system pasteboard.
-   * @enum { number }
+   * Describes the patterns supported by the pasteboard.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @since 13 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum Pattern {
     /**
-     * URL pattern.
+     * URL.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     URL = 0,
     /**
-     * Number pattern.
+     * Number.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NUMBER = 1,
     /**
-     * Email address pattern.
+     * Email address.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13 dynamic
+     * @since 23 static
      */
     EMAIL_ADDRESS = 2,
+    /**
+     * HTTP URL.
+     * This API can be used only in the stage model.
+     *
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    HTTP_URL = 3,
+    /**
+     * Flight number.
+     * This API can be used only in the stage model.
+     *
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    FLIGHT_NUMBER = 4
   }
 
 
   /**
-   * Paste data property.
-   * @interface PasteDataProperty
+   * Defines the properties of PasteData in the pasteboard, including the timestamp, data types, pasteable range,
+   * and additional data. The defined properties can be applied to the pasteboard only with the
+   * [setProperty]{@link pasteboard.PasteData.setProperty(property: PasteDataProperty)} method.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
-   */
-  /**
-   * Defines the properties of all data records on the pasteboard, including the timestamp, data type, pasteable range, 
-   * and additional data. The defined properties can be applied to the pasteboard only with the setProperty method.
-   * @interface PasteDataProperty
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   interface PasteDataProperty {
     /**
-     * additional property data. key-value pairs.
-     * @type { object }
+     * Additional property data. It does not allow for dynamic adding of properties. Properties can be added only by re-
+     * assigning values. This parameter is left empty by default. For details, see the example of **setProperty**.
+     *
+     * @type { object } [since 7 - 22]
+     * @type { Record<string, object> } [since 23]
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
+    additions: Record<string, object>;
     /**
      * additional property data. key-value pairs.
-     * @type { object }
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @since 23 static
      */
-    additions: {
-      [key: string]: object
-    }
+    additions: Record<string, RecordData>;
     /**
-     * non-repeating MIME types of all records in PasteData.
-     * @type { Array<string> }
-     * @readonly
+     * Data types of all records in PasteData.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * non-repeating MIME types of all records in PasteData.
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     readonly mimeTypes: Array<string>;
     /**
-     * the user-defined tag of a PasteData object.
-     * @type { string }
+     * Custom tag. This parameter is left empty by default.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * the user-defined tag of a PasteData object.
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     tag: string;
     /**
-     * a timestamp, which indicates when data is written to the system pasteboard.
-     * @type { number }
-     * @readonly
+     * Timestamp when data is written to the pasteboard (unit: nanoseconds since the device is powered on).
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * a timestamp, which indicates when data is written to the system pasteboard.
-     * @type { long }
-     * @readonly
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     readonly timestamp: long;
     /**
-     * Checks whether PasteData is set for local access only.
-     * @type { boolean }
+     * Whether the pasteboard content is for local access only. The default value is **false**. The value will be
+     * overwritten by the value of the **shareOption** attribute. You are advised to use the
+     * [ShareOption]{@link pasteboard.ShareOption} attribute instead.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * Checks whether PasteData is set for local access only.
-     * @type { boolean }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     localOnly: boolean;
     /**
-     * Indicates the scope of clipboard data which can be pasted.
-     * If it is not set or is incorrectly set, The default value is CrossDevice.
-     * @type { ShareOption }
+     * Pasteable ranges of PasteData. The default value is **CROSSDEVICE**.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Indicates the scope of clipboard data which can be pasted.
-     * If it is not set or is incorrectly set, The default value is CrossDevice.
-     * @type { ShareOption }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     shareOption: ShareOption;
   }
 
   /**
-   * Paste data record.
-   * @interface PasteDataRecord
+   * Provides **PasteDataRecord** APIs. A **PasteDataRecord** is an abstract definition of the content in the
+   * pasteboard. The pasteboard content consists of one or more plain text, HTML, URI, or Want records.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 7
-   */
-  /**
-   * Paste data record.
-   * @interface PasteDataRecord
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   interface PasteDataRecord {
     /**
-     * HTML text in a record.
-     * @type { string }
+     * HTML content.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
+     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * HTML text in a record.
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     htmlText: string;
     /**
-     * an want in a record.
-     * @type { Want }
+     * Want content.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
+     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * an want in a record.
-     * @type { Want }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     want: Want;
     /**
-     * MIME types of a record.
-     * @type { string }
+     * Default type of PasteDataRecord.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
+     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * MIME types of a record.
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     mimeType: string;
     /**
-     * plain text in a record.
-     * @type { string }
+     * Plain text.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
+     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * plain text in a record.
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     plainText: string;
     /**
-     * an URI in a record.
-     * @type { string }
+     * URI content.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
+     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * an URI in a record.
-     * @type { string }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     uri: string;
     /**
-     * PixelMap in a record.
-     * @type { image.PixelMap }
+     * PixelMap content.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
+     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * PixelMap in a record.
-     * @type { image.PixelMap }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     pixelMap: image.PixelMap;
     /**
-     * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
-     * @type { object }
+     * Content of custom data.
+     * This parameter is read-only and does not support assignment operations.
+     * To assign a value, please use [createData]{@link pasteboard.createData(mimeType: string, value: ValueType)}
+     * ** or ** [addEntry]{@link pasteboard.PasteDataRecord.addEntry(type: string, value: ValueType)}**
+     *
+     * @type { object } [since 9 - 22]
+     * @type { Record<string, ArrayBuffer> } [since 23]
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    /**
-     * Custom data in a record, mimeType indicates the MIME type of custom data, ArrayBuffer indicates the value of custom data.
-     * @type { object }
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    data: {
-      [mimeType: string]: ArrayBuffer
-    }
+    data: Record<string, ArrayBuffer>;
 
     /**
-     * Converts data in PasteData to text format.
-     * @param { AsyncCallback<string> } callback - the callback of convertToText.
+     * Forcibly converts the content in a **PasteData** object to text. This API uses an asynchronous callback to return
+     *  the result.
+     *
+     * @param { AsyncCallback<string> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#toPlainText
+     * @useinstead pasteboard.PasteDataRecord.toPlainText()
      */
     convertToText(callback: AsyncCallback<string>): void;
 
     /**
-     * Converts data in PasteData to text format.
-     * @returns { Promise<string> } the promise returned by the function.
+     * Forcibly converts the content in a **PasteData** object to text. This API uses a promise to return the result.
+     *
+     * @returns { Promise<string> } Promise used to return the text obtained from the conversion.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#toPlainText
+     * @useinstead pasteboard.PasteDataRecord.toPlainText()
      */
     convertToText(): Promise<string>;
 
     /**
-     * Converts data in PasteData to text format.
-     * @returns { string } the string returned by the function.
+     * Forcibly converts HTML, plain, and URI content in a **PasteDataRecord** to the plain text.
+     *
+     * @returns { string } Plain text.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Converts data in PasteData to text format.
-     * @returns { string } the string returned by the function.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     toPlainText(): string;
 
     /**
-     * Adds data to the PasteDataRecord object.
-     * @param { string } type - indicates MIME type of the value to add. It cannot exceed 1024 bytes.
-     * @param { ValueType } value - indicates the value of the data to add.
+     * Adds PasteData of an extra type to **PasteDataRecord**. The type added using this method is not the
+     * default type of **Record**. You can only use the
+     * [getData]{@link pasteboard.PasteDataRecord.getData(type: string)} API to read the corresponding data.
+     *
+     * @param { string } type - Type of extra data. The value can be a predefined MIME type listed in
+     *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants),
+     *     including HTML, WANT, plain text, URI, and pixel map, or a custom type.
+     *     The value of **mimeType** cannot exceed 1024 bytes.
+     * @param { ValueType } value - Content of extra data.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @since 14 dynamic
+     * @since 23 static
      */
     addEntry(type: string, value: ValueType): void;
 
     /**
-     * Obtains the valid types in the PasteDataRecord object.
-     * @param { Array<string> } types - indicates an array of types from which the valid types are obtained.
-     * @returns { Array<string> } Returns the valid types obtained.
+     * Obtains the intersection of the input types and the types of the PasteData.
+     *
+     * @param { Array<string> } types - List of the types.
+     * @returns { Array<string> } Intersection of the input types and the types of the PasteData obtained.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @since 14 dynamic
+     * @since 23 static
      */
     getValidTypes(types: Array<string>): Array<string>;
 
     /**
-     * Obtains data of the specified type.
-     * @param { string } type - indicates the type of the data to obtain.
-     * @returns { Promise<ValueType> } Promise used to return the data obtained.
+     * Obtains data of the specified type from **PasteDataRecord**.
+     *
+     * @param { string } type - type of PasteData, which cannot exceed 1024 bytes.
+     * @returns { Promise<ValueType> } Promise used to return the data of the specified type in
+     *     **PasteDataRecord**.
+     *
+     *     If **PasteDataRecord** contains data of multiple types,
+     *     the non-**PasteDataRecord** data of the default
+     *     type can be obtained only through this API.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getData(type: string): Promise<ValueType>;
   }
 
   /**
-   * Classes for paste data.
-   * @interface PasteData
+   * Implements a **PasteData** object. PasteData contains one or more data records (
+   * [PasteDataRecord]{@link pasteboard.PasteDataRecord}) and property description objects (
+   * [PasteDataProperty]{@link pasteboard.PasteDataProperty}).
+   * Before calling any API in **PasteData**, you must use **
+   * [createData()]{@link pasteboard.createData(mimeType: string, value: ValueType)}** or **
+   * [getData()]{@link pasteboard.SystemPasteboard.getData(callback: AsyncCallback<PasteData>)}** to create a
+   * **PasteData** object.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 6
-   */
-  /**
-   * Classes for paste data.
-   * @interface PasteData
-   * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
+   * @since 23 static
    */
   interface PasteData {
     /**
-     * Adds a Record for HTML text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_HTML in DataProperty.
-     * @param { string } htmlText - To save the Html text content.
+     * Adds an HTML record to the PasteData, and adds **MIMETYPE_TEXT_HTML** to **mimeTypes** in
+     * [PasteDataProperty]{@link pasteboard.PasteDataProperty}. The parameters cannot be empty. Otherwise, the operation
+     *  fails.
+     *
+     * @param { string } htmlText - HTML content.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#addRecord
+     * @useinstead pasteboard.PasteData.addRecord(mimeType: string, value: ValueType)
      */
     addHtmlRecord(htmlText: string): void;
 
     /**
-     * Adds an want Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_WANT in DataProperty.
-     * @param { Want } want - To save the want content.
+     * Adds a Want record to the PasteData, and adds **MIMETYPE_TEXT_WANT** to **mimeTypes** in
+     * [PasteDataProperty]{@link pasteboard.PasteDataProperty}. The parameters cannot be empty. Otherwise, the operation
+     *  fails.
+     *
+     * @param { Want } want - Want object.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#addRecord
+     * @useinstead pasteboard.PasteData.addRecord(mimeType: string, value: ValueType)
      */
     addWantRecord(want: Want): void;
 
     /**
-     * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
-     * @param { PasteDataRecord } record - The content of a new record.
+     * Adds a data record to the PasteData, and adds its type to **mimeTypes** in
+     * [PasteDataProperty]{@link pasteboard.PasteDataProperty}. The parameters cannot be empty. Otherwise, the operation
+     *  fails.
+     *
+     * @param { PasteDataRecord } record - Record to add.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * Adds a PasteRecord to a PasteData object and updates MIME types in DataProperty.
-     * @param { PasteDataRecord } record - The content of a new record.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     addRecord(record: PasteDataRecord): void;
 
     /**
-     * Adds a Record for plain text to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_PLAIN in DataProperty.
-     * @param { string } text - To save the text of content.
+     * Adds a plain text record to the PasteData, and adds **MIMETYPE_TEXT_PLAIN** to **mimeTypes** in
+     * [PasteDataProperty]{@link pasteboard.PasteDataProperty}. The parameters cannot be empty. Otherwise, the operation
+     *  fails.
+     *
+     * @param { string } text - Plain text.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#addRecord
+     * @useinstead pasteboard.PasteData.addRecord(mimeType: string, value: ValueType)
      */
     addTextRecord(text: string): void;
 
     /**
-     * Adds a URI Record to a PasteData object, and updates the MIME type to PasteData#MIMETYPE_TEXT_URI in DataProperty.
-     * @param { string } uri - To save the uri of content.
+     * Adds a URI record to the PasteData, and adds **MIMETYPE_TEXT_URI** to **mimeTypes** in
+     * [PasteDataProperty]{@link pasteboard.PasteDataProperty}. The parameters cannot be empty. Otherwise, the operation
+     *  fails.
+     *
+     * @param { string } uri - URI content.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#addRecord
+     * @useinstead pasteboard.PasteData.addRecord(mimeType: string, value: ValueType)
      */
     addUriRecord(uri: string): void;
 
     /**
-     * Adds a record with mimeType and value to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
-     * @param { ValueType } value - content to be saved.
+     * Adds a data record to the PasteData, and adds its type to **mimeTypes** in
+     * [PasteDataProperty]{@link pasteboard.PasteDataProperty}. The parameters cannot be empty. Otherwise, the operation
+     *  fails.
+     *
+     * @param { string } mimeType - MIME type of PasteData. The length cannot exceed 1024 bytes.
+     * @param { ValueType } value - Data content.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
-     * @throws { BusinessError } 12900002 - The number of records exceeds the upper limit.
+     *     2. Incorrect parameters types;
+     *     3. Parameter verification failed.
+     * @throws { BusinessError } 12900002 - The number of records exceeds the upper limit. [since 9 - 9]
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Adds a record with mimeType and value to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
-     * @param { ValueType } value - content to be saved.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 10
-     */
-    /**
-     * Adds a record with mimeType and value to a PasteData object.
-     * @param { string } mimeType - indicates the MIME type of value, its size cannot be greater than 1024 bytes.
-     * @param { ValueType } value - content to be saved.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types;
-     *    3. Parameter verification failed.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     addRecord(mimeType: string, value: ValueType): void;
 
     /**
-     * MIME types of all content on the pasteboard.
-     * @returns { Array<string> } type of array
+     * Obtains types of [PasteDataProperty]{@link pasteboard.PasteDataProperty} of the PasteData.
+     *
+     * @returns { Array<string> } Data types of the PasteData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * MIME types of all content on the pasteboard.
-     * @returns { Array<string> } type of array
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getMimeTypes(): Array<string>;
 
     /**
-     * HTML text of the primary record in a PasteData object.
-     * @returns { string } type of htmltext
+     * Obtains the HTML content of the primary record.
+     *
+     * @returns { string } HTML content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * HTML text of the primary record in a PasteData object.
-     * @returns { string } type of htmltext
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getPrimaryHtml(): string;
 
     /**
-     * the want of the primary record in a PasteData object.
-     * @returns { Want } type of want
+     * Obtains the **Want** object of the primary record.
+     *
+     * @returns { Want } Want object.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * the want of the primary record in a PasteData object.
-     * @returns { Want } type of want
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getPrimaryWant(): Want;
 
     /**
-     * the MIME type of the primary record in a PasteData object.
-     * @returns { string } type of mimetype
+     * Obtains the data type of the primary record in the pasteboard.
+     *
+     * @returns { string } Data type of the primary record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * the MIME type of the primary record in a PasteData object.
-     * @returns { string } type of mimetype
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getPrimaryMimeType(): string;
 
     /**
-     * the plain text of the primary record in a PasteData object.
-     * @returns { string } type of text
+     * Obtains the plain text of the primary record.
+     *
+     * @returns { string } Plain text.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 6
-     */
-    /**
-     * the plain text of the primary record in a PasteData object.
-     * @returns { string } type of text
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
+     * @since 23 static
      */
     getPrimaryText(): string;
 
     /**
-     * the URI of the primary record in a PasteData object.
-     * @returns { string } type of uri
+     * Obtains the URI of the primary record.
+     *
+     * @returns { string } URI content.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * the URI of the primary record in a PasteData object.
-     * @returns { string } type of uri
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getPrimaryUri(): string;
 
     /**
-     * Gets the primary PixelMap record in a PasteData object.
-     * @returns { image.PixelMap } pixelMap
+     * Obtains the PixelMap of the primary record.
+     *
+     * @returns { image.PixelMap } PixelMap.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Gets the primary PixelMap record in a PasteData object.
-     * @returns { image.PixelMap } pixelMap
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getPrimaryPixelMap(): image.PixelMap;
 
     /**
-     * DataProperty of a PasteData object.
-     * @returns { PasteDataProperty } PasteDataProperty type of PasteDataProperty
+     * Obtains the property of the PasteData.
+     *
+     * @returns { PasteDataProperty } Property of the PasteData.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * DataProperty of a PasteData object.
-     * @returns { PasteDataProperty } PasteDataProperty type of PasteDataProperty
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getProperty(): PasteDataProperty;
 
     /**
-     * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
-     * @param { PasteDataProperty } property - save property to PasteData object.
+     * Sets a [PasteDataProperty]{@link pasteboard.PasteDataProperty} object.
+     *
+     * @param { PasteDataProperty } property - Property of the PasteData.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Sets PasteDataProperty to a PasteData object, Modifying shareOption is supported only.
-     * @param { PasteDataProperty } property - save property to PasteData object.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     setProperty(property: PasteDataProperty): void;
 
     /**
-     * Gets record by index in PasteData.
-     * @param { number } index - indicates the record index in PasteData.
-     * @returns { PasteDataRecord } the record in PasteData with index.
+     * Obtains the record with a specific index in PasteData.
+     *
+     * @param { number } index - Index of the target record.
+     * @returns { PasteDataRecord } Record with the specified index.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#getRecord
+     * @useinstead pasteboard.PasteData.getRecord(index: int)
      */
     getRecordAt(index: number): PasteDataRecord;
 
     /**
-     * Gets record by index in PasteData.
-     * @param { number } index - indicates the record index in PasteData.
-     * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * Obtains the record with a specific index in PasteData.
+     *
+     * @param { int } index - Index of the target record.
+     * @returns { PasteDataRecord } Record with the specified index.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Gets record by index in PasteData.
-     * @param { int } index - indicates the record index in PasteData.
-     * @returns { PasteDataRecord } the record in PasteData with index.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getRecord(index: int): PasteDataRecord;
 
     /**
-     * the number of records in a PasteData object.
-     * @returns { number } The number of the clipboard contents
+     * Obtains the number of records in a PasteData object.
+     *
+     * @returns { int } Number of records.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * the number of records in a PasteData object.
-     * @returns { int } The number of the clipboard contents
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getRecordCount(): int;
 
     /**
-     * the user-defined tag of a PasteData object.
-     * @returns { string } type of tag
+     * Obtains the custom tag from the PasteData. If no custom tag is set, an empty string is returned.
+     *
+     * @returns { string } Custom tag. If no custom tag is set, an empty string is returned.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 7
-     */
-    /**
-     * the user-defined tag of a PasteData object.
-     * @returns { string } type of tag
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     getTag(): string;
 
     /**
-     * Checks whether there is a specified MIME type of data in DataProperty.
-     * @param { string } mimeType - indicates to query data type.
-     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
+     * Checks whether the PasteData contains data of the specified type.
+     *
+     * @param { string } mimeType - Type of the data to query.
+     * @returns { boolean } Returns **true** if the specified data type exists; returns **false** otherwise.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#hasType
+     * @useinstead pasteboard.PasteData.hasType(mimeType: string)
      */
     hasMimeType(mimeType: string): boolean;
 
     /**
-     * Checks whether there is a specified MIME type of data in DataProperty.
-     * @param { string } mimeType - indicates to query data type.
-     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * Checks whether the PasteData contains data of the specified MIME type.
+     *
+     * @param { string } mimeType - Type of the data to query. The value can be a predefined type listed in
+     *     [Constants](docroot://reference/apis-basic-services-kit/js-apis-pasteboard.md#constants),
+     *     including HTML, WANT, plain text, URI, and pixel map, or a custom type.
+     * @returns { boolean } Returns **true** if the specified data type exists; returns **false** otherwise.
+     * @throws { BusinessError } 401 - Possible causes:
+     *     1. Mandatory parameters are left unspecified;
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Checks whether there is a specified MIME type of data in DataProperty.
-     * @param { string } mimeType - indicates to query data type.
-     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     hasType(mimeType: string): boolean;
 
     /**
-     * Removes a Record based on a specified index.
-     * @param { number } index - indicates the record index in PasteData.
-     * @returns { boolean } The query returns True on success, or False on failure.
+     * Removes the record with a specific index in PasteData.
+     *
+     * @param { number } index - Specified index.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#removeRecord
+     * @useinstead pasteboard.PasteData.removeRecord(index: int)
      */
     removeRecordAt(index: number): boolean;
 
     /**
-     * Removes a Record based on a specified index.
-     * @param { number } index - indicates the record index in PasteData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * Removes the record with a specific index in PasteData.
+     *
+     * @param { int } index - Specified index.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    /**
-     * Removes a Record based on a specified index.
-     * @param { number } index - indicates the record index in PasteData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    removeRecord(index: number): void;
+    removeRecord(index: int): void;
 
     /**
-     * Replaces a specified record with a new one.
-     * @param { number } index - indicates the record index in PasteData.
-     * @param { PasteDataRecord } record - the content of the replaced record.
-     * @returns { boolean } The query returns True on success, or False on failure.
+     * Replaces the record with a specific index in PasteData.
+     *
+     * @param { number } index - Specified index.
+     * @param { PasteDataRecord } record - New record.
+     * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#replaceRecord
+     * @useinstead pasteboard.PasteData.replaceRecord(index: int, record: PasteDataRecord)
      */
     replaceRecordAt(index: number, record: PasteDataRecord): boolean;
 
     /**
-     * Replaces a specified record with a new one.
-     * @param { number } index - indicates the record index in PasteData.
-     * @param { PasteDataRecord } record - the content of a new record.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     * Replaces the record with a specific index in PasteData.
+     *
+     * @param { int } index - Specified index.
+     * @param { PasteDataRecord } record - New record.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     1. Mandatory parameters are left unspecified.
+     *     2. Incorrect parameter types.
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900001 - The index is out of the record.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
-    /**
-     * Replaces a specified record with a new one.
-     * @param { number } index - indicates the record index in PasteData.
-     * @param { PasteDataRecord } record - the content of the replaced record.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
-     * @throws { BusinessError } 12900001 - The index is out of the record.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    replaceRecord(index: number, record: PasteDataRecord): void;
+    replaceRecord(index: int, record: PasteDataRecord): void;
 
     /**
-     * Utilized to notify pasteboard service while reading PasteData, in this case, the service will help to preserve the context and resources
+     * Notifies the pasteboard service to retain the cross-device channel before reading data from the pasteboard.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 12 dynamic
+     * @since 23 static
      */
     pasteStart(): void;
 
     /**
      * Invoked to notify pasteboard service the utilization of PasteData has completed and occupied resources can be released for further usage
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 12 dynamic
+     * @since 23 static
      */
     pasteComplete(): void;
   }
 
   /**
-   * Enumerates the types of file conflict options when getting data from the Pastedboard.
-   * @enum { number }
+   * Enumerates options for file copy conflicts.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   enum FileConflictOptions {
     /**
-     * OVERWRITE overwrite when destUri has file with same name.
+     * Overwrites the file with the same name in the destination path.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
-    OVERWRITE,
+    OVERWRITE = 0,
 
     /**
-     * SKIP skip when destUri has file with same name.
+     * Skips the file with the same name in the destination path. If **SKIP** is set, the copied data of the skipped
+     * file is not pasted to the application.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
-    SKIP
+    SKIP = 1
   }
 
   /**
-   * Enumerates the types of progress indicator when getting data from the Pastedboard.
-   * @enum { number }
+   * Enumerates options for the progress indicator. You can choose whether to use the default progress indicator.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   enum ProgressIndicator {
     /**
-     * NONE getting data without system default progress indicator.
+     * Getting data without system default progress indicator.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
-    NONE,
+    NONE = 0,
 
     /**
-     * DEFALUT getting data with system default progress indicator.
+     * Getting data with system default progress indicator.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
-    DEFAULT
+    DEFAULT = 1
   }
 
   /**
-   * Notifies progress when getting PasteData.
-   * @interface ProgressInfo
+   * Defines the progress information. This information is reported only when
+   * [ProgressIndicator]{@link pasteboard.ProgressIndicator} is set to **NONE**.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   interface ProgressInfo {
     /**
-     * Progress when getting PasteData without using default system progress.
-     * @type { number }
+     * If the progress indicator provided by the system is not used, the system reports the progress percentage of the
+     * paste task.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
-    progress: number;
+    progress: int;
   }
 
   /**
-   * Indicates progress of getting PasteData.
-   * @typedef { function } ProgressListener
+   * Defines a listener for progress data changes. If the default progress indicator is not used, you can set this API
+   * to obtain the paste progress.
+   *
+   * @param { ProgressInfo } progress - Defines the progress information. This information is reported only when
+   *     [ProgressIndicator]{@link pasteboard.ProgressIndicator} is set to **NONE**.
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   type ProgressListener = (progress: ProgressInfo) => void;
 
   /**
-   * Indicates the signals to process default system progress task.
-   * @class ProgressSignal
+   * Defines a function for canceling the paste task. This parameter is valid only when
+   * [ProgressIndicator]{@link pasteboard.ProgressIndicator} is set to **NONE**.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
+   * @class ProgressSignal
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   export class ProgressSignal {
     /**
-     * Cancel the paste in progress.
+     * Cancels an ongoing paste task.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     cancel(): void;
   }
 
   /**
-   * Represents the get data parameters when getting PasteData from Pasteboard.
-   * @interface GetDataParams
+   * Defines parameters when an application obtains the Data from the pasteboard, including the
+   * destination path, file conflict options, and progress indicator types.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice
    * @since 15 dynamic
+   * @since 23 static
    */
   interface GetDataParams {
     /**
-     * DestUri indicates the uri of dest path where copy files will be copied to sandbox of Application.
-     * @type { ?string }
+     * Destination path for copying files. If file processing is not supported, this parameter is not required. If the
+     * application involves complex file processing policies or needs to distinguish file multipathing storage, you are
+     * advised not to set this parameter but let the application copy files by itself. This parameter is left empty by
+     * default.
+     *
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     destUri?: string;
 
     /**
-     * FileConflictOptions indicates fileConflictOptions when dest path has file with same name.
-     * @type { ?FileConflictOptions }
+     * File conflict options for a paste task. The default value is **OVERWRITE**.
+     *
      * @default FileConflictOptions.OVERWRITE
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     fileConflictOptions?: FileConflictOptions;
 
     /**
-     * ProgressIndicator indicates whether to use default system progress indicator.
-     * @type { ProgressIndicator }
+     * Progress indicator options. You can choose whether to use the default progress indicator.
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     progressIndicator: ProgressIndicator;
 
     /**
-     * ProgressListener indicates progress listener when getting PasteDate without using default system progress.
-     * @type { ?ProgressListener }
+     * Defines a listener for progress data changes. If the default progress indicator is not used, you can set this
+     * type to obtain the paste progress. This parameter is left empty by default.
+     *
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     progressListener?: ProgressListener;
 
     /**
-     * Progress signal when getting PasteData with system progress indacator.
-     * @type { ?ProgressSignal }
+     * Function for canceling the paste task. This parameter is valid only when
+     * [ProgressIndicator]{@link pasteboard.ProgressIndicator} is set to **NONE**. This parameter is left empty by
+     * default.
+     *
      * @default -
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     progressSignal?: ProgressSignal;
   }
 
   /**
-   * Classes for system pasteboard.
-   * @interface SystemPasteboard
+   * Callback to be invoked when the pasteboard content changes.
+   * 
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @since 6
+   * @crossplatform [since 24]
+   * @since 22 dynamic
+   * @since 23 static
    */
+  type UpdateCallback = () => void;
+
   /**
-   * Classes for system pasteboard.
-   * @interface SystemPasteboard
+   * Provides **SystemPasteboard** APIs.
+   * Before calling any **SystemPasteboard** API, you must obtain a **SystemPasteboard** object using
+   * [getSystemPasteboard]{@link pasteboard.getSystemPasteboard()}.
+   *
    * @syscap SystemCapability.MiscServices.Pasteboard
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @crossplatform [since 24]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
+   * @since 23 static
    */
   interface SystemPasteboard {
     /**
-     * Callback invoked when pasteboard content changes.
-     * @param { 'update' } type - indicates pasteboard content changed.
-     * @param { function } callback - the callback to add.
+     * Subscribes the content change event of the system pasteboard.
+     *
+     * @param { 'update' } type - Event type. The value **'update'** indicates changes in the pasteboard content.
+     * @param { function } callback - Callback invoked when the pasteboard content changes.
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @since 7 dynamic
-     * @since 22 static
      */
     on(type: 'update', callback: () => void): void;
 
     /**
-     * Add a callback invoked when remote pasteboard content changes.
+     * Add a callback invoked when pasteboard content changes.
+     *
      * @param { UpdateCallback } callback - the callback to add.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 22 dynamic&static
+     * @since 23 static
+     */
+    onUpdate(callback: UpdateCallback): void;
+
+    /**
+     * Add a callback invoked when remote pasteboard content changes.
+     *
+     * @param { UpdateCallback } callback - the callback to add.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 22 dynamic
+     * @since 23 static
      */
     onRemoteUpdate(callback: UpdateCallback): void;
 
     /**
-     * Remove a callback invoked when pasteboard content changes.
-     * @param { 'update' } type - indicates pasteboard content changed.
-     * @param { function } [callback] - the callback to remove. If this parameter is not filled in, it indicates that all
-     * callbacks for this application will be cleared. Otherwise, it indicates that the specified callback will be cleared.
+     * Unsubscribes the content change event of the system pasteboard.
+     *
+     * @param { 'update' } type - Event type. The value **'update'** indicates changes in the pasteboard content.
+     * @param { function } [callback] - the callback to remove.
+     *     If this parameter is not filled in, it indicates that all callbacks for this application will be cleared.
+     *     Otherwise, it indicates that the specified callback will be cleared.
      * @throws { BusinessError }  401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @since 7 dynamic
-     * @since 22 static
      */
     off(type: 'update', callback?: () => void): void;
 
     /**
      * Remove a callback invoked when remote pasteboard content changes.
+     *
      * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
-     * that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
-     * will be cleared.
+     *     that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
+     *     will be cleared.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     offRemoteUpdate(callback?: UpdateCallback): void;
 
+
     /**
-     * Checks whether the data is remote.
-     * @returns { boolean } True is remote data, else false.
+     * Remove a callback invoked when pasteboard content changes.
+     *
+     * @param { UpdateCallback } [callback] - the callback to remove. If this parameter is not filled in, it indicates
+     *     that all callbacks for this application will be cleared. Otherwise, it indicates that the specified callback
+     *     will be cleared.
+     *     <br>Default value: Clear all callbacks of this application.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @since 23 static
+     */
+    offUpdate(callback?: UpdateCallback): void;
+
+    /**
+     * Checks whether the data in the pasteboard is from another device.
+     *
+     * @returns { boolean } Returns **true** if the data in the pasteboard is from another device;
+     *     returns **false** otherwise.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
+     * @since 23 static
      */
     isRemoteData(): boolean;
 
     /**
-     * Obtains the application bundle name of the data source.
-     * @returns { string }  Application bundle name of the data source.
+     * Checks whether the PasteData is on a remote device. Transferring data across devices takes time. If the
+     * PasteData is in a remote device, do not check for custom data types or read the PasteData on the UI
+     * thread.
+     *
+     * @returns { boolean } Returns the check result. The value **true** indicates that the PasteData
+     *     is in a remote device, and **false** indicates the opposite. Default value: **false**.
+     * @syscap SystemCapability.MiscServices.Pasteboard
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    hasRemoteData(): boolean;
+    /**
+     * Obtains the name of the application that provides data.
+     *
+     * @returns { string } Application name.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getDataSource(): string;
 
     /**
-     * Checks whether there is a specified MIME type of data in Data.
-     * @param { string } mimeType - indicates to query data type.
-     * @returns { boolean } if having mimeType in PasteData returns true, else returns false.
+     * Checks whether the pasteboard contains data of the specified type.
+     *
+     * @param { string } mimeType - Data type.
+     * @returns { boolean } Returns **true** if the pasteboard contains data of the specified type; returns **false**
+     *     otherwise.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hasDataType(mimeType: string): boolean;
 
     /**
-     * Clears the pasteboard.
-     * @param { AsyncCallback<void> } callback - the callback of clearData.
+     * Clears the system pasteboard. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#clearData
+     * @useinstead pasteboard.SystemPasteboard.clearData(callback: AsyncCallback<void>)
      */
     clear(callback: AsyncCallback<void>): void;
 
     /**
-     * Clears the pasteboard.
-     * @returns { Promise<void> } the promise returned by the clearData.
+     * Clears the system pasteboard. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#clearData
+     * @useinstead pasteboard.SystemPasteboard.clearData()
      */
     clear(): Promise<void>;
 
     /**
-     * Clears the pasteboard.
-     * @param { AsyncCallback<void> } callback - the callback of clearData.
+     * Clears the system pasteboard. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Clears the pasteboard.
-     * @param { AsyncCallback<void> } callback - the callback of clearData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     clearData(callback: AsyncCallback<void>): void;
 
     /**
-     * Clears the pasteboard.
-     * @returns { Promise<void> } the promise returned by the clearData.
+     * Clears the system pasteboard. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Clears the pasteboard.
-     * @returns { Promise<void> } the promise returned by the clearData.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     clearData(): Promise<void>;
 
     /**
-     * Clears the pasteboard.
+     * Clears the system pasteboard. This API returns the result synchronously.
+     *
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     clearDataSync(): void;
 
     /**
-     * Gets pastedata from the system pasteboard.
-     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * Obtains a **PasteData** object from the pasteboard. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<PasteData> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#getData
+     * @useinstead pasteboard.SystemPasteboard.getData(callback: AsyncCallback<PasteData>)
      */
     getPasteData(callback: AsyncCallback<PasteData>): void;
 
     /**
-     * Gets pastedata from the system pasteboard.
-     * @returns { Promise<PasteData> } the promise returned by the getData.
+     * Obtains a **PasteData** object from the pasteboard. This API uses a promise to return the result.
+     *
+     * @returns { Promise<PasteData> } Promise used to return the system PasteData.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#getData
+     * @useinstead pasteboard.SystemPasteboard.getData()
      */
     getPasteData(): Promise<PasteData>;
 
     /**
-     * Gets pastedata from the system pasteboard.
-     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
+     * Obtains a **PasteData** object from the pasteboard. This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.READ_PASTEBOARD [since 12]
+     * @param { AsyncCallback<PasteData> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Gets pastedata from the system pasteboard.
-     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Gets pastedata from the system pasteboard.
-     * @permission ohos.permission.READ_PASTEBOARD
-     * @param { AsyncCallback<PasteData> } callback - the callback of getData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     *     permission required to call the API. [since 12]
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getData(callback: AsyncCallback<PasteData>): void;
 
     /**
-     * Gets pastedata from the system pasteboard.
-     * @returns { Promise<PasteData> } the promise returned by the getData.
+     * Obtains a **PasteData** object from the pasteboard. This API uses a promise to return the result.
+     *
+     * @permission ohos.permission.READ_PASTEBOARD [since 12]
+     * @returns { Promise<PasteData> } Promise used to return the system PasteData.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Gets pastedata from the system pasteboard.
-     * @returns { Promise<PasteData> } the promise returned by the getData.
-     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Gets pastedata from the system pasteboard.
-     * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { Promise<PasteData> } the promise returned by the getData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
-     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
+     *     permission required to call the API. [since 12]
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     getData(): Promise<PasteData>;
 
     /**
-     * Gets pasteData from the system pasteboard.
-     * @returns { PasteData }  a new PasteData.
+     * Obtains a **PasteData** object from the pasteboard. This API returns the result synchronously.
+     *
+     * @permission ohos.permission.READ_PASTEBOARD [since 12]
+     * @returns { PasteData } Data in the system pasteboard.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Gets pasteData from the system pasteboard.
-     * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { PasteData }  a new PasteData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
-     * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
+     *     permission required to call the API. [since 12]
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @since 11 dynamic
+     * @since 23 static
      */
     getDataSync(): PasteData;
 
     /**
-     * Checks whether there is content in the pasteboard.
-     * @param { AsyncCallback<boolean> } callback - the callback of setPasteData.
+     * Checks whether the system pasteboard contains data. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the system
+     *     pasteboard contains data; returns **false** otherwise.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#hasData
+     * @useinstead pasteboard.SystemPasteboard.hasData(callback: AsyncCallback<boolean>)
      */
     hasPasteData(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether there is content in the pasteboard.
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * Checks whether the system pasteboard contains data. This API uses a promise to return the result.
+     *
+     * @returns { Promise<boolean> } Callback used to return the result.
+     *     Returns **true** if the system pasteboard contains data; returns **false** otherwise.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#hasData
+     * @useinstead pasteboard.SystemPasteboard.hasData()
      */
     hasPasteData(): Promise<boolean>;
 
+
+
     /**
-     * Checks whether there is content in the system pasteboard.
-     * @param { AsyncCallback<boolean> } callback - the callback of hasData.
+     * Checks whether the system pasteboard contains data. This API uses an asynchronous callback to return the result.
+     *
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. Returns **true** if the system
+     *     pasteboard contains data; returns **false** otherwise.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Checks whether there is content in the system pasteboard.
-     * @param { AsyncCallback<boolean> } callback - the callback of hasData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     hasData(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether there is content in the system pasteboard.
-     * @returns { Promise<boolean> } the promise returned by the function.
+     * Checks whether the system pasteboard contains data. This API uses a promise to return the result.
+     *
+     * @returns { Promise<boolean> } Callback used to return the result.
+     *     Returns **true** if the system pasteboard contains data; returns **false** otherwise.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Checks whether there is content in the system pasteboard.
-     * @returns { Promise<boolean> } the promise returned by the function.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     hasData(): Promise<boolean>;
 
     /**
-     * Checks whether there is content in the system pasteboard.
-     * @returns { boolean } True exists, false does not exist.
+     * Checks whether the system pasteboard contains data. This API returns the result synchronously.
+     *
+     * @returns { boolean } Callback used to return the result. Returns **true** if the system pasteboard contains data;
+     *     returns **false** otherwise.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     hasDataSync(): boolean;
 
     /**
-     * Writes PasteData to the pasteboard.
-     * @param { PasteData } data - PasteData will be written to the clipboard
-     * @param { AsyncCallback<void> } callback - the callback of setPasteData.
+     * Writes a **PasteData** object to the system pasteboard. This API uses an asynchronous callback to return the result.
+     *
+     * @param { PasteData } data - **PasteData** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: 1.  Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#setData
+     * @useinstead pasteboard.SystemPasteboard.setData(data: PasteData, callback: AsyncCallback<void>)
      */
     setPasteData(data: PasteData, callback: AsyncCallback<void>): void;
 
     /**
-     * Writes PasteData to the pasteboard.
-     * @param { PasteData } data - Containing the contents of the clipboard content object.
-     * @returns { Promise<void> } the promise returned by the function.
+     * Writes a **PasteData** object to the system pasteboard. This API uses a promise to return the result.
+     *
+     * @param { PasteData } data - **PasteData** object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.pasteboard.pasteboard#setData
+     * @useinstead pasteboard.SystemPasteboard.setData(data: PasteData)
      */
     setPasteData(data: PasteData): Promise<void>;
 
     /**
-     * Writes PasteData to the system pasteboard.
-     * @param { PasteData } data - PasteData will be written to the clipboard
-     * @param { AsyncCallback<void> } callback - the callback of setData.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified.
-     *    2. Incorrect parameters types.
-     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
-     * @throws { BusinessError } 27787278 - Replication is prohibited.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Writes PasteData to the system pasteboard.
-     * @param { PasteData } data - PasteData will be written to the clipboard
-     * @param { AsyncCallback<void> } callback - the callback of setData.
+     * Writes a **PasteData** object to the pasteboard. This API uses an asynchronous callback to return the result.
+     *
+     * @param { PasteData } data - **PasteData** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     setData(data: PasteData, callback: AsyncCallback<void>): void;
 
     /**
-     * Writes PasteData to the system pasteboard.
-     * @param { PasteData } data - PasteData will be written to the clipboard.
-     * @returns { Promise<void> } the promise returned by the function.
+     * Writes a **PasteData** object to the system pasteboard. This API uses a promise to return the result.
+     *
+     * @param { PasteData } data - **PasteData** object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 9
-     */
-    /**
-     * Writes PasteData to the system pasteboard.
-     * @param { PasteData } data - PasteData will be written to the clipboard.
-     * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
-     * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
-     * @throws { BusinessError } 27787278 - Replication is prohibited.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @atomicservice
-     * @since 11 dynamic
-     * @since 22 static
+     * @crossplatform [since 24]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     * @since 23 static
      */
     setData(data: PasteData): Promise<void>;
 
     /**
-     * Writes PasteData to the system pasteboard.
-     * @param { PasteData } data - PasteData will be written to the clipboard.
+     * Writes data to the system system pasteboard. This API returns the result synchronously.
+     *
+     * @param { PasteData } data - Data to be written to the pasteboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect parameters types.
+     *     2. Incorrect parameters types.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 11 dynamic
+     * @since 23 static
      */
     setDataSync(data: PasteData): void;
 
     /**
-     * Gets unified data from the system pasteboard.
+     * Obtains a **PasteData** object from the system pasteboard. This API uses a promise to return the result.
+     *
      * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { Promise<unifiedDataChannel.UnifiedData> } the promise returned by the getData.
+     * @returns { Promise<unifiedDataChannel.UnifiedData> } Promise used to return the system PasteData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>;
 
     /**
-     * Gets unified data from the system pasteboard.
+     * Obtains a **UnifiedData** object from the system pasteboard. This API returns the result synchronously.
+     *
      * @permission ohos.permission.READ_PASTEBOARD
-     * @returns { unifiedDataChannel.UnifiedData }  a new UnifiedData.
+     * @returns { unifiedDataChannel.UnifiedData } Data in the system pasteboard.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     getUnifiedDataSync(): unifiedDataChannel.UnifiedData;
 
     /**
-     * Writes unified data to the system pasteboard.
-     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
-     * @returns { Promise<void> } the promise returned by the function.
+     * Writes a **PasteData** object to the system pasteboard. This API uses a promise to return the result.
+     *
+     * @param { unifiedDataChannel.UnifiedData } data - Data to be written to the pasteboard.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 27787277 - Another copy or paste operation is in progress.
      * @throws { BusinessError } 27787278 - Replication is prohibited.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise<void>;
 
     /**
-     * Writes unified data to the system pasteboard.
-     * @param { unifiedDataChannel.UnifiedData } data - Unified data will be written to the pasteboard.
+     * Writes data to the system pasteboard. This API returns the result synchronously.
+     *
+     * @param { unifiedDataChannel.UnifiedData } data - Data to be written to the pasteboard.
      * @throws { BusinessError } 401 - Possible causes: 1. Mandatory parameters are left unspecified;
-     *    2. Incorrect  parameters types.
+     *     2. Incorrect  parameters types.
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 12 dynamic
+     * @since 23 static
      */
     setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void;
 
     /**
-     * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
-     * 
-     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted.
+     * Sets pasteable range of PasteData for application.
+     *
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
+     * @param { ShareOption } shareOptions - Pasteable range. Only **pasteboard.ShareOption.INAPP** is allowed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     *     [since 12 - 13]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @throws { BusinessError } 12900006 - Settings already exist.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
-     * @since 12
-     */
-    /**
-     * Sets a unified ShareOptions for your application, so that the PasteData copied from your application is applicable to this ShareOptions.
-     * 
-     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
-     * @param { ShareOption } shareOptions - Scope that PasteData can be pasted, The parameter can only be set InApp.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *     permission required to call the API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
-     * @throws { BusinessError } 12900006 - Settings already exist.
+     *     permission required to call the API. [since 14]
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 14 dynamic
+     * @systemapi [since 12 - 13]
+     * @since 12 dynamic
+     * @since 23 static
      */
     setAppShareOptions(shareOptions: ShareOption): void;
 
     /**
-     * Removes the unified ShareOptions of your application.
+     * Deletes the global pasteable range of the application.
      *
+     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION [since 14]
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @syscap SystemCapability.MiscServices.Pasteboard
-     * @systemapi
-     * @since 12
-     */
-    /**
-     * Removes the unified ShareOptions of your application.
-     *
-     * @permission ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION
+     *     [since 12 - 13]
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
-     *    permission required to call the API.
+     *     permission required to call the API. [since 14]
      * @syscap SystemCapability.MiscServices.Pasteboard
-     * @since 14 dynamic
+     * @systemapi [since 12 - 13]
+     * @since 12 dynamic
+     * @since 23 static
      */
     removeAppShareOptions(): void;
 
     /**
-     * Detects the patterns in the pasteboard.
-     * 
-     * @param { Array<Pattern> } patterns - Patterns to detect.
-     * @returns { Promise<Array<Pattern>> } Promise used to return the patterns detected.
+     * Detects [patterns]{@link pasteboard.Pattern} in the system pasteboard. This API uses a promise to return the
+     * result.
+     *
+     * @param { Array<Pattern> } patterns - Pattern to be detected in the system pasteboard.
+     * @returns { Promise<Array<Pattern>> } Promise used to return the detected patterns.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                                                   2. Incorrect parameter types;
-     *                                                                   3. Parameter verification failed.
+     *     2. Incorrect parameter types;
+     *     3. Parameter verification failed.
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @since 13 dynamic
+     * @since 23 static
      */
     detectPatterns(patterns: Array<Pattern>): Promise<Array<Pattern>>;
 
     /**
-     * Get the MIME types in the pasteboard.
-     * 
-     * @returns { Promise<Array<string>> } Promise used to return the MIME types.
+     * Obtains the types of PasteData in the system pasteboard. This API uses a promise to return the result.
+     *
+     * @returns { Promise<Array<string>> } Promise used to return the types.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 14 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getMimeTypes(): Promise<Array<string>>;
 
     /**
-     * Gets the number of Pasteboard data changes.
-     * 
-     * @returns { number } The number of Pasteboard data changes.
+     * Obtains the number of pasteboard content changes.
+     * Returns the number of pasteboard content changes if this API is called successfully; returns **0** otherwise.
+     * Even though the PasteData expires, or the data becomes empty because of the called
+     * [clearDataSync]{@link pasteboard.SystemPasteboard.clearDataSync()} API, the number of data changes remains.
+     * When the system is restarted, or the pasteboard service is restarted due to an exception, the number of
+     * PasteData changes counts from 0. In addition, copying the same data repeatedly is considered to change the
+     * data for multiple times. Therefore, each time the data is copied, the number of data changes increases.
+     *
+     * @returns { long } The number of pasteboard content changes obtained.
      * @syscap SystemCapability.MiscServices.Pasteboard
+     * @crossplatform [since 24]
      * @atomicservice
      * @since 18 dynamic
+     * @since 23 static
      */
-    getChangeCount(): number;
-    
+    getChangeCount(): long;
+
     /**
-     * Gets pastedata from the system pasteboard with system progress.
+     * Obtains the PasteData from the system pasteboard with system progress.
+     * This API uses a promise to return the result. Folders cannot be copied.
      *
      * @permission ohos.permission.READ_PASTEBOARD
-     * @param { GetDataParams } params - Indicates the {@link GetDataParams}.
-     * @returns { Promise<PasteData> } The promise returned by the getData.
+     * @param { GetDataParams } params - Parameters required when an application obtains the Data from the
+     * system pasteboard, including the destination path, file conflict options, and progress indicator types.
+     * @returns { Promise<PasteData> } Promise used to return the system PasteData.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
      *     permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error.
@@ -1890,6 +1815,7 @@ declare namespace pasteboard {
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice
      * @since 15 dynamic
+     * @since 23 static
      */
     getDataWithProgress(params: GetDataParams): Promise<PasteData>;
   }

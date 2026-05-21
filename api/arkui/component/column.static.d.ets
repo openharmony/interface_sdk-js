@@ -18,39 +18,43 @@
  */
 import { HorizontalAlign, FlexAlign } from './enums';
 import { Resource } from './../../global/resource';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
- * Defines the space property with string, number and resource unit.
+ * Defines the space property with string, double and resource unit.
  *
- * @typedef { string | number | Resource } SpaceType
+ * @typedef { string | double | Resource } SpaceType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-export type SpaceType = string | number | Resource;
+export type SpaceType = string | double | Resource;
 /**
  * Column constructor options.
  *
  * @interface ColumnOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface ColumnOptions {
     /**
      * Vertical layout element spacing.
      *
-     * @type { ?(string | number) }
+     * @type { ?(string | double) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    space?: string | number;
+    space?: string | double;
 }
 /**
  * Column constructor options.
  *
  * @interface ColumnOptionsV2
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface ColumnOptionsV2 {
     /**
@@ -58,7 +62,8 @@ export interface ColumnOptionsV2 {
      *
      * @type { ?SpaceType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     space?: SpaceType;
 }
@@ -69,54 +74,70 @@ export interface ColumnOptionsV2 {
  * @extends CommonMethod
  * @interface ColumnAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare interface ColumnAttribute extends CommonMethod {
     /**
      * Sets the alignment format of the subassembly in the horizontal direction.
      *
-     * @param { HorizontalAlign } value
+     * @param { HorizontalAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default alignItems(value: HorizontalAlign | undefined): this;
     /**
      * Sets the alignment format of the subassembly in the vertical direction.
      *
-     * @param { FlexAlign } value
+     * @param { FlexAlign | undefined } value
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default justifyContent(value: FlexAlign | undefined): this;
     /**
     * Defines the PointLight
     *
-    * @param { PointLightStyle } value - The point light style.
+    * @param { PointLightStyle | undefined } value - The point light style.
     * @returns { ColumnAttribute } The attribute of the column.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @systemapi
-    * @since 22 static
+    * @stagemodelonly
+    * @since 23 static
     */
-    default pointLight(value: PointLightStyle): ColumnAttribute;
+    default pointLight(value: PointLightStyle | undefined): ColumnAttribute;
     /**
      * Called when the Main-Axis's direction is set reversed or not
      *
      * @param { boolean | undefined } isReversed - If the main axis is reversed.
      * @returns { ColumnAttribute } The attribute of the column.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default reverse(isReversed: boolean | undefined): this;
+    /**
+     * Set Column options.
+     *
+     * @param { ColumnOptions | ColumnOptionsV2 } [options] - Column constructor options
+     * @returns { ColumnAttribute } Returns the instance of the ColumnAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setColumnOptions(options?: ColumnOptions | ColumnOptionsV2): this;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ColumnAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -125,16 +146,88 @@ export declare interface ColumnAttribute extends CommonMethod {
  * Defines Column Component.
  *
  * @param { ColumnOptions | ColumnOptions | ColumnOptionsV2 } [options] - Column options.
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ColumnAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function Column(
     options?: ColumnOptions | ColumnOptions | ColumnOptionsV2,
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ColumnAttribute
+
+/**
+ * Defines Column Component.
+ *
+ * @param { CustomBuilderT<ColumnAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ColumnAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Column(
+    style: CustomBuilderT<ColumnAttribute>,
+    content_?: CustomBuilder,
+): ColumnAttribute;
+
+/**
+ * Defines the Extendable Column.
+ *
+ * @implements ColumnAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableColumn implements ColumnAttribute {
+    /**
+     * Constructor of Extendable Column.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ColumnOptions | ColumnOptionsV2 } [options]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableColumn>(
+        factory: ConstructorT<T>, 
+        options?: ColumnOptions | ColumnOptionsV2, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Column.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableColumn>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the Column Options.
+     *
+     * @param { ColumnOptions | ColumnOptionsV2 } [options]
+     * @returns { ExtendableColumn }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setColumnOptions(options?: ColumnOptions | ColumnOptionsV2): this;
+}

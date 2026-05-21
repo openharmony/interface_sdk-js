@@ -19,1047 +19,1262 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+
 import image from './@ohos.multimedia.image';
 
 /**
- * Interface of screen manager
+ * The module implements basic screen management. You can use the APIs of this module to obtain a Screen object, listen
+ * for screen changes, and create and destroy virtual screens.
  *
- * @namespace screen
  * @syscap SystemCapability.WindowManager.WindowManager.Core
  * @systemapi Hide this for inner system use.
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace screen {
   /**
-   * Get all screen instances, then can get or set detail information.
+   * Obtains all screens. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<Screen>> } callback the callback of all screens info
+   * @param { AsyncCallback<Array<Screen>> } callback - Callback used to return all the Screen objects obtained.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllScreens(callback: AsyncCallback<Array<Screen>>): void;
 
   /**
-   * Get all screen instances, then can get or set detail information.
+   * Obtains all screens. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<Screen>> } the result of all screens info
+   * @returns { Promise<Array<Screen>> } Promise used to return all the Screen objects obtained.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getAllScreens(): Promise<Array<Screen>>;
 
   /**
-   * Register the callback for screen changes.
+   * Subscribes to events related to the screen state.
    *
-   * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
-   * type and cannot be empty.
-   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @param { 'connect' | 'disconnect' | 'change' } eventType - Event type.<br>- **connect**: an event indicating that
+   *     the screen is connected.<br>- **disconnect**: an event indicating that the screen is disconnected.<br>-
+   *     **change**: an event indicating that the screen state changes.
+   * @param { Callback<long> } callback - Callback used to return the screen ID, which is an integer.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
    */
   function on(eventType: 'connect' | 'disconnect' | 'change', callback: Callback<long>): void;
 
   /**
-   * Unregister the callback for screen changes.
+   * Register the callback for screen connection events.
    *
-   * @param { 'connect' | 'disconnect' | 'change' } eventType the event of screen changes. This parameter is of string
-   * type and cannot be empty.
-   * @param { Callback<long> } callback Callback used to return the screen ID. If this parameter is specified, it must
-   * be a callback.
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function onConnect(callback: Callback<long>): void;
+
+  /**
+   * Register the callback for screen disconnection events.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function onDisconnect(callback: Callback<long>): void;
+
+  /**
+   * Register the callback for screen change.
+   *
+   * @param { Callback<long> } callback Callback used to return the screen ID. This parameter is callable.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function onChange(callback: Callback<long>): void;
+
+  /**
+   * Unsubscribes from events related to the screen state.
+   *
+   * @param { 'connect' | 'disconnect' | 'change' } eventType - Event type.<br>- **connect**: an event indicating that
+   *     the screen is connected.<br>- **disconnect**: an event indicating that the screen is disconnected.<br>-
+   *     **change**: an event indicating that the screen state changes.
+   * @param { Callback<long> } callback - Callback used to return the screen ID, which is an integer.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
    */
   function off(eventType: 'connect' | 'disconnect' | 'change', callback?: Callback<long>): void;
 
   /**
-   * Make screens as expand-screen
+   * Unregister the callback for screen connection events.
    *
-   * @param { Array<ExpandOption> } options Parameters for expanding the screen. The options must be valid, and make
-   * sure it's type of Array<ExpandOption>.
-   * @param { AsyncCallback<long> } callback callback used to return the group ID of the expanded screens. It must
-   * be a callback.
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *     If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function offConnect(callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen disconnection events.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *     If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function offDisconnect(callback?: Callback<long>): void;
+
+  /**
+   * Unregister the callback for screen changes.
+   *
+   * @param { Callback<long> } [callback] - Unregister the callback function.
+   *     If not provided, all callbacks for the given event type will be removed.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 23 static
+   */
+  function offChange(callback?: Callback<long>): void;
+
+  /**
+   * Sets the screen to extended mode. This API uses an asynchronous callback to return the result.
+   *
+   * @param { Array<ExpandOption> } options - Parameters for expanding the screen.
+   * @param { AsyncCallback<long> } callback - Callback used to return the group ID of the extended screens, where the
+   *     ID is an integer.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9 dynamiconly
+   * @deprecated since 20
+   */
+  function makeExpand(options:Array<ExpandOption>, callback: AsyncCallback<long>): void;
+
+  /**
+   * Sets the screen to extended mode. This API uses a promise to return the result.
+   *
+   * @param { Array<ExpandOption> } options - Parameters for expanding the screen.
+   * @returns { Promise<long> } Promise used to return the group ID of the extended screens, where the ID is an integer.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9 dynamiconly
+   * @deprecated since 20
+   */
+  function makeExpand(options:Array<ExpandOption>): Promise<long>;
+
+  /**
+   * Stops extended mode. This API uses an asynchronous callback to return the result.
+   *
+   * @param { Array<long> } expandScreen - IDs of the extended screens. Each ID is an integer. The size of the
+   *     **expandScreen** array cannot exceed 1000.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If extended mode is stopped, **err**
+   *     is **undefined**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10 dynamiconly
+   * @deprecated since 20
+   */
+  function stopExpand(expandScreen:Array<long>, callback: AsyncCallback<void>): void;
+
+  /**
+   * Stops extended mode. This API uses a promise to return the result.
+   *
+   * @param { Array<long> } expandScreen - IDs of the extended screens. Each ID is an integer. The size of the
+   *     **expandScreen** array cannot exceed 1000.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10 dynamiconly
+   * @deprecated since 20
+   */
+  function stopExpand(expandScreen:Array<long>): Promise<void>;
+
+  /**
+   * Sets the screen to mirror mode. This API uses an asynchronous callback to return the result.
+   *
+   * @param { long } mainScreen - ID of the primary screen. The ID must be an integer.
+   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be an integer.
+   * @param { AsyncCallback<long> } callback - Callback used to return the group ID of the secondary screens, where the
+   *     ID is an integer.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @deprecated since 20
+   * @since 23 static
    */
-  function makeExpand(options: Array<ExpandOption>, callback: AsyncCallback<long>): void;
+  function makeMirror(mainScreen:long, mirrorScreen:Array<long>, callback: AsyncCallback<long>): void;
 
   /**
-   * Make screens as expand-screen
+   * Sets the screen to mirror mode. This API uses a promise to return the result.
    *
-   * @param { Array<ExpandOption> } options Parameters for expanding the screen. The options must be valid, and make
-   * sure it's type of Array<ExpandOption>.
-   * @returns { Promise<long> } used to return the group ID of the expanded screens
+   * @param { long } mainScreen - ID of the primary screen. The ID must be an integer.
+   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be an integer.
+   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens, where the ID is an
+   *     integer.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @deprecated since 20
+   * @since 23 static
    */
-  function makeExpand(options: Array<ExpandOption>): Promise<long>;
+  function makeMirror(mainScreen:long, mirrorScreen:Array<long>): Promise<long>;
 
   /**
-   * Stop expand screens
+   * Sets a rectangle on the screen to mirror mode. This API uses a promise to return the result. After this API is
+   * called, you are advised not to rotate or fold the screen further. Otherwise, the mirrored content may be abnormal.
    *
-   * @param { Array<long> } expandScreen IDs of expand screens to stop. The size of the expandScreen Array should not
-   * exceed 1000.
-   * @param { AsyncCallback<void> } callback used to return the result
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
-   * @deprecated since 20
-   */
-  function stopExpand(expandScreen: Array<long>, callback: AsyncCallback<void>): void;
-
-  /**
-   * Stop expand screens
-   *
-   * @param { Array<long> } expandScreen IDs of expand screens to stop. The size of the expandScreen Array should not
-   * exceed 1000.
-   * @returns { Promise<void> } promise used to return the result
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
-   * @deprecated since 20
-   */
-  function stopExpand(expandScreen: Array<long>): Promise<void>;
-
-  /**
-   * Make screens as mirror-screen
-   *
-   * @param { long } mainScreen ID of the primary screen. It's type should be int.
-   * @param { Array<long> } mirrorScreen IDs of secondary screens
-   * @param { AsyncCallback<long> } callback Callback used to return the group ID of the secondary screens
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   * @since 22 static
-   */
-  function makeMirror(mainScreen: long, mirrorScreen: Array<long>, callback: AsyncCallback<long>): void;
-
-  /**
-   * Make screens as mirror-screen
-   *
-   * @param { long } mainScreen ID of the primary screen. It's type should be int.
-   * @param { Array<long> } mirrorScreen IDs of secondary screens
-   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   * @since 22 static
-   */
-  function makeMirror(mainScreen: long, mirrorScreen: Array<long>): Promise<long>;
-
-  /**
-   * Make screens as mirror-screen
-   *
-   * @param { long } mainScreen ID of the primary screen. It's type should be int.
-   * @param { Array<long> } mirrorScreen IDs of secondary screens
-   * @param { Rect } mainScreenRegion mirror screen region
-   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens
+   * @param { long } mainScreen - ID of the primary screen. The ID must be a positive integer.
+   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be a positive integer.
+   * @param { Rect } mainScreenRegion - Rectangle on the primary screen to be mirrored.
+   * @returns { Promise<long> } Promise used to return the group ID of the secondary screens, where the ID is a positive
+   *     integer.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
+   * @since 23 static
    */
   function makeMirrorWithRegion(mainScreen: long, mirrorScreen: Array<long>, mainScreenRegion: Rect): Promise<long>;
 
   /**
-   * Stop mirror screens
+   * Stops mirror mode. This API uses an asynchronous callback to return the result.
    *
-   * @param { Array<long> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
-   * exceed 1000.
-   * @param { AsyncCallback<void> } callback used to return the result
+   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be an integer. The size of
+   *     the **mirrorScreen** array cannot exceed 1000.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If mirror mode is stopped, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
+   * @since 23 static
    */
-  function stopMirror(mirrorScreen: Array<long>, callback: AsyncCallback<void>): void;
+  function stopMirror(mirrorScreen:Array<long>, callback: AsyncCallback<void>): void;
 
   /**
-   * Stop mirror screens
+   * Stops mirror mode. This API uses a promise to return the result.
    *
-   * @param { Array<long> } mirrorScreen IDs of mirror screens to stop. The size of the mirrorScreen Array should not
-   * exceed 1000.
-   * @returns { Promise<void> } promise used to return the result
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
-   */
-  function stopMirror(mirrorScreen: Array<long>): Promise<void>;
-  
-  /**
-   * Make screens as unique-screen
-   *
-   * @param { Array<long> } uniqueScreen IDs of the unique screens. It's type should be int.
-   * @returns { Promise<Array<long>> } Promise used to return the display IDs of unique screens.
-   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi Hide this for inner system use.
-   * @since 18 dynamic
-   */
-  function makeUnique(uniqueScreen: Array<long>): Promise<Array<long>>;
-
-  /**
-   * Create virtual screen. if surfaceId is valid, this permission is necessary.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
-   * @param { AsyncCallback<Screen> } callback Callback used to return the created virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   */
-  function createVirtualScreen(options: VirtualScreenOption, callback: AsyncCallback<Screen>): void;
-
-  /**
-   * Create virtual screen. if surfaceId is valid, this permission is necessary.
-   *
-   * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { VirtualScreenOption } options Indicates the options of the virtual screen.
-   * @returns { Promise<Screen> } Promise used to return the created virtual screen
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   */
-  function createVirtualScreen(options: VirtualScreenOption): Promise<Screen>;
-
-  /**
-   * Destroy virtual screen.
-   *
-   * @param { long } screenId Indicates the screen id of the virtual screen.
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 1400002 - Unauthorized operation.
-   * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 9 dynamic
-   */
-  function destroyVirtualScreen(screenId: long, callback: AsyncCallback<void>): void;
-
-  /**
-   * Destroy virtual screen.
-   *
-   * @param { long } screenId Indicates the screen id of the virtual screen.
+   * @param { Array<long> } mirrorScreen - Array of IDs of secondary screens. Each ID must be an integer. The size of
+   *     the **mirrorScreen** array cannot exceed 1000.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10 dynamic
+   * @since 23 static
+   */
+  function stopMirror(mirrorScreen:Array<long>): Promise<void>;
+
+  /**
+   * Creates a virtual screen. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { VirtualScreenOption } options - Virtual screen parameters.
+   * @param { AsyncCallback<Screen> } callback - Callback used to return the created virtual screen.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9 dynamic
+   * @since 23 static
+   */
+  function createVirtualScreen(options:VirtualScreenOption, callback: AsyncCallback<Screen>): void;
+
+  /**
+   * Creates a virtual screen. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.CAPTURE_SCREEN
+   * @param { VirtualScreenOption } options - Virtual screen parameters.
+   * @returns { Promise<Screen> } Promise used to return the created virtual screen.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9 dynamic
+   * @since 23 static
+   */
+  function createVirtualScreen(options:VirtualScreenOption): Promise<Screen>;
+
+  /**
+   * Destroys a virtual screen. This API uses an asynchronous callback to return the result.
+   *
+   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the virtual screen is destroyed,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400002 - Unauthorized operation.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
-  function destroyVirtualScreen(screenId: long): Promise<void>;
+  function destroyVirtualScreen(screenId:long, callback: AsyncCallback<void>): void;
 
   /**
-   * Set surface for the virtual screen.
+   * Destroys a virtual screen. This API uses a promise to return the result.
+   *
+   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400002 - Unauthorized operation.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 9 dynamic
+   * @since 23 static
+   */
+  function destroyVirtualScreen(screenId:long): Promise<void>;
+
+  /**
+   * Sets a surface for a virtual screen. The virtual screen displays the content of the surface. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { long } screenId Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId Indicates the surface id.
-   * @param { AsyncCallback<void> } callback Callback used to return the result
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @param { string } surfaceId - Surface ID of the virtual screen. The value can be customized. You can specify the
+   *     surface ID of an existing surface.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the virtual screen surface is
+   *     successfully set, **err** is **undefined**; otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
-  function setVirtualScreenSurface(screenId: long, surfaceId: string, callback: AsyncCallback<void>): void;
+  function setVirtualScreenSurface(screenId:long, surfaceId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Set surface for the virtual screen.
+   * Sets a surface for a virtual screen. The virtual screen displays the content of the surface. This API uses a
+   * promise to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN
-   * @param { long } screenId Indicates the screen id of the virtual screen.
-   * @param { string } surfaceId Indicates the surface id.
-   * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { long } screenId - Screen ID. The value must be an integer.
+   * @param { string } surfaceId - Surface ID of the virtual screen. The value can be customized. You can specify the
+   *     surface ID of an existing surface.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
-  function setVirtualScreenSurface(screenId: long, surfaceId: string): Promise<void>;
+  function setVirtualScreenSurface(screenId:long, surfaceId: string): Promise<void>;
 
   /**
-   * Set privacy mask image for the screen.
+   * Checks whether auto rotate is locked. This API uses an asynchronous callback to return the result.
    *
-   * @param { long } screenId Indicates the screen id of the screen.
-   * @param { image.PixelMap } [image] Indicates the privacy mask image. This parameter is optional. If not provided,
-   * the mask image will be cleared;
-   * @returns { Promise<void> } Promise that returns no value
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @throws { BusinessError } 1400001 - Invalid display or screen.
-   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
-   * @syscap SystemCapability.Window.SessionManager
-   * @systemapi Hide this for inner system use.
-   * @since 19 dynamic
-   */
-  function setScreenPrivacyMaskImage(screenId: long, image?: image.PixelMap): Promise<void>;
-
-  /**
-   * Get screen rotation lock status.
-   *
-   * @param { AsyncCallback<boolean> } callback If true, auto rotate is locked. If false, auto rotate is unlocked
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If **true** is returned, auto
+   *     rotate is locked. If **false** is returned, auto rotate is unlocked.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
   function isScreenRotationLocked(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get screen rotation lock status.
+   * Checks whether auto rotate is locked. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } If true, auto rotate is locked. If false, auto rotate is unlocked
+   * @returns { Promise<boolean> } Promise used to return the result. If **true** is returned, auto rotate is locked. If
+   *     **false** is returned, auto rotate is unlocked.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
   function isScreenRotationLocked(): Promise<boolean>;
 
   /**
-   * Set screen rotation lock status.
+   * Sets whether to lock auto rotate. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
-   * @param { AsyncCallback<void> } callback Callback used to return the result.
+   * @param { boolean } isLocked - Whether to lock auto rotate. **true** to lock; **false** otherwise.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
-  function setScreenRotationLocked(isLocked: boolean, callback: AsyncCallback<void>): void;
+  function setScreenRotationLocked(isLocked:boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set screen rotation lock status.
+   * Sets whether to lock auto rotate. This API uses a promise to return the result.
    *
-   * @param { boolean } isLocked Indicates whether the screen rotation switch is locked.
+   * @param { boolean } isLocked - Whether to lock auto rotate. **true** to lock; **false** otherwise.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     <br>2. Incorrect parameter types.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
-  function setScreenRotationLocked(isLocked: boolean): Promise<void>;
+  function setScreenRotationLocked(isLocked:boolean): Promise<void>;
 
   /**
-   * Set multi screen mode(mirror/extend).
+   * Sets the display mode (mirror or extend) of the secondary screen. This API uses a promise to return the result. If
+   * both **primaryScreenId** and **secondaryScreenId** are set to **0**, the content is displayed only on the secondary
+   * screen.
    *
-   * @param { long } primaryScreenId - primary screen id.
-   * @param { long } secondaryScreenId - secondary screen id.
-   * @param { MultiScreenMode } secondaryScreenMode - secondary screen mode.
+   * @param { long } primaryScreenId - ID of the primary screen. The value must be a non-negative integer. Floating-
+   *     point numbers are rounded down.
+   * @param { long } secondaryScreenId - ID of the secondary screen. The value must be a non-negative integer. Floating-
+   *     point numbers are rounded down.
+   * @param { MultiScreenMode } secondaryScreenMode - Display mode of the secondary screen.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 23 static
    */
   function setMultiScreenMode(primaryScreenId: long, secondaryScreenId: long,
     secondaryScreenMode: MultiScreenMode): Promise<void>;
 
-    /**
-   * Set multi screen relative position.
+  /**
+   * Sets the positions of the primary and secondary screens in extend mode. This API uses a promise to return the
+   * result.
    *
-   * @param { MultiScreenPositionOptions } mainScreenOptions - main screen position.
-   * @param { MultiScreenPositionOptions } secondaryScreenOptions - secondary screen position.
+   * @param { MultiScreenPositionOptions } mainScreenOptions - Position of the primary screen.
+   * @param { MultiScreenPositionOptions } secondaryScreenOptions - Position of the secondary screen.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *                                                                   2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 23 static
    */
   function setMultiScreenRelativePosition(mainScreenOptions: MultiScreenPositionOptions,
     secondaryScreenOptions: MultiScreenPositionOptions): Promise<void>;
 
   /**
-   * Indicate the screen mode
+   * Resizes the virtual screen. This API uses a promise to return the result.
    *
-   * @enum { number }
+   * @param { long } screenId - ID of the virtual screen to be resized. The value is a positive integer within the range
+   *     of [1000, 2147483647]. If the value is not within the valid range, error code 1400004 is returned.
+   * @param { long } width - New width of the virtual screen, in px. The value is a positive integer within the range of
+   *     [1, 65536]. If the value is not within the valid range, error code 1400004 is returned.
+   * @param { long } height - New height of the virtual screen, in px. The value is a positive integer within the range
+   *     of [1, 65536]. If the value is not within the valid range, error code 1400004 is returned.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Function can not work because the current device does
+   *     not support this ability.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 24 dynamic&static
+   */
+  function resizeVirtualScreen(screenId:long, width: long, height: long): Promise<void>;
+
+  /**
+   * Enumerates the display modes of secondary screens.
+   *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 23 static
    */
   enum MultiScreenMode {
 
     /**
-     * Indicate that the screen is in mirror mode.
+     * Mirror mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 23 static
      */
     SCREEN_MIRROR = 0,
 
     /**
-     * Indicate that the screen is in extend mode.
+     * Extend mode.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 23 static
      */
     SCREEN_EXTEND = 1
   }
 
   /**
-   * The parameter of making extend screen
+   * Describes the screen position information.
    *
-   * @interface MultiScreenPositionOptions
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 13 dynamic
+   * @since 23 static
    */
   interface MultiScreenPositionOptions {
     /**
-     * Screen id
+     * Screen ID. The value must be a positive integer. Any non-positive integer values will be considered invalid and
+     * result in an error.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 23 static
      */
     id: long;
 
     /**
-     * The start coordinate X of the screen origin
+     * Start X coordinate of the screen. The top-left vertex of the bounding rectangle formed by the two screens is used
+     * as the origin, with the positive direction being rightwards. The value must be a positive integer. Any non-
+     * positive integer values will be considered invalid and result in an error.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 23 static
      */
     startX: long;
 
     /**
-     * The start coordinate Y of the screen origin
+     * Start Y coordinate of the screen. The top-left vertex of the bounding rectangle formed by the two screens is used
+     * as the origin, with the positive direction being downwards. The value must be a positive integer. Any non-
+     * positive integer values will be considered invalid and result in an error.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 13 dynamic
+     * @since 23 static
      */
     startY: long;
   }
 
   /**
-   * The parameter of making expand screen
+   * Defines the parameters for expanding a screen.
    *
-   * @interface ExpandOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
   interface ExpandOption {
     /**
-     * Screen id
+     * Screen ID. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     screenId: long;
 
     /**
-     * The start coordinate X of the screen origin
+     * Start X coordinate of the screen. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     startX: long;
 
     /**
-     * The start coordinate Y of the screen origin
+     * Start Y coordinate of the screen. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     startY: long;
   }
 
   /**
-   * The parameter for creating virtual screen.
+   * Defines virtual screen parameters.
    *
-   * @interface VirtualScreenOption
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
+   * @since 23 static
    */
   interface VirtualScreenOption {
     /**
-     * Indicates the name of the virtual screen.
+     * Name of a virtual screen.
      *
-     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     name: string;
 
     /**
-     * Indicates the width of the virtual screen.
+     * Width of the virtual screen, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     width: long;
 
     /**
-     * Indicates the height of the virtual screen.
+     * Height of the virtual screen, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     height: long;
 
     /**
-     * Indicates the density of the virtual screen.
+     * Density of the virtual screen, in px. The value must be a floating-point number.
      *
-     * @type { double }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     density: double;
 
     /**
-     * Indicates the surface id of the virtual screen.
+     * Surface ID of the virtual screen.
      *
-     * @type { string }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     surfaceId: string;
 
     /**
-     * Indicates whether the virtual screen supports focus.
+     * Whether the virtual screen is focusable. **true** if focusable; **false** otherwise. The default value is
+     * **true**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     supportsFocus?: boolean;
+
+    /**
+     * User ID of the virtual screen, which is an integer. The default value is **-1**.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    userId?: int;
   }
 
   /**
-   * Indicate the source mode of the screen
+   * Enumerates the sources of the content displayed on the screen.
    *
-   * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum ScreenSourceMode {
     /**
-     * Indicate that the screen is the default screen.
+     * Content from the primary screen (default).
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
-   * @since 22 static
+     * @since 10 dynamic
+     * @since 23 static
      */
     SCREEN_MAIN = 0,
 
     /**
-     * Indicate that the screen is in mirror mode.
+     * Content from a mirror screen.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_MIRROR = 1,
 
     /**
-     * Indicate that the screen is in extend mode.
+     * Content from an extended screen.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_EXTEND = 2,
 
     /**
-     * Indicate that the screen stands alone.
+     * The source is unspecified.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SCREEN_ALONE = 3
   }
 
   /**
-   * Interface for screen
+   * Defines the [physical screen](docroot://displaymanager/display-terminology.md#physical-screen) instance.
    *
-   * @interface Screen
+   * Before calling any API in Screen, you must use
+   * [getAllScreens()]{@link screen.getAllScreens(callback: AsyncCallback<Array<Screen>>)} or
+   * [createVirtualScreen()]{@link screen.createVirtualScreen(options:VirtualScreenOption, callback: AsyncCallback<Screen>)}
+   * to obtain a Screen instance.
+   *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Screen {
     /**
-     * Screen id
+     * Screen ID, which is an integer.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly id: long;
-    
+
     /**
-     * Screen port id from the Render Service
+     * Screen port ID, which is an integer.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly rsId: long;
 
     /**
-     * Group id
+     * ID of the group to which a screen belongs, where the ID is an integer.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly parent: long;
 
     /**
-     * Mode supported by the screen
+     * Mode set supported by the screen.
      *
-     * @type { Array<ScreenModeInfo> }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly supportedModeInfo: Array<ScreenModeInfo>;
 
     /**
-     * Currently active mode
+     * Index of the active screen mode. The current value and value range of this parameter vary according to the
+     * screen resolution, refresh rate, and device hardware. The value is an integer.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly activeModeIndex: long;
 
     /**
-     * Orientation of the screen
+     * Screen orientation.
      *
-     * @type { Orientation }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly orientation: Orientation;
 
     /**
      * Source mode of the screen
      *
-     * @type { ScreenSourceMode }
-     * @readonly
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly sourceMode: ScreenSourceMode;
 
     /**
-     * Screen Serial Number
+     * Sets the screen orientation. This API uses an asynchronous callback to return the result. The screen orientation
+     * changes only when the specified orientation complies with the
+     * [application rotation policy](docroot://quick-start/module-configuration-file.md#abilities) (you can configure
+     * the application rotation policy by setting the **orientation** field in the **abilities** tag in the
+     * **module.json5** file). If the specified orientation does not comply with the application rotation policy, the
+     * screen orientation does not change and no exception is thrown.
      *
-     * @type { ?string }
-     * @readonly
-     * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @systemapi Hide this for inner system use.
-     * @since 15 dynamic
-     * @since 22 static
-     */
-    readonly serialNumber?: string;
-    
-    /**
-     * Set the orientation of the screen
-     *
-     * @param { Orientation } orientation Screen orientation. orientation value must from enum Orientation.
-     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @param { Orientation } orientation - Screen orientation. The value must be an enumerated value of
+     *     **Orientation**.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the screen orientation is
+     *     successfully set, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     setOrientation(orientation: Orientation, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the orientation of the screen
+     * Sets the screen orientation. This API uses a promise to return the result. The screen orientation changes only
+     * when the specified orientation complies with the
+     * [application rotation policy](docroot://quick-start/module-configuration-file.md#abilities) (you can configure
+     * the application rotation policy by setting the **orientation** field in the **abilities** tag in the
+     * **module.json5** file). If the specified orientation does not comply with the application rotation policy, the
+     * screen orientation does not change and no exception is thrown.
      *
-     * @param { Orientation } orientation Screen orientation. orientation value must from enum Orientation.
+     * @param { Orientation } orientation - Screen orientation. The value must be an enumerated value of
+     *     **Orientation**.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     setOrientation(orientation: Orientation): Promise<void>;
 
     /**
-     * Set the active mode of the screen.
+     * Set the orientation of the screen
      *
-     * @param { long } modeIndex Index of the mode to set.
-     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @param { Orientation } orientation - Screen orientation. orientation value must from enum Orientation.
+     * @param { OrientationOptions } [orientationOptions] - Options of setting orientation.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setOrientation(orientation: Orientation, orientationOptions?: OrientationOptions): Promise<void>;
+
+    /**
+     * Sets the active mode of the screen. This API uses an asynchronous callback to return the result.
+     *
+     * @param { long } modeIndex - Index of the mode to set. The current value and value range of this parameter vary
+     *     according to the screen resolution, refresh rate, and device hardware. The value must be an integer. The
+     *     index is the mode ID in the [ScreenModeInfo]{@link screen.ScreenModeInfo} property of the screen.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the active mode is successfully
+     *     set, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     setScreenActiveMode(modeIndex: long, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the active mode of the screen.
+     * Sets the active mode of the screen. This API uses a promise to return the result.
      *
-     * @param { long } modeIndex Index of the mode to set.
+     * @param { long } modeIndex - Index of the mode to set. The current value and value range of this parameter vary
+     *     according to the screen resolution, refresh rate, and device hardware. The value must be an integer.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
+     * @since 23 static
      */
     setScreenActiveMode(modeIndex: long): Promise<void>;
 
     /**
-     * Set display density of the screen
+     * Sets the pixel density of the screen. This API uses an asynchronous callback to return the result.
      *
-     * @param { double } densityDpi Pixel density. The value ranges from 80 to 640.
-     * @param { AsyncCallback<void> } callback Callback used to return the result.
+     * @param { double } densityDpi - Pixel density. The value must be an integer in the range [80, 640].
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the pixel density is
+     *     successfully set, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDensityDpi(densityDpi: double, callback: AsyncCallback<void>): void;
 
     /**
-     * Set display density of the screen
+     * Sets the pixel density of the screen. This API uses a promise to return the result.
      *
-     * @param { double } densityDpi Pixel density. The value ranges from 80 to 640.
+     * @param { double } densityDpi - Pixel density. The value must be an integer in the range [80, 640].
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setDensityDpi(densityDpi: double): Promise<void>;
+
+    /**
+     * Serial number of the extended screen. By default, the value is an empty string.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 15 dynamic
+     * @since 23 static
+     */
+    readonly serialNumber?: string;
+
+    /**
+     * Physical pixel density of the screen, that is, the number of pixels per inch.
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly densityDpi?: double;
   }
 
   /**
-   * Screen orientation
+   * Enumerates the screen orientations.
    *
-   * @enum { number }
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum Orientation {
     /**
-     * Indicates that the orientation of the screen is unspecified.
+     * Unspecified. The screen orientation is determined by the system.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     UNSPECIFIED = 0,
 
     /**
-     * Indicates that the orientation of the screen is vertical.
+     * Vertical.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     VERTICAL = 1,
 
     /**
-     * Indicates that the orientation of the screen is horizontal.
+     * Horizontal.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     HORIZONTAL = 2,
 
     /**
-     * Indicates that the orientation of the screen is reverse_vertical.
+     * Reverse vertical.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REVERSE_VERTICAL = 3,
 
     /**
-     * Indicates that the orientation of the screen is reverse_horizontal.
+     * Reverse horizontal.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     REVERSE_HORIZONTAL = 4
   }
 
   /**
-   * The information of the screen mode
+   * The parameter of setting orientation
    *
-   * @interface ScreenModeInfo
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OrientationOptions {
+    /**
+     * Whether to need animation.
+     * The value true means rotating the screen with animation,
+     *     while false means rotating the screen without animation.
+     *
+     * @default true
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    needAnimation?: boolean;
+
+    /**
+     * Whether to ignore rotation lock.
+     * The value true means allowing the screen to rotate even if some system windows lock screen rotation,
+     *     while false means preventing the screen from rotating when any system windows lock it.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ignoreRotationLock?: boolean;
+  }
+
+  /**
+   * Defines the screen mode information.
+   *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ScreenModeInfo {
     /**
-     * Mode id
+     * Screen ID. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: long;
 
     /**
-     * Indicates the width of the screen
+     * Width of the screen, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: long;
 
-   /**
-     * Indicates the height of the screen
+    /**
+     * Height of the screen, in px. The value is an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: long;
 
     /**
-     * Indicates the refreshRate of the screen
+     * Refresh rate of the screen, in hz. The value is an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     refreshRate: int;
   }
 
   /**
-   * Rectangle
+   * Describes the rectangle information.
    *
-   * @interface Rect
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Rect {
     /**
-     * The X-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * X coordinate of the vertex in the top-left corner of the rectangle, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     left: long;
 
     /**
-     * The Y-axis coordinate of the upper left vertex of the rectangle, in pixels.
+     * Y coordinate of the vertex in the top-left corner of the rectangle, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     top: long;
 
     /**
-     * Width of the rectangle, in pixels.
+     * Width of the rectangle, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     width: long;
 
     /**
-     * Height of the rectangle, in pixels.
+     * Height of the rectangle, in px. The value must be an integer.
      *
-     * @type { long }
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     height: long;
   }
+
+  /**
+   * Sets a privacy mask image for the screen. This API uses a promise to return the result.
+   *
+   * @param { long } screenId - Screen ID. The value must be a positive integer.
+   * @param { image.PixelMap } [image] - Privacy mask image. If no value is passed, the default privacy mask image is
+   *     used.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 19 dynamic
+   * @since 23 static
+   */
+  function setScreenPrivacyMaskImage(screenId: long, image?: image.PixelMap): Promise<void>;
+
+  /**
+   * Sets the screen to independent display mode. This API uses a promise to return the result.
+   *
+   * @param { Array<long> } uniqueScreen - Arry of independent screen IDs. Each ID must be an integer greater than 0;
+   *     otherwise, error code 401 is returned.
+   * @returns { Promise<Array<long>> } Promise used to return the independent screen IDs, where each ID is an integer
+   *     greater than 0.
+   * @throws { BusinessError } 202 - Permission verification failed, non-system application uses system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @throws { BusinessError } 1400003 - This display manager service works abnormally.
+   * @syscap SystemCapability.Window.SessionManager
+   * @systemapi Hide this for inner system use.
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  function makeUnique(uniqueScreen: Array<long>): Promise<Array<long>>;
 }
 
 export default screen;

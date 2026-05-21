@@ -1,7 +1,7 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+ * Copyright (C) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -19,170 +19,165 @@
  * @kit ArkUI
  */
 
-import { ToJSONType, FromJSONType } from './persistentStorage';
 import contextConstant from '@ohos.app.ability.contextConstant';
 
+import { ToJSONType, FromJSONType } from './persistentStorage';
+
 /**
- * Function that returns default creator.
+ * Function that returns the default creator.
  *
- * @typedef { function } StorageDefaultCreator<T>
- * @returns { T } default creator
+ * @typedef { function }
+ * @returns { T } default instance.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare type StorageDefaultCreator<T> = () => T;
 
 /**
  * Define ConnectOptions class.
- * @typedef ConnectOptions
+ *
+ * @type ConnectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare interface ConnectOptions<T extends object> {
-
   /**
    * Define class constructor
-   * @type { Type } type class type of the stored value.
+   *
+   * @type { Class } type class type of the stored value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  type: Type;
+  type: Class;
 
   /**
-   * Defines alias name of the key, or the function generating the default value.
-   * @type { ?string }
+   * Defines alias name for the key.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   key?: string;
 
   /**
    * Define the function generating the default value.
-   * @type { ?StorageDefaultCreator<T>}
+   *
+   * @type { ?StorageDefaultCreator<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   defaultCreator?: StorageDefaultCreator<T>;
 
   /**
    * Define encrypted partition for data storage.
-   * if not passed in, the defaule value is El2
+   * if not passed in, the default value is El2.
    *
-   * @type { ?contextConstant.AreaMode}
+   * @type { ?contextConstant.AreaMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   areaMode?: contextConstant.AreaMode;
+
+  /**
+   * Customize serialize callback.
+   *
+   * @type { ?ToJSONType<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  toJson?: ToJSONType<T>;
+
+  /**
+   * Customize deserialize callback.
+   *
+   * @type { ?FromJSONType<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  fromJson?: FromJSONType<T>;
+
+  /**
+   * Enable autosave feature. Default value is true.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableAutoSave?: boolean;
 }
 
 /**
- * Function that returns reason type when error.
+ * Function that returns the reason type when an error occurs.
  *
- * @typedef { function } PersistenceErrorCallback
- * @param { string } key persisted key when error
- * @param { string } reason reason type when error, possible values are 'quota', 'serialization', 'unknown'
- * @param { string } message more message when error
+ * @typedef { function }
+ * @param { string } key - persistend eky when an error occurs
+ * @param { string } reason - reason type when an error occurs, possible value are 'quota', 'serialization', 'unknown'
+ * @param { string } message - Additional message when an error occurs.
+ * @param { string } [oldValue] - value in storage that cannot be deserialized.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
-export declare type PersistenceErrorCallback = (key: string, reason: string, message: string) => void;
+export declare type PersistenceErrorCallback = (key: string, reason: string, message: string,
+  oldValue?: string) => void;
 
 /**
- * Defines Serializable object
- *
- * @extends jsonx.JsonElementSerializable, jsonx.JsonElementDeserializable
- * @interface SerializableObject
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- */
-export interface SerializableObject extends jsonx.JsonElementSerializable, jsonx.JsonElementDeserializable {}
-
-/**
- * PersistenceV2 is for UI state of app-wide access, available on app re-start,
- * and saves database content in disk.
+ * PersistenceV2 is for UI state of app-wide access, available on app re-startm
+ * and saves database content in the disk.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 26.0.0 static
  */
 export declare class PersistenceV2 {
   /**
-   * If used by persistenceV2, module-level storage path, different modules will have their own storage paths.
+   * When used by PersistenceV2, module-level storage path, differencce modules will have their own storage paths.
    * If the value for the given key is already available, return the value.
    * If not, add the key with value generated by calling defaultFunc and return it to caller.
    *
-   * @param { Type } ttype class type of the stored value.
-   * @param { ToJSONType<T> } toJson to Json function.
-   * @param { FromJSONType<T> } fromJson serializable function.
-   * @param { StorageDefaultCreator<T> } [defaultCreator] the function generating the default value
-   * @returns { T | undefined } the value of the existed key or the default value
+   * @param { Class } ttype - class type of the stored value.
+   * @param { StorageDefaultCreator<T> } [defaultCreator] - the function generating the default value
+   * @param { BaseConnectOptions<T> } [connectOptions] - additional connect options.
+   * @returns { T | undefined } the value of the existing key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   static connect<T extends object>(
-    ttype: Type,
-    toJson: ToJSONType<T>, 
-    fromJson: FromJSONType<T>,
-    defaultCreator?: StorageDefaultCreator<T>
+    ttype: Class,
+    defaultCreator?: StorageDefaultCreator<T>,
+    connectOptions?: BaseConnectOptions<T>
   ): T | undefined;
 
   /**
    * If used by persistenceV2, module-level storage path, different modules will have their own storage paths.
    * If the value for the given key is already available, return the value.
    * If not, add the key with value generated by calling defaultFunc and return it to caller.
-   *
-   * @param { Type } ttype class type of the stored value.
+   * 
+   * @param { Class } ttype - class type of the stored value.
    * @param { string } key - alias name of the key.
-   * @param { ToJSONType<T> } toJson to Json function.
-   * @param { FromJSONType<T> } fromJson serializable function.
-   * @param { StorageDefaultCreator<T> } [defaultCreator] the function generating the default value
-   * @returns { T | undefined } the value of the existed key or the default value
+   * @param { StorageDefaultCreator<T> } [defaultCreator] - the function generating the default value
+   * @param { BaseConnectOptions<T> } [connectOptions] - additional connect options.
+   * @returns { T | undefined } the value of the existing key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   static connect<T extends object>(
-    ttype: Type,
+    ttype: Class,
     key: string,
-    toJson: ToJSONType<T>, 
-    fromJson: FromJSONType<T>,
-    defaultCreator?: StorageDefaultCreator<T>
-  ): T | undefined;
-
-  /**
-   * If used by persistenceV2, module-level storage path, different modules will have their own storage paths.
-   * If the value for the given key is already available, return the value.
-   * If not, add the key with value generated by calling defaultFunc and return it to caller.
-   *
-   * @param { Type } ttype class type of the stored value.
-   * @param { StorageDefaultCreator<T> } [defaultCreator] the function generating the default value.
-   * @returns { T | undefined } the value of the existed key or the default value
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  static connect<T extends SerializableObject>(
-    ttype: Type,
-    defaultCreator?: StorageDefaultCreator<T>
-  ): T | undefined;
-
-  /**
-   * If used by persistenceV2, module-level storage path, different modules will have their own storage paths.
-   * If the value for the given key is already available, return the value.
-   * If not, add the key with value generated by calling defaultFunc and return it to caller.
-   *
-   * @param { Type } ttype class type of the stored value.
-   * @param { string } key - alias name of the key.
-   * @param { StorageDefaultCreator<T> } [defaultCreator] the function generating the default value
-   * @returns { T | undefined } the value of the existed key or the default value
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  static connect<T extends SerializableObject>(
-    ttype: Type,
-    key: string,
-    defaultCreator?: StorageDefaultCreator<T>
+    defaultCreator?: StorageDefaultCreator<T>,
+    connectOptions?: BaseConnectOptions<T>
   ): T | undefined;
 
   /**
@@ -190,67 +185,96 @@ export declare class PersistenceV2 {
    * If the value for the given key is already available, return the value.
    * If not, add the key with value generated by calling defaultFunc and return it to caller.
    *
-   * @param { ConnectOptions<T> } connectOptions Application level storage parameters.
-   * @returns { T | undefined } the value of the existed key or the default value
+   * @param { ConnectOptions<T> } params - application-level storage parameters.
+   * @returns { T | undefined } the value of the exsited key or the default value
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  static globalConnect<T extends SerializableObject>(connectOptions: ConnectOptions<T>): T | undefined;
+  static globalConnect<T extends object>(params: ConnectOptions<T>): T | undefined;
 
   /**
-   * Application-level storage path, sharing a storage path for all modules under the application.
-   * If the value for the given key is already available, return the value.
-   * If not, add the key with value generated by calling defaultFunc and return it to caller.
+   * Used to manually persist data changes to disk.
    *
-   * @param { ConnectOptions<T> } connectOptions Application level storage parameters.
-   * @param { ToJSONType<T> } toJson to Json function.
-   * @param { FromJSONType<T> } fromJson serializable function.
-   * @returns { T | undefined } the value of the existed key or the default value
+   * @param { string | Class } keyOrType - key or class type that needs to be persisted.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  static globalConnect<T extends object>(connectOptions: ConnectOptions<T>,
-    toJson: ToJSONType<T>, fromJson: FromJSONType<T>): T | undefined;
+  static save(keyOrType: string | Class): void;
 
   /**
-   * Used to manually persist data changes to disks.
+   * Called when persisting encouters an error.
    *
-   * @param { string | Type } keyOrType key or class type need to persist.
+   * @param { PersistenceErrorCallback | undefined } callback - called when error
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
-   */
-  static save(keyOrType: string | Type): void;
-
-  /**
-   * Be called when persisting has encountered an error.
-   *
-   * @param { PersistenceErrorCallback | undefined } callback called when error
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
   static notifyOnError(callback: PersistenceErrorCallback | undefined): void;
 
   /**
    * Removes data with the given key or given class type.
    *
-   * @param { string | Type } keyOrType key or class type removing
+   * @param { string | Class } keyOrType - key or class type to remove
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  static remove(keyOrType: string | Type): void;
+  static remove(keyOrType: string | Class): void;
 
   /**
-   * Return the array of all keys.
+   * Returns the array of all keys.
    *
-   * @returns { Array<string> } the array of all keys
+   * @returns { string[] } the array of all keys.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 26.0.0 static
    */
-  static keys(): Array<string>;
+  static keys(): string[];
+}
+
+/**
+ * Additional connect options for PersistenceV2.connect API.
+ *
+ * @typedef BaseConnectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface BaseConnectOptions<T extends object> {
+  /**
+   * Customize serialize callback.
+   *
+   * @type { ?ToJSONType<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  toJson?: ToJSONType<T>;
+
+  /**
+   * Customize deserialize callback.
+   *
+   * @type { ?FromJSONType<T> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  fromJson?: FromJSONType<T>;
+
+  /**
+   * Enable autosave feature. Default value is true.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  enableAutoSave?: boolean;
 }

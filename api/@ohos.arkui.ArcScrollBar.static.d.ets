@@ -21,14 +21,14 @@
 import { Scroller } from '@ohos.arkui.component';
 import { BarState } from '@ohos.arkui.component';
 import { CommonMethod } from '@ohos.arkui.component';
-import { memo, ComponentBuilder } from '@ohos.arkui.stateManagement';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 /**
  * Defines the arc scroll bar options.
  *
  * @interface ArcScrollBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  */
 export declare interface ArcScrollBarOptions {
     /**
@@ -36,7 +36,7 @@ export declare interface ArcScrollBarOptions {
      *
      * @type { Scroller }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     scroller: Scroller;
     /**
@@ -44,7 +44,7 @@ export declare interface ArcScrollBarOptions {
      *
      * @type { ?BarState }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     state?: BarState;
 }
@@ -54,17 +54,27 @@ export declare interface ArcScrollBarOptions {
  * @extends CommonMethod
  * @interface ArcScrollBarAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
 export declare interface ArcScrollBarAttribute extends CommonMethod {
+    /**
+     * Set ArcScrollBar options.
+     *
+     * @param { ArcScrollBarOptions } options - ArcScrollBar constructor options
+     * @returns { ArcScrollBarAttribute } Returns the instance of the ArcScrollBarAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setArcScrollBarOptions(options: ArcScrollBarOptions): this;
     /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ArcScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 22 static
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ArcScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -72,16 +82,31 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
  * Defines ArcScrollBar Component.
  *
  * @param { ArcScrollBarOptions } options
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ArcScrollBarAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @since 22 static
+ * @since 23 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ArcScrollBar(
-    options: ArcScrollBarOptions, 
-    @memo
-    content_?: () => void,
-): ArcScrollBarAttribute
+    options: ArcScrollBarOptions,
+    content_?: CustomBuilder,
+): ArcScrollBarAttribute;
+
+/**
+ * Defines ArcScrollBar Component.
+ *
+ * @param { CustomBuilderT<ArcScrollBarAttribute> } style_ - The style to create an ArcScrollBar.
+ * @param { CustomBuilder } [content_]
+ * @returns { ArcScrollBarAttribute } The attribute of the ArcScrollBar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ArcScrollBar(
+    style_: CustomBuilderT<ArcScrollBarAttribute>,
+    content_?: CustomBuilder
+): ArcScrollBarAttribute;

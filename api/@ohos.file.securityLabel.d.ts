@@ -21,30 +21,36 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides securityLabel APIs
+ * The **securityLabel** module provides APIs for managing data security levels of files, including obtaining and
+ * setting file security levels.
  *
- * @namespace securityLabel
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace securityLabel {
+
   /**
-   * The security level.
+   * Represents the data security level.
    *
-   * @typedef { 's0' | 's1' | 's2' | 's3' | 's4' }
+   * @unionmember { 's0' } Level S0
+   * @unionmember { 's1' } Level S1
+   * @unionmember { 's2' } Level S2
+   * @unionmember { 's3' } Level S3
+   * @unionmember { 's4' } Level S4
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4';
 
   /**
-   * Set the SecurityLabel.
+   * Sets the data security level for a file or directory. The level can only be adjusted from low to high, or set to
+   * the same level. This API uses a promise to return the result.
    *
-   * @param { string } path - path
-   * @param { DataLevel } type - type
-   * @returns { Promise<void> } return Promise
+   * @param { string } path - File path.
+   * @param { DataLevel } type - Data security level. The value can only be **s0**, **s1**, **s2**, **s3**, or **s4**.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -55,16 +61,17 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setSecurityLabel(path: string, type: DataLevel): Promise<void>;
 
   /**
-   * Set the SecurityLabel.
+   * Sets the data security level for a file or directory. The level can only be adjusted from low to high, or set to
+   * the same level. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } path - path
-   * @param { DataLevel } type - type
-   * @param { AsyncCallback<void> } [callback] - callback
+   * @param { string } path - File path.
+   * @param { DataLevel } type - Data security level. The value can only be **s0**, **s1**, **s2**, **s3**, or **s4**.
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the security level.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -75,15 +82,16 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setSecurityLabel(path: string, type: DataLevel, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the SecurityLabel with sync interface.
+   * Sets the data security level for a file or directory in synchronous mode. The level can only be adjusted from low
+   * to high, or set to the same level.
    *
-   * @param { string } path - path
-   * @param { DataLevel } type - type
+   * @param { string } path - File path.
+   * @param { DataLevel } type - Data security level. The value can only be **s0**, **s1**, **s2**, **s3**, or **s4**.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -94,15 +102,16 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setSecurityLabelSync(path: string, type: DataLevel): void;
 
   /**
-   * Get the SecurityLabel.
+   * Obtains the data security level of a file or directory. If no data security level has been set, **s3** is returned
+   * by default. This API uses a promise to return the result.
    *
-   * @param { string } path - path
-   * @returns { Promise<string> } return Promise
+   * @param { string } path - File path.
+   * @returns { Promise<string> } Promise used to return the data security level.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -113,15 +122,16 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSecurityLabel(path: string): Promise<string>;
 
   /**
-   * Get the SecurityLabel.
+   * Obtains the data security level of a file or directory. If no data security level has been set, **s3** is returned
+   * by default. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } path - path
-   * @param { AsyncCallback<string> } [callback] - callback
+   * @param { string } path - File path.
+   * @param { AsyncCallback<string> } [callback] - Callback after the data security level is obtained asynchronously.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -132,15 +142,16 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSecurityLabel(path: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Get the SecurityLabel with sync interface.
+   * Obtains the data security level of a file or directory in synchronous mode. If no data security level has been set,
+   * **s3** is returned by default.
    *
-   * @param { string } path - path
-   * @returns { string } security label name
+   * @param { string } path - File path.
+   * @returns { string } Promise used to return the data security level.
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900007 - Arg list too long
    * @throws { BusinessError } 13900015 - File exists
@@ -151,7 +162,7 @@ declare namespace securityLabel {
    * @throws { BusinessError } 13900042 - Unknown error
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getSecurityLabelSync(path: string): string;
 }

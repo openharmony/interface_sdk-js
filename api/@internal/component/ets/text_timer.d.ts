@@ -27,6 +27,7 @@
  * Provides a way to control the process.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 10
@@ -35,6 +36,7 @@
  * Provides a way to control the process.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -149,6 +151,7 @@ declare class TextTimerController {
  * @extends CommonConfiguration<TextTimerConfiguration>
  * @interface TextTimerConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -167,6 +170,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { number }
    * @default 60000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -181,6 +185,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -192,6 +197,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -203,11 +209,28 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   elapsedTime: number;
+
+  /**
+   * The start time of the timer.
+   * It is effective when isCountDown is false.
+   *
+   * Unit:milliseconds.
+   * 
+   * @type { ?number }
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  startTime?: number;
 }
 
 /**
@@ -333,6 +356,22 @@ interface TextTimerOptions {
    * @since 11 dynamic
    */
   controller?: TextTimerController;
+
+  /**
+   * The start time of the timer.
+   * It is effective when isCountDown is false.
+   *
+   * Unit:milliseconds.
+   * 
+   * @type { ?number } - Default value: 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  startTime?: number;
 }
 
 /**
@@ -405,6 +444,7 @@ interface TextTimerInterface {
  *
  * @extends CommonMethod<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 10
@@ -414,6 +454,7 @@ interface TextTimerInterface {
  *
  * @extends CommonMethod<TextTimerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -672,6 +713,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -683,6 +725,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @param { ShadowOptions | Array<ShadowOptions> } value - The shadow options.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -695,6 +738,7 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
    * @param { ContentModifier<TextTimerConfiguration> } modifier - The content modifier of texttimer.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

@@ -18,28 +18,31 @@
  * @kit ArkUI
  */
 import { CommonMethod, Bindable } from './common';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * Defines the grid item style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum GridItemStyle {
     /**
      * Show none style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NONE = 0,
     /**
      * Show plain style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     PLAIN = 1
 }
@@ -48,7 +51,8 @@ export declare enum GridItemStyle {
  *
  * @interface GridItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface GridItemOptions {
     /**
@@ -56,7 +60,8 @@ export declare interface GridItemOptions {
      *
      * @type { ?GridItemStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     style?: GridItemStyle;
 }
@@ -66,52 +71,58 @@ export declare interface GridItemOptions {
  * @extends CommonMethod
  * @interface GridItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface GridItemAttribute extends CommonMethod {
     /**
      * This parameter specifies the start line number of the current element.
      *
-     * @param { numnumber | undefinedber } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    default rowStart(value: number | undefined): this;
+    default rowStart(value: int | undefined): this;
     /**
      * Specifies the end line number of the current element.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    default rowEnd(value: number | undefined): this;
+    default rowEnd(value: int | undefined): this;
     /**
      * This parameter specifies the start column number of the current element.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    default columnStart(value: number | undefined): this;
+    default columnStart(value: int | undefined): this;
     /**
      * This parameter specifies the end column number of the current element.
      *
-     * @param { number | undefined } value
+     * @param { int | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    default columnEnd(value: number | undefined): this;
+    default columnEnd(value: int | undefined): this;
     /**
      * Called when judging whether it is selectable.
      *
      * @param { boolean | undefined } value
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectable(value: boolean | undefined): this;
     /**
@@ -121,7 +132,8 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { boolean | Bindable<boolean> | undefined } value
      * @returns { GridItemAttribute } the attribute of the gridItem.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selected(value: boolean | Bindable<boolean> | undefined): this;
     /**
@@ -130,7 +142,8 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { GridItemAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
     /**
@@ -139,7 +152,8 @@ export declare interface GridItemAttribute extends CommonMethod {
      * @param { AttributeModifier<GridItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<GridItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -148,15 +162,70 @@ export declare interface GridItemAttribute extends CommonMethod {
  * Defines GridItem Component.
  *
  * @param { GridItemOptions } [value] - options
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { GridItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function GridItem(
     value?: GridItemOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): GridItemAttribute
+
+/**
+ * Defines the Extendable GridItem.
+ *
+ * @implements GridItemAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableGridItem implements GridItemAttribute {
+    /**
+     * Constructor of Extendable GridItem.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { GridItemOptions } [value]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableGridItem>(
+        factory: ConstructorT<T>, 
+        value?: GridItemOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable GridItem.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableGridItem>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the GridItem Options.
+     *
+     * @param { GridItemOptions } [value]
+     * @returns { ExtendableGridItem }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setGridItemOptions(value?: GridItemOptions): this;
+}

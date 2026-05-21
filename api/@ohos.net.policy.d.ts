@@ -348,6 +348,25 @@ declare namespace policy {
   function setNetQuotaPolicies(quotaPolicies: Array<NetQuotaPolicy>): Promise<void>;
 
   /**
+   * Reset the specified network management policy.
+   *
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @param { string } iccid - Indicates the specified SIM that is valid when netType is cellular.
+   *     <br>Value range:(0, 1024]
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hidethisfor inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function restoreAllPolicies(iccid: string): Promise<void>;
+
+  /**
    * Get metered network quota policies.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - the callback of getNetQuotaPolicies.
@@ -637,6 +656,19 @@ declare namespace policy {
   function getNetworkAccessPolicy(): Promise<UidNetworkAccessPolicy>;
 
   /**
+   * Query the network access policy of the calling application.
+   *
+   * @returns { Promise<NetAccessPolicy> } Returns the network access policy of the application.
+   *     For details, see {@link NetAccessPolicy}.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error, such as nullptr。
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getNetAccessPolicy(): Promise<NetAccessPolicy>;
+
+  /**
    * Register uid policy change listener.
    * @permission ohos.permission.MANAGE_NET_STRATEGY
    * @param { 'netUidPolicyChange' } type - Indicates Event name.
@@ -649,7 +681,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register uid policy change listener.
@@ -681,7 +713,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister uid policy change listener.
@@ -713,7 +745,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Register uid rule change listener.
@@ -745,7 +777,7 @@ declare namespace policy {
    * @throws { BusinessError } 2100003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
-   * @since 10
+   * @since 10 dynamic
    */
   /**
    * Unregister uid rule change listener.
@@ -873,7 +905,7 @@ declare namespace policy {
   * @returns { Promise<void> } The promise returned by the function.
   * @syscap SystemCapability.Communication.NetManager.Core
   * @stagemodelonly
-  * @since 22 dynamic&static
+  * @since 22 dynamic
   */
   function showAppNetPolicySettings(context: Context): Promise<void>;
 
@@ -1293,6 +1325,32 @@ declare namespace policy {
     * @since 18 dynamic
     */
     alwaysAllowCellular?: boolean;
+  }
+
+  /**
+   * Network policies that limit the specified UID of application to access the network.
+   *
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface NetAccessPolicy {  
+    /**
+     * Indicate whether the application can be allowed to access the network by wifi.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    allowWiFi: boolean;
+    /**
+     * Indicate whether the application can be allowed to access the network by cellular.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    allowCellular: boolean;
   }
 
   /**

@@ -14,6 +14,15 @@
  */
 
 /**
+ * The module defines the bundle information, which can be obtained through 
+ * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
+ * .
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use 
+ * > [bundleManager-BundleInfo]{@link bundleInfo} instead.
+ *
  * @file
  * @kit AbilityKit
  */
@@ -23,289 +32,361 @@ import { ApplicationInfo } from './applicationInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
- * The scene which is used
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+ * > [UsedScene]{@link bundleInfo:UsedScene} instead.
  *
- * @typedef UsedScene
+ * Describes the application scenario and timing for using the permission.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.UsedScene
+ * @useinstead bundleInfo:UsedScene
  */
 export interface UsedScene {
   /**
-   * @type { Array<string> }
+   * Abilities that use the permission.
+   *
    * @default Indicates the abilities that need the permission
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.UsedScene#abilities
    */
   abilities: Array<string>;
 
   /**
-   * @type { string }
+   * Time when the permission is used.
+   *
    * @default Indicates the time when the permission is used
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.UsedScene#when
    */
   when: string;
 }
 
 /**
- * Indicates the required permissions details defined in file config.json
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+ * > [ReqPermissionDetail]{@link bundleInfo} instead.
  *
- * @typedef ReqPermissionDetail
+ * Provides the detailed information of the permissions to request from the system.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.ReqPermissionDetail
+ * @useinstead bundleInfo
  */
 export interface ReqPermissionDetail {
   /**
-   * @type { string }
+   * Name of the permission to request.
+   *
    * @default Indicates the name of this required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ReqPermissionDetail#name
    */
   name: string;
 
   /**
-   * @type { string }
+   * Reason for requesting the permission.
+   *
    * @default Indicates the reason of this required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ReqPermissionDetail#reason
    */
   reason: string;
 
   /**
-   * @type { UsedScene }
+   * Application scenario and timing for using the permission.
+   *
    * @default Indicates the used scene of this required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ReqPermissionDetail#usedScene
    */
   usedScene: UsedScene;
 }
 
 /**
- * Obtains configuration information about a bundle
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+ * > [bundleManager-BundleInfo]{@link bundleInfo:BundleInfo} instead.
  *
- * @typedef BundleInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.bundleManager.BundleInfo
+ * @useinstead bundleInfo:BundleInfo
  */
 export interface BundleInfo {
   /**
-   * @type { string }
+   * Bundle name.
+   *
    * @default Indicates the name of this bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#name
    */
   readonly name: string;
 
   /**
-   * @type { string }
+   * Bundle type.
+   *
    * @default Indicates the name of this original bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ApplicationInfo#bundleType
    */
   readonly type: string;
 
   /**
-   * @type { string }
+   * ID of the application to which the bundle belongs.
+   *
    * @default Indicates the ID of the application to which this bundle belongs
-   * The application ID uniquely identifies an application. It is determined by the bundle name and signature
+   *     The application ID uniquely identifies an application. It is determined by the bundle name and signature
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.SignatureInfo#appId
    */
   readonly appId: string;
 
   /**
-   * @type { number }
+   * UID of the application to which the bundle belongs.
+   *
    * @default Indicates the UID of the application to which this bundle belongs
-   * The UID uniquely identifies an application. It is determined by the process and user IDs of the application
-   * After an application is installed, its UID remains unchanged unless it is uninstalled and then reinstalled
+   *     The UID uniquely identifies an application. It is determined by the process and user IDs of the application
+   *     After an application is installed, its UID remains unchanged unless it is uninstalled and then reinstalled
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ApplicationInfo#uid
    */
   readonly uid: number;
 
   /**
-   * @type { number }
+   * Time when the HAP file was installed.
+   *
    * @default Indicates the hap install time
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#installTime
    */
   readonly installTime: number;
 
   /**
-   * @type { number }
+   * Time when the HAP file was updated.
+   *
    * @default Indicates the hap update time
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#updateTime
    */
   readonly updateTime: number;
 
   /**
-   * @type { ApplicationInfo }
+   * Application configuration information.
+   *
    * @default Obtains configuration information about an application
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#appInfo
    */
   readonly appInfo: ApplicationInfo;
 
   /**
-   * @type { Array<AbilityInfo> }
+   * Ability configuration information.
+   *
+   * The value is obtained by passing in GET_BUNDLE_WITH_ABILITIES to
+   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
+   * .
+   *
    * @default Obtains configuration information about an ability
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.HapModuleInfo#abilitiesInfo
    */
   readonly abilityInfos: Array<AbilityInfo>;
 
   /**
-   * @type { Array<string> }
+   * Permissions to request from the system for running the application.
+   *
+   * The value is obtained by passing in GET_BUNDLE_WITH_REQUESTED_PERMISSION to
+   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
+   * .
+   *
    * @default Indicates the required permissions name defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.ApplicationInfo#permissions
    */
   readonly reqPermissions: Array<string>;
 
   /**
-   * @type { Array<ReqPermissionDetail> }
+   * Detailed information of the permissions to request from the system.
+   *
+   * The value is obtained by passing in GET_BUNDLE_WITH_REQUESTED_PERMISSION to
+   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
+   * .
+   *
    * @default Indicates the required permissions details defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#reqPermissionDetails
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
   /**
-   * @type { string }
+   * Vendor of the bundle.
+   *
    * @default Describes the bundle vendor
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#vendor
    */
   readonly vendor: string;
 
   /**
-   * @type { number }
+   * Version number of the bundle.
+   *
    * @default Indicates the version number of the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#versionCode
    */
   readonly versionCode: number;
 
   /**
-   * @type { string }
+   * Version description of the bundle.
+   *
    * @default Indicates the text description of the bundle version
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#versionName
    */
   readonly versionName: string;
 
   /**
-   * @type { number }
+   * Earliest SDK version required for running the bundle.
+   *
    * @default Indicates the compatible version number of the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly compatibleVersion: number;
 
   /**
-   * @type { number }
+   * Latest SDK version required for running the bundle.
+   *
    * @default Indicates the target version number of the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#targetVersion
    */
   readonly targetVersion: number;
 
   /**
-   * @type { boolean }
+   * Whether the native libraries in the bundle are compressed. **true** if compressed, **false** otherwise.
+   *
    * @default Indicates is compress native libs
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly isCompressNativeLibs: boolean;
 
   /**
-   * @type { Array<HapModuleInfo> }
+   * Module configuration information.
+   *
    * @default Obtains configuration information about a module
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#hapModulesInfo
    */
   readonly hapModuleInfos: Array<HapModuleInfo>;
 
   /**
-   * @type { string }
+   * Name of the entry module.
+   *
    * @default Indicates entry module name
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly entryModuleName: string;
 
   /**
-   * @type { string }
+   * CPU and ABI information of the bundle.
+   *
    * @default Indicates the cpuAbi information of this bundle.
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly cpuAbi: string;
 
   /**
-   * @type { string }
+   * Whether the application can be installed in silent mode.
+   *
    * @default Indicates is silent installation
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly isSilentInstallation: string;
 
   /**
-   * @type { number }
+   * Earliest version compatible with the bundle in the distributed scenario.
+   *
    * @default Indicates the earliest historical version compatible with the bundle
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#minCompatibleVersionCode
    */
   readonly minCompatibleVersionCode: number;
 
   /**
-   * @type { boolean }
+   * Whether installation-free is supported for the entry module. **true** if supported, **false** otherwise.
+   *
    * @default Indicates whether free installation of the entry is supported
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly entryInstallationFree: boolean;
 
   /**
-   * @type { Array<number> }
+   * Permission grant state. The value **0** means that the request is successful, and **-1** means the opposite.
+   *
    * @default Indicates the grant status of required permissions
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager.BundleInfo#permissionGrantStates
    */
   readonly reqPermissionStates: Array<number>;
 }

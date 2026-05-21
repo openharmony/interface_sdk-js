@@ -251,7 +251,7 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the infomation of domain account.
+   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the information of domain account.
    * @param { DomainAccountPolicy } policy - policy indicates the domain account policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -270,7 +270,7 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    *                         The admin must have the corresponding permission.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the infomation of domain account.
+   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the information of domain account.
    * @returns { DomainAccountPolicy } the domain account policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.

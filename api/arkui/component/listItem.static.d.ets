@@ -18,70 +18,145 @@
  * @kit ArkUI
  */
 import { CommonMethod, Bindable } from './common';
-import { CustomBuilder } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { Length } from './units';
-import { ComponentContent } from '../ComponentContent';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentContent, ComponentContentBase } from '../ComponentContent';
+import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
+import { FrameNode } from '../FrameNode';
 /**
  * Sliding effect
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum SwipeEdgeEffect {
     /**
      * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     Spring,
     /**
      * Sliding to the edge has no effect.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     None
 }
 /**
  * Declare enum SwipeActionState.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum SwipeActionState {
     /**
      * Collapsed type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     COLLAPSED,
     /**
      * EXPANDED type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     EXPANDED,
     /**
      * Action type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     ACTIONING
 }
+
+/**
+ * Declare enum ListItemSwipeActionDirection.
+ *
+ * @enum { int }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ListItemSwipeActionDirection {
+    /**
+     * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
+     * When the List direction is horizontal, it indicates the top.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    START = 0,
+    /**
+     * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
+     * When the List direction is horizontal, it indicates the bottom.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    END = 1
+}
+
+/**
+ * The swipe action manager.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ListItemSwipeActionManager {
+    /**
+     * Expand the swipe action
+     *
+     * @param { FrameNode } node - The ListItem FrameNode.
+     * @param { ListItemSwipeActionDirection } direction- The direction to expand.
+     * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+     * @throws { BusinessError } 106203 - The node not mounted to component tree.
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
+
+    /**
+     * Collapse the swipe action
+     *
+     * @param { FrameNode } node - The ListItem FrameNode.
+     * @throws { BusinessError } 100023 - The component type of the node is incorrect.
+     * @throws { BusinessError } 106203 - The node not mounted to component tree.
+     * @static
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    static collapse(node: FrameNode): void;
+}
+
 /**
  * Defines the swipe action item for SwipeActionOptions.
  *
  * @interface SwipeActionItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface SwipeActionItem {
     /**
@@ -90,27 +165,28 @@ export declare interface SwipeActionItem {
      *
      * @type { ?CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     builder?: CustomBuilder;
     /**
       * An action item that appears when a list item slides right (when list direction is Vertical) or
       * slides down (when list direction Horizontal).
       *
-      * @type { ?ComponentContent }
+      * @type { ?ComponentContentBase }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @since 22 static
+      * @stagemodelonly
+      * @since 23 static
       */
-    builderComponent?: ComponentContent;
+    builderComponent?: ComponentContentBase;
     /**
      * Defines distance for the delete area.
      *
      * @type { ?Length }
      * @default 56vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     actionAreaDistance?: Length;
     /**
@@ -118,8 +194,8 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onAction?: () => void;
     /**
@@ -127,8 +203,8 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onEnterActionArea?: () => void;
     /**
@@ -136,8 +212,8 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onExitActionArea?: () => void;
     /**
@@ -145,8 +221,8 @@ export declare interface SwipeActionItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onStateChange?: (state: SwipeActionState) => void;
 }
@@ -155,7 +231,8 @@ export declare interface SwipeActionItem {
  *
  * @interface SwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface SwipeActionOptions {
     /**
@@ -164,7 +241,8 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?(CustomBuilder | SwipeActionItem) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     start?: CustomBuilder | SwipeActionItem;
     /**
@@ -173,7 +251,8 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?(CustomBuilder | SwipeActionItem) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     end?: CustomBuilder | SwipeActionItem;
     /**
@@ -181,7 +260,8 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?SwipeEdgeEffect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     edgeEffect?: SwipeEdgeEffect;
     /**
@@ -189,30 +269,34 @@ export declare interface SwipeActionOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    onOffsetChange?: (offset: number) => void;
+    onOffsetChange?: (offset: double) => void;
 }
 /**
  * Defines the list item style.
  *
- * @enum { number }
+ * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum ListItemStyle {
     /**
      * Show custom style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     NONE = 0,
     /**
      * Show default style.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     CARD = 1
 }
@@ -221,7 +305,8 @@ export declare enum ListItemStyle {
  *
  * @interface ListItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ListItemOptions {
     /**
@@ -229,7 +314,8 @@ export declare interface ListItemOptions {
      *
      * @type { ?ListItemStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     style?: ListItemStyle;
 }
@@ -240,7 +326,8 @@ export declare interface ListItemOptions {
  * @extends CommonMethod
  * @interface ListItemAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface ListItemAttribute extends CommonMethod {
     /**
@@ -249,7 +336,8 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectable(value: boolean | undefined): this;
     /**
@@ -259,7 +347,8 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { boolean | Bindable<boolean> | undefined } value - if the listItem is selected.
      * @returns { this } the attribute of the listItem.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selected(value: boolean | Bindable<boolean> | undefined): this;
     /**
@@ -268,7 +357,8 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { SwipeActionOptions | undefined } value - items defines in the SwipeActionOption.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default swipeAction(value: SwipeActionOptions | undefined): this;
     /**
@@ -277,7 +367,8 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { function | undefined } event
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
     /**
@@ -286,7 +377,8 @@ export declare interface ListItemAttribute extends CommonMethod {
      * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ListItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -295,15 +387,70 @@ export declare interface ListItemAttribute extends CommonMethod {
  * Defines ListItem Component.
  *
  * @param { ListItemOptions } [value]
- * @param { function } [content_]
+ * @param { CustomBuilder } [content_]
  * @returns { ListItemAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
-@memo
 @ComponentBuilder
 export declare function ListItem(
     value?: ListItemOptions, 
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ListItemAttribute
+
+/**
+ * Defines the Extendable ListItem.
+ *
+ * @implements ListItemAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableListItem implements ListItemAttribute {
+    /**
+     * Constructor of Extendable ListItem.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ListItemOptions } [value]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableListItem>(
+        factory: ConstructorT<T>, 
+        value?: ListItemOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable ListItem.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableListItem>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the ListItem Options.
+     *
+     * @param { ListItemOptions } [value]
+     * @returns { ExtendableListItem }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setListItemOptions(value?: ListItemOptions): this;
+}

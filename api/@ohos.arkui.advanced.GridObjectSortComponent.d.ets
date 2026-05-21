@@ -22,6 +22,7 @@
  * Controls the style types of GridObjectSortComponent.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -29,20 +30,24 @@
  * Controls the style types of GridObjectSortComponent.
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop 
  */
 export declare enum GridObjectSortComponentType {
   /**
    * The GridObjectSortComponent image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
    /**
    * The GridObjectSortComponent image text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -52,12 +57,14 @@ export declare enum GridObjectSortComponentType {
   /**
    * The GridObjectSortComponent text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
    /**
    * The GridObjectSortComponent text type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -67,24 +74,26 @@ export declare enum GridObjectSortComponentType {
 
 /**
  * Declaration of the GridObjectSortComponent item.
- * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
  /**
  * Declaration of the GridObjectSortComponent item.
- * @interface GridObjectSortComponentIteml
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 export interface GridObjectSortComponentItem {
   /**
    * id of GridObjectSortComponent item.
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -92,6 +101,7 @@ export interface GridObjectSortComponentItem {
    * id of GridObjectSortComponent item.
    * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -102,6 +112,7 @@ export interface GridObjectSortComponentItem {
    * GridObjectSortComponent item text.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -109,6 +120,7 @@ export interface GridObjectSortComponentItem {
    * GridObjectSortComponent item text.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -119,6 +131,7 @@ export interface GridObjectSortComponentItem {
    * selected of GridObjectSortComponent item, true is show area, false is add area.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -126,6 +139,7 @@ export interface GridObjectSortComponentItem {
    * selected of GridObjectSortComponent item, true is show area, false is add area.
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -136,6 +150,7 @@ export interface GridObjectSortComponentItem {
    * order of GridObjectSortComponentItem, Used for sorting dataList.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -143,6 +158,7 @@ export interface GridObjectSortComponentItem {
    * order of GridObjectSortComponentItem, Used for sorting dataList.
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -153,6 +169,7 @@ export interface GridObjectSortComponentItem {
    * image resource path of the GridObjectSortComponent item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -160,6 +177,7 @@ export interface GridObjectSortComponentItem {
    * image resource path of the GridObjectSortComponent item.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -170,13 +188,15 @@ export interface GridObjectSortComponentItem {
    * symbol of the GridObjectSortComponent item.
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
   /**
    * symbol of the GridObjectSortComponent item.
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -188,6 +208,7 @@ export interface GridObjectSortComponentItem {
  * GridObjectSortComponentOptions of GridObjectSortComponent.
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -195,9 +216,11 @@ export interface GridObjectSortComponentItem {
  * GridObjectSortComponentOptions of GridObjectSortComponent.
  * @interface GridEditOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 export interface GridObjectSortComponentOptions {
   /**
@@ -205,6 +228,7 @@ export interface GridObjectSortComponentOptions {
    * @type { GridObjectSortComponentType }
    * @default GridObjectSortComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -213,6 +237,7 @@ export interface GridObjectSortComponentOptions {
    * @type { GridObjectSortComponentType }
    * @default GridObjectSortComponentType.TEXT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -223,6 +248,7 @@ export interface GridObjectSortComponentOptions {
    * The size of the GridObjectSortComponent image.
    * @type { ?number | ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -230,6 +256,7 @@ export interface GridObjectSortComponentOptions {
    * The size of the GridObjectSortComponent image.
    * @type { ?number | ?Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -240,6 +267,7 @@ export interface GridObjectSortComponentOptions {
    * The title displayed in the unedited state of the  GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -247,6 +275,7 @@ export interface GridObjectSortComponentOptions {
    * The title displayed in the unedited state of the  GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -257,6 +286,7 @@ export interface GridObjectSortComponentOptions {
    * The title displayed in the GridObjectSortComponent edit state.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -264,6 +294,7 @@ export interface GridObjectSortComponentOptions {
    * The title displayed in the GridObjectSortComponent edit state.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -274,6 +305,7 @@ export interface GridObjectSortComponentOptions {
    * Display Area Title, First subtitle of the GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -281,6 +313,7 @@ export interface GridObjectSortComponentOptions {
    * Display Area Title, First subtitle of the GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -291,6 +324,7 @@ export interface GridObjectSortComponentOptions {
    * Add Zone Title, second subtitle of the GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -298,6 +332,7 @@ export interface GridObjectSortComponentOptions {
    * Add Zone Title, second subtitle of the GridObjectSortComponent.
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -309,6 +344,7 @@ export interface GridObjectSortComponentOptions {
  * Declare struct GridObjectSortComponent.
  * @struct { GridObjectSortComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -316,9 +352,11 @@ export interface GridObjectSortComponentOptions {
  * Declare struct GridObjectSortComponent.
  * @struct { GridObjectSortComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 @Component
 export declare struct GridObjectSortComponent {
@@ -326,6 +364,7 @@ export declare struct GridObjectSortComponent {
    * Component types and parameters of the GridObjectSortComponent.
    * @type { GridObjectSortComponentOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -333,6 +372,7 @@ export declare struct GridObjectSortComponent {
    * Component types and parameters of the GridObjectSortComponent.
    * @type { GridObjectSortComponentOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -344,6 +384,7 @@ export declare struct GridObjectSortComponent {
    * Data list of GridObjectSortComponent.
    * @type { Array<GridObjectSortComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -351,6 +392,7 @@ export declare struct GridObjectSortComponent {
    * Data list of GridObjectSortComponent.
    * @type { Array<GridObjectSortComponentItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -361,6 +403,7 @@ export declare struct GridObjectSortComponent {
    * Callback when Obtain edited data.
    * @type { (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -368,6 +411,7 @@ export declare struct GridObjectSortComponent {
    * Callback when Obtain edited data.
    * @type { (select: Array<GridObjectSortComponentItem>, unselect: Array<GridObjectSortComponentItem>) => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -378,6 +422,7 @@ export declare struct GridObjectSortComponent {
    * Cancel callback for saving data.
    * @type { () => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -385,6 +430,7 @@ export declare struct GridObjectSortComponent {
    * Cancel callback for saving data.
    * @type { () => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -394,12 +440,14 @@ export declare struct GridObjectSortComponent {
   /**
    * Build function of GridObjectSortComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
    /**
    * Build function of GridObjectSortComponent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

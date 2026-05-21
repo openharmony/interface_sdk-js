@@ -46,6 +46,7 @@
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -77,6 +78,7 @@ declare enum ButtonType {
    * Capsule button (rounded corners default to half the height).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -109,6 +111,7 @@ declare enum ButtonType {
    * Round buttons.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -141,6 +144,7 @@ declare enum ButtonType {
    * Common button (no rounded corners by default).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -152,6 +156,7 @@ declare enum ButtonType {
    * Rounded rectangle button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -165,6 +170,7 @@ declare enum ButtonType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 11
@@ -174,6 +180,7 @@ declare enum ButtonType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -184,6 +191,7 @@ declare enum ButtonStyleMode {
      * Normal button (with normal background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @since 11
@@ -192,6 +200,7 @@ declare enum ButtonStyleMode {
      * Normal button (with normal background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -202,6 +211,7 @@ declare enum ButtonStyleMode {
      * Emphasized button (with emphasized background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @since 11
@@ -210,6 +220,7 @@ declare enum ButtonStyleMode {
      * Emphasized button (with emphasized background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -220,6 +231,7 @@ declare enum ButtonStyleMode {
      * Textual button (with none background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @since 11
@@ -228,6 +240,7 @@ declare enum ButtonStyleMode {
      * Textual button (with none background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -241,6 +254,7 @@ declare enum ButtonStyleMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -251,6 +265,7 @@ declare enum ButtonRole {
      * Normal button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -261,6 +276,7 @@ declare enum ButtonRole {
      * Error button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -276,6 +292,7 @@ declare enum ButtonRole {
  * @param { number } xPos - The value of xPos is x coordinate.
  * @param { number } yPos - The value of yPos is y coordinate.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -288,6 +305,7 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
  * @extends CommonConfiguration<ButtonConfiguration>
  * @interface ButtonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -299,6 +317,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -309,6 +328,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -319,6 +339,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      *
      * @type { ButtonTriggerClickCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -331,6 +352,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @since 11
@@ -340,6 +362,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
  *
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
@@ -350,6 +373,7 @@ declare enum ControlSize {
      * The component size is small.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @since 11
@@ -358,6 +382,7 @@ declare enum ControlSize {
      * The component size is small.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -368,6 +393,7 @@ declare enum ControlSize {
      * The component size is normal.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @since 11
@@ -376,6 +402,7 @@ declare enum ControlSize {
      * The component size is normal.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -413,6 +440,7 @@ declare enum ControlSize {
  *
  * @interface ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -420,14 +448,14 @@ declare enum ControlSize {
  */
 declare interface ButtonOptions {
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 7
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -435,7 +463,7 @@ declare interface ButtonOptions {
      * @since 9
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -444,10 +472,11 @@ declare interface ButtonOptions {
      * @since 10
      */
     /**
-     * Describes the button style.
+     * Defines the button type.
      *
      * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @form
      * @atomicservice
@@ -483,6 +512,7 @@ declare interface ButtonOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @form
      * @atomicservice
@@ -495,6 +525,7 @@ declare interface ButtonOptions {
      * @type { ?ButtonStyleMode }
      * @default ButtonStyleMode.EMPHASIZED
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @since 11
@@ -505,6 +536,7 @@ declare interface ButtonOptions {
      * @type { ?ButtonStyleMode }
      * @default ButtonStyleMode.EMPHASIZED
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -517,6 +549,7 @@ declare interface ButtonOptions {
      * @type { ?ControlSize }
      * @default ControlSize.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @since 11
@@ -527,6 +560,7 @@ declare interface ButtonOptions {
      * @type { ?ControlSize }
      * @default ControlSize.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -539,6 +573,7 @@ declare interface ButtonOptions {
      * @type { ?ButtonRole }
      * @default ButtonRole.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @form
      * @atomicservice
@@ -576,6 +611,7 @@ declare interface ButtonOptions {
  *
  * @interface ButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -611,6 +647,7 @@ interface ButtonInterface {
      *
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @form
      * @atomicservice
@@ -650,6 +687,7 @@ interface ButtonInterface {
      * @param { ButtonOptions } options
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @form
      * @atomicservice
@@ -693,6 +731,7 @@ interface ButtonInterface {
      * @param { ButtonOptions } options
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @FaAndStageModel
      * @crossplatform
      * @form
      * @atomicservice
@@ -706,6 +745,7 @@ interface ButtonInterface {
  *
  * @interface LabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -714,6 +754,7 @@ interface ButtonInterface {
  *
  * @interface LabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -724,6 +765,7 @@ declare interface LabelStyle {
      *
      * @type { ?TextOverflow }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -732,6 +774,7 @@ declare interface LabelStyle {
      *
      * @type { ?TextOverflow }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -742,6 +785,7 @@ declare interface LabelStyle {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -750,6 +794,7 @@ declare interface LabelStyle {
      *
      * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -760,6 +805,7 @@ declare interface LabelStyle {
      *
      * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -768,6 +814,7 @@ declare interface LabelStyle {
      *
      * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -778,6 +825,7 @@ declare interface LabelStyle {
      *
      * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -786,6 +834,7 @@ declare interface LabelStyle {
      *
      * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -796,6 +845,7 @@ declare interface LabelStyle {
      *
      * @type { ?TextHeightAdaptivePolicy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -804,6 +854,7 @@ declare interface LabelStyle {
      *
      * @type { ?TextHeightAdaptivePolicy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
@@ -814,6 +865,7 @@ declare interface LabelStyle {
      *
      * @type { ?Font }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @since 10
      */
@@ -822,11 +874,26 @@ declare interface LabelStyle {
      *
      * @type { ?Font }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 11 dynamic
      */
     font?: Font;
+    /**
+     * Set the horizontal center mode of the content.
+     *
+     * Device Behavior Differences:Default value is TextAlign.Start.
+     * The default value on wearable devices is TextAlign.Center.
+     *
+     * @type { ?TextAlign }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 23 dynamic
+     */
+    textAlign?: TextAlign;
 }
 /**
  * Defines the button attribute functions.
@@ -857,6 +924,7 @@ declare interface LabelStyle {
  *
  * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -896,6 +964,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ButtonType } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -936,6 +1005,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { boolean } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -949,6 +1019,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ButtonStyleMode } value - button style mode
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -959,6 +1030,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ButtonStyleMode } value - button style mode
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -972,6 +1044,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ControlSize } value - control size
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @since 11
@@ -982,6 +1055,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ControlSize } value - control size
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
@@ -995,6 +1069,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ButtonRole } value - button role
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice 
@@ -1035,6 +1110,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ResourceColor } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1075,6 +1151,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { Length } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1115,6 +1192,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { number | FontWeight | string } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1155,6 +1233,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { FontStyle } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1195,6 +1274,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { string | Resource } value
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
@@ -1208,6 +1288,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { ContentModifier<ButtonConfiguration> } modifier - The content modifier of button.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1220,6 +1301,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { LabelStyle } value - The label style configuration on button.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1229,6 +1311,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { LabelStyle } value - The label style configuration on button.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1241,6 +1324,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { number | Resource } scale
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -1250,6 +1334,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { number | Resource } scale
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1262,6 +1347,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { number | Resource  } scale
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -1271,6 +1357,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @param { number | Resource  } scale
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1303,6 +1390,7 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
  * Defines Button Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice
@@ -1335,6 +1423,7 @@ declare const Button: ButtonInterface;
  * Defines Button Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @form
  * @atomicservice

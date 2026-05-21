@@ -18,47 +18,26 @@
  * @kit AbilityKit
  */
 
-/*** if arkts dynamic */
 import type AppStateData from './AppStateData';
-/*** endif */
-/*** if arkts static */
-import AppStateData from './AppStateData';
-/*** endif */
 
-/*** if arkts dynamic */
 /**
- * The app foreground state observer.
+ * The module defines the listener used to listen for application startup and exit state changes. It can be used as an 
+ * input parameter of 
+ * [appManager.on('appForegroundState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'appForegroundState', observer: AppForegroundStateObserver)}
+ * to listen for the state changes of all applications.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
  * @since 11 dynamic
  */
 export default class AppForegroundStateObserver {
-/*** endif */
-
-/*** if arkts static */
-/**
- * The app foreground state observer.
- *
- * @typedef AppForegroundStateObserver
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @systemapi
- * @since 22 static
- */
-declare interface AppForegroundStateObserver {
-/*** endif */
   /**
-   * Will be called when foreground or background application changed.
+   * Called when the application launch or exit state changes.
    *
-   * @param { AppStateData } appStateData - State changed application info.
+   * @param { AppStateData } appStateData - Application state data.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
    */
   onAppStateChanged(appStateData: AppStateData): void;
 }
-
-/*** if arkts static */
-export default AppForegroundStateObserver;
-/*** endif */

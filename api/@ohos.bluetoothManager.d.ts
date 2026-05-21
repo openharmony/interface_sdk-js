@@ -25,7 +25,7 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  *
  * @namespace bluetoothManager
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 9 dynamic
+ * @since 9 dynamiconly
  * @deprecated since 10
  */
 declare namespace bluetoothManager {
@@ -1106,7 +1106,7 @@ declare namespace bluetoothManager {
    * <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9 dynamic
+   * @since 9 dynamiconly
    * @deprecated since 10
    */
   function getProfileInstance(

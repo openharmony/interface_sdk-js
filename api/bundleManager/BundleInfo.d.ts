@@ -45,7 +45,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BundleInfo {
   /**
@@ -74,7 +74,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly name: string;
 
@@ -104,7 +104,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly vendor: string;
 
@@ -134,7 +134,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionCode: long;
 
@@ -164,7 +164,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionName: string;
 
@@ -194,7 +194,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly minCompatibleVersionCode: int;
 
@@ -224,7 +224,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly targetVersion: int;
 
@@ -264,9 +264,10 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   readonly appInfo: ApplicationInfo | null;
+
 
   /**
    * Obtains configuration information about a module
@@ -294,7 +295,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly hapModulesInfo: Array<HapModuleInfo>;
 
@@ -324,7 +325,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly reqPermissionDetails: Array<ReqPermissionDetail>;
 
@@ -354,7 +355,7 @@ export interface BundleInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly permissionGrantStates: Array<bundleManager.PermissionGrantState>;
 
@@ -394,7 +395,7 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
   readonly signatureInfo: SignatureInfo | null;
 
@@ -414,7 +415,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly installTime: long;
 
@@ -434,7 +435,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly updateTime: long;
 
@@ -446,7 +447,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly routerMap: Array<RouterItem>;
 
@@ -457,7 +458,7 @@ export interface BundleInfo {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 
@@ -469,9 +470,21 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly firstInstallTime?: long;
+
+  /**
+   * Indicates the build version of the bundle
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic&static
+   */
+  readonly buildVersion?: string;
 }
 
 /**
@@ -497,7 +510,7 @@ export interface BundleInfo {
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface ReqPermissionDetail {
   /**
@@ -523,7 +536,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   name: string;
 
@@ -541,7 +554,7 @@ export interface ReqPermissionDetail {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   moduleName: string;
 
@@ -568,7 +581,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   reason: string;
 
@@ -595,7 +608,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   reasonId: long;
 
@@ -622,7 +635,7 @@ export interface ReqPermissionDetail {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   usedScene: UsedScene;
 }
@@ -650,7 +663,7 @@ export interface ReqPermissionDetail {
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface UsedScene {
   /**
@@ -676,7 +689,7 @@ export interface UsedScene {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   abilities: Array<string>;
 
@@ -703,7 +716,7 @@ export interface UsedScene {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   when: string;
 }
@@ -731,7 +744,7 @@ export interface UsedScene {
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface SignatureInfo {
   /**
@@ -763,7 +776,7 @@ export interface SignatureInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appId: string;
 
@@ -793,7 +806,7 @@ export interface SignatureInfo {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly fingerprint: string;
 
@@ -807,7 +820,7 @@ export interface SignatureInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIdentifier: string;
 
@@ -819,7 +832,7 @@ export interface SignatureInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly certificate?: string;
 }
@@ -830,7 +843,7 @@ export interface SignatureInfo {
  * @typedef AppCloneIdentity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 14 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AppCloneIdentity {
   /**
@@ -840,7 +853,7 @@ export interface AppCloneIdentity {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
   /**
@@ -850,7 +863,7 @@ export interface AppCloneIdentity {
    * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 14 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 }
@@ -862,7 +875,7 @@ export interface AppCloneIdentity {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 20 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface DynamicIconInfo {
   /**
@@ -873,7 +886,7 @@ export interface DynamicIconInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
@@ -885,7 +898,7 @@ export interface DynamicIconInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
@@ -897,7 +910,7 @@ export interface DynamicIconInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly userId: int;
 
@@ -909,29 +922,74 @@ export interface DynamicIconInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 }
 
 /**
-  * The bundle options of bundle manager
-  * 
-  * @typedef BundleOptions
-  * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @systemapi
-  * @since 20 dynamic
-  * @since 22 static
-  */
+ * Alternate icon information configured by the application.
+ *
+ * @typedef AlternateIconInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface AlternateIconInfo {
+  /**
+   * Indicates the name of the alternate icon.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly iconName: string;
+
+  /**
+   * Indicates the id of the alternate icon.
+   *
+   * @type { long }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly iconId: long;
+
+  /**
+   * Whether the alternate icon is currently in use.
+   * true: Indicates the icon is currently in use.
+   * false: Indicates the icon is not currently in use.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly enabled: boolean;
+}
+
+/**
+ * The bundle options of bundle manager
+ *
+ * @typedef BundleOptions
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 20 dynamic
+ * @since 23 static
+ */
 export interface BundleOptions {
-    /**
+  /**
    * Indicates the user id.
    *
    * @type { ?int }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   userId?: int;
 
@@ -942,7 +1000,40 @@ export interface BundleOptions {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   appIndex?: int;
+
+  /**
+   * Indicates bundle name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  bundleName?: string;
+
+  /**
+   * Indicates module name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  moduleName?: string;
+
+  /**
+   * Indicates ability name
+   *
+   * @type { ?string }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic&static
+   */
+  abilityName?: string;
 }

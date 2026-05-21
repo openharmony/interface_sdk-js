@@ -21,43 +21,55 @@
 import { ElementName } from './elementName';
 
 /**
- * Contains basic remote ability information.
+ * The module provides information about a remote ability.
  *
- * @typedef RemoteAbilityInfo
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use
+ * > [bundleManager-RemoteAbilityInfo]{@link remoteAbilityInfo:RemoteAbilityInfo} instead.
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.distributedBundleManager.RemoteAbilityInfo
+ * @useinstead remoteAbilityInfo:RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
   /**
-   * @type { ElementName }
+   * Element name information of the ability.
+   *
    * @default Indicates the ability information
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.distributedBundleManager/distributedBundleManager.RemoteAbilityInfo#elementName
    */
   readonly elementName: ElementName;
 
   /**
-   * @type { string }
+   * Ability name.
+   *
    * @default Indicates the label of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.distributedBundleManager/distributedBundleManager.RemoteAbilityInfo#label
    */
   readonly label: string;
 
   /**
-   * @type { string }
+   * Icon of the ability.
+   *
    * @default Indicates the icon of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.distributedBundleManager/distributedBundleManager.RemoteAbilityInfo#icon
    */
   readonly icon: string;
 }

@@ -28,7 +28,8 @@ import { ListItemGroupAttribute } from '@ohos.arkui.component';
  *
  * @implements { ListItemGroupAttribute, AttributeModifier<ListItemGroupAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class ListItemGroupModifier
     implements

@@ -23,146 +23,174 @@ import { BundleInfo } from './bundleManager/BundleInfo';
 import { ElementName } from './bundleManager/ElementName';
 
 /**
- * Default application manager.
+ * The module provides APIs to query whether the current application is the default application of a specific type.
  *
- * @namespace defaultAppManager
  * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace defaultAppManager {
   /**
-   * The constant for application type.
+   * Enumerates the default application types.
    *
-   * @enum { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export enum ApplicationType {
     /**
-     * Default browser identifier.
+     * Default browser.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    BROWSER = 'Web Browser',
+    BROWSER = "Web Browser",
     /**
-     * Default image identifier.
+     * Default image viewer.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    IMAGE = 'Image Gallery',
+    IMAGE = "Image Gallery",
     /**
-     * Default audio identifier.
+     * Default audio player.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    AUDIO = 'Audio Player',
+    AUDIO = "Audio Player",
     /**
-     * Default video identifier.
+     * Default video player.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    VIDEO = 'Video Player',
+    VIDEO = "Video Player",
     /**
-     * Default PDF identifier.
+     * Default PDF reader.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    PDF = 'PDF Viewer',
+    PDF = "PDF Viewer",
     /**
-     * Default word identifier.
+     * Default Word viewer.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    WORD = 'Word Viewer',
+    WORD = "Word Viewer",
     /**
-     * Default excel identifier.
+     * Default Excel viewer.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    EXCEL = 'Excel Viewer',
+    EXCEL = "Excel Viewer",
     /**
-     * Default PPT identifier.
+     * Default PowerPoint viewer.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
-    PPT = 'PPT Viewer',
+    PPT = "PPT Viewer",
     /**
-     * Default email identifier.
+     * Default email.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     EMAIL = 'Email'
   }
 
   /**
-   * Query whether the caller is default application based on type.
+   * Checks whether this application is the default application of a system-defined application type or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { AsyncCallback<boolean> } callback - The callback of querying default application result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link defaultAppManager.ApplicationType} or
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { AsyncCallback<boolean> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
+   *     If the operation is successful, **err** is **null** and **data** is a Boolean value (**true** if the
+   *     application is the default application, **false** otherwise). If the operation fails, **err** is an error
+   *     object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function isDefaultApplication(type: string, callback: AsyncCallback<boolean>): void;
+  function isDefaultApplication(type: string, callback: AsyncCallback<boolean>) : void;
 
   /**
-   * Query whether the caller is default application based on type.
+   * Checks whether this application is the default application of a system-defined application type or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses a promise to
+   * return the result.
    *
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @returns { Promise<boolean> } Return true if caller is default application; return false otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link defaultAppManager.ApplicationType} or
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @returns { Promise<boolean> } Promise used to return the result, indicating whether the application is the default
+   *     application. **true** if the application is the default application, **false** otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function isDefaultApplication(type: string): Promise<boolean>;
+  function isDefaultApplication(type: string) : Promise<boolean>;
 
   /**
-   * Query whether the caller is default application based on type.
+   * Checks whether this application is the default application of a system-defined application type or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API returns the result
+   * synchronously.
    *
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @returns { boolean } Return true if caller is default application; return false otherwise.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link defaultAppManager.ApplicationType} or
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @returns { boolean } Returns **true** if the application is the default application; returns **false** otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function isDefaultApplicationSync(type: string): boolean;
 
   /**
-   * Get default application based on type.
+   * Obtains the default application based on a system-defined application type, a file type that complies with the
+   * media type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
-   * @param { AsyncCallback<BundleInfo> } callback - The callback of the BundleInfo object result.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @param { AsyncCallback<BundleInfo> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the
+   *     result. If the information is successfully obtained, **err** is **null** and **data** is the application
+   *     information. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700023 - The specified default app does not exist.
@@ -170,39 +198,57 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function getDefaultApplication(type: string, userId: int, callback: AsyncCallback<BundleInfo>): void;
+  function getDefaultApplication(type: string, userId: int, callback: AsyncCallback<BundleInfo>) : void;
 
   /**
-   * Get default application based on type.
+   * Obtains the default application based on a system-defined application type, a file type that complies with the
+   * media type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { AsyncCallback<BundleInfo> } callback - The callback of the BundleInfo object result.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { AsyncCallback<BundleInfo> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the
+   *     result. If the information is successfully obtained, **err** is **null** and **data** is the application
+   *     information. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700023 - The specified default app does not exist.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>): void;
+  function getDefaultApplication(type: string, callback: AsyncCallback<BundleInfo>) : void;
 
   /**
-   * Get default application based on type.
+   * Obtains the default application based on a system-defined application type, a file type that complies with the
+   * media type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
-   * @returns { Promise<BundleInfo> } Return the BundleInfo object.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     . The default value is the user ID of the caller.
+   * @returns { Promise<BundleInfo> } Promise used to return the default application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700023 - The specified default app does not exist.
@@ -210,20 +256,29 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function getDefaultApplication(type: string, userId?: int): Promise<BundleInfo>;
+  function getDefaultApplication(type: string, userId?: int) : Promise<BundleInfo>;
 
   /**
-   * Get default application based on type.
+   * Obtains the default application based on a system-defined application type, a file type that complies with the
+   * media type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API returns the result
+   * synchronously.
    *
    * @permission ohos.permission.GET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
-   * @returns { BundleInfo } Return the BundleInfo object.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     . The default value is the user ID of the caller.
+   * @returns { BundleInfo } Bundle information of the default application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700023 - The specified default app does not exist.
@@ -231,21 +286,31 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDefaultApplicationSync(type: string, userId?: int): BundleInfo;
 
   /**
-   * Set default application based on type.
+   * Sets the default application for a user based on a system-defined application type, a file type that complies with
+   * the media type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { int } userId - Indicates the id for the user.
-   * @param { AsyncCallback<void> } callback - The callback of setting default application result.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { ElementName } elementName - Information about the element to be set as the default application.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**. otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
@@ -253,42 +318,58 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function setDefaultApplication(type: string,
-    elementName: ElementName, userId: int, callback: AsyncCallback<void>): void;
+  function setDefaultApplication(type: string, elementName: ElementName, userId: int, callback: AsyncCallback<void>) : void;
 
   /**
-   * Set default application based on type.
+   * Sets the default application based on a system-defined application type, a file type that complies with the media
+   * type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { AsyncCallback<void> } callback - The callback of setting default application result.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { ElementName } elementName - Information about the element to be set as the default application.
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**. otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>): void;
+  function setDefaultApplication(type: string, elementName: ElementName, callback: AsyncCallback<void>) : void;
 
   /**
-   * Set default application based on type.
+   * Sets the default application based on a system-defined application type, a file type that complies with the media
+   * type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { int } userId - Indicates the id for the user.
-   * @returns { Promise<void> } The result of setting default application.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { ElementName } elementName - Information about the element to be set as the default application.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     . The default value is the user ID of the caller.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
@@ -296,20 +377,29 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function setDefaultApplication(type: string, elementName: ElementName, userId?: int): Promise<void>;
+  function setDefaultApplication(type: string, elementName: ElementName, userId?: int) : Promise<void>;
 
   /**
-   * Set default application based on type.
+   * Sets the default application based on a system-defined application type, a file type that complies with the media
+   * type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API returns the result
+   * synchronously.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { ElementName } elementName - Uniquely identifies an ability or extensionAbility.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { ElementName } elementName - Information about the element to be set as the default application.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     . The default value is the user ID of the caller.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
@@ -317,84 +407,149 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setDefaultApplicationSync(type: string, elementName: ElementName, userId?: int): void;
 
   /**
-   * Reset default application based on type.
+   * Sets an application clone as the default application of the specified type. This API returns the result
+   * synchronously.
+   *
+   * @permission ohos.permission.SET_DEFAULT_APPLICATION or
+   *     (ohos.permission.SET_DEFAULT_APPLICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } type - Type of the application. The value can be a value of
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType},
+   *     [MIMEType](docroot://database/uniform-data-type-list.md#generic-utds), or
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
+   * @param { ElementName } elementName - Element information of the application. Only **bundleName**, **abilityName**,
+   *     and **moduleName** are used, and the three properties must be set.
+   * @param { int } appIndex - Index of the application clone.<br>The options include 1, 2, 3, 4, and 5.
+   * @param { int } [userId] - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .<br>The default value is the user ID of the caller.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
+   * @throws { BusinessError } 17700025 - The specified type is invalid.
+   * @throws { BusinessError } 17700028 - The specified ability and type do not match.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function setDefaultApplicationForAppClone(type: string, elementName: ElementName, appIndex: int, userId?: int): void;
+
+  /**
+   * Resets the default application for a user based on a system-defined application type, a file type that complies
+   * with the media type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
-   * @param { AsyncCallback<void> } callback - The callback of resetting default application result.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     .
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**. otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function resetDefaultApplication(type: string, userId: int, callback: AsyncCallback<void>): void;
+  function resetDefaultApplication(type: string, userId: int, callback: AsyncCallback<void>) : void;
 
   /**
-   * Reset default application based on type.
+   * Resets the default application based on a system-defined application type, a file type that complies with the media
+   * type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { AsyncCallback<void> } callback - The callback of resetting default application result.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
+   *     the operation is successful, **err** is **null**. otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function resetDefaultApplication(type: string, callback: AsyncCallback<void>): void;
+  function resetDefaultApplication(type: string, callback: AsyncCallback<void>) : void;
 
   /**
-   * Reset default application based on type.
+   * Resets the default application based on a system-defined application type, a file type that complies with the media
+   * type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
-   * @returns { Promise<void> } The result of resetting default application.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     . The default value is the user ID of the caller.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  function resetDefaultApplication(type: string, userId?: int): Promise<void>;
+  function resetDefaultApplication(type: string, userId?: int) : Promise<void>;
 
   /**
-   * Reset default application based on type.
+   * Resets the default application based on a system-defined application type, a file type that complies with the media
+   * type format (either specified by **type** or **subtype**), or a
+   * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API returns the result
+   * synchronously.
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
-   * @param { string } type - Application type or a file type that conforms to media type format.
-   * @param { int } userId - Indicates the id for the user.
+   * @param { string } type - Type of the target application. It must be set to a value defined by
+   *     [ApplicationType]{@link @ohos.bundle.defaultAppManager:defaultAppManager.ApplicationType}, a file type that
+   *     complies with the media type format, or a value defined by
+   *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     . The default value is the user ID of the caller.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function resetDefaultApplicationSync(type: string, userId?: int): void;
 }

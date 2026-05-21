@@ -17,14 +17,15 @@
  * @kit ArkUI
  */
 import { Dimension } from './units';
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Provides an interface for the style of a divider including start margin and end margin
  *
  * @interface ColumnSplitDividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export interface ColumnSplitDividerStyle {
     /**
@@ -33,7 +34,8 @@ export interface ColumnSplitDividerStyle {
      * @type { ?Dimension }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     startMargin?: Dimension;
     /**
@@ -42,7 +44,8 @@ export interface ColumnSplitDividerStyle {
      * @type { ?Dimension }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     endMargin?: Dimension;
 }
@@ -53,35 +56,48 @@ export interface ColumnSplitDividerStyle {
  * @extends CommonMethod
  * @interface ColumnSplitAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare interface ColumnSplitAttribute extends CommonMethod {
     /**
      * Indicates whether the split line can be dragged. The default value is false.
      *
-     * @param { boolean } value
+     * @param { boolean | undefined } value
      * @returns { ColumnSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default resizeable(value: boolean | undefined): this;
     /**
      * Called when the ColumnSplit split line style is set.
-     * @param { ColumnSplitDividerStyle | null } value - indicates the style of the indicator.
+     * @param { ColumnSplitDividerStyle | null | undefined } value - indicates the style of the indicator.
      * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
      * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default divider(value: ColumnSplitDividerStyle | null | undefined): this;
+    /**
+ 	 * Set ColumnSplit options.
+ 	 *
+     * @returns { ColumnSplitAttribute }
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setColumnSplitOptions(): this;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<ColumnSplitAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { ColumnSplitAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ColumnSplitAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
@@ -90,16 +106,32 @@ export declare interface ColumnSplitAttribute extends CommonMethod {
 /**
  * Defines ColumnSplit Component.
  *
- * @param { function } [content_] - container
+ * @param { CustomBuilder } [content_] - container
  * @returns { ColumnSplitAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function ColumnSplit(
     
-    @memo
-    content_?: () => void,
+    content_?: CustomBuilder,
 ): ColumnSplitAttribute
+
+/**
+ * Defines ColumnSplit Component.
+ *
+ * @param { CustomBuilderT<ColumnSplitAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ColumnSplitAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ColumnSplit(
+    style: CustomBuilderT<ColumnSplitAttribute>,
+    content_?: CustomBuilder,
+): ColumnSplitAttribute;

@@ -19,127 +19,78 @@
  */
 
 /**
- * Contains basic Ability information, which uniquely identifies an ability.
- * You can use this class to obtain values of the fields set in an element,
- * such as the device ID, bundle name, and ability name.
+ * A structured identifier for an application component, containing fields such as **bundleName**, **moduleName**, and
+ * **abilityName**. It is usually used in
+ * [AbilityRunningInfo.ability]{@link ./../application/AbilityRunningInfo:AbilityRunningInfo} for component launch
+ * information and in the
+ * [connectOptions.onConnect]{@link ./../ability/connectOptions:ConnectOptions.onConnect(elementName: ElementName, remote: rpc.IRemoteObject)}
+ * callback for component connection.
  *
- * @typedef ElementName
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @since 9
- */
-/**
- * Contains basic Ability information, which uniquely identifies an ability.
- * You can use this class to obtain values of the fields set in an element,
- * such as the device ID, bundle name, and ability name.
- *
- * @typedef ElementName
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @atomicservice
- * @since 11 dynamic
- * @since 22 static
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @since 23 static
  */
 export interface ElementName {
   /**
-   * Indicates device id
+   * Device ID.
    *
-   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates device id
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   deviceId?: string;
 
   /**
-   * @type { string }
+   * Bundle name.
+   *
    * @default Indicates bundle name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * @type { string }
-   * @default Indicates bundle name
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   bundleName: string;
 
   /**
-   * @type { ?string }
+   * Module name of the HAP file to which the ability belongs.
+   *
    * @default Indicates module name
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * @type { ?string }
-   * @default Indicates module name
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   moduleName?: string;
 
   /**
-   * Indicates ability name
+   * Name of the ability.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates ability name
-   *
-   * @type { string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   abilityName: string;
 
   /**
-   * Indicates uri
+   * Resource ID.
    *
-   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates uri
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   uri?: string;
 
   /**
-   * Indicates short name
+   * Short name of the ability. It is a string starting with a period (.).
    *
-   * @type { ?string }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @since 9
-   */
-  /**
-   * Indicates short name
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 22 static
+   * @atomicservice [since 11]
+   * @since 9 dynamic
+   * @since 23 static
    */
   shortName?: string;
 }

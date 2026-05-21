@@ -52,7 +52,7 @@ import type { RecordData } from './@ohos.base'
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace hiAppEvent {
   /**
@@ -78,7 +78,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum EventType {
     /**
@@ -101,7 +101,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     FAULT = 1,
 
@@ -125,7 +125,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     STATISTIC = 2,
 
@@ -149,7 +149,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     SECURITY = 3,
 
@@ -173,7 +173,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     BEHAVIOR = 4
   }
@@ -194,7 +194,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   namespace domain {
     /**
@@ -211,7 +211,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const OS: string;
   }
@@ -245,7 +245,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   namespace event {
     /**
@@ -260,7 +260,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const USER_LOGIN: string;
 
@@ -276,7 +276,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const USER_LOGOUT: string;
 
@@ -292,7 +292,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const DISTRIBUTED_SERVICE_START: string;
 
@@ -310,7 +310,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const APP_CRASH: string;
 
@@ -320,7 +320,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const APP_FREEZE: string;
 
@@ -330,7 +330,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const APP_LAUNCH: string;
 
@@ -340,7 +340,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const SCROLL_JANK: string;
 
@@ -350,7 +350,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const CPU_USAGE_HIGH: string;
 
@@ -360,7 +360,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const BATTERY_USAGE: string;
 
@@ -370,7 +370,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const RESOURCE_OVERLIMIT: string;
 
@@ -380,7 +380,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const ADDRESS_SANITIZER: string;
 
@@ -390,7 +390,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const MAIN_THREAD_JANK: string;
 
@@ -401,7 +401,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const APP_KILLED: string;
 
@@ -412,7 +412,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const APP_HICOLLIE: string;
 
@@ -423,9 +423,31 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 21 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const AUDIO_JANK_FRAME: string;
+
+    /**
+     * arkweb fling jank event. This is a system event name constant.
+     *
+     * @type { string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 23 dynamic&static
+     */
+    const SCROLL_ARKWEB_FLING_JANK: string;
+
+    /**
+     * App encounter a longer hang and trigger an system warning, such as THREAD_BLOCK_3S or LIFECYCLE_HALF_TIMEOUT.
+     * This is a system event name constant.
+     * 
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    const appFreezeWarning: string;
   }
 
   /**
@@ -451,7 +473,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   namespace param {
     /**
@@ -474,7 +496,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const USER_ID: string;
 
@@ -498,7 +520,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const DISTRIBUTED_SERVICE_NAME: string;
 
@@ -522,7 +544,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     const DISTRIBUTED_SERVICE_INSTANCE_ID: string;
   }
@@ -561,7 +583,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function configure(config: ConfigOption): void;
 
@@ -588,7 +610,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface ConfigOption {
     /**
@@ -620,7 +642,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     disable?: boolean;
 
@@ -656,7 +678,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     maxStorage?: string;
   }
@@ -684,11 +706,11 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AppEventInfo {
     /**
-     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z), and 
+     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z), and 
      * underscores (_). It must start with a letter and cannot end with an underscore (_).
      *
      * @type { string }
@@ -696,7 +718,7 @@ declare namespace hiAppEvent {
      * @since 9
      */
     /**
-     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z), and 
+     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z), and 
      * underscores (_). It must start with a letter and cannot end with an underscore (_).
      *
      * @type { string }
@@ -705,7 +727,7 @@ declare namespace hiAppEvent {
      * @since 11
      */
     /**
-     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z), and 
+     * Event domain. The value is a string of up to 32 characters, including digits (0 to 9), letters (a to z)(A to Z), and 
      * underscores (_). It must start with a letter and cannot end with an underscore (_).
      *
      * @type { string }
@@ -713,13 +735,13 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     domain: string;
 
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      *
      * @type { string }
@@ -728,7 +750,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      *
      * @type { string }
@@ -738,7 +760,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      *
      * @type { string }
@@ -746,7 +768,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -773,7 +795,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventType: EventType;
 
@@ -783,7 +805,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -803,7 +825,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -824,7 +846,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -848,7 +870,7 @@ declare namespace hiAppEvent {
      * events, for example, Crash Event Overview. For application events, you need to define the parameters of the 
      * Write API. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. For example, testName and $123_name.
      * <br>- The parameter value can be a string, number, boolean, or array. The string type parameter can contain a 
      * maximum of 8 x 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. 
@@ -862,7 +884,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     params: RecordData;
   }
@@ -946,7 +968,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function write(info: AppEventInfo): Promise<void>;
 
@@ -1029,7 +1051,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function write(info: AppEventInfo, callback: AsyncCallback<void>): void;
 
@@ -1049,7 +1071,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   type ParamType = int | long | double | string | boolean | Array<string>;
 
@@ -1061,7 +1083,7 @@ declare namespace hiAppEvent {
    * @param { Record<string, ParamType> } params Custom parameter object. The parameter name and value are defined as 
    * follows:
    * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-   * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
+   * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
    * or letter.
    * <br>- The parameter value is of the ParamType and contains a maximum of 1024 characters.
    * <br>- The number of parameters must be less than 64.
@@ -1096,7 +1118,7 @@ declare namespace hiAppEvent {
    * @param { Record<string, ParamType> } params Custom parameter object. The parameter name and value are defined as 
    * follows:
    * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-   * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
+   * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a digit 
    * or letter.
    * <br>- The parameter value is of the ParamType and contains a maximum of 1024 characters.
    * <br>- The number of parameters must be less than 64.
@@ -1123,7 +1145,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>;
 
@@ -1145,7 +1167,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 15 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setEventConfig(name: string, config: Record<string, ParamType>): Promise<void>;
 
@@ -1175,7 +1197,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AppEventPackage {
     /**
@@ -1201,7 +1223,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     packageId: int;
 
@@ -1228,7 +1250,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     row: int;
 
@@ -1255,7 +1277,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     size: int;
 
@@ -1282,7 +1304,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     data: string[];
 
@@ -1302,7 +1324,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1327,7 +1349,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   class AppEventPackageHolder {
     /**
@@ -1359,7 +1381,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     constructor(watcherName: string);
 
@@ -1400,7 +1422,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setSize(size: int): void;
 
@@ -1432,7 +1454,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     setRow(size: int): void;
 
@@ -1489,7 +1511,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @crossplatform
      * @atomicservice
-     * @since 22 static
+     * @since 23 static
      */
     takeNext(): AppEventPackage | null;
   }
@@ -1517,7 +1539,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface TriggerCondition {
     /**
@@ -1549,7 +1571,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     row?: int;
 
@@ -1582,7 +1604,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     size?: int;
 
@@ -1615,7 +1637,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timeOut?: int;
   }
@@ -1649,7 +1671,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AppEventFilter {
     /**
@@ -1678,7 +1700,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     domain: string;
 
@@ -1705,7 +1727,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventTypes?: EventType[];
 
@@ -1725,7 +1747,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     names?: string[];
   }
@@ -1748,7 +1770,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AppEventGroup {
     /**
@@ -1767,7 +1789,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -1787,7 +1809,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appEventInfos: Array<AppEventInfo>;
   }
@@ -1818,12 +1840,12 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Watcher {
     /**
      * Unique name of a watcher. The value contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
+     * (a to z)(A to Z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
      * and crash_Watcher.
      *
      * @type { string }
@@ -1832,7 +1854,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Unique name of a watcher. The value contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
+     * (a to z)(A to Z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
      * and crash_Watcher.
      *
      * @type { string }
@@ -1842,7 +1864,7 @@ declare namespace hiAppEvent {
      */
     /**
      * Unique name of a watcher. The value contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
+     * (a to z)(A to Z), underscore (_). It must start with a letter and end with a digit or letter. For example, testName1 
      * and crash_Watcher.
      *
      * @type { string }
@@ -1850,7 +1872,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -1880,7 +1902,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     triggerCondition?: TriggerCondition;
 
@@ -1910,7 +1932,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appEventFilters?: AppEventFilter[];
 
@@ -1949,7 +1971,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onTrigger?: (curRow: int, curSize: int, holder: AppEventPackageHolder) => void;
 
@@ -1975,7 +1997,7 @@ declare namespace hiAppEvent {
      * @crossplatform
      * @atomicservice
      * @since 19 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void;
   }
@@ -2035,7 +2057,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function addWatcher(watcher: Watcher): AppEventPackageHolder;
 
@@ -2076,7 +2098,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeWatcher(watcher: Watcher): void;
 
@@ -2103,7 +2125,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function clearData(): void;
 
@@ -2111,7 +2133,7 @@ declare namespace hiAppEvent {
    * Sets a user ID, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user ID. It can contain a maximum of 256 characters. If the value is null or 
    * left empty, the user ID is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2125,7 +2147,7 @@ declare namespace hiAppEvent {
    * Sets a user ID, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user ID. It can contain a maximum of 256 characters. If the value is null or 
    * left empty, the user ID is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2135,7 +2157,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setUserId(name: string, value: string): void;
 
@@ -2143,7 +2165,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserId.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user ID. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2156,7 +2178,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserId.
    *
    * @param { string } name Key of a user ID. The value is string that contains a maximum of 256 characters, including 
-   * digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user ID. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2165,7 +2187,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getUserId(name: string): string;
 
@@ -2173,7 +2195,7 @@ declare namespace hiAppEvent {
    * Sets a user property, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user property. It can contain a maximum of 1024 characters. If the value is 
    * null or left empty, the user property is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2187,7 +2209,7 @@ declare namespace hiAppEvent {
    * Sets a user property, which is used for association when a Processor is configured.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @param { string } value Value of a user property. It can contain a maximum of 1024 characters. If the value is 
    * null or left empty, the user property is cleared.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2197,7 +2219,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function setUserProperty(name: string, value: string): void;
 
@@ -2205,7 +2227,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserProperty.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user property. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2218,7 +2240,7 @@ declare namespace hiAppEvent {
    * Obtains the value set through setUserProperty.
    *
    * @param { string } name Key of a user property. The value is string that contains a maximum of 256 characters, 
-   * including digits (0 to 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+   * including digits (0 to 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
    * @returns { string } Value of a user property. If no user ID is found, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * <br>2. Incorrect parameter types.
@@ -2227,7 +2249,7 @@ declare namespace hiAppEvent {
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getUserProperty(name: string): string;
 
@@ -2238,32 +2260,32 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AppEventReportConfig {
     /**
      * Event domain. The value is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), and underscore (_). It must start with a letter and cannot end with an underscore (_). The default 
+     * (a to z)(A to Z), and underscore (_). It must start with a letter and cannot end with an underscore (_). The default 
      * value is an empty string.
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     domain?: string;
 
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter. The default value is an empty string.
      *
      * @type { ?string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name?: string;
 
@@ -2275,7 +2297,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     isRealTime?: boolean;
   }
@@ -2287,18 +2309,18 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface Processor {
     /**
      * Name of a data processor. The value is string that contains a maximum of 256 characters, including digits (0 to 
-     * 9), letters (a to z), underscore (_), and dollar sign ($). It must not start with a digit.
+     * 9), letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must not start with a digit.
      *
      * @type { string }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
@@ -2310,7 +2332,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     debugMode?: boolean;
 
@@ -2322,7 +2344,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     routeInfo?: string;
 
@@ -2334,7 +2356,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     appId?: string;
 
@@ -2346,7 +2368,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onStartReport?: boolean;
 
@@ -2358,7 +2380,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     onBackgroundReport?: boolean;
 
@@ -2370,7 +2392,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     periodReport?: int;
 
@@ -2383,7 +2405,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     batchReport?: int;
 
@@ -2395,7 +2417,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userIds?: string[];
 
@@ -2407,7 +2429,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userProperties?: string[];
 
@@ -2419,7 +2441,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 11 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     eventConfigs?: AppEventReportConfig[];
 
@@ -2432,7 +2454,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     configId?: int;
 
@@ -2440,7 +2462,7 @@ declare namespace hiAppEvent {
      * Custom extended parameters. If the input parameter name and value do not meet the specifications, extended 
      * parameters are not configured by default. The specifications are as follows:
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters 
-     * (a to z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a 
      * digit or letter.
      * <br>- A parameter value is a string contains a maximum of 1024 characters.
      * <br>- The number of parameters must be less than 32.
@@ -2449,7 +2471,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     customConfigs?: Record<string, string>;
 
@@ -2460,7 +2482,7 @@ declare namespace hiAppEvent {
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
      * @since 20 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     configName?: string;
   }
@@ -2481,7 +2503,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function addProcessor(processor: Processor): long;
 
@@ -2497,7 +2519,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function addProcessorFromConfig(processorName: string, configName?: string): Promise<long>;
 
@@ -2512,7 +2534,7 @@ declare namespace hiAppEvent {
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function removeProcessor(id: long): void;
 
@@ -2522,7 +2544,8 @@ declare namespace hiAppEvent {
    * @interface MainThreadJankPolicy
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface MainThreadJankPolicy {
     /**
@@ -2535,7 +2558,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     logType?: int;
 
@@ -2550,7 +2574,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     ignoreStartupTime?: int;
 
@@ -2564,7 +2589,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     sampleInterval?: int;
 
@@ -2579,7 +2605,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     sampleCount?: int;
 
@@ -2592,7 +2619,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     reportTimesPerApp?: int;
 
@@ -2603,7 +2631,8 @@ declare namespace hiAppEvent {
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     autoStopSampling?: boolean;
   }
@@ -2614,7 +2643,8 @@ declare namespace hiAppEvent {
    * @interface CpuUsageHighPolicy
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface CpuUsageHighPolicy {
     /**
@@ -2626,7 +2656,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     foregroundLoadThreshold?: int;
 
@@ -2639,7 +2670,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     backgroundLoadThreshold?: int;
 
@@ -2652,7 +2684,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     threadLoadThreshold?: int;
 
@@ -2669,7 +2702,8 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     perfLogCaptureCount?: int;
 
@@ -2681,33 +2715,176 @@ declare namespace hiAppEvent {
      * @type { ?int }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     threadLoadInterval?: int;
   }
 
   /**
-   * Definition of resource overlimit event policy
+   * Definition of application crash event policy
    *
-   * @interface ResourceOverlimitPolicy
+   * @interface AppCrashPolicy
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 24 dynamic&static
    */
-  interface ResourceOverlimitPolicy {
+  interface AppCrashPolicy {
     /**
-     * The policy for RESOURCE_OVERLIMIT event
-     * This parameter is used to specify whether to pass profiler logs for native leak.
-     * When certain conditions are met and this parameter is set to true, profiler logs will
-     * be passed into the sandbox.
+     * The policy for APP_CRASH event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value true means to print the memory values of the 248 bytes before and 256 bytes after
+     * the PC and LR in the 64-bit system, or print the memory values of the 124 bytes before and 128 bytes
+     * after the PC and LR in the 32-bit system.
+     * The value false means to print the memory values of the 16 bytes before and 232 bytes after
+     * the PC and LR in the 64-bit system, or print the memory values of the 8 bytes before and 116 bytes
+     * after the PC and LR in the 32-bit system.
      * If not set the param, the default value is false.
      *
      * @type { ?boolean }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
-    collectNativeHeapProfile?: boolean;
+    extendPcLrPrinting?: boolean;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value ranges from 0 to 5242880, in bytes. The crash log is truncated to the specified size
+     * when this parameter is set. Otherwise, the default value 0 is used, which means no truncation.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    logFileCutoffSzBytes?: int;
+
+    /**
+     * The policy for APP_CRASH event
+     * The value true means to print only the Virtual Memory Area (VMA) mapping information of the addresses
+     * in the crash log, that is, Maps in the crash log, to reduce the log size.
+     * The value false means to print all VMA mapping information.
+     * Default value: false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    simplifyVmaPrinting?: boolean;
+
+    /**
+     * Policy for the APP_CRASH event
+     * the value true means to the minidump capture capability is enabled.
+     * the value false means to the minidump capture function is disabled.
+     * <br>Default value:false.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    collectMinidump?: boolean;
+  }
+
+  /**
+   * Definition of application freeze event policy
+   *
+   * @interface AppFreezePolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AppFreezePolicy {
+    /**
+     * The policy for APP_FREEZE event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+  }
+
+  /**
+   * Definition of application resource leakage event policy
+   *
+   * @interface ResourceOverlimitPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface ResourceOverlimitPolicy {
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
+
+    /**
+     * The policy for RESOURCE_OVERLIMIT event
+     * event: No heap snapshot is transferred when an OOM error occurs.
+     * event_rawheap: The system generates and transfers a heap snapshot when an OOM error occurs.
+     * Note: Only the preceding two values are supported. If other values are passed in,
+     * the API fails to be called and takes no effect.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    jsHeapLogtype?: string;
+  }
+
+  /**
+   * Definition of address sanitizer event policy
+   *
+   * @interface AddressSanitizerPolicy
+   * @syscap SystemCapability.HiviewDFX.HiAppEvent
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 24 dynamic&static
+   */
+  interface AddressSanitizerPolicy {
+    /**
+     * The policy for ADDRESS_SANITIZER event
+     * Enable page switch log. Default value is false.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    pageSwitchLogEnable?: boolean;
   }
 
   /**
@@ -2716,7 +2893,8 @@ declare namespace hiAppEvent {
    * @interface EventPolicy
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   interface EventPolicy {
     /**
@@ -2725,7 +2903,8 @@ declare namespace hiAppEvent {
      * @type { ?MainThreadJankPolicy }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     mainThreadJankPolicy?: MainThreadJankPolicy;
 
@@ -2735,19 +2914,54 @@ declare namespace hiAppEvent {
      * @type { ?CpuUsageHighPolicy }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     cpuUsageHighPolicy?: CpuUsageHighPolicy;
+
+    /**
+     * The policy for APP_CRASH event
+     *
+     * @type { ?AppCrashPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    appCrashPolicy?: AppCrashPolicy;
+
+    /**
+     * The policy for APP_FREEZE event
+     *
+     * @type { ?AppFreezePolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    appFreezePolicy?: AppFreezePolicy;
 
     /**
      * The policy for RESOURCE_OVERLIMIT event
      *
      * @type { ?ResourceOverlimitPolicy }
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 24 dynamic&static
      */
     resourceOverlimitPolicy?: ResourceOverlimitPolicy;
+
+    /**
+     * The policy for ADDRESS_SANITIZER event
+     *
+     * @type { ?AddressSanitizerPolicy }
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    addressSanitizerPolicy?: AddressSanitizerPolicy;
   }
 
   /**
@@ -2758,7 +2972,8 @@ declare namespace hiAppEvent {
    * @static
    * @syscap SystemCapability.HiviewDFX.HiAppEvent
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
    */
   function configEventPolicy(policy: EventPolicy): Promise<void>;
 }

@@ -14,79 +14,95 @@
  */
 
 /**
+ * > **NOTE**
+ * >
+ * > - The APIs of this module have been deprecated since API version 9. You are advised to use 
+ * > [@ohos.bundle.bundleManager]{@link @ohos.bundle.bundleManager:bundleManager} instead.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * @typedef CheckPackageHasInstalledResponse
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 3 and deprecated since API version 9.
+ *
+ * Checks whether a bundle has been installed.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 9
  */
 export interface CheckPackageHasInstalledResponse {
   /**
-   * Whether the application exists, or whether the native application has been installed.
+   * Check result for whether the bundle has been installed. **true** if installed, **false** otherwise.
    *
-   * @type { boolean }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   result: boolean;
 }
 
 /**
- * @typedef CheckPackageHasInstalledOptions
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 3 and deprecated since API version 9.
+ *
+ * Checks whether a bundle has been installed.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 9
  */
 export interface CheckPackageHasInstalledOptions {
   /**
-   * Application bundle name.
+   * Bundle name.
    *
-   * @type { string }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   bundleName: string;
 
   /**
-   * Called when native applications are installed.
+   * Called when API call is successful.
    *
-   * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   success?: (data: CheckPackageHasInstalledResponse) => void;
 
   /**
-   * Called when native applications fail to be installed.
+   * Called when API call has failed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   fail?: (data: any, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
    */
   complete?: () => void;
 }
 
 /**
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 3 and deprecated since API version 9.
+ *
+ * Checks whether a bundle has been installed.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 3 dynamic
+ * @since 3 dynamiconly
  * @deprecated since 9
  */
 export default class Package {
@@ -95,8 +111,9 @@ export default class Package {
    *
    * @param { CheckPackageHasInstalledOptions } options Options
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.bundleManager/bundleManager#canOpenLink
    */
   static hasInstalled(options: CheckPackageHasInstalledOptions): void;
 }

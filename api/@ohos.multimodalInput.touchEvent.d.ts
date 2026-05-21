@@ -26,7 +26,7 @@ import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Action {
   /**
@@ -34,7 +34,7 @@ export declare enum Action {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   CANCEL = 0,
 
@@ -43,7 +43,7 @@ export declare enum Action {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   DOWN = 1,
 
@@ -52,7 +52,7 @@ export declare enum Action {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MOVE = 2,
 
@@ -61,9 +61,36 @@ export declare enum Action {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  UP = 3
+  UP = 3,
+  
+  /**
+   * Touch Pull-Down
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_DOWN = 4,
+
+  /**
+   * Touch Pull-Move
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_MOVE = 5,
+
+  /**
+   * Touch Pull-Up
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  PULL_UP = 6
 }
 
 /**
@@ -72,7 +99,7 @@ export declare enum Action {
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum ToolType {
   /**
@@ -80,7 +107,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   FINGER = 0,
 
@@ -89,7 +116,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PEN = 1,
 
@@ -98,7 +125,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   RUBBER = 2,
 
@@ -107,7 +134,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   BRUSH = 3,
 
@@ -116,7 +143,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PENCIL = 4,
 
@@ -125,7 +152,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   AIRBRUSH = 5,
 
@@ -134,7 +161,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   MOUSE = 6,
 
@@ -143,7 +170,7 @@ export declare enum ToolType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   LENS = 7
 }
@@ -154,7 +181,7 @@ export declare enum ToolType {
  * @enum { number }
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum SourceType {
   /**
@@ -162,7 +189,7 @@ export declare enum SourceType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   TOUCH_SCREEN = 0,
 
@@ -171,7 +198,7 @@ export declare enum SourceType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   PEN = 1,
 
@@ -180,7 +207,7 @@ export declare enum SourceType {
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   TOUCH_PAD = 2
 }
@@ -192,7 +219,7 @@ export declare enum SourceType {
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
  * @since 19 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum FixedMode {
   /**
@@ -201,7 +228,7 @@ export declare enum FixedMode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   NONE = 0,
 
@@ -211,7 +238,7 @@ export declare enum FixedMode {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   AUTO = 1
 }
@@ -222,7 +249,7 @@ export declare enum FixedMode {
  * @interface Touch
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface Touch {
   /**
@@ -230,7 +257,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   id: int;
 
@@ -239,7 +266,7 @@ export declare interface Touch {
    * @type { long }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pressedTime: long;
 
@@ -248,7 +275,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   screenX: int;
 
@@ -257,7 +284,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   screenY: int;
 
@@ -266,7 +293,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowX: int;
 
@@ -275,7 +302,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   windowY: int;
 
@@ -284,7 +311,7 @@ export declare interface Touch {
    * @type { double }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pressure: double;
 
@@ -293,7 +320,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   width: int;
 
@@ -302,7 +329,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   height: int;
 
@@ -311,7 +338,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   tiltX: int;
 
@@ -320,7 +347,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   tiltY: int;
 
@@ -329,7 +356,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toolX: int;
 
@@ -338,7 +365,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toolY: int;
 
@@ -347,7 +374,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toolWidth: int;
 
@@ -356,7 +383,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toolHeight: int;
 
@@ -365,7 +392,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   rawX: int;
 
@@ -374,7 +401,7 @@ export declare interface Touch {
    * @type { int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   rawY: int;
 
@@ -383,7 +410,7 @@ export declare interface Touch {
    * @type { ToolType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   toolType: ToolType;
 
@@ -393,7 +420,7 @@ export declare interface Touch {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   fixedDisplayX?: int;
 
@@ -403,27 +430,37 @@ export declare interface Touch {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   fixedDisplayY?: int;
 
   /**
    * globalX - Global X coordinate.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
-   * @since 22 static
-   */	
-  globalX?: number;	
+   * @since 23 static
+   */
+  globalX?: int;
 
   /**
    * globalY - Global Y coordinate.
-   * @type { ?number }
+   * @type { ?int }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
-   * @since 22 static
+   * @since 23 static
    */
-  globalY?: number;
+  globalY?: int;
+
+  /**
+   * blobId - blob id.
+   * @type { ?int }
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 24 dynamic&static
+   */
+  blobId?: int;
 }
 
 /**
@@ -433,7 +470,7 @@ export declare interface Touch {
  * @interface TouchEvent
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface TouchEvent extends InputEvent {
   /**
@@ -441,7 +478,7 @@ export declare interface TouchEvent extends InputEvent {
    * @type { Action }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   action: Action;
 
@@ -450,7 +487,7 @@ export declare interface TouchEvent extends InputEvent {
    * @type { Touch }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   touch: Touch;
 
@@ -459,7 +496,7 @@ export declare interface TouchEvent extends InputEvent {
    * @type { Touch[] }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   touches: Touch[];
 
@@ -468,18 +505,18 @@ export declare interface TouchEvent extends InputEvent {
    * @type { SourceType }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   sourceType: SourceType;
 
   /**
    * fixedMode - Fixed mode of Touch.
-   * 
+   *
    * @type { FixedMode }
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 19 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   fixedMode?: FixedMode;
 
@@ -489,6 +526,7 @@ export declare interface TouchEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
+   * @since 23 static
    */
   isInject?: boolean;
 }

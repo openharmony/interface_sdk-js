@@ -25,6 +25,7 @@
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
+ * @reserved ["liteWearable"]
  * @useinstead ohos.router#RouterOptions
  */
 export interface RouterOptions {
@@ -38,8 +39,10 @@ export interface RouterOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
+   * @reserved ["liteWearable"]
    * @deprecated since 8
+   * @useinstead ohos.router.RouterOptions#url
    */
   uri: string;
 
@@ -50,8 +53,10 @@ export interface RouterOptions {
    *
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
+   * @reserved ["liteWearable"]
    * @deprecated since 8
+   * @useinstead ohos.router.RouterOptions#params
    */
   params?: Object;
 }
@@ -72,8 +77,9 @@ export interface BackRouterOptions {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.RouterOptions#url
    */
   uri?: string;
 
@@ -82,8 +88,10 @@ export interface BackRouterOptions {
    *
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
+   * @useinstead ohos.router.RouterOptions#params
    */
   params?: Object;
 }
@@ -104,8 +112,9 @@ export interface RouterState {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.RouterState#index
    */
   index: number;
 
@@ -114,8 +123,9 @@ export interface RouterState {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.RouterState#name
    */
   name: string;
 
@@ -124,8 +134,9 @@ export interface RouterState {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.RouterState#path
    */
   path: string;
 }
@@ -137,7 +148,7 @@ export interface RouterState {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6 dynamiconly
  * @deprecated since 8
- * @useinstead ohos.router#RouterState
+ * @useinstead ohos.router#EnableAlertOptions
  */
 export interface EnableAlertBeforeBackPageOptions {
   /**
@@ -145,8 +156,9 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.EnableAlertOptions#message
    */
   message: string;
 
@@ -155,8 +167,9 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router#EnableAlertOptions
    */
   success?: (errMsg: string) => void;
 
@@ -165,8 +178,9 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router#EnableAlertOptions
    */
   cancel?: (errMsg: string) => void;
 
@@ -175,8 +189,9 @@ export interface EnableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router#EnableAlertOptions
    */
   complete?: () => void;
 }
@@ -196,8 +211,9 @@ export interface DisableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router#RouterOptions
    */
   success?: (errMsg: string) => void;
 
@@ -206,8 +222,9 @@ export interface DisableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router#RouterOptions
    */
   cancel?: (errMsg: string) => void;
 
@@ -216,8 +233,9 @@ export interface DisableAlertBeforeBackPageOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router#RouterOptions
    */
   complete?: () => void;
 }
@@ -227,8 +245,9 @@ export interface DisableAlertBeforeBackPageOptions {
  *
  * @typedef { object } ParamsInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 8
+ * @useinstead ohos.router.RouterOptions#params
  */
 type ParamsInterface = {
   [key: string]: Object;
@@ -248,8 +267,9 @@ export default class Router {
    *
    * @param { RouterOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#push
    */
   static push(options: RouterOptions): void;
 
@@ -258,8 +278,9 @@ export default class Router {
    *
    * @param { RouterOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#replace
    */
   static replace(options: RouterOptions): void;
 
@@ -268,8 +289,9 @@ export default class Router {
    *
    * @param { BackRouterOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#back
    */
   static back(options?: BackRouterOptions): void;
 
@@ -278,8 +300,9 @@ export default class Router {
    *
    * @returns { ParamsInterface } Page params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#getParams
    */
   static getParams(): ParamsInterface;
 
@@ -287,8 +310,9 @@ export default class Router {
    * Clears all historical pages and retains only the current page at the top of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#clear
    */
   static clear(): void;
 
@@ -297,8 +321,9 @@ export default class Router {
    *
    * @returns { string } Number of pages in the stack. The maximum value is 32.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#getLength
    */
   static getLength(): string;
 
@@ -307,8 +332,9 @@ export default class Router {
    *
    * @returns { RouterState } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3 dynamic
+   * @since 3 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#getState
    */
   static getState(): RouterState;
 
@@ -317,8 +343,9 @@ export default class Router {
    *
    * @param { EnableAlertBeforeBackPageOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#showAlertBeforeBackPage
    */
   static enableAlertBeforeBackPage(options: EnableAlertBeforeBackPageOptions): void;
 
@@ -327,8 +354,9 @@ export default class Router {
    *
    * @param { DisableAlertBeforeBackPageOptions } options Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6 dynamic
+   * @since 6 dynamiconly
    * @deprecated since 8
+   * @useinstead ohos.router.router#hideAlertBeforeBackPage
    */
   static disableAlertBeforeBackPage(options?: DisableAlertBeforeBackPageOptions): void;
 }

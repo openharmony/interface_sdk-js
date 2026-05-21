@@ -27,7 +27,9 @@ import dataSharePredicates from './@ohos.data.dataSharePredicates';
  * @namespace userFileManager
  * @syscap SystemCapability.FileManagement.UserFileManager.Core
  * @systemapi
- * @since 9 dynamic
+ * @since 9 dynamiconly
+ * @deprecated since 26.0.0
+ * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper
  */
 declare namespace userFileManager {
   /**
@@ -38,7 +40,9 @@ declare namespace userFileManager {
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
    * @StageModelOnly
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.getPhotoAccessHelper
    */
   function getUserFileMgr(context: Context): UserFileManager;
 
@@ -48,7 +52,9 @@ declare namespace userFileManager {
    * @enum { number } FileType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoType
    */
   enum FileType {
     /**
@@ -56,7 +62,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.IMAGE
      */
     IMAGE = 1,
     /**
@@ -64,7 +72,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.VIDEO
      */
     VIDEO,
     /**
@@ -72,7 +82,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     AUDIO
   }
@@ -83,7 +95,9 @@ declare namespace userFileManager {
    * @enum { number } PhotoSubType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSubType
    */
   enum PhotoSubType {
     /**
@@ -91,7 +105,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSubType.DEFAULT
      */
     DEFAULT,
     /**
@@ -99,7 +115,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoSubType.SCREENSHOT
      */
     SCREENSHOT,
     /**
@@ -107,7 +125,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.SOURCE_GENERIC
      */
     CAMERA
   }
@@ -118,7 +138,9 @@ declare namespace userFileManager {
    * @enum { number } File position, which indicates the file is on local device or cloud
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PositionType
    */
   enum PositionType {
     /**
@@ -126,7 +148,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PositionType.LOCAL
      */
     LOCAL = 1,
     /**
@@ -134,7 +158,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PositionType.CLOUD
      */
     CLOUD,
     /**
@@ -142,7 +168,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PositionType.LOCAL_AND_CLOUD
      */
     BOTH
   }
@@ -153,7 +181,9 @@ declare namespace userFileManager {
    * @typedef { number | string | boolean } MemberType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MemberType
    */
   type MemberType = number | string | boolean;
 
@@ -163,7 +193,9 @@ declare namespace userFileManager {
    * @typedef { 'deviceChange' | 'albumChange' | 'imageChange' | 'audioChange' | 'videoChange' | 'remoteFileChange' } ChangeEvent
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.ChangeData
    */
   type ChangeEvent =
     'deviceChange'
@@ -179,7 +211,9 @@ declare namespace userFileManager {
    * @interface FileAsset
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset
    */
   interface FileAsset {
     /**
@@ -188,7 +222,9 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.uri
      */
     readonly uri: string;
     /**
@@ -197,7 +233,9 @@ declare namespace userFileManager {
      * @type { FileType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.PhotoType
      */
     readonly fileType: FileType;
     /**
@@ -206,7 +244,9 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.displayName
      */
     displayName: string;
     /**
@@ -216,7 +256,9 @@ declare namespace userFileManager {
      * @returns { MemberType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.get
      */
     get(member: string): MemberType;
     /**
@@ -226,7 +268,9 @@ declare namespace userFileManager {
      * @param { string } value - The value of the parameter.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.set
      * @example : Set(ImageVideoKey.TITLE, "newTitle"), call commitModify after set value
      */
     set(member: string, value: string): void;
@@ -237,7 +281,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value will be returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.commitModify
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -247,7 +293,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.commitModify
      */
     commitModify(): Promise<void>;
     /**
@@ -258,7 +306,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<number> } callback - Callback return the fd of the file.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.fs:fileIo.open
      */
     open(mode: string, callback: AsyncCallback<number>): void;
     /**
@@ -269,7 +319,9 @@ declare namespace userFileManager {
      * @returns { Promise<number> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.fs:fileIo.open
      */
     open(mode: string): Promise<number>;
     /**
@@ -279,7 +331,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value will be returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.fs:fileIo.close
      */
     close(fd: number, callback: AsyncCallback<void>): void;
     /**
@@ -289,7 +343,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.fs:fileIo.close
      */
     close(fd: number): Promise<void>;
     /**
@@ -299,7 +355,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnail's pixelMap.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.getThumbnail
      */
     getThumbnail(callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -310,7 +368,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the thumbnail's pixelMap.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.getThumbnail
      */
     getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void;
     /**
@@ -321,7 +381,9 @@ declare namespace userFileManager {
      * @returns { Promise<image.PixelMap> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.getThumbnail
      */
     getThumbnail(size?: image.Size): Promise<image.PixelMap>;
     /**
@@ -332,7 +394,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - Callback used to return, No value is returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest#setFavorite
      */
     favorite(isFavorite: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -343,7 +407,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest#setFavorite
      */
     favorite(isFavorite: boolean): Promise<void>;
     /**
@@ -356,7 +422,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest#setHidden
      */
     setHidden(hiddenState: boolean, callback: AsyncCallback<void>): void;
     /**
@@ -369,7 +437,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest#setHidden
      */
     setHidden(hiddenState: boolean): Promise<void>;
     /**
@@ -383,7 +453,9 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest#setUserComment
      */
     setUserComment(userComment: string, callback: AsyncCallback<void>): void;
     /**
@@ -397,7 +469,9 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest#setUserComment
      */
     setUserComment(userComment: string): Promise<void>;
     /**
@@ -408,7 +482,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.getExif
      */
     getExif(callback: AsyncCallback<string>): void;
     /**
@@ -419,7 +495,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAsset.getExif
      */
     getExif(): Promise<string>;
   }
@@ -430,7 +508,9 @@ declare namespace userFileManager {
    * @enum { string } AudioKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.picker:picker.AudioViewPicker
    */
   enum AudioKey {
     /**
@@ -438,7 +518,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     URI,
     /**
@@ -446,7 +528,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     DISPLAY_NAME,
     /**
@@ -454,7 +538,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     DATE_ADDED,
     /**
@@ -462,7 +548,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     DATE_MODIFIED,
     /**
@@ -470,7 +558,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     TITLE,
     /**
@@ -478,7 +568,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     ARTIST,
     /**
@@ -486,7 +578,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     AUDIOALBUM,
     /**
@@ -494,7 +588,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     DURATION,
     /**
@@ -502,7 +598,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     FAVORITE
   }
@@ -513,7 +611,9 @@ declare namespace userFileManager {
    * @enum { string } ImageVideoKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys
    */
   enum ImageVideoKey {
     /**
@@ -521,7 +621,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.URI
      */
     URI,
     /**
@@ -529,7 +631,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.PHOTO_TYPE
      */
     FILE_TYPE,
     /**
@@ -537,7 +641,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DISPLAY_NAME
      */
     DISPLAY_NAME,
     /**
@@ -545,7 +651,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DATE_ADDED
      */
     DATE_ADDED,
     /**
@@ -553,7 +661,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys#DATE_MODIFIED
      */
     DATE_MODIFIED,
     /**
@@ -561,7 +671,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.TITLE
      */
     TITLE,
     /**
@@ -569,7 +681,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DURATION
      */
     DURATION,
     /**
@@ -577,7 +691,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.WIDTH
      */
     WIDTH,
     /**
@@ -585,7 +701,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.HEIGHT
      */
     HEIGHT,
     /**
@@ -593,7 +711,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DATE_TAKEN
      */
     DATE_TAKEN,
     /**
@@ -601,7 +721,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.ORIENTATION
      */
     ORIENTATION,
     /**
@@ -609,7 +731,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.FAVORITE
      */
     FAVORITE,
     /**
@@ -617,7 +741,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.POSITION
      */
     POSITION,
     /**
@@ -625,7 +751,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.DATE_TRASHED
      */
     DATE_TRASHED,
     /**
@@ -633,7 +761,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.HIDDEN
      */
     HIDDEN,
     /**
@@ -641,7 +771,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.USER_COMMENT
      */
     USER_COMMENT,
     /**
@@ -649,7 +781,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys.CAMERA_SHOT_KEY
      */
     CAMERA_SHOT_KEY
   }
@@ -660,7 +794,9 @@ declare namespace userFileManager {
    * @enum { string } AlbumKey
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys
    */
   enum AlbumKey {
     /**
@@ -668,7 +804,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.URI
      */
     URI,
     /**
@@ -676,7 +814,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumType
      */
     FILE_TYPE,
     /**
@@ -684,7 +824,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.ALBUM_NAME
      */
     ALBUM_NAME,
     /**
@@ -692,7 +834,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.DATE_MODIFIED
      */
     DATE_ADDED,
     /**
@@ -700,7 +844,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumKeys.DATE_MODIFIED
      */
     DATE_MODIFIED
   }
@@ -711,7 +857,9 @@ declare namespace userFileManager {
    * @interface FetchOptions
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchOptions
    */
   interface FetchOptions {
     /**
@@ -720,7 +868,9 @@ declare namespace userFileManager {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchOptions.fetchColumns
      */
     fetchColumns: Array<string>;
     /**
@@ -729,7 +879,9 @@ declare namespace userFileManager {
      * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchOptions.predicates
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -740,7 +892,9 @@ declare namespace userFileManager {
    * @interface AlbumFetchOptions
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchOptions
    */
   interface AlbumFetchOptions {
     /**
@@ -749,7 +903,9 @@ declare namespace userFileManager {
      * @type { dataSharePredicates.DataSharePredicates }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchOptions.predicates
      */
     predicates: dataSharePredicates.DataSharePredicates;
   }
@@ -760,7 +916,9 @@ declare namespace userFileManager {
    * @interface PhotoCreateOptions
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoCreateOptions
    */
   interface PhotoCreateOptions {
     /**
@@ -769,7 +927,9 @@ declare namespace userFileManager {
      * @type { ?PhotoSubType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoCreateOptions.subType
      */
     subType?: PhotoSubType;
     /**
@@ -778,7 +938,9 @@ declare namespace userFileManager {
      * @type { ?string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoCreateOptions.cameraShotKey
      */
     cameraShotKey?: string;
   }
@@ -789,7 +951,9 @@ declare namespace userFileManager {
    * @interface FetchResult
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult
    */
   interface FetchResult<T> {
     /**
@@ -798,7 +962,9 @@ declare namespace userFileManager {
      * @returns { number } Total number of files.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getCount
      */
     getCount(): number;
     /**
@@ -809,7 +975,9 @@ declare namespace userFileManager {
      * which returns the next file only when False is returned for this method.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.isAfterLast
      */
     isAfterLast(): boolean;
     /**
@@ -817,7 +985,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.close
      */
     close(): void;
     /**
@@ -826,7 +996,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<T> } callback - Callback used to return the file in the format of a FileAsset instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getFirstObject
      */
     getFirstObject(callback: AsyncCallback<T>): void;
     /**
@@ -835,7 +1007,9 @@ declare namespace userFileManager {
      * @returns { Promise<T> } A Promise instance used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getFirstObject
      */
     getFirstObject(): Promise<T>;
     /**
@@ -847,7 +1021,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<T> } callback - Callback used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getNextObject
      */
     getNextObject(callback: AsyncCallback<T>): void;
     /**
@@ -859,7 +1035,9 @@ declare namespace userFileManager {
      * @returns { Promise<T> } A Promise instance used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getNextObject
      */
     getNextObject(): Promise<T>;
     /**
@@ -868,7 +1046,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<T> } callback - Callback used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getLastObject
      */
     getLastObject(callback: AsyncCallback<T>): void;
     /**
@@ -877,7 +1057,9 @@ declare namespace userFileManager {
      * @returns { Promise<T> } A Promise instance used to return the file in the format of a T instance.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getLastObject
      */
     getLastObject(): Promise<T>;
     /**
@@ -889,7 +1071,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type index is not number
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getObjectByPosition
      */
     getPositionObject(index: number, callback: AsyncCallback<T>): void;
     /**
@@ -901,7 +1085,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type index is not number
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getObjectByPosition
      */
     getPositionObject(index: number): Promise<T>;
     /**
@@ -911,7 +1097,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Array<T>> } callback - Callback used to return a T array.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getAllObjects
      */
     getAllObject(callback: AsyncCallback<Array<T>>): void;
     /**
@@ -921,7 +1109,9 @@ declare namespace userFileManager {
      * @returns { Promise<Array<T>> } A Promise instance used to return a T array.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FetchResult.getAllObjects
      */
     getAllObject(): Promise<Array<T>>;
   }
@@ -932,7 +1122,9 @@ declare namespace userFileManager {
    * @enum { number } AlbumType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumType
    */
   enum AlbumType {
     /**
@@ -940,7 +1132,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumType.USER
      */
     USER = 0,
     /**
@@ -948,7 +1142,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumType.SYSTEM
      */
     SYSTEM = 1024
   }
@@ -959,7 +1155,9 @@ declare namespace userFileManager {
    * @enum { number } AlbumSubType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType
    */
   enum AlbumSubType {
     /**
@@ -967,7 +1165,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.USER_GENERIC
      */
     USER_GENERIC = 1,
     /**
@@ -975,7 +1175,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.FAVORITE
      */
     FAVORITE = 1025,
     /**
@@ -983,7 +1185,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.VIDEO
      */
     VIDEO,
     /**
@@ -991,7 +1195,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.HIDDEN
      */
     HIDDEN,
     /**
@@ -999,7 +1205,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.TRASH
      */
     TRASH,
     /**
@@ -1007,7 +1215,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.SCREENSHOT
      */
     SCREENSHOT,
     /**
@@ -1015,7 +1225,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.CAMERA
      */
     CAMERA,
     /**
@@ -1023,7 +1235,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubType.ANY
      */
     ANY = 2147483647
   }
@@ -1034,7 +1248,9 @@ declare namespace userFileManager {
    * @interface AbsAlbum
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum
    */
   interface AbsAlbum {
     /**
@@ -1043,7 +1259,9 @@ declare namespace userFileManager {
      * @type { AlbumType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.albumType
      */
     readonly albumType: AlbumType;
     /**
@@ -1052,7 +1270,9 @@ declare namespace userFileManager {
      * @type { AlbumSubType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.albumSubType
      */
     readonly albumSubType: AlbumSubType;
     /**
@@ -1061,7 +1281,9 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.albumName
      */
     albumName: string;
     /**
@@ -1070,7 +1292,9 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.albumUri
      */
     readonly albumUri: string;
     /**
@@ -1079,7 +1303,9 @@ declare namespace userFileManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.dateModified
      */
     readonly dateModified: number;
     /**
@@ -1088,7 +1314,9 @@ declare namespace userFileManager {
      * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.count
      */
     readonly count: number;
     /**
@@ -1097,7 +1325,9 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.coverUri
      */
     coverUri: string;
     /**
@@ -1109,7 +1339,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.getAssets
      */
     getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1121,7 +1353,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AbsAlbum.getAssets
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
   }
@@ -1132,7 +1366,9 @@ declare namespace userFileManager {
    * @interface Album
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album
    */
   interface Album extends AbsAlbum {
     /**
@@ -1142,7 +1378,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value will be returned.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.commitModify
      */
     commitModify(callback: AsyncCallback<void>): void;
     /**
@@ -1152,7 +1390,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.commitModify
      */
     commitModify(): Promise<void>;
     /**
@@ -1164,7 +1404,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.addAssets
      */
     addPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1176,7 +1418,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.addAssets
      */
     addPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1188,7 +1432,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.removeAssets
      */
     removePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1200,7 +1446,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.removeAssets
      */
     removePhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1212,7 +1460,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.recoverAssets
      */
     recoverPhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1224,7 +1474,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.recoverAssets
      */
     recoverPhotoAssets(assets: Array<FileAsset>): Promise<void>;
     /**
@@ -1236,7 +1488,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.deleteAssets
      */
     deletePhotoAssets(assets: Array<FileAsset>, callback: AsyncCallback<void>): void;
     /**
@@ -1248,7 +1502,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if PhotoAssets is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.deleteAssets
      */
     deletePhotoAssets(assets: Array<FileAsset>): Promise<void>;
   }
@@ -1259,7 +1515,9 @@ declare namespace userFileManager {
    * @interface UserFileManager
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper
    */
   interface UserFileManager {
     /**
@@ -1271,7 +1529,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets
      */
     getPhotoAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1283,7 +1543,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets
      */
     getPhotoAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -1297,7 +1559,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.createAsset
      */
     createPhotoAsset(displayName: string, albumUri: string, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1310,7 +1574,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.createAsset
      */
     createPhotoAsset(displayName: string, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1323,7 +1589,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type displayName or albumUri is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.createAsset
      */
     createPhotoAsset(displayName: string, albumUri?: string): Promise<FileAsset>;
     /**
@@ -1336,7 +1604,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type displayName is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.createAsset
      */
     createPhotoAsset(displayName: string, createOption: PhotoCreateOptions): Promise<FileAsset>;
     /**
@@ -1350,7 +1620,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.createAsset
      */
     createPhotoAsset(displayName: string, createOption: PhotoCreateOptions, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1363,7 +1635,8 @@ declare namespace userFileManager {
      * @throws { BusinessError } 14000001 - if type displayName invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
      */
     createAudioAsset(displayName: string, callback: AsyncCallback<FileAsset>): void;
     /**
@@ -1375,7 +1648,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type displayName is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     createAudioAsset(displayName: string): Promise<FileAsset>;
     /**
@@ -1387,7 +1662,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not AlbumFetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAlbums
      */
     getPhotoAlbums(options: AlbumFetchOptions, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -1399,7 +1676,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not AlbumFetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAlbums
      */
     getPhotoAlbums(options: AlbumFetchOptions): Promise<FetchResult<Album>>;
     /**
@@ -1410,7 +1689,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Album> } callback - Returns the instance of newly created Album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.createAlbumRequest
      */
     createAlbum(name: string, callback: AsyncCallback<Album>): void;
     /**
@@ -1421,7 +1702,9 @@ declare namespace userFileManager {
      * @returns { Promise<Album> } Returns the instance of newly created Album
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.createAlbumRequest
      */
     createAlbum(name: string): Promise<Album>;
     /**
@@ -1432,7 +1715,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - Returns void
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.deleteAlbums
      */
     deleteAlbums(albums: Array<Album>, callback: AsyncCallback<void>): void;
     /**
@@ -1443,7 +1728,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Returns the promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAlbumChangeRequest.deleteAlbums
      */
     deleteAlbums(albums: Array<Album>): Promise<void>;
     /**
@@ -1457,7 +1744,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.photoAccessHelper.getAlbums
      */
     getAlbums(
       type: AlbumType,
@@ -1475,7 +1764,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.photoAccessHelper.getAlbums
      */
     getAlbums(type: AlbumType, subType: AlbumSubType, callback: AsyncCallback<FetchResult<Album>>): void;
     /**
@@ -1489,7 +1780,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOption
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.photoAccessHelper.getAlbums
      */
     getAlbums(type: AlbumType, subType: AlbumSubType, options?: FetchOptions): Promise<FetchResult<Album>>;
     /**
@@ -1501,7 +1794,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type type is not PrivateAlbumType
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.photoAccessHelper.getAlbums
      */
     getPrivateAlbum(type: PrivateAlbumType, callback: AsyncCallback<FetchResult<PrivateAlbum>>): void;
     /**
@@ -1513,7 +1808,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type type is not PrivateAlbumType
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.photoAccessHelper.getAlbums
      */
     getPrivateAlbum(type: PrivateAlbumType): Promise<FetchResult<PrivateAlbum>>;
     /**
@@ -1525,7 +1822,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     getAudioAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<FileAsset>>): void;
     /**
@@ -1537,7 +1836,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type options is not FetchOptions
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     getAudioAssets(options: FetchOptions): Promise<FetchResult<FileAsset>>;
     /**
@@ -1549,7 +1850,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type uri is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.deleteAssets
      */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1561,7 +1864,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if type uri is not string
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.deleteAssets
      */
     delete(uri: string): Promise<void>;
     /**
@@ -1576,7 +1881,9 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.getPhotoIndex
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions, callback: AsyncCallback<number>): void;
     /**
@@ -1591,7 +1898,9 @@ declare namespace userFileManager {
      * <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getPhotoIndex
      */
     getPhotoIndex(photoUri: string, albumUri: string, options: FetchOptions): Promise<number>;
     /**
@@ -1601,7 +1910,9 @@ declare namespace userFileManager {
      * @param { Callback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.on
      */
     on(type: ChangeEvent, callback: Callback<void>): void;
     /**
@@ -1611,7 +1922,9 @@ declare namespace userFileManager {
      * @param { Callback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.off
      */
     off(type: ChangeEvent, callback?: Callback<void>): void;
     /**
@@ -1623,7 +1936,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.registerChange
      */
     on(uri: string, forSubUri: boolean, callback: Callback<ChangeData>): void;
     /**
@@ -1634,7 +1949,9 @@ declare namespace userFileManager {
      * @throws { BusinessError } 13900020 - if parameter is invalid
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.unRegisterChange
      */
     off(uri: string, callback?: Callback<ChangeData>): void;
     /**
@@ -1643,7 +1960,8 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Array<PeerInfo>> } callback - Callback return the list of the active peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
      */
     getActivePeers(callback: AsyncCallback<Array<PeerInfo>>): void;
     /**
@@ -1652,7 +1970,8 @@ declare namespace userFileManager {
      * @returns { Promise<Array<PeerInfo>> } Promise used to return the list of the active peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
      */
     getActivePeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1661,7 +1980,8 @@ declare namespace userFileManager {
      * @param { AsyncCallback<Array<PeerInfo>> } callback - Callback return the list of the all the peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
      */
     getAllPeers(callback: AsyncCallback<Array<PeerInfo>>): void;
     /**
@@ -1670,7 +1990,8 @@ declare namespace userFileManager {
      * @returns { Promise<Array<PeerInfo>> } Promise used to return the list of the all the peer devices' information
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
      */
     getAllPeers(): Promise<Array<PeerInfo>>;
     /**
@@ -1679,7 +2000,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.release
      */
     release(callback: AsyncCallback<void>): void;
     /**
@@ -1688,7 +2011,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } Return promise
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.release
      */
     release(): Promise<void>;
   }
@@ -1699,7 +2024,9 @@ declare namespace userFileManager {
    * @enum { number } NotifyType subtype
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType
    */
   enum NotifyType {
     /**
@@ -1707,7 +2034,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_ADD
      */
     NOTIFY_ADD,
     /**
@@ -1715,7 +2044,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_UPDATE
      */
     NOTIFY_UPDATE,
     /**
@@ -1723,7 +2054,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_REMOVE
      */
     NOTIFY_REMOVE,
     /**
@@ -1731,7 +2064,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_ALBUM_ADD_ASSET
      */
     NOTIFY_ALBUM_ADD_ASSET,
     /**
@@ -1739,7 +2074,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.NotifyType.NOTIFY_ALBUM_REMOVE_ASSET
      */
     NOTIFY_ALBUM_REMOVE_ASSET
   }
@@ -1750,7 +2087,9 @@ declare namespace userFileManager {
    * @enum { string } DefaultChangeUri subtype
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.DefaultChangeUri
    */
   enum DefaultChangeUri {
     /**
@@ -1758,7 +2097,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.DefaultChangeUri.DEFAULT_PHOTO_URI
      */
     DEFAULT_PHOTO_URI,
     /**
@@ -1766,7 +2107,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.DefaultChangeUri.DEFAULT_ALBUM_URI
      */
     DEFAULT_ALBUM_URI,
     /**
@@ -1774,7 +2117,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.picker:picker.AudioViewPicker
      */
     DEFAULT_AUDIO_URI
   }
@@ -1785,7 +2130,9 @@ declare namespace userFileManager {
    * @interface ChangeData
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 10 dynamic
+   * @since 10 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.ChangeData
    */
   interface ChangeData {
     /**
@@ -1794,7 +2141,9 @@ declare namespace userFileManager {
      * @type { NotifyType }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.ChangeData.type
      */
     type: NotifyType;
     /**
@@ -1803,7 +2152,9 @@ declare namespace userFileManager {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.ChangeData.uris
      */
     uris: Array<string>;
     /**
@@ -1812,7 +2163,8 @@ declare namespace userFileManager {
      * @type { Array<string> }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 10 dynamic
+     * @since 10 dynamiconly
+     * @deprecated since 26.0.0
      */
     subUris: Array<string>;
   }
@@ -1823,7 +2175,8 @@ declare namespace userFileManager {
    * @interface PeerInfo
    * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
    */
   interface PeerInfo {
     /**
@@ -1832,7 +2185,8 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
      */
     readonly deviceName: string;
     /**
@@ -1841,7 +2195,8 @@ declare namespace userFileManager {
      * @type { string }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
      */
     readonly networkId: string;
     /**
@@ -1850,7 +2205,8 @@ declare namespace userFileManager {
      * @type { boolean }
      * @syscap SystemCapability.FileManagement.UserFileManager.DistributedCore
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
      */
     readonly isOnline: boolean;
   }
@@ -1861,7 +2217,9 @@ declare namespace userFileManager {
    * @enum { string } PrivateAlbumType
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.AlbumSubtype
    */
   enum PrivateAlbumType {
     /**
@@ -1869,7 +2227,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.FAVORITE
      */
     TYPE_FAVORITE,
     /**
@@ -1877,7 +2237,9 @@ declare namespace userFileManager {
      *
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.TRASH
      */
     TYPE_TRASH
   }
@@ -1888,7 +2250,9 @@ declare namespace userFileManager {
    * @interface PrivateAlbum
    * @syscap SystemCapability.FileManagement.UserFileManager.Core
    * @systemapi
-   * @since 9 dynamic
+   * @since 9 dynamiconly
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album
    */
   interface PrivateAlbum extends AbsAlbum {
     /**
@@ -1899,7 +2263,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.deleteAlbumsWithUri
      */
     delete(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1910,7 +2276,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } A Promise instance, no value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.deleteAlbumsWithUri
      */
     delete(uri: string): Promise<void>;
     /**
@@ -1921,7 +2289,9 @@ declare namespace userFileManager {
      * @param { AsyncCallback<void> } callback - No value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.recoverAssetsWithUri
      */
     recover(uri: string, callback: AsyncCallback<void>): void;
     /**
@@ -1932,7 +2302,9 @@ declare namespace userFileManager {
      * @returns { Promise<void> } A Promise instance, no value returned
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
-     * @since 9 dynamic
+     * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.MediaAssetChangeRequest.recoverAssetsWithUri
      */
     recover(uri: string): Promise<void>;
   }

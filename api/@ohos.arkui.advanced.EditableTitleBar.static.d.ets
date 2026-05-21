@@ -28,7 +28,8 @@ import { Builder } from '@ohos.arkui.component';
  * Declaration of the menu item on the right side.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare class EditableTitleBarMenuItem {
@@ -37,7 +38,8 @@ export declare class EditableTitleBarMenuItem {
    *
    * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public value: ResourceStr;
   /**
@@ -45,7 +47,8 @@ export declare class EditableTitleBarMenuItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public symbolStyle?: SymbolGlyphModifier;
   /**
@@ -53,7 +56,8 @@ export declare class EditableTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public label?: ResourceStr;
   /**
@@ -61,7 +65,8 @@ export declare class EditableTitleBarMenuItem {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public isEnabled?: boolean;
   /**
@@ -69,7 +74,8 @@ export declare class EditableTitleBarMenuItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public action?: () => void;
   /**
@@ -77,7 +83,8 @@ export declare class EditableTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityText?: ResourceStr;
   /**
@@ -85,7 +92,8 @@ export declare class EditableTitleBarMenuItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityDescription?: ResourceStr;
   /**
@@ -94,7 +102,8 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public accessibilityLevel?: string;
   /**
@@ -103,7 +112,8 @@ export declare class EditableTitleBarMenuItem {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   public defaultFocus?: boolean;
 }
@@ -111,7 +121,8 @@ export declare class EditableTitleBarMenuItem {
  * Declaration of the image item .
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export type EditableTitleBarItem = EditableTitleBarMenuItem;
@@ -120,7 +131,8 @@ export type EditableTitleBarItem = EditableTitleBarMenuItem;
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare enum EditableLeftIconType {
@@ -128,14 +140,16 @@ export declare enum EditableLeftIconType {
    * The back type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   Back = 0,
   /**
    * The cancel type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   Cancel = 1
 }
@@ -144,7 +158,8 @@ export declare enum EditableLeftIconType {
  *
  * @interface EditableTitleBarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare interface EditableTitleBarOptions {
@@ -153,7 +168,8 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   backgroundColor?: ResourceColor;
   /**
@@ -161,7 +177,8 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   backgroundBlurStyle?: BlurStyle;
   /**
@@ -169,7 +186,8 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?Array<SafeAreaType> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   safeAreaTypes?: Array<SafeAreaType>;
   /**
@@ -177,7 +195,8 @@ export declare interface EditableTitleBarOptions {
    *
    * @type { ?Array<SafeAreaEdge> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   safeAreaEdges?: Array<SafeAreaEdge>;
 }
@@ -185,7 +204,8 @@ export declare interface EditableTitleBarOptions {
  * Declaration of the editable title bar.
  * @struct { EditableTitleBar }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 @Component
@@ -195,7 +215,8 @@ export declare struct EditableTitleBar {
    *
    * @type { EditableLeftIconType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   leftIconStyle: EditableLeftIconType;
   /**
@@ -203,14 +224,16 @@ export declare struct EditableTitleBar {
    *
    * @type { ?EditableTitleBarItem }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   imageItem?: EditableTitleBarItem;
   /**
    * Title of this title bar.
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   title: ResourceStr;
   /**
@@ -218,7 +241,8 @@ export declare struct EditableTitleBar {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   subtitle?: ResourceStr;
   /**
@@ -227,7 +251,8 @@ export declare struct EditableTitleBar {
    * @type { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   isSaveIconRequired: boolean;
   /**
@@ -235,7 +260,8 @@ export declare struct EditableTitleBar {
    *
    * @type { ?Array<EditableTitleBarMenuItem> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   menuItems?: Array<EditableTitleBarMenuItem>;
   /**
@@ -243,7 +269,8 @@ export declare struct EditableTitleBar {
    *
    * @type { ?function }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onSave?: () => void;
   /**
@@ -251,7 +278,8 @@ export declare struct EditableTitleBar {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   onCancel?: () => void;
   /**
@@ -260,7 +288,8 @@ export declare struct EditableTitleBar {
    * @type { EditableTitleBarOptions }
    * @default {expandSafeAreaTypes: SafeAreaType.SYSTEM, expandSafeAreaEdges: SafeAreaEdge.TOP}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   options: EditableTitleBarOptions;
   /**
@@ -270,7 +299,8 @@ export declare struct EditableTitleBar {
    * @default {start: LengthMetrics.resource($r('sys.float.margin_left')),
    * <br> end: LengthMetrics.resource($r('sys.float.margin_right'))}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   @PropRef
   contentMargin?: LocalizedMargin;
@@ -280,7 +310,8 @@ export declare struct EditableTitleBar {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   leftIconDefaultFocus?: boolean;
   /**
@@ -289,14 +320,15 @@ export declare struct EditableTitleBar {
    * @type { ?boolean }
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 22 static
+   * @stagemodelonly
+   * @since 23 static
    */
   saveIconDefaultFocus?: boolean;
   /**
    * The method to build component.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 20 staticonly
+   * @stagemodelonly
+   * @since 23 staticonly
    */
   @Builder
   build(): void;

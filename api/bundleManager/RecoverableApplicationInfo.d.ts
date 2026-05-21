@@ -21,96 +21,88 @@
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * Indicates the RecoverableApplicationInfo
+ * The module defines the information about a preinstalled application that can be restored after being uninstalled. The
+ * information can be obtained through
+ * [bundleManager.getRecoverableApplicationInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getRecoverableApplicationInfo(callback: AsyncCallback<Array<RecoverableApplicationInfo>>)}
+ * .
  *
- * @typedef RecoverableApplicationInfo
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface RecoverableApplicationInfo {
   /**
-   * Indicates the bundle name
+   * Bundle name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
   /**
-   * Indicates the module name
+   * Module name.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly moduleName: string;
 
   /**
-   * Indicates the label id
+   * ID of the module label.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly labelId: long;
 
   /**
-   * Indicates the icon id
+   * ID of the module icon.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly iconId: long;
 
   /**
-   * Indicates whether the application is a system application
+   * Whether the application is a system application. **true** if it is a system application, **false** otherwise.
    *
-   * @type { boolean }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly systemApp: boolean;
 
   /**
-   * Indicates the type of application.
+   * Bundle type.
    *
-   * @type { bundleManager.BundleType }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleType: bundleManager.BundleType;
 
   /**
-   * Indicates the application source code path.
+   * Installation directory of the application.
    *
-   * @type { Array<string> }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly codePaths: Array<string>;
 }

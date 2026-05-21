@@ -21,56 +21,54 @@
 import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
 
 /**
- * Obtains resource information about a bundle
+ * The module provides resource information of an application, such as the icon and label. The information can be
+ * obtained by calling
+ * [getBundleResourceInfo]{@link ./../@ohos.bundle.bundleResourceManager:bundleResourceManager.bundleResourceManager.getBundleResourceInfo(bundleName: string, resourceFlags?: int)}
+ * .
  *
- * @typedef BundleResourceInfo
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
  * @since 11 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface BundleResourceInfo {
   /**
-   * Indicates the bundleName of this bundle
+   * Bundle name of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly bundleName: string;
 
   /**
-   * Indicates the icon of this bundle, which is base64 format
+   * Application icon, which is encoded using Base64.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly icon: string;
 
   /**
-   * Indicates the label of this bundle
+   * Application label.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly label: string;
 
   /**
-   * Indicates the drawable descriptor of this bundle icon
+   * drawableDescriptor object of the application icon.
    *
-   * @type { DrawableDescriptor }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
@@ -80,23 +78,19 @@ export interface BundleResourceInfo {
   /**
    * Indicates the drawable descriptor of this bundle icon
    *
-   * @type { DrawableDescriptor | null }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
-   * @since 22 static
+   * @since 23 static
    */
   readonly drawableDescriptor: DrawableDescriptor | null;
 
   /**
-   * Indicates the index of the bundle
+   * Index of an application clone.
    *
-   * @type { int }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIndex: int;
 }

@@ -14,115 +14,74 @@
  */
 
 /**
- * @file
+ * @file Emitter
  * @kit BasicServicesKit
  */
 
+/*** if arkts dynamic */
 import { Callback } from './@ohos.base';
+/*** endif */
+/*** if arkts static */
+import { Callback, RecordData } from './@ohos.base';
+/*** endif */
 
 /**
- * Provides methods for sending and processing in-process events.
+ * The **Emitter** module provides the capabilities of sending and processing inter- or intra-thread events in a 
+ * process. You can use the APIs of this module to subscribe to an event in persistent or one-shot manner, unsubscribe 
+ * from an event, or emit an event to the event queue.
  *
- * @namespace emitter
  * @syscap SystemCapability.Notification.Emitter
- * @since 7
- */
-/**
- * Provides methods for sending and processing in-process events.
- *
- * @namespace emitter
- * @syscap SystemCapability.Notification.Emitter
- * @atomicservice
- * @since 11
- */
-/**
- * Provides methods for sending and processing in-process events.
- *
- * @namespace emitter
- * @syscap SystemCapability.Notification.Emitter
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- * @since 22 static
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @since 23 static
  */
 declare namespace emitter {
   /**
    * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The
+   *     [EventPriority]{@link emitter.EventPriority} parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be invoked when the event is received.
    * @syscap SystemCapability.Notification.Emitter
-   * @since 7
-   */
-  /**
-   * Subscribes to an event in persistent manner and executes a callback after the event is received.
-   *
-   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Subscribes to an event in persistent manner and executes a callback after the event is received.
-   *
-   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   function on(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { InnerEvent } event - Event to subscribe to in persistent manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
+   * @param { Callback<EventData> } callback - Callback to be invoked when the event is received.
    * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
-   */
-  function onWithEventTypeInnerEventCallback(event: InnerEvent, callback: Callback<EventData>): void;
-
-  /**
-   * Subscribes to an event in persistent manner and executes a callback after the event is received.
-   *
-   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform [since 12]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Subscribes to an event in persistent manner and executes a callback after the event is received.
-   *
-   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   function on(eventId: string, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and
+   *     exceed 10240 bytes.
    * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function onWithEventIdTypeStringCallback(eventId: string, callback: Callback<EventData>): void;
+  function onEventData(eventId: string, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to be invoked when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -133,96 +92,60 @@ declare namespace emitter {
   /**
    * Subscribes to an event in persistent manner and executes a callback after the event is received.
    *
-   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { string } eventId - Event to subscribe to in persistent manner. The value cannot be an empty string and
+   *     exceed 10240 bytes.
    * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function onWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
-
-  /**
-   * @since 22 static
-   */
-  overload on { onWithEventTypeInnerEventCallback, onWithEventIdTypeStringCallback, onWithEventIdTypeStringCallbackTypeGenericEventData };
+  function onGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The
+   *     [EventPriority]{@link emitter.EventPriority} parameter is not required and does not take effect.
+   * @param { Callback<EventData> } callback - Callback to be invoked when the event is received.
    * @syscap SystemCapability.Notification.Emitter
-   * @since 7
-   */
-  /**
-   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
-   *
-   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
-   *
-   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   function once(event: InnerEvent, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { InnerEvent } event - Event to subscribe to in one-shot manner. The EventPriority parameter is not required and does not take effect.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
+   * @param { Callback<EventData> } callback - Callback to be invoked when the event is received.
    * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
-   */
-  function onceWithEventTypeInnerEventCallback(event: InnerEvent, callback: Callback<EventData>): void;
-
-  /**
-   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
-   *
-   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform [since 12]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
-   *
-   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   function once(eventId: string, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and
+   *     exceed 10240 bytes.
    * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function onceWithEventIdTypeStringCallback(eventId: string, callback: Callback<EventData>): void;
+  function onceEventData(eventId: string, callback: Callback<EventData>): void;
 
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
+   * @param { Callback<GenericEventData<T>> } callback - Callback to be invoked when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -233,154 +156,83 @@ declare namespace emitter {
   /**
    * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
    *
-   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { string } eventId - Event to subscribe to in one-shot manner. The value cannot be an empty string and
+   *     exceed 10240 bytes.
    * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function onceWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
-
-  /**
-   * @since 22 static
-   */
-  overload once { onceWithEventTypeInnerEventCallback, onceWithEventIdTypeStringCallback, onceWithEventIdTypeStringCallbackTypeGenericEventData };
+  function onceGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
    * Unsubscribes from all events with the specified event ID.
    *
-   * @param { number } eventId - Event ID.
-   * @syscap SystemCapability.Notification.Emitter
-   * @since 7
-   */
-  /**
-   * Unsubscribes from all events with the specified event ID.
-   *
-   * @param { number } eventId - Event ID.
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Unsubscribes from all events with the specified event ID.
-   *
-   * @param { number } eventId - Event ID.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  function off(eventId: number): void;
-
-  /**
-   * Unsubscribes from all events with the specified event ID.
+   * After this API is used to unsubscribe from an event, the event that has been published through the 
+   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
    *
    * @param { long } eventId - Event ID.
    * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
-  function offWithEventIdTypeLong(eventId: long): void;
+  function off(eventId: long): void;
 
   /**
    * Unsubscribes from all events with the specified event ID.
    *
-   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Unsubscribes from all events with the specified event ID.
+   * After this API is used to unsubscribe from an event, the event that has been published through the 
+   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
    *
-   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
    * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
+   * @crossplatform [since 12]
    * @atomicservice
-   * @since 12 dynamic
+   * @since 11 dynamic
+   * @since 23 static
    */
   function off(eventId: string): void;
 
   /**
-   * Unsubscribes from all events with the specified event ID.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
+   * effect only when **Callback\<EventData>** has been registered through the 
+   * [on]{@link emitter.on(event: InnerEvent, callback: Callback<EventData>)} or 
+   * [once]{@link emitter.once(event: InnerEvent, callback: Callback<EventData>)} API. Otherwise, no processing is 
+   * performed.
    *
-   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
-   */
-  function offWithEventIdTypeString(eventId: string): void;
-
-  /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
-   *
-   * @param { number } eventId - Event ID.
-   * @param { Callback<EventData> } callback - Callback to unregister.
-   * @syscap SystemCapability.Notification.Emitter
-   * @since 10
-   */
-  /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
-   *
-   * @param { number } eventId - Event ID.
-   * @param { Callback<EventData> } callback - Callback to unregister.
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
-   *
-   * @param { number } eventId - Event ID.
-   * @param { Callback<EventData> } callback - Callback to unregister.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  function off(eventId: number, callback: Callback<EventData>): void;
-
-  /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
+   * After this API is used to unsubscribe from an event, the event that has been published through the 
+   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
    *
    * @param { long } eventId - Event ID.
    * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @since 23 static
    */
-  function offWithEventIdTypeLongCallback(eventId: long, callback: Callback<EventData>): void;
+  function off(eventId: long, callback: Callback<EventData>): void;
 
   /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
+   * effect only when **Callback\<EventData>** has been registered through the 
+   * [on]{@link emitter.on(eventId: string, callback: Callback<EventData>)} or 
+   * [once]{@link emitter.once(eventId: string, callback: Callback<EventData>)} API. Otherwise, no processing is 
+   * performed.
    *
-   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * After this API is used to unsubscribe from an event, the event that has been published through the 
+   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
+   *
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
    * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform [since 12]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
-   *
-   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Callback<EventData> } callback - Callback to unregister.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   function off(eventId: string, callback: Callback<EventData>): void;
 
@@ -393,16 +245,22 @@ declare namespace emitter {
    * @param { Callback<EventData> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function offWithEventIdTypeStringCallback(eventId: string, callback: Callback<EventData>): void;
+  function offEventData(eventId: string, callback: Callback<EventData>): void;
 
   /**
-   * Unsubscribes from an event with the specified event ID and processed by the specified callback.
-   * This API takes effect only when Callback<EventData> has been registered through the on or once API.
-   * Otherwise, no processing is performed.
+   * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
+   * effect only when **Callback\<EventData>** has been registered through the 
+   * [on]{@link emitter.on<T>(eventId: string, callback: Callback<GenericEventData<T>>)} or 
+   * [once]{@link emitter.once<T>(eventId: string, callback: Callback<GenericEventData<T>>)} API. Otherwise, no 
+   * processing is performed.
    *
-   * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+   * After this API is used to unsubscribe from an event, the event that has been published through the 
+   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
+   *
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
    * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
@@ -420,73 +278,50 @@ declare namespace emitter {
    * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function offWithEventIdTypeStringCallbackTypeGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
+  function offGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
   /**
-   * @since 22 static
-   */
-  overload off { offWithEventIdTypeLong, offWithEventIdTypeString, offWithEventIdTypeLongCallback, offWithEventIdTypeStringCallback, offWithEventIdTypeStringCallbackTypeGenericEventData };
-
-  /**
-   * Emits the specified event.
+   * Emits a specified event.
    *
-   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
-   * @param { EventData } [data] - Data passed in the event.
-   * @syscap SystemCapability.Notification.Emitter
-   * @since 7
-   */
-  /**
-   * Emits the specified event.
+   * This API can be used to emit data objects across threads. The data objects must meet the specifications specified 
+   * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+   * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+   * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
    *
-   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
-   * @param { EventData } [data] - Data passed in the event.
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Emits the specified event.
+   * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+   * depends on the number of events in the event queue and the execution efficiency of each event.
    *
-   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
-   * @param { EventData } [data] - Data passed in the event.
+   * @param { InnerEvent } event - Event to emit, where [EventPriority]{@link emitter.EventPriority} specifies the emit
+   *     priority of the event.
+   * @param { EventData } [data] - Data carried by the event. This parameter is left empty by default.
    * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   function emit(event: InnerEvent, data?: EventData): void;
 
   /**
-   * Emits the specified event.
+   * Emits a specified event.
    *
-   * @param { InnerEvent } event - Event to emit, where EventPriority specifies the emit priority of the event.
-   * @param { EventData } [data] - Data passed in the event.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
-   */
-  function emitWithEventTypeInnerEventDataTypeEventData(event: InnerEvent, data?: EventData): void;
-
-  /**
-   * Emits the specified event.
+   * This API can be used to emit data objects across threads. The data objects must meet the specifications specified 
+   * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+   * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+   * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
    *
-   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { EventData } [data] - Data passed in the event.
+   * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+   * depends on the number of events in the event queue and the execution efficiency of each event.
+   *
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
+   * @param { EventData } [data] - Data carried by the event. This parameter is left empty by default.
    * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform [since 12]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Emits the specified event.
-   *
-   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { EventData } [data] - Data passed in the event.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   function emit(eventId: string, data?: EventData): void;
 
@@ -494,18 +329,37 @@ declare namespace emitter {
    * Emits the specified event.
    *
    * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function emitWithEventIdTypeStringDataTypeEventData(eventId: string, data?: EventData): void;
+  function emit(eventId: string): void;
 
   /**
    * Emits the specified event.
    *
    * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { GenericEventData<T> } [data] - Data passed in the event.
+   * @param { EventData } data - Data passed in the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 23 static
+   */
+  function emit(eventId: string, data: EventData): void;
+
+  /**
+   * Emits a specified event.
+   *
+   * This API can be used to emit data objects across threads. The data objects must meet the specifications specified 
+   * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+   * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+   * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
+   *
+   * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+   * depends on the number of events in the event queue and the execution efficiency of each event.
+   *
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
+   * @param { GenericEventData<T> } [data] - Data carried by the event. This parameter is left empty by default.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -517,33 +371,32 @@ declare namespace emitter {
    * Emits the specified event.
    *
    * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { GenericEventData<T> } [data] - Data passed in the event.
+   * @param { GenericEventData<T> } data - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function emitWithEventIdTypeStringDataTypeGenericEventData<T>(eventId: string, data?: GenericEventData<T>): void;
+  function emit<T>(eventId: string, data: GenericEventData<T>): void;
 
   /**
    * Emits an event of a specified priority.
    *
-   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
-   * @param { Options } options - Event emit priority.
-   * @param { EventData } [data] - Data passed in the event.
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Emits an event of a specified priority.
+   * This API can be used to emit data objects across threads. The data objects must meet the specifications specified 
+   * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+   * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+   * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
    *
-   * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
+   * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+   * depends on the number of events in the event queue and the execution efficiency of each event.
+   *
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
    * @param { Options } options - Event emit priority.
-   * @param { EventData } [data] - Data passed in the event.
+   * @param { EventData } [data] - Data carried by the event. This parameter is left empty by default.
    * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
+   * @crossplatform [since 12]
    * @atomicservice
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   function emit(eventId: string, options: Options, data?: EventData): void;
 
@@ -552,19 +405,39 @@ declare namespace emitter {
    *
    * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
    * @param { Options } options - Event emit priority.
-   * @param { EventData } [data] - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function emitWithEventIdTypeStringOptionsDataTypeEventData(eventId: string, options: Options, data?: EventData): void;
+  function emit(eventId: string, options: Options): void;
 
   /**
    * Emits an event of a specified priority.
    *
    * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
    * @param { Options } options - Event emit priority.
-   * @param { GenericEventData<T> } [data] - Data passed in the event.
+   * @param { EventData } data - Data passed in the event.
+   * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform
+   * @since 23 static
+   */
+  function emit(eventId: string, options: Options, data: EventData): void;
+
+  /**
+   * Emits an event of a specified priority.
+   *
+   * This API can be used to emit data objects across threads. The data objects must meet the specifications specified 
+   * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+   * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+   * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
+   *
+   * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+   * depends on the number of events in the event queue and the execution efficiency of each event.
+   *
+   * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+   *     empty.
+   * @param { Options } options - Event emit priority.
+   * @param { GenericEventData<T> } [data] - Data carried by the event. This parameter is left empty by default.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
@@ -577,206 +450,89 @@ declare namespace emitter {
    *
    * @param { string } eventId - ID of the event to emit. The value cannot be an empty string and exceed 10240 bytes.
    * @param { Options } options - Event emit priority.
-   * @param { GenericEventData<T> } [data] - Data passed in the event.
+   * @param { GenericEventData<T> } data - Data passed in the event.
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
-   * @since 22 static
+   * @since 23 static
    */
-  function emitWithEventIdTypeStringOptionsDataTypeGenericEventData<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
-
-  /**
-   * @since 22 static
-   */
-  overload emit { emitWithEventTypeInnerEventDataTypeEventData, emitWithEventIdTypeStringDataTypeEventData, emitWithEventIdTypeStringDataTypeGenericEventData, emitWithEventIdTypeStringOptionsDataTypeEventData, emitWithEventIdTypeStringOptionsDataTypeGenericEventData };
+  function emit<T>(eventId: string, options: Options, data: GenericEventData<T>): void;
 
   /**
    * Obtains the number of subscriptions to a specified event.
    *
-   * @param { number | string } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { number } Returns the number of listener count.
+   * @param { long | string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value
+   *     cannot be empty.
+   * @returns { long } Number of subscriptions to a specified event.
    * @syscap SystemCapability.Notification.Emitter
+   * @crossplatform [since 12]
    * @atomicservice
-   * @since 11
+   * @since 11 dynamic
+   * @since 23 static
    */
-  /**
-   * Obtains the number of subscriptions to a specified event.
-   *
-   * @param { number | string } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { number } Returns the number of listener count.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  function getListenerCount(eventId: number | string): number;
-
-  /**
-   * Obtains the number of subscriptions to a specified event.
-   *
-   * @param { long } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { long } Returns the number of listener count.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
-   */
-  function getListenerCountWithEventIdTypeLong(eventId: long): long;
-
-  /**
-   * Obtains the number of subscriptions to a specified event.
-   *
-   * @param { string } eventId - Event ID. The value of the string type cannot be an empty string.
-   * @returns { long } Returns the number of listener count.
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @since 22 static
-   */
-  function getListenerCountWithEventIdTypeString(eventId: string): long;
-
-  /**
-   * @since 22 static
-   */
-  overload getListenerCount { getListenerCountWithEventIdTypeLong, getListenerCountWithEventIdTypeString };
+  function getListenerCount(eventId: long | string): long;
 
   /**
    * Describes data passed in the event.
    *
-   * @typedef EventData
    * @syscap SystemCapability.Notification.Emitter
-   * @since 7
-   */
-  /**
-   * Describes data passed in the event.
-   *
-   * @typedef EventData
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes data passed in the event.
-   *
-   * @typedef EventData
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   export interface EventData {
     /**
-     * Data passed in the event.
+     * Data carried by the emitted event. The value can be in any of the following types: Array, ArrayBuffer, Boolean, 
+     * DataView, Date, Error, Map, Number, Object, Primitive (except symbol), RegExp, Set, String, and TypedArray. The 
+     * maximum data size is 16 MB.
      *
-     * @type { ?object }
      * @syscap SystemCapability.Notification.Emitter
-     * @since 7
-     */
-    /**
-     * Data passed in the event.
-     *
-     * @type { ?object }
-     * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Data passed in the event.
-     *
-     * @type { ?object }
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     data?: { [key: string]: any };
 
     /**
      * Data carried by the event.
      *
-     * @type { Record<string, Object> | ESValue} [data]
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
-    data?: Record<string, Object> | ESValue;
+    data?: Record<string, RecordData> | ESValue;
   }
 
   /**
-   * Describes an event to subscribe to or emit. The EventPriority settings do not take effect under event subscription.
+   * Describes an event to subscribe to or emit. The **EventPriority** settings do not take effect under event 
+   * subscription.
    *
-   * @typedef InnerEvent
    * @syscap SystemCapability.Notification.Emitter
-   * @since 7
-   */
-  /**
-   * Describes an event to subscribe to or emit. The EventPriority settings do not take effect under event subscription.
-   *
-   * @typedef InnerEvent
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Describes an event to subscribe to or emit. The EventPriority settings do not take effect under event subscription.
-   *
-   * @typedef InnerEvent
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   export interface InnerEvent {
     /**
      * Event ID.
      *
-     * @type { number }
      * @syscap SystemCapability.Notification.Emitter
-     * @since 7
-     */
-    /**
-     * Event ID.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Event ID.
-     *
-     * @type { long }
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     eventId: long;
 
     /**
-     * Event priority. The default value is EventPriority.LOW.
+     * Event priority. The default value is **EventPriority.LOW**.
      *
-     * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
-     * @since 7
-     */
-    /**
-     * Event priority. The default value is EventPriority.LOW.
-     *
-     * @type { ?EventPriority }
-     * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Event priority. The default value is EventPriority.LOW.
-     *
-     * @type { ?EventPriority }
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     priority?: EventPriority;
   }
@@ -784,50 +540,21 @@ declare namespace emitter {
   /**
    * Enumerates the event priorities.
    *
-   * @enum { number }
    * @syscap SystemCapability.Notification.Emitter
-   * @since 7
-   */
-  /**
-   * Enumerates the event priorities.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Notification.Emitter
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enumerates the event priorities.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @since 23 static
    */
   export enum EventPriority {
     /**
-     * The event will be emitted immediately.
+     * The event will be emitted before high-priority events.
      *
      * @syscap SystemCapability.Notification.Emitter
-     * @since 7
-     */
-    /**
-     * The event will be emitted immediately.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The event will be emitted immediately.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     IMMEDIATE = 0,
 
@@ -835,23 +562,10 @@ declare namespace emitter {
      * The event will be emitted before low-priority events.
      *
      * @syscap SystemCapability.Notification.Emitter
-     * @since 7
-     */
-    /**
-     * The event will be emitted before low-priority events.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The event will be emitted before low-priority events.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     HIGH,
 
@@ -859,23 +573,10 @@ declare namespace emitter {
      * The event will be emitted before idle-priority events. By default, an event is in LOW priority.
      *
      * @syscap SystemCapability.Notification.Emitter
-     * @since 7
-     */
-    /**
-     * The event will be emitted before idle-priority events. By default, an event is in LOW priority.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The event will be emitted before idle-priority events. By default, an event is in LOW priority.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     LOW,
 
@@ -883,23 +584,10 @@ declare namespace emitter {
      * The event will be emitted after all the other events.
      *
      * @syscap SystemCapability.Notification.Emitter
-     * @since 7
-     */
-    /**
-     * The event will be emitted after all the other events.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The event will be emitted after all the other events.
-     *
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
      */
     IDLE,
   }
@@ -907,56 +595,38 @@ declare namespace emitter {
   /**
    * Describes the event emit priority.
    *
-   * @typedef Options
    * @syscap SystemCapability.Notification.Emitter
-   * @since 11
-   */
-  /**
-   * Describes the event emit priority.
-   *
-   * @typedef Options
-   * @syscap SystemCapability.Notification.Emitter
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   * @since 22 static
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   * @since 23 static
    */
   export interface Options {
     /**
-     * Event priority. The default value is EventPriority.LOW.
+     * Event priority. The default value is **EventPriority.LOW**.
      *
-     * @type { ?EventPriority }
      * @syscap SystemCapability.Notification.Emitter
-     * @since 11
-     */
-    /**
-     * Event priority. The default value is EventPriority.LOW.
-     *
-     * @type { ?EventPriority }
-     * @syscap SystemCapability.Notification.Emitter
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 22 static
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
+     * @since 23 static
      */
     priority?: EventPriority;
   }
 
   /**
-   * Describes the generic data passed in the event.
+   * Describes the generic data carried by the emitted event.
    *
-   * @typedef GenericEventData<T>
    * @syscap SystemCapability.Notification.Emitter
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   export interface GenericEventData<T> {
     /**
      * Data passed in the event. T: generic type.
      *
-     * @type { ?T }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
      * @atomicservice
@@ -967,39 +637,42 @@ declare namespace emitter {
     /**
      * Data passed in the event. T: generic type.
      *
-     * @type { ?(T | ESValue) }
      * @syscap SystemCapability.Notification.Emitter
      * @crossplatform
-     * @since 22 static
+     * @since 23 static
      */
     data?: T | ESValue;
   }
 
   /**
-   * Provides methods for creating and managing independent event emitter instances.
-   * Each instance maintains its own set of event listeners and can emit events independently.
+   * This module provides the capabilities of sending and processing inter- or intra-thread events in a process of the 
+   * same Emitter instance. You can use the following APIs to subscribe to an event in persistent or one-shot manner, 
+   * unsubscribe from an event, or emit an event to the event queue.
    *
-   * @class Emitter
    * @syscap SystemCapability.Notification.Emitter
    * @atomicservice
-   * @since 22 dynamic&static
+   * @since 22 dynamic
+   * @since 23 static
+   * @class Emitter
    */
   export class Emitter {
     /**
-     * Creates a new independent Emitter instance.
+     * Defines a constructor.
      *
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     constructor();
 
     /**
-     * Subscribes to an event in persistent manner and executes a callback after the event is received.
+     * Subscribes to an event specified by the Emitter instance in persistent manner and executes a callback after the 
+     * event is received.
      *
-     * @param { string } eventId - Event to subscribe to in persistent manner. 
-     *     The value cannot be an empty string and exceed 10240 bytes.
-     * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
+     * @param { Callback<EventData> } callback - Callback to be invoked when the event is received.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 22 dynamic
@@ -1007,11 +680,12 @@ declare namespace emitter {
     on(eventId: string, callback: Callback<EventData>): void;
 
     /**
-     * Subscribes to an event in persistent manner and executes a callback after the event is received.
+     * Subscribes to an event specified by the Emitter instance in persistent manner and executes a callback after the 
+     * event is received.
      *
-     * @param { string } eventId - Event to subscribe to in persistent manner.
-     *     The value cannot be an empty string and exceed 10240 bytes.
-     * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to be invoked when the event is received.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 22 dynamic
@@ -1019,11 +693,12 @@ declare namespace emitter {
     on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
     /**
-     * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+     * Subscribes to an event specified by the Emitter instance in one-shot manner and unsubscribes from it after the 
+     * event callback is executed. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } eventId - Event to subscribe to in one-shot manner.
-     *     The value cannot be an empty string and exceed 10240 bytes.
-     * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
+     * @param { Callback<EventData> } callback - Callback to be invoked when the event is received.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 22 dynamic
@@ -1031,11 +706,12 @@ declare namespace emitter {
     once(eventId: string, callback: Callback<EventData>): void;
 
     /**
-     * Subscribes to an event in one-shot manner and unsubscribes from it after the event callback is executed.
+     * Subscribes to an event specified by the Emitter instance in one-shot manner and unsubscribes from it after the 
+     * event callback is executed. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } eventId - Event to subscribe to in one-shot manner.
-     *     The value cannot be an empty string and exceed 10240 bytes.
-     * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
+     * @param { Callback<GenericEventData<T>> } callback - Callback to be invoked when the event is received.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
      * @since 22 dynamic
@@ -1049,7 +725,7 @@ declare namespace emitter {
      *     The value cannot be an empty string and exceed 10240 bytes.
      * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
      * @syscap SystemCapability.Notification.Emitter
-     * @since 22 static
+     * @since 23 static
      */
     onEventData(eventId: string, callback: Callback<EventData>): void;
 
@@ -1060,7 +736,7 @@ declare namespace emitter {
      *     The value cannot be an empty string and exceed 10240 bytes.
      * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
      * @syscap SystemCapability.Notification.Emitter
-     * @since 22 static
+     * @since 23 static
      */
     onGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
@@ -1071,7 +747,7 @@ declare namespace emitter {
      *     The value cannot be an empty string and exceed 10240 bytes.
      * @param { Callback<EventData> } callback - Callback to be executed when the event is received.
      * @syscap SystemCapability.Notification.Emitter
-     * @since 22 static
+     * @since 23 static
      */
     onceEventData(eventId: string, callback: Callback<EventData>): void;
 
@@ -1082,24 +758,38 @@ declare namespace emitter {
      *     The value cannot be an empty string and exceed 10240 bytes.
      * @param { Callback<GenericEventData<T>> } callback - Callback to be executed when the event is received.
      * @syscap SystemCapability.Notification.Emitter
-     * @since 22 static
+     * @since 23 static
      */
     onceGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
     /**
-     * Unsubscribes from all events with the specified event ID.
+     * Unsubscribes from all events with the specified event ID of the Emitter instance.
      *
-     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * After this API is used to unsubscribe from an event, the event that has been published through the 
+     * [emit]{@link emitter.Emitter#emit(eventId: string, data?: EventData)} API but has not been executed will be 
+     * unsubscribed.
+     *
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     off(eventId: string): void;
 
     /**
-     * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+     * Unsubscribes from an event of the Emitter instance. This API takes effect only when the 
+     * [on]{@link emitter.Emitter#on(eventId: string, callback: Callback<EventData>)} or 
+     * [once]{@link emitter.Emitter#once(eventId: string, callback: Callback<EventData>)} API is used to subscribe to 
+     * the event with specified event ID and a callback is used to process the event.
      *
-     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * After this API is used to unsubscribe from an event, the event that has been published through the 
+     * [emit]{@link emitter.Emitter#emit(eventId: string, data?: EventData)} API but has not been executed will be 
+     * unsubscribed.
+     *
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
      * @param { Callback<EventData> } callback - Callback to unregister.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -1113,14 +803,22 @@ declare namespace emitter {
      * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
      * @param { Callback<EventData> } callback - Callback to unregister.
      * @syscap SystemCapability.Notification.Emitter
-     * @since 22 static
+     * @since 23 static
      */
     offEventData(eventId: string, callback: Callback<EventData>): void;
 
     /**
-     * Unsubscribes from an event with the specified event ID and processed by the specified callback.
+     * Unsubscribes from an event of the Emitter instance. This API takes effect only when the 
+     * [on]{@link emitter.Emitter#on<T>(eventId: string, callback: Callback<GenericEventData<T>>)} or 
+     * [once]{@link emitter.Emitter#once<T>(eventId: string, callback: Callback<GenericEventData<T>>)} API is used to 
+     * subscribe to the event with specified event ID and a callback is used to process the event.
      *
-     * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
+     * After this API is used to unsubscribe from an event, the event that has been published through the 
+     * [emit]{@link emitter.Emitter#emit<T>(eventId: string, data?: GenericEventData<T>)} API but has not been executed 
+     * will be unsubscribed.
+     *
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
      * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
@@ -1134,68 +832,106 @@ declare namespace emitter {
      * @param { string } eventId - Event ID. The value cannot be an empty string and exceed 10240 bytes.
      * @param { Callback<GenericEventData<T>> } callback - Callback to unregister.
      * @syscap SystemCapability.Notification.Emitter
-     * @since 22 static
+     * @since 23 static
      */
     offGenericEventData<T>(eventId: string, callback: Callback<GenericEventData<T>>): void;
 
     /**
-     * Emits the specified event.
+     * Emits a specified event to the Emitter class instance.
      *
-     * @param { string } eventId - ID of the event to emit.
-     *     The value cannot be an empty string and exceed 10240 bytes.
-     * @param { EventData } [data] - Data passed in the event.
+     * This API can be used to emit data objects across threads. The data objects must meet the specifications specified
+     * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+     * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+     * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
+     *
+     * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+     * depends on the number of events in the event queue and the execution efficiency of each event.
+     *
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
+     * @param { EventData } [data] - Data carried by the event. This parameter is left empty by default.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     emit(eventId: string, data?: EventData): void;
 
     /**
-     * Emits the specified event.
+     * Emits a specified event to the Emitter class instance.
      *
-     * @param { string } eventId - ID of the event to emit.
-     *     The value cannot be an empty string and exceed 10240 bytes.
-     * @param { GenericEventData<T> } [data] - Data passed in the event.
+     * This API can be used to emit data objects across threads. The data objects must meet the specifications specified
+     * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+     * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+     * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
+     *
+     * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+     * depends on the number of events in the event queue and the execution efficiency of each event.
+     *
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
+     * @param { GenericEventData<T> } [data] - Data carried by the event. This parameter is left empty by default.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     emit<T>(eventId: string, data?: GenericEventData<T>): void;
 
     /**
-     * Emits an event of a specified priority.
+     * Emits a specified event to the Emitter class instance.
      *
-     * @param { string } eventId - ID of the event to emit.
-     *     The value cannot be an empty string and exceed 10240 bytes.
+     * This API can be used to emit data objects across threads. The data objects must meet the specifications specified
+     * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+     * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+     * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
+     *
+     * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+     * depends on the number of events in the event queue and the execution efficiency of each event.
+     *
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
      * @param { Options } options - Event emit priority.
-     * @param { EventData } [data] - Data passed in the event.
+     * @param { EventData } [data] - Data carried by the event. This parameter is left empty by default.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     emit(eventId: string, options: Options, data?: EventData): void;
 
     /**
-     * Emits an event of a specified priority.
+     * Emits an event of a specified priority to the Emitter instance.
      *
-     * @param { string } eventId - ID of the event to emit.
-     *     The value cannot be an empty string and exceed 10240 bytes.
+     * This API can be used to emit data objects across threads. The data objects must meet the specifications specified
+     * in [Overview of Inter-Thread Communication Objects](docroot://arkts-utils/serializable-overview.md). Currently, 
+     * complex data decorated by decorators such as [@State](docroot://ui/state-management/arkts-state.md) and 
+     * [@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) is not supported.
+     *
+     * After an event is published using this API, the event may not be executed immediately. When the execution starts 
+     * depends on the number of events in the event queue and the execution efficiency of each event.
+     *
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
      * @param { Options } options - Event emit priority.
-     * @param { GenericEventData<T> } [data] - Data passed in the event.
+     * @param { GenericEventData<T> } [data] - Data carried by the event. This parameter is left empty by default.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void;
 
     /**
-     * Obtains the number of subscriptions to a specified event.
+     * Obtains the number of subscriptions to a specified event of the Emitter instance.
      *
-     * @param { string } eventId - Event ID. The value cannot be an empty string.
-     * @returns { long } Returns the number of listener count.
+     * @param { string } eventId - Event ID, which is a custom string with a maximum of 10240 bytes. The value cannot be
+     *     empty.
+     * @returns { long } Number of subscriptions to a specified event.
      * @syscap SystemCapability.Notification.Emitter
      * @atomicservice
-     * @since 22 dynamic&static
+     * @since 22 dynamic
+     * @since 23 static
      */
     getListenerCount(eventId: string): long;
   }

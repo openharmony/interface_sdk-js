@@ -23,6 +23,7 @@
  *
  * @interface ContainerSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -31,6 +32,7 @@
  *
  * @interface ContainerSpanInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -41,6 +43,7 @@ interface ContainerSpanInterface {
    *
    * @returns { ContainerSpanAttribute } The attribute of the container span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -49,6 +52,7 @@ interface ContainerSpanInterface {
    *
    * @returns { ContainerSpanAttribute } The attribute of the container span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -60,6 +64,7 @@ interface ContainerSpanInterface {
  * Define the ContainerSpan attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -67,6 +72,7 @@ interface ContainerSpanInterface {
  * Define the ContainerSpan attribute functions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -78,6 +84,7 @@ declare class ContainerSpanAttribute {
    * @param { TextBackgroundStyle } style - The background style of span.
    * @returns { ContainerSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -87,6 +94,7 @@ declare class ContainerSpanAttribute {
    * @param { TextBackgroundStyle } style - The background style of span.
    * @returns { ContainerSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -99,6 +107,7 @@ declare class ContainerSpanAttribute {
    * @param { AttributeModifier<ContainerSpanAttribute> } modifier - The instance of contain span modifier.
    * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -110,6 +119,7 @@ declare class ContainerSpanAttribute {
  * Defines ContainerSpan Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -117,6 +127,7 @@ declare class ContainerSpanAttribute {
  * Defines ContainerSpan Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -127,6 +138,7 @@ declare const ContainerSpan: ContainerSpanInterface;
  * Defines ContainerSpan Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -134,6 +146,7 @@ declare const ContainerSpan: ContainerSpanInterface;
  * Defines ContainerSpan Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic

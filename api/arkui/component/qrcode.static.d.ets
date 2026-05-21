@@ -21,7 +21,7 @@
 import { CommonMethod } from './common';
 import { ResourceColor, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -30,7 +30,8 @@ import { AttributeModifier } from "./common";
  * @extends CommonMethod
  * @interface QRCodeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
 export declare interface QRCodeAttribute extends CommonMethod {
@@ -40,7 +41,8 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default color(value: ResourceColor | undefined): this;
     /**
@@ -49,41 +51,67 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { ResourceColor | undefined } value
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Set the opacity of the QR code content color.
-     * @param { number | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
+     * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
      * @returns { QRCodeAttribute } the attribute of the QR code
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    default contentOpacity(value: number | Resource | undefined): this;
+    default contentOpacity(value: double | Resource | undefined): this;
     /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set QRCode options.
+     *
+     * @param { ResourceStr } value - qrcode string.
+     * @returns { QRCodeAttribute } Returns the instance of the QRCodeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setQRCodeOptions(value: ResourceStr): this;
 }
 /**
  * Defines the QRCode component.
  *
  * @param { ResourceStr } value - qrcode string.
- * @param { function } [content_]
  * @returns { QRCodeAttribute } The attribute of the QRCode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function QRCode(
-    value: ResourceStr, 
-    @memo
-    content_?: () => void
+    value: ResourceStr
+): QRCodeAttribute;
+
+/**
+ * Defines QRCode Component.
+ *
+ * @param { CustomBuilderT<QRCodeAttribute> } style - QRCode attribute instance
+ * @returns { QRCodeAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function QRCode(
+    style: CustomBuilderT<QRCodeAttribute>,
 ): QRCodeAttribute;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,226 +19,243 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+/*** if arkts static */
+import type { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
- * This module provides the capability to manage distributed accounts.
+ * The **distributedAccount** module provides APIs for managing distributed accounts, including querying and updating
+ * account login states.
  *
- * @namespace distributedAccount
  * @syscap SystemCapability.Account.OsAccount
  * @since 7 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace distributedAccount {
   /**
-   * Gets the ability of the distributed account.
+   * Obtains a **DistributedAccountAbility** instance.
    *
-   * @returns { DistributedAccountAbility } Ability to manage operations of distributed account.
+   * @returns { DistributedAccountAbility } **DistributedAccountAbility** instance obtained.
+   *     This instance provides APIs for querying and updating the login state of a distributed account.
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function getDistributedAccountAbility(): DistributedAccountAbility;
 
   /**
-   * Defines distributed account functions and interfaces.
+   * Provides APIs for querying and updating the login state of a distributed account. You must obtain a
+   * **DistributedAccountAbility** instance first.
    *
-   * @interface DistributedAccountAbility
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DistributedAccountAbility {
     /**
-     * Queries the distributed information of the current OS account.
+     * Queries the distributed account information. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.getOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>)}
+     * >  instead.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
+     * @param { AsyncCallback<DistributedInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the distributed account information obtained.
+     *     Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead distributedAccount.DistributedAccountAbility#getOsAccountDistributedInfo
+     * @useinstead distributedAccount.DistributedAccountAbility.getOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>)
      */
     queryOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
 
     /**
-     * Queries the distributed information of the current OS account.
+     * Queries the distributed account information. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.getOsAccountDistributedInfo()}
+     * >  instead.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Promise<DistributedInfo> } The distributed information of the current OS account.
+     * @returns { Promise<DistributedInfo> } Promise used to return the distributed account information obtained.
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead distributedAccount.DistributedAccountAbility#getOsAccountDistributedInfo
+     * @useinstead distributedAccount.DistributedAccountAbility.getOsAccountDistributedInfo()
      */
     queryOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
     /**
-     * Gets the distributed information of the current OS account.
+     * Obtains the distributed account information. This API uses an asynchronous callback to return the result.
      *
-     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or
+     *     ohos.permission.DISTRIBUTED_DATASYNC
+     * @param { AsyncCallback<DistributedInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the distributed account information obtained.
+     *     Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOsAccountDistributedInfo(callback: AsyncCallback<DistributedInfo>): void;
 
     /**
-     * Gets the distributed information of the current OS account.
+     * Obtains the distributed account information. This API uses a promise to return the result.
      *
-     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or ohos.permission.DISTRIBUTED_DATASYNC
-     * @returns { Promise<DistributedInfo> } The distributed information of the current OS account.
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.GET_DISTRIBUTED_ACCOUNTS or
+     *     ohos.permission.DISTRIBUTED_DATASYNC
+     * @returns { Promise<DistributedInfo> } Promise used to return the distributed account information obtained.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     getOsAccountDistributedInfo(): Promise<DistributedInfo>;
 
     /**
-     * Gets the distributed information of the specified OS account.
+     * Obtains distributed information about an OS account. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - Indicates the local ID of the specified OS account.
-     * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300003 - Account not found.
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    /**
-     * Gets the distributed information of the specified OS account.
-     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or
+     *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 10 - 19]
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or (ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and
-     *     ohos.permission.GET_DISTRIBUTED_ACCOUNTS)
-     * @param { int } localId - Indicates the local ID of the specified OS account.
-     * @param { AsyncCallback<DistributedInfo> } callback - Asynchronous callback interface.
+     *     ohos.permission.GET_DISTRIBUTED_ACCOUNTS) [since 20]
+     * @param { int } localId - ID of the target OS account.
+     * @param { AsyncCallback<DistributedInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the distributed account information obtained.
+     *     Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
+     * @since 10 dynamic
+     * @since 23 static
      */
     getOsAccountDistributedInfoByLocalId(localId: int, callback: AsyncCallback<DistributedInfo>): void;
 
     /**
-     * Gets the distributed information of the specified OS account.
+     * Obtains distributed information about an OS account. This API uses a promise to return the result.
      *
-     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-     * @param { int } localId - Indicates the local ID of the specified OS account.
-     * @returns { Promise<DistributedInfo> } The distributed information of the specified OS account.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300003 - Account not found.
-     * @syscap SystemCapability.Account.OsAccount
-     * @systemapi Hide this for inner system use.
-     * @since 10
-     */
-    /**
-     * Gets the distributed information of the specified OS account.
-     *
+     * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or
+     *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 10 - 19]
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS or (ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS and
-     *     ohos.permission.GET_DISTRIBUTED_ACCOUNTS)
-     * @param { int } localId - Indicates the local ID of the specified OS account.
-     * @returns { Promise<DistributedInfo> } The distributed information of the specified OS account.
+     *     ohos.permission.GET_DISTRIBUTED_ACCOUNTS) [since 20]
+     * @param { int } localId - ID of the target OS account.
+     * @returns { Promise<DistributedInfo> } Promise used to return the distributed account information obtained.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi
-     * @since 20 dynamic
+     * @since 10 dynamic
+     * @since 23 static
      */
     getOsAccountDistributedInfoByLocalId(localId: int): Promise<DistributedInfo>;
 
     /**
-     * Updates the distributed information of the OS account.
+     * Updates the distributed account information. This API uses an asynchronous callback to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>)}
+     * >  instead.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { DistributedInfo } accountInfo - Distributed account information to update.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the distributed account
+     *     information is updated successfully, **err** is **undefined**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead distributedAccount.DistributedAccountAbility#setOsAccountDistributedInfo
+     * @useinstead distributedAccount.DistributedAccountAbility.setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>)
      */
     updateOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Updates the distributed information of the OS account.
+     * Updates the distributed account information. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setOsAccountDistributedInfo]{@link distributedAccount.DistributedAccountAbility.setOsAccountDistributedInfo(accountInfo: DistributedInfo)}
+     * >  instead.
      *
      * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { DistributedInfo } accountInfo - Distributed account information to update.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead distributedAccount.DistributedAccountAbility#setOsAccountDistributedInfo
+     * @useinstead distributedAccount.DistributedAccountAbility.setOsAccountDistributedInfo(accountInfo: DistributedInfo)
      */
     updateOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
     /**
-     * Sets the distributed information of the OS account.
+     * Sets the distributed account information. This API uses an asynchronous callback to return the result.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { DistributedInfo } accountInfo - Distributed account information to set.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the distributed account
+     *     information is set successfully, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
+     * @since 23 static
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the distributed information of the OS account.
+     * Sets the distributed account information. This API uses a promise to return the result.
+     * This API can be called only by system applications.
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { DistributedInfo } accountInfo - Indicates the information of the OS account used for a distributed system.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { DistributedInfo } accountInfo - Distributed account information to set.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid accountInfo.
      * @throws { BusinessError } 12300003 - Account not found.
      * @syscap SystemCapability.Account.OsAccount
-     * This API can be called only by system applications.
      * @since 9 dynamic
+     * @since 23 static
      */
     setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise<void>;
 
     /**
-     * Sets the distributed information of the specified OS account.
+     * Sets the distributed information for an OS account. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { int } localId - Indicates the local ID of the OS account.
-     * @param { DistributedInfo } distributedInfo - Indicates the distributed information.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { int } localId - ID of the target OS account.
+     * @param { DistributedInfo } distributedInfo - Distributed account information to set.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the distributed
+     *     information is set successfully, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid distributedInfo.
      * @throws { BusinessError } 12300003 - Account identified by localId or by distributedInfo not found.
@@ -246,20 +263,21 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 23 static
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the distributed information of the specified OS account.
+     * Sets the distributed information for an OS account. This API uses a promise to return the result.
      *
      * @permission ohos.permission.MANAGE_DISTRIBUTED_ACCOUNTS
-     * @param { int } localId - Indicates the local ID of the OS account.
-     * @param { DistributedInfo } distributedInfo - Indicates the distributed information.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { int } localId - ID of the target OS account.
+     * @param { DistributedInfo } distributedInfo - Distributed account information to set.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid distributedInfo.
      * @throws { BusinessError } 12300003 - Account identified by localId or by distributedInfo not found.
@@ -267,117 +285,126 @@ declare namespace distributedAccount {
      * @syscap SystemCapability.Account.OsAccount
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
+     * @since 23 static
      */
     setOsAccountDistributedInfoByLocalId(localId: int, distributedInfo: DistributedInfo): Promise<void>;
   }
 
   /**
-   * Enum for distributed account status.
+   * Enumerates the statuses of a distributed account.
    *
-   * @enum { int }
    * @syscap SystemCapability.Account.OsAccount
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum DistributedAccountStatus {
     /**
-     * Indicates that the account is not logged in.
+     * The account has not logged in.
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     NOT_LOGGED_IN = 0,
 
     /**
-     * Indicates that the account is logged in.
+     * The account has logged in.
      *
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     LOGGED_IN = 1
   }
 
   /**
-   * Provides the distributed information of the OS account.
+   * Represents the distributed information about an OS account.
    *
-   * @interface DistributedInfo
    * @syscap SystemCapability.Account.OsAccount
    * @since 7 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface DistributedInfo {
     /**
-     * The name in the distributed information of the OS account.
+     * Name of the distributed account. It must be a non-null string.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     name: string;
 
     /**
-     * The ID in the distributed information of the OS account.
+     * UID of the distributed account. It must be a non-null string.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     id: string;
 
     /**
-     * The event string in the distributed information of the OS account.
+     * Login state of the distributed account. The state can be login, logout, token invalid, or logoff, which
+     * correspond to the following strings respectively:
      *
-     * @type { string }
+     * - Ohos.account.event.LOGIN
+     *
+     * - Ohos.account.event.LOGOUT
+     *
+     * - Ohos.account.event.TOKEN_INVALID
+     *
+     * - Ohos.account.event.LOGOFF
+     *
      * @syscap SystemCapability.Account.OsAccount
      * @since 7 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     event: string;
 
     /**
-     * The nickname in the distributed information of the OS account.
+     * Nickname of the distributed account. By default, no value is passed in.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     nickname?: string;
 
     /**
-     * The avatar in the distributed information of the OS account.
+     * Avatar of the distributed account. By default, no value is passed in.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     avatar?: string;
 
     /**
-     * The status in the distributed information of the OS account.
+     * Status of the distributed account. The value is of the enumerated type. The default status is unlogged.
      *
-     * @type { ?DistributedAccountStatus }
-     * @readonly
      * @syscap SystemCapability.Account.OsAccount
      * @since 10 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     readonly status?: DistributedAccountStatus;
 
     /**
-     * The scalable data in the distributed information of the OS account.
+     * Additional information about the distributed account, in the form of KV pairs. This parameter is left empty by
+     * default.
      *
-     * @type { ?object }
      * @syscap SystemCapability.Account.OsAccount
      * @since 8 dynamic
-     * @since 22 static
      */
     scalableData?: object;
+
+    /**
+     * Additional information about the distributed account, in the form of KV pairs. This parameter is left empty by
+     * default.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @since 23 static
+     */
+    scalableData?: Record<string, RecordData>;
   }
 }
 

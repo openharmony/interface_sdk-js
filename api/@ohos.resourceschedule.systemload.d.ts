@@ -26,7 +26,7 @@ import type { Callback } from './@ohos.base';
  * @namespace systemLoad
  * @syscap SystemCapability.ResourceSchedule.SystemLoad
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace systemLoad {
     /**
@@ -35,7 +35,7 @@ declare namespace systemLoad {
      * @enum {int}
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     export enum SystemLoadLevel {
         /**
@@ -43,7 +43,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         LOW = 0,
         /**
@@ -51,7 +51,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         NORMAL = 1,
         /**
@@ -59,7 +59,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         MEDIUM = 2,
         /**
@@ -67,7 +67,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         HIGH = 3,
         /**
@@ -75,7 +75,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         OVERHEATED = 4,
         /**
@@ -83,7 +83,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         WARNING = 5,
         /**
@@ -91,7 +91,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         EMERGENCY = 6,
         /**
@@ -99,7 +99,7 @@ declare namespace systemLoad {
          * 
          * @syscap SystemCapability.ResourceSchedule.SystemLoad
          * @since 12 dynamic
-         * @since 22 static
+         * @since 23 static
          */
         ESCAPE = 7
     }
@@ -119,7 +119,7 @@ declare namespace systemLoad {
      * Register system load callback for perception system load change
      * @param { Callback<SystemLoadLevel> } callback Asynchronous callback interface.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
-     * @since 22 static
+     * @since 23 static
      */
     function onSystemLoadChange(callback: Callback<SystemLoadLevel>): void;
 
@@ -138,7 +138,7 @@ declare namespace systemLoad {
      * Unregister system load callback for perception system load change
      * @param { Callback<SystemLoadLevel> } callback Asynchronous callback interface.
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
-     * @since 22 static
+     * @since 23 static
      */
     function offSystemLoadChange(callback?: Callback<SystemLoadLevel>): void;
 
@@ -147,7 +147,7 @@ declare namespace systemLoad {
      * Queries the current system level
      * @syscap SystemCapability.ResourceSchedule.SystemLoad
      * @since 12 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     function getLevel(): Promise<SystemLoadLevel>;
 }

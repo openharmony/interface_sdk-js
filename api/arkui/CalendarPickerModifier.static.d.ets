@@ -26,6 +26,7 @@ import { CalendarPickerAttribute } from '@ohos.arkui.component';
  *
  * @implements { CalendarPickerAttribute, AttributeModifier<CalendarPickerAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare class CalendarPickerModifier implements CalendarPickerAttribute, AttributeModifier<CalendarPickerAttribute> {}

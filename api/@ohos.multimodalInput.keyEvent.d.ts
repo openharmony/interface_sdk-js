@@ -35,7 +35,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare enum Action {
   /**
@@ -50,7 +50,7 @@ export declare enum Action {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   CANCEL = 0,
 
@@ -66,7 +66,7 @@ export declare enum Action {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   DOWN = 1,
 
@@ -82,7 +82,7 @@ export declare enum Action {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   UP = 2
 }
@@ -101,7 +101,7 @@ export declare enum Action {
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface Key {
   /**
@@ -116,7 +116,7 @@ export declare interface Key {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   code: KeyCode;
 
@@ -132,7 +132,7 @@ export declare interface Key {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   pressedTime: long;
 
@@ -148,7 +148,7 @@ export declare interface Key {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   deviceId: int;
 }
@@ -168,7 +168,7 @@ export declare interface Key {
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice
  * @since 12 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export declare interface KeyEvent extends InputEvent {
   /**
@@ -183,7 +183,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   action: Action;
 
@@ -199,7 +199,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   key: Key;
 
@@ -215,7 +215,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   unicodeChar: int;
 
@@ -231,7 +231,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   keys: Key[];
 
@@ -247,7 +247,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   ctrlKey: boolean;
 
@@ -263,7 +263,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   altKey: boolean;
 
@@ -279,7 +279,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   shiftKey: boolean;
 
@@ -295,7 +295,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   logoKey: boolean;
 
@@ -311,7 +311,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   fnKey: boolean;
 
@@ -327,7 +327,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   capsLock: boolean;
 
@@ -343,7 +343,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   numLock: boolean;
 
@@ -359,7 +359,7 @@ export declare interface KeyEvent extends InputEvent {
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   scrollLock: boolean;
 }

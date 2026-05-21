@@ -14,134 +14,176 @@
  */
 
 /**
+ * The module defines shortcut information configured in the configuration file. For the 
+ * [FA model](docroot://application-models/ability-terminology.md#fa-model), the information is configured in the 
+ * [config.json](docroot://quick-start/application-configuration-file-overview-fa.md) file. For the 
+ * [stage model](docroot://application-models/ability-terminology.md#stage-model), the information is configured in the 
+ * configuration file under **resources/base/profile** in the development view.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module have been deprecated since API version 9. You are advised to use 
+ * > [bundleManager-ShortcutInfo]{@link shortcutInfo} instead.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * Provides methods for obtaining information about the ability that a shortcut will start, including the target
- * bundle name, target module name and ability class name.
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+ * > [bundleManager-ShortcutWant]{@link shortcutInfo:ShortcutWant} instead.
  *
- * @typedef ShortcutWant
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.bundle.launcherBundleManager.ShortcutWant
+ * @useinstead shortcutInfo:ShortcutWant
  */
 export interface ShortcutWant {
   /**
-   * @type { string }
+   * Target bundle of the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutWant#targetBundle
    */
   readonly targetBundle: string;
   /**
-   * @type { string }
+   * Target class required by the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutWant#targetAbility
    */
   readonly targetClass: string;
 }
 
 /**
- * Provides information about a shortcut, including the shortcut ID and label.
+ * > **NOTE**
+ * >
+ * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
+ * > [bundleManager-ShortcutInfo]{@link shortcutInfo:ShortcutInfo} instead.
  *
- * @typedef ShortcutInfo
  * @syscap SystemCapability.BundleManager.BundleFramework
- * @since 7 dynamic
+ * @since 7 dynamiconly
  * @deprecated since 9
+ * @useinstead shortcutInfo:ShortcutInfo
  */
 export interface ShortcutInfo {
   /**
-   * @type { string }
+   * ID of the application to which the shortcut belongs.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#id
    */
   readonly id: string;
   /**
-   * @type { string }
+   * Name of the bundle that contains the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#bundleName
    */
   readonly bundleName: string;
   /**
-   * @type { string }
+   * Local ability information of the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#hostAbility
    */
   readonly hostAbility: string;
   /**
-   * @type { string }
+   * Icon of the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#icon
    */
   readonly icon: string;
   /**
-   * @type { number }
+   * Icon ID of the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#iconId
    */
   readonly iconId: number;
   /**
-   * @type { string }
+   * Name of the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#label
    */
   readonly label: string;
   /**
-   * @type { number }
+   * Name ID of the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 8 dynamic
+   * @since 8 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#labelId
    */
   readonly labelId: number;
   /**
-   * @type { string }
+   * Message displayed when the shortcut is disabled.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
    */
   readonly disableMessage: string;
   /**
-   * @type { Array<ShortcutWant> }
+   * Want list for the shortcut.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#wants
    */
   readonly wants: Array<ShortcutWant>;
   /**
-   * @type { ?boolean }
+   * Whether the shortcut is static. **true** if static, **false** otherwise.
+   *
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#sourceType
    */
   readonly isStatic?: boolean;
   /**
-   * @type { ?boolean }
+   * Whether the shortcut is static. **true** if static, **false** otherwise.
+   *
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#sourceType
    */
   readonly isHomeShortcut?: boolean;
   /**
-   * @type { ?boolean }
+   * Whether the shortcut is enabled. **true** if enabled, **false** otherwise.
+   *
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework
-   * @since 7 dynamic
+   * @since 7 dynamiconly
    * @deprecated since 9
+   * @useinstead ohos.bundle.launcherBundleManager/launcherBundleManager.ShortcutInfo#visible
    */
   readonly isEnabled?: boolean;
 }

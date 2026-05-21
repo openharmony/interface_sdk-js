@@ -21,184 +21,174 @@
 import userAuth from '@ohos.userIAM.userAuth';
 
 /**
- * User access control
+ * The **userAccessCtrl** module provides APIs for setting and obtaining user identity authentication policies and
+ * verifying user identity authentication results.
  *
- * @namespace userAccessCtrl
  * @syscap SystemCapability.UserIAM.UserAuth.Core
  * @since 18 dynamic
- * @since 22 static
+ * @since 23 static
  */
 declare namespace userAccessCtrl {
   /**
-   * Verify the authentication token.
+   * Verifies an authentication token. This API uses a promise to return the result.
    *
    * @permission ohos.permission.USE_USER_ACCESS_MANAGER
-   * @param { Uint8Array } authToken - AuthToken to be verified.
-   * @param { int } allowableDuration - Allowable time interval from the authToken is issued till now in milliseconds.
-   * @returns { Promise<AuthToken> } Returns parsed authToken.
+   * @param { Uint8Array } authToken - Authentication token to verify, which cannot exceed 1024.
+   * @param { int } allowableDuration - Time allowed for the authentication token to be used after being issued, in
+   *     milliseconds. The value must be greater than 0 and less than or equal to 86,400,000.
+   * @returns { Promise<AuthToken> } Promise used to return the parsed authentication token.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br>1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * <br>3. Parameter verification failed.
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 12500002 - General operation error.
    * @throws { BusinessError } 12500015 - AuthToken integrity check failed.
    * @throws { BusinessError } 12500016 - AuthToken has expired.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   function verifyAuthToken(authToken: Uint8Array, allowableDuration: int): Promise<AuthToken>;
 
   /**
-   * Authentication token.
+   * Represents the AuthToken data returned after a successful verification.
    *
-   * @typedef AuthToken
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   interface AuthToken {
     /**
-     * Pass in challenge value.
+     * Random challenge for the authentication.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     challenge: Uint8Array;
 
     /**
-     * Trust level of authentication result.
+     * Authentication trust level.
      *
-     * @type { userAuth.AuthTrustLevel }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authTrustLevel: userAuth.AuthTrustLevel;
 
     /**
-     * Credential type for authentication.
+     * Credential type for the identity authentication.
      *
-     * @type { userAuth.UserAuthType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     authType: userAuth.UserAuthType;
 
     /**
-     * The type of authToken.
+     * Authentication token type.
      *
-     * @type { AuthTokenType }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     tokenType: AuthTokenType;
 
     /**
-     * The user id of authToken.
+     * User ID.
      *
-     * @type { int }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     userId: int;
 
     /**
-     * The time interval from the authToken is issued till now in milliseconds.
+     * Time elapsed since the issuance of the authentication token, in milliseconds.
      *
-     * @type { bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     timeInterval: bigint;
 
     /**
-     * The secure uid of authToken.
+     * Secure user ID.
      *
-     * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     secureUid?: bigint;
 
     /**
-     * The enrolled id of authToken.
+     * Credential enrollment ID.
      *
-     * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     enrolledId?: bigint;
 
     /**
-     * The credential id of authToken.
+     * Credential ID.
      *
-     * @type { ?bigint }
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     credentialId?: bigint;
   }
 
   /**
-   * The issued type for authToken.
+   * Enumerates the authentication token types.
    *
-   * @enum { int }
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   enum AuthTokenType {
     /**
-     * AuthToken is issued locally.
+     * Authentication token issued based on the local authentication result.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOKEN_TYPE_LOCAL_AUTH = 0,
 
     /**
-     * AuthToken is re-issued.
+     * Authentication token issued based on the reused identity authentication result.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOKEN_TYPE_LOCAL_RESIGN = 1,
 
     /**
-     * AuthToken is issued remotely.
+     * Authentication token issued based on a collaborative authentication result of multiple devices.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
-     * @since 22 static
+     * @since 23 static
      */
     TOKEN_TYPE_COAUTH = 2
   }

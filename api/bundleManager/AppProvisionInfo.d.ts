@@ -14,198 +14,187 @@
  */
 
 /**
+ * The module provides information in the 
+ * [HarmonyAppProvision configuration file](docroot://security/app-provision-structure.md). The information can be 
+ * obtained through 
+ * [getAppProvisionInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>)}
+ * .
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ *
  * @file
  * @kit AbilityKit
  */
 
 /**
- * Indicates the profile file information of a bundle.
+ * The module provides information in the
+ * [HarmonyAppProvision configuration file](docroot://security/app-provision-structure.md).
  *
- * @typedef AppProvisionInfo
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface AppProvisionInfo {
   /**
-   * Indicates the version code of the profile file.
+   * Version number of the configuration file.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionCode: long;
 
   /**
-   * Indicates the version name of the profile file.
+   * Version name of the configuration file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly versionName: string;
 
   /**
-   * Indicates the uuid of the profile file.
+   * UUID in the configuration file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly uuid: string;
 
   /**
-   * Indicates the type of the profile file.
+   * Type of the configuration file, which can be **debug** or **release**.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly type: string;
 
   /**
-   * Indicates the app distribution type of the profile file.
+   * [Distribution type](docroot://security/app-provision-structure.md) in the configuration file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appDistributionType: string;
 
   /**
-   * Indicates the validity of the profile file.
+   * Validity period in the configuration file.
    *
-   * @type { Validity }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly validity: Validity;
 
   /**
-   * Indicates the developer id of the profile file.
+   * Developer ID in the configuration file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly developerId: string;
 
   /**
-   * Indicates the distribution or development certificate of the profile file.
+   * Certificate information in the configuration file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly certificate: string;
 
   /**
-   * Indicates the apl of the profile file.
+   * APL in the configuration file, which can be **normal**, **system_basic**, or **system_core**.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly apl: string;
 
   /**
-   * Indicates the issuer of the profile file.
+   * Issuer name in the configuration file.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly issuer: string;
 
   /**
-   * Globally unique identifier of an application, which is allocated by the cloud.
-   * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
-   * public and private key changes, and application transfer.
+   * Unique ID of the application. For details, see
+   * [What Is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier).
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly appIdentifier: string;
 
   /**
-   * Indicates the organization information of the profile file.
+   * Organization of the application.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 12 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly organization: string;
+
+  /**
+   * Bundle name of the application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  readonly bundleName?: string;
 }
 
 /**
- * The validity of the profile file.
+ * Validity period in the configuration file.
  *
- * @typedef Validity
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @since 10 dynamic
- * @since 22 static
+ * @since 23 static
  */
 export interface Validity {
   /**
-   * Indicates the earliest validity of the profile file.
+   * Start time of the validity period of the configuration file.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly notBefore: long;
 
   /**
-   * Indicates the latest validity of the profile file.
+   * End time of the validity period of the configuration file.
    *
-   * @type { long }
-   * @readonly
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 10 dynamic
-   * @since 22 static
+   * @since 23 static
    */
   readonly notAfter: long;
 }

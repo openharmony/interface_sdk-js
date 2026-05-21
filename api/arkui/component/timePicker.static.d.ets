@@ -19,10 +19,10 @@
  * @kit ArkUI
  */
 import { ResourceColor, Offset, VoidCallback } from "./units";
-import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Optional, Callback, DateTimeOptions, Bindable } from './common';
+import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Callback, DateTimeOptions, Bindable } from './common';
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
-import { memo, ComponentBuilder } from "./../stateManagement/runtime";
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -30,51 +30,58 @@ import { AttributeModifier } from "./common";
  *
  * @interface TimePickerResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface TimePickerResult {
     /**
      * Hour portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    hour: number;
+    hour: int;
     /**
      * Minute portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    minute: number;
+    minute: int;
     /**
      * Second portion of the selected time.
      *
-     * @type { number }
+     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
-    second: number;
+    second: int;
 }
 /**
  * Type of the TimePicker that need to be displayed.
- * @enum {number}
+ * @enum {int}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare enum TimePickerFormat {
     /**
      * Hour and minute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     HOUR_MINUTE,
     /**
      * Hour and minute and second
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     HOUR_MINUTE_SECOND
 }
@@ -83,7 +90,8 @@ export declare enum TimePickerFormat {
  *
  * @interface TimePickerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface TimePickerOptions {
     /**
@@ -91,7 +99,8 @@ export declare interface TimePickerOptions {
      *
      * @type { ?(Date | Bindable<Date>) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     selected?: Date | Bindable<Date>;
     /**
@@ -100,7 +109,8 @@ export declare interface TimePickerOptions {
      * @type { ?TimePickerFormat }
      * @default HOUR_MINUTE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     format?: TimePickerFormat;
     /**
@@ -108,7 +118,8 @@ export declare interface TimePickerOptions {
      *
      * @type { ?Date }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     start?: Date;
     /**
@@ -116,7 +127,8 @@ export declare interface TimePickerOptions {
      *
      * @type { ?Date }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     end?: Date;
 }
@@ -126,7 +138,8 @@ export declare interface TimePickerOptions {
  * @typedef {function} OnTimePickerChangeCallback
  * @param { TimePickerResult } result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
 /**
@@ -135,16 +148,29 @@ export type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  * @extends CommonMethod
  * @interface TimePickerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
 export declare interface TimePickerAttribute extends CommonMethod {
+    /**
+     * Sets the time picker options.
+     *
+     * @param { TimePickerOptions } [options] - time picker options.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTimePickerOptions(options?: TimePickerOptions): this;
     /**
      * Time Selector: indicates whether to display the 24-hour clock.
      *
      * @param { boolean | undefined } value
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default useMilitaryTime(value: boolean | undefined): this;
     /**
@@ -152,7 +178,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { boolean | undefined } value - indicates whether to enable the wheel mode.
      * @returns { TimePickerAttribute } the attribute of the time picker
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default loop(value: boolean | undefined): this;
     /**
@@ -161,7 +188,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { PickerTextStyle | undefined } value - indicates the text style of disappearing items.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default disappearTextStyle(value: PickerTextStyle | undefined): this;
     /**
@@ -170,7 +198,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { PickerTextStyle | undefined } value - indicates the text style of normal items.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default textStyle(value: PickerTextStyle | undefined): this;
     /**
@@ -179,7 +208,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { PickerTextStyle | undefined } value - indicates the text style of selected items.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default selectedTextStyle(value: PickerTextStyle | undefined): this;
     /**
@@ -188,7 +218,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { DateTimeOptions | undefined } value - indicates the format of the time display.
      * @returns { TimePickerAttribute } the attribute of the time picker
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default dateTimeOptions(value: DateTimeOptions | undefined): this;
     /**
@@ -197,7 +228,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { OnTimePickerChangeCallback | undefined } callback
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onChange(callback: OnTimePickerChangeCallback | undefined): this;
     /**
@@ -206,7 +238,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { Callback<TimePickerResult> | undefined } callback
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default onEnterSelectedArea(callback: Callback<TimePickerResult> | undefined): this;
     /**
@@ -215,7 +248,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { boolean | undefined } enable - Default value is true, set false to disable haptic feedback.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableHapticFeedback(enable: boolean | undefined): this;
     /**
@@ -224,7 +258,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { CrownSensitivity | undefined } sensitivity
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default digitalCrownSensitivity(sensitivity: CrownSensitivity | undefined): this;
     /**
@@ -233,7 +268,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { boolean | undefined } enabled - Default value is false, set true to enable.
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default enableCascade(enabled: boolean | undefined): this;
     /**
@@ -242,7 +278,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
      * @param { AttributeModifier<TimePickerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { TimePickerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TimePickerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
@@ -252,7 +289,8 @@ export declare interface TimePickerAttribute extends CommonMethod {
  * @extends TimePickerOptions
  * @interface TimePickerDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
  */
 export declare interface TimePickerDialogOptions extends TimePickerOptions {
     /**
@@ -260,7 +298,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     useMilitaryTime?: boolean;
     /**
@@ -268,7 +307,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?PickerTextStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     disappearTextStyle?: PickerTextStyle;
     /**
@@ -276,7 +316,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?PickerTextStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     textStyle?: PickerTextStyle;
     /**
@@ -284,7 +325,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?PickerDialogButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     acceptButtonStyle?: PickerDialogButtonStyle;
     /**
@@ -292,7 +334,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?PickerDialogButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     cancelButtonStyle?: PickerDialogButtonStyle;
     /**
@@ -300,7 +343,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?PickerTextStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     selectedTextStyle?: PickerTextStyle;
     /**
@@ -308,7 +352,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?Rectangle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     maskRect?: Rectangle;
     /**
@@ -316,7 +361,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?DialogAlignment }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     alignment?: DialogAlignment;
     /**
@@ -324,7 +370,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?Offset }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     offset?: Offset;
     /**
@@ -332,7 +379,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onAccept?: (value: TimePickerResult) => void;
     /**
@@ -340,7 +388,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onCancel?: VoidCallback;
     /**
@@ -348,7 +397,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onChange?: (value: TimePickerResult) => void;
     /**
@@ -356,7 +406,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?Callback<TimePickerResult> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onEnterSelectedArea?: Callback<TimePickerResult>;
     /**
@@ -365,7 +416,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundColor?: ResourceColor;
     /**
@@ -374,7 +426,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      * @type { ?BlurStyle }
      * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundBlurStyle?: BlurStyle;
     /**
@@ -382,7 +435,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
     /**
@@ -390,7 +444,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     backgroundEffect?: BackgroundEffectOptions;
     /**
@@ -399,7 +454,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     enableCascade?: boolean;
     /**
@@ -407,7 +463,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onDidAppear?: VoidCallback;
     /**
@@ -415,7 +472,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onDidDisappear?: VoidCallback;
     /**
@@ -423,7 +481,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onWillAppear?: VoidCallback;
     /**
@@ -431,7 +490,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     onWillDisappear?: VoidCallback;
     /**
@@ -439,7 +499,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?(ShadowOptions | ShadowStyle) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     shadow?: ShadowOptions | ShadowStyle;
     /**
@@ -447,7 +508,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      *
      * @type { ?DateTimeOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     dateTimeOptions?: DateTimeOptions;
     /**
@@ -456,7 +518,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     enableHoverMode?: boolean;
     /**
@@ -465,7 +528,8 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      * @type { ?HoverModeAreaType }
      * @default HoverModeAreaType.BOTTOM_SCREEN
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     hoverModeArea?: HoverModeAreaType;
     /**
@@ -474,31 +538,36 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
      * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 22 static
+     * @stagemodelonly
+     * @since 23 static
      */
     enableHapticFeedback?: boolean;
 }
-/**
- * Defines TimePickerDialog which uses show method to show TimePicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
- */
-export declare class TimePickerDialog {
-}
+
 /**
  * Defines the TimePicker component.
  *
  * @param { TimePickerOptions } [options] - timer picker options.
- * @param { function } [content_]
  * @returns { TimePickerAttribute } The attribute of the TimePicker.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 22 static
+ * @stagemodelonly
+ * @since 23 static
+ * @noninterop
  */
-@memo
 @ComponentBuilder
 export declare function TimePicker(
-    options?: TimePickerOptions, 
-    @memo
-    content_?: () => void
+    options?: TimePickerOptions
 ): TimePickerAttribute;
+/**
+ * Defines the TimePicker component. It requires call setTimePickerOptions at start of the component attribute set-up.
+ * ant it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<TimePickerAttribute> } style - the callback to set up component's attribute.
+ * @returns { TimePickerAttribute } The attribute of the TimePicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TimePicker(style: CustomBuilderT<TimePickerAttribute>): TimePickerAttribute;
