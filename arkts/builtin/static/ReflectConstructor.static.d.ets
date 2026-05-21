@@ -23,7 +23,7 @@
  * Represents a class constructor.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Constructor extends Method {
@@ -34,7 +34,7 @@ class Constructor extends Method {
      * @param { Constructor } other - Another constructor object to compare with.
      * @returns { boolean } Returns true if the two constructor objects are equal, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     public equals(other: Constructor): boolean;
@@ -46,7 +46,7 @@ class Constructor extends Method {
      * @returns { Any } The newly created class instance.
      * @throws { OutOfMemoryError } Throws - when not enough memory to create the object.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     public createInstance(args?: FixedArray<Any>): Any;

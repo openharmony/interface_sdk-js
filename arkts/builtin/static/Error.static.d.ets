@@ -23,7 +23,7 @@
  * Represents an error that occurs when a null pointer is dereferenced.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class NullPointerError extends Error {
@@ -33,7 +33,7 @@ class NullPointerError extends Error {
      * @param { string } [message] - Error text
      * @param { ErrorOptions } [options] - Error options
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(message?: string, options?: ErrorOptions);

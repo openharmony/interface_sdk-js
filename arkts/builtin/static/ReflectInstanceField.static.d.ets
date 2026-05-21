@@ -24,7 +24,7 @@
  * methods, and properties at runtime.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 namespace reflect {
@@ -33,7 +33,7 @@ namespace reflect {
    * Represents an instance field of a class or interface.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   class InstanceField extends Field {  
@@ -44,7 +44,7 @@ namespace reflect {
      * @param { InstanceField } other - Another InstanceField object to compare with.
      * @returns { boolean } Returns true if the two instance fields are equal, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     equals(other: InstanceField): boolean;
@@ -56,7 +56,7 @@ namespace reflect {
      * @returns { Any } Returns the value read from the instance field.
      * @throws { TypeError } Throws - when `thisObj` is incompatible with the field.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getValue(thisObj: Object): Any;
@@ -68,7 +68,7 @@ namespace reflect {
      * @param { Any } value - The value to write.
      * @throws { TypeError } Throws - when `thisObj` is incompatible with the field or the value type doesn't match.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     setValue(thisObj: Object, value: Any): void;

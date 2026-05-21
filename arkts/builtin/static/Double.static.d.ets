@@ -23,7 +23,7 @@
  * Represents boxed double value and related operations
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Double extends Floating implements Comparable<Double> {
@@ -31,7 +31,7 @@ class Double extends Floating implements Comparable<Double> {
      * Constructs a new Double instance with initial value zero
      *
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor();
@@ -41,7 +41,7 @@ class Double extends Floating implements Comparable<Double> {
      *
      * @param { double } value - the initial value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(value: double);
@@ -51,7 +51,7 @@ class Double extends Floating implements Comparable<Double> {
      *
      * @param { BigInt } value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(value: BigInt);
@@ -61,7 +61,7 @@ class Double extends Floating implements Comparable<Double> {
      *
      * @param { string } value - string that may contain a number
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(value: string);
@@ -71,7 +71,7 @@ class Double extends Floating implements Comparable<Double> {
      *
      * @returns { Double } A new Double instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(): Double;
@@ -83,7 +83,7 @@ class Double extends Floating implements Comparable<Double> {
      *     Can be a string, number, or BigInt (optional).
      * @returns { Double } A new Double instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: string | Double | BigInt | undefined | null): Double;
@@ -93,7 +93,7 @@ class Double extends Floating implements Comparable<Double> {
      *
      * @returns { double } return the current value convert double value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     toDouble(): double;
@@ -104,7 +104,7 @@ class Double extends Floating implements Comparable<Double> {
      * @param { double } value - value to cast
      * @returns { double }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toDouble(value: double): double;
@@ -121,7 +121,7 @@ class Double extends Floating implements Comparable<Double> {
      * @param { string } s - the string to convert
      * @returns { double } the result of conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static parseFloat(s: string): double;
@@ -132,7 +132,7 @@ class Double extends Floating implements Comparable<Double> {
      * @param { string } s - the string to convert
      * @returns { double } the result of parsing
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static parseInt(s: string): double;
@@ -149,7 +149,7 @@ class Double extends Floating implements Comparable<Double> {
    *     <br>The value should be an integer.
    * @returns { double } the result of parsing
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static parseInt(s: string, r: int): double;
@@ -166,7 +166,7 @@ class Double extends Floating implements Comparable<Double> {
      * @param { double } r - the radix of conversion; should be [2, 36]; 0 assumed to be 10
      * @returns { double } the result of parsing
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static parseInt(s: string, r: double): double;
@@ -179,7 +179,7 @@ class Double extends Floating implements Comparable<Double> {
      * @returns { boolean } true if provided object and this instance have same value, false otherwise
      *     Returns false if type of provided object is not the same as this type
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     equals(other: Any): boolean;
@@ -190,7 +190,7 @@ class Double extends Floating implements Comparable<Double> {
      * @param { double } v - the double to test
      * @returns { boolean } true if the argument is NaN
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static isNaN(v: double): boolean;
@@ -200,7 +200,7 @@ class Double extends Floating implements Comparable<Double> {
      *
      * @returns { boolean } true if the underlying double is NaN
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isNaN(): boolean;
@@ -211,7 +211,7 @@ class Double extends Floating implements Comparable<Double> {
      * @param { double } v - the double to test
      * @returns { boolean } true if the argument is a floating point value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static isFinite(v: double): boolean;
@@ -221,7 +221,7 @@ class Double extends Floating implements Comparable<Double> {
      *
      * @returns { boolean } true if the underlying double is a floating point value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isFinite(): boolean;
