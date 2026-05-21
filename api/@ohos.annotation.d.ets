@@ -29,7 +29,7 @@
  * @form
  * @atomicservice
  * @since 22 dynamic
- * @since 26 static
+ * @since 26.0.0 static
  */
 export @interface Available {
   /**
@@ -41,7 +41,7 @@ export @interface Available {
    * @form
    * @atomicservice
    * @since 22 dynamic
-   * @since 26 static
+   * @since 26.0.0 static
    */
   minApiVersion: string = '';
 }
