@@ -49,6 +49,7 @@ export { promptAction, LevelOrder, ComponentContent,
 };
 
 export * from '@ohos.arkui.component';
+export * from '@ohos.arkui.components.SelectionContainer';
 export * from '@ohos.arkui.stateManagement';
 export * from '@ohos.arkui.advanced.Counter';
 export * from '@ohos.arkui.advanced.CounterV2';

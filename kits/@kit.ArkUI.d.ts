@@ -269,6 +269,15 @@ import { ContainerReader, ContainerReaderAttribute, BreakpointOptions } from '@o
 import { LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute } from '@ohos.arkui.components.ArkLazyWaterFlowLayout';
 import { LazyColumnLayout, LazyColumnLayoutAttribute } from '@ohos.arkui.components.ArkLazyColumnLayout';
 import { WithEnv, WithEnvAttribute} from '@ohos.arkui.WithEnv';
+import {
+  OnMenuItemClickWithTextCallback,
+  SelectionContainer,
+  SelectionContainerAttribute,
+  SelectionContainerEditMenuOptions,
+  SelectionContainerInstance,
+  SelectionContainerMenuOptions,
+  SelectionContainerTextJoinStyle
+} from '@ohos.arkui.components.SelectionContainer';
 export {
   AtomicServiceSearch, InputFilterParams, SearchButtonParams, MenuAlignParams, SearchParams, SelectParams, OperationParams,
   AddFormMenuItem, AddFormOptions, AlertDialog, Animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions, App, AppResponse, AtomicServiceBar,
@@ -363,5 +372,6 @@ export {
   RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute,
   LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute, CustomComponentContext, IReusePool, IReusableInfo, PopupV2, PopupV2InitInfo, PopupV2Button,
   ContainerReader, ContainerReaderAttribute, BreakpointOptions, LazyColumnLayout, LazyColumnLayoutAttribute,
-  BackPressActionProposal, BaseGestureHandlingProposal, ClickActionProposal, GestureHandlingResolution, NoneActionProposal, PageSwitchActionProposal, ScrollActionProposal, SelectActionProposal, SmartGestureController, TargetedGestureProposal
+  BackPressActionProposal, BaseGestureHandlingProposal, ClickActionProposal, GestureHandlingResolution, NoneActionProposal, PageSwitchActionProposal, ScrollActionProposal, SelectActionProposal, SmartGestureController, TargetedGestureProposal,
+  SelectionContainer, SelectionContainerAttribute, SelectionContainerInstance, SelectionContainerTextJoinStyle, SelectionContainerMenuOptions, SelectionContainerEditMenuOptions, OnMenuItemClickWithTextCallback
 };

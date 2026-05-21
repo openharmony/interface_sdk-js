@@ -728,3 +728,15 @@ export { UIPickerComponentModifier } from './arkui/UIPickerComponentModifier';
  * @since 26.0.0 dynamiconly
  */
 export { ModifierUtils } from './arkui/ModifierUtils';
+
+/**
+ * Export SelectionContainerModifier, which is used to expose applyNormalAttribute function.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamiconly
+ * @noninterop
+ */
+export { SelectionContainerModifier } from './arkui/SelectionContainerModifier';
