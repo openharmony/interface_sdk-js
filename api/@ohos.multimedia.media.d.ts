@@ -10241,7 +10241,7 @@ declare namespace media {
      */
     fileGenerationMode?: FileGenerationMode;
     /**
-     * Rotation angle of the recorded video, in degrees. The value can be 0 (default), 90, 180, or 270 for MP4 videos. 
+     * Rotation angle of the recorded video, in degrees. The value can be 0 (default), 90, 180, or 270 for MP4 videos.
      * <br>This API is supported since API version 6 and deprecated since API version 12. You are advised to use.
      * **AVMetadata.videoOrientation** instead. If both parameters are set, **AVMetadata.videoOrientation** is used.
      *
