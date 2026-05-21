@@ -3806,6 +3806,19 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * @since 26.0.0 dynamic
    */
   horizontalScrolling(enabled: Optional<boolean>): RichEditorAttribute;
+
+  /**
+   * Whether to enable punctuation overflow at line ends.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  punctuationOverflow(enabled: Optional<boolean>): RichEditorAttribute;
 }
 
 /**
