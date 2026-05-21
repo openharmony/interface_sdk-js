@@ -1000,6 +1000,17 @@ declare class UIAbility extends Ability {
    * @since 23 static
    */
   onCollaborate(wantParam: Record<string, RecordData>): AbilityConstant.CollaborateResult;
+
+  /**
+   * Indicates whether the UIAbility has been destroyed. The default value is **false**.
+   *
+   * After the [onDestroy]{@link UIAbility.onDestroy} callback is executed, this property is set to **true**.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  isDestroyed: boolean;
 }
 
 export default UIAbility;
