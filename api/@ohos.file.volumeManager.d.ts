@@ -301,7 +301,7 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    volumeIds: Array<String>;
+    volumeIds: Array<string>;
 
     /**
      * Disk information extension field.
