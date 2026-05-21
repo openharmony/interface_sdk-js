@@ -208,12 +208,27 @@ declare namespace floatView {
      * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible causes: Invalid path;
+     * @throws { BusinessError } 1300016 - Parameter error. Possible causes: Invalid path.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     setUIContext(path: string, storage?: LocalStorage): Promise<void>;
+
+    /**
+     * Sets the UI content of a [named route](docroot://ui/arkts-routing.md#named-route) page to this float view window.
+     *
+     * @param { string } name - Name of the named route page.
+     * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The float view controller object is null.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible causes: Invalid name.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setUIContextByName(name: string, storage?: LocalStorage): Promise<void>;
 
     /**
      * Sets the float view window size.
