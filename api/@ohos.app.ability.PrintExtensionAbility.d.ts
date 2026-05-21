@@ -47,7 +47,7 @@ declare class PrintExtensionAbility {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  context: PrintExtensionAbility;
+  context: PrintExtensionContext;
   
   /**
    * Called once to initialize the extensionAbility.

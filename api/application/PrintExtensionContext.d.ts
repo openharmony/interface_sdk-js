@@ -22,7 +22,7 @@ import ExtensionContext from "./ExtensionContext";
 /**
  * The context of print extension. It allows access to
  * serviceExtension-specific resources.
- * 
+ *
  * @syscap SystemCapability.Print.PrintFramework
  * @stagemodelonly
  * @since 26.0.0 dynamic&static
