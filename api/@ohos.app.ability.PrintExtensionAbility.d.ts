@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import type PrintExtensionAbility from './application/PrintExtensionContext';
+import type PrintExtensionContext from './application/PrintExtensionContext';
 import type Want from './@ohos.app.ability.Want';
 import type print from './@ohos.print';
 
