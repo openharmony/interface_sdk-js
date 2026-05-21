@@ -266,7 +266,6 @@ declare namespace volumeManager {
      * Disk total size.
      * <br>Unit: Byte.
      *
-     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -327,7 +326,6 @@ declare namespace volumeManager {
     /**
      * Partition number.
      *
-     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -348,7 +346,6 @@ declare namespace volumeManager {
     /**
      * Start sector of the partition.
      *
-     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -359,7 +356,6 @@ declare namespace volumeManager {
     /**
      * End sector of the partition.
      *
-     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -371,7 +367,6 @@ declare namespace volumeManager {
      * Partition total size.
      * <br>Unit: Byte.
      *
-     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -422,7 +417,6 @@ declare namespace volumeManager {
     /**
      * Number of partitions.
      *
-     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -433,7 +427,6 @@ declare namespace volumeManager {
     /**
      * Total number of sectors.
      *
-     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -444,7 +437,6 @@ declare namespace volumeManager {
     /**
      * Sector size in bytes.
      *
-     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -455,7 +447,6 @@ declare namespace volumeManager {
     /**
      * Alignment sector.
      *
-     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -486,7 +477,6 @@ declare namespace volumeManager {
     /**
      * Partition number.
      *
-     * @type { int }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -497,7 +487,6 @@ declare namespace volumeManager {
     /**
      * Start sector of the partition.
      *
-     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
@@ -508,7 +497,6 @@ declare namespace volumeManager {
     /**
      * End sector of the partition.
      *
-     * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
