@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * The **battery** module allows you to query the charging status and remaining power of a device.
  * 
  * > **NOTE**
@@ -25,8 +30,6 @@
  * > >    \- For other device types, this module is no longer maintained since API version 6. You are advised to use 
  * > [@ohos.batteryInfo]{@link @ohos.batteryInfo:batteryInfo} instead.
  *
- * @file
- * @kit BasicServicesKit
  */
 
 
@@ -40,7 +43,7 @@
  */
 export interface BatteryResponse {
   /**
-   * Whether the battery is being charged. The value **true** indicates that the battery is being changed; **false**
+   * Whether the battery is being charged. The value **true** indicates that the battery is being charged; **false**
    * indicates the opposite. The default value is **false**.
    *
    * Note: This API is no longer maintained since API version 6 except for lite wearables. You are advised to use
@@ -56,7 +59,7 @@ export interface BatteryResponse {
   charging: boolean;
 
   /**
-   * Current battery level, which ranges from **0.00** to **1.00**.
+   * Current battery level in percent, which ranges from **0.00** to **1.00**.
    *
    * Note: This API is no longer maintained since API version 6 except for lite wearables. You are advised to use
    * [batteryInfo.batterySOC](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#constants) instead.

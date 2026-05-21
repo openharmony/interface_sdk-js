@@ -65,7 +65,6 @@ declare namespace power {
    * @permission ohos.permission.REBOOT
    * @param { string } reason - Indicates the restart reason. For example, "updater" indicates entering the updater mode
    *     after the restart. If the parameter is not specified, the system enters the normal mode after the restart.
-   *     reason parameter must be of type string.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
