@@ -7022,7 +7022,7 @@ declare namespace media {
     setMetadata(metadata: Record<string, string>): void;
 
     /**
-     * Updates the video rotation angle. This API uses a promise to return the result.
+     * Updates the video rotation angle, in degrees. This API uses a promise to return the result.
      * 
      * This API can be called only after the [prepare()]{@link media.AVRecorder.prepare(config: AVRecorderConfig)} event
      * is triggered and before the [start()]{@link media.AVRecorder.start(callback: AsyncCallback<void>)} API is called.
@@ -9801,7 +9801,7 @@ declare namespace media {
      */
     url: string;
     /**
-     * Sets the video rotation angle in output file, and for the file to playback. mp4 support.
+     * Sets the video rotation angle in output file, and for the file to playback, in degrees. mp4 support.
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -10241,8 +10241,8 @@ declare namespace media {
      */
     fileGenerationMode?: FileGenerationMode;
     /**
-     * Rotation angle of the recorded video. The value can be 0 (default), 90, 180, or 270 for MP4 videos.<br>This API
-     * is supported since API version 6 and deprecated since API version 12. You are advised to use
+     * Rotation angle of the recorded video, in degrees. The value can be 0 (default), 90, 180, or 270 for MP4 videos.
+     * <br>This API is supported since API version 6 and deprecated since API version 12. You are advised to use.
      * **AVMetadata.videoOrientation** instead. If both parameters are set, **AVMetadata.videoOrientation** is used.
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
