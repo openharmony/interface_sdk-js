@@ -1,4 +1,3 @@
-
 'use static';
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
@@ -21,14 +20,11 @@
  */
 
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
-
 import { AsyncCallback } from '@ohos.base';
-
-import { Observed, ObjectLink } from './arkui/stateManagement/decorator';
-
-import { Builder } from './arkui/component/builder';
 import { Component, Margin, Curve, EdgeEffect, ICurve, Length, BorderRadiuses, LocalizedBorderRadiuses } 
     from '@ohos.arkui.component';
+import { Observed, ObjectLink } from './arkui/stateManagement/decorator';
+import { Builder } from './arkui/component/builder';
 
 /**
  * Declare struct PhotoPickerComponent
@@ -179,6 +175,38 @@ export declare struct PhotoPickerComponent {
  */
 @Observed
 export declare class PickerController {
+  /**
+   * Set data to picker component
+   *
+   * @param { DataType } dataType - data type
+   * @param { Object } data - data
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public setData(dataType: DataType, data: Object): void;
+
+  /**
+   * Add data to picker component
+   *
+   * @param { DataType } dataType - data type
+   * @param { Object } data - data
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public addData(dataType: DataType, data: Object): void;
+
+  /**
+   * Delete data to picker component
+   *
+   * @param { DataType } dataType - data type
+   * @param { Object } data - data
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public deleteData(dataType: DataType, data: Object): void;
 
   /**
    * Set max select count to picker component, include max_total_count, max_photo_count and max_video_count.
@@ -220,38 +248,33 @@ export declare class PickerController {
    * @since 26.0.0 static
    */
   public setPhotoBrowserUIElementVisibility(elements: PhotoBrowserUIElement[], isVisible: boolean): void;
-  /**
-   * Set data to picker component
-   *
-   * @param { DataType } dataType - data type
-   * @param { Object } data - data
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  public setData(dataType: DataType, data: Object): void;
 
   /**
-   * Add data to picker component
+   * Display the photo after edit.
    *
-   * @param { DataType } dataType - data type
-   * @param { Object } data - data
+   * @param { string } originalUri - Original uri
+   * @param { string } newUri - New uri after replacement
+   * @param { AsyncCallback<void> } callback - Returns void
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  public addData(dataType: DataType, data: Object): void;
+  public replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Delete data to picker component
+   * Save the photo assets of uris.
    *
-   * @param { DataType } dataType - data type
-   * @param { Object } data - data
+   * @param { string[] } trustedUris - Uris need to be saved
+   * @param { AsyncCallback<string[]> } callback - Returns the uri list
+   * @param { photoAccessHelper.PhotoCreationConfig[] } [configs] - Photo asset creation configs
+   * @param { SaveMode } [saveMode] - Mode of save
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  public deleteData(dataType: DataType, data: Object): void;
+  public saveTrustedPhotoAssets(trustedUris: string[], callback: AsyncCallback<string[]>,
+    configs?: photoAccessHelper.PhotoCreationConfig[], saveMode?: SaveMode): void;
+
 
   /**
    * Call this method to obtain the complete data after a selection operation has finished.
@@ -531,6 +554,15 @@ export declare class BaseItemInfo {
   public size?: int;
 
   /**
+   * Duration. if the itemType is CAMERA, it will be null; if photos, return -1
+   * @type { ?int }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public duration?: int;
+
+  /**
    * DynamicRangeType. Dynamic range type of media files.
    *     For movingPhoto, this specifically refers to the dynamic range type of the cover image.
    * @type { ?photoAccessHelper.DynamicRangeType }
@@ -722,7 +754,7 @@ export declare class BadgeConfig {
  */
 export declare class CompletedResult {
   /**
-   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets 
+   * URIs of the images or videos selected. The URI array can be used only by calling photoAccessHelper.getAssets
    * with temporary authorization. For details about how to use the media file URI, see Using a Media File URI.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -741,7 +773,7 @@ export declare class CompletedResult {
   contextRecoveryInfo: photoAccessHelper.ContextRecoveryInfo;
 
   /**
-   * M​oving photo badge states for the selected media files in the gallery.
+   * M?oving photo badge states for the selected media files in the gallery.
    * When isMovingPhotoBadgeShown is true, movingPhotoBadgeStates contains the moving photo states;
    * otherwise, it is empty.
    *
