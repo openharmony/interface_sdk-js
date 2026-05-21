@@ -18,7 +18,7 @@
  * @kit BasicServiceKit
  */
 
-import ExtensionContext from "./ExtensionContext";
+import ExtensionContext from './ExtensionContext';
 /**
  * The context of print extension. It allows access to
  * serviceExtension-specific resources.
