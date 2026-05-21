@@ -7219,6 +7219,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap): Promise<Picture>;
 
+   /**
+   * Describes gainmap generation parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
   interface GainmapParams {  
     /**
      * Indicates generating a full-size gainmap or a 1/2 downscaled gainmap.
