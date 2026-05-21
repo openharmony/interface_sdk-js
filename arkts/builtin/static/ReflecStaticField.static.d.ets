@@ -23,7 +23,7 @@
  * Provide a namespace for reflection related functionality.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 namespace reflect {
@@ -32,7 +32,7 @@ namespace reflect {
    * Represents static field of class
    *
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 staticonly
    */
   class StaticField extends Field {  
@@ -42,7 +42,7 @@ namespace reflect {
      * @param { StaticField } other - Another Static Field object to compare.
      * @returns { boolean } If two objects are equal, return true; otherwise, return false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     equals(other: StaticField): boolean;
@@ -52,7 +52,7 @@ namespace reflect {
      * @returns { Any } field value.
      * @throws { OutofMemoryError } if - there is no memory to allocate return value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     getValue(): Any;
@@ -63,7 +63,7 @@ namespace reflect {
      * @param { Any } value - value to write.
      * @throws { TypeError } if - there is an incompatible value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     setValue(value: Any): void;

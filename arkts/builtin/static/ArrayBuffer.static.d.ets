@@ -24,7 +24,7 @@
  * Used to represent a generic, fixed-length raw binary data buffer.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class ArrayBuffer {
@@ -38,7 +38,7 @@ class ArrayBuffer {
      *     <br>The value range is all integers.
      * @throws { RangeError } Throws - if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(length: int, maxByteLength?: int);
@@ -53,7 +53,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to add.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddI8(index: int, byteOffset: int, value: byte): long;
@@ -68,7 +68,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to AND with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndI8(index: int, byteOffset: int, value: byte): long;
@@ -84,7 +84,7 @@ class ArrayBuffer {
      * @param { byte } replacementValue - The replacement value.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeI8(index: int, byteOffset: int, expectedValue: byte, replacementValue: byte): long;
@@ -99,7 +99,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to exchange.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeI8(index: int, byteOffset: int, value: byte): long;
@@ -113,7 +113,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadI8(index: int, byteOffset: int): long;
@@ -128,7 +128,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to OR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrI8(index: int, byteOffset: int, value: byte): long;
@@ -143,7 +143,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to store.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreI8(index: int, byteOffset: int, value: byte): long;
@@ -158,7 +158,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to subtract.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubI8(index: int, byteOffset: int, value: byte): long;
@@ -173,7 +173,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to XOR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorI8(index: int, byteOffset: int, value: byte): long;
@@ -188,7 +188,7 @@ class ArrayBuffer {
      * @param { short } value - The value to add.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddI16(index: int, byteOffset: int, value: short): long;
@@ -203,7 +203,7 @@ class ArrayBuffer {
      * @param { short } value - The value to AND with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndI16(index: int, byteOffset: int, value: short): long;
@@ -219,7 +219,7 @@ class ArrayBuffer {
      * @param { short } replacementValue - The replacement value.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeI16(index: int, byteOffset: int, expectedValue: short, replacementValue: short): long;
@@ -234,7 +234,7 @@ class ArrayBuffer {
      * @param { short } value - The value to exchange.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeI16(index: int, byteOffset: int, value: short): long;
@@ -248,7 +248,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadI16(index: int, byteOffset: int): long;
@@ -263,7 +263,7 @@ class ArrayBuffer {
      * @param { short } value - The value to OR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrI16(index: int, byteOffset: int, value: short): long;
@@ -278,7 +278,7 @@ class ArrayBuffer {
      * @param { short } value - The value to store.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreI16(index: int, byteOffset: int, value: short): long;
@@ -293,7 +293,7 @@ class ArrayBuffer {
      * @param { short } value - The value to subtract.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubI16(index: int, byteOffset: int, value: short): long;
@@ -308,7 +308,7 @@ class ArrayBuffer {
      * @param { short } value - The value to XOR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorI16(index: int, byteOffset: int, value: short): long;
@@ -324,7 +324,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddI32(index: int, byteOffset: int, value: int): long;
@@ -340,7 +340,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndI32(index: int, byteOffset: int, value: int): long;
@@ -358,7 +358,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeI32(index: int, byteOffset: int, expectedValue: int, replacementValue: int): long;
@@ -374,7 +374,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeI32(index: int, byteOffset: int, value: int): long;
@@ -388,7 +388,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadI32(index: int, byteOffset: int): long;
@@ -404,7 +404,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrI32(index: int, byteOffset: int, value: int): long;
@@ -420,7 +420,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreI32(index: int, byteOffset: int, value: int): long;
@@ -436,7 +436,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubI32(index: int, byteOffset: int, value: int): long;
@@ -452,7 +452,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorI32(index: int, byteOffset: int, value: int): long;
@@ -467,7 +467,7 @@ class ArrayBuffer {
      * @param { long } value - The value to add.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddI64(index: int, byteOffset: int, value: long): long;
@@ -482,7 +482,7 @@ class ArrayBuffer {
      * @param { long } value - The value to AND with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndI64(index: int, byteOffset: int, value: long): long;
@@ -498,7 +498,7 @@ class ArrayBuffer {
      * @param { long } replacementValue - The replacement value.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeI64(index: int, byteOffset: int, expectedValue: long, replacementValue: long): long;
@@ -513,7 +513,7 @@ class ArrayBuffer {
      * @param { long } value - The value to exchange.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeI64(index: int, byteOffset: int, value: long): long;
@@ -527,7 +527,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadI64(index: int, byteOffset: int): long;
@@ -542,7 +542,7 @@ class ArrayBuffer {
      * @param { long } value - The value to OR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrI64(index: int, byteOffset: int, value: long): long;
@@ -557,7 +557,7 @@ class ArrayBuffer {
      * @param { long } value - The value to store.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreI64(index: int, byteOffset: int, value: long): long;
@@ -572,7 +572,7 @@ class ArrayBuffer {
      * @param { long } value - The value to subtract.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubI64(index: int, byteOffset: int, value: long): long;
@@ -587,7 +587,7 @@ class ArrayBuffer {
      * @param { long } value - The value to XOR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorI64(index: int, byteOffset: int, value: long): long;
@@ -602,7 +602,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to add.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddU8(index: int, byteOffset: int, value: byte): long;
@@ -617,7 +617,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to AND with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndU8(index: int, byteOffset: int, value: byte): long;
@@ -633,7 +633,7 @@ class ArrayBuffer {
      * @param { byte } replacementValue - The replacement value.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeU8(index: int, byteOffset: int, expectedValue: byte, replacementValue: byte): long;
@@ -648,7 +648,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to exchange.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeU8(index: int, byteOffset: int, value: byte): long;
@@ -662,7 +662,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadU8(index: int, byteOffset: int): long;
@@ -677,7 +677,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to OR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrU8(index: int, byteOffset: int, value: byte): long;
@@ -692,7 +692,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to store.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreU8(index: int, byteOffset: int, value: byte): long;
@@ -707,7 +707,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to subtract.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubU8(index: int, byteOffset: int, value: byte): long;
@@ -722,7 +722,7 @@ class ArrayBuffer {
      * @param { byte } value - The value to XOR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorU8(index: int, byteOffset: int, value: byte): long;
@@ -737,7 +737,7 @@ class ArrayBuffer {
      * @param { short } value - The value to add.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddU16(index: int, byteOffset: int, value: short): long;
@@ -752,7 +752,7 @@ class ArrayBuffer {
      * @param { short } value - The value to AND with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndU16(index: int, byteOffset: int, value: short): long;
@@ -768,7 +768,7 @@ class ArrayBuffer {
      * @param { short } replacementValue - The replacement value.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeU16(index: int, byteOffset: int, expectedValue: short, replacementValue: short): long;
@@ -783,7 +783,7 @@ class ArrayBuffer {
      * @param { short } value - The value to exchange.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeU16(index: int, byteOffset: int, value: short): long;
@@ -797,7 +797,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadU16(index: int, byteOffset: int): long;
@@ -812,7 +812,7 @@ class ArrayBuffer {
      * @param { short } value - The value to OR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrU16(index: int, byteOffset: int, value: short): long;
@@ -827,7 +827,7 @@ class ArrayBuffer {
      * @param { short } value - The value to store.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreU16(index: int, byteOffset: int, value: short): long;
@@ -842,7 +842,7 @@ class ArrayBuffer {
      * @param { short } value - The value to subtract.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubU16(index: int, byteOffset: int, value: short): long;
@@ -857,7 +857,7 @@ class ArrayBuffer {
      * @param { short } value - The value to XOR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorU16(index: int, byteOffset: int, value: short): long;
@@ -873,7 +873,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddU32(index: int, byteOffset: int, value: int): long;
@@ -889,7 +889,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndU32(index: int, byteOffset: int, value: int): long;
@@ -907,7 +907,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeU32(index: int, byteOffset: int, expectedValue: int, replacementValue: int): long;
@@ -923,7 +923,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeU32(index: int, byteOffset: int, value: int): long;
@@ -937,7 +937,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadU32(index: int, byteOffset: int): long;
@@ -953,7 +953,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrU32(index: int, byteOffset: int, value: int): long;
@@ -969,7 +969,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreU32(index: int, byteOffset: int, value: int): long;
@@ -985,7 +985,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubU32(index: int, byteOffset: int, value: int): long;
@@ -1001,7 +1001,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorU32(index: int, byteOffset: int, value: int): long;
@@ -1016,7 +1016,7 @@ class ArrayBuffer {
      * @param { long } value - The value to add.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAddU64(index: int, byteOffset: int, value: long): long;
@@ -1031,7 +1031,7 @@ class ArrayBuffer {
      * @param { long } value - The value to AND with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicAndU64(index: int, byteOffset: int, value: long): long;
@@ -1047,7 +1047,7 @@ class ArrayBuffer {
      * @param { long } replacementValue - The replacement value.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicCompareExchangeU64(index: int, byteOffset: int, expectedValue: long, replacementValue: long): long;
@@ -1062,7 +1062,7 @@ class ArrayBuffer {
      * @param { long } value - The value to exchange.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicExchangeU64(index: int, byteOffset: int, value: long): long;
@@ -1076,7 +1076,7 @@ class ArrayBuffer {
      *     <br>The value should be an integer.
      * @returns { long } The loaded value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicLoadU64(index: int, byteOffset: int): long;
@@ -1091,7 +1091,7 @@ class ArrayBuffer {
      * @param { long } value - The value to OR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicOrU64(index: int, byteOffset: int, value: long): long;
@@ -1106,7 +1106,7 @@ class ArrayBuffer {
      * @param { long } value - The value to store.
      * @returns { long } The stored value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicStoreU64(index: int, byteOffset: int, value: long): long;
@@ -1121,7 +1121,7 @@ class ArrayBuffer {
      * @param { long } value - The value to subtract.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicSubU64(index: int, byteOffset: int, value: long): long;
@@ -1136,7 +1136,7 @@ class ArrayBuffer {
      * @param { long } value - The value to XOR with.
      * @returns { long } The result of the operation.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorU64(index: int, byteOffset: int, value: long): long;

@@ -23,7 +23,7 @@
  * Unicode string
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class  String {
@@ -31,7 +31,7 @@ class  String {
      * Constructs an empty string
      *
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor();
@@ -41,7 +41,7 @@ class  String {
      *
      * @param { FixedArray<char> } data - initializer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(data: FixedArray<char>);
@@ -51,7 +51,7 @@ class  String {
      *
      * @param { string } otherStr - initializer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(otherStr: string);
@@ -61,7 +61,7 @@ class  String {
      *
      * @param { Any } object - initializer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(object: Any);
@@ -71,7 +71,7 @@ class  String {
      *
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(): string;
@@ -82,7 +82,7 @@ class  String {
      * @param { boolean } value - The value to be converted to a string.
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: boolean): string;
@@ -93,7 +93,7 @@ class  String {
      * @param { byte } value - The value to be converted to a string.
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: byte): string;
@@ -104,7 +104,7 @@ class  String {
      * @param { char } value - The value to be converted to a string.
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: char): string;
@@ -115,7 +115,7 @@ class  String {
      * @param { short } value - The value to be converted to a string.
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: short): string;
@@ -127,7 +127,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: int): string;
@@ -138,7 +138,7 @@ class  String {
      * @param { long } value - The value to be converted to a string
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: long): string;
@@ -149,7 +149,7 @@ class  String {
      * @param { float } value - The value to be converted to a string
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: float): string;
@@ -160,7 +160,7 @@ class  String {
      * @param { double } value - The value to be converted to a string
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: double): string;
@@ -171,7 +171,7 @@ class  String {
      * @param { Any } value - The value to be converted to a string. Can be an Object or null.
      * @returns { string } A new string instance
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke(value: Any): string;
@@ -184,7 +184,7 @@ class  String {
      * @returns { string } string value at index
      * @throws { Error } StringIndexOutOfBoundsError - if index is negative or >= length
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     $_get(index: int): string;
@@ -194,7 +194,7 @@ class  String {
      *
      * @returns { int } length of this string
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getLength(): int;
@@ -204,7 +204,7 @@ class  String {
      *
      * @returns { int } length of this string
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     get length(): int;
@@ -216,7 +216,7 @@ class  String {
      * @param { string } s2
      * @returns { string } Concatenated string.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     concat(s1: string, s2: string): string;
@@ -229,7 +229,7 @@ class  String {
      * @param { string } s3
      * @returns { string } Concatenated string.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     concat(s1: string, s2: string, s3: string): string;
@@ -246,7 +246,7 @@ class  String {
      * @throws { RangeError } if - the locale tag is invalid or not found
      * @throws { NullPointerError } if - another or locale is undefined
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public localeCompare(that: String, locale?: string | string[], options?: Intl.CollatorOptions): int;
@@ -262,7 +262,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { boolean } true if the substring begins with prefix
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public startsWith(prefix: String, fromIndex?: int): boolean;
@@ -275,7 +275,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { boolean }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public endsWith(suffix: String, endPosition?: int): boolean;
@@ -290,7 +290,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { String } new String which is a substring of this String
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public substring(begin: int): String;
@@ -311,7 +311,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { String } new String which is a substring of this String
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public substring(begin: int, end: int): String;
@@ -328,7 +328,7 @@ class  String {
      * @returns { String[] } string array contains substrings from this String
      * @throws { NullPointerError } if - pattern param is null
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public split(separator: String, limit?: int): String[];
@@ -341,7 +341,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { String[] } string array contains substrings from this String
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public split(separator: RegExp, limit?: int): String[];
@@ -354,7 +354,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { String[] } string array contains substrings from this String
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public split(separator: String | RegExp, limit?: int): String[];
@@ -369,7 +369,7 @@ class  String {
      * @returns { string | undefined } A String consisting of the single UTF-16 code unit located
      *     at the specified position. Returns undefined if the given index can not be found.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public at(index: int): string | undefined;
@@ -383,7 +383,7 @@ class  String {
      * @returns { int }
      * @throws { RangeError } - - Input parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public charCodeAt(index: int): int;
@@ -395,7 +395,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { String } string consisting of the specified UTF-16 code unit.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public static fromCharCode(code: int): String;
@@ -407,7 +407,7 @@ class  String {
      * @returns { String } string consisting of the specified UTF-16 code units.
      * @throws { NegativeArraySizeError } - - Input parameter error.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public static fromCharCode(...codes: int[]): String;
@@ -422,7 +422,7 @@ class  String {
      * @returns { boolean } true if the search string is found anywhere within the given string,
      *     including when searchString is an empty string; otherwise, false
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public includes(searchString: String, position?: int): boolean;
@@ -436,7 +436,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { String } string with the padString applied at the end of the current str
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public padEnd(end: int): String;
@@ -451,7 +451,7 @@ class  String {
      * @param { char } ch - to pad the current str with
      * @returns { String } string with the padString applied at the end of the current str
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public padEnd(end: int, ch: char): String;
@@ -466,7 +466,7 @@ class  String {
      * @param { String } [fillString] - to pad the current str with
      * @returns { String } string with the padString applied at the end of the current str
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public padEnd(end: int, fillString?: String): String;
@@ -481,7 +481,7 @@ class  String {
      * @param { char } ch - fillString
      * @returns { String }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public padStart(end: int, ch: char): String;
@@ -496,7 +496,7 @@ class  String {
      * @param { String } [fillString] - fillString
      * @returns { String }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public padStart(end: int, fillString?: String): String;
@@ -511,7 +511,7 @@ class  String {
      *     <br>The value range is all integers.
      * @returns { String } new string containing the specified part of the given string
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public substr(begin: int, length?: int): String;
@@ -523,7 +523,7 @@ class  String {
      * @returns { int } the index of the first match between the regular expression and the given string,
      *     or -1 if no match was found.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public search(implicitRegExp: String): int;
@@ -535,7 +535,7 @@ class  String {
      * @returns { int } the index of the first match between the regular expression and the given string,
      *     or -1 if no match was found.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public search(regexp: RegExp): int;
@@ -547,7 +547,7 @@ class  String {
      * @returns { int } the index of the first match between the regular expression and the given string,
      *     or -1 if no match was found.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public search(regexp: String | RegExp): int;
@@ -560,7 +560,7 @@ class  String {
      * @returns { String } string created by using the specified sequence of code points
      * @throws { RangeError } if - codePoints[i] is less than 0, or is greater than 0x10FFFF
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public static fromCodePoint(...codePoints: int[]): String;
