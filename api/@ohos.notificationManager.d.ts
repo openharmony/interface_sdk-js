@@ -3797,7 +3797,7 @@ declare namespace notificationManager {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { string } hashCode - The hashCode of the notification to snooze.
-   * @param { long } delayTime - The time interval in seconds to delay the reminder.
+   * @param { long } delayTime - The time interval in seconds to delay the reminder
    *     <br>Unit: s.
    * @returns { Promise<void> } Returns the promise.
    * @throws { BusinessError } 201 - Permission denied.
