@@ -14758,7 +14758,9 @@ declare namespace camera {
      * Metadata object used for cat face detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14768,7 +14770,9 @@ declare namespace camera {
      * Metadata object used for cat body detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14778,7 +14782,9 @@ declare namespace camera {
      * Metadata object used for dog face detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14788,7 +14794,9 @@ declare namespace camera {
      * Metadata object used for dog body detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14798,7 +14806,9 @@ declare namespace camera {
      * Metadata object used for salient detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14949,7 +14959,9 @@ declare namespace camera {
    * Enumerates the types of emotions in the detected human face information.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -14958,7 +14970,9 @@ declare namespace camera {
      * Quiet and calm.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14968,7 +14982,9 @@ declare namespace camera {
      * Sad.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14978,7 +14994,9 @@ declare namespace camera {
      * Smile.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14988,7 +15006,9 @@ declare namespace camera {
      * Surprise.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15061,7 +15081,9 @@ declare namespace camera {
    * Metadata object for basic face.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic&static
    */
   interface MetadataBasicFaceObject extends MetadataObject {
@@ -15069,7 +15091,9 @@ declare namespace camera {
      * Bounding box for left eye.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly leftEyeBoundingBox?: Rect;
@@ -15078,7 +15102,9 @@ declare namespace camera {
      * Bounding box for right eye.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly rightEyeBoundingBox?: Rect;
@@ -15087,7 +15113,9 @@ declare namespace camera {
      * Pitch angle for face.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly pitchAngle?: int;
@@ -15096,7 +15124,9 @@ declare namespace camera {
      * Yaw angle for face.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly yawAngle?: int;
@@ -15105,7 +15135,9 @@ declare namespace camera {
      * Roll angle for face.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly rollAngle?: int;
@@ -15118,7 +15150,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15127,7 +15161,9 @@ declare namespace camera {
      * Left eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15137,7 +15173,9 @@ declare namespace camera {
      * Right eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15147,7 +15185,9 @@ declare namespace camera {
      * Detected emotion.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15157,7 +15197,9 @@ declare namespace camera {
      * Confidence of the emotion detection, with a value range of [0, 1].
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15167,7 +15209,9 @@ declare namespace camera {
      * Pitch angle, with a value range of [-90, 90], where downward is positive.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15177,7 +15221,9 @@ declare namespace camera {
      * Yaw angle, with a value range of [-90, 90], where rightward is positive.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15187,7 +15233,9 @@ declare namespace camera {
      * Row angle, with a value range of [-180, 180], where clockwise direction is positive.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15201,7 +15249,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15215,7 +15265,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15224,7 +15276,9 @@ declare namespace camera {
      * Left eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15234,7 +15288,9 @@ declare namespace camera {
      * Right eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15248,7 +15304,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15262,7 +15320,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15271,7 +15331,9 @@ declare namespace camera {
      * Left eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15281,7 +15343,9 @@ declare namespace camera {
      * Right eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15295,7 +15359,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15309,7 +15375,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
