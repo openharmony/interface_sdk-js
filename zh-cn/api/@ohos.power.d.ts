@@ -220,7 +220,7 @@ declare namespace power {
   function hibernate(clearMemory: boolean): void;
 
   /**
-   * 设置熄屏超时时间，单位毫秒。
+   * 设置熄屏超时时间。
    *
    * @permission ohos.permission.POWER_MANAGER [since 19]
    * @param { long } timeout - 熄屏超时时间，单位是毫秒，大于0代表熄屏超时时间，-1代表恢复默认超时时间，其它是无效值。

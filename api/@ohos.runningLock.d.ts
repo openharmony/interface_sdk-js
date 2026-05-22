@@ -251,7 +251,7 @@ declare namespace runningLock {
   function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
   /**
-   * Creates a running lock. This API uses a promise to return the result.
+   * Creates a {@link RunningLock} object. This API uses a promise to return the result.
    *
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name - Name of the **RunningLock** object. The value must be a string.
