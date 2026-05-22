@@ -2518,7 +2518,7 @@ declare namespace geoLocationManager {
    * @atomicservice
    * @since 26.0.0 dynamic&static
    */
-  function getPostProcessingTrack(sportsType: SportsType): Promise<ArrayBuffer>;
+  function getPostProcessingTrack(sportsType: SportsType): Promise<Array<Location>>;
 
   /**
    * Indicates request parameters for obtaining the district information.
