@@ -90,7 +90,7 @@ declare namespace systemDateTime {
    *     <br> 2. Incorrect parameter types.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
    *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted. [since 24]
+   *     2. The required privilege for the operation has not been granted. [since 26.0.0]
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
@@ -110,7 +110,7 @@ declare namespace systemDateTime {
    *     <br> 2. Incorrect parameter types.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
    *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted. [since 24]
+   *     2. The required privilege for the operation has not been granted. [since 26.0.0]
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
@@ -398,7 +398,7 @@ declare namespace systemDateTime {
    *     <br> 2. Incorrect parameter types.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
    *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted. [since 24]
+   *     2. The required privilege for the operation has not been granted. [since 26.0.0]
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
@@ -421,7 +421,7 @@ declare namespace systemDateTime {
    *     <br> 2. Incorrect parameter types.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
    *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted. [since 24]
+   *     2. The required privilege for the operation has not been granted. [since 26.0.0]
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use
    * @since 9 dynamic
@@ -523,7 +523,7 @@ declare namespace systemDateTime {
    *     2. Calls the underlying system interface failed.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
    *     1. The operation is restricted by the OS-account constraint.
-   *     2. The required privilege for the operation has not been granted. [since 24]
+   *     2. The required privilege for the operation has not been granted. [since 26.0.0]
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi
    * @since 21 dynamic
