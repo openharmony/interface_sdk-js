@@ -174,6 +174,76 @@ declare namespace volumeManager {
   }
 
   /**
+   * Disk type.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum DiskType {
+    /**
+     * The type of sd card.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SD_CARD = 1,
+
+    /**
+     * The type of usb flash.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    USB_FLASH = 2,
+
+    /**
+     * The type of CD_DVD_BD.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CD_DVD_BD = 3,
+
+    /**
+     * The type of ssd data disk.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA_DISK_SSD = 4,
+
+    /**
+     * The type of hdd data disk.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA_DISK_HDD = 5,
+
+    /**
+     * Unknown disk type.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_DISK_TYPE = 255
+  }
+
+  /**
    * Disk information.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -193,17 +263,8 @@ declare namespace volumeManager {
     diskId: string;
 
     /**
-     * Disk name.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    diskName: string;
-
-    /**
-     * Disk size in bytes.
+     * Disk total size.
+     * <br>Unit: Byte.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -213,26 +274,6 @@ declare namespace volumeManager {
     sizeBytes: long;
 
     /**
-     * System path of the disk.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    sysPath: string;
-
-    /**
-     * Vendor of the disk.
-     *
-     * @syscap SystemCapability.FileManagement.StorageService.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    vendor: string;
-
-    /**
      * Disk type.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -240,30 +281,30 @@ declare namespace volumeManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    diskType: int;
+    diskType: DiskType;
 
     /**
-     * Media type.
+     * Indicates that the disk can be removed.The value true indicates that the disk can be removed.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    mediaType: int;
+    removable: boolean;
 
     /**
-     * Whether the disk is removable.
+     * Indicates the volume of a disk. A disk may contain multiple volumes.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    removable: int;
+    volumeIds: Array<string>;
 
     /**
-     * Extra information of the disk.
+     * Disk information extension field.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -323,7 +364,8 @@ declare namespace volumeManager {
     endSector: long;
 
     /**
-     * Partition size in bytes.
+     * Partition total size.
+     * <br>Unit: Byte.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -333,7 +375,7 @@ declare namespace volumeManager {
     sizeBytes: long;
 
     /**
-     * File system type.
+     * File system type. Common file systems are **ext4**, **vfat**, **exfat**, **NTFS**, **f2fs**, and **hmfs**.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -463,7 +505,7 @@ declare namespace volumeManager {
     endSector: long;
 
     /**
-     * Partition type code.
+     * The code of file system. Common file systems are **ext4**, **vfat**, **exfat**, **NTFS**, **f2fs**, and **hmfs**.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -483,7 +525,7 @@ declare namespace volumeManager {
    */
   export interface FormatParams {
     /**
-     * File system type, such as 'ext4', 'vfat', 'ntfs'.
+     * File system type, Common file systems are **ext4**, **vfat**, and **exfat**.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
@@ -1003,12 +1045,11 @@ declare namespace volumeManager {
   /**
    * Querying Information About All Disks.
    *
-   * @permission ohos.permission.STORAGE_MANAGER
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
    * @returns { Promise<Array<Disk>> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600008 - No such object.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
@@ -1019,13 +1060,14 @@ declare namespace volumeManager {
   /**
    * Querying disk information based on the disk ID.
    *
-   * @permission ohos.permission.STORAGE_MANAGER
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
    * @param { string } diskId - The diskId of disk.
    * @returns { Promise<Disk> } return Promise
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
