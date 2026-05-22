@@ -65,7 +65,7 @@ export interface ProjectConfig extends ApiCheckConfig {
   compatibleSdkVersion: number;
   originCompatibleSdkVersion?: number;
   compileSdkPath: string;
-  externalApiPaths: string;
+  externalApiPaths: string[];
   buildSdkPath: string;
   nativeDependencies: string[];
   aceSoPath: string;

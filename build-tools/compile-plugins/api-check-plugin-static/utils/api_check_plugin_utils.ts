@@ -629,7 +629,7 @@ export function createOrCleanProjectConfig(): ProjectConfig {
     systemModules: [],
     allModulesPaths: [],
     sdkConfigs: [],
-    externalApiPaths: '',
+    externalApiPaths: [],
     externalSdkPaths: [],
     sdkConfigPrefix: '',
     deviceTypes: [],
@@ -827,17 +827,19 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
   ];
   // TODO:projectConfig.sdkConfigPaths没找到，改用projectConfig.externalApiPaths
   // projectConfig.externalApiPaths是带有static\\api的，路径多了一层api需要处理
-  const externalApiPathStr = projectConfig.externalApiPaths || '';
-  const externalApiStaticStr = Array.from(externalApiPathStr).find((item) => {
+  const externalApiPathArr = projectConfig.externalApiPaths || [''];
+  const externalApiStaticStr = Array.from(externalApiPathArr).find((item) => {
     return item.includes('hms\\ets\\static');
   })
-  const lastSlashIndex = externalApiStaticStr ? externalApiStaticStr.lastIndexOf('\\') : -1;
-  const resultPath = lastSlashIndex >= 0 ? externalApiStaticStr?.substring(0, lastSlashIndex) : '';
-  const externalApiPaths = resultPath?.split(path.delimiter);
-  projectConfig.externalSdkPaths = [...externalApiPaths];
-  const extendSdkConfigs: SdkConfig[] = [];
-  collectExternalModules(externalApiPaths, extendSdkConfigs, projectConfig);
-  projectConfig.sdkConfigs = [...defaultSdkConfigs, ...extendSdkConfigs];
+  if (externalApiStaticStr) {
+    const lastSlashIndex = externalApiStaticStr ? externalApiStaticStr.lastIndexOf('\\') : -1;
+    const resultPath = lastSlashIndex >= 0 ? externalApiStaticStr?.substring(0, lastSlashIndex) : '';
+    const externalApiPaths = resultPath?.split(path.delimiter);
+    projectConfig.externalSdkPaths = [...externalApiPaths];
+    const extendSdkConfigs: SdkConfig[] = [];
+    collectExternalModules(externalApiPaths, extendSdkConfigs, projectConfig);
+    projectConfig.sdkConfigs = [...defaultSdkConfigs, ...extendSdkConfigs];
+  }
 }
 
 /**

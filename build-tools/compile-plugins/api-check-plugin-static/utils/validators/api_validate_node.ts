@@ -14,6 +14,8 @@
  */
 
 import * as arkts from '@koalaui/libarkts';
+import fs from 'fs';
+import path from 'path';
 import {
   ComparisonResult,
   FormatCheckerFunction,
@@ -21,9 +23,10 @@ import {
   ComparisonSenario,
   AVAILABLE_TAG_NAME,
   RUNTIME_OS_OH,
-  SUPPRESSWARNINGS_RULE_INFO
+  SUPPRESSWARNINGS_RULE_INFO,
+  API_INTERFACE_WHITE_LIST
 } from '../api_check_plugin_define';
-import { suppressWarningsCheckPlugin } from '../../index';
+import { globalObject, suppressWarningsCheckPlugin } from '../../index';
 import { ParsedVersion } from '../api_check_plugin_typedef';
 import {
   comparePointVersion,
@@ -566,11 +569,10 @@ export class WhiteListValidator extends BaseValidator implements NodeValidator {
     if (!declFilePath) {
       return false;
     }
-
-    const isSdkApi = declFilePath.includes('@ohos') ||
-      declFilePath.includes('@system') ||
-      declFilePath.includes('api/');
-
-    return !isSdkApi;
+    const apiName: string = this.declaration?.key?.name || this.declaration?.ident?.name || '';
+    return globalObject.projectConfig.externalApiPaths.some((externalApiPath: string) => {
+      const fileName: string = path.relative(externalApiPath, declFilePath).replace(/\\/g, '/');
+      return API_INTERFACE_WHITE_LIST.get(fileName)?.includes(apiName);
+    });
   }
 }

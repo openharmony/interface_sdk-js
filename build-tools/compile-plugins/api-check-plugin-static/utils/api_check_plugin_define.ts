@@ -55,6 +55,8 @@ export const AVAILABLE_SCOPE_ERROR: string =
   'Unnecessary. The outer annotation already indicates that the version is greater than or equal to $VERSION.';
 export const AVAILABLE_VERSION_FORMAT_ERROR: string =
   'The OpenHarmony version must be an integer between 1 and 999, and when the OpenHarmony version is greater than or equal to 26, the version number format also supports the M.S.F format.';
+export const API_INTERFACE_WHITE_LIST: Map<string, string[]> = new Map([
+]);
 export const MSF_INTEGER_VERSION: number = 26;
 export const MSF_SANDF_VERSION: number = 99;
 
