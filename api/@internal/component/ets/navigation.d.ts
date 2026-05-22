@@ -2743,6 +2743,38 @@ declare interface MoreButtonOptions {
 }
 
 /**
+ * Navigation configuration options.
+ *
+ * @interface NavigationConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface NavigationConfiguration {
+  /**
+   * Navigation page stack size limit.
+   * 
+   * Description:
+   * - Limits to maximum number of active page nodes in Navigation page stack.
+   * - When limit is exceeded, oldest page nodes are automatically destroyed
+   *   in FIFO (First-In-First-Out) order.
+   * - NavPathInfo of pages is completely retained, supporting page recreation.
+   * - value <=0 No limit on page stack size (default value).
+   * - value >0 Limit stack size to specified value.
+   *
+   * @default 0 (nolimit)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  stackSizeLimit?: number;
+}
+
+/**
  * Declare Navigation view properties.
  *
  * @extends CommonMethod<NavigationAttribute>
@@ -3585,6 +3617,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 21 dynamic
    */
   enableVisibilityLifecycleWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
+
+  /**
+   * Sets Navigation configuration.
+   *
+   * @param { NavigationConfiguration } config - Navigation configuration options.
+   * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  configuration(config: NavigationConfiguration): NavigationAttribute;
 }
 
 /**

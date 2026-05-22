@@ -1454,6 +1454,39 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 26.0.0 dynamic
    */
   fullScreenOverlay(fullScreenOverlay: Optional<boolean>): NavDestinationAttribute;
+
+  /**
+   * Sets custom page state save callback.
+   * 
+   * Triggered when page becomes hidden. Save custom page state for potential restoration.
+   * The initial param used to create the page is preserved by Navigation separately.
+   * State object must be serializable.
+   *
+   * @param { Optional<SaveStateCallback> } callback - Custom state save callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onSaveState(callback: Optional<SaveStateCallback>): NavDestinationAttribute;
+
+  /**
+   * Sets custom page state restore callback.
+   * 
+   * Triggered when page is reconstructed. The custom state saved by onSaveState is passed to this callback.
+   * Null is passed if no custom state was saved.
+   *
+   * @param { Optional<RestoreStateCallback> } callback - Custom state restore callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onRestoreState(callback: Optional<RestoreStateCallback>): NavDestinationAttribute;
 }
 
 /**
@@ -1519,3 +1552,27 @@ declare const NavDestinationInstance: NavDestinationAttribute;
  */
 declare type NavDestinationTransitionDelegate =
   (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
+
+/**
+ * Custom page state save callback.
+ * 
+ * @returns { Record<string, Object> | null } Custom page state.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type SaveStateCallback = () => Record<string, Object> | null;
+
+/**
+ * Custom page state restore callback.
+ * 
+ * @param { Record<string, Object> | null } savedState - Custom page state saved by onSaveState.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type RestoreStateCallback = (savedState: Record<string, Object> | null) => void;
