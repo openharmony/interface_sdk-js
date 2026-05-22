@@ -4830,7 +4830,7 @@ export enum AttributeModifierState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 26.0.0 staticonly
    */
   HOVERED = 1 << 4
 }
