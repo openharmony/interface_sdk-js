@@ -14,14 +14,14 @@
  */
 
 /**
- * @file Device Usage Statistics
+ * @file 设备使用信息统计
  * @kit BackgroundTasksKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * This module provides APIs for collecting statistics on device usage.
+ * 本模块提供设备使用信息统计能力。
  * 
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 7 dynamiconly
@@ -198,14 +198,11 @@ declare namespace bundleState {
   }
 
   /**
-   * Checks whether the application specified by **bundleName** is in the idle state. A third-party application can only
-   * check the idle state of itself. A system application can check the idle state of other applications only when it is
-   * granted with the ohos.permission.BUNDLE_ACTIVE_INFO permission. This API uses an asynchronous callback to return 
-   * the result.
+   * 判断指定bundleName的应用当前是否是空闲状态，三方应用只能查询自身的空闲状态。系统应用支持查询其他应用的空闲状态，查询前需要申请权限ohos.permission.BUNDLE_ACTIVE_INFO。使用Callback
+   * 异步回调。
    *
-   * @param { string } bundleName - Bundle name of an application.
-   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the specified **bundleName** is
-   *     valid, the idle state of the application is returned; otherwise, **null** is returned.
+   * @param { string } bundleName - 应用的bundleName。
+   * @param { AsyncCallback<boolean> } callback - 指定的callback回调方法。如果指定的bundleName有效，则返回指定bundleName的应用当前是否是空闲状态；否则返回null。
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -213,13 +210,11 @@ declare namespace bundleState {
   function isIdleState(bundleName: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the application specified by **bundleName** is in the idle state. A third-party application can only
-   * check the idle state of itself. A system application can check the idle state of other applications only when it is
-   * granted with the ohos.permission.BUNDLE_ACTIVE_INFO permission. This API uses a promise to return the result.
+   * 判断指定bundleName的应用当前是否是空闲状态，三方应用只能查询自身的空闲状态。系统应用支持查询其他应用的空闲状态，查询前需要申请权限ohos.permission.BUNDLE_ACTIVE_INFO，使用Promise异
+   * 步回调。
    *
-   * @param { string } bundleName - Bundle name of an application.
-   * @returns { Promise<boolean> } Promise used to return the result. If the specified **bundleName** is valid, the idle
-   *     state of the application is returned; otherwise, **null** is returned.
+   * @param { string } bundleName - 应用的bundleName。
+   * @returns { Promise<boolean> } 指定的Promise回调方法。如果指定的bundleName有效，则返回指定bundleName的应用当前是否是空闲状态；否则返回null。
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @since 7 dynamiconly
    * @deprecated since 9

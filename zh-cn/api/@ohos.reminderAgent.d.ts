@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Agent-powered Reminder
+ * @file 后台代理提醒
  * @kit BackgroundTasksKit
  */
 
@@ -23,11 +23,9 @@ import notification from './@ohos.notification';
 import { NotificationSlot } from './notification/notificationSlot';
 
 /**
- * The **reminderAgent** module provides APIs for publishing scheduled reminders through the reminder agent.
+ * 本模块提供后台代理提醒的能力。
  * 
- * You can use the APIs to create scheduled reminders for countdown timers, calendar events, and alarm clocks. When the 
- * created reminders are published, the timing and pop-up notification functions of your application will be taken over 
- * by the reminder agent in the background when your application is frozen or exits.
+ * 开发应用时，开发者可以调用相关接口创建定时提醒，包括倒计时、日历、闹钟这三类提醒类型。使用后台代理提醒能力后，应用被冻结或退出后，计时和弹出提醒的功能将被后台系统服务代理。
  * 
  * @syscap SystemCapability.Notification.ReminderAgent
  * @since 7 dynamiconly
@@ -36,160 +34,154 @@ import { NotificationSlot } from './notification/notificationSlot';
  */
 declare namespace reminderAgent {
   /**
-   * Publishes a reminder through the reminder agent. This API uses an asynchronous callback to return the result. It 
-   * can be called only when notification is enabled for the application through 
+   * 发布一个后台代理提醒，使用回调的方式实现异步调用，该方法需要申请通知弹窗权限
    * [Notification.requestEnableNotification]{@link @ohos.notification:notification.requestEnableNotification(callback: AsyncCallback<void>)}
-   * 
+   * 后才能调用。
+   *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
-   * @param { ReminderRequest } reminderReq - Reminder to be published.
-   * @param { AsyncCallback<number> } callback - Callback used to return the published reminder's ID.
+   * @param { ReminderRequest } reminderReq - 需要发布的提醒实例。
+   * @param { AsyncCallback<number> } callback - 异步回调，返回当前发布的提醒的id。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.publishReminder
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)
    */
   function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void;
 
   /**
-   * Publishes a reminder through the reminder agent. This API uses a promise to return the result. It can be called 
-   * only when notification is enabled for the application through 
+   * 发布一个后台代理提醒，使用Promise方式实现异步调用，该方法需要申请通知弹窗权限
    * [Notification.requestEnableNotification]{@link @ohos.notification:notification.requestEnableNotification(callback: AsyncCallback<void>)}
-   * 
+   * 后才能调用。
+   *
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq Indicates the reminder instance to publish.
    * @returns { Promise<number> } reminder id.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.publishReminder
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.publishReminder(reminderReq: ReminderRequest)
    */
   function publishReminder(reminderReq: ReminderRequest): Promise<number>;
 
   /**
-   * Cancels the reminder with the specified ID. This API uses an asynchronous callback to return the cancellation 
-   * result.
+   * 取消指定id的提醒，使用回调的方式实现异步调用。
    * 
-   * @param { number } reminderId - ID of the reminder.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } reminderId - 目标reminder的id号。
+   * @param { AsyncCallback<void> } callback - 异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.cancelReminder
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelReminder(reminderId: int, callback: AsyncCallback<void>)
    */
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels the reminder with the specified ID. This API uses a promise to return the cancellation result.
+   * 取消指定id的提醒，使用Promise方式实现异步调用。
    * 
-   * @param { number } reminderId - ID of the reminder.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { number } reminderId - 目标reminder的id号。
+   * @returns { Promise<void> } Promise类型异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.cancelReminder
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelReminder(reminderId: int)
    */
   function cancelReminder(reminderId: number): Promise<void>;
 
   /**
-   * Obtains all valid (not yet expired) reminders set by the current application. This API uses an asynchronous 
-   * callback to return the result.
+   * 获取当前应用已设置的所有有效（未过期）的提醒，使用回调的方式实现异步调用。
    * 
-   * @param { AsyncCallback<Array<ReminderRequest>> } callback - Callback used to return an array of all valid reminders
-   *     set by the current application.
+   * @param { AsyncCallback<Array<ReminderRequest>> } callback - 异步回调，返回当前应用已设置的所有有效（未过期）的提醒。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.getValidReminders
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>)
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
 
   /**
-   * Obtains all valid (not yet expired) reminders set by the current application. This API uses a promise to return the
-   * reminders.
+   * 获取当前应用已设置的所有有效（未过期）的提醒，使用Promise方式实现异步调用。
    * 
-   * @returns { Promise<Array<ReminderRequest>> } Promise used to return an array of all valid reminders set by the
-   *     current application.
+   * @returns { Promise<Array<ReminderRequest>> } 返回当前应用已设置的所有有效（未过期）的提醒。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.getValidReminders
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.getValidReminders()
    */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
   /**
-   * Cancels all reminders set by the current application. This API uses an asynchronous callback to return the 
-   * cancellation result.
+   * 取消当前应用所有的提醒，使用回调的方式实现异步调用。
    * 
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - 异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.cancelAllReminders
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelAllReminders(callback: AsyncCallback<void>)
    */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
   /**
-   * Cancels all reminders set by the current application. This API uses a promise to return the cancellation result.
+   * 取消当前应用所有的提醒，使用Promise方式实现异步调用。
    * 
-   * @returns { Promise<void> } Promise used to return the result.
+   * @returns { Promise<void> } Promise类型异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.cancelAllReminders
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelAllReminders()
    */
   function cancelAllReminders(): Promise<void>;
 
   /**
-   * Adds a notification slot. This API uses an asynchronous callback to return the result.
+   * 添加一个NotificationSlot，使用回调的方式实现异步调用。
    * 
-   * @param { NotificationSlot } slot - Notification slot, whose type can be set.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { NotificationSlot } slot - notification.slot实例，仅支持设置其type属性。
+   * @param { AsyncCallback<void> } callback - 异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.addNotificationSlot
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>)
    */
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
   /**
-   * Adds a notification slot. This API uses a promise to return the result.
+   * 添加一个NotificationSlot，使用Promise方式实现异步调用。
    * 
-   * @param { NotificationSlot } slot - Notification slot, whose type can be set.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { NotificationSlot } slot - notification.slot实例，仅支持设置其type属性。
+   * @returns { Promise<void> } Promise类型异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.addNotificationSlot
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.addNotificationSlot(slot: NotificationSlot)
    */
   function addNotificationSlot(slot: NotificationSlot): Promise<void>;
 
   /**
-   * Removes a notification slot of a specified type. This API uses an asynchronous callback to return the result.
+   * 删除目标NotificationSlot，使用callback方式实现异步调用。
    * 
-   * @param { notification.SlotType } slotType - Type of the reminder notification slot to remove.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { notification.SlotType } slotType - 目标notification.slot的类型。
+   * @param { AsyncCallback<void> } callback - 异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.removeNotificationSlot
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>)
    */
   function removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes a notification slot of a specified type. This API uses a promise to return the result.
+   * 删除目标NotificationSlot，使用Promise方式实现异步调用。
    * 
-   * @param { notification.SlotType } slotType - Type of the reminder notification slot to remove.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { notification.SlotType } slotType - 目标notification.slot的类型。
+   * @returns { Promise<void> } Promise类型异步回调。
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead reminderAgentManager.removeNotificationSlot
+   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.removeNotificationSlot(slotType: notification.SlotType)
    */
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
 
   /**
-   * Enumerates the button types.
-   *
+   * 按钮的类型。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -197,7 +189,7 @@ declare namespace reminderAgent {
    */
   export enum ActionButtonType {
     /**
-     * Button for closing the reminder.
+     * 表示关闭提醒的按钮。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -207,7 +199,7 @@ declare namespace reminderAgent {
     ACTION_BUTTON_TYPE_CLOSE = 0,
 
     /**
-     * Button for snoozing the reminder.
+     * 表示延迟提醒的按钮。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -218,8 +210,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Enumerates reminder types.
-   *
+   * 提醒的类型。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -227,7 +219,7 @@ declare namespace reminderAgent {
    */
   export enum ReminderType {
     /**
-     * Countdown reminder.
+     * 表示提醒类型：倒计时。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -237,7 +229,7 @@ declare namespace reminderAgent {
     REMINDER_TYPE_TIMER = 0,
 
     /**
-     * Calendar reminder.
+     * 表示提醒类型：日历。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -247,7 +239,7 @@ declare namespace reminderAgent {
     REMINDER_TYPE_CALENDAR = 1,
 
     /**
-     * Alarm reminder.
+     * 表示提醒类型：闹钟。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -258,8 +250,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Defines a button displayed in the reminder notification.
-   *
+   * 用于设置弹出的提醒通知信息上显示的按钮类型和标题。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -267,7 +259,7 @@ declare namespace reminderAgent {
    */
   interface ActionButton {
     /**
-     * Text on the button.
+     * 按钮显示的标题。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -277,7 +269,7 @@ declare namespace reminderAgent {
     title: string;
 
     /**
-     * Button type.
+     * 按钮的类型。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -288,8 +280,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Sets the package and ability that are redirected to when the reminder notification is clicked.
-   *
+   * 点击提醒通知后跳转的目标ability信息。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -297,7 +289,7 @@ declare namespace reminderAgent {
    */
   interface WantAgent {
     /**
-     * Name of the HAP that is redirected to when the reminder notification is clicked.
+     * 指明点击提醒通知栏后跳转的目标HAP名。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -307,7 +299,7 @@ declare namespace reminderAgent {
     pkgName: string;
 
     /**
-     * Name of the ability that is redirected to when the reminder notification is clicked.
+     * 指明点击提醒通知栏后跳转的目标ability名称。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -318,8 +310,7 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Provides the information about the target package and ability to start automatically when the reminder is displayed
-   * in full-screen mode. This API is reserved.
+   * 全屏显示提醒到达时自动拉起的目标ability信息，该接口预留。
    * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
@@ -328,7 +319,7 @@ declare namespace reminderAgent {
    */
   interface MaxScreenWantAgent {
     /**
-     * Name of the HAP that is automatically started when the reminder arrives and the device is not in use.
+     * 指明提醒到达时自动拉起的目标HAP名（如果设备在使用中，则只弹出通知横幅框）。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -338,7 +329,7 @@ declare namespace reminderAgent {
     pkgName: string;
 
     /**
-     * Name of the ability that is automatically started when the reminder arrives and the device is not in use.
+     * 指明提醒到达时自动拉起的目标ability名（如果设备在使用中，则只弹出通知横幅框）。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -349,8 +340,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Defines the reminder to publish.
-   *
+   * 提醒实例对象，用于设置提醒类型、响铃时长等具体信息。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -358,7 +349,7 @@ declare namespace reminderAgent {
    */
   interface ReminderRequest {
     /**
-     * Type of the reminder.
+     * 指明提醒类型。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -368,7 +359,7 @@ declare namespace reminderAgent {
     reminderType: ReminderType;
 
     /**
-     * Button displayed in the reminder notification. (The parameter is optional. Up to two buttons are supported.)
+     * 弹出的提醒通知栏中显示的按钮（参数可选，支持0/1/2个按钮）。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -378,7 +369,7 @@ declare namespace reminderAgent {
     actionButton?: [ActionButton?, ActionButton?];
 
     /**
-     * Information about the ability that is redirected to when the notification is clicked.
+     * 点击通知后需要跳转的目标ability信息。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -388,8 +379,7 @@ declare namespace reminderAgent {
     wantAgent?: WantAgent;
 
     /**
-     * Information about the ability that is automatically started when the reminder arrives. If the device is in use, a
-     * notification will be displayed.
+     * 提醒到达时跳转的目标包。如果设备正在使用中，则弹出一个通知框。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -399,7 +389,7 @@ declare namespace reminderAgent {
     maxScreenWantAgent?: MaxScreenWantAgent;
 
     /**
-     * Ringing duration, in seconds. The default value is **1**.
+     * 指明响铃时长（单位：秒），默认1秒。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -409,7 +399,7 @@ declare namespace reminderAgent {
     ringDuration?: number;
 
     /**
-     * Number of reminder snooze times. The default value is **0**.
+     * 指明延迟提醒次数，默认0次。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -419,7 +409,7 @@ declare namespace reminderAgent {
     snoozeTimes?: number;
 
     /**
-     * Reminder snooze interval, in seconds. The default value is **0**.
+     * 执行延迟提醒间隔（单位：秒），默认0秒。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -429,7 +419,7 @@ declare namespace reminderAgent {
     timeInterval?: number;
 
     /**
-     * Reminder title.
+     * 指明提醒标题。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -439,7 +429,7 @@ declare namespace reminderAgent {
     title?: string;
 
     /**
-     * Reminder content.
+     * 指明提醒内容。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -449,7 +439,7 @@ declare namespace reminderAgent {
     content?: string;
 
     /**
-     * Content to be displayed after the reminder expires.
+     * 指明提醒过期后需要显示的内容。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -459,7 +449,7 @@ declare namespace reminderAgent {
     expiredContent?: string;
 
     /**
-     * Content to be displayed when the reminder is snoozing.
+     * 指明延迟提醒时需要显示的内容。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -469,8 +459,7 @@ declare namespace reminderAgent {
     snoozeContent?: string;
 
     /**
-     * Notification ID used by the reminder. If there are reminders with the same notification ID, the later one will 
-     * overwrite the earlier one.
+     * 指明提醒使用的通知的id号，相同id号的提醒会覆盖。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -480,7 +469,7 @@ declare namespace reminderAgent {
     notificationId?: number;
 
     /**
-     * Type of the slot used by the reminder.
+     * 指明提醒的slot类型。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -491,8 +480,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Defines a reminder for a calendar event.
-   *
+   * 日历实例对象，用于设置提醒的时间。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -500,7 +489,7 @@ declare namespace reminderAgent {
    */
   interface ReminderRequestCalendar extends ReminderRequest {
     /**
-     * Reminder time.
+     * 指明提醒的目标时间。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -510,7 +499,7 @@ declare namespace reminderAgent {
     dateTime: LocalDateTime;
 
     /**
-     * Month in which the reminder repeats.
+     * 指明重复提醒的月份。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -520,7 +509,7 @@ declare namespace reminderAgent {
     repeatMonths?: Array<number>;
 
     /**
-     * Date on which the reminder repeats.
+     * 指明重复提醒的日期。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -531,8 +520,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Defines a reminder for an alarm.
-   *
+   * 闹钟实例对象，用于设置提醒的时间。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -540,7 +529,7 @@ declare namespace reminderAgent {
    */
   interface ReminderRequestAlarm extends ReminderRequest {
     /**
-     * Hour portion of the reminder time.
+     * 指明提醒的目标时刻。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -550,7 +539,7 @@ declare namespace reminderAgent {
     hour: number;
 
     /**
-     * Minute portion of the reminder time.
+     * 指明提醒的目标分钟。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -560,8 +549,7 @@ declare namespace reminderAgent {
     minute: number;
 
     /**
-     * Days of a week when the reminder repeats. The value ranges from 1 to 7, corresponding to the data from Monday to 
-     * Sunday.
+     * 指明每周哪几天需要重复提醒。范围为周一到周末，对应数字为1到7。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -572,8 +560,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Defines a reminder for a scheduled timer.
-   *
+   * 倒计时实例对象，用于设置提醒的时间。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -581,7 +569,7 @@ declare namespace reminderAgent {
    */
   interface ReminderRequestTimer extends ReminderRequest {
     /**
-     * Number of seconds in the countdown timer.
+     * 指明倒计时的秒数。
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -592,8 +580,8 @@ declare namespace reminderAgent {
   }
 
   /**
-   * Sets the time information for a calendar reminder.
-   *
+   * 用于日历类提醒设置时指定时间信息。
+   * 
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -601,7 +589,7 @@ declare namespace reminderAgent {
    */
   interface LocalDateTime {
     /**
-     * Year.
+     * 年
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -611,7 +599,7 @@ declare namespace reminderAgent {
     year: number;
 
     /**
-     * Month.
+     * 月
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -621,7 +609,7 @@ declare namespace reminderAgent {
     month: number;
 
     /**
-     * Date.
+     * 日
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -631,7 +619,7 @@ declare namespace reminderAgent {
     day: number;
 
     /**
-     * Hour.
+     * 时
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -641,7 +629,7 @@ declare namespace reminderAgent {
     hour: number;
 
     /**
-     * Minute.
+     * 分
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -651,7 +639,7 @@ declare namespace reminderAgent {
     minute: number;
 
     /**
-     * Second.
+     * 秒
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
