@@ -2784,14 +2784,14 @@ export declare class DrawModifier {
     drawFront(drawContext: DrawContext): void;
 
     /**
-     * drawforeground Method. This method is executed after drawing the associated Node and its children.
+     * drawForeground Method. This method is executed after drawing the associated Node and its children.
      * It allows you to perform additional drawing operations on top of the already rendered content.
      * This can be useful for adding visual elements that should appear above the main content.
      *
      * @param { DrawContext } drawContext - The drawContext used to draw.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     drawForeground(drawContext: DrawContext): void;
 
