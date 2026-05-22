@@ -5219,6 +5219,14 @@ declare namespace photoAccessHelper {
      */
     SOURCE_GENERIC = 2049,
     /**
+     * Source album from FileManager
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SOURCE_GENERIC_FROM_FILE_MANAGER = 2050,
+    /**
      * Classify album
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
