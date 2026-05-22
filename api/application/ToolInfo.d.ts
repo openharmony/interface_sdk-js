@@ -19,10 +19,6 @@
  */
 
 
-/*** if arkts static */
-import { RecordData } from '../@ohos.base';
-/*** endif */
-
 /**
  * ToolInfo describes the basic information of a cli tool.
  *
@@ -30,7 +26,7 @@ import { RecordData } from '../@ohos.base';
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamiconly
  */
 export interface ToolInfo {
   /**
@@ -39,7 +35,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly name: string;
 
@@ -49,7 +45,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly version: string;
 
@@ -59,7 +55,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly description: string;
 
@@ -69,7 +65,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly executablePath: string;
 
@@ -79,7 +75,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly requirePermissions?: Array<string>;
 
@@ -89,39 +85,19 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
   readonly inputSchema: Record<string, Object>;
 
   /**
-   * The input schema of the CLI tool.
-   *
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  readonly inputSchema: Record<string, RecordData>;
-
-  /**
    * The output schema of the CLI tool.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
   readonly outputSchema: Record<string, Object>;
-
-  /**
-   * The output schema of the CLI tool.
-   *
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  readonly outputSchema: Record<string, RecordData>;
 
   /**
    * Supported event types for custom event.
@@ -129,7 +105,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly eventTypes?: Array<string>;
 
@@ -139,19 +115,9 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
   readonly eventSchemas?: Record<string, Record<string, Object>>;
-
-  /**
-   * Schemas about custom event.
-   *
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  readonly eventSchemas?: Record<string, Record<string, RecordData>>;
 
   /**
    * Whether this tool has subcommand.
@@ -159,7 +125,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly hasSubCommand?: boolean;
 
@@ -170,7 +136,7 @@ export interface ToolInfo {
    * @systemapi
    * @stagemodelonly
 
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly subcommands?: Record<string, SubCommandInfo>;
 }
@@ -181,7 +147,7 @@ export interface ToolInfo {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamiconly
  */
 export interface ToolSummary {
   /**
@@ -190,7 +156,7 @@ export interface ToolSummary {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly name: string;
 
@@ -200,7 +166,7 @@ export interface ToolSummary {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly version: string;
 
@@ -210,7 +176,7 @@ export interface ToolSummary {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly description: string;
 }
@@ -221,7 +187,7 @@ export interface ToolSummary {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamiconly
  */
 export interface SubCommandInfo {
   /**
@@ -230,7 +196,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly description: string;
 
@@ -240,7 +206,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly requirePermissions?: Array<string>;
 
@@ -250,39 +216,19 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
   readonly inputSchema: Record<string, Object>;
 
   /**
-   * The input schema of the subcommand.
-   *
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  readonly inputSchema: Record<string, RecordData>;
-
-  /**
    * The output schema of the subcommand.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
   readonly outputSchema: Record<string, Object>;
-
-  /**
-   * The output schema of the subcommand.
-   *
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  readonly outputSchema: Record<string, RecordData>;
 
   /**
    * Supported event types for custom event.
@@ -290,7 +236,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   readonly eventTypes?: Array<string>;
 
@@ -300,17 +246,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
   readonly eventSchemas?: Record<string, Record<string, Object>>;
-
-  /**
-   * Schemas about event for subcommand.
-   *
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  readonly eventSchemas?: Record<string, Record<string, RecordData>>;
 }
