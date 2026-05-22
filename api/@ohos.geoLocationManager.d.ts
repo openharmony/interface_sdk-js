@@ -2501,6 +2501,26 @@ declare namespace geoLocationManager {
   function getCurrentDistrict(request: DistrictInfoRequest): Promise<DistrictInfo>;
 
   /**
+   * Obtain post-processing trajectory information under specific sport mode.
+   *
+   * @permission ohos.permission.LOCATION
+   * @param { SportsType } sportsType - Indicate the type of sports.
+   * @returns { Promise<ArrayBuffer> } Promise used to return ${ArrayBuffer}.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call
+   *     ${geoLocationManager.getPostProcessingTrack} due to limited device capabilities.
+   * @throws { BusinessError } 3301000 - The location service is unavailable.
+   * @throws { BusinessError } 3301100 - The location switch is off.
+   * @throws { BusinessError } 3301200 - Failed to obtain the post processing track.
+   * @syscap SystemCapability.Location.Location.Gnss
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function getPostProcessingTrack(sportsType: SportsType): Promise<ArrayBuffer>;
+
+  /**
    * Indicates request parameters for obtaining the district information.
    *
    * @syscap SystemCapability.Location.Location.Geocoder
@@ -4341,8 +4361,9 @@ declare namespace geoLocationManager {
      *
      * @type { SportsType }
      * @syscap SystemCapability.Location.Location.Core
-     * @systemapi
-     * @atomicservice
+     * @systemapi [since 18 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 18]
      * @since 18 dynamic
      * @since 23 static
      */
