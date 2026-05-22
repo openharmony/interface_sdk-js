@@ -1731,6 +1731,7 @@ declare namespace pasteboard {
      *     permission required to call the API. [since 14]
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi [since 12 - 13]
+     * @publicapi [since 14]
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1746,6 +1747,7 @@ declare namespace pasteboard {
      *     permission required to call the API. [since 14]
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @systemapi [since 12 - 13]
+     * @publicapi [since 14]
      * @since 12 dynamic
      * @since 23 static
      */
