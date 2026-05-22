@@ -912,10 +912,7 @@ export function handleFunctionSignature(node: arkts.AstNode): void {
 }
 
 export function handleIdentifier(node: arkts.AstNode): void {
-  if (expressionCount > 1 || ValidNodeTypePathStrList.includes(joinLastFourElement(visitPath))) {
-    checkIdentifier(node);
-  }
-
+  checkIdentifier(node);
   if (!!node.decorators) {
     node.decorators.forEach((item: arkts.AstNode) => handleAstNode(item));
   }
