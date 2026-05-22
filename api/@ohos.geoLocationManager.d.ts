@@ -6866,7 +6866,18 @@ declare namespace geoLocationManager {
      * @since 22 dynamic
      * @since 23 static
      */
-    CYCLING
+    CYCLING,
+
+    /**
+     * Indicates Skiing.
+     *
+     * @syscap SystemCapability.Location.Location.Core
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    SKIING = 4
   }
 
   /**
