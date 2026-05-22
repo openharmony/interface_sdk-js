@@ -27,3 +27,12 @@ import userStatus from '@ohos.multimodalAwareness.userStatus';
 import spatialAwareness from '@ohos.multimodalAwareness.spatialAwareness';
 
 export { deviceStatus, metadataBinding, motion, onScreen, stationary, userStatus, spatialAwareness};
+
+/*** if arkts static */
+import deviceStatus from '@ohos.multimodalAwareness.deviceStatus';
+import metadataBinding from '@ohos.multimodalAwareness.metadataBinding';
+import motion from '@ohos.multimodalAwareness.motion';
+import userStatus from '@ohos.multimodalAwareness.userStatus';
+
+export { deviceStatus, metadataBinding, motion, userStatus};
+/*** endif */
