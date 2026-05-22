@@ -7219,6 +7219,48 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    */
   function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap): Promise<Picture>;
 
+   /**
+   * Describes gainmap generation parameters.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface GainmapParams {  
+    /**
+     * Indicates generating a full-size gainmap or a 1/2 downscaled gainmap.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFullSizeGainmap: boolean;
+  }
+
+  /**
+   * Creates a Picture object by a HDR PixelMap and a SDR PixelMap with specified options. A gainmap will be generated
+   * using the HDR and SDR PixelMap, and the returned Picture will contain the SDR PixelMap and the generated gainmap.
+   *
+   * @param { PixelMap } hdrPixelMap - A HDR PixelMap, whose PixelMapFormat should be
+   *     RGBA_F16\RGBA_1010102\YCBCR_P010 and color space should be BT2020_HLG
+   * @param { PixelMap } sdrPixelMap - A SDR PixelMap, whose PixelMapFormat should be RGBA_8888\NV21\NV12
+   *     and color space should be P3.
+   * @param { GainmapParams } params - Gainmap generation parameters.
+   * @returns { Promise<Picture> } Returns the Picture object.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 7600201 - Unsupported operation. HdrPixelMap's PixelMapFormat is not
+   *     RGBA_F16\RGBA_1010102\YCBCR_P010, or its color space is not BT2020_HLG. Or sdrPixelMap's PixelMapFormat is
+   *     not RGBA_8888\NV21\NV12, or its color space is not P3.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createPictureByHdrAndSdrPixelMap(hdrPixelMap: PixelMap, sdrPixelMap: PixelMap, 
+      params: GainmapParams): Promise<Picture>;
+
   /**
    * Creates a Picture object from a MessageSequence object.
    * 
