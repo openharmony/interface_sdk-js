@@ -22,6 +22,7 @@
 import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT } from '@ohos.arkui.component';
 import { AttributeModifier, CommonMethod, OnVisibleIndexesChangeCallback, ItemFillPolicy} from '@ohos.arkui.component';
 import { LengthMetrics } from './arkui/Graphics';
+import { StickyStyle } from '@ohos.arkui.component';
 
 /**
  * The LazyWaterFlowLayoutAttribute
@@ -56,6 +57,38 @@ export declare interface LazyWaterFlowLayoutAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default columnsGap(value: LengthMetrics | undefined): this;
+    /**
+     * Sets the header of the lazy lazy water layout.
+     *
+     * @param { CustomBuilder | undefined } builder - The header builder function
+     *     <br>Passing undefined will remove the header.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default header(builder: CustomBuilder | undefined): this;
+    /**
+     * Sets the footer of the lazy water flow layout.
+     *
+     * @param { CustomBuilder | undefined } builder - The footer builder function
+     *     <br>Passing undefined will remove the footer.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default footer(builder: CustomBuilder | undefined): this;
+    /**
+     * Sets sticky style for header and footer.
+     *
+     * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default sticky(sticky: StickyStyle | undefined): this;
     /**
      * Called when the first or last item displayed in the component changes.
      * It is triggered once when the component is initialized.
