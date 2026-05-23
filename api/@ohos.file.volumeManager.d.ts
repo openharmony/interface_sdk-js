@@ -134,6 +134,16 @@ declare namespace volumeManager {
     fsType: string;
 
     /**
+     * Partition number.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    partitionNum?: int;
+
+    /**
     * Extra information of the volume.
     *
     * @syscap SystemCapability.FileManagement.StorageService.Volume
