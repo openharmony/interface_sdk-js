@@ -3633,6 +3633,18 @@ declare namespace camera {
      * @since 23 static
      */
     isFocusDrivenTypeSupported(type: FocusDrivenType): boolean;
+  
+    /**
+     * Checks whether lock focus tracking is supported.
+     *
+     * @returns { boolean } Is the lock focus tracking supported.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isLockFocusTrackingSupported(): boolean;
   }
 
   /**
@@ -3814,6 +3826,31 @@ declare namespace camera {
      * @since 23 static
      */
     setFocusDriven(type: FocusDrivenType): void;
+
+    /**
+     * Lock focus tracking.
+     *
+     * @param { Point } focusPoint - lock focus tracking point.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    lockFocusTracking(focusPoint: Point): void;
+
+    /**
+     * Unlock focus tracking.
+     *
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    unlockFocusTracking(): void;
   }
 
   /**
@@ -15031,6 +15068,16 @@ declare namespace camera {
      * @since 23 static
      */
     readonly confidence: double;
+
+    /**
+     * Whether the focus is locked and being tracked currently.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readonly isLockFocusTracked?: boolean;
   }
 
   /**
