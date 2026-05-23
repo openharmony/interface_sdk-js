@@ -64,7 +64,15 @@ import {
 import {
   ComposeListItem, ContentItem, IconType, OperateButton, OperateCheck, OperateIcon, OperateItem
 } from '@ohos.arkui.advanced.ComposeListItem';
+import {
+  ComposeListItemV2, ContentItemV2, ContentItemV2Options, IconTypeV2, OperateButtonV2,
+  OperateButtonV2Options, OperateCheckV2, OperateCheckV2Options, OperateIconV2, OperateIconV2Options,
+  OperateItemV2, OperateItemV2Options
+} from '@ohos.arkui.advanced.ComposeListItemV2';
 import { ComposeTitleBar, ComposeTitleBarMenuItem } from '@ohos.arkui.advanced.ComposeTitleBar';
+import {
+  ComposeTitleBarV2, ComposeTitleBarV2MenuItem, ComposeTitleBarV2MenuItemParams
+} from '@ohos.arkui.advanced.ComposeTitleBarV2';
 import { CounterComponent, CounterOptions, CounterType, DateData } from '@ohos.arkui.advanced.Counter';
 import { CounterV2Component, CounterV2Options, CounterV2DateData, CounterV2Type } from '@ohos.arkui.advanced.CounterV2';
 import {
@@ -78,7 +86,16 @@ import {
 import {
   EditableLeftIconType, EditableTitleBar, EditableTitleBarMenuItem, EditableTitleBarItem, EditableTitleBarOptions
 } from '@ohos.arkui.advanced.EditableTitleBar';
+import {
+  EditableLeftIconTypeV2, EditableTitleBarV2, EditableLeftIconV2, EditableLeftIconV2Options, EditableTitleV2,
+  EditableTitleV2Options, EditableTitleBarItemV2, EditableTitleBarItemV2Options, EditableTitleBarMenuItemV2,
+  EditableTitleBarMenuItemV2Options, EditableSaveButtonV2, EditableSaveButtonV2Options, EditableTitleBarStyleV2,
+  EditableTitleBarStyleV2Options
+} from '@ohos.arkui.advanced.EditableTitleBarV2';
 import { MarginType, PromptOptions, ExceptionPrompt } from '@ohos.arkui.advanced.ExceptionPrompt';
+import { 
+  MarginTypeV2, PromptOptionsV2, PromptOptionsV2Config, ExceptionPromptV2
+} from '@ohos.arkui.advanced.ExceptionPromptV2';
 import { Filter, FilterParams, FilterResult, FilterType } from '@ohos.arkui.advanced.Filter';
 import { AddFormMenuItem, FormMenuItemStyle, AddFormOptions } from '@ohos.arkui.advanced.FormMenu';
 import { GridObjectSortComponentType, GridObjectSortComponentItem, GridObjectSortComponentOptions,
@@ -105,6 +122,7 @@ import { SelectTitleBar, SelectTitleBarMenuItem } from '@ohos.arkui.advanced.Sel
 import { SplitLayout } from '@ohos.arkui.advanced.SplitLayout';
 import { OperationOption, OperationType, SelectOptions, SubHeader, SymbolOptions } from '@ohos.arkui.advanced.SubHeader';
 import { SwipeRefresher } from '@ohos.arkui.advanced.SwipeRefresher';
+import { SwipeRefresherV2 } from '@ohos.arkui.advanced.SwipeRefresherV2';
 import { TabTitleBar, TabTitleBarMenuItem, TabTitleBarTabItem } from '@ohos.arkui.advanced.TabTitleBar';
 import { ItemState, ToolBar, ToolBarOption, ToolBarOptions, ToolBarModifier } from '@ohos.arkui.advanced.ToolBar';
 import {
@@ -373,5 +391,15 @@ export {
   LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute, CustomComponentContext, IReusePool, IReusableInfo, PopupV2, PopupV2InitInfo, PopupV2Button,
   ContainerReader, ContainerReaderAttribute, BreakpointOptions, LazyColumnLayout, LazyColumnLayoutAttribute,
   BackPressActionProposal, BaseGestureHandlingProposal, ClickActionProposal, GestureHandlingResolution, NoneActionProposal, PageSwitchActionProposal, ScrollActionProposal, SelectActionProposal, SmartGestureController, TargetedGestureProposal,
-  SelectionContainer, SelectionContainerAttribute, SelectionContainerInstance, SelectionContainerTextJoinStyle, SelectionContainerMenuOptions, SelectionContainerEditMenuOptions, OnMenuItemClickWithTextCallback
+  SelectionContainer, SelectionContainerAttribute, SelectionContainerInstance, SelectionContainerTextJoinStyle, SelectionContainerMenuOptions, SelectionContainerEditMenuOptions, OnMenuItemClickWithTextCallback,
+  ComposeListItemV2, ContentItemV2, ContentItemV2Options, IconTypeV2, OperateButtonV2,
+  OperateButtonV2Options, OperateCheckV2, OperateCheckV2Options, OperateIconV2, OperateIconV2Options,
+  OperateItemV2, OperateItemV2Options,
+  ComposeTitleBarV2, ComposeTitleBarV2MenuItem, ComposeTitleBarV2MenuItemParams,
+  EditableLeftIconTypeV2, EditableTitleBarV2, EditableLeftIconV2, EditableLeftIconV2Options, EditableTitleV2,
+  EditableTitleV2Options, EditableTitleBarItemV2, EditableTitleBarItemV2Options, EditableTitleBarMenuItemV2,
+  EditableTitleBarMenuItemV2Options, EditableSaveButtonV2, EditableSaveButtonV2Options, EditableTitleBarStyleV2,
+  EditableTitleBarStyleV2Options,
+  MarginTypeV2, PromptOptionsV2, PromptOptionsV2Config, ExceptionPromptV2,
+  SwipeRefresherV2
 };
