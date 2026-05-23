@@ -27,11 +27,12 @@ import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './c
 
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
 
-import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ItemFillPolicy } from './units';
+import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ItemFillPolicy, ResourceStr } from './units';
 
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 import { ScrollState } from "./list";
+import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 
 /**
  * Provides methods for switching components.
@@ -407,6 +408,17 @@ export declare class DotIndicator extends Indicator {
    * @since 23 static
    */
   space(space: LengthMetrics | undefined): this;
+
+ 	/**
+ 	 * Set indicator icon.
+ 	 *
+ 	 * @param { Array<IndicatorIconInfo> | undefined } iconList - indicator items need to be set icon.
+ 	 * @returns { DotIndicator } return the DotIndicator.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	indicatorIcon(iconList: Array<IndicatorIconInfo> | undefined) : this;
 }
 
 /**
@@ -660,6 +672,35 @@ export declare interface AutoPlayOptions {
    * @since 23 static
    */
   stopWhenTouched: boolean;
+}
+
+/**
+ * Set indicator item's icon for specified index.
+ *
+ * @interface IndicatorIconInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IndicatorIconInfo {
+  /**
+   * specified index.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  index: int;
+  /**
+   * Icon that needs to be set.
+   *
+   * @type { ResourceStr | SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  icon: ResourceStr | SymbolGlyphModifier;
 }
 
 /**
