@@ -2357,7 +2357,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode,
  *     <br>This option is supported starting from API version 26.0.0.
  * @returns { Promise<File> } Promise used to return the File object.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2449,7 +2449,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode,
  *     <br>This option is supported starting from API version 26.0.0.
  * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
  *     <br>the file descriptor.
@@ -2503,7 +2503,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode,
  *     <br>This option is supported starting from API version 26.0.0.
  * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted
