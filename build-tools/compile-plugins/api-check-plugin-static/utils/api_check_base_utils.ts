@@ -211,7 +211,7 @@ export function initValueChecker(osName: string, tag: string): void {
   comparisonFunctions.valueChecker.set(cacheKey, defaultValueChecker);
 }
 
-function configOriginCompatibleSdkVersion(filePath: string) {
+function configOriginCompatibleSdkVersion(filePath: string): void {
   if (!fs.existsSync(filePath)) {
     return;
   }

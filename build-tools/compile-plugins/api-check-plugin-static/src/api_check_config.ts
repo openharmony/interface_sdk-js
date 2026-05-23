@@ -227,9 +227,6 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
     checkConfig: checkConfigArray
   };
   initComparisonFunctions();
-  // if (/(?<!\.d)\.ts$/g.test(fileName)) {
-  //   getFindModuleCheckConfig(checkConfigArray);
-  // }
   if (globalObject.projectConfig.systemModules.includes(apiName)) {
     byFileName.set(sourceFileName, result);
     return result;

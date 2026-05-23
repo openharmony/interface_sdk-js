@@ -348,8 +348,12 @@ function compareVersionStrings(v1: string, v2: string): number {
   const p2 = parseVersion(v2);
   
   for (let i = 0; i < 3; i++) {
-    if (p1[i] > p2[i]) return 1;
-    if (p1[i] < p2[i]) return -1;
+    if (p1[i] > p2[i]) {
+      return 1;
+    }
+    if (p1[i] < p2[i]) {
+      return -1;
+    }
   }
   return 0;
 }

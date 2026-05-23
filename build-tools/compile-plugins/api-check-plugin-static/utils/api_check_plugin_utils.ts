@@ -70,60 +70,6 @@ import {
   initComparisonFunctions,
 } from './api_check_base_utils';
 
-interface ExternalApiChecker {
-  check?: (node: any, declaration: any, projectConfig: any) => { checkResult: boolean; checkMessage?: string };
-}
-
-const externalApiCheckerMap: Map<string, ExternalApiChecker[]> = new Map<string, ExternalApiChecker[]>();
-
-function checkMergingComments(tagName: string): (jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.AstNode) => boolean {
-  return (
-    jsDocs: JSDoc[],
-    config: JsDocNodeCheckConfigItem,
-    node?: arkts.AstNode,
-    declaration?: arkts.AstNode
-  ): boolean => {
-    let isflag = true;
-    if (jsDocs && jsDocs.length > 0) {
-      for (const jsDoc of jsDocs) {
-        if (jsDoc.tags) {
-          for (const tagN of jsDoc.tags) {
-            if (tagName === tagN.tag && tagN.comment !== undefined) {
-              const versionRange = extractVersionRange(tagN.comment);
-              if (versionRange !== undefined) {
-                const startVersion = versionRange.start;
-                const endVersion = versionRange.end;
-                const minSDKVersion = globalObject.projectConfig.compatibleSdkVersion;
-                const maxSDKVersion = globalObject.projectConfig.compileSdkVersion;
-                isflag = isVersionRangeIntersect(startVersion, endVersion, minSDKVersion, maxSDKVersion);
-              }
-            }
-          }
-        }
-      }
-    }
-    return isflag;
-  };
-}
-
-function extractVersionRange(comment: string): { start: string; end: string } | undefined {
-  const pattern = /\[since (.*?)\]/;
-  const match = comment.match(pattern);
-  if (!match) {
-    return undefined;
-  }
-  const rangeStr = match[0].replace('since', '').replace('[', '').replace(']', '').trim();
-  if (rangeStr.split('-').length === 2) {
-    const startVersion = rangeStr.split('-')[0].trim();
-    const endVersion = rangeStr.split('-')[1].trim();
-    return {
-      start: startVersion,
-      end: endVersion
-    };
-  }
-  return undefined;
-}
-
 function isVersionRangeIntersect(start1: string, end1: string, start2: number, end2: number): boolean {
   const numStart1 = parseVersion(start1);
   const numEnd1 = parseVersion(end1);
@@ -223,56 +169,6 @@ export function isCardFile(file: string): boolean {
   }
   return false;
 }
-
-// /**
-//  * 校验since标签，当前api版本是否小于等于compatibleSdkVersion。
-//  * 
-//  * @param { JSDoc[] } jsDocs 当前api的JSDoc
-//  * @param { JsDocNodeCheckConfigItem } config 当前的since标签校验规则
-//  * @returns { boolean } 是否报错该since标签
-//  */
-// export function checkSinceTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
-//   if (jsDocs && jsDocs.length > 0) {
-//     const minorJSDocVersion: number = getJSDocMinorVersion(jsDocs);
-//     const compatibleSdkVersion: number = globalObject.projectConfig.compatibleSdkVersion;
-//     if (minorJSDocVersion > compatibleSdkVersion) {
-//       config.message = SINCE_TAG_CHECK_ERROR.replace('$SINCE1', minorJSDocVersion.toString())
-//         .replace('$SINCE2', compatibleSdkVersion.toString());
-//       return true;
-//     }
-//   }
-//   return false;
-// }
-
-// /**
-//  * 获取最小的Since版本号
-//  * 
-//  * @param { JSDoc[] } jsDocs JSDoc注释对象数组，用于提取版本信息
-//  * @returns { number } 从@since标签中提取的最大版本号（数值），若未找到则返回0
-//  */
-// function getJSDocMinorVersion(jsDocs: JSDoc[]): number {
-//   let minorVersion: number = 0;
-
-//   if (!jsDocs || jsDocs.length === 0) {
-//     return minorVersion;
-//   }
-//   const jsdoc: JSDoc = jsDocs[0];
-//   if (!jsdoc.tags || jsdoc.tags.length === 0) {
-//     return minorVersion;
-//   }
-//   for (const tag of jsdoc.tags) {
-//     if (tag.tag !== SINCE_TAG_NAME) {
-//       continue;
-//     }
-//     const currentVersion: number = Number.parseInt(tag.name ?? '');
-//     if (minorVersion === 0 || (!Number.isNaN(currentVersion) && currentVersion > minorVersion)) {
-//       minorVersion = currentVersion;
-//     }
-//     break;
-//   }
-
-//   return minorVersion;
-// }
 
 /**
  * 获取JSDoc数组中最新版本的JSDoc注释对象。
@@ -852,7 +748,7 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
  * @param {Object} sdkConfig - SDK configuration object
  * @param {string} sdkPath - Base SDK path for resolving plugin paths
  */
-function collectExternalApiCheckPlugin(sdkConfig, sdkPath) {
+function collectExternalApiCheckPlugin(sdkConfig, sdkPath): void {
   const osName = sdkConfig.osName;
   if (!osName) {
     return;
@@ -1267,59 +1163,6 @@ export function checkSyscapAbility(
   declaration?: arkts.AstNode
 ): boolean {
   return false;
-  // let currentSyscapValue: string = '';
-  
-  // if (jsDocTags && jsDocTags.length > 0) {
-  //   for (const jsDoc of jsDocTags) {
-  //     if (jsDoc.tags && jsDoc.tags.length > 0) {
-  //       for (const jsDocTag of jsDoc.tags) {
-  //         if (jsDocTag && jsDocTag.tag === SYSCAP_TAG_CHECK_NAME) {
-  //           currentSyscapValue = jsDocTag.comment || jsDocTag.name || '';
-  //           break;
-  //         }
-  //       }
-  //       if (currentSyscapValue) {
-  //         break;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // const defaultResult: boolean = globalObject.projectConfig.syscapIntersectionSet &&
-  //   !globalObject.projectConfig.syscapIntersectionSet.has(currentSyscapValue);
-
-  // if (defaultResult) {
-  //   const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
-  //   const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
-  //   if (suppressor && suppressor.isApiVersionHandled(node)) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
-
-  // const externalCheckers = externalApiCheckerMap.get(SYSCAP_TAG_CHECK_NAME);
-  // if (!externalCheckers || externalCheckers.length === 0) {
-  //   return false;
-  // }
-
-  // for (const checker of externalCheckers) {
-  //   if (!checker.check) {
-  //     return false;
-  //   }
-  //   const extrenalCheckResult = checker.check(node, declaration, globalObject.projectConfig);
-  //   if (!extrenalCheckResult.checkResult) {
-  //     return false;
-  //   }
-  //   config.message = extrenalCheckResult.checkMessage;
-  // }
-
-  // const jsDocTags: JSDocTag[] = jsDocs[0]?.tags || [];
-  // const suppressor = new SyscapWarningSuppressor(jsDocTags, config);
-  // if (suppressor && suppressor.isApiVersionHandled(node)) {
-  //   return false;
-  // }
-
-  return true;
 }
 
 export function checkPermissionValue(
@@ -1329,32 +1172,6 @@ export function checkPermissionValue(
   declaration?: arkts.AstNode
 ): boolean {
   return false;
-  // if (!jsDocTags || jsDocTags.length === 0) {
-  //   return false;
-  // }
-  
-  // const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocTags);
-  // const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
-  
-  // if (!jsDocTag) {
-  //   return false;
-  // }
-
-  // const permissionExpression: string = jsDocTag.comment ?? '';
-  // config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
-
-  // const fun = checkMergingComments(PERMISSION_TAG_CHECK_NAME);
-  
-  // if (permissionExpression === '' || validPermission(permissionExpression, globalObject.projectConfig.permissionsArray)) {
-  //   return false;
-  // }
-
-  // const suppressor = new PermissionWarningSuppressor();
-  // if (suppressor.isApiVersionHandled(node)) {
-  //   return false;
-  // }
-
-  // return fun(jsDocs, config, node, declaration);
 }
 
 /**
@@ -1368,25 +1185,6 @@ export function checkPermissionValue(
  */
 export function checkStageModuleValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.Declaration): boolean {
   return false;
-  // Find the JSDoc tag with STAGE_TAG_CHECK_NAME or STAGE_TAG_HUMP_CHECK_NAME
-  const jsDocTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
-    return (item.tag === STAGE_TAG_CHECK_NAME || item.tag === STAGE_TAG_HUMP_CHECK_NAME);
-  });
-
-  // If the tag is not found, return false
-  if (!jsDocTag) {
-    return false;
-  }
-
-  // Extract the version range from the tag's comment
-  const versionRange = extractVersionRange(jsDocTag.comment);
-
-  // If a version range exists, check if it intersects with the project's SDK version range
-  if (versionRange !== undefined) {
-    return checkVersionRangeIntersection(versionRange);
-  } else {
-    return true;
-  }
 }
 
 /**

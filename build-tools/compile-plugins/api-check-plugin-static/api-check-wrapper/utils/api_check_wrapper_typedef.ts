@@ -69,7 +69,7 @@ export interface JsDocNodeCheckConfigItemInterface {
 }
 
 interface Declaration extends Node {
-    _declarationBrand: any;
+    _declarationBrand: Object;
 }
 
 export interface CheckJsDocSpecialValidCallbackInterface {

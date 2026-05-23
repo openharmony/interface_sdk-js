@@ -329,13 +329,6 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
       return false;
     }
 
-    // const hasApiAvailableCheck = /apiAvailable/.test(sourceText);
-    // const hasDeviceInfoCheck = /deviceInfo/.test(sourceText) || /sdkApiVersion/.test(sourceText);
-
-    // if (!hasApiAvailableCheck && !hasDeviceInfoCheck) {
-    //   return false;
-    // }
-
     let currentNode: arkts.AstNode | null = node.parent;
 
     return (this.findParentNode(node, (parent) => {
@@ -356,8 +349,6 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
     try {
 
       return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test);
-      // return this.sdkComparisonHelper.isSdkComparisonHelper(ifNode.test) ||
-      //        this.sdkComparisonHelper.isApiAvailableHelper(ifNode.test);
     } catch {
       return false;
     }
