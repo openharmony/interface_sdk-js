@@ -1026,7 +1026,7 @@ export function checkSyscapTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem
 export function pushLog(apiName: string, currentFilePath: string, currentAddress: CurrentAddress,
   logLevel: DiagnosticCategory, logMessage: string): void {
   // 组装文件全路径
-  const fileFullPath: string = `${currentFilePath}:${currentAddress.line}:${currentAddress.column}).`;
+  const fileFullPath: string = `${currentFilePath}:${currentAddress.line}:${currentAddress.column}.`;
   // 替换api名称
   logMessage = logMessage.replace('{0}', apiName);
   // 打印日志信息
