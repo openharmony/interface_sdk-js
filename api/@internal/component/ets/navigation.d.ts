@@ -19,6 +19,17 @@
  */
 
 /**
+ * Import the Material type for Navigation.
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } Material
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type Material = import('../api/@ohos.arkui.uiMaterial').default.Material;
+
+/**
  * Import the SystemBarStyle type for Navigation.
  *
  * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
@@ -2540,6 +2551,20 @@ declare interface NavigationTitleOptions {
    * @since 26.0.0 dynamic
    */
   scrollEffectOptions?: ScrollEffectOptions;
+
+  /**
+   * Set system-styled materials for the TitleBar. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the titleBar.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: Material;
 }
 
 /**
