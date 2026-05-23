@@ -1154,14 +1154,39 @@ function printMessage(fileInfo: string, message: string, level: DiagnosticCatego
   }
   // 当前只涉及ERROR的告警
   if (level === DiagnosticCategory.ERROR) {
-    const diagnosticInfo: SdkHvigorLogInfo = {
-      code: '117',
-      description: '错误码格式报错信息待确认',
-      cause: message,
-      position: fileInfo
-    }
+    const diagnosticInfo: SdkHvigorLogInfo = diagnosticFormat(message, fileInfo);
     logger.printError(diagnosticInfo);
   }
+}
+
+function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
+  let diagnosticInfo: SdkHvigorLogInfo = {
+      code: '',
+      description: '',
+      cause: message,
+      position: fileInfo
+  }
+  const availableVersionRegex: RegExp = /^The runtime OS for the current project is .+\. The OS version number .+ is invalid\./;
+  const availableNotSupportedRegex: RegExp = /^The runtime OS for the current project is .+\. @Available is not supported on the OS: .+\./;
+  if (availableVersionRegex.test(message)) {
+    const info = {
+      code: '117060016',
+      description: 'Invalid version format in @Available decorator.',
+      cause: message,
+      position: fileInfo
+    };
+    diagnosticInfo = info;
+  }
+  if (availableNotSupportedRegex.test(message)) {
+    const info = {
+      code: '117060017',
+      description: 'Invalid version format in @Available decorator.',
+      cause: message,
+      position: fileInfo
+    };
+    diagnosticInfo = info;
+  }
+  return diagnosticInfo;
 }
 
 /**
