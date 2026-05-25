@@ -352,86 +352,6 @@ declare namespace insightIntentDriver {
   }
 
   /**
-   * Param when query insight intent entity.
-   *
-   * @typedef QueryParam
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface QueryParam {
-    /**
-     * Indicates the bundle name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 26.0.0 dynamic&static
-     */
-    bundleName: string;
-  
-    /**
-     * Indicates the module name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @StageModelOnly
-     * @since 26.0.0 dynamic&static
-     */
-    moduleName: string;
-  
-    /**
-     * Indicates the intent name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    intentName: string;
-  
-    /**
-     * Indicates the entity class name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    className: string;
-  
-    /**
-     * Indicates the param for query entity.
-     *
-     * @type { insightIntent.QueryEntityParam }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    queryEntityParam: insightIntent.QueryEntityParam;
-  
-    /**
-     * Indicates the target user ID.
-     *
-     * If the user ID of the caller application is different from the target user ID, you need to apply for permission:
-     *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    userId?: int;
-  }
-
-  /**
    * Executes a call to an intent. This API uses an asynchronous callback to return the result.
    * When the caller is in the background, the ohos.permission.START_ABILITIES_FROM_BACKGROUND permission is required.
    * When [ExecuteMode]{@link @ohos.app.ability.insightIntent:insightIntent.ExecuteMode} of the intent call is set to
@@ -1417,6 +1337,7 @@ declare namespace insightIntentDriver {
      * @since 23 static
      */
     readonly parentClassName: string;
+
     /**
      * The entity is queryable.
      *
@@ -1426,6 +1347,7 @@ declare namespace insightIntentDriver {
      * @since 26.0.0 dynamic&static
      */
     readonly isQueryable?: boolean;
+
     /**
      * Support query properties.
      *

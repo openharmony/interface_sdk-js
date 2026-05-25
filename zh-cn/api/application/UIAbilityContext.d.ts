@@ -253,7 +253,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform [since 9 - 13]
+   * @crossplatform [since 9]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
