@@ -588,7 +588,6 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -597,7 +596,6 @@ declare interface HdrCompositionConfig {
  * Rectangle area for HDR composition.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -609,7 +607,6 @@ rect: Rectangle;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
