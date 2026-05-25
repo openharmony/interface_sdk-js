@@ -70,7 +70,7 @@ export declare interface CircleAttribute extends CommonShapeMethod {
      */
     default setCircleOptions(options?: CircleOptions): this;
 
-    /*
+    /**
      * Sets the stroke color.
      * If this attribute is not set, the component does not have any stroke.
      * If the value is invalid, no stroke will be drawn.
@@ -81,14 +81,14 @@ export declare interface CircleAttribute extends CommonShapeMethod {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    default stroke(value: ResourceColor | ColorMetrics | undefined): this;
+    default stroke(value: ResourceColor | ColorMetrics| undefined): this;
 
     /**
      * Sets the color of the fill area.
      * An invalid value is handled as the default value.
      * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
      *
-     * @param { ResourceColor | ColorMetrics | undefined } value - Color of the fill area.
+     * @param { ResourceColor | ColorMetrics| undefined } value - Color of the fill area.
      *     Default value: Color.Black.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
