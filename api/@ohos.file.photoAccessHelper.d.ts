@@ -11201,22 +11201,22 @@ declare namespace photoAccessHelper {
    */
   class PhotoViewPicker {
     /**
-     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses a promise to
-     * return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of the files to
-     * select. A **PhototSelectResult** object is returned.
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses a promise to 
+     * return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of the files to 
+     * select. A **PhotoSelectResult** object is returned.
      *
      * > **NOTE**
      * >
-     * > **photoUris** in the PhotoSelectResult object returned by this API has parmanent authorization and can be used
-     * > only by calling
+     * > **photoUris** in the PhotoSelectResult object returned by this API has permanent authorization and can be used 
+     * > only by calling 
      * > [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
-     * > . For details, see
+     * > . For details, see 
      * > [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      * 
      * @param { PhotoSelectOptions } [option] - Options for selecting files. If this parameter is not specified, up to 5
      *     0 images and videos are selected by default.
      * @returns { Promise<PhotoSelectResult> } Promise used to return information about the images or videos selected.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 
      *     <br>3. Parameter verification failed.
@@ -11224,7 +11224,7 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
      *     <br>1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
      *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration;
-     *     <br>2. An illegal enumeration value was passed to PhotoSelectOPtions.assectCompatibleAbility. [since 12]
+     *     <br>2. An illegal enumeration value was passed to PhotoSelectOptions.assetCompatibleAbility. [since 12]
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @crossplatform [since 12]
      * @atomicservice [since 11]
