@@ -11204,7 +11204,7 @@ declare namespace photoAccessHelper {
      * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses a promise to 
      * return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of the files to 
      * select. A **PhotoSelectResult** object is returned.
-     *
+     * 
      * > **NOTE**
      * >
      * > **photoUris** in the PhotoSelectResult object returned by this API has permanent authorization and can be used 
