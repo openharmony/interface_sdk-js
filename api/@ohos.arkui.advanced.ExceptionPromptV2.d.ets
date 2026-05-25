@@ -71,6 +71,7 @@ export interface PromptOptionsV2Config {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   marginType: MarginTypeV2;
@@ -81,6 +82,7 @@ export interface PromptOptionsV2Config {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   marginTop: Dimension;
@@ -195,6 +197,7 @@ export declare class PromptOptionsV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   @Trace
@@ -218,6 +221,7 @@ export declare class PromptOptionsV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   @Trace
@@ -303,7 +307,7 @@ export declare struct ExceptionPromptV2 {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  @Param
+  @Event
   onTipClick?: OnTipClickCallback;
 
   /**
@@ -315,6 +319,6 @@ export declare struct ExceptionPromptV2 {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  @Param
+  @Event
   onActionTextClick?: OnActionTextClickCallback;
 }

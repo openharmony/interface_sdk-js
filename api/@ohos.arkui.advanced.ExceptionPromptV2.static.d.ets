@@ -22,7 +22,7 @@ import { ComponentV2 } from './arkui/component/customComponent';
 import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { ResourceStr, Builder,
    Dimension, Length, BorderRadiuses, Direction } from '@ohos.arkui.component';
-import { Param, ObservedV2, Trace } from '@ohos.arkui.stateManagement';
+import { Param, ObservedV2, Trace, Event } from '@ohos.arkui.stateManagement';
 
 
 /**
@@ -265,7 +265,7 @@ export declare struct ExceptionPromptV2 {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  @Param
+  @Event
   onTipClick?: OnTipClickCallback;
 
   /**
@@ -275,7 +275,7 @@ export declare struct ExceptionPromptV2 {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  @Param
+  @Event
   onActionTextClick?: OnActionTextClickCallback;
 
   /**
