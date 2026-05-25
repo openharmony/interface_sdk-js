@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -130,26 +130,6 @@ declare namespace usbManager {
    * @since 23 static
    */
   function removeRight(deviceName: string): boolean;
-
-  /**
-   * 添加软件包访问设备的权限。系统应用默认拥有访问设备权限，调用此接口不会产生影响。
-   * [usbManager.requestRight]{(@link usbManager.requestRight)}会触发弹框请求用户授权；addRight不会触发弹框，而是直接添加软件包访问设备的权限。
-   *
-   * @param { string } bundleName - 软件包名称。
-   * @param { string } deviceName - 设备名称。
-   * @returns { boolean } 返回权限添加结果。返回true表示权限添加成功；返回false则表示权限添加失败。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *
-   *     <br>1.Mandatory parameters are left unspecified.
-   *
-   *     <br>2.Incorrect parameter types.
-   * @syscap SystemCapability.USB.USBManager
-   * @systemapi
-   * @since 9 dynamiconly
-   * @deprecated since 12
-   * @useinstead usbManager.addDeviceAccessRight(tokenId: string, deviceName: string)
-   */
-  function addRight(bundleName: string, deviceName: string): boolean;
 
   /**
    * 在设备模式下，将字符串形式的USB功能列表转化为数字掩码。
@@ -2039,15 +2019,7 @@ declare namespace usbManager {
      * @since 18 dynamic
      * @since 23 static
      */
-    TRANSFER_TYPE_INTERRUPT = 0x3,
-
-    /**
-     * Control endpoint
-     *
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    TRANSFER_TYPE_CONTROL = 0x0
+    TRANSFER_TYPE_INTERRUPT = 0x3
   }
 
   /**
@@ -2183,43 +2155,6 @@ declare namespace usbManager {
      * @since 23 static
      */
     isoPacketCount: int;
-
-    /**
-     * The status of the transfer. Read-only, and only for use within transfer callback function.
-     *
-     * @type { UsbTransferStatus }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    status: UsbTransferStatus;
-
-    /**
-     * Actual length of data that was transferred. Read-only, and only for
-     * use within transfer callback function. Not valid for isochronous endpoint transfers.
-     *
-     * @type { number }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    actualLength: number;
-
-    /**
-     * Callback function. This will be invoked when the transfer completes, fails, or is canceled.
-     *
-     * @type { AsyncCallback<UsbDataTransferParams> }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    callback: AsyncCallback<UsbDataTransferParams>;
-
-    /**
-     * Isochronous packet descriptors, for isochronous transfers only.
-     *
-     * @type { Array<Readonly<UsbIsoPacketDescriptor>> }
-     * @syscap SystemCapability.USB.USBManager
-     * @since 18
-     */
-    isoPacketDesc: Array<Readonly<UsbIsoPacketDescriptor>>;
   }
 
   /**
@@ -2403,7 +2338,5 @@ declare namespace usbManager {
     data: Uint8Array;
   }
 }
-
-import type { AsyncCallback } from './@ohos.base';
 
 export default usbManager;
