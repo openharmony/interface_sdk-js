@@ -6144,22 +6144,6 @@ declare namespace photoAccessHelper {
   /**
    * Helper functions to access photos and albums.
    *
-   * @interface PhotoAccessHelper
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 10
-   */
-  /**
-   * Helper functions to access photos and albums.
-   *
-   * @interface PhotoAccessHelper
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Helper functions to access photos and albums.
-   *
-   * @interface PhotoAccessHelper
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform [since 12]
    * @atomicservice [since 11]
