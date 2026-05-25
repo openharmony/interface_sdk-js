@@ -23,7 +23,7 @@
  * Represent JSON class
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 export class JSON {
@@ -33,7 +33,7 @@ export class JSON {
      * @param { byte } d - byte to be converted to a JSON as a Number
      * @returns { string } JSON representation of byte
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: byte): string;
@@ -44,7 +44,7 @@ export class JSON {
      * @param { char } d - char to be converted to a JSON as a string
      * @returns { string } JSON representation of char
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: char): string;
@@ -55,7 +55,7 @@ export class JSON {
      * @param { short } d - short to be converted to a JSON as a Number
      * @returns { string } JSON representation of short
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: short): string;
@@ -67,7 +67,7 @@ export class JSON {
      *     <br>The value should be an integer.
      * @returns { string } JSON representation of int
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: int): string;
@@ -78,7 +78,7 @@ export class JSON {
      * @param { long } d - long to be converted to a JSON as a Number
      * @returns { string } JSON representation of long
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: long): string;
@@ -89,7 +89,7 @@ export class JSON {
      * @param { float } d - float to be converted to a JSON as a Number
      * @returns { string } JSON representation of float
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: float): string;
@@ -100,7 +100,7 @@ export class JSON {
      * @param { double } d - double to be converted to a JSON as a Number
      * @returns { string } JSON representation of double
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: double): string;
@@ -111,7 +111,7 @@ export class JSON {
      * @param { bigint } d - bigint to be converted to a JSON as a Number
      * @returns { string } JSON representation of bigint
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: bigint): string;
@@ -122,7 +122,7 @@ export class JSON {
      * @param { boolean } d - boolean to be converted to a JSON as a Boolean literal
      * @returns { string } JSON representation of boolean
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: boolean): string;
@@ -133,7 +133,7 @@ export class JSON {
      * @param { string } d - string to be converted to a JSON as a string
      * @returns { string } JSON representation of string
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: string): string;
@@ -144,7 +144,7 @@ export class JSON {
      * @param { FixedArray<byte> } d - bytes array to be converted to a JSON as an Array of Numbers
      * @returns { string } JSON representation of bytes array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<byte>): string;
@@ -155,7 +155,7 @@ export class JSON {
      * @param { FixedArray<char> } d - chars array to be converted to a JSON as an Array of Strings
      * @returns { string } JSON representation of chars array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<char>): string;
@@ -166,7 +166,7 @@ export class JSON {
      * @param { FixedArray<short> } d - shorts array to be converted to a JSON as an Array of Numbers
      * @returns { string } JSON representation of shorts array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<short>): string;
@@ -177,7 +177,7 @@ export class JSON {
      * @param { FixedArray<int> } d - ints array to be converted to a JSON as an Array of Numbers
      * @returns { string } JSON representation of ints array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<int>): string;
@@ -188,7 +188,7 @@ export class JSON {
      * @param { FixedArray<long> } d - longs array to be converted to a JSON as an Array of Numbers
      * @returns { string } JSON representation of longs array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<long>): string;
@@ -199,7 +199,7 @@ export class JSON {
      * @param { FixedArray<float> } d - array of float to be converted to a JSON as an Array of Numbers
      * @returns { string } JSON representation of array of floats
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<float>): string;
@@ -210,7 +210,7 @@ export class JSON {
      * @param { FixedArray<double> } d - doubles array to be converted to a JSON as an Array of Numbers
      * @returns { string } JSON representation of doubles array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<double>): string;
@@ -221,7 +221,7 @@ export class JSON {
      * @param { FixedArray<boolean> } d - booleans array to be converted to a JSON as an Array of Boolean literals
      * @returns { string } JSON representation of booleans array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: FixedArray<boolean>): string;
@@ -232,7 +232,7 @@ export class JSON {
      * @param { Array<Double> } d - Array of Double to be converted
      * @returns { string } JSON representation of Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: Array<Double>): string;
@@ -243,7 +243,7 @@ export class JSON {
      * @param { ArrayLike<Double> } d - ArrayLike of Double to be converted
      * @returns { string } JSON representation of ArrayLike
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(d: ArrayLike<Double>): string;
@@ -254,7 +254,7 @@ export class JSON {
      * @param { JsonReplacer } obj - JsonReplacer object to be converted
      * @returns { string } JSON representation
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(obj: JsonReplacer): string;
@@ -265,7 +265,7 @@ export class JSON {
      * @param { Any } obj - An object to be converted
      * @returns { string } JSON representation of Object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(obj: Any): string;
@@ -278,7 +278,7 @@ export class JSON {
      * @param { string | int } [space] - A string or number for indentation
      * @returns { string } JSON representation of Object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(obj: Any, replacer: ((key: string, value: Any) => Any) | undefined | null, space?: string | int): string;
@@ -291,7 +291,7 @@ export class JSON {
      * @param { int | string } [space] - A string or number for indentation
      * @returns { string } JSON representation of Object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(obj: Any, replacer: FixedArray<double | string>, space?: int | string): string;
@@ -304,7 +304,7 @@ export class JSON {
      * @param { int | string } [space] - A string or number for indentation
      * @returns { string } JSON representation of Object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     stringify(obj: Any, replacer: Array<double | string>, space?: int | string): string;
@@ -316,7 +316,7 @@ export class JSON {
      * @param { Type } type - Target type for parsing
      * @returns { T | null | undefined } Parsed object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     parse<T>(text: string, type: Type): T | null | undefined;
@@ -330,7 +330,7 @@ export class JSON {
      * @param { jsonx.ParseOptions } [options] - Parse options
      * @returns { T | null | undefined } Parsed object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     parse<T>(text: string, reviver: ((key: string, value: Any) => Any) | undefined, type: Type, options?: jsonx.ParseOptions): T | null | undefined;
@@ -342,7 +342,7 @@ export class JSON {
      * @param { Class } type - Target class for parsing
      * @returns { T | null | undefined } Parsed object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     parse<T>(json: string, type: Class): T | null | undefined;
@@ -356,7 +356,7 @@ export class JSON {
      * @param { jsonx.ParseOptions } [options] - Parse options
      * @returns { T | null | undefined } Parsed object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     parse<T>(json: string, reviver: ((key: string, value: Any) => Any) | undefined, type: Class, options?: jsonx.ParseOptions): T | null | undefined;
@@ -369,7 +369,7 @@ export class JSON {
      * @returns { jsonx.JsonElement } The parsed JSON element
      * @throws { JsonParseError } If - the JSON string is invalid
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     parseJsonElement(text: string, options?: jsonx.ParseOptions): jsonx.JsonElement;
@@ -383,7 +383,7 @@ export class JSON {
      * @returns { jsonx.JsonElement } The parsed JSON element
      * @throws { JsonParseError } If - the JSON string is invalid
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     parseJsonElement(text: string, reviver: (key: string, value: jsonx.JsonElement) => jsonx.JsonElement, options?: jsonx.ParseOptions): jsonx.JsonElement;
@@ -397,7 +397,7 @@ export class JSON {
      * @param { Any } obj: - Object An object to be converted.
      * @returns { string } - JSON representation of Object, including annotated getter values
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     stringifyWithGetters(obj: Any): string;
@@ -413,7 +413,7 @@ export class JSON {
      * @param { int | string } [space] - A string or number that's used to insert white space
      * @returns { string } - JSON representation of Object, including annotated getter values
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     stringifyWithGetters(
@@ -435,7 +435,7 @@ export class JSON {
      * @param { int | string } [space] - A string or number that's used to insert white space
      * @returns { string } - JSON representation of Object, including annotated getter values
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     stringifyWithGetters(
@@ -453,7 +453,7 @@ export class JSON {
      * @param { T } instance - Existing instance whose fields will be populated
      * @returns { T } The same instance after population
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     parseUpdate<T>(json: string, instance: T): T;
@@ -471,7 +471,7 @@ export class JSON {
      * @param { jsonx.ParseOptions } [options] - Optional ParseOptions (e.g. bigIntMode)
      * @returns { T } The same instance after population
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     parseUpdate<T>(

@@ -49,6 +49,36 @@ export declare interface UnionEffectContainerOptions {
 }
 
 /**
+ * Mode Enum for Union Effects
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum UnionMode {
+  /**
+   * The effect of fusion deformation under smooth union.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  SMOOTH_UNION = 0,
+  /**
+   * The effect of fusion deformation under gravity.
+   * Need to use the useUnionEffect interface to specify the center of gravity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  GRAVITY_UNION = 1
+}
+
+/**
  * Defines the UnionEffectContainer attribute functions.
  *
  * @extends CommonMethod
@@ -70,6 +100,17 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
      * @since 23 static
      */
     default pointLight(light: PointLightStyle): this;
+    /**
+     * Sets union Mode of the UnionEffectContainer.
+     *
+     * @param { UnionMode | undefined } mode - The Union mode.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default unionMode(mode: UnionMode | undefined): this;
     /**
      * Sets the attribute modifier for UnionEffectContainer.
      *

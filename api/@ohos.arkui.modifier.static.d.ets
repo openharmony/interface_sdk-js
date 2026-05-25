@@ -612,3 +612,13 @@ export { AlphabetIndexerModifier } from './arkui/AlphabetIndexerModifier';
  * @since 23 static
  */
 export { TabsModifier } from './arkui/TabsModifier';
+
+/**
+ * Export SelectionContainerModifier, which is used to expose applyNormalAttribute function.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export { SelectionContainerModifier } from './arkui/SelectionContainerModifier';
+
+

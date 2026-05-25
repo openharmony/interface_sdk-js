@@ -1,4 +1,3 @@
-
 'use static';
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
@@ -21,11 +20,8 @@
  */
 
 import { PickerColorMode } from '@ohos.file.PhotoPickerComponent';
-
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
-
 import { Component, Builder } from '@ohos.arkui.component';
-
 import { Observed } from '@ohos.arkui.stateManagement';
 
 /**
@@ -37,7 +33,53 @@ import { Observed } from '@ohos.arkui.stateManagement';
  * @since 26.0.0 static
  */
 @Component
-export declare struct AlbumPickerComponent {}
+export declare struct AlbumPickerComponent {
+  /**
+   * AlbumPickerOptions
+   * @type { ?AlbumPickerOptions }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  albumPickerOptions?: AlbumPickerOptions;
+
+  /**
+   * Callback when select an album, will return album uri
+   * @type { ?AlbumClickCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onAlbumClick?: AlbumClickCallback;
+
+  /**
+   * Callback when click the empty area of the album component
+   * @type { ?EmptyAreaClickCallback }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onEmptyAreaClick?: EmptyAreaClickCallback;
+
+  /**
+   * AlbumPickerController
+   * @type { ?AlbumPickerController }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  albumPickerController?: AlbumPickerController;
+
+  /**
+   * Build function of AlbumPickerComponent
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @Builder
+  build(): void;
+}
 
 /**
  * The callback of onEmptyAreaClick event
@@ -86,7 +128,7 @@ export declare class AlbumPickerOptions {
   public filterType?: photoAccessHelper.PhotoViewMIMETypes;
 
   /**
-   * The size of the font displayed in the album. When `fontSize` is a number type, must use 'fp' unit
+   * The size of the font displayed in the album. When `fontSize` is an int type, must use 'fp' unit
    * @type { ?(int | string) }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
@@ -112,6 +154,15 @@ export declare class AlbumInfo {
    * @since 26.0.0 static
    */
   public uri?: string;
+
+  /**
+   * Album name
+   * @type { ?string }
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public albumName?: string;
 }
 
 

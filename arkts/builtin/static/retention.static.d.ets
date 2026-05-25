@@ -23,7 +23,7 @@
  * Defines Retention annotation
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 @interface Retention {
@@ -31,7 +31,7 @@
      * Retention policy
      *
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     policy: string;

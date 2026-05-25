@@ -2650,7 +2650,49 @@ declare namespace util {
   }
 
   /**
-   * To provide developers with maintenance and testing capabilities for the ArkTS virtual machine.
+   * Multi-thread detection functional parameter configuration
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @since 26.0.0 dynamiconly
+   */
+  interface MultithreadingDetectionOptions {
+    /*
+    If abort is true, the application will crash, if abort is false, the application will not crash.
+    Defalut true.
+    @syscap SystemCapability.Utils.Lang
+    @stagemodelonly
+    @crossplatform
+    @since 26.0.0 dynamiconly
+    */
+    abort?: boolean;
+    /**
+     * The sampling frequency of multi-thread detection
+     * The value must be an integer, minimum is 100. (defalut 100)
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamiconly
+     */
+    frequency?: number;
+
+    /**
+     * The interval of multi-thread detection(min)
+     * Errors will be reported again only if the time since the last detection exceeds this interval.
+     * The value must be an integer within [0,1440] (defalut 5min).
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamiconly
+     */
+    interval?: number;
+  }
+
+  /**
+   * A class that provides VM maintenance and test capabilities for developers.
    *
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
@@ -2659,18 +2701,20 @@ declare namespace util {
    */
   class ArkTSVM {
     /**
-     * To turn on or off the multi-thread detection switch. If enabled is true, turn on the switch,
-     * If enable is false, turn off the switch.
+     * Sets whether to enable multithreading detection. When **enabled** is set to **true**, the detection is turned on,
+     * and multithreading-related details will be included in the cppcrash files generated for multithreading issues.
+     * When **enabled** is set to **false**, the detection is turned off, and no such details will be present in the
+     * corresponding cppcrash files.
      *
-     * @param { boolean } enabled - The boolean flag to indicate whether to turn on or off
-     *                              multi-thread detection switch.
-     * @static
+     * @param { boolean } enabled - Controls whether to enable multithreading detection. **true** means enabling the
+     *     detection, and **false** means disabling it.
+     * @param { MultithreadingDetectionOptions } [options] - Optional configuration items [since 26.0.0]
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @crossplatform
      * @since 23 dynamiconly
      */
-    static setMultithreadingDetectionEnabled(enabled: boolean):void;
+    static setMultithreadingDetectionEnabled(enabled: boolean, options?: MultithreadingDetectionOptions):void;
 
     /**
      * Register a callback that is triggered if the heap memory exceeds the critical warning threshold after a GC.

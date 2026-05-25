@@ -19,6 +19,17 @@
  */
 
 /**
+ * Import the Material type for Navigation.
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } Material
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type Material = import('../api/@ohos.arkui.uiMaterial').default.Material;
+
+/**
  * Import the SystemBarStyle type for Navigation.
  *
  * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
@@ -2540,6 +2551,20 @@ declare interface NavigationTitleOptions {
    * @since 26.0.0 dynamic
    */
   scrollEffectOptions?: ScrollEffectOptions;
+
+  /**
+   * Set system-styled materials for the TitleBar. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the titleBar.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: Material;
 }
 
 /**
@@ -2740,6 +2765,38 @@ declare interface MoreButtonOptions {
    * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+}
+
+/**
+ * Navigation configuration options.
+ *
+ * @interface NavigationConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface NavigationConfiguration {
+  /**
+   * Navigation page stack size limit.
+   * 
+   * Description:
+   * - Limits to maximum number of active page nodes in Navigation page stack.
+   * - When limit is exceeded, oldest page nodes are automatically destroyed
+   *   in FIFO (First-In-First-Out) order.
+   * - NavPathInfo of pages is completely retained, supporting page recreation.
+   * - value <=0 No limit on page stack size (default value).
+   * - value >0 Limit stack size to specified value.
+   *
+   * @default 0 (nolimit)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  stackSizeLimit?: number;
 }
 
 /**
@@ -3585,6 +3642,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 21 dynamic
    */
   enableVisibilityLifecycleWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
+
+  /**
+   * Sets Navigation configuration.
+   *
+   * @param { NavigationConfiguration } config - Navigation configuration options.
+   * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  configuration(config: NavigationConfiguration): NavigationAttribute;
 }
 
 /**

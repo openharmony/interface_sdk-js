@@ -6742,16 +6742,6 @@ declare namespace avSession {
     DEVICE_TYPE_SMART_SPEAKER = 3,
 
     /**
-     * A device type indicating the route is on a bluetooth device.
-     *
-     * @syscap SystemCapability.Multimedia.AVSession.Core
-     * @atomicservice [since 12]
-     * @since 10 dynamic
-     * @since 23 static
-     */
-    DEVICE_TYPE_BLUETOOTH = 10,
-
-    /**
      * The device type is a car.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -6790,6 +6780,16 @@ declare namespace avSession {
      * @since 26.0.0 dynamic&static
      */
     DEVICE_TYPE_2IN1 = 8,
+
+    /**
+     * A device type indicating the route is on a bluetooth device.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Core
+     * @atomicservice [since 12]
+     * @since 10 dynamic
+     * @since 23 static
+     */
+    DEVICE_TYPE_BLUETOOTH = 10,
 
     /**
      * The device which supports HiPlay protocol.

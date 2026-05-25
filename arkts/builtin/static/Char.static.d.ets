@@ -23,7 +23,7 @@
  * Represents boxed char value and related operations
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Char extends Object implements Comparable<Char> {
@@ -33,7 +33,7 @@ class Char extends Object implements Comparable<Char> {
    *
    * @returns { string }
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   toString(): string;
@@ -44,7 +44,7 @@ class Char extends Object implements Comparable<Char> {
    * @param { char } value - value to cast
    * @returns { string }
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static toString(value: char): string;
@@ -55,7 +55,7 @@ class Char extends Object implements Comparable<Char> {
    * @param { char } value - a char to check.
    * @returns { boolean }
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static isDecDigit(value: char): boolean;
@@ -65,7 +65,7 @@ class Char extends Object implements Comparable<Char> {
    *
    * @returns { boolean }
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   isDecDigit(): boolean;
@@ -76,7 +76,7 @@ class Char extends Object implements Comparable<Char> {
    * @param { char } value - a char to be tested.
    * @returns { boolean }
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static isWhiteSpace(value: char): boolean;
@@ -86,7 +86,7 @@ class Char extends Object implements Comparable<Char> {
    *
    * @returns { boolean }
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   isWhiteSpace(): boolean;

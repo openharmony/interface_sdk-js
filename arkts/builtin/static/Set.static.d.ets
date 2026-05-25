@@ -23,7 +23,7 @@
  * Set implementation.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Set<K> implements ReadonlySet<K> {
@@ -33,7 +33,7 @@ class Set<K> implements ReadonlySet<K> {
      * @param { int } bucketsCount - The number of buckets for the internal map.
      *     <br>The value should be an integer.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(bucketsCount: int);
@@ -43,7 +43,7 @@ class Set<K> implements ReadonlySet<K> {
      *
      * @param { Set<K> } set - Another Set instance used for initialization.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(set: Set<K>);
@@ -53,7 +53,7 @@ class Set<K> implements ReadonlySet<K> {
      *
      * @param { K[] } values - The array used for initialization.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(values: K[]);
@@ -64,7 +64,7 @@ class Set<K> implements ReadonlySet<K> {
      * @param { Iterable<K> | FixedArray<K> | null } [elements] - The iterable object, FixedArray,
      *     or null used for initialization.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(elements?: Iterable<K> | FixedArray<K> | null);
@@ -74,7 +74,7 @@ class Set<K> implements ReadonlySet<K> {
      * 
      * @returns { int } - The number of unique elements in the Set.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     get size(): int;
@@ -84,7 +84,7 @@ class Set<K> implements ReadonlySet<K> {
      *
      * @returns { IterableIterator<K> } - The default iterator of the Set.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     $_iterator(): IterableIterator<K>;

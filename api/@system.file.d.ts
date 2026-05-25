@@ -169,7 +169,7 @@ export interface FileListResponse {
    * uri:'file1',
    * lastModifiedTime:1589965924479,
    * length:10240,
-   * type:?'file'
+   * type:'file'
    * }
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
@@ -733,13 +733,7 @@ export interface FileWriteArrayBufferOption {
  */
 export interface FileReadArrayBufferResponse {
   /**
-   * File list. The format of each file is as follows:
-   * {
-   * uri:'file1',
-   * lastModifiedTime:1589965924479,
-   * length:10240,
-   * type:?'file'
-   * }
+   * Data read.
    *
    * @syscap SystemCapability.FileManagement.File.FileIO.Lite
    * @since 3

@@ -23,7 +23,7 @@
  * Performance-oriented class for string construction
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class StringBuilder {
@@ -31,7 +31,7 @@ class StringBuilder {
      * Construct a new builder instance with the initial buffer of 16 chars
      *
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor();
@@ -41,7 +41,7 @@ class StringBuilder {
      *
      * @param { FixedArray<char> } fromChars - array that will be used to initialize the builder
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(fromChars: FixedArray<char>);
@@ -51,7 +51,7 @@ class StringBuilder {
      *
      * @param { char[] } fromChars - array that will be used to initialize the builder
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(fromChars: char[]);
@@ -61,7 +61,7 @@ class StringBuilder {
      *
      * @param { string } s - string that will be used to initialize the builder
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(s: string);
@@ -73,7 +73,7 @@ class StringBuilder {
      * @param { string } rhs - right string (suffix)
      * @returns { string } result of concatenation
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static concatStrings(lhs: string, rhs: string): string;
@@ -84,7 +84,7 @@ class StringBuilder {
      * @param { string } s - string to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(s: string): StringBuilder;
@@ -95,7 +95,7 @@ class StringBuilder {
      * @param { boolean } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: boolean): StringBuilder;
@@ -106,7 +106,7 @@ class StringBuilder {
      * @param { byte } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: byte): StringBuilder;
@@ -117,7 +117,7 @@ class StringBuilder {
      * @param { char } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: char): StringBuilder;
@@ -128,7 +128,7 @@ class StringBuilder {
      * @param { short } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: short): StringBuilder;
@@ -139,7 +139,7 @@ class StringBuilder {
      * @param { int } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: int): StringBuilder;
@@ -150,7 +150,7 @@ class StringBuilder {
      * @param { long } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: long): StringBuilder;
@@ -161,7 +161,7 @@ class StringBuilder {
      * @param { float } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: float): StringBuilder;
@@ -172,7 +172,7 @@ class StringBuilder {
      * @param { double } i - value to be appended
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(i: double): StringBuilder;
@@ -183,7 +183,7 @@ class StringBuilder {
      * @param { Object } o - object that will be converted to a stringitg
      * @returns { StringBuilder } builder with updated internal buffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     append(o: Object): StringBuilder;
@@ -193,7 +193,7 @@ class StringBuilder {
      *
      * @returns { string } - builder's current buffer as string
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     toString(): string;
@@ -204,7 +204,7 @@ class StringBuilder {
      * @param { boolean } i - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(i: boolean): string;
@@ -215,7 +215,7 @@ class StringBuilder {
      * @param { byte } i - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(i: byte): string;
@@ -226,7 +226,7 @@ class StringBuilder {
      * @param { char } i - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(i: char): string;
@@ -237,7 +237,7 @@ class StringBuilder {
      * @param { short } i - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(i: short): string;
@@ -248,7 +248,7 @@ class StringBuilder {
      * @param { int } i - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(i: int): string;
@@ -259,7 +259,7 @@ class StringBuilder {
      * @param { long } i - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(i: long): string;
@@ -270,7 +270,7 @@ class StringBuilder {
      * @param { float } f - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(f: float): string;
@@ -281,7 +281,7 @@ class StringBuilder {
      * @param { double } d - value to be converted
      * @returns { string } result of the conversion
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static toString(d: double): string;

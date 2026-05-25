@@ -120,6 +120,14 @@ export declare class DrawableDescriptor {
    * @since 26.0.0 static
    */
   isReleased(): boolean;
+  /**
+   * Redraw the DrawableDescriptor. Does nothing if the DrawableDescriptor is not bound to any component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  invalidate(): void;
 }
 
 /**

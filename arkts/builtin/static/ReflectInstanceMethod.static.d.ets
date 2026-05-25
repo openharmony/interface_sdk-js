@@ -24,7 +24,7 @@
  * methods, and properties at runtime.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 namespace reflect {
@@ -33,7 +33,7 @@ namespace reflect {
    * Represents an instance method of a class or interface.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   class InstanceMethod extends Method {  
@@ -43,7 +43,7 @@ namespace reflect {
      *
      * @returns { boolean } Returns true if the method is final, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isFinal(): boolean;
@@ -53,7 +53,7 @@ namespace reflect {
      *
      * @returns { boolean } Returns true if the method is async, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isAsync(): boolean;
@@ -63,7 +63,7 @@ namespace reflect {
      *
      * @returns { boolean } Returns true if the method is abstract, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isAbstract(): boolean;
@@ -73,7 +73,7 @@ namespace reflect {
      *
      * @returns { boolean } Returns true if the method is a getter, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isGetter(): boolean;
@@ -83,7 +83,7 @@ namespace reflect {
      *
      * @returns { boolean } Returns true if the method is a setter, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isSetter(): boolean;
@@ -94,7 +94,7 @@ namespace reflect {
      * @param { InstanceMethod } other - Another instance method object used for comparison.
      * @returns { boolean } Returns true if the two methods are equal, otherwise returns false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     equals(other: InstanceMethod): boolean;
@@ -107,7 +107,7 @@ namespace reflect {
      * @returns { Any } The execution result of the method.
      * @throws { TypeError } Throws - when `thisObj` is incompatible with the method.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     invoke(thisObj: Object, args?: FixedArray<Any>): Any;

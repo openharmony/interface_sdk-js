@@ -13,6 +13,8 @@
   * limitations under the License.
   */
 
+import uiMaterial from './@ohos.arkui.uiMaterial';
+
 /**
  * @file
  * @kit ArkUI
@@ -370,6 +372,19 @@ export interface SelectionMenuOptions {
    * @since 12 dynamic
    */
   onSelectAll?: (event?: EditorEventInfo) => void;
+
+  /**
+   * Set system-styled materials for the component. Different materials have different effects,
+   * which can influence the backgroundColor, border, shadow, and other visual attributes.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 /**

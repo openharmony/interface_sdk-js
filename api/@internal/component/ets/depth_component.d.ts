@@ -16,7 +16,7 @@
 /**
  * @file
  * @kit ArkUI
-*/
+ */
 
 /**
  * Depth space type enumeration.
@@ -24,7 +24,6 @@
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -34,7 +33,6 @@ declare enum DepthSpaceType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -52,12 +50,91 @@ declare enum DepthSpaceType {
 }
 
 /**
+ * 2D offset for crop frame.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface CropOffset {
+  /**
+   * X coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  x: int;
+
+  /**
+   * Y coordinate.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  y: int;
+}
+
+/**
+ * Camera buffer crop parameters.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface CameraBufferCrop {
+  /**
+   * Camera off-screen rendering buffer width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  bufferWidth: int;
+
+  /**
+   * Camera off-screen rendering buffer height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  bufferHeight: int;
+
+  /**
+   * Crop frame offset relative to buffer top-left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  cropOffset: CropOffset;
+
+  /**
+   * Crop frame scale relative to depth component size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  cropScale: double;
+}
+
+/**
  * Camera parameters struct.
  *
  * @interface DepthCameraParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -68,7 +145,6 @@ declare interface DepthCameraParams {
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -81,7 +157,6 @@ declare interface DepthCameraParams {
    * @type { DepthVector4 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -93,7 +168,6 @@ declare interface DepthCameraParams {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -105,7 +179,6 @@ declare interface DepthCameraParams {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -117,11 +190,20 @@ declare interface DepthCameraParams {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
   zFar: double;
+
+  /**
+   * Camera buffer crop parameters.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  cameraBufferCrop?: CameraBufferCrop;
 }
 
 /**
@@ -130,7 +212,6 @@ declare interface DepthCameraParams {
  * @interface DepthLightParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -141,7 +222,6 @@ declare interface DepthLightParams {
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -153,7 +233,6 @@ declare interface DepthLightParams {
    * @type { DepthColorRGB }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -165,7 +244,6 @@ declare interface DepthLightParams {
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -178,7 +256,6 @@ declare interface DepthLightParams {
  * @interface DepthComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -190,7 +267,6 @@ declare interface DepthComponentOptions {
    * @default DepthSpace.INSTANCE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -198,12 +274,119 @@ declare interface DepthComponentOptions {
 }
 
 /**
+ * Information about the background resource loaded successfully.
+ *
+ * @interface DepthComponentCompleteEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface DepthComponentCompleteEvent {
+  /**
+   * Component width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  componentWidth: double;
+
+  /**
+   * Component height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  componentHeight: double;
+}
+
+/**
+ * Callback invoked when the background resource is loaded successfully.
+ *
+ * @typedef { function } DepthComponentCompleteCallback
+ * @param { DepthComponentCompleteEvent } event
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+type DepthComponentCompleteCallback = (event: DepthComponentCompleteEvent) => void;
+
+/**
+ * Information about the background resource loading error.
+ *
+ * @interface DepthComponentErrorEvent
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface DepthComponentErrorEvent {
+  /**
+   * Component width.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  componentWidth: double;
+
+  /**
+   * Component height.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  componentHeight: double;
+
+  /**
+   * Business Error.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  error?: BusinessError<void>;
+}
+
+/**
+ * Callback invoked when an error occurs during background resource loading.
+ *
+ * @typedef { function } DepthComponentErrorCallback
+ * @param { DepthComponentErrorEvent } error
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+type DepthComponentErrorCallback = (error: DepthComponentErrorEvent) => void;
+
+/**
+ * Callback invoked when the depth map resource is loaded.
+ *
+ * @typedef { function } DepthMapCallback
+ * @param { BusinessError<void> } error
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+type DepthMapCallback = (error: BusinessError<void>) => void;
+
+/**
  * Style the DepthComponent.
  *
  * @extends CommonMethod<DepthComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -212,14 +395,14 @@ declare class DepthComponentAttribute extends CommonMethod<DepthComponentAttribu
    * Depth map for depth calculation and rendering.
    *
    * @param { ResourceStr | PixelMap } depthMap - Depth map path or PixelMap.
+   * @param { DepthMapCallback } [callback] - Callback invoked when the depth map resource is loaded.
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  depthMap(depthMap: ResourceStr | PixelMap): DepthComponentAttribute;
+  depthMap(depthMap: ResourceStr | PixelMap, callback?: DepthMapCallback): DepthComponentAttribute;
 
   /**
    * Camera parameters for depth rendering.
@@ -228,7 +411,6 @@ declare class DepthComponentAttribute extends CommonMethod<DepthComponentAttribu
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -241,38 +423,34 @@ declare class DepthComponentAttribute extends CommonMethod<DepthComponentAttribu
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
   light(light: DepthLightParams): DepthComponentAttribute;
 
   /**
-   * Background image offset.
+   * Triggered when the background resource is loaded successfully.
    *
-   * @param { Position | Edges | LocalizedEdges } offset - Background offset value.
+   * @param { DepthComponentCompleteCallback } callback
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  backgroundOffset(offset: Position | Edges | LocalizedEdges): DepthComponentAttribute;
-
+  onComplete(callback: DepthComponentCompleteCallback): DepthComponentAttribute;
+  
   /**
-   * Background image scale.
+   * Triggered when an error occurs during background resource loading.
    *
-   * @param { ScaleOptions } scale - Background scale value.
-   *     <br>Default value:{x:1,y:1,z:1,centerX:'50%',centerY:'50%'}.
+   * @param { DepthComponentErrorCallback } callback
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  backgroundScale(scale?: ScaleOptions): DepthComponentAttribute;
+  onError(callback: DepthComponentErrorCallback): DepthComponentAttribute;
 }
 
 /**
@@ -281,7 +459,6 @@ declare class DepthComponentAttribute extends CommonMethod<DepthComponentAttribu
  * @interface DepthComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -294,7 +471,6 @@ interface DepthComponentInterface {
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -307,7 +483,6 @@ interface DepthComponentInterface {
  * @type { DepthComponentInterface } DepthComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -319,7 +494,6 @@ declare const DepthComponent: DepthComponentInterface;
  * @type { DepthComponentAttribute } DepthComponentInstance
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */

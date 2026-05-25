@@ -19,7 +19,7 @@
  */
 
 /**
- * This module provides the capability to monitor leakage of JS objects.
+ * This module provides the capability of monitoring whether JS objects are leaked.
  *
  * @syscap SystemCapability.HiviewDFX.HiChecker
  * @since 12 dynamic
@@ -27,9 +27,9 @@
  */
 declare namespace jsLeakWatcher {
   /**
-   * Enable or disable jsLeakWatcher.
+   * Enables the detection for JS object leaks. This function is disabled by default.
    *
-   * @param { boolean } isEnable - True is enable jsLeakWatcher, false is disable jsLeakWatcher.
+   * @param { boolean } isEnable - Whether to enable **jsLeakWatcher**. **true**: yes; **false**: no.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.0.0 static
@@ -37,10 +37,10 @@ declare namespace jsLeakWatcher {
   function enable(isEnable: boolean): void;
 
   /**
-   * Register an object that needs to be monitored.
+   * Registers the object to be checked.
    *
-   * @param { object } obj - Object being monitored.
-   * @param { string } msg - Customized object information.
+   * @param { object } obj - Name of the object to be checked.<br>Note: You can pass objects of any type.
+   * @param { string } msg - Custom object information.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.0.0 static
@@ -48,9 +48,12 @@ declare namespace jsLeakWatcher {
   function watch(obj: object, msg: string): void;
 
   /**
-   * Check suspected leaked objects.
+   * Obtains the list of objects that are leaked and registered using **jsLeakWatcher.watch()**. Objects that are not
+   * reclaimed after GC is triggered are marked as leaked.
    *
-   * @returns { string } List of suspected leaked objects in JSON format.
+   * @returns { string } List of leaked objects that are not reclaimed after GC is triggered.
+   *     <br>Note: If this API is successful, a list of leaked objects in JSON format is returned.
+   *     Otherwise, an empty string is returned.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.0.0 static
@@ -58,10 +61,13 @@ declare namespace jsLeakWatcher {
   function check(): string;
 
   /**
-   * Dump leak list and heap snapshot.
+   * Dumps the list of leaked objects and VM memory snapshot.
    *
-   * @param { string } filePath - Directory for exporting files.
-   * @returns { Array<string> } The array of exported results, index 0 is leakListFileName, index 1 is heapSnapShotFileName.
+   * @param { string } filePath - Path for storing exported information files.
+   * @returns { Array<string> } Export result. The file name extension is **.jsleaklist** for the list of leaked objects
+   *     and **.heapsnapshot** for the VM memory snapshot.
+   *     <br>Note: If the dump is successful, the path of the leaked object list file and the VM memory snapshot path are
+   *     returned. Otherwise, an empty array is returned.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.0.0 static
@@ -69,16 +75,22 @@ declare namespace jsLeakWatcher {
   function dump(filePath: string): Array<string>;
 
   /**
-   * Enables or disables jsLeakWatcher.
+   * Enables the detection for JS object leaks. This function is disabled by default.
    *
-   * This interface can detect js object memory leaks in a single call, which is more concise than the previous method
-   * requiring four function (enable,watch,check dump) calls.If there is a memory leak, the leak file will be
-   * returned to the developer through the callback function.
+   * This API can detect the JS object memory leak, which is simpler than the method that needs to call the **enable**,
+   * **watch**, **check**, and **dump** functions.
    *
-   * @param { boolean } isEnabled - Whether to enable or disable jsLeakWatcher.
-   *     The value true means to enable the feature, and false means the opposite.
-   * @param { Array<string> } configs - Array of types of objects to watch.
-   * @param { Callback<Array<string>> } callback - Callback invoked when an object-related memory leak is detected.
+   * If a memory leak occurs, the leaked file is returned through the callback.
+   *
+   * @param { boolean } isEnabled - Whether to enable the detection for JS object memory leaks. **true**: yes; **false**
+   *     : no.
+   * @param { Array<string> } configs - Configuration item. Each element in the array indicates a specific object type
+   *     to monitor.<br>Options: **XComponent**, **NodeContainer**, **Window**, **CustomComponent**, and **Ability**.<br
+   *     >Note: An empty array indicates that all the preceding objects are monitored.
+   * @param { Callback<Array<string>> } callback - Callback used to receive the memory-leaked object returned by the
+   *     **jsLeakWatcher.enableLeakWatcher** API.<br>You need to input an array object in the callback. Index **0** is
+   *     the name of the leak list file, whose extension is **.jsleaklist**. Index **1** is the name of the VM memory
+   *     snapshot file, whose extension is **.rawheap**.
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
@@ -93,7 +105,7 @@ declare namespace jsLeakWatcher {
   function enableLeakWatcher(isEnabled: boolean, configs: Array<string>, callback: Callback<Array<string>>): void;
 
   /**
-   * The types of component objects to be monitored.
+   * Enumerates the types of component objects to be monitored.
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
@@ -102,7 +114,7 @@ declare namespace jsLeakWatcher {
    */
   export declare enum MonitorObjectType {
     /**
-     * Monitor all object types.
+     * All component types are monitored.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -111,7 +123,7 @@ declare namespace jsLeakWatcher {
      */
     ALL = -1,
     /**
-     * Monitor CustomComponent object types.
+     * Custom component types are monitored.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -120,7 +132,7 @@ declare namespace jsLeakWatcher {
      */
     CUSTOM_COMPONENT = 1 << 0,
     /**
-     * Monitor Window object types.
+     * The **Window** component type is monitored.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -129,7 +141,7 @@ declare namespace jsLeakWatcher {
      */
     WINDOW = 1 << 1,
     /**
-     * Monitor NodeContainer object types.
+     * The **NodeContainer** component type is monitored.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -138,7 +150,7 @@ declare namespace jsLeakWatcher {
      */
     NODE_CONTAINER = 1 << 2,
     /**
-     * Monitor XComponent object types.
+     * The **XComponent** component type is monitored.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -147,7 +159,7 @@ declare namespace jsLeakWatcher {
      */
     X_COMPONENT = 1 << 3,
     /**
-     * Monitor Ability object types.
+     * The **Ability** component type is monitored.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -158,7 +170,8 @@ declare namespace jsLeakWatcher {
   }
 
   /**
-   * JSLeakWatcher Configurations.
+   * Defines the **LeakWatcherConfig** object, which contains multiple configurable properties for memory leak
+   * monitoring.
    *
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
@@ -167,7 +180,9 @@ declare namespace jsLeakWatcher {
    */
   interface LeakWatcherConfig {
     /**
-     * The types of component objects to be monitored.
+     * Type of the monitored object.
+     *
+     * By default, all component types are monitored.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -176,7 +191,14 @@ declare namespace jsLeakWatcher {
      */
     monitorObjectTypes: MonitorObjectType;
     /**
-     * List of monitored object IDs. Default: value is an empty array. This field applies only to CUSTOM_COMPONENT type.
+     * List of IDs of monitored objects.
+     *
+     * This parameter applies only to custom components and does not affect the monitoring of other component types.
+     *
+     * For example, if the object class name ID set in the trustlist is the same as that in the custom ID list, the
+     * custom ID list takes effect.
+     *
+     * The default value is an empty array.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -185,7 +207,9 @@ declare namespace jsLeakWatcher {
      */
     objectUniqueIDs?: Array<int>;
     /**
-     * Interval between each leak detection cycle. Default: value is 30000 ms.
+     * Interval between each round of leak detection, in milliseconds.
+     *
+     * The default value is 30 seconds.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -194,9 +218,12 @@ declare namespace jsLeakWatcher {
      */
     checkInterval?: int;
     /**
-     * The first time to triggers a dump when the count of leaked objects reaches the specified threshold
-     * while the application is in the foreground.
-     * Default: 5.
+     * Threshold for the number of leaked objects in a foreground application. Dump is triggered when this threshold is
+     * reached.
+     *
+     * During the GC/Dump phase, dump is triggered when the value is greater than or equal to 5.
+     *
+     * The default threshold is **5**.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -205,9 +232,12 @@ declare namespace jsLeakWatcher {
      */
     fgLeakCountThreshold?: int;
     /**
-     * The first time to triggers a dump when the count of leaked objects reaches the specified threshold
-     * while the application is in the background.
-     * Default: 1.
+     * Threshold for the number of leak objects in a background application. Dump is triggered when this threshold is
+     * reached.
+     *
+     * During the GC/Dump phase, dump is triggered when the value is greater than or equal to 1.
+     *
+     * The default threshold is **1**.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -216,8 +246,10 @@ declare namespace jsLeakWatcher {
      */
     bgLeakCountThreshold?: int;
     /**
-     * Maximum int of dump files that can be saved to prevent the disk space from being exhausted.
-     * Default: value is 10.
+     * Maximum number of dump files that can be saved. To prevent the disk space from being used up, the .rawheap and
+     * .jsleaklist files with the minimum timestamp are deleted when the number of dump files exceeds the maximum.
+     *
+     * By default, 10 .rawheap files and 10 .jsleaklist files are saved.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -226,8 +258,15 @@ declare namespace jsLeakWatcher {
      */
     maxStoredHeapDumps?: int;
     /**
-     * Delay the dump execution to ensure that the GC can be scheduled and executed before the dump is performed.
-     * Default: value is 5000 ms.
+     * Delay interval for executing dump. This parameter ensures that GC can be scheduled and executed before dump. The
+     * delay interval is less than or equal to the leak detection interval, in milliseconds.
+     *
+     * If the configured delay exceeds the leak detection interval, the delay defaults to that of the leak detection
+     * interval.
+     *
+     * If no new leaked object exists, dump will not be triggered.
+     *
+     * By default, the dump is performed 5 seconds after the GC ends.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -236,8 +275,15 @@ declare namespace jsLeakWatcher {
      */
     dumpHeapWaitTimeMs?: int;
     /**
-     * Exclude objects from monitoring based on their component, ability, or window names.
-     * Default: value is an empty array.
+     * Class name of the object to be excluded from monitoring.
+     *
+     * This parameter applies only to custom components and does not affect the filtering of other component types.
+     *
+     * If obfuscation occurs, filtering cannot be performed. This parameter takes effect only in the development state.
+     *
+     * Configuration item conflict priority: ID list > trustlist.
+     *
+     * The default value is an empty array.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -248,18 +294,21 @@ declare namespace jsLeakWatcher {
   }
 
   /**
-   * Enables or disables jsLeakWatcher.
+   * Enables the ArkTS object leak detection.
    *
-   * This interface can detect js object memory leaks in a single call, which is more concise than the previous method
-   * requiring four functions (enable, watch, check, dump) calls.If there is a memory leak, the leak file will be
-   * returned to the developer through the callback function.
-   * Furthermore, parameters such as object's unique IDs for monitored objects and check interval can be adjusted via
-   * the configs parameter.
+   * This API can detect memory leaks of ArkTS objects with a single call, which is simpler than the previous method
+   * that requires four functions (**enable**, **watch**, **check**, and **dump**). You can use the **configs**
+   * parameter to customize the properties of monitoring items, greatly improving the leak detection performance.
    *
-   * @param { boolean } isEnabled - Whether to enable or disable jsLeakWatcher.
-   *     The value true means to enable the feature, and false means the opposite.
-   * @param { LeakWatcherConfig } configs - Configuration of monitored.
-   * @param { Callback<Array<string>> } callback - Callback invoked when an object-related memory leak is detected.
+   * @param { boolean } isEnabled - Whether to enable the detection for ArkTS object memory leaks.<br>**true**: yes;<br>
+   *     **false**: no.
+   * @param { LeakWatcherConfig } configs - LeakWatcherConfig object, which contains multiple configurable properties
+   *     for memory leak monitoring.<br>Note: If the parameter type in the object is set to null or a false value, the
+   *     default value is used.
+   * @param { Callback<Array<string>> } callback - Callback used to receive the memory-leaked object returned by the
+   *     **jsLeakWatcher.enableLeakWatcher** API.<br>You need to input an array object in the callback. Index **0** is
+   *     the name of the leak list file, whose extension is **.jsleaklist**. Index **1** is the name of the VM memory
+   *     snapshot file, whose extension is **.rawheap**.
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
@@ -274,4 +323,5 @@ declare namespace jsLeakWatcher {
    */
   function enableLeakWatcher(isEnabled: boolean, configs: LeakWatcherConfig, callback: Callback<Array<string>>): void;
 }
+
 export default jsLeakWatcher;

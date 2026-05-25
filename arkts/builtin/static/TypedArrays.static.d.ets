@@ -23,7 +23,7 @@
  * class Int8Array
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 export class Int8Array {
@@ -38,7 +38,7 @@ export class Int8Array {
      *     <br>The value should be an integer.
      * @returns { Int8Array }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public copyWithin(target: int, start: int, end?: int): Int8Array;
@@ -50,7 +50,7 @@ export class Int8Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int): int;
@@ -64,7 +64,7 @@ export class Int8Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int, fromIndex: int): int;
@@ -74,7 +74,7 @@ export class Int8Array {
      *
      * @returns { IterableIterator<int> } - iterator over keys
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public keys(): IterableIterator<int>;
@@ -86,7 +86,7 @@ export class Int8Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less than length. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int): int;
@@ -100,7 +100,7 @@ export class Int8Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less or equal than fromIndex. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int, fromIndex: int): int;
@@ -115,7 +115,7 @@ export class Int8Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified Int8Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: byte, start?: int, end?: int): this;
@@ -125,7 +125,7 @@ export class Int8Array {
      *
      * @returns { Int8Array } - a new Int8Array using reversed data from the current one
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reverse(): Int8Array;
@@ -138,7 +138,7 @@ export class Int8Array {
      * @returns { Int8Array } - a new Int8Array with elements of current Int8Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin: int): Int8Array;
@@ -153,7 +153,7 @@ export class Int8Array {
      * @returns { Int8Array } - a new Int8Array with elements of current Int8Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin?: int, end?: int): Int8Array;
@@ -167,7 +167,7 @@ export class Int8Array {
      *     <br>The value should be an integer.
      * @returns { Int8Array } - a new Int8Array with the same underlying ArrayBuffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public subarray(begin?: int, end?: int): Int8Array;
@@ -177,7 +177,7 @@ export class Int8Array {
  * class Int16Array
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 export class Int16Array {
@@ -192,7 +192,7 @@ export class Int16Array {
      *     <br>The value should be an integer.
      * @returns { Int16Array }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public copyWithin(target: int, start: int, end?: int): Int16Array;
@@ -204,7 +204,7 @@ export class Int16Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int): int;
@@ -218,7 +218,7 @@ export class Int16Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int, fromIndex: int): int;
@@ -228,7 +228,7 @@ export class Int16Array {
      *
      * @returns { IterableIterator<int> } - iterator over keys
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public keys(): IterableIterator<int>;
@@ -240,7 +240,7 @@ export class Int16Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less than length. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int): int;
@@ -254,7 +254,7 @@ export class Int16Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less or equal than fromIndex. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int, fromIndex: int): int;
@@ -269,7 +269,7 @@ export class Int16Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified Int16Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: byte, start?: int, end?: int): this;
@@ -279,7 +279,7 @@ export class Int16Array {
      *
      * @returns { Int16Array } - a new Int16Array using reversed data from the current one
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reverse(): Int16Array;
@@ -292,7 +292,7 @@ export class Int16Array {
      * @returns { Int16Array } - a new Int16Array with elements of current Int16Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin: int): Int16Array;
@@ -307,7 +307,7 @@ export class Int16Array {
      * @returns { Int16Array } - a new Int16Array with elements of current Int16Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin?: int, end?: int): Int16Array;
@@ -321,7 +321,7 @@ export class Int16Array {
      *     <br>The value should be an integer.
      * @returns { Int16Array } - a new Int16Array with the same underlying ArrayBuffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public subarray(begin?: int, end?: int): Int16Array;
@@ -331,7 +331,7 @@ export class Int16Array {
  * class Int32Array
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 export class Int32Array {
@@ -346,7 +346,7 @@ export class Int32Array {
      *     <br>The value should be an integer.
      * @returns { Int32Array }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public copyWithin(target: int, start: int, end?: int): Int32Array;
@@ -358,7 +358,7 @@ export class Int32Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int): int;
@@ -372,7 +372,7 @@ export class Int32Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int, fromIndex: int): int;
@@ -382,7 +382,7 @@ export class Int32Array {
      *
      * @returns { IterableIterator<int> } - iterator over keys
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public keys(): IterableIterator<int>;
@@ -394,7 +394,7 @@ export class Int32Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less than length. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int): int;
@@ -408,7 +408,7 @@ export class Int32Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less or equal than fromIndex. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int, fromIndex: int): int;
@@ -424,7 +424,7 @@ export class Int32Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified Int16Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: int, start?: int, end?: int): this;
@@ -434,7 +434,7 @@ export class Int32Array {
      *
      * @returns { Int32Array } - a new Int32Array using reversed data from the current one
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reverse(): Int32Array;
@@ -447,7 +447,7 @@ export class Int32Array {
      * @returns { Int32Array } - a new Int32Array with elements of current Int32Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin: int): Int32Array;
@@ -462,7 +462,7 @@ export class Int32Array {
      * @returns { Int32Array } - a new Int32Array with elements of current Int32Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin?: int, end?: int): Int32Array;
@@ -476,7 +476,7 @@ export class Int32Array {
      *     <br>The value should be an integer.
      * @returns { Int32Array } - a new Int32Array with the same underlying ArrayBuffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public subarray(begin?: int, end?: int): Int32Array;
@@ -486,7 +486,7 @@ export class Int32Array {
  * class BigInt64Array
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 export class BigInt64Array {
@@ -501,7 +501,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { BigInt64Array }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public copyWithin(target: int, start: int, end?: int): BigInt64Array;
@@ -513,7 +513,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int): int;
@@ -527,7 +527,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int, fromIndex: int): int;
@@ -537,7 +537,7 @@ export class BigInt64Array {
      *
      * @returns { IterableIterator<int> } - iterator over keys
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public keys(): IterableIterator<int>;
@@ -549,7 +549,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less than length. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int): int;
@@ -563,7 +563,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less or equal than fromIndex. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int, fromIndex: int): int;
@@ -578,7 +578,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified BigInt64Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: long, start?: int, end?: int): this;
@@ -593,7 +593,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified BigInt64Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: BigInt, start?: int, end?: int): this;
@@ -603,7 +603,7 @@ export class BigInt64Array {
      *
      * @returns { BigInt64Array } - a new BigInt64Array using reversed data from the current one
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reverse(): BigInt64Array;
@@ -616,7 +616,7 @@ export class BigInt64Array {
      * @returns { BigInt64Array } - a new BigInt64Array with elements of current BigInt64Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin: int): BigInt64Array;
@@ -631,7 +631,7 @@ export class BigInt64Array {
      * @returns { BigInt64Array } - a new BigInt64Array with elements of current BigInt64Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin?: int, end?: int): BigInt64Array;
@@ -645,7 +645,7 @@ export class BigInt64Array {
      *     <br>The value should be an integer.
      * @returns { BigInt64Array } - a new BigInt64Array with the same underlying ArrayBuffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public subarray(begin?: int, end?: int): BigInt64Array;
@@ -655,7 +655,7 @@ export class BigInt64Array {
  * class Float32Array
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 export class Float32Array {
@@ -670,7 +670,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { Float32Array }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public copyWithin(target: int, start: int, end?: int): Float32Array;
@@ -682,7 +682,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int): int;
@@ -696,7 +696,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int, fromIndex: int): int;
@@ -706,7 +706,7 @@ export class Float32Array {
      *
      * @returns { IterableIterator<int> } - iterator over keys
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public keys(): IterableIterator<int>;
@@ -718,7 +718,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less than length. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int): int;
@@ -732,7 +732,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less or equal than fromIndex. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int, fromIndex: int): int;
@@ -747,7 +747,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified Float32Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: float, start?: int, end?: int): this;
@@ -762,7 +762,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified Float32Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: double, start?: int, end?: int): this;
@@ -772,7 +772,7 @@ export class Float32Array {
      *
      * @returns { Float32Array } - a new Float32Array using reversed data from the current one
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reverse(): Float32Array;
@@ -785,7 +785,7 @@ export class Float32Array {
      * @returns { Float32Array } - a new Float32Array with elements of current Float32Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin: int): Float32Array;
@@ -800,7 +800,7 @@ export class Float32Array {
      * @returns { Float32Array } - a new Float32Array with elements of current Float32Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin?: int, end?: int): Float32Array;
@@ -814,7 +814,7 @@ export class Float32Array {
      *     <br>The value should be an integer.
      * @returns { Float32Array } - a new Float32Array with the same underlying ArrayBuffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public subarray(begin?: int, end?: int): Float32Array;
@@ -824,7 +824,7 @@ export class Float32Array {
  * class Float64Array
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 26.0.0 staticonly
  */
 export class Float64Array {
@@ -839,7 +839,7 @@ export class Float64Array {
      *     <br>The value should be an integer.
      * @returns { Float64Array }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public copyWithin(target: int, start: int, end?: int): Float64Array;
@@ -851,7 +851,7 @@ export class Float64Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int): int;
@@ -864,7 +864,7 @@ export class Float64Array {
      *     <br>The value should be an integer.
      * @returns { int } - index of element if it presents, -1 otherwise
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public indexOf(searchElement: int, fromIndex: int): int;
@@ -874,7 +874,7 @@ export class Float64Array {
      *
      * @returns { IterableIterator<int> } - iterator over keys
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public keys(): IterableIterator<int>;
@@ -886,7 +886,7 @@ export class Float64Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less than length. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int): int;
@@ -900,7 +900,7 @@ export class Float64Array {
      *     <br>The value should be an integer.
      * @returns { int } - right-most index of searchElement. It must be less or equal than fromIndex. -1 if not found
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public lastIndexOf(searchElement: int, fromIndex: int): int;
@@ -915,7 +915,7 @@ export class Float64Array {
      *     <br>The value should be an integer.
      * @returns { this } - modified Float64Array
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public fill(value: double, start?: int, end?: int): this;
@@ -925,7 +925,7 @@ export class Float64Array {
      *
      * @returns { Float64Array } - a new Float64Array using reversed data from the current one
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reverse(): Float64Array;
@@ -938,7 +938,7 @@ export class Float64Array {
      * @returns { Float64Array } - a new Float64Array with elements of current Float64Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin: int): Float64Array;
@@ -953,7 +953,7 @@ export class Float64Array {
      * @returns { Float64Array } - a new Float64Array with elements of current Float64Array[begin;end),
      *     where end index is excluded
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public slice(begin?: int, end?: int): Float64Array;
@@ -967,7 +967,7 @@ export class Float64Array {
      *     <br>The value should be an integer.
      * @returns { Float64Array } - a new Float64Array with the same underlying ArrayBuffer
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public subarray(begin?: int, end?: int): Float64Array;

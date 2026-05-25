@@ -42,7 +42,7 @@ import { ButtonType, ButtonStyleMode, ButtonRole } from "./button";
 import { Area, ResourceColor, Dimension, ResourceStr, Font, Length, EdgeColors, LocalizedEdgeColors, BorderRadiuses, EdgeWidths, LocalizedEdgeWidths, SizeOptions, Bias, EdgeStyles, Position, LocalizedBorderRadiuses, Margin, ChainWeightOptions, Padding, LocalizedPadding, LocalizedMargin, BorderOptions, OutlineOptions, EdgeOutlineStyles, EdgeOutlineWidths, OutlineRadiuses, Edges, LocalizedEdges, LocalizedPosition, AccessibilityOptions, ConstraintSizeOptions, EdgeWidth, DirectionalEdgesT, VoidCallback, ColorMetrics, AccessibilityActionOptions, ScrollBarMargin, Coordinate2D, AccessibilityCustomAction } from "./units";
 import { BaseGestureEvent, GestureRecognizer, TouchRecognizer, GestureJudgeResult, GestureType, GestureMask, GestureHandler, GesturePriority, GestureInfo } from "./gesture";
 import { ScrollState } from "./list";
-import { AccessibilityHoverType, GestureCollectIntervention, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction, GestureShortcut } from "./enums";
+import { AccessibilityHoverType, GestureCollectIntervention, Curve, PlayMode, SharedTransitionEffectType, KeySource, BorderStyle, HorizontalAlign, LocalizedAlignment, RenderStrategy, VerticalAlign, MouseButton, MouseAction, FontWeight, TouchType, FontStyle, Color, ColoringStrategy, Placement, ArrowPointPosition, ClickEffectLevel, NestedScrollMode, HitTestMode, Alignment, ImageRepeat, ImageSize, HoverEffect, Visibility, ItemAlign, Direction, Axis, GradientDirection, FunctionKey, ModifierKey, ObscuredReasons, RenderFit, LineCapStyle, LineJoinStyle, PixelRoundCalcPolicy, TextDecorationType, TextDecorationStyle, KeyType, ResponseType, BarState, EdgeEffect, ScrollSource, InteractionHand, AxisAction, AxisType, AxisModel, CrownAction, FocusDrawLevel, CrownSensitivity, IlluminatedType, ResponseRegionSupportedTool, TipsAnchorType, InputEventInterceptAction, GestureShortcut, EdgeLightPosition } from "./enums";
 import { TextRange } from "./textCommon";
 import { StyledString } from "./styledString";
 import { CustomBuilder, WrappedBuilder, CustomBuilderT } from './builder';
@@ -7803,6 +7803,16 @@ export declare interface SheetOptions extends BindOptions {
      * @since 23 static
      */
     placementOnTarget?: boolean;
+    /**
+     * Sets the edgeLight animation Mode of the bindSheet.
+     *
+     * @default EdgeLightMode.EDGELIGHT_DISABLED
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    edgeLightMode?: EdgeLightMode;
 }
 /**
  * The custom styles function block.
@@ -12439,6 +12449,22 @@ export declare interface CommonMethod {
      */
     default useUnionEffect(value: boolean | undefined): this;
     /**
+     * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
+     *
+     * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
+     *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
+     *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
+     *     <br>Default value: **false**. Undefined means to default value.
+     * @param { GravityCenterOptions } [options] - Gravitational center parameter.
+     *     This parameter must be used together with UnionMode.GRAVITY_UNION.
+     * @returns { this } return the component attribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default useUnionEffect(value: boolean | undefined, options?: GravityCenterOptions): this;
+    /**
      * Adds the background blur effect for the current component. The input parameter is the blur radius.
      * The larger the blur radius, the more blurred the background. If the value is 0, the background blur is not blurred.
      *
@@ -13034,7 +13060,7 @@ export declare interface CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default toolbar(value: CustomBuilder | undefined): this;
     /**
@@ -13124,6 +13150,25 @@ export declare interface CommonMethod {
      * @since 23 static
      */
     default shadow(value: ShadowOptions | ShadowStyle | undefined): this;
+    /**
+     * Sets the edge light effect for the component.
+     *
+     * <p><strong>NOTE</strong>:
+     * <br>The edge light effect creates a glowing light effect along the component's edges,
+     * starting from the specified position and extending along the edge.
+     * <br>This effect can enhance the visual appeal and highlight important components.
+     * </p>
+     *
+     * @param { EdgeLightParams | undefined } params - Edge light effect parameters.
+     *     Defines the position, length, intensity, color, and thickness of the light effect.
+     *     If params is undefined, the edge light effect is removed.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default edgeLight(params: EdgeLightParams | undefined): this;
     /**
      * Defines how the component's content (including the content of it child components)
      * is blended with the existing content on the canvas (possibly offscreen canvas) below.
@@ -13989,7 +14034,7 @@ export declare interface CommonMethod {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     default debugLine(sourceLine: string, moduleName?: string): this;
     /**
@@ -16846,3 +16891,107 @@ export declare abstract class RawInputEventWrapper {
 export declare type InputEventListener = (
   event: RawInputEventWrapper
 ) => InputEventInterceptResult;
+
+/**
+ * Defines the parameters of the edge light effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface EdgeLightParams {
+  /**
+   * The location of the edge light effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  position: EdgeLightPosition;
+
+  /**
+   * Projection length of the edge streamer along the flow direction.
+   * <br>Negative values are treated as 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  length: Length;
+
+  /**
+   * The luminous intensity of the Edge Streamer effect.
+   * <br>Valid range: [0.0, 1.0].Default value is 1.
+   * <br>Value 0.0 means the light effect is completely invisible.
+   * <br>Value 1.0 means the light effect is at maximum brightness.
+   * <br>Values exceeding 1.0 will be clamped to 1.0.
+   * <br>Negative values are treated as 0.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  intensity?: double;
+
+  /**
+   * The color of the light effect.
+   * <br>If not specified, the default color is white (#FFFFFF).
+   *
+   * @default #FFFFFF
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  color?: ResourceColor;
+
+  /**
+   * The thickness (width) of the light effect line.
+   * <br>Negative values are treated as 0.
+   * <br>If not specified, the default value is 0vp.
+   *
+   * @default 0vp
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  thickness?: Length;
+}
+
+/**
+ * Defines the parameters of the center of gravity.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface GravityCenterOptions {
+  /**
+   * Specifies whether the current component is the center of gravity.
+   * <br>Default value:false.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  gravityCenter?: boolean;
+
+  /**
+   * Defines the gravitational strength of the attraction/repulsion force at the gravitational center.
+   * <br>Default value:0.
+   * <br>Negative numbers are repulsion, positive numbers are attractionn.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  gravityIntensity?: double;
+}

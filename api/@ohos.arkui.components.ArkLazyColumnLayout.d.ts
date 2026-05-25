@@ -82,6 +82,47 @@ export declare class LazyColumnLayoutAttribute extends CommonMethod<LazyColumnLa
   alignItems(value: HorizontalAlign | undefined): LazyColumnLayoutAttribute;
 
   /**
+   * Sets the header of the lazy column layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The header builder function
+   *     <br>Passing undefined will remove the header.
+   * @returns { LazyColumnLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  header(builder: CustomBuilder | undefined): LazyColumnLayoutAttribute;
+
+  /**
+   * Sets the footer of the lazy column layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The footer builder function
+   *     <br>Passing undefined will remove the footer.
+   * @returns { LazyColumnLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  footer(builder: CustomBuilder | undefined): LazyColumnLayoutAttribute;
+
+  /**
+   * Sets sticky style for header and footer.
+   *
+   * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
+   * @returns { LazyColumnLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  sticky(sticky: StickyStyle | undefined): LazyColumnLayoutAttribute;
+
+  /**
    * Triggered when the index of child components in the visible area changes.
    *
    * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered

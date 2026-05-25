@@ -23,7 +23,7 @@
  * Represents boxed int value and related operations
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Int extends Integral implements Comparable<Int> {
@@ -32,7 +32,7 @@ class Int extends Integral implements Comparable<Int> {
    * Constructs a new Int instance with initial value zero
    *
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   constructor();
@@ -43,7 +43,7 @@ class Int extends Integral implements Comparable<Int> {
    * @param { int } value - the initial value
    *     <br>The value should be an integer.
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   constructor(value: int);
@@ -53,7 +53,7 @@ class Int extends Integral implements Comparable<Int> {
    *
    * @returns { int } the int value represented by this instance
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   toInt(): int;
@@ -65,7 +65,7 @@ class Int extends Integral implements Comparable<Int> {
    *     <br>The value should be an integer.
    * @returns { int } the same int value that was passed in
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static toInt(value: int): int;
@@ -76,7 +76,7 @@ class Int extends Integral implements Comparable<Int> {
    * @param { Any } other - the object to compare with
    * @returns { boolean } true if the specified object is equal to this object, false otherwise
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   equals(other: Any): boolean;
@@ -88,7 +88,7 @@ class Int extends Integral implements Comparable<Int> {
    *     <br>The value should be an integer.
    * @returns { string } the string representation of the int value
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static toString(v: int): string;
@@ -98,7 +98,7 @@ class Int extends Integral implements Comparable<Int> {
    *
    * @returns { string } the string representation of this Int object's value
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   toString(): string;

@@ -2734,7 +2734,7 @@ declare namespace media {
     event: AVMetricsEventType;
 	
     /**
-     * Absolute timestamp when the event occurred.
+     * Absolute timestamp when the event occurred, in ms.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 dynamic&static
@@ -2742,7 +2742,7 @@ declare namespace media {
     timeStamp: long;
 
     /**
-     * The playback progress position when the event occurs.
+     * The playback progress position when the event occurs, in ms.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 dynamic&static
@@ -3891,7 +3891,7 @@ declare namespace media {
      *     [availableBitrates]{@link media.AVPlayer.on(type: 'availableBitrates', callback: Callback<Array<int>>)}
      *     event. If the bitrate to set is not in the list of the available bitrates, the AVPlayer selects from the list
      *     the bitrate that is closed to the bitrate to set. If the length of the available bitrate list obtained
-     *     through the event is 0, no bitrate can be set and the **bitrateDone** callback will not be triggered.
+     *     through the event is 0, no bitrate can be set and the **bitrateDone** callback will not be triggered, in bit/s.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -4168,7 +4168,7 @@ declare namespace media {
      * @param { 'bitrateDone' } type - Event type, which is **'bitrateDone'** in this case. This event is triggered each
      *     time **setBitrate()** is called.
      * @param { Callback<int> } callback - Callback invoked when the event is triggered. It reports the effective
-     *     bitrate.
+     *     bitrate, in bit/s.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -4182,7 +4182,7 @@ declare namespace media {
      *     bitrate. If this parameter is specified, only the specified callback is unregistered. Otherwise, all
      *     callbacks associated with the **bitrateDone** event will be unregistered. [since 12 - 18]
      * @param { Callback<int> } [callback] - Callback invoked when the event is triggered. It reports the effective
-     *     bitrate. If this parameter is specified, only the specified callback is unregistered. Otherwise, all
+     *     bitrate, in bit/s. If this parameter is specified, only the specified callback is unregistered. Otherwise, all
      *     callbacks associated with the **bitrateDone** event will be unregistered. [since 19]
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice [since 19]
@@ -4384,7 +4384,7 @@ declare namespace media {
      * @param { function } callback - Callback invoked when the event is triggered. It returns an array that holds the
      *     available bitrates. If the array length is 0, no bitrate can be set. [since 9 - 11]
      * @param { Callback<Array<int>> } callback - Callback invoked when the event is triggered. It returns an array that
-     *     holds the available bitrates. If the array length is 0, no bitrate can be set. [since 12]
+     *     holds the available bitrates, in bit/s. If the array length is 0, no bitrate can be set. [since 12]
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -4398,7 +4398,7 @@ declare namespace media {
      *
      * @param { 'availableBitrates' } type - Event type, which is **'availableBitrates'** in this case.
      * @param { Callback<Array<int>> } callback - Callback invoked when the event is triggered. It returns an array that
-     *     holds the available bitrates. If the array length is 0, no bitrate can be set. If this parameter is specified
+     *     holds the available bitrates, in bit/s. If the array length is 0, no bitrate can be set. If this parameter is specified
      *     , only the specified callback is unregistered. Otherwise, all callbacks associated with the
      *     **availableBitrates** event will be unregistered. [since 12]
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -5615,7 +5615,7 @@ declare namespace media {
     BUFFERING_END = 2,
 
     /**
-     * Buffering percentage. You can use this event to monitor the buffering status.
+     * Buffering percentage. You can use this event to monitor the buffering status, in %.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform [since 12]
@@ -6155,7 +6155,7 @@ declare namespace media {
     enableSuperResolution?: boolean;
 
     /**
-     * set max buffering threshold for liveStreaming or avplayer while change the speed.
+     * set max buffering threshold for liveStreaming or avplayer while change the speed, in s.
      * It is recommended that the value be 2 seconds greater than the starting waterline.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
@@ -6249,7 +6249,7 @@ declare namespace media {
    */
   interface AVDataSrcDescriptor {
     /**
-     * Size of the file, -1 means the file size is unknown, in this case,
+     * Size of the file, -1 means the file size is unknown, in this case, in byte,
      * seek and setSpeed can't be executed, loop can't be set, and can't replay.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -6262,7 +6262,7 @@ declare namespace media {
     /**
      * Callback function implemented by users, which is used to fill data.
      * buffer - The buffer need to fill.
-     * length - The stream length player want to get.
+     * length - The stream length player want to get, in byte.
      * pos - The stream position player want get start, and is an optional parameter.
      * When fileSize set to -1, this parameter is not used.
      * Returns length of the data to be filled, Return -1 to indicate that the end of the stream is reached,
@@ -7022,7 +7022,7 @@ declare namespace media {
     setMetadata(metadata: Record<string, string>): void;
 
     /**
-     * Updates the video rotation angle. This API uses a promise to return the result.
+     * Updates the video rotation angle, in degrees. This API uses a promise to return the result.
      * 
      * This API can be called only after the [prepare()]{@link media.AVRecorder.prepare(config: AVRecorderConfig)} event
      * is triggered and before the [start()]{@link media.AVRecorder.start(callback: AsyncCallback<void>)} API is called.
@@ -9058,7 +9058,7 @@ declare namespace media {
      *
      * @param { 'videoSizeChanged' } type - Event type, which is **'videoSizeChanged'** in this case.
      * @param { function } callback - Callback invoked when the event is triggered. **width** indicates the video width,
-     *     and **height** indicates the video height.
+     *     and **height** indicates the video height, in px.
      * @syscap SystemCapability.Multimedia.Media.VideoPlayer
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -9801,7 +9801,7 @@ declare namespace media {
      */
     url: string;
     /**
-     * Sets the video rotation angle in output file, and for the file to playback. mp4 support.
+     * Sets the video rotation angle in output file, and for the file to playback, in degrees. mp4 support.
      * the range of rotation angle should be {0, 90, 180, 270}, default is 0.
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -10241,8 +10241,8 @@ declare namespace media {
      */
     fileGenerationMode?: FileGenerationMode;
     /**
-     * Rotation angle of the recorded video. The value can be 0 (default), 90, 180, or 270 for MP4 videos.<br>This API
-     * is supported since API version 6 and deprecated since API version 12. You are advised to use
+     * Rotation angle of the recorded video, in degrees. The value can be 0 (default), 90, 180, or 270 for MP4 videos.
+     * <br>This API is supported since API version 6 and deprecated since API version 12. You are advised to use.
      * **AVMetadata.videoOrientation** instead. If both parameters are set, **AVMetadata.videoOrientation** is used.
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder

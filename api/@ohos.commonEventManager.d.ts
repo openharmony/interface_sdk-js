@@ -1142,9 +1142,9 @@ declare namespace commonEventManager {
     COMMON_EVENT_WIFI_HOTSPOT_STATE = 'usual.event.wifi.HOTSPOT_STATE',
 
     /**
-     * Indicates that the client is disconnected from the Wi-Fi hotspot of the current device.
+     * Indicates that a client has joined the Wi-Fi hotspot of the current device.
      *
-     * When a client is disconnected from the Wi-Fi hotspot of the current device, the event notification service is 
+     * When a client joins the Wi-Fi hotspot of the current device, the event notification service is 
      * triggered to publish this event.
      *
      * To subscribe to this common event, your application must have the **ohos.permission.GET_WIFI_INFO** permission.
@@ -3203,6 +3203,9 @@ declare namespace commonEventManager {
 
     /**
      * Indicates that the lid state of a device (such as a laptop) has been changed.
+     * 
+     * When the lid state of a device has been changed, the event notification service is triggered to publish this
+     * event.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 23 dynamic&static

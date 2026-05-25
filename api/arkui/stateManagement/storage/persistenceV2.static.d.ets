@@ -35,6 +35,17 @@ import { ToJSONType, FromJSONType } from './persistentStorage';
 export declare type StorageDefaultCreator<T> = () => T;
 
 /**
+ * Map that contains Class and its default creator.
+ * The key is the Class type.
+ * The value is function that returns the default creator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare type StorageDefaultSubCreators = Map<Class, StorageDefaultCreator<object>>;
+
+/**
  * Define ConnectOptions class.
  *
  * @type ConnectOptions
@@ -112,6 +123,17 @@ export declare interface ConnectOptions<T extends object> {
    * @since 26.0.0 static
    */
   enableAutoSave?: boolean;
+
+  /**
+   * Map that contains Class and its default creator.
+   * It is used to restore inner object.
+   * The default value is undefined.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  defaultSubCreators?: StorageDefaultSubCreators;
 }
 
 /**

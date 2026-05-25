@@ -372,6 +372,16 @@ export declare interface ListItemAttribute extends CommonMethod {
      */
     default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
     /**
+     * Set ListItem options.
+     *
+     * @param { ListItemOptions } [value] - ListItem constructor options
+     * @returns { ListItemAttribute } Returns the instance of the ListItemAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setListItemOptions(value?: ListItemOptions): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -398,6 +408,23 @@ export declare function ListItem(
     value?: ListItemOptions, 
     content_?: CustomBuilder,
 ): ListItemAttribute
+
+/**
+ * Defines ListItem Component.
+ *
+ * @param { CustomBuilderT<ListItemAttribute> } style_ - The style to create a ListItem.
+ * @param { CustomBuilder } [content_]
+ * @returns { ListItemAttribute } The attribute of the ListItem.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ListItem(
+    style_: CustomBuilderT<ListItemAttribute>,
+    content_?: CustomBuilder
+): ListItemAttribute;
 
 /**
  * Defines the Extendable ListItem.
