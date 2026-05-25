@@ -31,6 +31,8 @@ import AutoFillRect from './AutoFillRect';
  * The module defines the view data used for auto-fill.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi [since 11 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static
@@ -40,6 +42,8 @@ export default interface ViewData {
    * Bundle name.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -72,6 +76,8 @@ export default interface ViewData {
    * URL of the page.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -82,6 +88,8 @@ export default interface ViewData {
    * Page node information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -92,6 +100,8 @@ export default interface ViewData {
    * Coordinates, width, and height of the page.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static

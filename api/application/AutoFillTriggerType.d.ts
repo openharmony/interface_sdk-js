@@ -22,6 +22,8 @@
  * This module specifies how the autofill service is triggered, based on different user gestures.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi [since 23 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static
@@ -32,6 +34,8 @@ export enum AutoFillTriggerType {
      * component gains focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -43,6 +47,8 @@ export enum AutoFillTriggerType {
      * selecting autofill.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
@@ -54,6 +60,8 @@ export enum AutoFillTriggerType {
      * secure copy, long-pressing any input component to bring up a secondary menu, and selecting paste.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static

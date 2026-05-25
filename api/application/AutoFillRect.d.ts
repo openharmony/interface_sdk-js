@@ -22,6 +22,8 @@
  * AutoFillRect describes the rectangle used for auto-fill.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi [since 12 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static
@@ -31,6 +33,8 @@ export default interface AutoFillRect {
    * Distance between the AutoFill form or page node and the left boundary of the page.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -41,6 +45,8 @@ export default interface AutoFillRect {
    * Distance between the AutoFill form or page node and the upper boundary of the page.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -51,6 +57,8 @@ export default interface AutoFillRect {
    * Width of the AutoFill form or page node.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -61,6 +69,8 @@ export default interface AutoFillRect {
    * Height of the AutoFill form or page node.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
