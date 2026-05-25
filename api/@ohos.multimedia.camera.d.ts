@@ -1804,7 +1804,7 @@ declare namespace camera {
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi [since 10 - 14]
-   * @publicapi [since 15 - 18]
+   * @publicapi [since 15]
    * @atomicservice [since 19]
    * @since 10 dynamic
    * @since 23 static
@@ -1815,7 +1815,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
-     * @publicapi [since 15 - 18]
+     * @publicapi [since 15]
      * @atomicservice [since 19]
      * @since 10 dynamic
      * @since 23 static
@@ -1827,7 +1827,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
-     * @publicapi [since 15 - 18]
+     * @publicapi [since 15]
      * @atomicservice [since 19]
      * @since 10 dynamic
      * @since 23 static
@@ -1839,7 +1839,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
-     * @publicapi [since 15 - 18]
+     * @publicapi [since 15]
      * @atomicservice [since 19]
      * @since 10 dynamic
      * @since 23 static
@@ -1901,7 +1901,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
-     * @publicapi [since 15 - 18]
+     * @publicapi [since 15]
      * @atomicservice [since 19]
      * @since 10 dynamic
      * @since 23 static
@@ -1913,7 +1913,7 @@ declare namespace camera {
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 10 - 14]
-     * @publicapi [since 15 - 18]
+     * @publicapi [since 15]
      * @atomicservice [since 19]
      * @since 10 dynamic
      * @since 23 static
@@ -14295,7 +14295,7 @@ declare namespace camera {
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 14]
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 14]
-     * @publicapi [since 15 - 18]
+     * @publicapi [since 15]
      * @atomicservice [since 19]
      * @since 12 dynamic
      * @since 23 static
@@ -14317,7 +14317,7 @@ declare namespace camera {
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi [since 12 - 14]
-     * @publicapi [since 15 - 18]
+     * @publicapi [since 15]
      * @atomicservice [since 19]
      * @since 12 dynamic
      * @since 23 static
