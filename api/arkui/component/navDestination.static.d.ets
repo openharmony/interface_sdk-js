@@ -388,7 +388,7 @@ export declare interface NavDestinationContext {
      * @type { ?NavDestinationMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     mode?: NavDestinationMode;
 
