@@ -6155,12 +6155,12 @@ declare namespace photoAccessHelper {
      * Obtains image and video assets. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options -Retrievel options.
-     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback function. if files from the album are
+     * @param { FetchOptions } options - Retrieval options.
+     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback function. If files from the album are
      *     obtained successfully, **err** is **undefined**, and **data** is the result set of the obtained image and
-     *     video data ([FetchResult]{@link @ohos.file.photoAccessHelper:PhotoAccessHelper}). Otherwise, **err** is an
+     *     video data ([FetchResult]{@link @ohos.file.photoAccessHelper:photoAccessHelper}). Otherwise, **err** is an
      *     error object.
-     * @throws { BusinessError } 201 - Permission denied [since 12];
+     * @throws { BusinessError } 201 - Permission denied [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 
