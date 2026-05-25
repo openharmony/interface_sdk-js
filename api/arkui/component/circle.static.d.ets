@@ -18,7 +18,7 @@
  */
 import { CommonShapeMethod, CommonMethod, AttributeModifier } from "./common";
 import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
-import { Length } from './units';
+import { Length, ColorMetrics, ResourceColor } from './units';
 
 /**
  * Defines circle options for Circle component.
@@ -69,6 +69,34 @@ export declare interface CircleAttribute extends CommonShapeMethod {
      * @since 26.0.0 staticonly
      */
     default setCircleOptions(options?: CircleOptions): this;
+
+    /*
+     * Sets the stroke color.
+     * If this attribute is not set, the component does not have any stroke.
+     * If the value is invalid, no stroke will be drawn.
+     *
+     * @param { ResourceColor | ColorMetrics | undefined } value - Stroke color.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default stroke(value: ResourceColor | ColorMetrics | undefined): this;
+
+    /**
+     * Sets the color of the fill area.
+     * An invalid value is handled as the default value.
+     * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
+     *
+     * @param { ResourceColor | ColorMetrics | undefined } value - Color of the fill area.
+     *     Default value: Color.Black.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fill(value: ResourceColor | ColorMetrics | undefined): this;
+    
     /**
      * Call attributeModifier.
      *
