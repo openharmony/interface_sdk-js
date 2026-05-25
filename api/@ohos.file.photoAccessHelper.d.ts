@@ -11212,7 +11212,7 @@ declare namespace photoAccessHelper {
      * > [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
      * > . For details, see 
      * > [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
-     * 
+     *
      * @param { PhotoSelectOptions } [option] - Options for selecting files. If this parameter is not specified, up to 5
      *     0 images and videos are selected by default.
      * @returns { Promise<PhotoSelectResult> } Promise used to return information about the images or videos selected.
