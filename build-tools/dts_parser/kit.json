@@ -345,6 +345,7 @@
     { "filePath": "@ohos.bluetooth.pan.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetooth.pbap.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetooth.socket.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
+    { "filePath": "@ohos.bluetooth.bas.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetooth.wearDetection.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetoothManager.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.brightness.d.ts", "kitName": "BasicServicesKit", "subSystem": "电源服务" },
