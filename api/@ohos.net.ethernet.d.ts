@@ -261,6 +261,51 @@ declare namespace ethernet {
   function getEthernetDeviceInfos(): Promise<Array<EthernetDeviceInfos>>;
 
   /**
+   * Enable the ethernet interface.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<void> } The promise returned when the ethernet interface is enabled.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function enableEthernetInterface(): Promise<void>;
+
+  /**
+   * Disable the ethernet interface.
+   * @permission ohos.permission.CONNECTIVITY_INTERNAL
+   * @returns { Promise<void> } The promise returned when the ethernet interface is disabled.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2200002 - Failed to connect to the service.
+   * @throws { BusinessError } 2200003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function disableEthernetInterface(): Promise<void>;
+
+  /**
+   * Check whether the global ethernet switch is enabled.
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @returns { boolean } True if ethernet is globally enabled.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 2200003 - Internal error.
+   * @syscap SystemCapability.Communication.NetManager.Ethernet
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isEthernetEnabled(): boolean;
+
+  /**
    * Defines the network configuration for the Ethernet connection.
    * @interface InterfaceConfiguration
    * @syscap SystemCapability.Communication.NetManager.Ethernet
