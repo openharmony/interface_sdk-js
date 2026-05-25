@@ -31,11 +31,11 @@ import rdb from '../@ohos.data.rdb';
 /*** endif */
 
 /**
- * A DataAbilityHelper object is obtained through 
+ * A DataAbilityHelper object is obtained through
  * [acquireDataAbilityHelper]{@link ./../@ohos.ability.featureAbility:featureAbility.acquireDataAbilityHelper}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @FAModelOnly
+ * @famodelonly
  * @since 7 dynamiconly
  */
 export interface DataAbilityHelper {
@@ -43,11 +43,11 @@ export interface DataAbilityHelper {
    * Opens a file with a specified URI. This API uses an asynchronous callback to return the result.
    *
    * @param { string } uri - URI of the file to open.
-   * @param { string } mode - Mode for opening the file. The value r indicates read-only access, w indicates write-only 
+   * @param { string } mode - Mode for opening the file. The value r indicates read-only access, w indicates write-only
    *      access, and rw indicates read-write access.
    * @param { AsyncCallback<number> } callback - Callback used to return the file descriptor.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   openFile(uri: string, mode: string, callback: AsyncCallback<number>): void;
@@ -56,11 +56,11 @@ export interface DataAbilityHelper {
    * Opens a file with a specified URI. This API uses a promise to return the result.
    *
    * @param { string } uri - URI of the file to open.
-   * @param { string } mode - Mode for opening the file. The value r indicates read-only access, w indicates write-only 
+   * @param { string } mode - Mode for opening the file. The value r indicates read-only access, w indicates write-only
    *     access, and rw indicates read-write access.
    * @returns { Promise<number> } Promise used to return the file descriptor.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   openFile(uri: string, mode: string): Promise<number>;
@@ -71,10 +71,10 @@ export interface DataAbilityHelper {
    *
    * @param { 'dataChange' } type - The value 'dataChange' means data changes.
    * @param { string } uri - URI of the data.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the observer is registered, err 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the observer is registered, err
    *     is undefined. Otherwise, err is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   on(type: 'dataChange', uri: string, callback: AsyncCallback<void>): void;
@@ -85,10 +85,10 @@ export interface DataAbilityHelper {
    *
    * @param { 'dataChange' } type - The value 'dataChange' means data changes.
    * @param { string } uri - URI of the data.
-   * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If the observer is deregistered, 
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If the observer is deregistered,
    *     err is undefined. Otherwise, err is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   off(type: 'dataChange', uri: string, callback?: AsyncCallback<void>): void;
@@ -100,7 +100,7 @@ export interface DataAbilityHelper {
    * @param { string } uri - URI of the data.
    * @param { AsyncCallback<string> } callback - Callback used to return the media resource type.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   getType(uri: string, callback: AsyncCallback<string>): void;
@@ -112,7 +112,7 @@ export interface DataAbilityHelper {
    * @param { string } uri - URI of the data.
    * @returns { Promise<string> } Promise used to return the media resource type.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   getType(uri: string): Promise<string>;
@@ -123,10 +123,10 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri - URI of the file.
    * @param { string } mimeTypeFilter - Media resource type of the file to obtain.
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return an array holding the media resource 
+   * @param { AsyncCallback<Array<string>> } callback - Callback used to return an array holding the media resource
    *     types.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   getFileTypes(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array<string>>): void;
@@ -138,7 +138,7 @@ export interface DataAbilityHelper {
    * @param { string } mimeTypeFilter - Media resource type of the file to obtain.
    * @returns { Promise<Array<string>> } Promise used to return an array holding the media resource types.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   getFileTypes(uri: string, mimeTypeFilter: string): Promise<Array<string>>;
@@ -148,10 +148,10 @@ export interface DataAbilityHelper {
    * This API uses an asynchronous callback to return the result.
    *
    * @param { string } uri - URI object to normalize.
-   * @param { AsyncCallback<string> } callback - Callback used to return the normalized URI object if the DataAbility 
+   * @param { AsyncCallback<string> } callback - Callback used to return the normalized URI object if the DataAbility
    *      supports URI normalization. If the DataAbility does not support URI normalization, null is returned.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   normalizeUri(uri: string, callback: AsyncCallback<string>): void;
@@ -161,10 +161,10 @@ export interface DataAbilityHelper {
    * This API uses an asynchronous callback to return the result.
    *
    * @param { string } uri - URI object to denormalize.
-   * @returns { Promise<string> } Promise used to return the normalized URI object if the DataAbility supports URI 
+   * @returns { Promise<string> } Promise used to return the normalized URI object if the DataAbility supports URI
    *     normalization. If the DataAbility does not support URI normalization, null is returned.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   normalizeUri(uri: string): Promise<string>;
@@ -176,7 +176,7 @@ export interface DataAbilityHelper {
    * @param { string } uri - URI object to denormalize.
    * @param { AsyncCallback<string> } callback - 	Callback used to return the denormalized URI object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   denormalizeUri(uri: string, callback: AsyncCallback<string>): void;
@@ -188,7 +188,7 @@ export interface DataAbilityHelper {
    * @param { string } uri - URI object to normalize.
    * @returns { Promise<string> } Promise used to return the denormalized URI object
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   denormalizeUri(uri: string): Promise<string>;
@@ -198,10 +198,10 @@ export interface DataAbilityHelper {
    * This API uses an asynchronous callback to return the result.
    *
    * @param { string } uri - URI of the data that changes.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the observer is registered, err 
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the observer is registered, err
    *     is undefined. Otherwise, err is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   notifyChange(uri: string, callback: AsyncCallback<void>): void;
@@ -213,7 +213,7 @@ export interface DataAbilityHelper {
    * @param { string } uri - URI of the data that changes.
    * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   notifyChange(uri: string): Promise<void>;
@@ -225,7 +225,7 @@ export interface DataAbilityHelper {
    * @param { rdb.ValuesBucket } valuesBucket - Data record to insert. If this parameter is null, a blank row will be inserted.
    * @param { AsyncCallback<number> } callback - Callback used to return the index of the inserted data record.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   insert(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
@@ -234,11 +234,11 @@ export interface DataAbilityHelper {
    * Inserts a single data record into the database. This API uses a promise to return the result.
    *
    * @param { string } uri - URI of the data to insert.
-   * @param { rdb.ValuesBucket } valuesBucket - Data record to insert. If this parameter is null, a blank row will 
+   * @param { rdb.ValuesBucket } valuesBucket - Data record to insert. If this parameter is null, a blank row will
    *     be inserted.
    * @returns { Promise<number> } Promise used to return the index of the inserted data record.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   insert(uri: string, valuesBucket: rdb.ValuesBucket): Promise<number>;
@@ -251,7 +251,7 @@ export interface DataAbilityHelper {
    * @param { Array<rdb.ValuesBucket> } valuesBuckets - Data records to insert.
    * @param { AsyncCallback<number> } callback - Callback used to return the number of inserted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void;
@@ -263,7 +263,7 @@ export interface DataAbilityHelper {
    * @param { Array<rdb.ValuesBucket> } valuesBuckets - Data records to insert.
    * @returns { Promise<number> } Promise used to return the number of inserted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>): Promise<number>;
@@ -272,11 +272,11 @@ export interface DataAbilityHelper {
    * Deletes one or more data records from the database. This API uses an asynchronous callback to return the result.
    *
    * @param { string } uri - URI of the data to delete.
-   * @param { dataAbility.DataAbilityPredicates } predicates - 	Filter criteria. You should define the processing logic 
+   * @param { dataAbility.DataAbilityPredicates } predicates - 	Filter criteria. You should define the processing logic
    *     when this parameter is null.
    * @param { AsyncCallback<number> } callback - Callback used to return the number of deleted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void;
@@ -285,11 +285,11 @@ export interface DataAbilityHelper {
    * Deletes one or more data records from the database. This API uses a promise to return the result.
    *
    * @param { string } uri - URI of the data to delete.
-   * @param { dataAbility.DataAbilityPredicates } [predicates] - Filter criteria. You should define the processing 
+   * @param { dataAbility.DataAbilityPredicates } [predicates] - Filter criteria. You should define the processing
    *     logic when this parameter is null.
    * @returns { Promise<number> } Returns the number of data records deleted.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   delete(uri: string, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -301,7 +301,7 @@ export interface DataAbilityHelper {
    * @param { string } uri - URI of the data to delete.
    * @param { AsyncCallback<number> } callback - Callback used to return the number of deleted data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   delete(uri: string, callback: AsyncCallback<number>): void;
@@ -312,11 +312,11 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri - URI of the data to update.
    * @param { rdb.ValuesBucket } valuesBucket - New values.
-   * @param { dataAbility.DataAbilityPredicates } predicates - Filter criteria. You should define the processing logic 
+   * @param { dataAbility.DataAbilityPredicates } predicates - Filter criteria. You should define the processing logic
    *     when this parameter is null.
    * @param { AsyncCallback<number> } callback - Callback used to return the number of updated data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   update(
@@ -331,11 +331,11 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri - URI of the data to update.
    * @param { rdb.ValuesBucket } valuesBucket - New values.
-   * @param { dataAbility.DataAbilityPredicates } [predicates] - Filter criteria. You should define the processing 
+   * @param { dataAbility.DataAbilityPredicates } [predicates] - Filter criteria. You should define the processing
    *     logic when this parameter is null.
    * @returns { Promise<number> } Promise used to return the number of updated data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   update(uri: string, valuesBucket: rdb.ValuesBucket, predicates?: dataAbility.DataAbilityPredicates): Promise<number>;
@@ -348,7 +348,7 @@ export interface DataAbilityHelper {
    * @param { rdb.ValuesBucket } valuesBucket - New values.
    * @param { AsyncCallback<number> } callback - Callback used to return the number of updated data records.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   update(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void;
@@ -358,11 +358,11 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri - URI of the data to query.
    * @param { Array<string> } columns - Columns to query. If this parameter is null, all columns will be queried.
-   * @param { dataAbility.DataAbilityPredicates } predicates - Filter criteria. When null is passed in, you need to 
+   * @param { dataAbility.DataAbilityPredicates } predicates - Filter criteria. When null is passed in, you need to
    *     customize the logic for querying data in the database.
    * @param { AsyncCallback<ResultSet> } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   query(
@@ -378,7 +378,7 @@ export interface DataAbilityHelper {
    * @param { string } uri - URI of the data to query.
    * @param { AsyncCallback<ResultSet> } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   query(uri: string, callback: AsyncCallback<ResultSet>): void;
@@ -390,7 +390,7 @@ export interface DataAbilityHelper {
    * @param { Array<string> } columns - Columns to query. If this parameter is null, all columns will be queried.
    * @param { AsyncCallback<ResultSet> } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   query(uri: string, columns: Array<string>, callback: AsyncCallback<ResultSet>): void;
@@ -399,11 +399,11 @@ export interface DataAbilityHelper {
    * Queries data in the database. This API uses an asynchronous callback to return the result.
    *
    * @param { string } uri - URI of the data to query.
-   * @param { dataAbility.DataAbilityPredicates } predicates - Filter criteria. When null is passed in, you need to 
+   * @param { dataAbility.DataAbilityPredicates } predicates - Filter criteria. When null is passed in, you need to
    *     customize the logic for querying data in the database.
    * @param { AsyncCallback<ResultSet> } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   query(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<ResultSet>): void;
@@ -413,11 +413,11 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri - URI of the data to query.
    * @param { Array<string> } [columns] - Columns to query. If this parameter is null, all columns will be queried.
-   * @param { dataAbility.DataAbilityPredicates } [predicates] - 	Filter criteria. When null is passed in, you need to 
+   * @param { dataAbility.DataAbilityPredicates } [predicates] - 	Filter criteria. When null is passed in, you need to
    *     customize the logic for querying data in the database.
    * @returns { Promise<ResultSet> } Returns the query result {@link ResultSet}.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   query(uri: string, columns?: Array<string>, predicates?: dataAbility.DataAbilityPredicates): Promise<ResultSet>;
@@ -429,10 +429,10 @@ export interface DataAbilityHelper {
    * @param { string } method - Name of the API to call.
    * @param { string } arg - Parameter to pass in.
    * @param { PacMap } extras - Key-value pair parameter.
-   * @param { AsyncCallback<PacMap> } callback - Callback used to return the extended parameters in the format of 
+   * @param { AsyncCallback<PacMap> } callback - Callback used to return the extended parameters in the format of
    *     key-value pairs.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   call(uri: string, method: string, arg: string, extras: PacMap, callback: AsyncCallback<PacMap>): void;
@@ -446,7 +446,7 @@ export interface DataAbilityHelper {
    * @param { PacMap } extras - Key-value pair parameter.
    * @returns { Promise<PacMap> } Promise used to return the extended parameters in the format of key-value pairs.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   call(uri: string, method: string, arg: string, extras: PacMap): Promise<PacMap>;
@@ -456,10 +456,10 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri - URI of the DataAbility. Example: 'dataability:///com.example.xxx.xxxx'.
    * @param { Array<DataAbilityOperation> } operations - An array holding the data operations on the database.
-   * @param { AsyncCallback<Array<DataAbilityResult>> } callback - Callback used to return the result of each operation 
+   * @param { AsyncCallback<Array<DataAbilityResult>> } callback - Callback used to return the result of each operation
    *     in the DataAbilityResult array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   executeBatch(
@@ -473,10 +473,10 @@ export interface DataAbilityHelper {
    *
    * @param { string } uri - URI of the DataAbility. Example: 'dataability:///com.example.xxx.xxxx'.
    * @param { Array<DataAbilityOperation> } operations - An array holding the data operations on the database.
-   * @returns { Promise<Array<DataAbilityResult>> } Promise used to return the result of each operation in the 
+   * @returns { Promise<Array<DataAbilityResult>> } Promise used to return the result of each operation in the
    *     DataAbilityResult array.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   executeBatch(uri: string, operations: Array<DataAbilityOperation>): Promise<Array<DataAbilityResult>>;
@@ -486,7 +486,7 @@ export interface DataAbilityHelper {
  * Defines the PacMap type used for data storage.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @FAModelOnly [since 7 - 10]
+ * @famodelonly [since 7 - 10]
  * @since 7 dynamic
  */
 export interface PacMap {
@@ -497,13 +497,13 @@ export interface PacMap {
    * If the PacMap object is to be transferred to a non-OHOS process,
    * values of primitive types are supported, but not custom Sequenceable objects.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @unionmember { number }
    * @unionmember { string }
    * @unionmember { boolean }
    * @unionmember { Array<string | number | boolean> }
    * @unionmember { null }
-   * @FAModelOnly [since 7 - 10]
+   * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+   * @famodelonly [since 7 - 10]
    * @since 7 dynamic
    */
   [key: string]: number | string | boolean | Array<string | number | boolean> | null;

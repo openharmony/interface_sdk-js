@@ -142,6 +142,7 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.AppFileService",
+    "SystemCapability.FileManagement.AppFileService.FolderAuthorization",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.PhotoAccessHelper.Core",
@@ -228,7 +229,6 @@
     "SystemCapability.Ability.AppExtension.PhotoEditorExtension",
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
-    "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.Communication.FusionConnectivity.Core"
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

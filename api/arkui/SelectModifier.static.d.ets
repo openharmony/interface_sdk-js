@@ -26,6 +26,7 @@ import { SelectAttribute } from '@ohos.arkui.component';
  *
  * @implements { SelectAttribute, AttributeModifier<SelectAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class SelectModifier implements SelectAttribute, AttributeModifier<SelectAttribute> {}

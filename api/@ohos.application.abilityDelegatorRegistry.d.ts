@@ -18,15 +18,15 @@
  * @kit API10LessDeprecatedModules
  */
 
-import { AbilityDelegator } from './application/AbilityDelegator';
-import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs';
-import { AbilityMonitor } from './application/AbilityMonitor';
+import { AbilityDelegator } from './application/AbilityDelegator'; 
+import { AbilityDelegatorArgs } from './application/abilityDelegatorArgs'; 
+import { AbilityMonitor } from './application/AbilityMonitor'; 
 import { ShellCmdResult } from './application/shellCmdResult';
 
 /**
- * The **AbilityDelegatorRegistry** module provides APIs for storing global registers of the registered 
- * [AbilityDelegator]{@link ./application/AbilityDelegator:AbilityDelegator} and 
- * [AbilityDelegatorArgs]{@link ./application/abilityDelegatorArgs:AbilityDelegatorArgs} objects, including obtaining 
+ * The **AbilityDelegatorRegistry** module provides APIs for storing global registers of the registered
+ * [AbilityDelegator]{@link ./application/AbilityDelegator:AbilityDelegator} and
+ * [AbilityDelegatorArgs]{@link ./application/abilityDelegatorArgs:AbilityDelegatorArgs} objects, including obtaining
  * the **AbilityDelegator** and **AbilityDelegatorArgs** objects. The APIs can be used only in the test framework.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -77,7 +77,7 @@ declare namespace abilityDelegatorRegistry {
      * @deprecated since 9
      * @useinstead @ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry.AbilityLifecycleState.UNINITIALIZED
      */
-    UNINITIALIZED,
+    UNINITIALIZED = 0,
 
     /**
      * The ability is created.
@@ -87,7 +87,7 @@ declare namespace abilityDelegatorRegistry {
      * @deprecated since 9
      * @useinstead @ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry.AbilityLifecycleState.CREATE
      */
-    CREATE,
+    CREATE = 1,
 
     /**
      * The ability is running in the foreground.
@@ -97,7 +97,7 @@ declare namespace abilityDelegatorRegistry {
      * @deprecated since 9
      * @useinstead @ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry.AbilityLifecycleState.FOREGROUND
      */
-    FOREGROUND,
+    FOREGROUND = 2,
 
     /**
      * The ability is running in the background.
@@ -107,7 +107,7 @@ declare namespace abilityDelegatorRegistry {
      * @deprecated since 9
      * @useinstead @ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry.AbilityLifecycleState.BACKGROUND
      */
-    BACKGROUND,
+    BACKGROUND = 3,
 
     /**
      * The ability is destroyed.
@@ -117,7 +117,7 @@ declare namespace abilityDelegatorRegistry {
      * @deprecated since 9
      * @useinstead @ohos.app.ability.abilityDelegatorRegistry:abilityDelegatorRegistry.AbilityLifecycleState.DESTROY
      */
-    DESTROY
+    DESTROY = 4
   }
 }
 

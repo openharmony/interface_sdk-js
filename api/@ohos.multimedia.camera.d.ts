@@ -2698,10 +2698,12 @@ declare namespace camera {
     CAMERA_FORMAT_DEPTH_32 = 3001,
 
     /**
-     * Image in extreme digital format.
+     * Enhanced DNG image format.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 18 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -4022,6 +4024,18 @@ declare namespace camera {
      * @since 23 static
      */
     getWhiteBalanceRange(): Array<int>;
+ 
+    /**
+     * Query the color tint range.
+     *
+     * @returns { Array<int> } The array of color tint range.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getColorTintRange(): Array<number>;
   }
 
   /**
@@ -4103,6 +4117,30 @@ declare namespace camera {
      * @since 23 static
      */
     setWhiteBalance(whiteBalance: int): void;
+ 
+    /**
+     * Sets color tint.
+     *
+     * @param { int } colorTint - Color tint.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setColorTint(colorTint: number): void;
+ 
+    /**
+     * Gets current color tint.
+     *
+     * @returns { int } The current color tint.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    getColorTint(): number;
   }
 
   /**
@@ -5033,7 +5071,17 @@ declare namespace camera {
      * @atomicservice
      * @since 24 dynamic&static
      */
-    AUTO_FRAMING = 2
+    AUTO_FRAMING = 2,
+
+    /**
+     * Color effect.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    COLOR_EFFECT = 3
   }
 
   /**
@@ -6823,14 +6871,16 @@ declare namespace camera {
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement, AutoDeviceSwitch,
    *     Macro [since 20 - 23]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement, AutoDeviceSwitch,
-   *     Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 24]
+   *     Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 24 - 24]
+   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement, AutoDeviceSwitch,
+   *     Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture, Notification [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
    * @since 11 dynamic
    * @since 23 static
    */
   interface PhotoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, ColorManagement,
-      AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture {
+      AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture, Notification {
     /**
      * Checks whether this session supports a preconfigured resolution.
      *
@@ -7447,16 +7497,20 @@ declare namespace camera {
    *
    * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement [since 11 - 12]
    * @extends AutoDeviceSwitch [since 13 - 18]
-   * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement, AutoDeviceSwitch, Macro [since 19 - 19]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, Stabilization, ColorManagement,
+   *     AutoDeviceSwitch, Macro [since 19 - 19]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
-   *     AutoDeviceSwitch, Macro [since 20]
+   *     AutoDeviceSwitch, Macro [since 20 - 24]
+   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter, AutoDeviceSwitch, Macro,
+   *     ManualExposure, ManualFocus, ManualIso, OIS, Aperture, Notification [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
    * @since 11 dynamic
    * @since 23 static
    */
   interface VideoSession extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization,
-      ColorManagement, ControlCenter, AutoDeviceSwitch, Macro {
+    ColorManagement, ControlCenter, AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS,
+    Aperture, Notification {
     /**
      * Checks whether this session supports a preconfigured resolution.
      *
@@ -8117,6 +8171,31 @@ declare namespace camera {
      * @since 23 static
      */
     offIsoInfoChange(callback?: Callback<IsoInfo>): void;
+
+    /**
+     * Subscribes exposure info change event callback.
+     *     After exposure parameters are changed, the system will returns the updated exposure infos.
+     *
+     * @param { Callback<ExposureInfo> } callback - Callback used to get the exposure value change
+     *     Exposure information callback listening.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onExposureInfoChange(callback: Callback<ExposureInfo>): void;
+
+    /**
+     * Unsubscribes exposure info change event callback. Invoke this method after finishing camera operations.
+     *
+     * @param { Callback<ExposureInfo> } [callback] - Callback used to get the exposure value change.
+     *     Callback listening for canceling exposure information.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
   }
 
   /**
@@ -10537,13 +10616,17 @@ declare namespace camera {
    *
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 13]
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion [since 14 - 17]
-   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion, ColorManagement [since 18]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion,
+   *     ColorManagement [since 18 - 24]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion,
+   *     ColorManagement, Notification [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
    * @since 23 static
    */
-  interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, DepthFusion, ColorManagement {
+  interface MacroPhotoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus,
+      DepthFusion, ColorManagement, Notification {
     /**
      * Subscribes to HighResolutionPhotoSession error events. This API uses an asynchronous callback to return the
      * result.
@@ -10709,13 +10792,16 @@ declare namespace camera {
    * instances required to run the camera. It inherits from [Session]{@link camera.Session}.
    *
    * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus [since 12 - 17]
-   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement [since 18]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement [since 18 - 24]
+   * @extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus,
+   *     ColorManagement, Notification [since 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 12 dynamic
    * @since 23 static
    */
-  interface MacroVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect, ManualFocus, ColorManagement {
+  interface MacroVideoSession extends Session, Flash, AutoExposure, Focus, Zoom, ColorEffect,
+      ManualFocus, ColorManagement, Notification {
     /**
      * Subscribes to HighResolutionPhotoSession error events. This API uses an asynchronous callback to return the
      * result.
@@ -14672,7 +14758,9 @@ declare namespace camera {
      * Metadata object used for cat face detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14682,7 +14770,9 @@ declare namespace camera {
      * Metadata object used for cat body detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14692,7 +14782,9 @@ declare namespace camera {
      * Metadata object used for dog face detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14702,7 +14794,9 @@ declare namespace camera {
      * Metadata object used for dog body detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14712,7 +14806,9 @@ declare namespace camera {
      * Metadata object used for salient detection.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14722,7 +14818,9 @@ declare namespace camera {
      * Barcode detection type.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14732,10 +14830,22 @@ declare namespace camera {
      * Basic face detection type.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     BASIC_FACE_DETECTION = 8,
+  
+    /**
+     * Text detection type.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    TEXT_DETECTION = 9
   }
 
   /**
@@ -14849,7 +14959,9 @@ declare namespace camera {
    * Enumerates the types of emotions in the detected human face information.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -14858,7 +14970,9 @@ declare namespace camera {
      * Quiet and calm.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14868,7 +14982,9 @@ declare namespace camera {
      * Sad.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14878,7 +14994,9 @@ declare namespace camera {
      * Smile.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14888,7 +15006,9 @@ declare namespace camera {
      * Surprise.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -14961,7 +15081,9 @@ declare namespace camera {
    * Metadata object for basic face.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic&static
    */
   interface MetadataBasicFaceObject extends MetadataObject {
@@ -14969,7 +15091,9 @@ declare namespace camera {
      * Bounding box for left eye.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly leftEyeBoundingBox?: Rect;
@@ -14978,7 +15102,9 @@ declare namespace camera {
      * Bounding box for right eye.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly rightEyeBoundingBox?: Rect;
@@ -14987,7 +15113,9 @@ declare namespace camera {
      * Pitch angle for face.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly pitchAngle?: int;
@@ -14996,7 +15124,9 @@ declare namespace camera {
      * Yaw angle for face.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly yawAngle?: int;
@@ -15005,7 +15135,9 @@ declare namespace camera {
      * Roll angle for face.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 23 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 23 dynamic&static
      */
     readonly rollAngle?: int;
@@ -15018,7 +15150,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15027,7 +15161,9 @@ declare namespace camera {
      * Left eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15037,7 +15173,9 @@ declare namespace camera {
      * Right eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15047,7 +15185,9 @@ declare namespace camera {
      * Detected emotion.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15057,7 +15197,9 @@ declare namespace camera {
      * Confidence of the emotion detection, with a value range of [0, 1].
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15067,7 +15209,9 @@ declare namespace camera {
      * Pitch angle, with a value range of [-90, 90], where downward is positive.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15077,7 +15221,9 @@ declare namespace camera {
      * Yaw angle, with a value range of [-90, 90], where rightward is positive.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15087,7 +15233,9 @@ declare namespace camera {
      * Row angle, with a value range of [-180, 180], where clockwise direction is positive.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15101,7 +15249,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15115,7 +15265,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15124,7 +15276,9 @@ declare namespace camera {
      * Left eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15134,7 +15288,9 @@ declare namespace camera {
      * Right eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15148,7 +15304,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15162,7 +15320,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15171,7 +15331,9 @@ declare namespace camera {
      * Left eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15181,7 +15343,9 @@ declare namespace camera {
      * Right eye area.
      *
      * @syscap SystemCapability.Multimedia.Camera.Core
-     * @systemapi
+     * @systemapi [since 13 - 24]
+     * @publicapi [since 26.0.0]
+     * @atomicservice [since 26.0.0]
      * @since 13 dynamic
      * @since 23 static
      */
@@ -15195,7 +15359,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15209,7 +15375,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 13 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 13 dynamic
    * @since 23 static
    */
@@ -15223,7 +15391,9 @@ declare namespace camera {
    * [on('metadataObjectsAvailable')]{@link camera.MetadataOutput.on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>)}.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
-   * @systemapi
+   * @systemapi [since 14 - 24]
+   * @publicapi [since 26.0.0]
+   * @atomicservice [since 26.0.0]
    * @since 14 dynamic
    * @since 23 static
    */
@@ -15467,6 +15637,42 @@ declare namespace camera {
      * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
+
+    /**
+     * Confirm if lock metadata object tracking supported.
+     *
+     * @returns { boolean } TRUE if the lock metadata object tracking is supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isLockMetadataObjectTrackingSupported(): boolean;
+
+    /**
+     * Lock metadata object tracking.
+     *
+     * @param { Point } point - lock metadata object tracking point.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    lockMetadataObjectTracking(point: Point): void;
+
+    /**
+     * Unlock metadata object tracking.
+     *
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    unlockMetadataObjectTracking(): void;
   }
 
   /**
@@ -16033,13 +16239,16 @@ declare namespace camera {
 
   /**
    * Control center session object.
+   * 
+   * @extends Beauty, Aperture [since 20 - 24]
+   * @extends Beauty, Aperture, ColorEffect [since 26.0.0]
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 20 dynamic
    * @since 23 static
    */
-  interface ControlCenterSession extends Beauty, Aperture {
+  interface ControlCenterSession extends Beauty, Aperture, ColorEffect {
     /**
      * Release control center session object.
      *
@@ -16919,7 +17128,7 @@ declare namespace camera {
    * @atomicservice
    * @since 24 dynamic&static
    */
-  interface OIS extends OISQuery {  
+  interface OIS extends OISQuery {
     /**
      * Sets the OIS mode.
      *
@@ -16946,7 +17155,132 @@ declare namespace camera {
      * @since 24 dynamic&static
      */
     setOISModeCustom(pitch: double, yaw: double): void;
-  }  
+  }
+
+  /**
+   * Enumerates the notification names.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum NotificationName {
+    /**
+     * Defocus from proximity.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    DEFOCUS_FROM_PROXIMITY = 0
+  }
+
+  /**
+   * Provides APIs for managing notifications.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface Notification {
+    /**
+     * Registers a callback to receive notifications.
+     *
+     * @param { Callback<NotificationInfo> } callback - Callback for receiving notifications.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    onNotificationReceive(callback: Callback<NotificationInfo>): void;
+
+    /**
+     * Unregisters the callback for receiving notifications.
+     *
+     * @param { Callback<NotificationInfo> } [callback] - Callback to unregister.
+     *     If this parameter is not specified, all callbacks are unregistered.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    offNotificationReceive(callback?: Callback<NotificationInfo>): void;
+  }
+
+  /**
+   * Enumer proximity states for focus.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum ProximityStateForFocus {
+    /**
+     * The device is within a reasonable range, and no raising action is required.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    IN_RANGE_RAISE_NONE = 0,
+
+    /**
+     * The device is out of the reasonable range, and the device needs to be raised.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    OUT_OF_RANGE_RAISE_REQUIRED = 1
+  }
+
+  /**
+   * Describes defocus notification information caused by close proximity.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  interface DefocusFromProximityNotificationInfo {
+    /**
+     * Notification name.
+     * This value is {@link NotificationName.DEFOCUS_FROM_PROXIMITY}.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readonly name: NotificationName;
+
+    /**
+     * Notification value.
+     * Indicates the proximity state for focus.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    readonly value: ProximityStateForFocus;
+  }
+
+  /**
+   * Describes camera notification information.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  type NotificationInfo = DefocusFromProximityNotificationInfo;
 }
 
 export default camera;

@@ -66,6 +66,7 @@ export declare class DynamicLayoutAttribute extends CommonMethod<DynamicLayoutAt
  * @crossplatform
  * @form
  * @atomicservice
+ * @uicomponent
  * @since 24 dynamic
  */
 export declare const DynamicLayout: DynamicLayoutInterface;
@@ -77,6 +78,7 @@ export declare const DynamicLayout: DynamicLayoutInterface;
  * @crossplatform
  * @form
  * @atomicservice
+ * @uicomponent
  * @since 24 dynamic
  */
 export declare const DynamicLayoutInstance: DynamicLayoutAttribute;

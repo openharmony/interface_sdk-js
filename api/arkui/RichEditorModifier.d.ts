@@ -24,29 +24,21 @@
 /**
  * Defines RichEditor Modifier
  *
- * @extends RichEditorAttribute
- * @implements AttributeModifier<RichEditorAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines RichEditor Modifier
- *
- * @extends RichEditorAttribute
- * @implements AttributeModifier<RichEditorAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop [since 20]
  */
 export declare class RichEditorModifier extends RichEditorAttribute implements AttributeModifier<RichEditorAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { RichEditorAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

@@ -28,6 +28,7 @@ import { ComponentBuilder, CustomBuilder } from './builder';
  * @interface RootSceneSession
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface RootSceneSession {
@@ -40,6 +41,7 @@ export declare interface RootSceneSession {
  * @typedef { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface RootSceneAttribute extends CommonMethod {
@@ -50,6 +52,7 @@ export declare interface RootSceneAttribute extends CommonMethod {
    * @returns { RootSceneAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
+   * @stagemodelonly
    * @since 23 static
    */
   default attributeModifier(modifier:
@@ -64,6 +67,7 @@ export declare interface RootSceneAttribute extends CommonMethod {
  * @returns { RootSceneAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder

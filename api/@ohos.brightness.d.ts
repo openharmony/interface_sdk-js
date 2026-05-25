@@ -21,9 +21,12 @@
 import { BusinessError } from './@ohos.base';
 
 /**
- * Provides interfaces to control the power of display.
+ * The **brightness** module provides an API for setting the screen brightness.
  *
- * @namespace brightness
+ * > **NOTE**
+ * >
+ * > - The APIs provided by this module are system APIs.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager
  * @systemapi
  * @since 7 dynamic
@@ -33,11 +36,10 @@ declare namespace brightness {
   /**
    * Sets the screen brightness.
    *
-   * @param { int } value Brightness value, ranging from 0 to 255.
-   * value parameter must be of type int.
+   * @param { int } value - Brightness value. Value range: 0 to 255. The value of this parameter must be a number.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
+   *     2. Incorrect parameter types;
    * @throws { BusinessError } 4700101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
@@ -47,17 +49,15 @@ declare namespace brightness {
   function setValue(value: int): void;
 
   /**
-   * Sets the screen brightness.
+   * Sets the screen brightness. This API is used for continuous brightness adjustment. To achieve a better performance,
+   * set **continuous** to **true** when you start, and set it to **false** after you finish.
    *
-   * @param { int } value - Brightness value, ranging from 0 to 255.
-   * value parameter must be of type int.
-   * @param { boolean } continuous - This parameter is used in the scenario of continuous adjustment to the brightness.
-   * You are advised to set this parameter to true during the continuous adjustment and
-   * to false at the end of the continuous adjustment for better performance.
-   * continuous parameter must be of type boolean.
+   * @param { int } value - Brightness value. Value range: [0, 255]
+   * @param { boolean } continuous - Whether the brightness adjustment is continuous. The value **true** indicates that
+   *     the brightness adjustment is continuous; **false** indicates the opposite. Default value: **false**
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   * 2. Incorrect parameter types;
+   *     2. Incorrect parameter types;
    * @throws { BusinessError } 4700101 - Failed to connect to the service.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager
    * @systemapi
@@ -66,4 +66,5 @@ declare namespace brightness {
    */
   function setValue(value: int, continuous: boolean): void;
 }
+
 export default brightness;

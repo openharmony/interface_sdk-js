@@ -44,7 +44,7 @@ export interface NotificationSubscribeInfo {
   bundleNames?: Array<string>;
 
   /**
-   * 用户ID。 不传递该参数时，默认订阅所有用户ID的通知。
+   * 用户ID。 不传递该参数时，默认订阅当前用户ID的通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -88,4 +88,38 @@ export interface NotificationSubscribeInfo {
    * @since 23 static
    */
   filterLimit?: long;
+
+  /**
+   * 实况通知图片配置项。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  pictureOptions?: PictureOptions;
+}
+
+/**
+ * 实况通知图片配置项。
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface PictureOptions {
+  /**
+   * 订阅普通实况类型通知中
+   * [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent}的extraInfo中的
+   * 图片信息。入参为extraInfo中需要解析为pixelMap格式的图片文件名的Key。<br>当应用发布普通实况类型通知时，通过
+   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}将解析后的图片信息回调给订阅者，
+   * 解析后的图片信息存放于NotificationLiveViewContent的pictureInfo内。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  preparseLiveViewPicList?: string[];
 }

@@ -268,6 +268,15 @@ declare namespace webSocket {
      * @since 26.0.0 dynamic&static
      */
     minSupportTlsProtocol?: TlsProtocol;
+
+    /**
+     * The option of supporting origin port.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    supportOriginPort?: boolean;    
   }
 
   /**

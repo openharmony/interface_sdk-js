@@ -98,8 +98,24 @@ export { RenderConfiguration } from './graphics3d/Scene';
 /**
  * Export BoidsSim
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 26
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
  */
 export {
     BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters,
     BoidsSimRepulsionParameters } from './graphics3d/SceneBoidsSim';
+
+/**
+ * Export scene types
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26.0.0 dynamic&static
+ */
+export { ShadowAlgorithmType } from './graphics3d/SceneTypes';
+
+/**
+ * Export scene
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @since 26.0.0 dynamic&static
+ */
+export { SoftShadowConfig, PCFConfig } from './graphics3d/Scene';

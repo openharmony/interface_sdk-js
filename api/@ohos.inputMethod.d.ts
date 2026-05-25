@@ -1052,25 +1052,28 @@ declare namespace inputMethod {
      */
     getDefaultInputMethodAbility(): InputMethodProperty;
 
-    /** 
-      * Get the cursor infomation of a specified user. 
-      * 
-      * @param { int } [userId] - the ID of the specified user, defaults to the foreground user ID of the screen. 
-      * @returns { CursorInfo } the promise returned by the function. 
-      * @throws { BusinessError } 202 - not system application. 
-      * @throws { BusinessError } 12800003 - input method client error. Possible causes: 
-      *     1. No edit box is bound to the current input method application under the specified user. 
-      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause: 
-      *     a system error, such as null pointer, IPC exception. 
-      * @throws { BusinessError } 12800023 - the specified user does not exit. 
-      * @throws { BusinessError } 12800024 - the specified user is not in the foregeound. 
-      * @throws { BusinessError } 12800025 - cross-user operation denied. 
-      *     Only user 0 applications are authorized for this operation. 
-      * @syscap SystemCapability.MiscServices.InputMethodFramework 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.0.0 dynamic&static 
-      */ 
+    /**
+     * Get the cursor information of a specified user.
+     *
+     * @param { int } [userId] - the user ID. If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+     *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+     *     The value should be an integer.
+     * @returns { CursorInfo } the information of the cursor of the specified display.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1. No edit box is bound to the current input method application under the specified user.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible causes:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800023 - the specified user does not exist.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
      getCursorInfo(userId?: int): CursorInfo;
   }
 
@@ -2794,6 +2797,16 @@ declare namespace inputMethod {
      * @since 23 static
      */
     abilityName?: string;
+
+    /**
+     * Whether the editor supports consuming key events.
+     *
+     * @default false
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    consumeKeyEvents?: boolean;
   }
 
   /**

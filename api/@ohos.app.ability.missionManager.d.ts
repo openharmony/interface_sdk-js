@@ -26,7 +26,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
  * # Required Permissions
- * 
+ *
  * ohos.permission.MANAGE_MISSIONS
  */
 /**
@@ -249,7 +249,7 @@ declare namespace missionManager {
   function getMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
   /**
-   * Obtains the low-resolution snapshot of a given mission. This API uses an asynchronous callback to return the 
+   * Obtains the low-resolution snapshot of a given mission. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -362,7 +362,7 @@ declare namespace missionManager {
   function unlockMission(missionId: int): Promise<void>;
 
   /**
-   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the 
+   * Clears a given mission, regardless of whether it is locked. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -445,7 +445,7 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
    * an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -466,7 +466,7 @@ declare namespace missionManager {
   function moveMissionToFront(missionId: int, options: StartOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses 
+   * Switches a given mission to the foreground, with the startup parameters for the switching specified. This API uses
    * a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -506,7 +506,7 @@ declare namespace missionManager {
   function moveMissionsToForeground(missionIds: Array<int>, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API 
+   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API
    * uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -526,7 +526,7 @@ declare namespace missionManager {
   function moveMissionsToForeground(missionIds: Array<int>, topMission: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API 
+   * Switches a batch of missions to the foreground, and moves the mission with the specified ID to the top. This API
    * uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -547,7 +547,7 @@ declare namespace missionManager {
   function moveMissionsToForeground(missionIds: Array<int>, topMission?: int): Promise<void>;
 
   /**
-   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the 
+   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the
    * missions are switched. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -566,7 +566,7 @@ declare namespace missionManager {
   function moveMissionsToBackground(missionIds: Array<int>, callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the 
+   * Switches a batch of missions to the background. The mission IDs returned are sorted by mission level when the
    * missions are switched. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
@@ -583,6 +583,70 @@ declare namespace missionManager {
    * @since 23 static
    */
   function moveMissionsToBackground(missionIds: Array<int>): Promise<Array<int>>;
+
+  /**
+   * Registers a listener to observe the mission status.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'missionEvent' } type - Name of the target mission. The value is fixed at **'missionEvent'**,
+   *     indicating the system mission status listener.
+   * @param { MissionListener } listener - Mission status listener to register.
+   * @returns { long } Index of the mission status listener, which is created by the system and allocated when the
+   *     listener is registered.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 9 dynamic
+   * @deprecated since 10
+   * @useinstead missionManager#on(type: 'mission', listener: MissionListener)
+   */
+  function on(type: 'missionEvent', listener: MissionListener): long;
+
+  /**
+   * Deregisters a mission status listener. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'mission' } type - Name of the target mission. The value is fixed at **'mission'**, indicating the system
+   *     mission status listener.
+   * @param { long } listenerId - Index of the mission status listener to deregister. It is returned by **on()**.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the API call is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 9 dynamic
+   * @deprecated since 10
+   * @useinstead missionManager#off(type: 'mission', listenerId: long, callback: AsyncCallback<void>)
+   */
+  function off(type: 'missionEvent', listenerId: long, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters a mission status listener. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MANAGE_MISSIONS
+   * @param { 'missionEvent' } type - Name of the target mission. The value is fixed at **'missionEvent'**, indicating the system
+   *     mission status listener.
+   * @param { long } listenerId - Index of the mission status listener to deregister. It is returned by **on()**.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16300002 - The specified mission listener does not exist.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Mission
+   * @systemapi
+   * @since 9 dynamic
+   * @deprecated since 10
+   * @useinstead missionManager#off(type: 'mission', listenerId: long)
+   */
+  function off(type: 'missionEvent', listenerId: long): Promise<void>;
 
   /**
    * Mission information corresponding to ability.

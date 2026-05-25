@@ -2713,6 +2713,17 @@ declare namespace formInfo {
      * @since 23 static
      */
     disabledDesktopBehaviors?: string;
+
+    /**
+     * The trigger types of the scene animation.
+     *
+     * @type { ?Array<SceneAnimationTriggerType> }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    triggerTypes?: Array<SceneAnimationTriggerType>;
   }
 
   /**
@@ -2910,5 +2921,39 @@ declare namespace formInfo {
    * @since 23 dynamic&static
    */
   type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
+
+  /**
+   * The trigger type of the scene animation.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum SceneAnimationTriggerType {
+    /**
+     * Shake.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SHAKE = 1
+  }
+
+  /**
+   * Get want parameters callback.
+   *
+   * @typedef { function }
+   * @param { Array<formInfo.FormInfo> } formInfo - The list of the form information.
+   * @returns { Array<Record<string, Object>> } The want parameters list of the forms.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type GetWantParamsCallback = (formInfo: Array<formInfo.FormInfo>) => Array<Record<string, Object>>;
 }
 export default formInfo;

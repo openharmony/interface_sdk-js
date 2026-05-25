@@ -23,7 +23,7 @@ import { ResourceStr } from '@ohos.arkui.component';
 /*** endif */
 import { Shader, MaterialType, Material, Animation, Environment, Image, MeshResource, Sampler, SceneResource, Effect, ImageStream } from './SceneResources';
 import { Camera, LightType, Light, Node, NodeType, Geometry } from './SceneNodes';
-import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4 } from './SceneTypes';
+import { Position3, Color, GeometryDefinition, RenderingPipelineType, Vec2, Vec3, Vec4, ShadowAlgorithmType } from './SceneTypes';
 
 /**
  * The scene resource parameters type.
@@ -168,27 +168,26 @@ export interface RenderResourceFactory {
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
   /**
-    * Create an image.
-    *
-    * @param { SceneResourceParameters } params - the param of creating an image
-    * @returns { Promise<Image> } promise an image
-    * @syscap SystemCapability.ArkUi.Graphics3D
-    * @since 20 dynamic
-    * @since 23 static
-    */
+   * Create an image.
+   *
+   * @param { SceneResourceParameters } params - the param of creating an image
+   * @returns { Promise<Image> } promise an image
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 dynamic
+   * @since 23 static
+   */
   createImage(params: SceneResourceParameters): Promise<Image>;
 
   /**
-    * Create an image stream.
-    *
-    * @param { SceneResourceParameters } params - the param of creating a image stream
-    *     Create a stream image
-    * @returns { Promise<ImageStream> } promise an image stream
-    * @syscap SystemCapability.ArkUi.Graphics3D
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
-    createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
+   * Create an image stream.
+   *
+   * @param { SceneResourceParameters } params - the param of creating an image stream
+   * @returns { Promise<ImageStream> } promise an image stream
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
 
   /**
    * Create a Mesh from an array of vertices.
@@ -459,8 +458,78 @@ export interface RenderContext {
 }
 
 /**
- * Global render configuration control
+ * param config for soft shadow, control the algorithm type and its configuration
  * 
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export declare abstract class SoftShadowConfig {
+  /**
+   * type of shadow shading algorithms
+   *
+   * @returns { ShadowAlgorithmType }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  get shadowAlgorithmType(): ShadowAlgorithmType;
+}
+
+/**
+ * param config for pcf soft shadow
+ *
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export declare class PCFConfig extends SoftShadowConfig {
+  /**
+   * get sample radius around the shadow edge at pixel-level.
+   *
+   * @returns { double | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  get shadowSampleRadius(): double | undefined;
+
+  /**
+   * set sample radius around the shadow edge at pixel-level.
+   *
+   * @param { double | undefined } value
+   * @default 5.0
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  set shadowSampleRadius(value: double | undefined);
+
+  /**
+   * get the sample count number from shadow map used to render a shadow pixel.
+   *
+   * @returns { int | undefined }
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  get shadowSampleCount(): int | undefined;
+
+  /**
+   * set the sample count number from shadow map used to render a shadow pixel.
+   *
+   * @param { int | undefined } value
+   * @default 16
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  set shadowSampleCount(value: int | undefined);
+}
+
+/**
+ * Global render configuration control
+ *
  * @interface RenderConfiguration
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 23 dynamic&static
@@ -477,6 +546,16 @@ export interface RenderConfiguration {
    * @since 23 dynamic&static
    */
   shadowResolution?: Vec2;
+
+  /**
+   * param config for soft shadow, control the algorithm type and its configuration
+   *
+   * @default { undefined }, means that use the default hard shadow algorithm
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  softShadowConfig?: SoftShadowConfig;
 }
 
 /**

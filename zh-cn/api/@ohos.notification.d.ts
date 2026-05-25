@@ -215,11 +215,11 @@ declare namespace notification {
   function addSlot(type: SlotType): Promise<void>;
 
   /**
-   * 创建多个通知渠道。使用callback异步回调。
+   * 创建多个通知通道（callback形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots - 要创建的通知渠道对象数组。数组中的元素个数为0~5。
-   * @param { AsyncCallback<void> } callback - 表示被指定通道的回调方法。
+   * @param { Array<NotificationSlot> } slots - 要创建的通知通道对象数组。
+   * @param { AsyncCallback<void> } callback - 表示被指定的回调方法。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -229,11 +229,11 @@ declare namespace notification {
   function addSlots(slots: Array<NotificationSlot>, callback: AsyncCallback<void>): void;
 
   /**
-   * 创建多个通知渠道。使用Promise异步回调。
+   * 创建多个通知通道（Promise形式）。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { Array<NotificationSlot> } slots - 要创建的通知渠道对象数组。数组中的元素个数为0~5。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @param { Array<NotificationSlot> } slots - 要创建的通知通道对象数组。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 7
@@ -1497,7 +1497,6 @@ declare namespace notification {
   }
 
   /**
-   * 免打扰设置的时间类型。
    * > **说明：**
    * > 从 API version 8开始支持，从API version 9开始废弃。建议使用
    * [notificationManager.DoNotDisturbType]{@link @ohos.notificationManager:notificationManager.DoNotDisturbType}替代。
@@ -1555,7 +1554,6 @@ declare namespace notification {
   }
 
   /**
-   * 免打扰时间。
    * > **说明：**
    * > 从 API version 8开始支持，从API version 9开始废弃。建议使用
    * [notificationManager.DoNotDisturbDate]{@link @ohos.notificationManager:notificationManager.DoNotDisturbDate}替代。
@@ -1602,8 +1600,10 @@ declare namespace notification {
   }
 
   /**
-   * 通知的提醒方式。
-   *
+   * > **说明：**
+   * > 从 API version 8开始支持，从API version 9开始废弃。建议使用
+   * [notificationManager.DeviceRemindType](js-apis-notificationManager-sys.md#deviceremindtype)替代。
+   * 
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 8
@@ -1657,7 +1657,9 @@ declare namespace notification {
   }
 
   /**
-   * 通知来源类型。
+   * > **说明：**
+   * > 从 API version 8开始支持，从API version 9开始废弃。建议使用
+   * [notificationManager.SourceType](js-apis-notificationManager-sys.md#sourcetype)替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1701,7 +1703,9 @@ declare namespace notification {
   }
 
   /**
-   * 通知删除原因。
+   * > **说明：**
+   * > 从 API version 7开始支持，从API version 9开始废弃。建议使用
+   * [notificationManager.RemoveReason](js-apis-notificationSubscribe-sys.md#removereason)替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

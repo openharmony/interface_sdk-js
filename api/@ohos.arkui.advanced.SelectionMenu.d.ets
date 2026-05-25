@@ -13,6 +13,8 @@
   * limitations under the License.
   */
 
+import uiMaterial from './@ohos.arkui.uiMaterial';
+
 /**
  * @file
  * @kit ArkUI
@@ -22,6 +24,7 @@
  * Construct parameter types for EditorMenuOptions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -29,6 +32,7 @@
  * Construct parameter types for EditorMenuOptions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -41,6 +45,7 @@ export interface EditorMenuOptions {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -49,6 +54,7 @@ export interface EditorMenuOptions {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -59,6 +65,7 @@ export interface EditorMenuOptions {
    * Symbol style of menu icon.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 18
    */
@@ -66,6 +73,7 @@ export interface EditorMenuOptions {
    * Symbol style of menu icon.
    * @type { ?SymbolGlyphModifier }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -77,6 +85,7 @@ export interface EditorMenuOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -85,6 +94,7 @@ export interface EditorMenuOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -96,6 +106,7 @@ export interface EditorMenuOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -104,6 +115,7 @@ export interface EditorMenuOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -116,6 +128,7 @@ export interface EditorMenuOptions {
  *
  * @extends MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -124,6 +137,7 @@ export interface EditorMenuOptions {
  *
  * @extends MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -134,6 +148,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -142,6 +157,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
    * 
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -154,6 +170,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
  *
  * @interface EditorEventInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -162,6 +179,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
  *
  * @interface EditorEventInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -172,6 +190,7 @@ export interface EditorEventInfo {
    *
    * @type { ?RichEditorSelection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -180,6 +199,7 @@ export interface EditorEventInfo {
    *
    * @type { ?RichEditorSelection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -192,6 +212,7 @@ export interface EditorEventInfo {
  *
  * @extends MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -200,6 +221,7 @@ export interface EditorEventInfo {
  *
  * @extends MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -210,6 +232,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?Array<EditorMenuOptions> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -218,6 +241,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?Array<EditorMenuOptions> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -229,6 +253,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?Array<ExpendMenuOptions> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -237,6 +262,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?Array<ExpendMenuOptions> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -248,6 +274,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?RichEditorController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -256,6 +283,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?RichEditorController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -266,6 +294,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -274,6 +303,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -285,6 +315,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -293,6 +324,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -304,6 +336,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -312,6 +345,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -323,6 +357,7 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -331,11 +366,25 @@ export interface SelectionMenuOptions {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
   onSelectAll?: (event?: EditorEventInfo) => void;
+
+  /**
+   * Set system-styled materials for the component. Different materials have different effects,
+   * which can influence the backgroundColor, border, shadow, and other visual attributes.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 /**
@@ -343,6 +392,7 @@ export interface SelectionMenuOptions {
  *
  * @param { SelectionMenuOptions } options - Selection menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -351,6 +401,7 @@ export interface SelectionMenuOptions {
  *
  * @param { SelectionMenuOptions } options - Selection menu options.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic

@@ -31,6 +31,7 @@ import { RecordData } from '@ohos.base';
   * Define ReuseObject for aboutToReuse method.
   *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @since 23 static
   */
 export declare class ReuseObject {
@@ -39,6 +40,7 @@ export declare class ReuseObject {
      *
      * @returns { RecordData } - Returns the raw data of ReuseObject.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     get raw(): RecordData;
@@ -49,6 +51,7 @@ export declare class ReuseObject {
      * @param { string } key - the key of target value.
      * @returns { RecordData } - the target value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     $_get(key: string): RecordData;
@@ -59,6 +62,7 @@ export declare class ReuseObject {
     * @param { string } key - the key of target value.
     * @returns { boolean } - if the key is in the ReuseObject.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     has(key: string): boolean;
@@ -68,6 +72,7 @@ export declare class ReuseObject {
     *
     * @returns { string[] } - the keys array of the ReuseObject.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
     keys(): string[];
@@ -78,6 +83,7 @@ export declare class ReuseObject {
  *
  * Entry is an Annotation and it supports parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
@@ -87,6 +93,7 @@ export @interface Entry {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     routeName: string = "";
@@ -96,6 +103,7 @@ export @interface Entry {
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     storage: string = "";
@@ -105,9 +113,46 @@ export @interface Entry {
      *
      * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     useSharedStorage: boolean = false;
+}
+
+/**
+ * Enum for reuse pool ownership
+ *
+ * @enum { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ReusePoolOwnership {
+  /**
+   * Shared ownership.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  SHARED = 'shared',
+  /**
+   * Reuse pool is owned per instance and not shared.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  PER_INSTANCE = 'perInstance',
+  /**
+   * Reuse pool is turned off.
+   * This is the default mode for custom component reuse pool.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  OFF = 'off',
 }
 
 /**
@@ -115,25 +160,67 @@ export @interface Entry {
  *
  * Component is an Annotation to define a custom component using state management V1.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface Component {}
+export @interface Component {
+  /**
+   * then reuse type of a custom component. Default value is OFF.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
+
+  /**
+   * Collection of custom components to be reused.
+   *
+   * @type { string[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  poolAccepts: string[] = [];
+}
 
 /**
  * Defining ComponentV2 Annotation
  *
  * ComponentV2 is an Annotation to define a custom component using state management V2.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface ComponentV2 {}
+export @interface ComponentV2 {
+  /**
+   * then reuse type of a custom component. Default value is OFF.
+   *
+   * @type { ReusePoolOwnership }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
+
+  /**
+   * Collection of custom components to be reused.
+   *
+   * @type { string[] }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  poolAccepts: string[] = [];
+}
 
 /**
  * Defining Reusable Annotation that is used to decorate @Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
@@ -143,6 +230,7 @@ export @interface Reusable {}
  * Defining ReusableV2 Annotation that is used to decorate @ComponentV2.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
@@ -152,6 +240,7 @@ export @interface ReusableV2 {}
  * Defining CustomLayout Annotation that is used to decorate @Component and @ComponentV2.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
@@ -161,6 +250,7 @@ export @interface CustomLayout {}
  * Defining of entry of page
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare abstract class EntryPoint {
@@ -169,6 +259,7 @@ export declare abstract class EntryPoint {
      * Define entry function of page
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @Builder entry(): void;
@@ -179,6 +270,7 @@ export declare abstract class EntryPoint {
  *
  * CustomDialog is an Annotation to define a custom dialog.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
@@ -189,6 +281,7 @@ export @interface CustomDialog {}
  *
  * @extends ExtendableComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_Options>, T_Options> extends ExtendableComponent {
@@ -197,6 +290,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
     * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
     * @param {LocalStorage} [storage] - localStorage instance.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
@@ -207,6 +301,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
      * @param { function } [initializers] - initial data for all the fields in custom dialog
      * @param { CustomBuilder } [content] - tail closure for custom dialog
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     @Builder
@@ -223,6 +318,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
  * @extends ExtendableComponent
  * @implements CommonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare abstract class BaseCustomComponent<T_Options> extends ExtendableComponent implements CommonAttribute {
@@ -230,6 +326,7 @@ export declare abstract class BaseCustomComponent<T_Options> extends ExtendableC
      * aboutToRecycle Method.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     aboutToRecycle(): void;
@@ -239,6 +336,7 @@ export declare abstract class BaseCustomComponent<T_Options> extends ExtendableC
  * Definition of custom component class.
  * @extends BaseCustomComponent<T_Options>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare abstract class CustomComponent<T extends CustomComponent<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
@@ -247,6 +345,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
     * @param {LocalStorage} [storage] - localStorage instance.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @since 23 static
     */
    constructor(useSharedStorage?: boolean, storage?: LocalStorage);
@@ -276,15 +375,29 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      *
      * @param { ReuseObject } params - Custom component init params.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     aboutToReuse(params: ReuseObject): void;
+
+  /**
+   * ReInitialize @Consume variable.
+   *
+   * @param { string } alias - @Consume alias.
+   * @param { string } varName - variable name.
+   * @param { T } [defaultValue] - default value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  reInitializeConsume<T>(alias: string, varName: string, defaultValue?: T): void;
 }
 
 /**
  * Definition of V2 custom component class.
  * @extends BaseCustomComponent<T_Options>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T_Options>, T_Options> extends BaseCustomComponent<T_Options> {
@@ -336,6 +449,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
      * aboutToReuse Method
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     aboutToReuse(): void;
@@ -355,6 +469,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
  * Defining interface of PageLifeCycle for custom component, when decorate with @Entry.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface PageLifeCycle {
@@ -364,6 +479,7 @@ export interface PageLifeCycle {
      * The page is triggered once each time it is displayed, including scenarios such as the routing process and the application entering the foreground
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onPageShow(): void {}
@@ -374,6 +490,7 @@ export interface PageLifeCycle {
      * It is triggered once each time the page is hidden, including scenarios such as the routing process and the application entering the background
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onPageHide(): void {}
@@ -386,6 +503,7 @@ export interface PageLifeCycle {
      * @returns { boolean } true means that the page itself processes the return logic.
      *     false means that the default return logic is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onBackPress(): boolean { return false; }
@@ -395,6 +513,7 @@ export interface PageLifeCycle {
      * Implement Animation when enter this page or move to other pages.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pageTransition(): void {}
@@ -404,6 +523,7 @@ export interface PageLifeCycle {
      *
      * @param { object | undefined | null } param - New parameters pushed with singleton mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onNewParam(param: object | undefined | null): void {}
@@ -414,6 +534,7 @@ export interface PageLifeCycle {
  *
  * typedef LayoutCallbacks
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export interface LayoutCallbacks {
@@ -424,6 +545,7 @@ export interface LayoutCallbacks {
      * @param { Array<Layoutable> } children
      * @param { ConstraintSizeOptions } constraint
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onPlaceChildren(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void {}
@@ -435,6 +557,7 @@ export interface LayoutCallbacks {
      * @param { ConstraintSizeOptions } constraint - indicate child constraint size
      * @returns { SizeResult }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onMeasureSize(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult {

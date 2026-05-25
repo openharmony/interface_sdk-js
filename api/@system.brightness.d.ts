@@ -14,12 +14,25 @@
  */
 
 /**
+ * The **brightness** module provides APIs for querying and adjusting the screen brightness and mode.
+ * 
+ * > **NOTE**
+ * >
+ * > - Module maintenance policy:
+ * > >
+ * > >    \- For lite wearables, this module is constantly maintained and available.
+ * > >
+ * > >    \- For other device types, this module is no longer maintained since API version 7.<!--Del--> You are advised 
+ * > to use APIs of [@ohos.brightness]{@link @ohos.brightness:brightness}. <!--DelEnd-->The substitute APIs are 
+ * > available only for system applications.
+ *
  * @file
  * @kit BasicServicesKit
  */
 
 /**
- * @interface BrightnessResponse
+ * Defines a response that returns the screen brightness.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -27,9 +40,8 @@
  */
 export interface BrightnessResponse {
   /**
-   * Screen brightness, which ranges from 1 to 255.
+   * Screen brightness. The value ranges from **1** to **255**.
    *
-   * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -39,7 +51,8 @@ export interface BrightnessResponse {
 }
 
 /**
- * @interface GetBrightnessOptions
+ * Options for obtaining the screen brightness.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -47,9 +60,9 @@ export interface BrightnessResponse {
  */
 export interface GetBrightnessOptions {
   /**
-   * Called when the current screen brightness is obtained.
+   * Called when an API call is successful. **data** is a return value of the
+   * [BrightnessResponse]{@link BrightnessResponse} type.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -58,9 +71,9 @@ export interface GetBrightnessOptions {
   success?: (data: BrightnessResponse) => void;
 
   /**
-   * Called when the current screen brightness fails to be obtained.
+   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
+   * code.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -69,9 +82,8 @@ export interface GetBrightnessOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when an API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -81,7 +93,8 @@ export interface GetBrightnessOptions {
 }
 
 /**
- * @interface SetBrightnessOptions
+ * Options for setting the screen brightness.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -89,13 +102,13 @@ export interface GetBrightnessOptions {
  */
 export interface SetBrightnessOptions {
   /**
-   * Screen brightness. The value is an integer ranging from 1 to 255.
-   * If the value is less than or equal to 0, value 1 will be used.
-   * If the value is greater than 255, value 255 will be used.
-   * If the value contains decimals, the integral part of the value will be used.
-   * For example, if value is 8.1 is set, value 8 will be used.
+   * Screen brightness. The value is an integer ranging from **1** to **255**.
    *
-   * @type { number }
+   * - If the value is less than or equal to **0**, value **1** will be used.
+   * - If the value is greater than **255**, value **255** will be used.
+   * - If the value contains decimals, the integral part of the value will be used. For example, if value **8.1** is set
+   * , value **8** will be used.
+   *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -104,9 +117,8 @@ export interface SetBrightnessOptions {
   value: number;
 
   /**
-   * Called when the setting is successful.
+   * Called when an API call is successful.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -115,9 +127,9 @@ export interface SetBrightnessOptions {
   success?: () => void;
 
   /**
-   * Called when the setting fails.
+   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
+   * code.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -126,9 +138,8 @@ export interface SetBrightnessOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when an API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -138,7 +149,8 @@ export interface SetBrightnessOptions {
 }
 
 /**
- * @interface BrightnessModeResponse
+ *Defines a response that returns the screen brightness mode.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -146,11 +158,8 @@ export interface SetBrightnessOptions {
  */
 export interface BrightnessModeResponse {
   /**
-   * The value can be 0 or 1.
-   * 0: The screen brightness is manually adjusted.
-   * 1: The screen brightness is automatically adjusted.
+   * The value **0** indicates the manual adjustment mode, and the value **1** indicates the automatic adjustment mode.
    *
-   * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -160,7 +169,8 @@ export interface BrightnessModeResponse {
 }
 
 /**
- * @interface GetBrightnessModeOptions
+ * Options for obtaining the screen brightness mode.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -168,9 +178,9 @@ export interface BrightnessModeResponse {
  */
 export interface GetBrightnessModeOptions {
   /**
-   * Called when the screen brightness adjustment mode is obtained.
+   * Called when an API call is successful. **data** is a return value of the
+   * [BrightnessModeResponse]{@link BrightnessModeResponse} type.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -179,9 +189,9 @@ export interface GetBrightnessModeOptions {
   success?: (data: BrightnessModeResponse) => void;
 
   /**
-   * Called when the screen brightness adjustment mode fails to be obtained.
+   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
+   * code.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -190,9 +200,8 @@ export interface GetBrightnessModeOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when an API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -202,7 +211,8 @@ export interface GetBrightnessModeOptions {
 }
 
 /**
- * @interface SetBrightnessModeOptions
+ * Options for setting the screen brightness mode.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -210,11 +220,8 @@ export interface GetBrightnessModeOptions {
  */
 export interface SetBrightnessModeOptions {
   /**
-   * The screen brightness mode.
-   * 0: The screen brightness is manually adjusted.
-   * 1: The screen brightness is automatically adjusted.
+   * The value **0** indicates the manual adjustment mode, and the value **1** indicates the automatic adjustment mode.
    *
-   * @type { number }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -223,9 +230,8 @@ export interface SetBrightnessModeOptions {
   mode: number;
 
   /**
-   * Called when the setting is successful.
+   * Called when an API call is successful.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -234,9 +240,9 @@ export interface SetBrightnessModeOptions {
   success?: () => void;
 
   /**
-   * Called when the setting fails.
+   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
+   * code.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -245,9 +251,8 @@ export interface SetBrightnessModeOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when an API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -257,7 +262,8 @@ export interface SetBrightnessModeOptions {
 }
 
 /**
- * @interface SetKeepScreenOnOptions
+ * Options for setting the screen to be steady on.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -265,9 +271,8 @@ export interface SetBrightnessModeOptions {
  */
 export interface SetKeepScreenOnOptions {
   /**
-   * Whether to always keep the screen on.
+   * The value **true** means to keep the screen steady on, and the value **false** indicates the opposite.
    *
-   * @type { boolean }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -276,9 +281,8 @@ export interface SetKeepScreenOnOptions {
   keepScreenOn: boolean;
 
   /**
-   * Called when the setting is successful.
+   * Called when an API call is successful.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -287,9 +291,9 @@ export interface SetKeepScreenOnOptions {
   success?: () => void;
 
   /**
-   * Called when the setting fails.
+   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
+   * code.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -298,9 +302,8 @@ export interface SetKeepScreenOnOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when an API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -310,6 +313,8 @@ export interface SetKeepScreenOnOptions {
 }
 
 /**
+ * The module provides APIs for querying and adjusting the screen brightness and mode.
+ *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 7
@@ -319,7 +324,8 @@ export default class Brightness {
   /**
    * Obtains the current screen brightness.
    *
-   * @param { GetBrightnessOptions } options Options.
+   * @param { GetBrightnessOptions } options Options for obtaining the screen brightness. This parameter is
+   *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -330,19 +336,21 @@ export default class Brightness {
   /**
    * Sets the screen brightness.
    *
-   * @param { SetBrightnessOptions } options Options.
+   * @param { SetBrightnessOptions } options Options for setting the screen brightness. This parameter is
+   *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
-   * @useinstead ohos.brightness/brightness#setValue
+   * @useinstead @ohos.brightness:brightness.setValue
    */
   static setValue(options?: SetBrightnessOptions): void;
 
   /**
    * Obtains the screen brightness adjustment mode.
    *
-   * @param { GetBrightnessModeOptions } options Options.
+   * @param { GetBrightnessModeOptions } options Options for obtaining the screen brightness mode. This parameter is
+   *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -353,7 +361,8 @@ export default class Brightness {
   /**
    * Sets the screen brightness adjustment mode.
    *
-   * @param { SetBrightnessModeOptions } options Options.
+   * @param { SetBrightnessModeOptions } options Options for setting the screen brightness mode. This parameter is
+   *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
@@ -362,14 +371,25 @@ export default class Brightness {
   static setMode(options?: SetBrightnessModeOptions): void;
 
   /**
-   * Sets whether to always keep the screen on.
+   * Sets whether to always keep the screen on. Call this API in **onShow()**.
    *
-   * @param { SetKeepScreenOnOptions } options Options.
+   * **NOTE**
+   *
+   * - This API is no longer maintained since API version 7 except for lite wearables. You are advised to use
+   * [window.setWindowKeepScreenOn()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowkeepscreenon9)
+   * instead.
+   *
+   * - On Lite Wearables, this API can only prevent the system from turning off the screen due to inactivity
+   * timeout (automatic). It cannot prevent screen-off caused by user actions (such as covering the screen) or
+   * the end of the keep-screen-on period.
+   *
+   * @param { SetKeepScreenOnOptions } options Options for setting the screen to be steady on. This parameter is
+   *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
-   * @useinstead ohos.window/Window#setWindowKeepScreenOn
+   * @useinstead @ohos.window:Window.setWindowKeepScreenOn
    */
   static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;
 }

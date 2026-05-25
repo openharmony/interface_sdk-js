@@ -75,6 +75,7 @@ interface ColumnSplitInterface {
  *
  * @interface ColumnSplitDividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -83,6 +84,7 @@ interface ColumnSplitInterface {
  *
  * @interface ColumnSplitDividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -94,6 +96,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -103,6 +106,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -115,6 +119,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -124,6 +129,7 @@ interface ColumnSplitDividerStyle {
    * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -191,6 +197,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -200,6 +207,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic

@@ -23,7 +23,7 @@ import dataAbility from '../@ohos.data.dataAbility';
 import rdb from '../@ohos.data.rdb';
 
 /**
- * The module defines the operation on DataAbilities. It can be used as an input parameter of 
+ * The module defines the operation on DataAbilities. It can be used as an input parameter of
  * [executeBatch](docroot://reference/apis-ability-kit/js-apis-inner-ability-dataAbilityHelper.md#dataabilityhelperexecutebatch)
  *  to specify the database operation information.
  *

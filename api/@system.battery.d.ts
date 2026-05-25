@@ -14,12 +14,25 @@
  */
 
 /**
+ * The **battery** module allows you to query the charging status and remaining power of a device.
+ * 
+ * > **NOTE**
+ * >
+ * > - Module maintenance policy:
+ * > >
+ * > >    \- For lite wearables, this module is constantly maintained and available.
+ * > >
+ * > >    \- For other device types, this module is no longer maintained since API version 6. You are advised to use 
+ * > [@ohos.batteryInfo]{@link @ohos.batteryInfo:batteryInfo} instead.
+ *
  * @file
  * @kit BasicServicesKit
  */
 
+
 /**
- * @interface BatteryResponse
+ * Defines a response that returns the charging status and remaining power of the device.
+ *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
@@ -27,32 +40,39 @@
  */
 export interface BatteryResponse {
   /**
-   * Whether the battery is being charged.
+   * Whether the battery is being charged. The value **true** indicates that the battery is being changed; **false**
+   * indicates the opposite. The default value is **false**.
    *
-   * @type { boolean }
+   * Note: This API is no longer maintained since API version 6 except for lite wearables. You are advised to use
+   * [batteryInfo.chargingStatus](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#constants)
+   * instead.
+   *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
-   * @useinstead ohos.batteryInfo/batteryInfo#chargingStatus
+   * @useinstead @ohos.batteryInfo:batteryInfo.chargingStatus
    */
   charging: boolean;
 
   /**
-   * Current battery level in percent, which ranges from 0.00 to 1.00.
+   * Current battery level, which ranges from **0.00** to **1.00**.
    *
-   * @type { number }
+   * Note: This API is no longer maintained since API version 6 except for lite wearables. You are advised to use
+   * [batteryInfo.batterySOC](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#constants) instead.
+   *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
-   * @useinstead ohos.batteryInfo/batteryInfo#batterySOC
+   * @useinstead @ohos.batteryInfo:batteryInfo.batterySOC
    */
   level: number;
 }
 
 /**
- * @interface GetStatusOptions
+ * Object that contains the API calling result.
+ *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
@@ -60,9 +80,9 @@ export interface BatteryResponse {
  */
 export interface GetStatusOptions {
   /**
-   * Called when the current charging state and battery level are obtained.
+   * Called when an API call is successful. **data** is a return value of the
+   *     [BatteryResponse](#batteryresponsedeprecated) type.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -71,9 +91,9 @@ export interface GetStatusOptions {
   success?: (data: BatteryResponse) => void;
 
   /**
-   * Called when the current charging state and battery level fail to be obtained.
+   * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
+   *     code.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -82,9 +102,8 @@ export interface GetStatusOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Called when an API call is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -94,6 +113,8 @@ export interface GetStatusOptions {
 }
 
 /**
+ * The module allows you to query the charging status and remaining power of a device.
+ *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
@@ -103,7 +124,8 @@ export default class Battery {
   /**
    * Obtains the current charging state and battery level.
    *
-   * @param { GetStatusOptions } options Options.
+   * @param { GetStatusOptions } options Object that contains the API calling result. This parameter is optional and
+   *     is left blank by default.
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
    * @since 3 dynamiconly
    * @deprecated since 6

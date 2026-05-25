@@ -152,10 +152,6 @@ declare namespace buffer {
    * @param { BufferEncoding } [encoding] - Encoding format (valid only when **fill** is a string). The default value is
    *     **'utf8'**.
    * @returns { Buffer } **Buffer** object created.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -170,10 +166,6 @@ declare namespace buffer {
    *
    * @param { int } size - Size of the **Buffer** object to create, in bytes.
    * @returns { Buffer } Uninitialized **Buffer** object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -189,10 +181,6 @@ declare namespace buffer {
    *
    * @param { int } size - Size of the **Buffer** object to create, in bytes.
    * @returns { Buffer } Uninitialized **Buffer** object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -207,9 +195,6 @@ declare namespace buffer {
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer } string - Target string.
    * @param { BufferEncoding } [encoding] - Encoding format. The default value is **'utf8'**.
    * @returns { number } Number of bytes of the string.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -242,10 +227,6 @@ declare namespace buffer {
    * @param { Buffer[] | Uint8Array[] } list - Array of objects to concatenate.
    * @param { int } [totalLength] - Total length of bytes to be copied. The default value is **0**.
    * @returns { Buffer } **Buffer** object created.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of "length" is out of range. It must be >= 0 and <= uint32 max.
    *     Received value is: [length]
    * @syscap SystemCapability.Utils.Lang
@@ -261,9 +242,6 @@ declare namespace buffer {
    *
    * @param { double[] } array - Array to create a **Buffer** object.
    * @returns { Buffer } **Buffer** object created.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -281,9 +259,6 @@ declare namespace buffer {
    * @param { number } [length] - Length of the **Buffer** object to create, in bytes. The default value is
    *     **arrayBuffer.byteLength** minus **byteOffset**.
    * @returns { Buffer } **Buffer** object created.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200001 - The value of "[byteOffset/length]" is out of range.
    *     It must be >= [left range] and <= [right range]. Received value is: [byteOffset/length]
    * @syscap SystemCapability.Utils.Lang
@@ -296,7 +271,7 @@ declare namespace buffer {
   /**
    * This creates a view of the ArrayBuffer without copying the underlying memory.
    *
-   * @param { ArrayBuffer } arrayBuffer - arrayBuffer arrayBuffer An ArrayBuffer,
+   * @param { ArrayBuffer } arrayBuffer - The ArrayBuffer to create a view from
    * @param { int } [byteOffset] - byteOffset [byteOffset = 0] Index of first byte to expose
    *     The value should be an integer.
    * @param { int } [length] - length [length = arrayBuffer.byteLength - byteOffset] Number of bytes to expose
@@ -318,9 +293,6 @@ declare namespace buffer {
    *
    * @param { Buffer | Uint8Array } buffer - Target object.
    * @returns { Buffer } **Buffer** object created.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -339,9 +311,6 @@ declare namespace buffer {
    *     ArrayBuffer.byteLength. Error 10200001 is reported if a value outside this range is reported. In other cases,
    *     you can set this parameter to any value of the number type. This parameter does not affect the result.
    * @returns { Buffer } **Buffer** object created.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -356,9 +325,6 @@ declare namespace buffer {
    * @param { String } string - String.
    * @param { BufferEncoding } [encoding] - Encoding format. The default value is **'utf8'**.
    * @returns { Buffer } **Buffer** object created.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -403,9 +369,6 @@ declare namespace buffer {
    * @returns { -1 | 0 | 1 } Returns **0** if **buf1** is the same as **buf2**.
    *     <br>Returns **1** if **buf1** comes after **buf2** when sorted.
    *     <br>Returns **-1** if **buf1** comes before **buf2** when sorted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -416,8 +379,8 @@ declare namespace buffer {
   /**
    * Compares buf1 to buf2
    *
-   * @param { Buffer | Uint8Array } buf1 - buf1 buf1 A Buffer or Uint8Array instance.
-   * @param { Buffer | Uint8Array } buf2 - buf2 buf2 A Buffer or Uint8Array instance.
+   * @param { Buffer | Uint8Array } buf1 - First buffer for comparison
+   * @param { Buffer | Uint8Array } buf2 - Second buffer for comparison
    * @returns { int } 0 is returned if target is the same as buf
    *     1 is returned if target should come before buf when sorted.
    *     -1 is returned if target should come after buf when sorted.
@@ -437,9 +400,6 @@ declare namespace buffer {
    * @param { string } toEnc - Target encoding format. For details about the supported formats, see
    *     [BufferEncoding]{@link buffer.BufferEncoding}.
    * @returns { Buffer } New **Buffer** object in the target encoding format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -538,9 +498,6 @@ declare namespace buffer {
      * @returns { Buffer } **Buffer** object filled with the specified value.
      * @throws { BusinessError } 10200001 - The value of "[offset/end]" is out of range. It must be >= 0 and <=
      *     [right range]. Received value is: [offset/end]
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Incorrect parameter types;
-     *     2.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -569,9 +526,6 @@ declare namespace buffer {
      * @returns { -1 | 0 | 1 } Comparison result. The value **0** is returned if the two **Buffer** objects are the same
      *     ; **1** is returned if this object comes after the target object when sorted; **-1** is returned if this
      *     object comes before the target object when sorted.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[targetStart/targetEnd/sourceStart/sourceEnd]" is out of
      *     range.
      *     It must be >= 0 and <= [right range]. Received value is: [targetStart/targetEnd/sourceStart/sourceEnd]
@@ -592,7 +546,7 @@ declare namespace buffer {
      * Compares buf with target and returns a number indicating whether buf comes before, after,
      * or is the same as target in sort order. Comparison is based on the actual sequence of bytes in each Buffer.
      *
-     * @param { Buffer | Uint8Array } target - target target A Buffer or Uint8Array with which to compare buf
+     * @param { Buffer | Uint8Array } target - The buffer to compare with this buffer
      * @param { int } [targetStart] - targetStart [targetStart = 0] The offset within target at which to begin
      *     comparison
      * @param { int } [targetEnd] - targetEnd [targetEnd = target.length] The offset within target at which to end
@@ -601,9 +555,6 @@ declare namespace buffer {
      * @param { int } [sourceEnd] - sourceEnd [sourceEnd = buf.length] The offset within buf at which to end comparison
      *     (not inclusive)
      * @returns { int } number is returned if target is the same as buf
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[targetStart/targetEnd/sourceStart/sourceEnd]" is out of
      *     range.
      *     It must be >= 0 and <= [right range]. Received value is: [targetStart/targetEnd/sourceStart/sourceEnd]
@@ -632,9 +583,6 @@ declare namespace buffer {
      * @param { int } [sourceEnd] - Offset to the end position in this **Buffer** object (not inclusive). The default
      *     value is the length of this **Buffer** object.
      * @returns { int } Total length of the data copied, in bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[targetStart/sourceStart/sourceEnd]" is out of range. It must
      *     be >= 0.
      *     Received value is: [targetStart/sourceStart/sourceEnd]
@@ -652,8 +600,6 @@ declare namespace buffer {
      * @param { Uint8Array | Buffer } otherBuffer - **Buffer** object to compare.
      * @returns { boolean } Check result. The value **true** is returned if the two objects are the same; otherwise,
      *     **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2
-     *     .Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -673,9 +619,6 @@ declare namespace buffer {
      *     is **'utf8'**.
      * @returns { boolean } Check result. The value **true** is returned if the object contains the specified value;
      *     otherwise, **false** is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -695,9 +638,6 @@ declare namespace buffer {
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when **value** is a string). The default value
      *     is **'utf8'**.
      * @returns { int } Index obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -756,9 +696,6 @@ declare namespace buffer {
      * @param { BufferEncoding } [encoding] - Encoding format (valid only when **value** is a string). The default value
      *     is **'utf8'**.
      * @returns { int } Index obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -772,7 +709,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { bigint } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -788,7 +724,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { bigint } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -804,7 +739,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { bigint } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -820,7 +754,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { bigint } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -837,7 +770,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { double } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -854,7 +786,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { double } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -871,7 +802,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { double } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -888,7 +818,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { double } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -904,7 +833,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 1
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -920,7 +848,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -936,7 +863,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -952,7 +878,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -968,7 +893,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -987,9 +911,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to read. Value range: 1 <= byteLength <= 6
      * @returns { long } Data read. If the offset is a decimal, undefined is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1008,9 +929,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to read. Value range: 1 <= byteLength <= 6
      * @returns { long } Data read. If the offset is a decimal, undefined is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1026,7 +944,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 1
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1042,7 +959,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1058,7 +974,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1074,7 +989,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1090,7 +1004,6 @@ declare namespace buffer {
      *
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { long } Data read.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1109,9 +1022,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to read.  Value range: 1 <= byteLength <= 6
      * @returns { long } Data read. If the offset is a decimal, undefined is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1130,9 +1040,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to read. Value range: 1 <= byteLength <= 6
      * @returns { long } Data read. If the offset is a decimal, undefined is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1232,13 +1139,24 @@ declare namespace buffer {
      *     object.
      * @returns { string } String. When the value of **start** is greater than or equal to **Buffer.length** or
      *     **start** is greater than **end**, an empty string is returned.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
     toString(encoding?: string, start?: number, end?: number): string;
+
+    /**
+     * Decodes buf to a string according to the specified character encoding in encoding
+     *
+     * @returns { string }
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 24 static
+     */
+    toString(): string;
 
     /**
      * Decodes buf to a string according to the specified character encoding in encoding
@@ -1267,9 +1185,6 @@ declare namespace buffer {
      *     **offset**.
      * @param { string } [encoding] - Encoding format of the string. The default value is **'utf8'**.
      * @returns { int } Number of bytes written.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[offset/length]" is out of range. It must be >= 0 and <=
      *     buf.length. Received value is: [offset/length]
      * @syscap SystemCapability.Utils.Lang
@@ -1286,10 +1201,6 @@ declare namespace buffer {
      * @param { bigint } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1306,10 +1217,6 @@ declare namespace buffer {
      * @param { bigint } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1326,10 +1233,6 @@ declare namespace buffer {
      * @param { bigint } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1346,10 +1249,6 @@ declare namespace buffer {
      * @param { bigint } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1367,9 +1266,6 @@ declare namespace buffer {
      * @param { double } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1387,9 +1283,6 @@ declare namespace buffer {
      * @param { double } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 8
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1407,9 +1300,6 @@ declare namespace buffer {
      * @param { double } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1427,9 +1317,6 @@ declare namespace buffer {
      * @param { double } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4
      *     . Received value is: [offset]
      * @syscap SystemCapability.Utils.Lang
@@ -1446,10 +1333,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 1
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1466,10 +1349,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1486,10 +1365,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1506,10 +1381,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1526,10 +1397,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1548,9 +1415,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1569,9 +1433,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1588,10 +1449,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 1
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1608,10 +1465,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1628,10 +1481,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 2
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1648,10 +1497,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1668,10 +1513,6 @@ declare namespace buffer {
      * @param { long } value - Data to write.
      * @param { int } [offset] - Offset. The default value is **0**. Value range: 0 <= offset <= Buffer.length - 4
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1690,9 +1531,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1711,9 +1549,6 @@ declare namespace buffer {
      *     byteLength
      * @param { int } byteLength - Number of bytes to write.
      * @returns { int } Offset plus the number of written bytes.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200001 - The value of "[param]" is out of range. It must be >= [left range] and <=
      *     [right range]. Received value is: [param]
      * @syscap SystemCapability.Utils.Lang
@@ -1790,9 +1625,6 @@ declare namespace buffer {
      *     **'transparent'** means that the terminator stored in the **Blob** object remains unchanged. The default
      *     value is **'transparent'**.<br>- **type**: type of the data in the **Blob** object. This type represents the
      *     MIME type of the data. However, it is not used for type format validation. The default value is **''**.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1803,8 +1635,8 @@ declare namespace buffer {
     /**
      * Creates a new Blob object containing a concatenation of the given sources.
      *
-     * @param { ArrayUnionType } sources - sources sources ArrayUnionType will be stored within the Blob.
-     * @param { BlobOptions } [options] - options options {endings: string, type: string}
+     * @param { ArrayUnionType } sources - The sources to store within the Blob
+     * @param { BlobOptions } [options] - Blob options {endings: string, type: string}
      *     endings:  One of either 'transparent' or 'native'.
      *     type: The Blob content-type
      * @syscap SystemCapability.Utils.Lang

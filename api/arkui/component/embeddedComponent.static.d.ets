@@ -20,10 +20,11 @@
  */
 
 import Want from '../../@ohos.app.ability.Want'
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { AttributeModifier, CommonMethod, TerminationInfo } from './common'
 import { EmbeddedType } from './enums'
+import { Builder } from '@ohos.arkui.component';
 
 /**
  * Define the attribute functions of EmbeddedComponent.
@@ -31,16 +32,30 @@ import { EmbeddedType } from './enums'
  * @extends CommonMethod
  * @typedef EmbeddedComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @noninterop
  * @since 23 static
  */
 export declare interface EmbeddedComponentAttribute extends CommonMethod {
+  /**
+   * Sets embedded component options.
+   *
+   * @param { Want } loader - indicates initialization parameter.
+   * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
+   * @returns { this } EmbeddedComponentAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType): this;
+
   /**
    * Called when the provider of the embedded UI is terminated.
    *
    * @param { Callback<TerminationInfo> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onTerminated(callback: Callback<TerminationInfo> | undefined): this;
@@ -51,6 +66,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { ErrorCallback<BusinessError> | undefined } callback
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   onError(callback: ErrorCallback<BusinessError> | undefined): this;
@@ -61,6 +77,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @param { AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   attributeModifier(modifier: AttributeModifier<EmbeddedComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -75,10 +92,24 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  * @returns { EmbeddedComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @systemapi
  * @since 23 static
  */
 @ComponentBuilder
 export declare function EmbeddedComponent(
     loader: Want, type?: EmbeddedType
+): EmbeddedComponentAttribute
+
+/**
+ * Defines EmbeddedComponent Component.It requires call setEmbeddedComponentOptions at start of the component attribute set-up,
+ * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<EmbeddedComponentAttribute> } style - the callback to set up embeddedcomponent's attributes.
+ * @returns { EmbeddedComponentAttribute } The attribute of the EmbeddedComponent.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function EmbeddedComponent(
+    style: CustomBuilderT<EmbeddedComponentAttribute>
 ): EmbeddedComponentAttribute

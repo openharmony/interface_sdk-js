@@ -248,9 +248,6 @@ declare namespace xml {
      * @param { ConvertOptions } [options] - Options for conversion. The default value is a **ConvertOptions** object,
      *     which consists of the default values of the attributes in the object.
      * @returns { Object } JavaScript object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200002 - Invalid xml string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -277,9 +274,6 @@ declare namespace xml {
      * @param { ConvertOptions } [options] - Options for conversion. The default value is a **ConvertOptions** object,
      *     which consists of the default values of the attributes in the object.
      * @returns { Object } JavaScript object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @throws { BusinessError } 10200002 - Invalid xml string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

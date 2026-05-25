@@ -1923,7 +1923,15 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
-    SAMPLE_RATE_192000 = 192000
+    SAMPLE_RATE_192000 = 192000,
+    /**
+     * 384kHz sample rate.
+     * 
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SAMPLE_RATE_384000 = 384000,
   }
 
   /**
@@ -2353,6 +2361,53 @@ declare namespace audio {
   }
 
   /**
+   * Describes app ID information.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AppIdInfo {
+    /**
+     * App UID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appUid: int;
+    /**
+     * App PID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appPid: int;
+    /**
+     * App token ID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appTokenId: int;
+    /**
+     * App full token ID.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    appFullTokenId: long;
+  }
+
+  /**
    * Describes audio stream information.
    * @typedef AudioStreamInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -2381,7 +2436,14 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
-    samplingRate: AudioSamplingRate;
+    /**
+     * Sampling rate, supports 10hz intervals.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @FaAndStageModel
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    samplingRate: AudioSamplingRate | int;
     /**
      * Audio channels.
      * @type { AudioChannel }
@@ -2645,6 +2707,15 @@ declare namespace audio {
      * @since 23 static
      */
     privacyType?: AudioPrivacyType;
+    /**
+     * Indicates the original app ID of the audio stream.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    originalAppIdInfo?: AppIdInfo;
   }
 
   /**
@@ -3855,6 +3926,14 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Obtains an {@link AudioSessionManager} instance.
+     * @returns { AudioSessionManager } AudioSessionManager instance.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     getSessionManager(): AudioSessionManager;
 
     /**
@@ -3887,6 +3966,16 @@ declare namespace audio {
      * @since 23 static
      */
     getCollaborativeManager(): AudioCollaborativeManager;
+
+    /**
+     * Obtains a device enhancement manager instance.
+     *
+     * @returns { AudioDeviceEnhanceManager } Returns an instance of audio device enhancement manager.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
 
     /**
      * user disable the safe media volume state.
@@ -4795,6 +4884,36 @@ declare namespace audio {
     offPreferredInputDeviceChangeForCapturerInfo(callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
+     * Subscribes to preferred input device change events. When the preferred device for target audio
+     * capturer filter changes, registered clients will receive a callback.
+     *
+     * @param { AudioCapturerFilter } filter - Filter for capturer.
+     * @param { Callback<AudioDeviceDescriptors> } callback - Callback to receive information about
+     *     the changed preferred devices.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onPreferredInputDeviceChangeByFilter(filter: AudioCapturerFilter, callback: Callback<AudioDeviceDescriptors>): void;
+
+    /**
+     * Unsubscribes to preferred input device change events.
+     *
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - Callback used in subscribe.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offPreferredInputDeviceChangeByFilter(callback?: Callback<AudioDeviceDescriptors>): void;
+
+    /**
      * Gets preferred input device for target audio capturer info.
      * @param { AudioCapturerInfo } capturerInfo - Audio capturer information.
      * @returns { AudioDeviceDescriptors } The preferred devices.
@@ -4971,6 +5090,18 @@ declare namespace audio {
      * @since 23 static
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Get active output device descriptors in current audio device situaion
+     * The activaion strategy is related to the audio device policy of system.
+     * @returns { Promise<AudioDeviceDescriptors> } Promise used to get the output device descriptors.
+     * @throws { BusinessError } 202 - Not system application.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getActiveOutputDeviceDescriptors(): Promise<AudioDeviceDescriptors>;
 
     /**
      * Restores the output device for the specified audio renderer filter to the default strategy.
@@ -5509,6 +5640,13 @@ declare namespace audio {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Audio concurrency mode.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   enum AudioConcurrencyMode {
     /**
      * Default concurrency mode.
@@ -5516,6 +5654,13 @@ declare namespace audio {
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Default concurrency mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     CONCURRENCY_DEFAULT = 0,
     /**
@@ -5525,6 +5670,13 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Mix with others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     CONCURRENCY_MIX_WITH_OTHERS = 1,
     /**
      * Duck others mode.
@@ -5533,6 +5685,13 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Duck others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     CONCURRENCY_DUCK_OTHERS = 2,
     /**
      * Pause others mode.
@@ -5540,6 +5699,13 @@ declare namespace audio {
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Pause others mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     CONCURRENCY_PAUSE_OTHERS = 3,
   }
@@ -5775,6 +5941,13 @@ declare namespace audio {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Audio session strategy.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   interface AudioSessionStrategy {
     /**
      * Audio concurrency mode.
@@ -5783,6 +5956,13 @@ declare namespace audio {
      * @crossplatform
      * @since 12 dynamic
      * @since 23 static
+     */
+    /**
+     * Audio concurrency mode.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
      */
     concurrencyMode: AudioConcurrencyMode;
   }
@@ -5941,6 +6121,13 @@ declare namespace audio {
    * @since 12 dynamic
    * @since 23 static
    */
+  /**
+   * Implements audio session management.
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
   interface AudioSessionManager {
     /**
      * Activate the audio session for the current pid application.
@@ -5957,6 +6144,21 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Activate the audio session for the current pid application.
+     * If {@link setAudioSessionScene} is called, it will take focus when calling this method.
+     * @param { AudioSessionStrategy } strategy - Audio session strategy.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     activateAudioSession(strategy: AudioSessionStrategy): Promise<void>;
 
     /**
@@ -5968,6 +6170,15 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Deactivate the audio session for the current pid application.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     deactivateAudioSession(): Promise<void>;
 
     /**
@@ -5978,13 +6189,23 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
+    /**
+     * Check whether the audio session is activated for the current pid application.
+     * @returns { boolean } The active audio session status for the current pid application.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
     isAudioSessionActivated(): boolean;
 
     /**
      * Listens for audio session deactivated event. When the audio session is deactivated,
      * registered clients will receive the callback.
-     * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
-     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+     * @param { 'audioSessionDeactivated' } type -
+     *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters unspecified.
      *                                 2.Incorrect parameter types.
@@ -5993,22 +6214,51 @@ declare namespace audio {
      * @crossplatform
      * @since 12 dynamic
      */
+    /**
+     * Listens for audio session deactivated event. When the audio session is deactivated,
+     * registered clients will receive the callback.
+     * @param { 'audioSessionDeactivated' } type -
+     *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *                                 1.Mandatory parameters unspecified.
+     *                                 2.Incorrect parameter types.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
     on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
      * Listens for audio session deactivated event. When the audio session is deactivated,
      * registered clients will receive the callback.
-     * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 23 static
+     */
+    /**
+     * Listens for audio session deactivated event. When the audio session is deactivated,
+     * registered clients will receive the callback.
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+     *     Callback invoked for the audio session deactivated event.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @atomicservice
+     * @since 26.0.0 static
      */
     onAudioSessionDeactivated(callback: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
     * Unsubscribes to audio session deactivated event.
-    * @param { 'audioSessionDeactivated' } type - Type of the event to listen for. Only the audioSessionDeactivated event is supported.
-    * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for the audio session deactivated event.
+    * @param { 'audioSessionDeactivated' } type -
+    *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+    *     Callback invoked for the audio session deactivated event.
     * @throws { BusinessError } 401 - Parameter error. Possible causes:
     *                                 1.Mandatory parameters are left unspecified;
     *                                 2.Incorrect parameter types.
@@ -6016,6 +6266,21 @@ declare namespace audio {
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @crossplatform
     * @since 12 dynamic
+    */
+    /**
+    * Unsubscribes to audio session deactivated event.
+    * @param { 'audioSessionDeactivated' } type -
+    *     Type of the event to listen for. Only the audioSessionDeactivated event is supported.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback -
+    *     Callback invoked for the audio session deactivated event.
+    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+    *                                 1.Mandatory parameters are left unspecified;
+    *                                 2.Incorrect parameter types.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamic
     */
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
 
@@ -6026,6 +6291,15 @@ declare namespace audio {
     * @throws { BusinessError } 6800101 - Parameter verification failed.
     * @syscap SystemCapability.Multimedia.Audio.Core
     * @since 23 static
+    */
+    /**
+    * Unsubscribes to audio session deactivated event.
+    * @param { Callback<AudioSessionDeactivatedEvent> } callback - Callback invoked for
+    *     the audio session deactivated event.
+    * @throws { BusinessError } 6800101 - Parameter verification failed.
+    * @syscap SystemCapability.Multimedia.Audio.Core
+    * @atomicservice
+    * @since 26.0.0 static
     */
    offAudioSessionDeactivated(callback?: Callback<AudioSessionDeactivatedEvent>): void;
 
@@ -8815,6 +9089,25 @@ declare namespace audio {
   }
 
   /**
+   * Volume type for audio separation effect.
+   * 
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AudioSeparationVolumeType {
+    /**
+     * Vocal type.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    VOLUME_TYPE_VOCAL = 0,
+  }
+
+  /**
    * Implements audio effect management.
    * @typedef AudioEffectManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -8869,6 +9162,91 @@ declare namespace audio {
      * @since 23 static
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
+
+    /**
+     * Checks whether the current device supports audio separation effect in system.
+     * @returns { boolean } Whether the current device supports audio separation effect.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isAudioSeparationEffectSupported(): boolean;
+
+    /**
+     * Sets audio separation effect enable or disable for specific application process,
+     * or for specific audio playback stream.
+     * This API uses a promise to return the result.
+     * 
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { boolean } enabled - The required effect state, true for enabled, false for disabled.
+     * @param { int } uid - The uid of target application process to add effect.
+     *     <br>The value should be an integer.
+     * @param { long } [streamId] - The id of target audio playback stream to add effect, the playback application
+     *     can use {@link AudioRenderer#getAudioStreamId} to obtain it.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Effect is not supported in this device.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setAudioSeparationEffectEnabled(enabled: boolean, uid: int, streamId?: long): Promise<void>;
+
+    /**
+     * Subscribes to system audio separation effect enabled state change event.
+     * The audio separation effect state in system can be set by system playback controller application,
+     * other applications can use this function to listen the change event.
+     * 
+     * @param { Callback<boolean> } callback - Callback used to listen the system audio separation effect
+     *     enabled state change event.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAudioSeparationEffectEnabledChange(callback: Callback<boolean>): void;
+
+    /**
+     * Unsubscribes from the system audio separation effect enabled state change event.
+     * 
+     * @param { Callback<boolean> } [callback] - The callback used in subscription function for unsubscribing.
+     *     If not using this parameter, all callbacks subscribed in current process before will be unsubscribed.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAudioSeparationEffectEnabledChange(callback?: Callback<boolean>): void;
+
+    /**
+     * Sets audio separation effect volume for specific volume type.
+     * This API uses a promise to return the result.
+     * 
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioSeparationVolumeType } type - The type to set volume.
+     * @param { double } volume - The target volume value.
+     *     <br>Value range: [0,1].
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800104 - Effect is not supported in this device.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setAudioSeparationEffectVolume(type: AudioSeparationVolumeType, volume: double): Promise<void>;
   }
 
   /**
@@ -8937,6 +9315,137 @@ declare namespace audio {
      * @since 23 static
      */
     isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+  }
+
+  /**
+   * Provides enhanced audio device management capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioDeviceEnhanceManager {
+    /**
+     * Obtains the sound card information. This method uses a Promise to return the query result.
+     *
+     * @returns { Promise<SoundCardInfo> } Promise used to return the sound card information.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *   Failed to call the API due to limited device capabilities.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getSoundCardInfo(): Promise<SoundCardInfo>;
+
+    /**
+     * Queries whether the system supports the enhanced routing functions provided by this manager,
+     * including selecting input and output devices for the application or audio streams.
+     * Your application is advised to call this API first to confirm system support before using
+     * these enhanced routing APIs. Even for the same type of host device, some models may support
+     * these functions while others may not due to hardware limitations. If the system does not support
+     * these enhanced routing functions, calling them will have no effect, and the system will select
+     * default input/output devices for the application or audio streams instead.
+     *
+     * @returns { boolean } The value true indicates that the system supports enhanced routing functions.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isEnhancedRoutingSupported(): boolean;
+
+    /**
+     * Selects the output device for your application. This setting applies to all playback streams created
+     * under your application, unless a specific output device is designated for a particular stream by
+     * {@link AudioDeviceEnhanceManager.selectOutputDeviceForAudioRenderer}. When application implements
+     * its own UX for output device selection, it can obtain the list of available output devices through
+     * {@link AudioRoutingManager.getAvailableDevices}, and use the
+     * {@link AudioRoutingManager.getPreferOutputDeviceForRendererInfo} API to obtain the currently
+     * selected output device. The selection will become invalid when your application exits or the selected
+     * device goes offline. After your application restarts or the device comes back online, your application
+     * must re-issue the selection for it to take effect. If the system does not support this function, it will
+     * select a default output device for your application.
+     *
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device descriptor in the array returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    selectOutputDevice(outputDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Selects the input device for your application. This setting applies to all recording streams created
+     * under your application, unless a specific input device is designated for a particular stream by
+     * {@link AudioDeviceEnhanceManager.selectInputDeviceForAudioCapturer}. When application implements
+     * its own UX for input device selection, it can obtain the list of available input devices through
+     * {@link AudioRoutingManager.getAvailableDevices}, and use the
+     * {@link AudioRoutingManager.getPreferredInputDeviceForCapturerInfo} API to obtain the currently
+     * selected input device. The selection will become invalid when your application exits or the selected
+     * device goes offline. After your application restarts or the device comes back online, your application
+     * must re-issue the selection for it to take effect. If the system does not support this function,
+     * it will select a default input device for your application.
+     *
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device descriptor in the array returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    selectInputDevice(inputDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Selects the output device for the target AudioRenderer. Your application must ensure that the specified
+     * AudioRenderer is valid. This selection only applies to the designated stream; other playback streams in
+     * your application will use your application's forced selection or the system's default output device.
+     * The selection will become invalid when your application exits or the selected device goes offline.
+     * After your application restarts or the device comes back online, your application must re-issue the
+     * selection for it to take effect. If the system does not support this function, the system will select
+     * a default output device for the renderer.
+     *
+     * @param { AudioRenderer } renderer - The instance of AudioRenderer.
+     * @param { AudioDeviceDescriptor } outputDevice - Audio device descriptor in the array returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    selectOutputDeviceForAudioRenderer(renderer: AudioRenderer, outputDevice: AudioDeviceDescriptor): Promise<void>;
+
+    /**
+     * Selects the input device for the target AudioCapturer. Your application must ensure that the specified
+     * AudioCapturer is valid. This selection only applies to the designated stream; other recording streams in
+     * your application will use your application's forced selection or the system's default input device.
+     * The selection will become invalid when your application exits or the selected device goes offline.
+     * After your application restarts or the device comes back online, your application must re-issue the
+     * selection for it to take effect. If the system does not support this function, the system will select
+     * a default input device for the capturer.
+     *
+     * @param { AudioCapturer } capturer - The instance of AudioCapturer.
+     * @param { AudioDeviceDescriptor } inputDevice - Audio device descriptor in the array returned by
+     *     {@link AudioRoutingManager.getAvailableDevices}.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
+     *     the selected device does not exist.
+     * @throws { BusinessError } 6800301 - Audio service error occurs, such as the service died.
+     * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
   }
 
   /**
@@ -9267,6 +9776,62 @@ declare namespace audio {
      * @since 23 static
      */
     readonly muted?: boolean;
+  }
+
+  /**
+   * Describes sound card information.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SoundCardInfo {
+    /**
+     * Sound card name.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    name: string;
+    /**
+     * Sound card vendor.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    vendor: string;
+    /**
+     * Sound card model.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    model: string;
+    /**
+     * Sound card bus address.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    busAddress: string;
+    /**
+     * Sound card driver.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    driver: string;
   }
 
   /**
@@ -12027,6 +12592,68 @@ declare namespace audio {
   }
 
   /**
+   * Defines mode for playback capture, each mode means different target streams to capture.
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum AudioPlaybackCaptureMode {
+    /**
+     * Default mode. Capture most of the audio streams, except tone streams and privacy streams.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_DEFAULT = 0x0,
+    /**
+     * Media mode. Capture media, voice message and also unknown streams.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_MEDIA = 0x1,
+    /**
+     * Excluding self mode. Capture streams excluding the audio played by application itself.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_EXCLUDING_SELF = 0x8000,
+  }
+
+  /**
+   * Defines the playback capture start state, which is returned asynchronously
+   * after calling {@link AudioCapturer.requestPlaybackCaptureStart} function.
+   * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum PlaybackCaptureStartState {
+    /**
+     * Start playback capture success state.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_SUCCESS = 0,
+    /**
+     * Start playback capture failed state, because the request for interrupt is denied
+     * or meet system internal error.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_FAILED = 1,
+    /**
+     * Start playback capture but user not authorized state.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    STATE_NOT_AUTHORIZED = 2,
+  }
+
+  /**
    * Describes audio capturer information.
    * @typedef AudioCapturerInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -12147,6 +12774,15 @@ declare namespace audio {
      * @since 23 static
      */
     preferredInputDevice?: AudioDeviceDescriptor;
+
+    /**
+     * The playback capture mode for audio capturer.
+     * This can be a combination of the available {@link AudioPlaybackCaptureMode}.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    playbackCaptureMode?: AudioPlaybackCaptureMode;
   }
 
   /**
@@ -12501,6 +13137,18 @@ declare namespace audio {
      * @since 23 static
      */
     start(): Promise<void>;
+
+    /**
+     * Asynchronously request to start the playback capture stream.
+     * This function is non-blocking, which means system will continue to process user authorization and
+     * stream starting when receiving the start request. And the final result will be returned by callback.
+     * @param { Callback<PlaybackCaptureStartState> } callback - Callback function used to receive the final
+     *     result of start request.
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    requestPlaybackCaptureStart(callback: Callback<PlaybackCaptureStartState>): void;
 
     /**
      * Reads the buffer from the audio capturer. This method uses an asynchronous callback to return the result.

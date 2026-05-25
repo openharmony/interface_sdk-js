@@ -19,7 +19,7 @@
  */
 
 /**
- * @interface DeviceResponse
+ *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
@@ -29,7 +29,6 @@ export interface DeviceResponse {
   /**
    * Brand.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -40,7 +39,6 @@ export interface DeviceResponse {
   /**
    * Manufacturer.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -51,7 +49,6 @@ export interface DeviceResponse {
   /**
    * Model.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -62,7 +59,6 @@ export interface DeviceResponse {
   /**
    * Product number.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -73,7 +69,6 @@ export interface DeviceResponse {
   /**
    * System language.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
@@ -84,7 +79,6 @@ export interface DeviceResponse {
   /**
    * System region.
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
@@ -93,9 +87,8 @@ export interface DeviceResponse {
   region: string;
 
   /**
-   * Window width.
+   * Window width, unit px.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -104,9 +97,8 @@ export interface DeviceResponse {
   windowWidth: number;
 
   /**
-   * Window Height.
+   * Window Height, unit px.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -115,9 +107,8 @@ export interface DeviceResponse {
   windowHeight: number;
 
   /**
-   * Screen density.
+   * Screen density, unit dpi.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
@@ -130,7 +121,6 @@ export interface DeviceResponse {
    * rect: Rectangle screen.
    * circle: Circle screen.
    *
-   * @type { 'rect' | 'circle' }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
@@ -141,7 +131,6 @@ export interface DeviceResponse {
   /**
    * API version.
    *
-   * @type { number }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
@@ -164,7 +153,6 @@ export interface DeviceResponse {
    * smartVision: smart visual device
    * linkIoT: connection module
    *
-   * @type { string }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 4 dynamiconly
    * @deprecated since 6
@@ -174,7 +162,7 @@ export interface DeviceResponse {
 }
 
 /**
- * @interface GetDeviceOptions
+ *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @since 3 dynamiconly
  * @deprecated since 6
@@ -184,7 +172,6 @@ export interface GetDeviceOptions {
   /**
    * Called when the device information is obtained.
    *
-   * @type  { ?function } 
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -195,7 +182,6 @@ export interface GetDeviceOptions {
   /**
    * Called when the device information fails to be obtained.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6
@@ -206,7 +192,6 @@ export interface GetDeviceOptions {
   /**
    * Called when the execution is completed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @since 3 dynamiconly
    * @deprecated since 6

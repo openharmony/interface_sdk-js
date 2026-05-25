@@ -15,6 +15,7 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 import { AsyncCallback } from './@ohos.base';
@@ -23,52 +24,51 @@ import formInfo from './@ohos.app.form.formInfo';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * interface of formProvider.
- *
- * @namespace formProvider
+ * The **FormProvider** module provides APIs related to the widget provider. You can use the APIs to update a widget, 
+ * set the next refresh time for a widget, obtain widget information, and request a widget release.
+ * 
  * @syscap SystemCapability.Ability.Form
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formProvider/formProvider
+ * @useinstead @ohos.app.form.formProvider:formProvider
  */
 declare namespace formProvider {
   /**
-   * Set next update time for a specified form.
+   * Sets the next refresh time for a widget. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
-   * @param { AsyncCallback<void> } callback - Callback function.
+   * @param { string } formId - Widget ID.
+   * @param { number } minute - Time for the next refresh. The value must be greater than or equal to 5, in minutes.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#setFormNextRefreshTime
+   * @useinstead @ohos.app.form.formProvider:formProvider#setFormNextRefreshTime
    */
   function setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Set next update time for a specified form.
+   * Sets the next refresh time for a widget. This API uses a promise to return the result.
    *
-   * @param { string } formId - Indicates the form ID.
-   * @param { number } minute - Indicates duration minute before next update.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @param { number } minute - Time for the next refresh. The value must be greater than or equal to 5, in minutes.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#setFormNextRefreshTime
+   * @useinstead @ohos.app.form.formProvider:formProvider#setFormNextRefreshTime
    */
   function setFormNextRefreshTime(formId: string, minute: number): Promise<void>;
 
   /**
-   * Update a specified form.
-   * Client to communication with FormManagerService.
+   * Updates a widget. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } formId - Indicates the form ID
-   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data
-   * @param { AsyncCallback<void> } callback - Callback function.
+   * @param { string } formId - ID of the widget to update.
+   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#updateForm
+   * @useinstead @ohos.app.form.formProvider:formProvider#updateForm
    */
   function updateForm(
     formId: string,
@@ -77,16 +77,15 @@ declare namespace formProvider {
   ): void;
 
   /**
-   * Update a specified form.
-   * Client to communication with FormManagerService.
+   * Updates a widget. This API uses a promise to return the result.
    *
-   * @param { string } formId - Indicates the form ID
-   * @param { formBindingData.FormBindingData } formBindingData - Indicates the form data
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - ID of the widget to update.
+   * @param { formBindingData.FormBindingData } formBindingData - Data to be used for the update.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formProvider/formProvider#updateForm
+   * @useinstead @ohos.app.form.formProvider:formProvider#updateForm
    */
   function updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
 }

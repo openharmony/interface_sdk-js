@@ -54,6 +54,15 @@ declare namespace restrictions {
      * @since 26.0.0
      */
     LOCAL_INPUT = 2,
+
+    /**
+     * Sudo.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SUDO = 4,
     
     /**
      * Core dump
@@ -62,7 +71,16 @@ declare namespace restrictions {
      * @stagemodelonly
      * @since 26.0.0
      */
-    CORE_DUMP = 6
+    CORE_DUMP = 6,
+    
+    /**
+     * Disk erasure
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISK_ERASURE = 8
   }
 
   /**
@@ -81,6 +99,15 @@ declare namespace restrictions {
      * @since 26.0.0
      */
     MULTI_WINDOW = 0,
+
+    /**
+     * Distributed transmission.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISTRIBUTED_TRANSMISSION = 1,
 
     /**
      * Super hub.

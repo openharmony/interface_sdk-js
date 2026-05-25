@@ -106,10 +106,6 @@ declare class LinkedList<T> {
    *     equal to int32_max, that is, 2147483647.
    * @param { T } element - Target element.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -125,9 +121,6 @@ declare class LinkedList<T> {
    *     that is, 2147483647.
    * @returns { T } Element obtained. If the element does not exist, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200001 - The value of index is out of range. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -233,10 +226,6 @@ declare class LinkedList<T> {
    *     that is, 2147483647.
    * @returns { T } Element removed. If the element does not exist, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -357,10 +346,6 @@ declare class LinkedList<T> {
    * @returns { T } New element. If the element is empty, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200010 - Container is empty. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -377,9 +362,6 @@ declare class LinkedList<T> {
    * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
    *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -390,13 +372,14 @@ declare class LinkedList<T> {
   /**
    * Replaces each element of this linkedList with the result of applying the operator to that element.
    *
-   * @param { LinkedListForEachCb } callbackFn - callbackFn
+   * @param { LinkedListForEachCb<T> } callbackFn - callbackFn
    * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 static
    */
-  forEach(callbackfn: LinkedListForEachCb<T>): void;
+  forEach(callbackFn: LinkedListForEachCb<T>): void;
 
   /**
    * Clears this LinkedList and sets its length to **0**.

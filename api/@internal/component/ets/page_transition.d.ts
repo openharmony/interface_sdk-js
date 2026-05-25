@@ -234,6 +234,7 @@ declare enum SlideEffect {
    * Swipe start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -244,6 +245,7 @@ declare enum SlideEffect {
    * Swipe end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -563,6 +565,7 @@ declare interface PageTransitionOptions {
  * @param { RouteType } type - transition route type
  * @param { number } progress - transition progess
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic

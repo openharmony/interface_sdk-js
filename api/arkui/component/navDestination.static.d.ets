@@ -22,7 +22,7 @@
 import window from '../../@ohos.window';
 import { Resource } from '../../global/resource';
 import { CommonMethod, Callback, LayoutSafeAreaType, LayoutSafeAreaEdge, PixelMap, AttributeModifier } from './common';
-import { CustomBuilder } from './builder';
+import { Builder, CustomBuilder, CustomBuilderT } from './builder';
 import { Length, ResourceStr, VoidCallback } from './units';
 import { TitleHeight, Curve } from './enums';
 import { NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, NavigationToolbarOptions, ToolbarItem,
@@ -446,6 +446,34 @@ export declare interface NavDestinationTransition {
 }
 
 /**
+ * The module info of NavDestination
+ *
+ * @interface NavDestinationModuleInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare interface NavDestinationModuleInfo {
+    /**
+     * The module name of NavDestination
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    moduleName: string;
+
+    /**
+     * The source file path of NavDestination
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    pagePath: string;
+}
+
+/**
  * The attribute function of NavDestination
  *
  * @extends CommonMethod
@@ -539,9 +567,11 @@ export declare interface NavDestinationAttribute extends CommonMethod {
     /**
      * Sets the different mode of NavDestination.
      *
-     * @param { NavDestinationMode | undefined } value - NavDestinationMode
+     * @param { NavDestinationMode } value - NavDestinationMode [since 23 - 24]
+     * @param { NavDestinationMode | undefined } value - NavDestinationMode [since 26.0.0]
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default mode(value: NavDestinationMode | undefined): this;
@@ -784,19 +814,52 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<NavDestinationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Sets whether the NavDestination should cover the entire navigation container.
+     *
+     * When set to true, in split navigation mode, the page covers both the NavBar
+     * and content area, displaying in full screen overlay mode. This setting applies
+     * to all instances of this NavDestination whenever it is pushed onto the stack, unless
+     * overridden by the fullScreen option in the push operation.
+     *
+     * @param { boolean | undefined } fullScreenOverlay - Whether to display as full screen overlay.
+     *     <br>**true**: Full screen overlay mode, covers entire navigation container.
+     *     <br>**false**: Normal display mode, follows navigation split rules(Except for DIALOG mode).
+     *     <br>**undefined**: Follow the fullscreen inheritance rules.
+     * @returns { NavDestinationAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fullScreenOverlay(fullScreenOverlay: boolean | undefined): this;
+
+    /**
+     * Set navDestination options.
+     *
+     * @param { NavDestinationModuleInfo } [moduleInfo] - The NavDestination module info
+     * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setNavDestinationOptions(moduleInfo?: NavDestinationModuleInfo): this;
 }
 
 /**
  * Delegate function for NavDestination custom animation.
  *
- * @typedef { function } NavDestinationTransitionDelegate
  * @param { NavigationOperation } operation - the operation type of current Navigation animation.
  * @param { boolean } isEnter - whether current NavDestination will do enter-type transition.
- * @returns { Array<NavDestinationTransition> | undefined } user-set custom navDestination transitions.
+ *    <br>true: The current page is the entry page.
+ *    false: The current page is not the entry page.
+ * @returns { Array<NavDestinationTransition> | undefined } Collection of custom animations for NavDestination.
+ *    If undefined is returned, the default animation is performed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
-export type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
+export type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => (Array<NavDestinationTransition> | undefined);
 
 /**
  * Defines NavDestination Component
@@ -811,4 +874,20 @@ export type NavDestinationTransitionDelegate = (operation: NavigationOperation, 
 export declare function NavDestination(
     
   content_?: CustomBuilder
+): NavDestinationAttribute
+
+/**
+ * Defines NavDestination Component
+ *
+ * @param { CustomBuilderT<NavDestinationAttribute> } style_ - navDestination attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { NavDestinationAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function NavDestination(
+  style_: CustomBuilderT<NavDestinationAttribute>,
+  content_?: CustomBuilder,
 ): NavDestinationAttribute

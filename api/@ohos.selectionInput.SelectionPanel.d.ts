@@ -109,7 +109,7 @@ export interface PanelInfo {
 export enum PanelType {
   /**
    * The menu panel can serve as a primary panel to display the functions that the current application can provide,
- 	 * such as translation, search, etc.
+   * such as translation and search.
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -122,7 +122,7 @@ export enum PanelType {
 
   /**
    * The main panel can serve as a secondary panel that pops up when the user clicks on the function buttons
- 	 * on the menu panel, displaying specific translation or search results, etc.
+   * on the menu panel, displaying specific translation or search results.
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]

@@ -20,6 +20,7 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
+import type cert from './@ohos.security.cert';
 
 /**
  * Provides http related APIs.
@@ -65,6 +66,68 @@ declare namespace http {
    * @since 23 static
    */
   type HttpProxy = connection.HttpProxy;
+
+  /**
+   * Socks5 Proxy Configuration Information.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type Socks5Proxy = connection.Socks5Proxy;
+
+  /**
+   * A single value that can be used as a query parameter.
+   *
+   * Serialization rules when used in {@link QueryParamObject}:
+   * - textual values: serialized as-is before URL encoding.
+   * - numeric values: converted to its string representation before URL encoding.
+   * - logical values: converted to "true" or "false" before URL encoding.
+   * - null or undefined: serialized as the key without `=` or a value (for example, `{ a: null }` -> `a`).
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @crossplatform
+   * @since 26.0.0 dynamic&static
+   */
+  export type QueryParamValue = string | int | boolean | null | undefined;
+
+  /**
+   * A key-value object used to construct URL query parameters automatically.
+   *
+   * Each property name is treated as a query parameter key.
+   * Each property value may be either:
+   * - a single {@link QueryParamValue}, or
+   * - an array of {@link QueryParamValue}, which is expanded into repeated
+   * parameters with the same key.
+   *
+   * Serialization rules:
+   * - Keys and values are URL-encoded by the system.
+   * - A single value is serialized as one `key=value` pair.
+   * - An array value is serialized as multiple pairs using the same key.
+   * For example, `{ tag: ['a', 'b'] }` is serialized as `tag=a&tag=b`.
+   * - For array values, `undefined` and `null` elements are serialized as empty values without `=`.
+   * For example, `{ a: [1, "", undefined, null] }` is serialized as `a=1&a=&a&a`.
+   *
+   * Order semantics:
+   * - This type represents query parameters as an object, not as an ordered list
+   * of key-value pairs.
+   * - Multiple values for the same key are supported through arrays.
+   * - However, callers must not rely on preserving an exact original pair order
+   * such as `a=1&b=2&a=3`. If strict ordering or repeated-key ordering is
+   * required, use a pre-encoded query string instead of {@link QueryParamObject}.
+   *
+   * Usage notes:
+   * - Provide raw, unencoded keys and values. Do not pre-encode them.
+   * - If you need full control over the final query string format, use the `string`
+   * form of `queryParams` instead.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @crossplatform
+   * @since 26.0.0 dynamic&static
+   */
+  export type QueryParamObject = Record<string, QueryParamValue | QueryParamValue[]>;
 
   /**
    * Creates an HTTP request task.
@@ -192,6 +255,54 @@ declare namespace http {
      * @since 23 static
      */
     extraData?: string | Object | ArrayBuffer;
+
+    /**
+     * The body content of the HTTP request.
+     *
+     * This parameter explicitly specifies the payload to be sent in the request body.
+     * When this field is set, the framework forces the data into the body, regardless of
+     * the HTTP request method (GET, POST, etc.).
+     *
+     * Serialization rules:
+     * - string: sent directly as the request body.
+     * - Object: serialized to a JSON string before being sent.
+     * - ArrayBuffer: sent as raw binary data without additional serialization.
+     *
+     * If both body and extraData are specified, body takes precedence, and extraData
+     * will be ignored.
+     *
+     * @type { ?(string | Object | ArrayBuffer) }
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    body?: string | Object | ArrayBuffer;
+
+    /**
+     * Query parameters to append to the request URL.
+     * Supports two input forms:
+     * - `string`: a pre-encoded query string provided by the caller. It is appended
+     * to the URL as-is and is not encoded again by the system.
+     * - `QueryParamObject`: a key-value object. The system encodes keys and values
+     * and serializes them into the URL query string automatically.
+     *
+     * Notes:
+     * 1. For `string`, do not include the leading `?`
+     * (for example, use `"key=value"`, not `"?key=value"`).
+     * 2. For `string`, the caller is responsible for encoding special characters.
+     * 3. For `string`, use `&` to separate multiple parameters.
+     *
+     * If both `queryParams` and `extraData` are specified, `queryParams` takes
+     * precedence for URL construction, and `extraData` will be ignored.
+     *
+     * @type { ?(string | QueryParamObject) }
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamic&static
+     */
+    queryParams?: string | QueryParamObject;
 
     /**
      * Data type to be returned. If this parameter is set, the system preferentially returns the specified type.
@@ -445,6 +556,21 @@ declare namespace http {
     clientEncCert?: ClientCert;
 
     /**
+     * Indicates whether to enable partial chain verification.
+     * Default value is false, meaning the certificate chain must verify up to a trusted root CA.
+     * If set to true, the verification succeeds if the chain builds to a trusted intermediate CA,
+     * without requiring a path to a trusted root CA.
+     * Security Warning: Enabling this reduces security posture. It should only be used in controlled
+     * environments (e.g., enterprise internal PKI) where specific intermediate CAs are explicitly trusted.
+     * Misuse may expose the application to Man-in-the-Middle (MITM) attacks.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enablePartialChain?: boolean;
+
+    /**
      * Used to set to uploading or downloading the start bytes. The default value is 0.
      * HTTP standard (RFC 7233 section 3.1) allows servers to ignore range requests.
      * For HTTP PUT uploads this option should not be used, since it may conflict with other options.
@@ -672,6 +798,16 @@ declare namespace http {
       * @since 26.0.0 dynamic&static
       */
     inactivityMs?: int;
+
+    /**
+     * Specifies the use of a SOCKS5 proxy. Note that this configuration takes precedence over usingProxy.
+     * It is recommend not to configure both simultaneously.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    usingSocks5Proxy?: Socks5Proxy;
   }
 
    /**
@@ -715,16 +851,85 @@ declare namespace http {
     */
    export type TlsOptions = 'system' | TlsConfig;
  
-   /**
-    * Remote Validation Type.
-    * @typedef {'system' | 'skip'}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export type RemoteValidation = 'system' | 'skip';
- 
+  /**
+   * Remote Validation Type.
+   * @unionmember { 'system' } use system validation.
+   * @unionmember { 'skip' } skip validation.
+   * @unionmember { ValidationCallback } [ since 26.0.0 dynamic&static ] use custom validation.
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type RemoteValidation = 'system' | 'skip' | ValidationCallback;
+
+  /**
+   * X509 certificate.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type X509Cert = cert.X509Cert;
+
+  /**
+   * The validation context of {@link ValidationCallback}
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface ValidationContext {  
+    /**
+     * The raw data which in PEM format of certificate.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pemCerts: string[];
+
+    /**
+     * X509 certificate chain.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    x509Certs: X509Cert[];
+
+    /**
+     * The host of this request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    host: string;
+
+    /**
+     * The real IP which this request connect to.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ip: string;
+  }
+  
+  /**
+   * Self defined remote validation.
+   * This API uses a promise to return the result.
+   *
+   * @param { ValidationContext } context - Certificate context.
+   * @returns { boolean | Promise<boolean> } Returns a boolean value indicating whether the validation is successful.
+   *     Promise used to return the result. The value true indicates valid, and false indicates invalid.
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type ValidationCallback = (context: ValidationContext) => boolean | Promise<boolean>;
+
    /**
     * The server's authentication type.
     * @typedef {'basic' | 'ntlm' | 'digest'}
@@ -2426,6 +2631,15 @@ declare namespace http {
      * @since 18 dynamic
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<int>;
+
+    /**
+     * Sets whether to automatically reply with cookies.
+     * @param { boolean } enable - whether to automatically reply with cookies, default is false.
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enableAutoCookie(enable: boolean): void;
 
     /**
      * Destroys an HTTP request.

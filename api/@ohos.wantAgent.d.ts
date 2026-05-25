@@ -16,16 +16,10 @@
 /**
  * The WantAgent module provides APIs for creating and comparing WantAgent objects, and obtaining the user ID and bundle
  *  name of a WantAgent object.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are supported since API version 7 and deprecated since API version 9. You are advised to 
- * > use [@ohos.app.ability.wantAgent]{@link @ohos.app.ability.wantAgent} instead. Newly added APIs will be marked with 
- * > a superscript to indicate their earliest API version.
  *
  * @file
  * @kit API10LessDeprecatedModules
-*/
+ */
 
 import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -417,7 +411,6 @@ declare namespace wantAgent {
    * @deprecated since 9
    * @useinstead ohos.app.ability.wantAgent/wantAgent#CompleteData
    */
-
   export interface CompleteData {
     /**
      * Triggered WantAgent.

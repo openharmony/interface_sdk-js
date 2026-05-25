@@ -83,19 +83,40 @@ declare interface DynamicOptions {
      * @since 26.0.0 dynamic
      */
     allowCrossProcessNesting?: boolean;
+    /**
+     * Indicates allow keyboard avoidance inside the DynamicComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    allowOccupied?: boolean;
 }
 
 /**
  * Provide an interface for the DynamicComponent, which is used to render UI of other ABC
- * @typedef { function } DynamicComponentInterface
- * @param { DynamicOptions } options - Construction configuration of DynamicComponentAttribute
+ *
  * @returns { DynamicComponentAttribute } Attribute of DynamicComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic
  */
-declare type DynamicComponentInterface = (options: DynamicOptions) => DynamicComponentAttribute;
+interface DynamicComponentInterface {
+    /**
+     * Construct the DynamicComponentInterface.<br/>
+     * Called when the DynamicComponentInterface is used.
+     *
+     * @param { DynamicOptions } options - Construction configuration of DynamicComponentAttribute
+     * @returns { DynamicComponentAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    (options: DynamicOptions): DynamicComponentAttribute;
+}
 
 /**
  * Define the attribute functions of DynamicComponent.

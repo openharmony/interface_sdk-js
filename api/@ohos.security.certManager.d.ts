@@ -21,7 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The **certManager** module provides system-level certificate management capabilities to implement management and 
+ * The **certManager** module provides system-level certificate management capabilities to implement management and
  * secure use of certificates throughout their lifecycle (installation, storage, use, and destruction).
  *
  * @syscap SystemCapability.Security.CertificateManager
@@ -48,7 +48,7 @@ declare namespace certificateManager {
 
     /**
      * The caller is not a system application.
-     * 
+     *
      * This is a system API.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -126,11 +126,11 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
     CM_ERROR_PASSWORD_IS_ERR = 17500008,
-    
+
     /**
      * The device does not support the specified certificate storage path.
      *
@@ -151,14 +151,14 @@ declare namespace certificateManager {
 
     /**
      * The input parameter validation fails.
-     * 
+     *
      * For example, the parameter format is incorrect or the parameter range is invalid.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
      * @since 23 static
      */
-    CM_ERROR_PARAMETER_VALIDATION_FAILED = 17500011,
+    CM_ERROR_PARAMETER_VALIDATION_FAILED = 17500011
   }
 
   /**
@@ -188,7 +188,7 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the 
+     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the
      * opposite.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -289,7 +289,7 @@ declare namespace certificateManager {
     certAlias: string;
 
     /**
-     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the 
+     * Certificate state. The value **true** indicates that the certificate is enabled, and **false** means the
      * opposite.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -498,11 +498,10 @@ declare namespace certificateManager {
 
     /**
      * Certificate URI list.
-     * 
      * **Since**: 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     uriList?: Array<string>;
@@ -544,7 +543,7 @@ declare namespace certificateManager {
    */
   export enum CmKeyDigest {
     /**
-     * No digest algorithm is required. If this option is used, the service needs to pass in the data with the digest 
+     * No digest algorithm is required. If this option is used, the service needs to pass in the data with the digest
      * generated for signing or signature verification.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -614,7 +613,7 @@ declare namespace certificateManager {
      * @since 18 dynamic
      * @since 23 static
      */
-    CM_DIGEST_SM3 = 7,
+    CM_DIGEST_SM3 = 7
   }
 
   /**
@@ -848,7 +847,7 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains detailed information about a private credential. This API uses an asynchronous callback to return the 
+   * Obtains detailed information about a private credential. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -890,7 +889,7 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * Initializes the signing or signature verification operation using the specified credential. This API uses an 
+   * Initializes the signing or signature verification operation using the specified credential. This API uses an
    * asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -935,7 +934,7 @@ declare namespace certificateManager {
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
   /**
-   * Updates the data for the signing or signature verification operation. This API uses an asynchronous callback to 
+   * Updates the data for the signing or signature verification operation. This API uses an asynchronous callback to
    * return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -1037,7 +1036,7 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
   /**
-   * Aborts the signing or signature verification operation. This API uses an asynchronous callback to return the 
+   * Aborts the signing or signature verification operation. This API uses an asynchronous callback to return the
    * result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -1096,7 +1095,7 @@ declare namespace certificateManager {
   function getPublicCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * Checks whether this application is authorized by the specified user credential. This API uses a promise to return 
+   * Checks whether this application is authorized by the specified user credential. This API uses a promise to return
    * the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -1171,7 +1170,7 @@ declare namespace certificateManager {
   function getAllSystemAppCertificates(): Promise<CMResult>;
 
   /**
-   * Obtains the credentials for installing the application. This API uses a promise to return the result 
+   * Obtains the credentials for installing the application. This API uses a promise to return the result
    * asynchronously.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -1293,7 +1292,7 @@ declare namespace certificateManager {
     certScope?: CertScope;
 
     /**
-     * Certificate algorithm. This parameter is valid only when **certType** is set to **CA_CERT_SYSTEM**. The default 
+     * Certificate algorithm. This parameter is valid only when **certType** is set to **CA_CERT_SYSTEM**. The default
      * value is **INTERNATIONAL**.
      *
      * @syscap SystemCapability.Security.CertificateManager
@@ -1445,7 +1444,7 @@ declare namespace certificateManager {
      * @since 20 dynamic
      * @since 23 static
      */
-    SM = 2,
+    SM = 2
   }
 
   /**
@@ -1490,7 +1489,7 @@ declare namespace certificateManager {
      * @since 22 dynamic
      * @since 23 static
      */
-    PURPOSE_ENCRYPT = 3,
+    PURPOSE_ENCRYPT = 3
   }
 
   /**
@@ -1524,17 +1523,17 @@ declare namespace certificateManager {
    */
   export interface UkeyInfo {
     /**
-      * Credential usage.
-      *
-      * @syscap SystemCapability.Security.CertificateManager
-      * @since 22 dynamic
-      * @since 23 static
-      */
-     certPurpose?: CertificatePurpose;
+     * Credential usage.
+     *
+     * @syscap SystemCapability.Security.CertificateManager
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    certPurpose?: CertificatePurpose;
   }
 
   /**
-   * Obtains the list of CA certificates trusted by the system. This API is called only by the certificate management 
+   * Obtains the list of CA certificates trusted by the system. This API is called only by the certificate management
    * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1547,11 +1546,11 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificateList(): Promise<CMResult>;
-  
+
   /**
    * Obtains details about a CA certificate trusted by the system. This API is called only by the certificate management
    * application. This API uses a promise to return the result.
@@ -1571,13 +1570,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
 
   /**
-   * Sets the status of a CA certificate. Currently, only the status of a user's CA certificate can be set. This API is 
+   * Sets the status of a CA certificate. Currently, only the status of a user's CA certificate can be set. This API is
    * called only by the certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
@@ -1598,7 +1597,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function setCertificateStatus(certUri: string, certType: CertType, enabled: boolean) : Promise<void>;
@@ -1607,60 +1606,60 @@ declare namespace certificateManager {
    * Represents the certificate file format.
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export enum CertFileFormat {  
+  export enum CertFileFormat {
     /**
      * The certificate file format is PEM or DER.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     PEM_DER = 0,
-    
+
     /**
      * The certificate file format is P7B.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     P7B = 1
   }
-  
+
   /**
    * Represents the certificate data in binary format.
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  export interface CertBlob {  
+  export interface CertBlob {
     /**
      * Certificate file data.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certData: Uint8Array;
-    
+
     /**
      * Certificate file format.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certFormat? : CertFileFormat;
-    
+
     /**
      * Scope of the CA certificate.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certScope? : CertScope;
@@ -1684,13 +1683,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode.
    *     <br>In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function installUserTrustedCertificate(certificate: CertBlob) : Promise<CMResult>;
 
   /**
-   * Uninstalls all CA certificates trusted by the user. This API is called only by the certificate management 
+   * Uninstalls all CA certificates trusted by the user. This API is called only by the certificate management
    * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_USER_TRUSTED_CERT
@@ -1702,7 +1701,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllUserTrustedCertificate() : Promise<void>;
@@ -1729,13 +1728,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installPublicCertificate(keystore: Uint8Array, keystorePwd: string) : Promise<CMResult>;
 
   /**
-   * Uninstalls the public credential of the user. This API is called only by the certificate management application. 
+   * Uninstalls the public credential of the user. This API is called only by the certificate management application.
    * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1751,13 +1750,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallPublicCertificate(keyUri: string) : Promise<void>;
 
   /**
-   * Obtains the public credentials of all users. This API is called only by the certificate management application. 
+   * Obtains the public credentials of all users. This API is called only by the certificate management application.
    * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1771,13 +1770,13 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllPublicCertificates() : Promise<CMResult>;
 
   /**
-   * Grants the permission for an application to use the public credentials of a user. This API is called only by the 
+   * Grants the permission for an application to use the public credentials of a user. This API is called only by the
    * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1795,13 +1794,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function grantPublicCertificate(keyUri: string, clientAppUid: int) : Promise<CMResult>;
 
   /**
-   * Obtains the list of authorized applications of a user's public credential. This API is called only by the 
+   * Obtains the list of authorized applications of a user's public credential. This API is called only by the
    * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1818,13 +1817,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAuthorizedAppList(keyUri: string) : Promise<CMResult>;
 
   /**
-   * Removes the permission for an application to use the public credentials of a user. This API is called only by the 
+   * Removes the permission for an application to use the public credentials of a user. This API is called only by the
    * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1841,13 +1840,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function removeGrantedPublicCertificate(keyUri: string, clientAppUid: int) : Promise<void>;
 
   /**
-   * Obtains all private credentials of a specified application. This API is called only by the certificate management 
+   * Obtains all private credentials of a specified application. This API is called only by the certificate management
    * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1862,7 +1861,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllAppPrivateCertificatesByUid(appUid: int) : Promise<CMResult>;
@@ -1889,13 +1888,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installSystemAppCertificate(keystore: Uint8Array, keystorePwd: string): Promise<CMResult>;
 
   /**
-   * Obtains the credential details of the system application. This API is called only by the certificate management 
+   * Obtains the credential details of the system application. This API is called only by the certificate management
    * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
@@ -1912,13 +1911,13 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemAppCertificate(keyUri: string) : Promise<CMResult>;
 
   /**
-   * Uninstalls the credential of the system application. This API is called only by the certificate management 
+   * Uninstalls the credential of the system application. This API is called only by the certificate management
    * application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_SYSTEM_APP_CERT
@@ -1934,7 +1933,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallSystemAppCertificate(keyUri: string) : Promise<void>;
@@ -1957,13 +1956,13 @@ declare namespace certificateManager {
    *     <br> Possible causes: the ukeyInfo parameter is invalid.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function getUkeyCertificateList(ukeyProvider: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
-   * Uninstalls all system application credentials and public user credentials. This API is called only by the 
+   * Uninstalls all system application credentials and public user credentials. This API is called only by the
    * certificate management application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
@@ -1976,7 +1975,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllAppCertificate() : Promise<void>;
@@ -1990,20 +1989,20 @@ declare namespace certificateManager {
    *     <br>by calling the getUkeyCertificateList interface.
    * @param { Uint8Array } cert - Indicates the certificate data to be imported.
    *     <br>The certificate data format complies with the SKF specification.
-   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
-   *     <br>The value of <br>UkeyInfo.CertificatePurpose must be PURPOSE_SIGN or PURPOSE_ENCRYPT.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information
+   *     <br>UkeyInfo.CertificatePurpose can only be set to PURPOSE_SIGN, PURPOSE_ENCRYPT or PURPOSE_DEFAULT.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @throws { BusinessError } 17500002 - The certificate identified by keyuri does not exist
    * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function importUkeyCertificate(keyUri: string, cert: Uint8Array, ukeyInfo: UkeyInfo): Promise<void>;

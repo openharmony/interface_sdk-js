@@ -21,9 +21,10 @@ import Want from '../../@ohos.app.ability.Want';
 import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
 import { CommonMethod, TerminationInfo } from './common';
 import { ComponentContentBase } from '../ComponentContent';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { VoidCallback } from './units';
+import { Builder } from '@ohos.arkui.component';
 
 /**
  * Enumeration of different types of DpiFollowStrategy.
@@ -31,6 +32,7 @@ import { VoidCallback } from './units';
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum DpiFollowStrategy {
@@ -39,6 +41,7 @@ export declare enum DpiFollowStrategy {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     FOLLOW_HOST_DPI = 0,
@@ -47,6 +50,7 @@ export declare enum DpiFollowStrategy {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
@@ -56,6 +60,7 @@ export declare enum DpiFollowStrategy {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum WindowModeFollowStrategy {
@@ -63,6 +68,7 @@ export declare enum WindowModeFollowStrategy {
      * Followed the host Window Mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     FOLLOW_HOST_WINDOW_MODE = 0,
@@ -70,6 +76,7 @@ export declare enum WindowModeFollowStrategy {
      * Followed the UIExtensionAbility.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
@@ -80,6 +87,7 @@ export declare enum WindowModeFollowStrategy {
  * @interface UIExtensionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface UIExtensionOptions {
@@ -91,6 +99,7 @@ export declare interface UIExtensionOptions {
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     isTransferringCaller?: boolean;
@@ -124,6 +133,7 @@ export declare interface UIExtensionOptions {
      * @default DpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     dpiFollowStrategy?: DpiFollowStrategy;
@@ -133,6 +143,7 @@ export declare interface UIExtensionOptions {
      * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     windowModeFollowStrategy?: WindowModeFollowStrategy;
@@ -143,6 +154,7 @@ export declare interface UIExtensionOptions {
  * @typedef { Callback<Record<string, RecordData>> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export type ReceiveCallback = Callback<Record<string, RecordData>>;
@@ -154,6 +166,7 @@ export type ReceiveCallback = Callback<Record<string, RecordData>>;
  * @interface UIExtensionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface UIExtensionProxy {
@@ -165,6 +178,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     send(data: Record<string, RecordData>): void;
@@ -179,6 +193,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     sendSync(data: Record<string, RecordData>): Record<string, RecordData>;
@@ -190,6 +205,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onAsyncReceiverRegister(callback: Callback<UIExtensionProxy>): void;
@@ -201,6 +217,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onSyncReceiverRegister(callback: Callback<UIExtensionProxy>): void;
@@ -212,6 +229,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     offAsyncReceiverRegister(callback?: Callback<UIExtensionProxy>): void;
@@ -223,6 +241,7 @@ export declare interface UIExtensionProxy {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     offSyncReceiverRegister(callback?: Callback<UIExtensionProxy>): void;
@@ -235,10 +254,24 @@ export declare interface UIExtensionProxy {
  * @typedef UIExtensionComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @stagemodelonly
  * @noninterop
  * @since 23 static
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
+    /**
+     * Sets ui extension component options.
+     *
+     * @param { Want } want - The want
+     * @param { UIExtensionOptions } [options] - The options
+     * @returns { this } UIExtensionComponentAttribute instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @systemapi
+     * @since 26.0.0 staticonly
+     */
+    setUIExtensionComponentOptions(want: Want, options?: UIExtensionOptions): this;
+
     /**
      * callback called when remote UIExtensionAbility object is ready for receive data
      *
@@ -247,6 +280,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onRemoteReady(callback: Callback<UIExtensionProxy> | undefined): this;
@@ -257,6 +291,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onReceive(callback: ReceiveCallback | undefined): this;
@@ -268,6 +303,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onError(callback: ErrorCallback<BusinessError> | undefined): this;
@@ -278,6 +314,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onTerminated(callback: Callback<TerminationInfo> | undefined): this;
@@ -287,6 +324,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     onDrawReady(callback: VoidCallback | undefined): this;
@@ -298,6 +336,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @returns { UIExtensionComponentAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @stagemodelonly
      * @since 23 static
      */
     attributeModifier(modifier: AttributeModifier<UIExtensionComponentAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -309,11 +348,27 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
  * @param { UIExtensionOptions } [options] - The options
  * @returns { UIExtensionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @systemapi
+ * @stagemodelonly
  * @since 23 static
  */
 @ComponentBuilder
 export declare function UIExtensionComponent(
     want: Want, options?: UIExtensionOptions
+): UIExtensionComponentAttribute
+
+/**
+ * Defines UIExtensionComponent Component.It requires call setUIExtensionComponentOptions at start of the component attribute set-up,
+ * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<UIExtensionComponentAttribute> } style - the callback to set up uiextensioncomponent's attributes.
+ * @returns { UIExtensionComponentAttribute } The attribute of the UIExtensionComponent.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @systemapi
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function UIExtensionComponent(
+    style: CustomBuilderT<UIExtensionComponentAttribute>
 ): UIExtensionComponentAttribute

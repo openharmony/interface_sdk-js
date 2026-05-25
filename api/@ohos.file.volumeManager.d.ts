@@ -19,6 +19,7 @@
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
+import Want from './@ohos.app.ability.Want';
 
 /**
  * The **volumeManager** module provides APIs for querying and managing volumes and disks, including querying volume
@@ -131,7 +132,429 @@ declare namespace volumeManager {
      * @since 23 static
      */
     fsType: string;
+
+    /**
+    * Extra information of the volume.
+    *
+    * @syscap SystemCapability.FileManagement.StorageService.Volume
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+    extraInfo?: string;
   }
+
+  /**
+  * Enumerates the verify type for burn data.
+  *
+  * @syscap SystemCapability.FileManagement.StorageService.Volume
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  export enum VerifyType {
+    /**
+      * Key data verification type.
+      *
+      * @syscap SystemCapability.FileManagement.StorageService.Volume
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+      KEY_DATA = 0,
+    /**
+      * Full data verification type.
+      *
+      * @syscap SystemCapability.FileManagement.StorageService.Volume
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+      FULL_DATA = 1
+  }
+
+  /**
+   * Disk type.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum DiskType {
+    /**
+     * The type of sd card.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SD_CARD = 1,
+
+    /**
+     * The type of usb flash.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    USB_FLASH = 2,
+
+    /**
+     * The type of CD_DVD_BD.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CD_DVD_BD = 3,
+
+    /**
+     * The type of ssd data disk.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA_DISK_SSD = 4,
+
+    /**
+     * The type of hdd data disk.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DATA_DISK_HDD = 5,
+
+    /**
+     * Unknown disk type.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN_DISK_TYPE = 255
+  }
+
+  /**
+   * Disk information.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface Disk {
+    /**
+     * Disk ID, in the disk-{Primary device ID}-{Secondary device ID} format.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    diskId: string;
+
+    /**
+     * Disk total size.
+     * <br>Unit: Byte.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sizeBytes: long;
+
+    /**
+     * Disk type.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    diskType: DiskType;
+
+    /**
+     * Indicates that the disk can be removed.The value true indicates that the disk can be removed.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    removable: boolean;
+
+    /**
+     * Indicates the volume of a disk. A disk may contain multiple volumes.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    volumeIds: Array<string>;
+
+    /**
+     * Disk information extension field.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    extraInfo: string;
+  }
+
+  /**
+   * Partition information.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface PartitionInfo {
+    /**
+     * Partition number.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    partitionNum: int;
+
+    /**
+     * Disk ID.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    diskId: string;
+
+    /**
+     * Start sector of the partition.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    startSector: long;
+
+    /**
+     * End sector of the partition.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    endSector: long;
+
+    /**
+     * Partition total size.
+     * <br>Unit: Byte.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sizeBytes: long;
+
+    /**
+     * File system type. Common file systems are **ext4**, **vfat**, **exfat**, **NTFS**, **f2fs**, and **hmfs**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fsType: string;
+  }
+
+  /**
+   * Partition table information.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface PartitionTableInfo {
+    /**
+     * Disk ID.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    diskId: string;
+
+    /**
+     * Partition table type, such as 'gpt' or 'mbr'.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    tableType: string;
+
+    /**
+     * Number of partitions.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    partitionCount: int;
+
+    /**
+     * Total number of sectors.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    totalSector: long;
+
+    /**
+     * Sector size in bytes.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sectorSize: int;
+
+    /**
+     * Alignment sector.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    alignSector: int;
+
+    /**
+     * Array of partition information.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    partitions: Array<PartitionInfo>;
+  }
+
+  /**
+   * Partition creation options.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface PartitionParams {
+    /**
+     * Partition number.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    partitionNum: int;
+
+    /**
+     * Start sector of the partition.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    startSector: long;
+
+    /**
+     * End sector of the partition.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    endSector: long;
+
+    /**
+     * The code of file system. Common file systems are **ext4**, **vfat**, **exfat**, **NTFS**, **f2fs**, and **hmfs**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    typeCode: string;
+  }
+
+  /**
+   * Format options for partition formatting.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface FormatParams {
+    /**
+     * File system type, Common file systems are **ext4**, **vfat**, and **exfat**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fsType: string;
+
+    /**
+     * Whether to perform quick format, default value is true.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    quickFormat?: boolean;
+
+    /**
+     * Volume name after formatting.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    volumeName?: string;
+  }
+
   /**
    * Obtains information about all volumes of this external storage device. This API uses an asynchronous callback to
    * return the result.
@@ -171,8 +594,8 @@ declare namespace volumeManager {
   function getAllVolumes(): Promise<Array<Volume>>;
 
   /**
-   * Mounts a volume. This API uses an asynchronous callback to return the result. Currently, only the FAT, exFAT, and
-   * NTFS file systems are supported.
+   * Mounts a volume. This API uses an asynchronous callback to return the result. Currently, only the FAT, exFAT, ext4
+   * and NTFS file systems are supported.
    *
    * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
    * @param { string } volumeId - Volume ID.
@@ -196,7 +619,7 @@ declare namespace volumeManager {
   function mount(volumeId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Mounts a volume. This API uses a promise to return the result. Currently, only the FAT, exFAT, and NTFS file
+   * Mounts a volume. This API uses a promise to return the result. Currently, only the FAT, exFAT, ext4 and NTFS file
    * systems are supported.
    *
    * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
@@ -404,8 +827,8 @@ declare namespace volumeManager {
 
   /**
    * Formats a volume. This API uses an asynchronous callback to return the result. Currently, only the virtual file
-   * allocation table (VFAT) and exFAT file systems are supported. Only unmounted volumes can be formatted. After a
-   * volume is formatted, the UUID, mounting path, and description of the volume will change.
+   * allocation table (VFAT), ext4 and exFAT file systems are supported. Only unmounted volumes can be formatted. After
+   * a volume is formatted, the UUID, mounting path, and description of the volume will change.
    *
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } volumeId - Volume ID.
@@ -430,8 +853,8 @@ declare namespace volumeManager {
 
   /**
    * Formats a volume. This API uses a promise to return the result. Currently, only the virtual file allocation table (
-   * VFAT) and exFAT file systems are supported. Only unmounted volumes can be formatted. After a volume is formatted,
-   * the UUID, mounting path, and description of the volume will change.
+   * VFAT), ext4 and exFAT file systems are supported. Only unmounted volumes can be formatted. After a volume is
+   * formatted, the UUID, mounting path, and description of the volume will change.
    *
    * @permission ohos.permission.MOUNT_FORMAT_MANAGER
    * @param { string } volumeId - Volume ID.
@@ -499,6 +922,244 @@ declare namespace volumeManager {
    * @since 23 static
    */
   function partition(diskId: string, type: int): Promise<void>;
+
+  /**
+   * Erases a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600023 - Disc not erasable.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function erase(volumeId: string): Promise<void>;
+
+  /**
+   * Ejects a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function eject(volumeId: string): Promise<void>;
+
+  /**
+   * Creates an ISO image from a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @param { string } filePath - File path for the ISO image.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600024 - Empty disc.
+   * @throws { BusinessError } 13600025 - Failed to write the ISO file.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createIsoImage(volumeId: string, filePath: string): Promise<void>;
+
+  /**
+   * Burns data to a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @param { Want } want - Want information about the target ability.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600026 - Insufficient disc space.
+   * @throws { BusinessError } 13600027 - Source data not found.
+   * @throws { BusinessError } 13600028 - Burn operation failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function burn(volumeId: string, want: Want): Promise<void>;
+
+  /**
+   * Gets the operation progress of a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @returns { Promise<int> } Promise used to return the operation progress.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600029 - No ongoing operation.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getOpProcess(volumeId: string): Promise<int>;
+
+  /**
+   * Verifies burn data of a volume. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumeId - Volume ID.
+   * @param { VerifyType } verType - Verify type.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600030 - Verification failed.
+   * @throws { BusinessError } 13600031 - Data mismatch.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function verifyBurnData(volumeId: string, verType: VerifyType): Promise<void>;
+
+  /**
+   * Querying Information About All Disks.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @returns { Promise<Array<Disk>> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAllDisks(): Promise<Array<Disk>>;
+
+  /**
+   * Querying disk information based on the disk ID.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } diskId - The diskId of disk.
+   * @returns { Promise<Disk> } return Promise
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getDiskById(diskId: string): Promise<Disk>;
+
+  /**
+   * Obtains partition table information based on the disk ID. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_FORMAT_MANAGER
+   * @param { string } diskId - Disk ID.
+   * @returns { Promise<PartitionTableInfo> } Promise used to return the partition table information of the
+   * current disk ID.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600021 - Get partition table failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getPartitionTable(diskId: string): Promise<PartitionTableInfo>;
+
+  /**
+   * Creates a partition on a disk. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_FORMAT_MANAGER
+   * @param { string } diskId - Disk ID.
+   * @param { PartitionParams } params - Partition creation options.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600022 - Create partition failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createPartition(diskId: string, params: PartitionParams): Promise<void>;
+
+  /**
+   * Deletes a partition on a disk. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_FORMAT_MANAGER
+   * @param { string } diskId - Disk ID.
+   * @param { number } partitionNum - Partition number.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600023 - Delete partition failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function deletePartition(diskId: string, partitionNum: int): Promise<void>;
+
+  /**
+   * Formats a partition on a disk. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_FORMAT_MANAGER
+   * @param { string } diskId - Disk ID.
+   * @param { number } partitionNum - Partition number.
+   * @param { FormatParams } params - Format options.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600005 - Incorrect volume state.
+   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600025 - Format partition failed.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function formatPartition(diskId: string, partitionNum: int, params: FormatParams): Promise<void>;
 }
 
 export default volumeManager;

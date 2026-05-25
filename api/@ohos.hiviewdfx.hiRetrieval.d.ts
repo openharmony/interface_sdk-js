@@ -106,8 +106,6 @@ declare namespace hiRetrieval {
    * Query if the app is participating the HiRetrieval project.
    *
    * @returns { boolean } Returns true if this app is participating HiRetrieval project, false otherwise.
-   * @throws { BusinessError } 36000001 - Initialization error.
-   *                                      Possibly caused by invoking this function before invoking init function.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice
@@ -120,8 +118,6 @@ declare namespace hiRetrieval {
    *
    * @returns { long } Returns the timestamp of the last participating time in milliseconds,
    *                   if never participated return 0.
-   * @throws { BusinessError } 36000001 - Initialization error.
-   *                                      Possibly caused by invoking this function before invoking init function.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice
@@ -145,8 +141,6 @@ declare namespace hiRetrieval {
    * Query the current HiRetrieval config.
    *
    * @returns { HiRetrievalConfig } Returns the current HiRetrieval config.
-   * @throws { BusinessError } 36000001 - Initialization error.
-   *                                      Possibly caused by invoking this function before invoking init function.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice

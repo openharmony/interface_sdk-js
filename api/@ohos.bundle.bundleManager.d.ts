@@ -22,6 +22,7 @@ import { AsyncCallback } from './@ohos.base';
 import { Metadata as _Metadata } from './bundleManager/Metadata';
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import Want from './@ohos.app.ability.Want';
+import image from './@ohos.multimedia.image';
 import { PermissionDef as _PermissionDef } from './bundleManager/PermissionDef';
 import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
@@ -43,8 +44,8 @@ import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bun
 import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundleManager/AbilityInfo';
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
-  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity,
-  DynamicIconInfo as _DynamicIconInfo, BundleOptions as _BundleOptions} from './bundleManager/BundleInfo';
+  SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
+  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo} from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -3690,6 +3691,54 @@ declare namespace bundleManager {
   function getAbilityLabelSync(bundleName: string, moduleName: string, abilityName: string): string;
 
   /**
+   * Obtains the icon of a specified ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { string } moduleName - Indicates the module name.
+   * @param { string } abilityName - Indicates the ability name.
+   * @param { AsyncCallback<image.PixelMap> } callback - When obtaining the ability icon as a PixelMap
+   *     succeeds, err is undefined, and data is the obtained PixelMap;
+   *     otherwise, the outcome is an error object.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700029 - The specified ability is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead ohos.resourceManager#getMediaContent
+   */
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
+
+  /**
+   * Obtains the icon of a specified ability.
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
+   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
+   * @param { string } moduleName - Indicates the module name.
+   * @param { string } abilityName - Indicates the ability name.
+   * @returns { Promise<image.PixelMap> } Promise used to return the PixelMap object representing the icon of the specified ability.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700029 - The specified ability is disabled.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Resource
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead ohos.resourceManager#getMediaContent
+   */
+  function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string): Promise<image.PixelMap>;
+
+  /**
    * Obtains applicationInfo based on a given bundleName and bundleFlags.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -4159,6 +4208,24 @@ declare namespace bundleManager {
    * @since 23 static
    */
   function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
+
+  /**
+   * Set the alternate icon for the current application.
+   * If you need to restore the app's default icon, please input an empty value for the icon name parameter.
+   *
+   * @param { string } alternateIconName - Indicates the alternate icon name.
+   *     This value matches the name field under alternateIcons in the app.json5 file.
+   *     If an empty string is passed, the app's default icon will be restored.
+   * @returns { Promise<void> } Returns the result of setAlternateIcon.
+   * @throws { BusinessError } 17700308 - The alternateIconName must match the name field under alternateIcons
+   *     in the app.json5 file.
+   * @throws { BusinessError } 17700309 - No alternate icon is enabled.
+   * @throws { BusinessError } 17700310 - Failed to set the alternate icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setAlternateIcon(alternateIconName: string): Promise<void>;
 
   /**
    * Get dynamic icon.
@@ -4736,6 +4803,17 @@ declare namespace bundleManager {
    * @since 26.0.0 dynamic&static
    */
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
+
+  /**
+   * Get all alternate icon info configured by the application itself.
+   * 
+   * @returns { Promise<Array<AlternateIconInfo>> } Returns a list of AlternateIconInfo objects.
+   * @throws { BusinessError } 17700311 - Failed to obtain alternate icon.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAlternateIcons(): Promise<Array<AlternateIconInfo>>;
 
   /**
    * Obtains configuration information about an application.
@@ -5414,6 +5492,26 @@ declare namespace bundleManager {
    * @since 23 static
    */
   export type BundleOptions = _BundleOptions;
+
+  /**
+   * Indicates the alternate icon configured by the aplication.
+   *
+   * @typedef { _BundleInfo.AlternateIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  export type AlternateIconInfo = _BundleInfo.AlternateIconInfo;
+
+  /**
+   * Indicates the alternate icon configured by the aplication.
+   *
+   * @typedef { _AlternateIconInfo }
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export type AlternateIconInfo = _AlternateIconInfo;
 }
 
 export default bundleManager;

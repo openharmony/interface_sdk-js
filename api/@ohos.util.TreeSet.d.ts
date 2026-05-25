@@ -37,9 +37,6 @@ declare class TreeSet<T> {
    *     firstValue (required) previous element.
    *     secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeSet's constructor cannot be directly invoked.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Incorrect parameter types;
-   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -109,10 +106,6 @@ declare class TreeSet<T> {
    *
    * @param { T } value - the element to add to the set
    * @returns { boolean } whether the element was already present
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200011 - The add method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -178,10 +171,6 @@ declare class TreeSet<T> {
    * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerValue method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -195,10 +184,6 @@ declare class TreeSet<T> {
    * @param { T } key - the key to compare against
    * @returns { T } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherValue method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]

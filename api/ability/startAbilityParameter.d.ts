@@ -21,7 +21,7 @@
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * The module defines the parameters for starting an ability. The parameters can be used as input parameters in 
+ * The module defines the parameters for starting an ability. The parameters can be used as input parameters in
  * [startAbility]{@link ./../@ohos.ability.featureAbility:featureAbility.startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>)}
  * to start the specified ability.
  *

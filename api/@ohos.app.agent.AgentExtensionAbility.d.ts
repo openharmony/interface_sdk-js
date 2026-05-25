@@ -24,7 +24,7 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * The class of agent extension ability.
+ * The class of agent extension ability. This class cannot be used in Harmony Archive(HAR).
  *
  * @extends ExtensionAbility
  * @syscap SystemCapability.Ability.AgentRuntime.Core

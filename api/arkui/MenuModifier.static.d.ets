@@ -26,6 +26,7 @@ import { MenuAttribute } from '@ohos.arkui.component';
  *
  * @implements { MenuAttribute, AttributeModifier<MenuAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class MenuModifier implements MenuAttribute, AttributeModifier<MenuAttribute> {}

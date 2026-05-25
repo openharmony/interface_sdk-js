@@ -28,6 +28,7 @@ import { WrappedBuilder } from 'wrappedBuilderObject';
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -39,6 +40,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @param { UIContext } uiContext - uiContext used to create the ComponentContent
    * @param { WrappedBuilder<[]> } builder - Defines the builder that will be called to build ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -52,6 +54,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @param { WrappedBuilder<[T]> } builder - Defines the builder that will be called to build ComponentContent.
    * @param { T } args - Parameters used to update the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -66,6 +69,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @param { T } args - Parameters used to update the ComponentContent.
    * @param { BuildOptions } options - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -78,6 +82,7 @@ export class ComponentContent<T extends Object> extends Content {
    *
    * @param { T } args - Parameters used to update the ComponentContent, which must match the types required by the builder bound to the ComponentContent.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -94,6 +99,7 @@ export class ComponentContent<T extends Object> extends Content {
    *     case the custom components in the ComponentContent will directly use the data source from the construction
    *     phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -104,6 +110,7 @@ export class ComponentContent<T extends Object> extends Content {
    * Recycle the ComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -114,6 +121,7 @@ export class ComponentContent<T extends Object> extends Content {
    * Dispose the ComponentContent immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -124,6 +132,7 @@ export class ComponentContent<T extends Object> extends Content {
    * Notify ComponentContent to update the configuration to trigger a reload of the ComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -137,6 +146,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @param { boolean } enabled - If the ComponentContent inherits the freezing policy of the parent CustomComponent,
    * ComponentContent, or BuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -148,6 +158,7 @@ export class ComponentContent<T extends Object> extends Content {
    * 
    * @returns { boolean } - Returns true if the node is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -161,6 +172,7 @@ export class ComponentContent<T extends Object> extends Content {
    * @returns { boolean } - Returns true if the ComponentContent was converted between dynamic and static states,
    *     otherwise, returns false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 24 dynamic
@@ -173,6 +185,7 @@ export class ComponentContent<T extends Object> extends Content {
  *
  * @extends Content
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -186,6 +199,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * @param { BuildOptions } config - Defines the options that will be used when building.
    * @param { T } args - Parameters used to update the ComponentContentEx.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -202,6 +216,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    *     input. The default value is undefined, in which case the custom components in the ReactiveComponentContent
    *     will directly use the data source from the construction phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -212,6 +227,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * Recycle the ReactiveComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -222,6 +238,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * Dispose the ReactiveComponentContent immediately.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -232,6 +249,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * Notify ReactiveComponentContent to update the configuration to trigger a reload of the ReactiveComponentContent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -243,6 +261,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * This forces a synchronous update of the component with the latest state values.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -257,6 +276,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    *     CustomComponent, ComponentContent, ComponentContent, ReactiveComponentContent, BuilderNode, or
    *     ReactiveBuilderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -268,6 +288,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    *
    * @returns { boolean } - Returns true if the ReactiveComponentContent is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -281,6 +302,7 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * @returns { boolean } - Returns true if the ReactiveComponentContent was converted between dynamic and static
    *     states, otherwise, returns false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 24 dynamic

@@ -196,7 +196,16 @@ declare namespace adminManager {
      * @stagemodelonly
      * @since 26.0.0
      */
-    MANAGED_EVENT_BUNDLE_UPDATED = 10
+    MANAGED_EVENT_BUNDLE_UPDATED = 10,
+
+    /**
+     * Event indicating that enterprise device management policies changed.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    MANAGED_EVENT_POLICIES_CHANGED = 11
   }
 
   /**
@@ -984,6 +993,30 @@ declare namespace adminManager {
    * @since 23 dynamic&static
    */
   function getEnterpriseManagedTips(): Promise<string>;
+
+  /**
+   * Enables self as a device administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACTIVATE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *                         The admin must have the corresponding permission.
+   * @param { string } credential - credential indicates the credential for activating self as an administrator.
+   * @returns { Promise<void> } the promise returned by the enableselfDeviceAdmin.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200017 - The self-activation credential of the enterprise device administrator
+   *     is invalid.
+   * @throws { BusinessError } 9200018 - This device is not an enterprise device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 24
+   */
+  function enableSelfDeviceAdmin(admin: Want, credential: string): Promise<void>;
 }
 
 export default adminManager;

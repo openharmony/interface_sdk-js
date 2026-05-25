@@ -64,7 +64,7 @@ declare enum SideBarContainerType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Embed,
+  Embed = 0,
 
   /**
    * The sidebar overlays on top of the main content area.
@@ -87,22 +87,33 @@ declare enum SideBarContainerType {
    * @atomicservice
    * @since 11 dynamic
    */
-  Overlay,
+  Overlay = 1,
 
   /**
    * The sidebar display mode is automatically selected based on the container size. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
   /**
    * The sidebar display mode is automatically selected based on the container size. 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
-  AUTO,
+  AUTO = 2,
+  /**
+   * The sideBar Displace. Sidebar is visible, content will offscreen to make space for sideBar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  DISPLACE = 3,
 }
 
 /**
@@ -182,6 +193,7 @@ declare enum SideBarPosition {
  *
  * @typedef ButtonIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
@@ -535,6 +547,7 @@ interface SideBarContainerInterface {
  *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -544,6 +557,7 @@ interface SideBarContainerInterface {
  *
  * @interface DividerStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -555,6 +569,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -564,6 +579,7 @@ interface DividerStyle {
    * @type { Length }
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -575,6 +591,7 @@ interface DividerStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -583,6 +600,7 @@ interface DividerStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -594,6 +612,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -602,6 +621,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -613,6 +633,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -621,6 +642,7 @@ interface DividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1028,6 +1050,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { DividerStyle | null } value - indicates the style of the divider or whether to show the divider.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1037,6 +1060,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { DividerStyle | null } value - indicates the style of the divider or whether to show the divider.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1050,6 +1074,7 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { Dimension } value - min length of content.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1060,11 +1085,28 @@ declare class SideBarContainerAttribute extends CommonMethod<SideBarContainerAtt
    * @param { Dimension } value - min length of content.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
    */
   minContentWidth(value: Dimension): SideBarContainerAttribute;
+
+  /**
+   * Specifies whether sideBar can be presented or dismissed by gesture.
+   * 
+   * @param { boolean } value - Indicates whether sidebar can be presented or dismissed by gesture.
+   *    <br>Default value: **false**.
+   *    **true**: Sidebar can be presented or dismissed by gesture.
+   *    **false**: Sidebar cannot be presented or dismissed by gesture.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  showSideBarWithGesture(value: boolean): SideBarContainerAttribute;
 }
 
 /**

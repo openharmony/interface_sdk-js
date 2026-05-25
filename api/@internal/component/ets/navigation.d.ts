@@ -19,6 +19,17 @@
  */
 
 /**
+ * Import the Material type for Navigation.
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } Material
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type Material = import('../api/@ohos.arkui.uiMaterial').default.Material;
+
+/**
  * Import the SystemBarStyle type for Navigation.
  *
  * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
@@ -2314,6 +2325,94 @@ declare interface ToolbarItem {
 }
 
 /**
+ * Enumerates the scroll effect types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum ScrollEffectType {
+  /**
+   * Common blur style. It applies uniform blur to the background.
+   * The blurred background appear/disappear with transparent gradient.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  COMMON_BLUR = 0,
+
+  /**
+   * Gradual blur style. It applies uniform blur to the title background with clear boundaries.
+   * The title bar content changes color/state before and after scrolling.
+   * During scrolling, it changes linearly following the gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  GRADUAL_BLUR = 1,
+}
+
+/**
+ * Defines the scroll effect options for the title bar.
+ *
+ * @interface ScrollEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface ScrollEffectOptions {
+  /**
+   * Title bar scroll blur style.
+   * Default value: ScrollEffectType.COMMON_BLUR
+   *
+   * @type { ?ScrollEffectType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollEffectType?: ScrollEffectType;
+
+  /**
+   * The minimum sliding distance of the content area to enable the title bar sliding blur effect.
+   * Default value: 0vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  blurEffectiveStartOffset?: LengthMetrics;
+
+  /**
+   * The maximum sliding distance of the content area to enable the final blur style of the title bar.
+   * Default value: 8vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  blurEffectiveEndOffset?: LengthMetrics;
+}
+
+/**
  * Indicates the options of Navigation's Titlebar.
  *
  * @interface NavigationTitleOptions
@@ -2440,6 +2539,32 @@ declare interface NavigationTitleOptions {
    * @since 13 dynamic
    */
   enableHoverMode?: boolean;
+
+  /**
+   * Title scroll blur style.
+   *
+   * @type { ?ScrollEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollEffectOptions?: ScrollEffectOptions;
+
+  /**
+   * Set system-styled materials for the TitleBar. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the titleBar.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: Material;
 }
 
 /**
@@ -2640,6 +2765,38 @@ declare interface MoreButtonOptions {
    * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+}
+
+/**
+ * Navigation configuration options.
+ *
+ * @interface NavigationConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface NavigationConfiguration {
+  /**
+   * Navigation page stack size limit.
+   * 
+   * Description:
+   * - Limits to maximum number of active page nodes in Navigation page stack.
+   * - When limit is exceeded, oldest page nodes are automatically destroyed
+   *   in FIFO (First-In-First-Out) order.
+   * - NavPathInfo of pages is completely retained, supporting page recreation.
+   * - value <=0 No limit on page stack size (default value).
+   * - value >0 Limit stack size to specified value.
+   *
+   * @default 0 (nolimit)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  stackSizeLimit?: number;
 }
 
 /**
@@ -3485,6 +3642,19 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 21 dynamic
    */
   enableVisibilityLifecycleWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
+
+  /**
+   * Sets Navigation configuration.
+   *
+   * @param { NavigationConfiguration } config - Navigation configuration options.
+   * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  configuration(config: NavigationConfiguration): NavigationAttribute;
 }
 
 /**

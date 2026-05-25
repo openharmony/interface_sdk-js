@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 import { LengthMetrics } from '../Graphics';
 
@@ -49,6 +49,36 @@ export declare interface UnionEffectContainerOptions {
 }
 
 /**
+ * Mode Enum for Union Effects
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum UnionMode {
+  /**
+   * The effect of fusion deformation under smooth union.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  SMOOTH_UNION = 0,
+  /**
+   * The effect of fusion deformation under gravity.
+   * Need to use the useUnionEffect interface to specify the center of gravity.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  GRAVITY_UNION = 1
+}
+
+/**
  * Defines the UnionEffectContainer attribute functions.
  *
  * @extends CommonMethod
@@ -71,6 +101,17 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
      */
     default pointLight(light: PointLightStyle): this;
     /**
+     * Sets union Mode of the UnionEffectContainer.
+     *
+     * @param { UnionMode | undefined } mode - The Union mode.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default unionMode(mode: UnionMode | undefined): this;
+    /**
      * Sets the attribute modifier for UnionEffectContainer.
      *
      * @param { AttributeModifier<UnionEffectContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -82,6 +123,17 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
      */
     default attributeModifier(modifier: AttributeModifier<UnionEffectContainerAttribute>
         | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Set UnionEffectContainer options.
+     *
+     * @param { UnionEffectContainerOptions } [options] - The options to create an UnionEffectContainer.
+     * @returns { UnionEffectContainerAttribute } Returns instance of  UnionEffectContainerAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setUnionEffectContainerOptions(options?: UnionEffectContainerOptions): this;
 }
 
 /**
@@ -100,4 +152,21 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
 export declare function UnionEffectContainer(
     options?:UnionEffectContainerOptions,
     content_?:CustomBuilder,
+): UnionEffectContainerAttribute;
+
+/**
+ * Defines UnionEffectContainer
+ *
+ * @param { CustomBuilderT<UnionEffectContainerAttribute> } style_ - UnionEffectContainer attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { UnionEffectContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function UnionEffectContainer(
+  style_: CustomBuilderT<UnionEffectContainerAttribute>,
+  content_?: CustomBuilder,
 ): UnionEffectContainerAttribute;

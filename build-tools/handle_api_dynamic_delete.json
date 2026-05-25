@@ -1,0 +1,42 @@
+{
+  "deleteFilesOnlydynamicList": [
+    "/api/@ohos.app.ability.InteropAbilityLifecycleCallback.d.ts",
+    "/api/application/InteropAbilityMonitor.d.ts"
+  ],
+  "deleteApisOnlydynamicMap": [
+    [
+      "api/arkui/FrameNode.d.ts",
+      [
+        "isTransferred():boolean;"
+      ]
+    ],
+    [
+      "api/arkui/ComponentContent.d.ts",
+      [
+        "isTransferred():boolean;"
+      ]
+    ],
+    [
+      "api/application/AbilityDelegator.d.ts",
+      [
+        "import{InteropAbilityMonitor}from'./InteropAbilityMonitor';",
+        "addInteropAbilityMonitorSync(monitor:InteropAbilityMonitor):void;",
+        "removeInteropAbilityMonitorSync(monitor:InteropAbilityMonitor):void;"
+      ]
+    ],
+    [
+      "api/application/InteropAbilityMonitor.d.ts",
+      [
+        "onAbilityStart(ability:Ability):void;",
+        "onAbilityStop(ability:Ability):void;"
+      ]
+    ],
+    [
+      "api/@ohos.app.ability.abilityDelegatorRegistry.d.ts",
+      [
+        "import{InteropAbilityMonitoras_InteropAbilityMonitor}from'./application/InteropAbilityMonitor';",
+        "exporttypeInteropAbilityMonitor=_InteropAbilityMonitor;"
+      ]
+    ]
+  ]
+}

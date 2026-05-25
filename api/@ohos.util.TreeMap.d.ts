@@ -38,9 +38,6 @@ declare class TreeMap<K, V> {
    *     firstValue (required) previous element.
    *     secondValue (required) next element.
    * @throws { BusinessError } 10200012 - The TreeMap's constructor cannot be directly invoked.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Incorrect parameter types;
-   *     2.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -95,7 +92,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns whether a key is contained in this map
    *
-   * @param { K } key - key key need to determine whether to include the key
+   * @param { K } key - The key to check if it exists in the map
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The hasKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -108,7 +105,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns whether a value is contained in this map
    *
-   * @param { V } value - value value value need to determine whether to include the value
+   * @param { V } value - The value to check if it exists in the map
    * @returns { boolean } the boolean type
    * @throws { BusinessError } 10200011 - The hasValue method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -121,7 +118,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns a specified element in a Map object, or undefined if there is no corresponding element
    *
-   * @param { K } key - key key the index in TreeMap
+   * @param { K } key - The key to look up in the map
    * @returns { V } value or undefined
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -162,7 +159,7 @@ declare class TreeMap<K, V> {
   /**
    * Returns a specified element in a Map object, or undefined if there is no corresponding element
    *
-   * @param { K } key - key key the index in TreeMap
+   * @param { K } key - The key to look up in the map
    * @returns { V | undefined } value if associated with key presents, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -176,9 +173,6 @@ declare class TreeMap<K, V> {
    *
    * @param { TreeMap<K, V> } map - map map the Map object to add members
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -189,14 +183,10 @@ declare class TreeMap<K, V> {
   /**
    * Adds or updates a(new) key-value pair with a key and value specified for the Map object
    *
-   * @param { K } key - key key Added or updated targets
-   * @param { V } value - value value Added or updated value
+   * @param { K } key - The key to add or update
+   * @param { V } value - The value to add or update
    * @returns { Object } the map object after set
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -207,7 +197,7 @@ declare class TreeMap<K, V> {
   /**
    * Remove a specified element from a Map object
    *
-   * @param { K } key - key key Target to be deleted
+   * @param { K } key - The key to remove from the map
    * @returns { V } Target mapped value
    * @throws { BusinessError } 10200011 - The remove method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -220,7 +210,7 @@ declare class TreeMap<K, V> {
   /**
    * Remove a specified element from a Map object
    *
-   * @param { K } key - key key Target to be deleted
+   * @param { K } key - The key to remove from the map
    * @returns { V | undefined } the value of the removed element, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -244,7 +234,7 @@ declare class TreeMap<K, V> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { K } key - key key Objective of comparison
+   * @param { K } key - The key to compare
    * @returns { K } key or undefined
    * @throws { BusinessError } 10200011 - The getLowerKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -257,7 +247,7 @@ declare class TreeMap<K, V> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { K } key - key key Objective of comparison
+   * @param { K } key - The key to compare
    * @returns { K } key or undefined
    * @throws { BusinessError } 10200011 - The getHigherKey method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -271,7 +261,7 @@ declare class TreeMap<K, V> {
    * Returns the greatest element smaller than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { K } key - key key Objective of comparison
+   * @param { K } key - The key to compare
    * @returns { K | undefined } key or undefined
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getLowerKey method cannot be bound.
@@ -286,7 +276,7 @@ declare class TreeMap<K, V> {
    * Returns the least element greater than or equal to the specified key
    * if the key does not exist, undefined is returned
    *
-   * @param { K } key - key key Objective of comparison
+   * @param { K } key - The key to compare
    * @returns { K | undefined } key or undefined
    * @throws { BusinessError } 10200010 - Container is empty.
    * @throws { BusinessError } 10200011 - The getHigherKey method cannot be bound.
@@ -324,8 +314,8 @@ declare class TreeMap<K, V> {
   /**
    * Replace the old value by new value corresponding to the specified key
    *
-   * @param { K } key - key key Updated targets
-   * @param { V } newValue - newValue newValue Updated the target mapped value
+   * @param { K } key - The key to look up in the map
+   * @param { V } newValue - The new value to set for the key
    * @returns { boolean } the boolean type(Is there a target pointed to by the key)
    * @throws { BusinessError } 10200011 - The replace method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
@@ -346,9 +336,6 @@ declare class TreeMap<K, V> {
    *     thisArg (Optional) The value to be used as this value for when callbackFn is called.
    *     If thisArg is omitted, undefined is used as the this value.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]

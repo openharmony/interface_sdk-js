@@ -110,6 +110,9 @@ import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
 import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
 import shortcutManager from '@ohos.bundle.shortcutManager';
+import skillManager from '@ohos.bundle.skillManager';
+import scriptManager from '@ohos.app.ability.scriptManager';
+import skillDriver from '@ohos.app.ability.skillDriver';
 import application from '@ohos.app.ability.application';
 import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
@@ -123,6 +126,7 @@ import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
 import agentConstant from '@ohos.app.agent.agentConstant';
 import agentManager from '@ohos.app.agent.agentManager';
 import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
+import cliManager from '@ohos.app.cli.cliManager';
 
 export {
   Ability, AbilityConstant, AbilityLifecycleCallback, AbilityStage, ActionExtensionAbility,
@@ -140,11 +144,11 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, application, appDomainVerify,
+  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, skillManager, scriptManager, skillDriver, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
-  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentConstant, agentManager,hyperSnapManager
+  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentConstant, agentManager,hyperSnapManager, cliManager
 };
 
 /*** if arkts static */

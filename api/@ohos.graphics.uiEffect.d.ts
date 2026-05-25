@@ -312,7 +312,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     heatDistortion(param: HeatDistortionEffectParam): Filter;
 
@@ -325,7 +325,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
   }
@@ -654,7 +654,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   interface HeatDistortionEffectParam {
     /**
@@ -665,7 +665,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     intensity: double;
 
@@ -677,7 +677,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     noiseScale: double;
 
@@ -689,7 +689,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     riseWeight: double;
 
@@ -701,7 +701,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     progress: double;
   }
@@ -712,7 +712,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   interface BlurBubblesRiseEffectParam {
     /**
@@ -723,7 +723,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     blurIntensity: double;
 
@@ -735,7 +735,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     mixStrength: double;
 
@@ -747,7 +747,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     progress: double;
 
@@ -758,7 +758,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     maskImage: image.PixelMap;
   }

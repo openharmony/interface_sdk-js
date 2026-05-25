@@ -23,6 +23,7 @@
  *
  * @interface Theme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -33,6 +34,7 @@ export declare interface Theme {
     *
     * @type { Colors }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -45,6 +47,7 @@ export declare interface Theme {
  *
  * @interface Colors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -56,6 +59,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -67,6 +71,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -78,6 +83,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -89,6 +95,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -100,6 +107,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -111,6 +119,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -122,6 +131,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -133,6 +143,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -144,6 +155,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -155,6 +167,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -166,6 +179,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -177,6 +191,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -188,6 +203,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -199,6 +215,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -210,6 +227,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -221,6 +239,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -232,6 +251,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -243,6 +263,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -254,6 +275,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -265,6 +287,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -276,6 +299,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -287,6 +311,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -298,6 +323,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -309,6 +335,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -320,6 +347,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -331,6 +359,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -342,6 +371,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -353,6 +383,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -364,6 +395,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -375,6 +407,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -386,6 +419,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -397,6 +431,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -408,6 +443,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -419,6 +455,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -430,6 +467,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -441,6 +479,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -452,6 +491,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -463,6 +503,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -474,6 +515,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -485,6 +527,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -496,6 +539,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -507,6 +551,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -518,6 +563,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -529,6 +575,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -540,6 +587,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -551,6 +599,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -562,6 +611,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -573,6 +623,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -584,6 +635,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -595,6 +647,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -606,6 +659,7 @@ export declare interface Colors {
     *
     * @type { ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -618,6 +672,7 @@ export declare interface Colors {
  *
  * @interface CustomTheme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -628,6 +683,7 @@ export declare interface CustomTheme {
     *
     * @type { ?CustomColors }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic
@@ -641,6 +697,7 @@ export declare interface CustomTheme {
     * @default If not set darkColors, color value will same as colors under light mode and will not change with color
     * mode, unless the color is setted by resource in dark directory.
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 20 dynamic
@@ -653,6 +710,7 @@ export declare interface CustomTheme {
  *
  * @typedef { Partial<Colors> } CustomColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -664,6 +722,7 @@ export declare type CustomColors = Partial<Colors>;
  *
  * @typedef { Partial<Colors> } CustomDarkColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -674,6 +733,7 @@ export declare type CustomDarkColors = Partial<Colors>;
  * Class ThemeControl provides the Theme management for whole Ability and pages.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -686,6 +746,7 @@ export declare class ThemeControl {
     *
     * @param { CustomTheme } theme
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 12 dynamic

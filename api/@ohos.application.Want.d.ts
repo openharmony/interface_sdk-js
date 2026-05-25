@@ -19,17 +19,11 @@
  */
 
 /**
- * Want is a carrier for information transfer between objects (application components). Want can be used as a parameter 
+ * Want is a carrier for information transfer between objects (application components). Want can be used as a parameter
  * of **startAbility** to specify a startup target and information that needs to be carried during startup, for example,
- *  **bundleName** and **abilityName**, which respectively indicate the bundle name of the target ability and the 
- * ability name in the bundle. When ability A needs to start ability B and transfer some data to ability B, it can use 
+ *  **bundleName** and **abilityName**, which respectively indicate the bundle name of the target ability and the
+ * ability name in the bundle. When ability A needs to start ability B and transfer some data to ability B, it can use
  * Want a carrier to transfer the data.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are supported since API version 8 and deprecated since API version 9. You are advised to 
- * > use [@ohos.app.ability.Want]{@link @ohos.app.ability.Want:Want} instead. Newly added APIs will be marked with a 
- * > superscript to indicate their earliest API version.
  *
  * @syscap SystemCapability.Ability.AbilityBase
  * @since 8
@@ -69,7 +63,7 @@ export default class Want {
   abilityName?: string;
 
   /**
-   * URI information to match. If **Uri** is specified in a Want object, the Want object will match the specified URI 
+   * URI information to match. If **Uri** is specified in a Want object, the Want object will match the specified URI
    * information, including **scheme**, **schemeSpecificPart**, **authority**, and **path**.
    *
    * @syscap SystemCapability.Ability.AbilityBase
@@ -80,7 +74,7 @@ export default class Want {
   uri?: string;
 
   /**
-   * MIME type, that is, the type of the file to open, for example, **'text/xml'** and **'image/*'**. For details about 
+   * MIME type, that is, the type of the file to open, for example, **'text/xml'** and **'image/*'**. For details about
    * the MIME type definition, see https://www.iana.org/assignments/media-types/media-types.xhtml?utm_source=ld246.com.
    *
    * @syscap SystemCapability.Ability.AbilityBase
@@ -91,7 +85,7 @@ export default class Want {
   type?: string;
 
   /**
-   * How the Want object will be handled. By default, numbers are passed in. For details, see 
+   * How the Want object will be handled. By default, numbers are passed in. For details, see
    * [flags]{@link @ohos.ability.wantConstant:wantConstant.Flags}.
    *
    * @syscap SystemCapability.Ability.AbilityBase
@@ -103,9 +97,9 @@ export default class Want {
 
   /**
    * Action to take, such as viewing and sharing application details. In implicit Want, you can define this property and
-   *  use it together with **uri** or **parameters** to specify the operation to be performed on the data. For details, 
-   * see [action]{@link @ohos.ability.wantConstant:wantConstant.Action}. For details about the definition and matching 
-   * rules of implicit Want, see 
+   *  use it together with **uri** or **parameters** to specify the operation to be performed on the data. For details,
+   * see [action]{@link @ohos.ability.wantConstant:wantConstant.Action}. For details about the definition and matching
+   * rules of implicit Want, see
    * [Matching Rules of Explicit Want and Implicit Want](docroot://application-models/explicit-implicit-want-mappings.md)
    * .
    *
@@ -118,16 +112,16 @@ export default class Want {
 
   /**
    * Want parameters in the form of custom key-value (KV) pairs. By default, the following keys are carried:
-   * 
+   *
    * **ohos.aafwk.param.callerPid**: PID of the caller.
-   * 
+   *
    * **ohos.aafwk.param.callerToken**: token of the caller.
-   * 
-   * **ohos.aafwk.param.callerUid**: UID in [bundleInfo](js-apis-bundle-BundleInfo.md#bundleinfodeprecated), that is, 
+   *
+   * **ohos.aafwk.param.callerUid**: UID in [bundleInfo](js-apis-bundle-BundleInfo.md#bundleinfodeprecated), that is,
    * the application UID in the bundle information.
-   * 
+   *
    * - **component.startup.newRules**: whether to enable the new control rule.
-   * - **moduleName**: module name of the caller. No matter what this field is set to, the correct module name will be 
+   * - **moduleName**: module name of the caller. No matter what this field is set to, the correct module name will be
    * sent to the peer.
    * - **ohos.dlp.params.sandbox**: available only for DLP files.
    *
@@ -139,8 +133,8 @@ export default class Want {
   parameters?: { [key: string]: any };
 
   /**
-   * Additional category information (such as browser and video player) of the ability. It is a supplement to the 
-   * **action** field for implicit Want. and is used to filter ability types. For details, see 
+   * Additional category information (such as browser and video player) of the ability. It is a supplement to the
+   * **action** field for implicit Want. and is used to filter ability types. For details, see
    * [entity]{@link @ohos.ability.wantConstant:wantConstant.Entity}.
    *
    * @syscap SystemCapability.Ability.AbilityBase

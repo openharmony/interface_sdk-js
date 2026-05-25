@@ -152,6 +152,8 @@ export * from './arkui/component/pageTransition';
 export * from './arkui/component/component3d';
 export * from './arkui/component/unionEffectContainer';
 export * from './arkui/component/uiPickerComponent';
+export * from './arkui/component/dynamicComponent';
+export * from './arkui/component/securityUIExtensionComponent';
 
 // Many xts-acts tests rely on the following bindings from 'component': 
 export * from './arkui/ComponentContent';

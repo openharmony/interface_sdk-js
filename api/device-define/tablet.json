@@ -136,6 +136,7 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.Environment",
     "SystemCapability.FileManagement.AppFileService",
+    "SystemCapability.FileManagement.AppFileService.FolderAuthorization",
     "SystemCapability.FileManagement.UserFileService",
     "SystemCapability.FileManagement.UserFileManager.Core",
     "SystemCapability.FileManagement.PhotoAccessHelper.Core",
@@ -166,7 +167,7 @@
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Applications.CalendarData",
     "SystemCapability.Applications.Settings.Core",
-    "SystemCapability.Applications.IntelligentScene",    
+    "SystemCapability.Applications.IntelligentScene",
     "SystemCapability.Test.UiTest",
     "SystemCapability.Web.Webview.Core",
     "SystemCapability.Advertising.OAID",
@@ -220,7 +221,6 @@
     "SystemCapability.Resourceschedule.BackgroundProcessManager",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.DistributedHardware.DistributedHardwareFWK",
-    "SystemCapability.ResourceSchedule.SystemLoad",
-    "SystemCapability.Communication.FusionConnectivity.Core"
+    "SystemCapability.ResourceSchedule.SystemLoad"
   ]
 }

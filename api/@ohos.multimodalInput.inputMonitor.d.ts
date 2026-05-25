@@ -1008,6 +1008,10 @@ declare namespace inputMonitor {
    * Queries the most recent touch events, with a maximum of 100 events supported.
    * The returned touch event contains only the following valid information: actionTime, sourceType,
    * isInject, pressure, tiltX, tiltY.
+   * since 23, Added 'action' field, and the system anti-fraud detection application can additionally obtain
+   * 'screenX' and 'screenY'.
+   * since 26.0.0, Maximum of 60 events supported, removed the MOVE and PULL_MOVE events. 
+   * Added 'screenX', 'screenY' and 'screenId' fields, and removed anti-fraud application restrictions.
    * 
    * @permission ohos.permission.INPUT_MONITORING
    * @param { int } count - Number of touch events to query.
@@ -1017,21 +1021,7 @@ declare namespace inputMonitor {
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 20 dynamic
-   */
-  /**
-   * Queries the most recent touch events, with a maximum of 100 events supported.
-   * The returned touch event contains only the following valid information: actionTime, sourceType,
-   * isInject, pressure, tiltX, tiltY.
-   * The system anti-fraud detection application can additionally obtain screenX and screenY.
-   *
-   * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } count - Number of touch events to query.
-   * @returns { Promise<Array<TouchEvent>> } Returns the result through a promise.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
-   * @systemapi hide for inner use
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function queryTouchEvents(count: int) : Promise<Array<TouchEvent>>;
 }

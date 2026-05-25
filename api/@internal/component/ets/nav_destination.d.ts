@@ -1433,6 +1433,60 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 19 dynamic
    */
   enableNavigationIndicator(enabled: Optional<boolean>): NavDestinationAttribute;
+
+  /**
+   * Sets whether the NavDestination should cover the entire navigation container.
+   *
+   * When set to true, in split navigation mode, the page covers both the NavBar
+   * and content area, displaying in full screen overlay mode. This setting applies
+   * to all instances of this NavDestination whenever it is pushed onto the stack, unless
+   * overridden by the fullScreen option in the push operation.
+   *
+   * @param { Optional<boolean> } fullScreenOverlay - Whether to display as full screen overlay.
+   *     <br>**true**: Full screen overlay mode, covers entire navigation container.
+   *     <br>**false**: Normal display mode, follows navigation split rules(Except for DIALOG mode).
+   *     <br>**undefined**: Follow the fullscreen inheritance rules.
+   * @returns { NavDestinationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fullScreenOverlay(fullScreenOverlay: Optional<boolean>): NavDestinationAttribute;
+
+  /**
+   * Sets custom page state save callback.
+   * 
+   * Triggered when page becomes hidden. Save custom page state for potential restoration.
+   * The initial param used to create the page is preserved by Navigation separately.
+   * State object must be serializable.
+   *
+   * @param { Optional<SaveStateCallback> } callback - Custom state save callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onSaveState(callback: Optional<SaveStateCallback>): NavDestinationAttribute;
+
+  /**
+   * Sets custom page state restore callback.
+   * 
+   * Triggered when page is reconstructed. The custom state saved by onSaveState is passed to this callback.
+   * Null is passed if no custom state was saved.
+   *
+   * @param { Optional<RestoreStateCallback> } callback - Custom state restore callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onRestoreState(callback: Optional<RestoreStateCallback>): NavDestinationAttribute;
 }
 
 /**
@@ -1498,3 +1552,27 @@ declare const NavDestinationInstance: NavDestinationAttribute;
  */
 declare type NavDestinationTransitionDelegate =
   (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
+
+/**
+ * Custom page state save callback.
+ * 
+ * @returns { Record<string, Object> | null } Custom page state.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type SaveStateCallback = () => Record<string, Object> | null;
+
+/**
+ * Custom page state restore callback.
+ * 
+ * @param { Record<string, Object> | null } savedState - Custom page state saved by onSaveState.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type RestoreStateCallback = (savedState: Record<string, Object> | null) => void;

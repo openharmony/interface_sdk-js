@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -39,20 +39,18 @@ import { AutoFillTriggerType } from './AutoFillTriggerType';
  * Defines the information about an auto-fill request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
  * @stagemodelonly
- * @since 11 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export interface FillRequest {
   /**
    * Type of the element to be automatically filled in.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   type: AutoFillType;
 
@@ -60,10 +58,9 @@ export interface FillRequest {
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   viewData: ViewData;
 
@@ -80,9 +77,9 @@ export interface FillRequest {
 
   /**
    * Whether a dialog box is displayed for the auto-fill request.
-   * 
+   *
    * **true**: A dialog box is displayed
-   * 
+   *
    * **false**: A modal window is displayed
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -97,9 +94,9 @@ export interface FillRequest {
    * Trigger type for the autofill service.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   triggerType?: AutoFillTriggerType;
 }
@@ -108,20 +105,18 @@ export interface FillRequest {
  * Defines the information about an auto-saving request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
  * @stagemodelonly
- * @since 11 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export interface SaveRequest {
   /**
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   viewData: ViewData;
 }
@@ -171,7 +166,7 @@ export interface FillResponse {
 }
 
 /**
- * Implements callbacks for an auto-fill request, which is used to automatically fill in or generate a password. The 
+ * Implements callbacks for an auto-fill request, which is used to automatically fill in or generate a password. The
  * callbacks can be used to notify the client of the success or failure of the request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -278,4 +273,25 @@ export interface SaveRequestCallback {
    * @since 23 static
    */
   onFailure(): void;
+}
+
+/**
+ * Fill fail result.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ */
+export interface FillFailureResult {
+  /**
+   * errcode.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  errCode: int;
 }

@@ -268,6 +268,7 @@ export interface BundleInfo {
    */
   readonly appInfo: ApplicationInfo | null;
 
+
   /**
    * Obtains configuration information about a module
    *
@@ -407,7 +408,7 @@ export interface BundleInfo {
    * @since 9
    */
   /**
-   * Indicates the hap install time,the unit is millisecond.
+   * Indicates the hap install time
    *
    * @type { long }
    * @readonly
@@ -427,7 +428,7 @@ export interface BundleInfo {
    * @since 9
    */
   /**
-   * Indicates the hap update time,the unit is millisecond.
+   * Indicates the hap update time
    *
    * @type { long }
    * @readonly
@@ -462,7 +463,7 @@ export interface BundleInfo {
   readonly appIndex: int;
 
   /**
-   * Indicates the hap first install time,the unit is millisecond.
+   * Indicates the hap first install time
    *
    * @type { ?long }
    * @readonly
@@ -927,16 +928,61 @@ export interface DynamicIconInfo {
 }
 
 /**
-  * The bundle options of bundle manager
-  * 
-  * @typedef BundleOptions
-  * @syscap SystemCapability.BundleManager.BundleFramework.Core
-  * @systemapi
-  * @since 20 dynamic
-  * @since 23 static
-  */
+ * Alternate icon information configured by the application.
+ *
+ * @typedef AlternateIconInfo
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface AlternateIconInfo {
+  /**
+   * Indicates the name of the alternate icon.
+   *
+   * @type { string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly iconName: string;
+
+  /**
+   * Indicates the id of the alternate icon.
+   *
+   * @type { long }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly iconId: long;
+
+  /**
+   * Whether the alternate icon is currently in use.
+   * true: Indicates the icon is currently in use.
+   * false: Indicates the icon is not currently in use.
+   *
+   * @type { boolean }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly enabled: boolean;
+}
+
+/**
+ * The bundle options of bundle manager
+ *
+ * @typedef BundleOptions
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @since 20 dynamic
+ * @since 23 static
+ */
 export interface BundleOptions {
-    /**
+  /**
    * Indicates the user id.
    *
    * @type { ?int }

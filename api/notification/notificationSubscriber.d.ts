@@ -14,6 +14,9 @@
  */
 
 /**
+ * The **NotificationSubscriber** module provides callbacks for receiving or 
+ * removing notifications and serves as the input parameter of [subscribe]{@link @ohos.notificationSubscribe}.
+ * 
  * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
  * @kit NotificationKit
  */
@@ -195,7 +198,7 @@ export interface NotificationSubscriber {
 }
 
 /**
- * Defines the SystemUpdateCallback callback.
+ * Notification information that carries the system property value.
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -254,6 +257,17 @@ export interface SubscribeCallbackData {
    * @since 23 static
    */
   readonly vibrationValues?: Array<long>;
+
+  /**
+   * Generated voice content for audio playback.
+   * Only present when voiceContentoptions.enabled is true in NotificationSubscribeInfo.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly voiceContent?: VoiceContent;
 }
 
 /**
@@ -475,12 +489,32 @@ export interface BadgeEnabledChangedCallback {
   /**
    * Callback used to return the listened badge enabling state.
    *
-   * @param { EnabledNotificationCallbackData } data
+   * @param { EnabledNotificationCallbackData } data - Notification information that carries the system property value.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
    */
   (data: EnabledNotificationCallbackData): void;
+}
+
+/**
+ * Describes the generated voice content for notification.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContent {
+  /**
+   * The voice content text for audio playback.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly textContent?: string;
 }
 
 /**

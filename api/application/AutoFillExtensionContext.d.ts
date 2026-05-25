@@ -27,22 +27,6 @@ import CustomData from './CustomData';
 /*** endif */
 
 /**
- * # Usage
- * 
- * Before using the AutoFillExtensionContext module, you must define a child class that inherits from 
- * AutoFillExtensionAbility.
- * 
- * ```ts
- * import { AutoFillExtensionAbility } from '@kit.AbilityKit';
- * 
- * class MyAutoFillExtensionAbility extends AutoFillExtensionAbility {
- *   onCreate() {
- *     let AutoFillExtensionContext = this.context;
- *   }
- * }
- * ```
- */
-/**
  * The AutoFillExtensionContext module provides the context environment for the AutoFillExtensionAbility. It inherits 
  * from [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
  *
@@ -54,10 +38,11 @@ import CustomData from './CustomData';
  */
 declare class AutoFillExtensionContext extends ExtensionContext {
   /**
-   * Starts a modal page. This API uses a promise to return the result.
+   * Reload autoFillExtension in modal window.
    *
-   * @param { CustomData } customData - Custom information for starting the modal page.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { CustomData } customData - User defined data. When the modal window of AutoFillExtension
+   * needs to be raised again, pass this parameter to the application framework.
+   * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.

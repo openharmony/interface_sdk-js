@@ -23,6 +23,7 @@
  *
  * @interface NodeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -31,6 +32,7 @@
  *
  * @interface NodeContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -42,6 +44,7 @@ interface NodeContainerInterface {
   * @param { import('../api/@ohos.arkui.node').NodeController } controller - Indicates the controller of the NodeContainer.
   * @returns { NodeContainerAttribute }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @since 11
   */
@@ -51,6 +54,7 @@ interface NodeContainerInterface {
   * @param { import('../api/@ohos.arkui.node').NodeController } controller - Indicates the controller of the NodeContainer.
   * @returns { NodeContainerAttribute }
   * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
   * @crossplatform
   * @atomicservice
   * @since 12 dynamic
@@ -62,6 +66,7 @@ interface NodeContainerInterface {
  * Defines the attribute of NodeContainer, extends from CommonMethod.
  * @extends CommonMethod<NodeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -69,6 +74,7 @@ interface NodeContainerInterface {
  * Defines the attribute of NodeContainer, extends from CommonMethod.
  * @extends CommonMethod<NodeContainerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -79,6 +85,7 @@ declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute
  * Defines NodeContainer Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -86,6 +93,7 @@ declare class NodeContainerAttribute extends CommonMethod<NodeContainerAttribute
  * Defines NodeContainer Component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -96,6 +104,7 @@ declare const NodeContainer: NodeContainerInterface;
  * Defines NodeContainer Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -103,6 +112,7 @@ declare const NodeContainer: NodeContainerInterface;
  * Defines NodeContainer Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
