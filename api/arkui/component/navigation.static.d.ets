@@ -38,6 +38,7 @@ import { ComponentContent } from '@ohos.arkui.node';
  *
  * @typedef { window.SystemBarStyle } SystemBarStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type SystemBarStyle = window.SystemBarStyle;
@@ -47,6 +48,7 @@ export type SystemBarStyle = window.SystemBarStyle;
  *
  * @interface NavigationCommonTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NavigationCommonTitle {
@@ -55,6 +57,7 @@ export declare interface NavigationCommonTitle {
      *
      * @type { string | Resource | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     main: string | Resource | undefined;
@@ -64,6 +67,7 @@ export declare interface NavigationCommonTitle {
      *
      * @type { string | Resource | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     sub: string | Resource | undefined;
@@ -74,6 +78,7 @@ export declare interface NavigationCommonTitle {
  *
  * @interface NavigationCustomTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NavigationCustomTitle {
@@ -82,6 +87,7 @@ export declare interface NavigationCustomTitle {
      *
      * @type { CustomBuilder }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     builder: CustomBuilder;
@@ -91,6 +97,7 @@ export declare interface NavigationCustomTitle {
      *
      * @type { TitleHeight | Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     height: TitleHeight | Length;
@@ -101,6 +108,7 @@ export declare interface NavigationCustomTitle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum NavigationMode {
@@ -108,6 +116,7 @@ export declare enum NavigationMode {
      * The navigation bar and the content area are displayed in stack.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Stack,
@@ -116,6 +125,7 @@ export declare enum NavigationMode {
      * The navigation bar and the content area are displayed side by side.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Split,
@@ -125,6 +135,7 @@ export declare enum NavigationMode {
      * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Auto,
@@ -146,6 +157,7 @@ export declare enum NavigationMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum NavBarPosition {
@@ -153,6 +165,7 @@ export declare enum NavBarPosition {
      * The navigation bar is on the Start of the container
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Start,
@@ -161,6 +174,7 @@ export declare enum NavBarPosition {
      * The navigation bar is on the End of the container
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     End
@@ -171,6 +185,7 @@ export declare enum NavBarPosition {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum NavigationTitleMode {
@@ -178,6 +193,7 @@ export declare enum NavigationTitleMode {
      * The title is free mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
    * @since 23 static
    */
     Free = 0,
@@ -186,6 +202,7 @@ export declare enum NavigationTitleMode {
      * The title is full mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Full,
@@ -194,6 +211,7 @@ export declare enum NavigationTitleMode {
      * The title is mini mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     Mini
@@ -204,6 +222,7 @@ export declare enum NavigationTitleMode {
  *
  * @interface NavigationMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
 * @noninterop
  */
@@ -213,6 +232,7 @@ export declare interface NavigationMenuItem {
      *
      * @type { string | Resource }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     value: string | Resource;
@@ -222,6 +242,7 @@ export declare interface NavigationMenuItem {
      *
      * @type { ?(string | Resource) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     icon?: string | Resource;
@@ -231,6 +252,7 @@ export declare interface NavigationMenuItem {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     symbolIcon?: SymbolGlyphModifier;
@@ -240,6 +262,7 @@ export declare interface NavigationMenuItem {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isEnabled?: boolean;
@@ -249,6 +272,7 @@ export declare interface NavigationMenuItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     action?: () => void;
@@ -259,6 +283,7 @@ export declare interface NavigationMenuItem {
  *
  * @interface PopInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface PopInfo {
@@ -267,6 +292,7 @@ export declare interface PopInfo {
      *
      * @type { NavPathInfo }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     info: NavPathInfo;
@@ -276,6 +302,7 @@ export declare interface PopInfo {
      *
      * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     result: Object;
@@ -285,6 +312,7 @@ export declare interface PopInfo {
  * Indicates the information of NavDestination.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class NavPathInfo {
@@ -296,6 +324,7 @@ export declare class NavPathInfo {
      * @param { Callback<PopInfo> } [onPop] - The callback when next page returns.
      * @param { boolean } [isEntry] - Indicates whether it is an entry destination.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor(name: string, param: Object | null | undefined, onPop?: Callback<PopInfo>, isEntry?: boolean);
@@ -305,6 +334,7 @@ export declare class NavPathInfo {
      *
      * @returns { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     get name(): string;
@@ -314,6 +344,7 @@ export declare class NavPathInfo {
      *
      * @param { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     set name(name: string);
@@ -323,6 +354,7 @@ export declare class NavPathInfo {
      *
      * @returns { Object | null | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     get param(): Object | null | undefined;
@@ -333,6 +365,7 @@ export declare class NavPathInfo {
      *
      * @param { Object | null | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     set param(param: Object | null | undefined);
@@ -342,6 +375,7 @@ export declare class NavPathInfo {
      *
      * @returns { Callback<PopInfo> | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     get onPop(): Callback<PopInfo> | undefined;
@@ -351,6 +385,7 @@ export declare class NavPathInfo {
      *
      * @param { Callback<PopInfo> | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     set onPop(onPop: Callback<PopInfo> | undefined);
@@ -360,6 +395,7 @@ export declare class NavPathInfo {
      *
      * @returns { boolean | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     get isEntry(): boolean | undefined;
@@ -369,6 +405,7 @@ export declare class NavPathInfo {
      *
      * @param { boolean | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     set isEntry(isEntry: boolean | undefined);
@@ -378,6 +415,7 @@ export declare class NavPathInfo {
      *
      * @returns { string | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     get navDestinationId(): string | undefined;
@@ -388,6 +426,7 @@ export declare class NavPathInfo {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum LaunchMode {
@@ -395,6 +434,7 @@ export declare enum LaunchMode {
      * The default mode of stack operation.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     STANDARD = 0,
@@ -404,6 +444,7 @@ export declare enum LaunchMode {
      * otherwise, the behavior will be consistent with the STANDARD mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     MOVE_TO_TOP_SINGLETON = 1,
@@ -413,6 +454,7 @@ export declare enum LaunchMode {
      * otherwise, the behavior will be consistent with the STANDARD mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     POP_TO_SINGLETON = 2,
@@ -421,6 +463,7 @@ export declare enum LaunchMode {
      * Forced to create a new NavDestination instance.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     NEW_INSTANCE = 3
@@ -470,6 +513,7 @@ export declare interface NavigationModuleInfo {
  *
  * @interface NavigationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NavigationOptions {
@@ -478,6 +522,7 @@ export declare interface NavigationOptions {
      *
      * @type { ?LaunchMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     launchMode?: LaunchMode;
@@ -487,6 +532,7 @@ export declare interface NavigationOptions {
      *
      * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     animated?: boolean;
@@ -496,6 +542,7 @@ export declare interface NavigationOptions {
  * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare class NavPathStack {
@@ -503,6 +550,7 @@ export declare class NavPathStack {
      * Creates an instance of NavPathStack.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     constructor();
@@ -513,6 +561,7 @@ export declare class NavPathStack {
      * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushPath(info: NavPathInfo, animated?: boolean): void;
@@ -523,6 +572,7 @@ export declare class NavPathStack {
      * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
      * @param { NavigationOptions } [options] - Indicates options of stack operation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushPath(info: NavPathInfo, options?: NavigationOptions): void;
@@ -541,6 +591,7 @@ export declare class NavPathStack {
      * @throws { BusinessError } 100005 - Builder function not registered.
      * @throws { BusinessError } 100006 - NavDestination not found.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushDestination(info: NavPathInfo, animated?: boolean): Promise<void>;
@@ -559,6 +610,7 @@ export declare class NavPathStack {
      * @throws { BusinessError } 100005 - Builder function not registered.
      * @throws { BusinessError } 100006 - NavDestination not found.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
@@ -570,6 +622,7 @@ export declare class NavPathStack {
      * @param { Object | null | undefined } param - Indicates the detailed parameter of the NavDestination to be pushed.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushPathByName(name: string, param: Object | null | undefined, animated?: boolean): void;
@@ -582,6 +635,7 @@ export declare class NavPathStack {
      * @param { Callback<PopInfo> } onPop - The callback when next page returns.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushPathByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): void;
@@ -601,6 +655,7 @@ export declare class NavPathStack {
      * @throws { BusinessError } 100005 - Builder function not registered.
      * @throws { BusinessError } 100006 - NavDestination not found.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushDestinationByName(name: string, param: Object, animated?: boolean): Promise<void>;
@@ -621,6 +676,7 @@ export declare class NavPathStack {
      * @throws { BusinessError } 100005 - Builder function not registered.
      * @throws { BusinessError } 100006 - NavDestination not found.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pushDestinationByName(name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>;
@@ -631,6 +687,7 @@ export declare class NavPathStack {
      * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     replacePath(info: NavPathInfo, animated?: boolean): void;
@@ -641,6 +698,7 @@ export declare class NavPathStack {
      * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
      * @param { NavigationOptions } [options] - Indicates options of stack operation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     replacePath(info: NavPathInfo, options?: NavigationOptions): void;
@@ -659,6 +717,7 @@ export declare class NavPathStack {
      * @throws { BusinessError } 100005 - Builder function not registered.
      * @throws { BusinessError } 100006 - NavDestination not found.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
@@ -670,6 +729,7 @@ export declare class NavPathStack {
      * @param { Object } param - Indicates the detailed parameter of the new NavDestination in top of the stack.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     replacePathByName(name: string, param: Object, animated?: boolean): void;
@@ -680,6 +740,7 @@ export declare class NavPathStack {
      * @param { Array<int> } indexes - Indicates the indexes of the NavDestinations to be removed.
      * @returns { int } Returns the number of removed pages. Invalid indexes will be ignored.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     removeByIndexes(indexes: Array<int>): int;
@@ -690,6 +751,7 @@ export declare class NavPathStack {
      * @param { string } name - Indicates the name of the NavDestination to be removed.
      * @returns { int } Returns the number of removed NavDestinations.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     removeByName(name: string): int;
@@ -700,6 +762,7 @@ export declare class NavPathStack {
      * @param { string } navDestinationId - Indicates the navDestinationId of the NavDestination to be removed.
      * @returns { boolean } Returns true if remove successfully, otherwise returns false.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     removeByNavDestinationId(navDestinationId: string): boolean;
@@ -710,6 +773,7 @@ export declare class NavPathStack {
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pop(animated?: boolean): NavPathInfo | undefined;
@@ -721,6 +785,7 @@ export declare class NavPathStack {
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     pop(result: Object, animated?: boolean): NavPathInfo | undefined;
@@ -732,6 +797,7 @@ export declare class NavPathStack {
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     popToName(name: string, animated?: boolean): int;
@@ -744,6 +810,7 @@ export declare class NavPathStack {
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     popToName(name: string, result: Object, animated?: boolean): int;
@@ -754,6 +821,7 @@ export declare class NavPathStack {
      * @param { int } index - Indicates the index of the NavDestination to be popped.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     popToIndex(index: int, animated?: boolean): void;
@@ -765,6 +833,7 @@ export declare class NavPathStack {
      * @param { Object } result - The result of the NavDestination.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     popToIndex(index: int, result: Object, animated?: boolean): void;
@@ -776,6 +845,7 @@ export declare class NavPathStack {
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @returns { int } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     moveToTop(name: string, animated?: boolean): int;
@@ -786,6 +856,7 @@ export declare class NavPathStack {
      * @param { int } index - Indicates the index of the NavDestination to be moved to the top.
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     moveIndexToTop(index: int, animated?: boolean): void;
@@ -795,6 +866,7 @@ export declare class NavPathStack {
      *
      * @param { boolean } [animated] - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     clear(animated?: boolean): void;
@@ -804,6 +876,7 @@ export declare class NavPathStack {
      *
      * @returns { Array<string> } Returns all the NavDestination name in the stack;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getAllPathName(): Array<string>;
@@ -814,6 +887,7 @@ export declare class NavPathStack {
      * @param { int } index - Indicates the index of the NavDestination.
      * @returns { Object | null | undefined } Returns the detailed parameter of the NavDestination if it exists in the stack, otherwise returns undefined;
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getParamByIndex(index: int): Object | null | undefined;
@@ -824,6 +898,7 @@ export declare class NavPathStack {
      * @param { string } name - Indicates the name of the NavDestination.
      * @returns { Array<Object | null | undefined> } Returns the detailed parameter of all the NavDestinations.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getParamByName(name: string): Array<Object | null | undefined>;
@@ -834,6 +909,7 @@ export declare class NavPathStack {
      * @param { string } name - Indicates the name of the NavDestination.
      * @returns { Array<int> } Returns the index of all the NavDestinations.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getIndexByName(name: string): Array<int>;
@@ -843,6 +919,7 @@ export declare class NavPathStack {
      *
      * @returns { NavPathStack | null } Returns the parent of the current stack. If no parent, it returns null.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getParent(): NavPathStack | null;
@@ -852,6 +929,7 @@ export declare class NavPathStack {
      *
      * @returns { int } Returns the size of the stack.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     size(): int;
@@ -861,6 +939,7 @@ export declare class NavPathStack {
      *
      * @param { boolean } value - Indicates whether the transition is animated.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     disableAnimation(value: boolean): void;
@@ -870,6 +949,7 @@ export declare class NavPathStack {
      *
      * @param { NavigationInterception } interception - the instance to intercept in navigation changes.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     setInterception(interception: NavigationInterception): void;
@@ -879,6 +959,7 @@ export declare class NavPathStack {
      *
      * @returns { Array<NavPathInfo> } The NavPathInfo array.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     getPathStack(): Array<NavPathInfo>;
@@ -889,6 +970,7 @@ export declare class NavPathStack {
      * @param { Array<NavPathInfo> } pathStack - The NavPathInfo array.
      * @param { boolean } [animated] - Indicate whether the operation has animation.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     setPathStack(pathStack: Array<NavPathInfo>, animated?: boolean): void;
@@ -899,6 +981,7 @@ export declare class NavPathStack {
  *
  * @typedef { 'navBar' } NavBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type NavBar = 'navBar';
@@ -912,6 +995,7 @@ export type NavBar = 'navBar';
  * @param { NavigationOperation } operation - Indicates the type of stack operation.
  * @param { boolean } isAnimated - Indicates whether the transition is animated.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type InterceptionShowCallback = (from: NavDestinationContext | NavBar, to: NavDestinationContext | NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
@@ -926,6 +1010,7 @@ export type InterceptionShowCallback = (from: NavDestinationContext | NavBar, to
  * @param { NavigationOperation } operation - Indicates the type of navigation operation.
  * @param { boolean } isAnimated - Indicates whether the transition is animated.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type InterceptionCallback = (from: NavPathInfo | NavBar, to: NavPathInfo | NavBar, pathStack: NavPathStack, operation: NavigationOperation, isAnimated: boolean) => void;
@@ -937,6 +1022,7 @@ export type InterceptionCallback = (from: NavPathInfo | NavBar, to: NavPathInfo 
  * @typedef { function } InterceptionModeCallback
  * @param { NavigationMode } mode - Indicates the mode of Navigation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type InterceptionModeCallback = (mode: NavigationMode) => void;
@@ -946,6 +1032,7 @@ export type InterceptionModeCallback = (mode: NavigationMode) => void;
  *
  * @interface NavigationInterception
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NavigationInterception {
@@ -955,6 +1042,7 @@ export declare interface NavigationInterception {
      *
      * @type { ?InterceptionShowCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     willShow?: InterceptionShowCallback;
@@ -964,6 +1052,7 @@ export declare interface NavigationInterception {
      *
      * @type { ?InterceptionShowCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     didShow?: InterceptionShowCallback;
@@ -973,6 +1062,7 @@ export declare interface NavigationInterception {
      *
      * @type { ?InterceptionModeCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     modeChange?: InterceptionModeCallback;
@@ -1023,6 +1113,7 @@ export declare interface HomePathInfo {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum ToolbarItemStatus {
@@ -1030,6 +1121,7 @@ export declare enum ToolbarItemStatus {
      * Normal state of toolbar item.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     NORMAL = 0,
@@ -1038,6 +1130,7 @@ export declare enum ToolbarItemStatus {
      * Disable state of toolbar item.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     DISABLED = 1,
@@ -1046,6 +1139,7 @@ export declare enum ToolbarItemStatus {
      * Active state of toolbar item.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     ACTIVE = 2
@@ -1056,6 +1150,7 @@ export declare enum ToolbarItemStatus {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum NavigationOperation {
@@ -1063,6 +1158,7 @@ export declare enum NavigationOperation {
      * Push operation of navigation transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     PUSH = 1,
@@ -1071,6 +1167,7 @@ export declare enum NavigationOperation {
      * Pop operation of navigation transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     POP = 2,
@@ -1079,6 +1176,7 @@ export declare enum NavigationOperation {
      * Replace operation of navigation transition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     REPLACE = 3
@@ -1089,6 +1187,7 @@ export declare enum NavigationOperation {
  *
  * @interface ToolbarItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -1098,6 +1197,7 @@ export declare interface ToolbarItem {
      *
      * @type { ResourceStr | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     value: ResourceStr | undefined;
@@ -1107,6 +1207,7 @@ export declare interface ToolbarItem {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     icon?: ResourceStr;
@@ -1116,6 +1217,7 @@ export declare interface ToolbarItem {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     symbolIcon?: SymbolGlyphModifier;
@@ -1125,6 +1227,7 @@ export declare interface ToolbarItem {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     action?: () => void;
@@ -1134,6 +1237,7 @@ export declare interface ToolbarItem {
      *
      * @type { ?ToolbarItemStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     status?: ToolbarItemStatus;
@@ -1143,6 +1247,7 @@ export declare interface ToolbarItem {
      *
      * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     activeIcon?: ResourceStr;
@@ -1152,6 +1257,7 @@ export declare interface ToolbarItem {
      *
      * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     activeSymbolIcon?: SymbolGlyphModifier;
@@ -1234,6 +1340,7 @@ export declare interface ScrollEffectOptions {
  *
  * @interface NavigationTitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -1243,6 +1350,7 @@ export declare interface NavigationTitleOptions {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundColor?: ResourceColor;
@@ -1252,6 +1360,7 @@ export declare interface NavigationTitleOptions {
      *
      * @type { ?BlurStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyle?: BlurStyle;
@@ -1261,6 +1370,7 @@ export declare interface NavigationTitleOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1270,6 +1380,7 @@ export declare interface NavigationTitleOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundEffect?: BackgroundEffectOptions;
@@ -1280,6 +1391,7 @@ export declare interface NavigationTitleOptions {
      * @type { ?BarStyle }
      * @default BarStyle.STANDARD
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     barStyle?: BarStyle;
@@ -1290,6 +1402,7 @@ export declare interface NavigationTitleOptions {
      * @type { ?LengthMetrics }
      * @default LengthMetrics.resource($r('sys.float.margin_left'))
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     paddingStart?: LengthMetrics;
@@ -1300,6 +1413,7 @@ export declare interface NavigationTitleOptions {
      * @type { ?LengthMetrics }
      * @default LengthMetrics.resource($r('sys.float.margin_right'))
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     paddingEnd?: LengthMetrics;
@@ -1309,6 +1423,7 @@ export declare interface NavigationTitleOptions {
      *
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     mainTitleModifier?: TextModifier;
@@ -1318,6 +1433,7 @@ export declare interface NavigationTitleOptions {
      *
      * @type { ?TextModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     subTitleModifier?: TextModifier;
@@ -1328,6 +1444,7 @@ export declare interface NavigationTitleOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     enableHoverMode?: boolean;
@@ -1348,6 +1465,7 @@ export declare interface NavigationTitleOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum BarStyle {
@@ -1355,6 +1473,7 @@ export declare enum BarStyle {
      * Standard style means that the bar and content area are column layouts.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     STANDARD = 0,
@@ -1363,6 +1482,7 @@ export declare enum BarStyle {
      * Stack style means that the bar and content area are stack layouts.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     STACK = 1,
@@ -1371,6 +1491,7 @@ export declare enum BarStyle {
      * SafeAreaPadding style means the bar height will be taken as content's safeAreaPadding.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     SAFE_AREA_PADDING = 2
@@ -1381,6 +1502,7 @@ export declare enum BarStyle {
  *
  * @interface NavigationToolbarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NavigationToolbarOptions {
@@ -1389,6 +1511,7 @@ export declare interface NavigationToolbarOptions {
      *
      * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundColor?: ResourceColor;
@@ -1398,6 +1521,7 @@ export declare interface NavigationToolbarOptions {
      *
      * @type { ?BlurStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyle?: BlurStyle;
@@ -1407,6 +1531,7 @@ export declare interface NavigationToolbarOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1416,6 +1541,7 @@ export declare interface NavigationToolbarOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundEffect?: BackgroundEffectOptions;
@@ -1425,6 +1551,7 @@ export declare interface NavigationToolbarOptions {
      *
      * @type { ?MoreButtonOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     moreButtonOptions?: MoreButtonOptions;
@@ -1435,6 +1562,7 @@ export declare interface NavigationToolbarOptions {
      * @type { ?BarStyle }
      * @default BarStyle.STANDARD
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     barStyle?: BarStyle;
@@ -1445,6 +1573,7 @@ export declare interface NavigationToolbarOptions {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     hideItemValue?: boolean;
@@ -1455,6 +1584,7 @@ export declare interface NavigationToolbarOptions {
  *
  * @interface NavigationMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NavigationMenuOptions {
@@ -1463,6 +1593,7 @@ export declare interface NavigationMenuOptions {
      *
      * @type { ?MoreButtonOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     moreButtonOptions?: MoreButtonOptions;
@@ -1473,6 +1604,7 @@ export declare interface NavigationMenuOptions {
  *
  * @interface MoreButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface MoreButtonOptions {
@@ -1481,6 +1613,7 @@ export declare interface MoreButtonOptions {
      *
      * @type { ?BlurStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyle?: BlurStyle;
@@ -1490,6 +1623,7 @@ export declare interface MoreButtonOptions {
      *
      * @type { ?BackgroundBlurStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
@@ -1499,6 +1633,7 @@ export declare interface MoreButtonOptions {
      *
      * @type { ?BackgroundEffectOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     backgroundEffect?: BackgroundEffectOptions;
@@ -1509,6 +1644,7 @@ export declare interface MoreButtonOptions {
  *
  * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
@@ -1519,6 +1655,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { Length | Bindable<Length> | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default navBarWidth(value: Length | Bindable<Length> | undefined): this;
@@ -1529,6 +1666,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { NavBarPosition | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default navBarPosition(value: NavBarPosition | undefined): this;
@@ -1539,6 +1677,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { [Dimension, Dimension] | undefined } value - The minimum and the maximum width of navigation bar.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default navBarWidthRange(value: [
@@ -1552,6 +1691,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { Dimension | undefined } value - The minimum width of content.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default minContentWidth(value: Dimension | undefined): this;
@@ -1562,6 +1702,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { NavigationMode | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default mode(value: NavigationMode | undefined): this;
@@ -1573,6 +1714,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { ResourceStr | undefined } accessibilityText - Indicates content needs to broadcast.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
@@ -1584,6 +1726,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default hideNavBar(value: boolean | undefined): this;
@@ -1595,6 +1738,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { NavigationTitleOptions | undefined } [options] - Indicates the options of titlebar.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle | undefined, options?: NavigationTitleOptions | undefined): this;
@@ -1605,6 +1749,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default hideTitleBar(value: boolean | undefined): this;
@@ -1616,6 +1761,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } animated
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default hideTitleBar(hide: boolean | undefined, animated: boolean | undefined): this;
@@ -1626,6 +1772,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default hideBackButton(value: boolean | undefined): this;
@@ -1636,6 +1783,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { NavigationTitleMode | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default titleMode(value: NavigationTitleMode | undefined): this;
@@ -1647,6 +1795,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { NavigationMenuOptions | undefined } [options] - Indicates the options of menu.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
@@ -1658,6 +1807,7 @@ export declare interface NavigationAttribute extends CommonMethod {
       * @param { NavigationToolbarOptions | undefined } [options] - Indicates the options of toolbar.
       * @returns { NavigationAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @stagemodelonly
       * @since 23 static
       */
     default toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
@@ -1668,6 +1818,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } value
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default hideToolBar(value: boolean | undefined): this;
@@ -1679,6 +1830,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } animated
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default hideToolBar(hide: boolean | undefined, animated: boolean | undefined): this;
@@ -1689,6 +1841,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } enable - Enable or disable tool bar adaptation.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableToolBarAdaptation(enable: boolean | undefined): this;
@@ -1699,6 +1852,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onTitleModeChange(callback: ((titleMode: NavigationTitleMode) => void) | undefined): this;
@@ -1709,6 +1863,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onNavBarStateChange(callback: ((isVisible: boolean) => void) | undefined): this;
@@ -1719,6 +1874,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { function | undefined } callback
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default onNavigationModeChange(callback: ((mode: NavigationMode) => void) | undefined): this;
@@ -1729,6 +1885,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { PageMapBuilder | undefined } builder - The builder function of NavDestination component.
      * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default navDestination(builder: PageMapBuilder | undefined): this;
@@ -1739,6 +1896,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { function | undefined } delegate - Custom transition delegate.
      * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default customNavContentTransition(delegate: ((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined) | undefined): this;
@@ -1750,6 +1908,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { Array<LayoutSafeAreaEdge> | undefined } [edges] - Indicates the edges of the safe area.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
@@ -1760,6 +1919,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { SystemBarStyle | undefined } style - The properties of system bar
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default systemBarStyle(style: SystemBarStyle | undefined): this;
@@ -1771,6 +1931,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } recoverable - navigation can be recovered.
      * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default recoverable(recoverable: boolean | undefined): this;
@@ -1781,6 +1942,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } isEnabled - enable dragbar or disable dragbar.
      * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableDragBar(isEnabled: boolean | undefined): this;
@@ -1803,6 +1965,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      * @param { boolean | undefined } isEnabled - enableModeChangeAnimation.
      * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default enableModeChangeAnimation(isEnabled: boolean | undefined): this;
@@ -1865,6 +2028,7 @@ export declare interface NavigationAttribute extends CommonMethod {
      *     The attribute modifier of navigation.
      * @returns { NavigationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<NavigationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
@@ -1875,6 +2039,7 @@ export declare interface NavigationAttribute extends CommonMethod {
 *
 * @interface NavigationAnimatedTransition
 * @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
 * @since 23 static
 */
 export declare interface NavigationAnimatedTransition {
@@ -1883,6 +2048,7 @@ export declare interface NavigationAnimatedTransition {
      *
      * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     onTransitionEnd?: (success: boolean) => void;
@@ -1892,6 +2058,7 @@ export declare interface NavigationAnimatedTransition {
      *
      * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     timeout?: int;
@@ -1902,6 +2069,7 @@ export declare interface NavigationAnimatedTransition {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isInteractive?: boolean;
@@ -1911,6 +2079,7 @@ export declare interface NavigationAnimatedTransition {
      *
      * @type { function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     transition: (transitionProxy: NavigationTransitionProxy) => void;
@@ -1921,6 +2090,7 @@ export declare interface NavigationAnimatedTransition {
  *
  * @interface NavigationTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
 * @since 23 static
 */
 export declare interface NavigationTransitionProxy {
@@ -1929,6 +2099,7 @@ export declare interface NavigationTransitionProxy {
      *
      * @type { NavContentInfo }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     from: NavContentInfo;
@@ -1938,6 +2109,7 @@ export declare interface NavigationTransitionProxy {
      *
      * @type { NavContentInfo }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     to: NavContentInfo;
@@ -1948,6 +2120,7 @@ export declare interface NavigationTransitionProxy {
      * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     isInteractive?: boolean;
@@ -1956,6 +2129,7 @@ export declare interface NavigationTransitionProxy {
      * Notification system transition animation completed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     finishTransition(): void;
@@ -1965,6 +2139,7 @@ export declare interface NavigationTransitionProxy {
      *
      * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     cancelTransition?: VoidCallback;
@@ -1974,6 +2149,7 @@ export declare interface NavigationTransitionProxy {
      *
      * @type { ?UpdateTransitionCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     updateTransition?: UpdateTransitionCallback;
@@ -1985,6 +2161,7 @@ export declare interface NavigationTransitionProxy {
  * @typedef { function } UpdateTransitionCallback
  * @param { double } progress - Indicates the process of transition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export type UpdateTransitionCallback = (progress: double) => void;
@@ -1994,6 +2171,7 @@ export type UpdateTransitionCallback = (progress: double) => void;
  *
  * @interface NavContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface NavContentInfo {
@@ -2002,6 +2180,7 @@ export declare interface NavContentInfo {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     name?: string;
@@ -2011,6 +2190,7 @@ export declare interface NavContentInfo {
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     index: int;
@@ -2020,6 +2200,7 @@ export declare interface NavContentInfo {
      *
      * @type { ?NavDestinationMode }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     mode?: NavDestinationMode;
@@ -2029,6 +2210,7 @@ export declare interface NavContentInfo {
      *
      * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     param?: Object;
@@ -2038,6 +2220,7 @@ export declare interface NavContentInfo {
      *
      * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     navDestinationId?: string;
@@ -2048,6 +2231,7 @@ export declare interface NavContentInfo {
 *
 * @interface NavigationDividerStyle
 * @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
 * @since 23 static
 */
 export declare interface NavigationDividerStyle {
@@ -2056,6 +2240,7 @@ export declare interface NavigationDividerStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   color?: ResourceColor;
@@ -2065,6 +2250,7 @@ export declare interface NavigationDividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   startMargin?: Length;
@@ -2074,6 +2260,7 @@ export declare interface NavigationDividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   endMargin?: Length;
@@ -2086,6 +2273,7 @@ export declare interface NavigationDividerStyle {
  * @param { CustomBuilder } [content_] - container
  * @returns { NavigationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
