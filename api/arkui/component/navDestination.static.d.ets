@@ -567,9 +567,11 @@ export declare interface NavDestinationAttribute extends CommonMethod {
     /**
      * Sets the different mode of NavDestination.
      *
-     * @param { NavDestinationMode | undefined } value - NavDestinationMode
+     * @param { NavDestinationMode } value - NavDestinationMode [since 23 - 24]
+     * @param { NavDestinationMode | undefined } value - NavDestinationMode [since 26.0.0]
      * @returns { NavDestinationAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     default mode(value: NavDestinationMode | undefined): this;
@@ -812,6 +814,25 @@ export declare interface NavDestinationAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<NavDestinationAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Sets whether the NavDestination should cover the entire navigation container.
+     *
+     * When set to true, in split navigation mode, the page covers both the NavBar
+     * and content area, displaying in full screen overlay mode. This setting applies
+     * to all instances of this NavDestination whenever it is pushed onto the stack, unless
+     * overridden by the fullScreen option in the push operation.
+     *
+     * @param { boolean | undefined } fullScreenOverlay - Whether to display as full screen overlay.
+     *     <br>**true**: Full screen overlay mode, covers entire navigation container.
+     *     <br>**false**: Normal display mode, follows navigation split rules(Except for DIALOG mode).
+     *     <br>**undefined**: Follow the fullscreen inheritance rules.
+     * @returns { NavDestinationAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default fullScreenOverlay(fullScreenOverlay: boolean | undefined): this;
 
     /**
      * Set navDestination options.
