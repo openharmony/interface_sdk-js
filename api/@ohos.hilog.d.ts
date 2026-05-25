@@ -18,7 +18,7 @@
  * @kit PerformanceAnalysisKit
  */
 
-/*** if arkts 1.2 */
+/*** if arkts static */
 import { RecordData } from '@ohos.base';
 /*** endif */
 
