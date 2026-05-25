@@ -27,6 +27,7 @@ import { AttributeModifier, CommonMethod, PixelMap } from './common';
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -35,6 +36,7 @@ export declare enum DepthSpaceType {
    * Instance mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -56,6 +58,7 @@ export declare enum DepthSpaceType {
  *
  * @interface DepthCameraParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -65,6 +68,7 @@ export declare interface DepthCameraParams {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -75,6 +79,7 @@ export declare interface DepthCameraParams {
    *
    * @type { DepthVector4 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -85,6 +90,7 @@ export declare interface DepthCameraParams {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -95,6 +101,7 @@ export declare interface DepthCameraParams {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -105,6 +112,7 @@ export declare interface DepthCameraParams {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -116,6 +124,7 @@ export declare interface DepthCameraParams {
  *
  * @interface DepthLightParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -125,6 +134,7 @@ export declare interface DepthLightParams {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -135,6 +145,7 @@ export declare interface DepthLightParams {
    *
    * @type { DepthColorRGB }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -145,6 +156,7 @@ export declare interface DepthLightParams {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -156,6 +168,7 @@ export declare interface DepthLightParams {
  *
  * @interface DepthComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -165,6 +178,7 @@ export declare interface DepthComponentOptions {
    *
    * @type { ?DepthSpaceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -177,6 +191,7 @@ export declare interface DepthComponentOptions {
  * @extends CommonMethod
  * @interface DepthComponentAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -198,6 +213,7 @@ export declare interface DepthComponentAttribute extends CommonMethod {
    * @param { DepthCameraParams } camera - Camera parameters.
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -209,6 +225,7 @@ export declare interface DepthComponentAttribute extends CommonMethod {
    * @param { DepthLightParams } light - Lighting parameters.
    * @returns { DepthComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -245,6 +262,7 @@ export declare interface DepthComponentAttribute extends CommonMethod {
  * @param { DepthComponentOptions } [options] - DepthComponent options.
  * @returns { DepthComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
