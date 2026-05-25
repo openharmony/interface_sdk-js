@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2026 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -78,7 +78,7 @@ declare namespace bas {
   function getRemoteDeviceBatteryInfo(deviceId: BluetoothAddress): Promise<BatteryInfo>;
 
   /**
-   * Subscribe the event of battery state changes from a remote device.
+   * Subscribe the event of battery state changed from a remote device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { Callback<BatteryInfo> } callback - Callback used to listen.
@@ -96,7 +96,7 @@ declare namespace bas {
   function onBatteryChange(callback: Callback<BatteryInfo>): void;
 
   /**
-   * Unsubscribe the event of battery state changed from a remote device.
+   * Unsubscribe the event of battery state changes from a remote device.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { Callback<BatteryInfo> } [callback] - Callback used to listen.
