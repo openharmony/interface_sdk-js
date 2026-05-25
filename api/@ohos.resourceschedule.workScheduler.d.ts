@@ -221,7 +221,7 @@ declare namespace workScheduler {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  const WORK_SCHEDULER_CONDITION = 'WORK_SCHEDULER_CONDITION';
+  const WORK_SCHEDULER_CONDITION: string;
 
   /**
    * Whether the requested task is executed immediately.
@@ -231,7 +231,7 @@ declare namespace workScheduler {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  const EXECUTE_IMMEDIATE = 'executeImmediate';
+  const EXECUTE_IMMEDIATE: string;
 
   /**
    * Requests a deferred task. Upon successful request, the deferred task is added to the execution queue and will be 

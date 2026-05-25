@@ -217,7 +217,7 @@ declare namespace workScheduler {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  const WORK_SCHEDULER_CONDITION = 'WORK_SCHEDULER_CONDITION';
+  const WORK_SCHEDULER_CONDITION: string;
 
   /**
    * 请求的任务是否立即执行。
@@ -227,7 +227,7 @@ declare namespace workScheduler {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  const EXECUTE_IMMEDIATE = 'executeImmediate';
+  const EXECUTE_IMMEDIATE: string;
 
   /**
    * 申请延迟任务，成功后会把任务添加到执行队列，满足触发条件后由系统调度执行。
