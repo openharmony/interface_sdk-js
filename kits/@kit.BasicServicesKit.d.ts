@@ -100,6 +100,8 @@ import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } fro
 import zlib from '@ohos.zlib';
 import commonEventManager from '@ohos.commonEventManager';
 import emitter from '@ohos.events.emitter';
+import StaticSubscriberExtensionAbility from '@ohos.application.StaticSubscriberExtensionAbility';
+import StaticSubscriberExtensionContext from '@ohos.application.StaticSubscriberExtensionContext';
 import systemDateTime from '@ohos.systemDateTime';
 import systemTimer from '@ohos.systemTimer';
 import systemLoad from '@ohos.resourceschedule.systemload';
@@ -111,6 +113,7 @@ import intelligentScene from '@ohos.intelligentScene';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  systemTimer, systemLoad, request, commonEventManager, emitter, appAccount, distributedAccount, osAccount, intelligentScene
+  systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
+  StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, intelligentScene
 };
 /*** endif */
