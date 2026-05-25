@@ -2767,6 +2767,20 @@ declare namespace util {
      * @since 24 dynamiconly
      */
     static enableLocalHandleDetection(): void;
+
+    /**
+     * Enable or disable tracking of the relationship between napi_ref and global handle. When enabled, heap snapshot
+     * will include native reference address information. When disabled (enable is false), the tracking will be stopped
+     * and heap snapshot will not display the relationship between native reference and global handle.
+     *
+     * @param { boolean } enable - The boolean flag enable to Indicates whether to turn on or off tracking, **true** means
+     *                           to turn on tracking, and **false** means to turn off it.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamiconly
+     */
+    static setTrackGlobalRef(enable: boolean): void;
   }
 
   /**
