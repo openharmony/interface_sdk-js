@@ -2657,14 +2657,14 @@ declare namespace util {
    * @since 26.0.0 dynamiconly
    */
   interface MultithreadingDetectionOptions {
-    /*
-    If abort is true, the application will crash, if abort is false, the application will not crash.
-    Defalut true.
-    @syscap SystemCapability.Utils.Lang
-    @stagemodelonly
-    @crossplatform
-    @since 26.0.0 dynamiconly
-    */
+    /**
+     * If abort is true, the application will crash, if abort is false, the application will not crash.
+     * Defalut true.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamiconly
+     */
     abort?: boolean;
     /**
      * The sampling frequency of multi-thread detection
