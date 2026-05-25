@@ -10803,7 +10803,7 @@ export declare interface AttributeModifier<T> {
    *
    * @returns { int } - Bitmask combination of states to be monitored
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   default monitoredStates(): int;

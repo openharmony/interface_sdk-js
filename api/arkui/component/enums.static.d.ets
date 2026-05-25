@@ -4775,7 +4775,7 @@ export enum CompetitionStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 23 staticonly
  */
 export enum AttributeModifierState {
@@ -4784,7 +4784,7 @@ export enum AttributeModifierState {
    * Normal state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   NORMAL = 0,
@@ -4793,7 +4793,7 @@ export enum AttributeModifierState {
    * Pressed state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   PRESSED = 1,
@@ -4802,7 +4802,7 @@ export enum AttributeModifierState {
    * Focused state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   FOCUSED = 1 << 1,
@@ -4811,7 +4811,7 @@ export enum AttributeModifierState {
    * Disabled state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   DISABLED = 1 << 2,
@@ -4820,10 +4820,19 @@ export enum AttributeModifierState {
    * Selected state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
-  SELECTED = 1 << 3
+  SELECTED = 1 << 3,
+
+  /**
+   * Hovered state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  HOVERED = 1 << 4
 }
 
 /**
