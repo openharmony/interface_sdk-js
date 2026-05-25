@@ -2071,5 +2071,15 @@ declare namespace tag {
    * @since 23 static
    */
   export type TagSession = _TagSession;
+
+  /**
+   * Skip NDEF when app is reading a card in the foreground.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  const SKIP_NDEF = 11;
 }
 export default tag;
