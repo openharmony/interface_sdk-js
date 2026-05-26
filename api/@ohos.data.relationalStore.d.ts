@@ -7387,17 +7387,17 @@ declare namespace relationalStore {
     cloudSync(mode: SyncMode, predicates: RdbPredicates, progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
-     * Synchronizes data to the cloud.
+     * Synchronizes data to the cloud. This API uses a promise to return the result.
      *
      * @param { CloudSyncConfig } config - indicates the cloud synchronization config.
-     * @param { Callback<ProgressDetails> } progress - Callback used to return the {@link ProgressDetails} result.
-     * @returns { Promise<void> } : The promise returned by the function.
+     * @param { Callback<ProgressDetails> } progress - Callback used to return the sync progress.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    cloudSync(config: CloudSyncConfig, progress: Callback<ProgressDetails>): Promise<void>;
+    cloudSyncEx(config: CloudSyncConfig, progress: Callback<ProgressDetails>): Promise<void>;
 
     /**
      * Stops synchronizing data with the cloud.
