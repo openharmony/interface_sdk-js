@@ -14798,6 +14798,7 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
  * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
  * @returns { GestureRecognizer } gesture recognizer of the component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -19418,6 +19419,17 @@ declare interface PopupCommonOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -20381,6 +20393,17 @@ declare interface PopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -21117,6 +21140,17 @@ declare interface CustomPopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -22778,8 +22812,8 @@ declare class TouchResult {
  *
  * @interface DepthVector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -22789,8 +22823,8 @@ declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22801,8 +22835,8 @@ declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22813,8 +22847,8 @@ declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22826,8 +22860,8 @@ declare interface DepthVector3 {
  *
  * @interface DepthVector4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -22838,8 +22872,8 @@ declare interface DepthVector4 {
    * @type { double }
    * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22850,8 +22884,8 @@ declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22862,8 +22896,8 @@ declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22874,8 +22908,8 @@ declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22887,8 +22921,8 @@ declare interface DepthVector4 {
  *
  * @interface DepthColorRGB
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -22898,8 +22932,8 @@ declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22910,8 +22944,8 @@ declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22922,8 +22956,8 @@ declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22935,8 +22969,8 @@ declare interface DepthColorRGB {
  *
  * @interface SpatialPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -22946,8 +22980,8 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22958,8 +22992,8 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22970,8 +23004,8 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22982,8 +23016,8 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -22995,23 +23029,23 @@ declare interface SpatialPosition {
  *
  * @interface SpatialEffectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 declare interface SpatialEffectParams {
   /**
-   * Spatial position defined by corner points.
+   * Spatial position defined by corner points or depth value.
    *
-   * @type { SpatialPosition }
+   * @type { SpatialPosition | double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  position: SpatialPosition;
+  position: SpatialPosition | double;
 
   /**
    * Occlusion weight for spatial effect.
@@ -23019,8 +23053,8 @@ declare interface SpatialEffectParams {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -31666,8 +31700,8 @@ declare class CommonMethod<T> {
    * @param { SpatialEffectParams | undefined } params - Spatial effect parameters.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -32413,6 +32447,7 @@ declare class CommonMethod<T> {
    *     touch test.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -32689,6 +32724,23 @@ declare class CommonMethod<T> {
    * @since 26.0.0 dynamic
    */
   inspectorLabel(label: string | undefined): T;
+
+  /**
+   * Sets whether to component is double-sided. 
+   * 
+   * @param { Optional<boolean> } value - Whether to draw both sides of component.
+   *     **true**: Both front and back sides are visible (default).
+   *     **false**: Only to front side is visible, to back side is hidden when rotated.
+   *     When **value** is **undefined**, the component reverts to default double-sided setting (**true**).
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  doubleSided(value: Optional<boolean>): T;
 }
 
 /**

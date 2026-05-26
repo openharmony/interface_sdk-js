@@ -66,37 +66,31 @@ def walk_with_exclusions(root_dir, file_folder_dir, config_path=CONFIG_JSON):
 
 
 # 生成工具运行所需要的json文件
-def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path):
+def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path, subdir):
     global OUTPUT_PATH
+    target_dir = os.path.join(tool_dir, subdir)
     OUTPUT_PATH = os.path.abspath(os.path.join(
-        out_interop_path, INTEROP_NAME, "dependence-json/ets_tool_config_json.json"))
+        out_interop_path, INTEROP_NAME, f"dependence-json/ets_tool_config_json_{subdir}.json"))
+    module_root_path = str(target_dir)
     all_files = []
-    for dirpath, dirnames, filenames in walk_with_exclusions(root_build_dir, tool_dir):
-        cont_folder = Path(os.path.relpath(dirpath, tool_dir)).parts
-        if len(cont_folder) != 0:
-            if cont_folder[0] in INTEROP_ETS_LIST:
-                files = [os.path.join(dirpath, file)
-                         for file in filenames]
-                all_files.extend(files)
-        else:
-            continue
+    for dirpath, dirnames, filenames in walk_with_exclusions(root_build_dir, target_dir):
+        files = [os.path.join(dirpath, file) for file in filenames]
+        all_files.extend(files)
     config = {
-        # 需要处理的API声明文件
         "compileFiles": all_files,
-        # 自己命名的包的名字
         "packageName": "",
         "buildType": "build",
         "buildMode": "Release",
         # 需要处理的API目录
-        "moduleRootPath": str(tool_dir),
+        "moduleRootPath": module_root_path,
         "sourceRoots": ["./"],
         "loaderOutPath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME))),
         # 实际在工具转化API时，不参与生成胶水代码及产物
         "cachePath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "cache"))),
         # buildSdkPath是包含依赖产物的路径
-        "buildSdkPath": str(os.path.join(tool_dir)),
+        "buildSdkPath": str(tool_dir),
         "dependentModuleList": [],
-        "plugins":[],
+        "plugins": [],
         "isIDE": "false",
         # 工具处理时候的线程数
         "maxWorkers": 16,
@@ -104,9 +98,9 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         "skipDeclCheck": True,
         "enableDeclgenEts2Ts": True,
         # declgenV1OutPath是输出的ets产物
-        "declgenV1OutPath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "declaration"))),
+        "declgenV1OutPath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "declaration", subdir))),
         # declgenBridgeCodePath是输出的ts产物
-        "declgenBridgeCodePath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "bridge"))),
+        "declgenBridgeCodePath": str(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "bridge", subdir))),
     }
 
     try:
@@ -122,8 +116,7 @@ def build_ets_tool_config(root_build_dir, tool_dir, output_dir, out_interop_path
         raise Exception(f"Error generate declgen config json failed")
 
 
-def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out_interop_path: str):
-    # PANDA的依赖路径
+def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out_interop_path: str, subdir):
     panda_path = os.path.join(tool_dir, "build-tools/ets2panda/lib")
     # 执行的js路径
     tool_path = os.path.join(
@@ -132,32 +125,43 @@ def run_compile_ets_ts(tool_dir: str, node_path: str, config_json_path: str, out
     env = os.environ.copy()
     env["LD_LIBRARY_PATH"] = str(panda_path)
     try:
-        interop_path_declaration = os.path.join(out_interop_path, "static-interop/declaration")
-        interop_path_bridge = os.path.join(out_interop_path, "static-interop/bridge")
+        interop_path_declaration = os.path.join(out_interop_path, "static-interop/declaration", subdir)
+        interop_path_bridge = os.path.join(out_interop_path, "static-interop/bridge", subdir)
         os.makedirs(interop_path_declaration, exist_ok=True)
         os.makedirs(interop_path_bridge, exist_ok=True)
         cmd = [node_path, tool_path, config_json_path]
         result = subprocess.run(cmd, env=env, check=True,
                                 cwd=tool_dir, text=True, capture_output=True)
-        with open(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, "interop_tool.log")), 'w', encoding='utf-8') as f:
-            f.write("=== Output from interop1.2 tool ===\n")
+        with open(os.path.abspath(os.path.join(out_interop_path, INTEROP_NAME, f"interop_tool_subdir_{subdir}.log")), 'w', encoding='utf-8') as f:
+            f.write(f"=== Output from interop1.2 tool ({subdir}) ===\n")
             f.write(result.stdout)
-        check_static_interop_path_exists(interop_path_declaration)
-        check_static_interop_path_exists(interop_path_bridge)
-        print(f"run_compile_ets_ts success: {result.returncode}")
+        check_interop_path_exists(interop_path_declaration)
+        check_interop_path_exists(interop_path_bridge)
+        print(f"run_compile_ets_ts ({subdir}) success: {result.returncode}")
     except subprocess.CalledProcessError as e:
-        print(f"run_compile_ets_ts error: {e.returncode}")
+        print(f"run_compile_ets_ts ({subdir}) error: {e.returncode}")
         print("run_compile_ets_ts:", e.stderr)
-        check_static_interop_path_exists(interop_path_declaration)
-        check_static_interop_path_exists(interop_path_bridge)
+        check_interop_path_exists(interop_path_declaration)
+        check_interop_path_exists(interop_path_bridge)
 
 
-def check_static_interop_path_exists(input_path: str):
-    interop_path_api = os.path.join(input_path, "api")
-    interop_path_kits = os.path.join(input_path, "kits")
-    interop_path_arkts = os.path.join(input_path, "arkts")
-    if not os.path.exists(interop_path_api) or not os.path.exists(interop_path_kits) or not os.path.exists(interop_path_arkts):
-        raise FileNotFoundError(f"Missing interop directories in output")
+def check_interop_path_exists(input_path: str):
+    if not os.path.exists(input_path):
+        raise FileNotFoundError(f"Missing interop directory: {input_path}")
+
+
+def move_static_record_to_root(out_interop_path: str, subdir: str):
+    """Move static.Record.d.ts from subdir to root declaration directory"""
+    src_path = os.path.join(out_interop_path, "static-interop/declaration", subdir, "static.Record.d.ts")
+    dst_path = os.path.join(out_interop_path, "static-interop/declaration/static.Record.d.ts")
+    
+    if os.path.exists(src_path):
+        if os.path.exists(dst_path):
+            os.remove(src_path)
+            print(f"Removed duplicate static.Record.d.ts from {subdir}")
+        else:
+            os.rename(src_path, dst_path)
+            print(f"Moved static.Record.d.ts from {subdir} to root")
 
 
 def run_compile_ets_ts_main():
@@ -170,10 +174,14 @@ def run_compile_ets_ts_main():
     options = parser.parse_args()
     options.tool_dir = os.path.abspath(options.tool_dir)
     out_interop_path = os.path.abspath(options.output_interop_sdk)
-    config_json = build_ets_tool_config(options.root_build_dir, options.tool_dir, os.path.abspath(
-        options.output_interface_sdk), out_interop_path)
-    run_compile_ets_ts(options.tool_dir, options.node_path,
-                       config_json, out_interop_path)
+    output_interface_sdk = os.path.abspath(options.output_interface_sdk)
+    for subdir in INTEROP_ETS_LIST:
+        config_json = build_ets_tool_config(
+            options.root_build_dir, options.tool_dir,
+            output_interface_sdk, out_interop_path, subdir)
+        run_compile_ets_ts(options.tool_dir, options.node_path,
+                           config_json, out_interop_path, subdir)
+        move_static_record_to_root(out_interop_path, subdir)
 
 
 if __name__ == "__main__":

@@ -20,6 +20,10 @@ import { ApiCheckWrapperServiceHost } from './api-check-wrapper';
 import { getApiCheckWrapperServiceHost } from './src/api_check_config';
 import { checkApiExpression, WrapperApi } from './api-check-wrapper/src/api_check_wrapper';
 
+export let externalApiCheckPlugin = new Map();
+export let fileAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
+export let suppressWarningsCheckPlugin = new Map();
+
 /**
  * 导出projectConfig作为全局变量
  */
@@ -36,7 +40,9 @@ export function apiCheckPlugin(): Plugins {
   return {
     name: 'api-check-plugins',
     checked: apiCheckCallback,
-    clean(): void { }
+    clean(): void {
+      resetPlugins();
+    }
   };
 }
 
@@ -60,9 +66,8 @@ function apiCheckCallback(this: PluginContext): void {
     }
   }
   catch (error) {
-    if (error) {
-      console.error(`[API_CHECK_PLUGIN] ${error}`);
-    }
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(`[API_CHECK_PLUGIN] ${errorMessage}`);
   }
 }
 
@@ -76,8 +81,15 @@ export function initApiCheckConfig(projectConfig: ProjectConfig): void {
     return;
   }
   Object.assign(projectConfig, creatApiCheckConfig());
+  projectConfig.initApiCheckTag = true;
   readPermissions(projectConfig);
   readCardPageSet(projectConfig);
   readSystemModules(projectConfig);
   readSyscapInfo(projectConfig);
+}
+
+function resetPlugins(): void {
+  externalApiCheckPlugin = new Map();
+  fileAvailableCheckCache = new Map();
+  suppressWarningsCheckPlugin = new Map();
 }

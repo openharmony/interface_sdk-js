@@ -23,7 +23,7 @@
  * Class used to describe runtime types
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Class {
@@ -32,7 +32,7 @@ class Class {
      *
      * @returns { string } return class name
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getName(): string;
@@ -42,7 +42,7 @@ class Class {
      *
      * @returns { Class | undefined } return the super class
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getSuper(): Class | undefined;
@@ -53,7 +53,7 @@ class Class {
      * @param { Class } other - The class to check against.
      * @returns { boolean } Returns true if this class is a subtype of the other class, false otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isSubtypeOf(other: Class): boolean;
@@ -63,7 +63,7 @@ class Class {
      *
      * @returns { RuntimeLinker } the runtime linker for this class
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getLinker(): RuntimeLinker;
@@ -73,7 +73,7 @@ class Class {
      *
      * @returns { Class | undefined } the component type of the fixed array, or undefined if this class is not a fixed array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getFixedArrayComponentType(): Class | undefined;
@@ -83,7 +83,7 @@ class Class {
      *
      * @returns { FixedArray<Class> } a fixed array of interfaces implemented by the class.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getInterfaces(): FixedArray<Class>;
@@ -92,7 +92,7 @@ class Class {
      * Invoke class initializer once if class is not initialized.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     initialize(): void;
@@ -103,7 +103,7 @@ class Class {
      * @param { Any } obj - The object to get the class from.
      * @returns { Class | undefined } the class of the object, or undefined if the object is not a class instance.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static ofAny(obj: Any): Class | undefined;
@@ -114,7 +114,7 @@ class Class {
      * @param { Object | null } obj - The object to get the class from.
      * @returns { Class } the class of the object.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static of(obj: Object | null): Class;
@@ -124,7 +124,7 @@ class Class {
      *
      * @returns { Class } the class of the object.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static from<T>(): Class;
@@ -134,7 +134,7 @@ class Class {
      *
      * @returns { Class } the current class.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static current(): Class;
@@ -144,7 +144,7 @@ class Class {
      *
      * @returns { Class | undefined } the class of the caller, or undefined if there is no caller managed frame.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static ofCaller(): Class | undefined;
@@ -155,7 +155,7 @@ class Class {
      * @returns { Object } a new instance of this class.
      * @throws { Error } if - the class is not instantiable or does not have a default constructor.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     createInstance(): Object;
@@ -165,7 +165,7 @@ class Class {
      *
      * @returns { string } a desceription.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getDescriptor(): string;
@@ -175,7 +175,7 @@ class Class {
      *
      * @returns { boolean } true if this class is an enum, false otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isEnum(): boolean;
@@ -185,7 +185,7 @@ class Class {
      *
      * @returns { boolean } true if this class is an interface, false otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isInterface(): boolean;
@@ -196,7 +196,7 @@ class Class {
      *
      * @returns { boolean } true if this class is a fixed array, false otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isFixedArray(): boolean;
@@ -206,7 +206,7 @@ class Class {
      *
      * @returns { boolean } true if this class is a union type, false otherwise.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isUnion(): boolean;
@@ -216,7 +216,7 @@ class Class {
      *
      * @returns { FixedArray<reflect.InstanceMethod> } a fixed array of instance methods.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getInstanceMethods(): FixedArray<reflect.InstanceMethod>;
@@ -230,7 +230,7 @@ class Class {
      * @returns { reflect.InstanceMethod | undefined } the found instance method, or undefined if not found.
      * @throws { Error } When - signature is omitted and multiple overloads exist
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getInstanceMethod(name: string, signature?: FixedArray<Class>): reflect.InstanceMethod | undefined;
@@ -240,7 +240,7 @@ class Class {
      *
      * @returns { FixedArray<reflect.StaticMethod> } a fixed array of static methods.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getStaticMethods(): FixedArray<reflect.StaticMethod>;
@@ -253,7 +253,7 @@ class Class {
      * @returns { reflect.StaticMethod | undefined } the found static method, or undefined if not found.
      * @throws { Error } When - signature is omitted and multiple overloads exist
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getStaticMethod(name: string, signature?: FixedArray<Class>): reflect.StaticMethod | undefined;
@@ -263,7 +263,7 @@ class Class {
      *
      * @returns { FixedArray<reflect.InstanceField> } a fixed array of instance fields.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getInstanceFields(): FixedArray<reflect.InstanceField>;
@@ -274,7 +274,7 @@ class Class {
      * @param { string } name - The field name to search for.
      * @returns { reflect.InstanceField | undefined } the found instance field, or undefined if not found.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getInstanceField(name: string): reflect.InstanceField | undefined;
@@ -284,7 +284,7 @@ class Class {
      *
      * @returns { FixedArray<reflect.StaticField> } a fixed array of static fields.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getStaticFields(): FixedArray<reflect.StaticField>;
@@ -295,7 +295,7 @@ class Class {
      * @param { string } name - The field name to search for.
      * @returns { reflect.StaticField | undefined } the found static field, or undefined if not found.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getStaticField(name: string): reflect.StaticField | undefined;
@@ -305,7 +305,7 @@ class Class {
      *
      * @returns { FixedArray<reflect.Constructor> } a fixed array of constructors.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getConstructors(): FixedArray<reflect.Constructor>;
@@ -316,7 +316,7 @@ class Class {
      * @returns { FixedArray<Class> | undefined } a fixed array of constituent types,
      *     or undefined if this is not a union class.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     getUnionConstituentTypes(): FixedArray<Class> | undefined;
@@ -326,7 +326,7 @@ class Class {
      *
      * @returns { boolean } true if the class is fianl
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isFinal(): boolean;
@@ -336,7 +336,7 @@ class Class {
      *
      * @returns { boolean } true if the class is abstract
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isAbstract(): boolean;
@@ -346,7 +346,7 @@ class Class {
      *
      * @returns { boolean } true if the class corresponds to a primitive type
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     isPrimitive(): boolean;

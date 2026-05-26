@@ -1453,6 +1453,19 @@ declare interface TextMenuItem {
 }
  
 /**
+ * Callback function when the selection menu create.
+ *
+ * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
+ * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
+
+/**
  * Callback before displaying the menu when the selection range changes.
  *
  * @typedef { function } OnPrepareMenuCallback
@@ -2826,4 +2839,38 @@ declare interface FontWeightConfigs {
      * @since 24 dynamic
      */
     enableDeviceFontWeightCategory?: boolean;
+}
+
+/**
+ * Defines incremental update policies for text rendering.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum IncrementalUpdatePolicy {
+  /**
+   * Disable incremental updates. Full layout rendering is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  NONE = 0,
+
+  /**
+   * Enable incremental updates with paragraph-level cache.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  PARAGRAPH_CACHE = 1
 }

@@ -23,7 +23,7 @@
  * Regular expression result descriptor
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class RegExpResultArray extends Array<string | undefined> {
@@ -33,7 +33,7 @@ class RegExpResultArray extends Array<string | undefined> {
      * @param { string } index - string index.
      * @returns { string } the first match as string or null
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     $_get(index: string): string;
@@ -45,7 +45,7 @@ class RegExpResultArray extends Array<string | undefined> {
      *     <br>The value should be an integer.
      * @returns { string | undefined } resulting string.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     $_get(index: int): string | undefined;
@@ -55,7 +55,7 @@ class RegExpResultArray extends Array<string | undefined> {
  * Regular expression
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class RegExp extends Object {
@@ -64,7 +64,7 @@ class RegExp extends Object {
      *
      * @returns { string } return source
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     get source(): string;
@@ -75,7 +75,7 @@ class RegExp extends Object {
      * @param { string } pattern - description of a pattern
      * @param { string } [flags] - description of flags to be used
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(pattern: string, flags?: string);
@@ -86,7 +86,7 @@ class RegExp extends Object {
      * @param { RegExp } regexp - other regexp
      * @param { string } [flags] - description of flags to be used
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(regexp: RegExp, flags?: string);
@@ -97,7 +97,7 @@ class RegExp extends Object {
      * @param { RegExp | string } regexp - The pattern of the regular expression or another RegExp instance.
      * @param { string } [flags] - description of flags to be used.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(regexp: RegExp | string, flags?: string);

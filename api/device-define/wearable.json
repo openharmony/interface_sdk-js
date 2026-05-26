@@ -163,6 +163,7 @@
     "SystemCapability.Telephony.SmsMms",
     "SystemCapability.Telephony.StateRegistry",
     "SystemCapability.FileManagement.StorageService.Encryption",
+    "SystemCapability.FileManagement.StorageService.SpatialStatistics",
     "SystemCapability.Developtools.Syscap",
     "SystemCapability.PowerManager.ThermalManager",
     "SystemCapability.MiscServices.Time",

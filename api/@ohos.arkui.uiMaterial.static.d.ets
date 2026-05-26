@@ -1,7 +1,7 @@
 'use static'
 /*
  * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -21,7 +21,7 @@
 import { ResourceColor } from '@ohos.arkui.component';
 
 /**
- * Define the namespace for uiMaterial, which contains the definitions of HarmonyOS-style material objects.
+ * Define the namespace of uiMaterial, which contains the definitions of system-style material object.
  *
  * @namespace uiMaterial
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -79,7 +79,7 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    IMMERSIVE = 2,
+    IMMERSIVE = 2
   }
 
   /**
@@ -91,7 +91,7 @@ declare namespace uiMaterial {
    */
   export enum MaterialState {
     /**
-     * Default mode: Dialog, Toast, AlphabetIndexer, and Text selection menus use immersive material by default.
+     * Default mode: Dialog, Toast, AlphabetIndexer, and Text selection menus use immersive materials by default.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -99,7 +99,7 @@ declare namespace uiMaterial {
      */
     DEFAULT = 0,
     /**
-     * Enable mode: The component uses immersive material by default.
+     * Enabled mode: The component uses immersive materials by default.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -113,7 +113,7 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    DISABLE = 2,
+    DISABLE = 2
   }
 
   /**
@@ -126,6 +126,7 @@ declare namespace uiMaterial {
   export interface MaterialInfo {
     /**
      * The material state configuration.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
@@ -153,7 +154,7 @@ declare namespace uiMaterial {
   export function getMaterialInfo(): MaterialInfo;
 
   /**
-   * The enumeration of material styles. Different material styles have different thicknesses.
+   * The enumeration of immersive styles. Different immersive styles have different thicknesses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -199,7 +200,7 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    ULTRA_THICK = 4,
+    ULTRA_THICK = 4
   }
 
   /**
@@ -214,45 +215,42 @@ declare namespace uiMaterial {
      * The style of the material. Different styles correspond to different material parameters, which affect the
      * thickness of the material.
      *
-     * @default uiMaterial.MaterialStyle.REGULAR
+     * @default uiMaterial.ImmersiveStyle.REGULAR
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    style?: ImmersiveStyle,
+    style?: ImmersiveStyle;
     /**
      * The extra color of material level. This parameter will add a specified color effect to the material.
      *
-     * @type { ?ResourceColor }
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    materialColor?: ResourceColor,
+    materialColor?: ResourceColor;
     /**
      * It determines whether the child tree of a node that has a material object set automatically adapts the material
      * to the background color. If it is false, the color will not be automatically inverted. If it is true, the color
      * will be automatically inverted only when other conditions are met, for example, the material style is THIN or
      * ULTRA_THIN.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    colorInvert?: boolean,
+    colorInvert?: boolean;
     /**
      * It determines whether to add shadows of the material effect.
      *
-     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    applyShadow?: boolean,
+    applyShadow?: boolean;
     /**
      * Whether the material supports interactive.
      *
@@ -261,7 +259,7 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    interactive?: boolean,
+    interactive?: boolean;
     /**
      * Light effect interactive feedback configuration. When configured, the material responds
      * Light feedback effect of gesture changes.
@@ -291,7 +289,7 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    color?: ResourceColor,
+    color?: ResourceColor;
   }
 
   /**
@@ -314,7 +312,7 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 23 static
      */
-    type?: MaterialType,
+    type?: MaterialType;
   }
 
   /**
@@ -364,20 +362,20 @@ declare namespace uiMaterial {
    */
   export class ImmersiveMaterial extends Material {
     /**
-     * Constructor of ImmersiveMaterial class
+     * Constructor of ImmersiveMaterial class.
      *
      * @param { ImmersiveOptions } [options] - the options to construct an immersive material.
-     *     If this parameter is left blank. the default ImmersiveOptions is used.
+     *     If this parameter is left blank, the default ImmersiveOptions parameter is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    constructor(options?: ImmersiveOptions)
+    constructor(options?: ImmersiveOptions);
   }  
 }
 
 /**
- * export uiMaterial namespace.
+ * export the namespace of uiMaterial.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -389,6 +387,6 @@ declare namespace uiMaterial {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26 static
+ * @since 26.0.0 static
  */
 export default uiMaterial;

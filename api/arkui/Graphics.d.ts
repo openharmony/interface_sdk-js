@@ -1184,7 +1184,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   static createHDRColorWithLinearExposure(linearExposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -1210,7 +1210,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   static createHDRColorWithLogExposure(exposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -1235,7 +1235,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   static createHDRColor(colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -1248,7 +1248,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getColorSpace(): ColorSpace;
 
@@ -1263,7 +1263,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   isHDR(): boolean;
 
@@ -1280,7 +1280,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getRedValue(): double;
 
@@ -1297,7 +1297,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getGreenValue(): double;
 
@@ -1314,7 +1314,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getBlueValue(): double;
 	

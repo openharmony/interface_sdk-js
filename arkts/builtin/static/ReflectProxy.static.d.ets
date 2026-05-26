@@ -23,7 +23,7 @@
  * A namespace that provides reflection and proxy functionality.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 namespace reflect {
@@ -33,7 +33,7 @@ namespace reflect {
    * Defines methods to manage property access, assignment, and method invocation.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   interface InvocationHandler {  
@@ -44,7 +44,7 @@ namespace reflect {
      * @param { InstanceMethod } method - Intercepted method.
      * @returns { Any } The value of the attribute.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     get(proxy: Proxy, method: InstanceMethod): Any;
@@ -56,7 +56,7 @@ namespace reflect {
      * @param { InstanceMethod } method - Intercepted method.
      * @param { Any } value - The value that has been passed to assign through the setter.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     set(proxy: Proxy, method: InstanceMethod, value: Any): void;
@@ -69,7 +69,7 @@ namespace reflect {
      * @param { FixedArray<Any> } args - An array of arguments that has been passed to the method.
      * @returns { Any } The result of the method call.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     invoke(proxy: Proxy, method: InstanceMethod, args: FixedArray<Any>): Any;
@@ -81,7 +81,7 @@ namespace reflect {
    *     instantiating proxy objects dynamically at runtime.
    *
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   class Proxy {  
@@ -90,12 +90,10 @@ namespace reflect {
      *
      * @returns { InvocationHandler } The `InvocationHandler` used by this proxy.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
-    getHandler(): InvocationHandler {
-        return this.handler
-    };
+    getHandler(): InvocationHandler;
 
     /**
      * Creates a new proxy instance that implements the specified interfaces and uses the provided handler.
@@ -106,7 +104,7 @@ namespace reflect {
      * @returns { Proxy } A new proxy instance as an `Proxy`.
      * @throws { Error } - - Expected constructor does not exists on given class
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static create(linker: RuntimeLinker, interfaces: FixedArray<Class>, handler: InvocationHandler): Proxy;

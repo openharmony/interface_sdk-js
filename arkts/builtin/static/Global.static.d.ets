@@ -28,7 +28,7 @@
  * @param { FixedArray<Any> } args - Parameters passed to func.
  * @returns { int } Timer id.
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 function setTimeout(func: Function, delayMs: int | null | undefined, ...args: FixedArray<Any>): int;
@@ -39,7 +39,7 @@ function setTimeout(func: Function, delayMs: int | null | undefined, ...args: Fi
  * @param { int | null } [timerId] - The id of the timer returned from setTimeout,
  *     if pass empty or null or undefined will do nothing.
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 function clearTimeout(timerId?: int | null): void;
@@ -53,7 +53,7 @@ function clearTimeout(timerId?: int | null): void;
  * @param { FixedArray<Any> } args - Parameters passed to func.
  * @returns { int } Returns the timer ID.
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 function setInterval(func: Function, delayMs: int | null | undefined, ...args: FixedArray<Any>): int;
@@ -64,7 +64,7 @@ function setInterval(func: Function, delayMs: int | null | undefined, ...args: F
  * @param { int | null } [timerId] - The id of the timer returned from setInterval,
  *     if pass empty or null or undefined will do nothing.
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 function clearInterval(timerId?: int | null): void;

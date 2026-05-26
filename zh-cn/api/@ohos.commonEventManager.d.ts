@@ -1062,9 +1062,9 @@ declare namespace commonEventManager {
     COMMON_EVENT_WIFI_HOTSPOT_STATE = 'usual.event.wifi.HOTSPOT_STATE',
 
     /**
-     * 表示客户端已断开与当前设备Wi-Fi热点的连接。
+     * 表示客户端加入当前设备Wi-Fi热点。
      *
-     * 当客户端已断开与当前设备Wi-Fi热点的连接，将会触发事件通知服务发布该系统公共事件。
+     * 当客户端加入当前设备Wi-Fi热点，将会触发事件通知服务发布该系统公共事件。
      *
      * 要订阅此事件，您的应用必须具备ohos.permission.GET_WIFI_INFO权限。
      *

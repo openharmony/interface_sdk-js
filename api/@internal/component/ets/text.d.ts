@@ -1956,6 +1956,22 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 26.0.0 dynamic
    */
   fontVariations(fontVariations: Array<FontVariation>): TextAttribute;
+
+  /**
+   * Sets the incremental update policy for text rendering.
+   * This API takes effect only when Text content contains a StyledString.
+   * Default value is IncrementalUpdatePolicy.NONE.
+   *
+   * @param { IncrementalUpdatePolicy | undefined } policy - Indicates the incremental update policy.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { TextAttribute } - returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  incrementalUpdatePolicy(policy: IncrementalUpdatePolicy | undefined): TextAttribute;
 }
 
 /**

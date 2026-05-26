@@ -37,7 +37,7 @@ import { Resource } from './global/resource';
  * - [ParagraphStyle]{@link text.ParagraphStyle}: controls line break and word break strategies for the entire
  * paragraph.
  * - [ParagraphBuilder]{@link text.ParagraphBuilder}: used to create different paragraph objects.
- * - [Paragraph]{@link text.ParagraphStyle}: created by calling [build()]{@link text.ParagraphBuilder.build} of the
+ * - [Paragraph]{@link text.Paragraph}: created by calling [build()]{@link text.ParagraphBuilder.build} of the
  * **ParagraphBuilder** class.
  * - [LineTypeset]{@link text.LineTypeset}: created by calling
  * [buildLineTypeset()]{@link text.ParagraphBuilder.buildLineTypeset} of the **ParagraphBuilder** class.
@@ -857,7 +857,7 @@ declare namespace text {
   /**
    * Enumerates the ellipsis styles.
    *
-   * EllipsisMode.START and EllipsisMode.MIDDLE take effect only when text overflows in a single line.
+   * **EllipsisMode.START** and **EllipsisMode.MIDDLE** take effect only when text overflows in a single line.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 24]
@@ -1332,7 +1332,7 @@ declare namespace text {
 
     /**
      * Scale factor of the line height. The value is a floating point number. The default value is **1.0**. This
-     * parameter is valid only when **heightOnly** is set to** true**.
+     * parameter is valid only when **heightOnly** is set to **true**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
@@ -1569,7 +1569,7 @@ declare namespace text {
      *     **resources/rawfile** directory in the project, which includes the font file name).
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types; 3. Parameter verification failed. [since 24]
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Graphics.Drawing
      * @crossplatform [since 24]
      * @form [since 22]
@@ -1696,9 +1696,12 @@ declare namespace text {
     clearCaches(): void;
 
     /**
-     * Sets whether paragraph caches are enabled.
+     * Sets whether to enable the typesetting paragraph caching. Typesetting paragraph caching can accelerate the
+     * typesetting of repeated text, but it will occupy extra memory. Before this API is called, the system enables
+     * typesetting paragraph caching by default.
      *
-     * @param { boolean } enable - Indicates whether to enable paragraph caches, where true enables and false disables.
+     * @param { boolean } enable - Whether to enable the typesetting paragraph caching. **true** to enable; **false**
+     *     otherwise.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -2071,7 +2074,8 @@ declare namespace text {
     fallbackLineSpacing?: boolean;
 
     /**
-     * Indentation before the first line of text.
+     * Sets the first-line indent of a paragraph. The indent value must be greater than or equal to 0. The default value
+     * is **0**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2081,7 +2085,9 @@ declare namespace text {
     firstLineHeadIndent?: double;
 
     /**
-     * Indentation after each line of text.
+     * Sets the end-of-line indent array. Each element in the array represents the indent value of a single line. If the
+     * actual number of text lines exceeds the length of the indent array, the last value of the array is applied to the
+     * extra lines. All indent values must be greater than or equal to 0. By default, the array is empty.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2091,7 +2097,9 @@ declare namespace text {
     tailIndents?: Array<double>;
 
     /**
-     * Indentation before each line of text.
+     * Sets the line-start indent array. Each element in the array represents the indent value of a single line. If the
+     * actual number of text lines exceeds the length of the indent array, the last value of the array is applied to the
+     * extra lines. All indent values must be greater than or equal to 0. By default, the array is empty.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -2101,7 +2109,12 @@ declare namespace text {
     headIndents?: Array<double>;
 
     /**
-     * Whether to enable orphan char optimization.
+     * Sets whether to enable orphan optimization during text typesetting. Orphan optimization improves text layout by
+     * more efficiently handling orphan characters (the first character in the last line of a paragraph). When enabled,
+     * it adjusts line break positions to avoid orphan characters as much as possible. Orphan optimization takes effect
+     * only when [wordBreak]{@link text.WordBreak} is not BREAK_ALL and the [locale]{@link text.TextStyle} of the first
+     * [TextStyle]{@link text.TextStyle} of the text to be typeset is "zh-Hans" or "zh-Hant". **true** means that orphan
+     * optimization is enabled, and **false** means the opposite. The default value is **false**.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -3184,9 +3197,9 @@ declare namespace text {
     getCharacterPositionAtCoordinate(x: double, y: double, encoding: drawing.TextEncoding): PositionWithAffinity;
 
     /**
-     * Obtains the text processing state of the paragraph.
+     * Obtains the text processing status of a paragraph.
      *
-     * @returns { TextProcessState } Text processing state of the paragraph.
+     * @returns { TextProcessState } Text processing status of a paragraph.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3195,9 +3208,9 @@ declare namespace text {
     getProcessState(): TextProcessState;
 
     /**
-     * Obtains the text display state of the paragraph.
+     * Obtains the text display status of a paragraph.
      *
-     * @returns { TextDisplayState } Text display state of the paragraph.
+     * @returns { TextDisplayState } Text display status of a paragraph.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3206,9 +3219,9 @@ declare namespace text {
     getTextDisplayState(): TextDisplayState;
 
     /**
-     * Obtains the style configuration of the paragraph.
+     * Obtains the style configuration of a paragraph.
      *
-     * @returns { ParagraphStyle } Style configuration of the paragraph.
+     * @returns { ParagraphStyle } Paragraph style configuration.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3217,9 +3230,12 @@ declare namespace text {
     getParagraphStyle(): ParagraphStyle;
 
     /**
-     * Obtains the visible text ranges of the paragraph.
+     * Obtains the range of text that is visible on the screen in a paragraph. Excludes text that is not displayed due
+     * to truncation by the maximum line count (the maxLines attribute of [ParagraphStyle]{@link text.ParagraphStyle})
+     * or replacement in ellipsis mode ([EllipsisMode]{@link text.EllipsisMode}).
      *
-     * @returns { Array<Range> } The visible text ranges of the paragraph.
+     * @returns { Array<Range> } Array of the visible text range of a paragraph. The range is the index of the UTF-16
+     *     encoding unit.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
      * @atomicservice
@@ -3231,7 +3247,7 @@ declare namespace text {
      * Whether to force reuse the rasterization result.
      *
      * @param { boolean } isForce - Whether to force reuse the rasterization result.
-     *     True means to force reuse of the rasterization result. 
+     *     True means to force reuse of the rasterization result.
      *     False means to allow updates to the rasterization result.
      *     The default value is false.
      * @syscap SystemCapability.Graphics.Drawing
@@ -3280,8 +3296,11 @@ declare namespace text {
      * @param { int } startIndex - Start position for layout calculation. The value is an integer in the range
      *     [0, total number of text characters).
      * @param { int } count - Number of characters from the specified start position. The value is an integer in the
-     *     range
-     *     [0, total number of text characters). The sum of **startIndex** and **count** cannot be greater than the total number of text characters. If **count** is **0**, the layout range is [startIndex, position of the last character in the text]. You can use [getLineBreak]{@link text.LineTypeset.getLineBreak} to obtain the number of characters that can fit in the layout.
+     *     range [0, total number of text characters). The sum of **startIndex** and **count** cannot be greater than
+     *     the total number of text characters. If **count** is **0**, the layout range is
+     *     [startIndex, position of the last character in the text]. You can use
+     *     [getLineBreak]{@link text.LineTypeset.getLineBreak} to obtain the number of characters that can fit in the
+     *     layout.
      * @returns { TextLine } **TextLine** object generated based on the characters in the text range.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -4592,7 +4611,7 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text processing states.
+   * Enumerates text processing states.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
@@ -4601,7 +4620,7 @@ declare namespace text {
    */
   enum TextProcessState {
     /**
-     * Initial state, text processing has not started.
+     * Initial state, indicating that text processing has not started.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4610,7 +4629,7 @@ declare namespace text {
      */
     INIT = 0,
     /**
-     * Indexed state, text has been indexed.
+     * Index generated state, indicating that the text index has been generated.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4619,7 +4638,7 @@ declare namespace text {
      */
     INDEXED = 1,
     /**
-     * Shaped state, text has been shaped.
+     * Shaped state, indicating that the text has been shaped.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4628,7 +4647,7 @@ declare namespace text {
      */
     SHAPED = 2,
     /**
-     * Line-broken state, text has been split into lines.
+     * Line-wrapped state. The text has been line-wrapped.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4637,7 +4656,7 @@ declare namespace text {
      */
     LINE_BROKEN = 3,
     /**
-     * Formatted state, text has been formatted.
+     * Formatted state, indicating that the text has been formatted.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4646,7 +4665,7 @@ declare namespace text {
      */
     FORMATTED = 4,
     /**
-     * Paint state, text has been painted.
+     * Drawn state, indicating that the text has been drawn.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4655,7 +4674,7 @@ declare namespace text {
      */
     PAINT = 5,
     /**
-     * Update attribute state, text attributes have been updated.
+     * Updated property state. The text properties have been updated.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4666,7 +4685,8 @@ declare namespace text {
   }
 
   /**
-   * Enumerates the text display states.
+   * Enumerates text display states. Native result after text typesetting, which is irrelevant to external display
+   * factors such as external canvas cropping and screen overflow.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
@@ -4675,7 +4695,7 @@ declare namespace text {
    */
   enum TextDisplayState {
     /**
-     * Unknown display state, the default state.
+     * Unknown display state, which is the default state.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4684,7 +4704,7 @@ declare namespace text {
      */
     UNKNOWN = 0,
     /**
-     * Full display state, all text is displayed normally.
+     * Complete display state, in which the text is not truncated or omitted and all content is displayed normally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4693,7 +4713,8 @@ declare namespace text {
      */
     ALL = 1,
     /**
-     * Clipped display state, part of the text is clipped.
+     * Cropping display state, in which the part of the text that exceeds the typesetting area is directly cropped and
+     * hidden.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
@@ -4702,7 +4723,8 @@ declare namespace text {
      */
     CLIP = 2,
     /**
-     * Omitted display state, part of the text is omitted (e.g., replaced with '...').
+     * Ellipsized display state, in which part of the content is replaced by specified characters (such as ellipsis '...
+     * ') when the text exceeds the typesetting area.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly

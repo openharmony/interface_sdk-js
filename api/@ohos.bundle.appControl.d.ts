@@ -178,6 +178,35 @@ declare namespace appControl {
   }
 
   /**
+   * Enumerates the page jump modes used when an application is blocked.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum PageJumpMode {
+    /**
+     * A page is displayed when the target application is blocked.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PAGE_JUMP_WINDOW_SHOW = 0,
+    /**
+     * No page is displayed when the target application is blocked.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PAGE_JUMP_WINDOW_NOT_SHOW = 1
+  }
+
+  /**
    * Defines a disposed rule.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -246,6 +275,17 @@ declare namespace appControl {
      * @since 23 static
      */
     priority: int;
+
+    /**
+     * Specifies whether to jump to another page when the target application is blocked. The default value is
+     * {@link PageJumpMode.PAGE_JUMP_WINDOW_SHOW}.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pageJump?: PageJumpMode;
   }
 
   /**

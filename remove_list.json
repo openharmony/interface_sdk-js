@@ -5,6 +5,18 @@
             "api/common/full/featureability.d.ts"
         ]
     },
+    "bundle_arkts": {
+        "base": [],
+        "global_remove": [
+            "builtin/dynamic/lib.es5.d.ts",
+            "builtin/dynamic/lib.es2015.collection.d.ts",
+            "builtin/dynamic/lib.es2015.core.d.ts",
+            "builtin/dynamic/lib.es2015.iterable.d.ts",
+            "builtin/dynamic/lib.es2015.reflect.d.ts",
+            "builtin/dynamic/lib.es2022.error.d.ts"
+        ],
+        "sdk_build_public_remove": []
+    },
     "ets_component": {
         "global_remove": [],
         "sdk_build_public_remove": [

@@ -149,6 +149,7 @@
     "SystemCapability.Multimedia.Audio.Communication",
     "SystemCapability.Multimedia.Audio.Volume",
     "SystemCapability.Multimedia.Audio.Device",
+    "SystemCapability.Multimedia.Audio.DeviceEnhance",
     "SystemCapability.Multimedia.Audio.Capturer",
     "SystemCapability.Multimedia.Audio.Renderer",
     "SystemCapability.Multimedia.Audio.Core",
@@ -224,7 +225,6 @@
 	"SystemCapability.Driver.HID.Extension",
 	"SystemCapability.Driver.SCSI.Extension",
 	"SystemCapability.Driver.USB.Extension",
-	"SystemCapability.Driver.UsbSerial.Extension",
-    "SystemCapability.Communication.FusionConnectivity.Core"
+	"SystemCapability.Driver.UsbSerial.Extension"
   ]
 }

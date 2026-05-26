@@ -6742,7 +6742,7 @@ declare namespace webview {
      *     **false**.
      * @returns { WebBlanklessErrorCode } Whether the API is successfully called. For details, see
      *     [WebBlanklessErrorCode]{@link @ohos.web.webview:webview.WebBlanklessErrorCode}.
-     * @throws { BusinessError } 801 The functionality is not supported.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
@@ -7001,6 +7001,22 @@ declare namespace webview {
      * @since 23 dynamic
      */
     stopMicrophone(): void;
+
+    /**
+     * Asynchronously executes AI page command operations.
+     *
+     * @param { string } command - JSON-formatted command parameter.
+     * @returns { Promise<string> } A promise that resolves after the command is executed.
+     *                              This JSON-formatted value will be the result of command execution.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100024 - Command format error.
+     *                           The command parameter does not conform to the JSON format requirements.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    executeAIPageCommand(command: string): Promise<string>;
   }
 
   /**

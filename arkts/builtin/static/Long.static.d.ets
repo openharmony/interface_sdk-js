@@ -23,7 +23,7 @@
  * Represents boxed long value and related operations.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Long extends Integral implements Comparable<Long> {
@@ -32,7 +32,7 @@ class Long extends Integral implements Comparable<Long> {
    * Constructs a new Long instance with initial value zero
    *
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   constructor();
@@ -42,7 +42,7 @@ class Long extends Integral implements Comparable<Long> {
    *
    * @param { long } value - the initial value
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   constructor(value: long);
@@ -52,7 +52,7 @@ class Long extends Integral implements Comparable<Long> {
    *
    * @returns { long } value as long
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   toLong(): long;
@@ -63,7 +63,7 @@ class Long extends Integral implements Comparable<Long> {
    * @param { long } value - value to cast
    * @returns { long } casted value
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static toLong(value: long): long;
@@ -75,7 +75,7 @@ class Long extends Integral implements Comparable<Long> {
    * @returns { string } result of the conversion
    * @throws { RangeError } - - Input parameter error.
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   static toString(v: long): string;
@@ -86,7 +86,7 @@ class Long extends Integral implements Comparable<Long> {
    * @returns { string } result of the conversion
    * @throws { RangeError } 10200011 - Input parameter error.
    * @syscap SystemCapability.Utils.Lang
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 24 staticonly
    */
   toString(): string;

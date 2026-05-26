@@ -2626,7 +2626,10 @@ declare namespace zlib {
      * into a file, as shown in the **fprintf()**. This API uses a promise to return the result.
      *
      * @param { string } format - Format descriptors and plain text.
-     * @param { Array<string | double> } args - Variable argument lists.
+     * @param { Array<string | double> } args - List of variable parameters. If variable parameters are passed, for
+     *     example, **gzprintf("name is %s, age is %d", "Tom", 23)**, the content **"name is Tom, age is 23"** is
+     *     written. If no variable parameter is passed, for example, **gzprintf("name is %s, age is %d")**, the content
+     *     **"name is %s, age is %d"** is written.
      * @returns { Promise<int> } Return the number of uncompressed bytes actually written.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
      *     unspecified;

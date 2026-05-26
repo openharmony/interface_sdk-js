@@ -85,22 +85,22 @@ declare namespace notificationManager {
    * @param { NotificationRequest } request - 设置发布通知的内容和相关配置信息。
    * @param { AsyncCallback<void> } callback - 回调函数。当发布通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600014 - No permission. [since 11]
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate
    *     configurations. [since 11]
    * @throws { BusinessError } 1600016 - The notification version for this update is too low. [since 11]
-   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings. [since 12]
+   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
    * @since 9 dynamic
@@ -114,24 +114,24 @@ declare namespace notificationManager {
    * 如果新发布通知与已发布通知的ID和标签都相同，则新通知将取代原有通知。
    *
    * @param { NotificationRequest } request - 设置发布通知的内容和相关配置信息。
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600014 - No permission. [since 11]
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate
    *     configurations. [since 11]
    * @throws { BusinessError } 1600016 - The notification version for this update is too low. [since 11]
-   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings. [since 12]
+   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
    * @since 9 dynamic
@@ -150,28 +150,28 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600014 - No permission. [since 11]
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate
    *     configurations. [since 11]
    * @throws { BusinessError } 1600016 - The notification version for this update is too low. [since 11]
-   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings. [since 18]
-   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600025 - Geofencing disabled. [since 23]
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -190,28 +190,28 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600004 - Notification disabled.
    * @throws { BusinessError } 1600005 - Notification slot disabled.
+   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600009 - The notification sending frequency reaches the upper limit.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 1600007 - The notification does not exist. [since 11]
    * @throws { BusinessError } 1600014 - No permission. [since 11]
    * @throws { BusinessError } 1600015 - The current notification status does not support duplicate
    *     configurations. [since 11]
    * @throws { BusinessError } 1600016 - The notification version for this update is too low. [since 11]
-   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings. [since 18]
-   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600025 - Geofencing disabled. [since 23]
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 2300007 - Network unreachable. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -230,7 +230,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -244,12 +245,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings.
-   * @throws { BusinessError } 2300007 - Network unreachable.
-   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600025 - Geofencing disabled. [since 23]
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -273,7 +273,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -287,12 +288,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings.
-   * @throws { BusinessError } 2300007 - Network unreachable.
-   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600025 - Geofencing disabled. [since 23]
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -310,7 +310,8 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -324,12 +325,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 1600016 - The notification version for this update is too low.
    * @throws { BusinessError } 1600020 - The application is not allowed to send notifications due to permission
    *     settings.
-   * @throws { BusinessError } 2300007 - Network unreachable.
-   * @throws { BusinessError } 801 - The device does not support geofencing. [since 23]
    * @throws { BusinessError } 1600025 - Geofencing disabled. [since 23]
    * @throws { BusinessError } 1600026 - The location switch is off. [since 23]
    * @throws { BusinessError } 1600027 - The "Awareness & suggestions" switch of the location-based service is
    *     off. [since 23]
+   * @throws { BusinessError } 2300007 - Network unreachable.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -343,7 +343,7 @@ declare namespace notificationManager {
    * @param { int } id - 通知ID。
    * @param { AsyncCallback<void> } callback - 回调函数。当取消已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -362,7 +362,7 @@ declare namespace notificationManager {
    * @param { string } label - 通知标签。
    * @param { AsyncCallback<void> } callback - 回调函数。根据通知ID和标签取消已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -380,7 +380,7 @@ declare namespace notificationManager {
    * @param { string } [label] - 通知标签，默认为空。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -401,7 +401,7 @@ declare namespace notificationManager {
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -426,7 +426,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -456,7 +456,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -480,7 +480,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -500,7 +500,7 @@ declare namespace notificationManager {
    *
    * @param { AsyncCallback<void> } callback - 回调函数。当取消当前应用所有已发布的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -534,7 +534,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -555,7 +555,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -573,7 +573,7 @@ declare namespace notificationManager {
    * @param { SlotType } type - 要创建的通知渠道的类型。
    * @param { AsyncCallback<void> } callback - 回调函数。当创建指定类型的通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -590,7 +590,7 @@ declare namespace notificationManager {
    * @param { SlotType } type - 要创建的通知渠道的类型。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -610,7 +610,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -631,7 +631,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -650,7 +650,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<NotificationSlot> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对
    *     象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -666,7 +666,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<NotificationSlot|null> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对
    *     象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -681,7 +681,7 @@ declare namespace notificationManager {
    * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
    * @returns { Promise<NotificationSlot> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -696,7 +696,7 @@ declare namespace notificationManager {
    * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
    * @returns { Promise<NotificationSlot|null> } Promise对象，返回通知渠道对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -711,7 +711,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<Array<NotificationSlot>> } callback - 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot
    *     数组，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -775,7 +775,7 @@ declare namespace notificationManager {
    * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
    * @param { AsyncCallback<void> } callback - 回调函数。当删除指定类型的通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -791,7 +791,7 @@ declare namespace notificationManager {
    * @param { SlotType } slotType - 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -806,7 +806,7 @@ declare namespace notificationManager {
    *
    * @param { AsyncCallback<void> } callback - 回调函数。当删除当前应用所有通知渠道成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -839,7 +839,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -861,7 +861,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -882,7 +882,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -903,7 +903,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -923,7 +923,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied. [since 9 - 10]
    * @throws { BusinessError } 202 - Not system application to call the interface. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -931,7 +931,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 9 - 10]
-   * @publicapi [since 11 - 11]
+   * @publicapi [since 11]
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -952,7 +952,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 17700001 - The specified bundle name was not found. [since 11]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 9 - 10]
-   * @publicapi [since 11 - 11]
+   * @publicapi [since 11]
    * @crossplatform [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -981,7 +981,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1002,7 +1002,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1024,12 +1024,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1047,12 +1047,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1069,12 +1069,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1091,12 +1091,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1116,12 +1116,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1141,12 +1141,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1163,12 +1163,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1188,13 +1188,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -1213,7 +1213,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1235,12 +1235,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1257,12 +1257,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1279,12 +1279,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1300,7 +1300,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1333,7 +1333,7 @@ declare namespace notificationManager {
    *
    * @param { AsyncCallback<long> } callback - 回调函数。当获取当前应用未删除的通知数成功，err为undefined，data为当前应用未删除的通知数，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1362,7 +1362,7 @@ declare namespace notificationManager {
    * @param { AsyncCallback<Array<NotificationRequest>> } callback - 回调函数。当获取未删除的通知列表成功，err为undefined，data为获取到的通知列表，否则为错
    *     误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1392,7 +1392,7 @@ declare namespace notificationManager {
    * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
    * @param { AsyncCallback<NotificationRequest> } callback - 获取满足条件的普通实况通知信息的回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1408,7 +1408,7 @@ declare namespace notificationManager {
    * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
    * @param { AsyncCallback<NotificationRequest|null> } callback - 获取满足条件的普通实况通知信息的回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1424,7 +1424,7 @@ declare namespace notificationManager {
    * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
    * @returns { Promise<NotificationRequest> } 以Promise形式返回获取的满足条件的普通实况通知信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1440,7 +1440,7 @@ declare namespace notificationManager {
    * @param { NotificationFilter } filter - 查询普通实况窗的过滤条件。
    * @returns { Promise<NotificationRequest|null> } 以Promise形式返回获取的满足条件的普通实况通知信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
@@ -1490,7 +1490,7 @@ declare namespace notificationManager {
    *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象指定。
    * @param { AsyncCallback<void> } callback - 回调函数。当取消当前应用指定组下的通知成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1507,7 +1507,7 @@ declare namespace notificationManager {
    *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象指定。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1527,7 +1527,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1549,7 +1549,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1570,12 +1570,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1592,12 +1592,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1615,13 +1615,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1639,13 +1639,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1661,12 +1661,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1681,11 +1681,11 @@ declare namespace notificationManager {
    * @returns { Promise<DoNotDisturbDate> } 以Promise形式返回获取查询到的免打扰时间。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1702,13 +1702,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1725,13 +1725,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600008 - The user does not exist.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -1747,7 +1747,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1784,7 +1784,7 @@ declare namespace notificationManager {
    * @param { string } templateName - 模板名称。当前仅支持'downloadTemplate'。
    * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示支持该模板；返回false表示不支持该模板；调用失败返回错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1801,7 +1801,7 @@ declare namespace notificationManager {
    * @param { string } templateName - 模板名称。当前仅支持'downloadTemplate'。
    * @returns { Promise<boolean> } Promise对象。返回true表示支持该模板；返回false表示不支持该模板。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1822,7 +1822,7 @@ declare namespace notificationManager {
    *
    * @param { AsyncCallback<void> } callback - 回调函数。当应用请求通知使能成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1852,7 +1852,7 @@ declare namespace notificationManager {
    * @param { UIAbilityContext } context - 通知弹窗绑定Ability的上下文。
    * @param { AsyncCallback<void> } callback - 回调函数。当应用通过弹窗获取用户授权成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1904,7 +1904,7 @@ declare namespace notificationManager {
    * @param { UIAbilityContext } context - 通知弹窗绑定的Ability上下文。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -1927,7 +1927,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1951,7 +1951,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -1971,7 +1971,7 @@ declare namespace notificationManager {
    *
    * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示支持跨设备协同通知；返回false表示不支持跨设备协同通知；调用失败返回错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 26.0.0]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2012,7 +2012,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2038,7 +2038,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2065,14 +2065,14 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2089,7 +2089,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2114,7 +2114,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2140,14 +2140,14 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2187,14 +2187,14 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2211,14 +2211,14 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600010 - Distributed operation failed.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2234,7 +2234,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2277,13 +2277,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @throws { BusinessError } 1600012 - No memory space. [since 11]
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -2308,13 +2308,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -2340,13 +2340,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @throws { BusinessError } 1600012 - No memory space. [since 11]
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
+   * @throws { BusinessError } 17700001 - The specified bundle name was not found.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -2364,12 +2364,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -2387,12 +2387,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 9 dynamic
@@ -2410,7 +2410,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2434,7 +2434,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2457,7 +2457,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 26.0.0]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2480,7 +2480,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. [since 26.0.0]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -2500,12 +2500,12 @@ declare namespace notificationManager {
    * @param { int } badgeNumber - 角标个数。当角标设定个数取值小于或等于0时，清除角标。取值大于99时，通知角标将显示99+。
    * @param { AsyncCallback<void> } callback - 回调函数。当设定角标个数成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
    * @since 10 dynamic
@@ -2519,12 +2519,12 @@ declare namespace notificationManager {
    * @param { int } badgeNumber - 角标个数。当角标设定个数取值小于或等于0时，清除角标。取值大于99时，通知角标将显示99+。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @crossplatform [since 12]
    * @since 10 dynamic
@@ -2540,14 +2540,14 @@ declare namespace notificationManager {
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
    * @throws { BusinessError } 1600017 - There is no corresponding agent relationship configuration.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2565,7 +2565,7 @@ declare namespace notificationManager {
    * @param { function } callback - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2580,7 +2580,7 @@ declare namespace notificationManager {
    * @param { function } callback - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2600,7 +2600,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2620,7 +2620,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -2639,7 +2639,7 @@ declare namespace notificationManager {
    * @param { function } [callback] - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2657,7 +2657,7 @@ declare namespace notificationManager {
    * @param { function } [callback] - 消息验证函数指针。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -2678,13 +2678,13 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600007 - The notification does not exist.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -2699,12 +2699,12 @@ declare namespace notificationManager {
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -2723,12 +2723,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -2751,12 +2751,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 11 dynamic
@@ -2786,12 +2786,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2830,12 +2830,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600012 - No memory space.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2876,11 +2876,11 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
@@ -2898,7 +2898,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -2917,7 +2917,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -3046,10 +3046,10 @@ declare namespace notificationManager {
    *
    * @param { UIAbilityContext } context - 通知设置页面绑定Ability的上下文。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600018 - The notification settings window is already displayed.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.NotificationSettings
    * @stagemodelonly
    * @since 13 dynamic
@@ -3081,12 +3081,12 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 1600019 - The do-not-disturb profile does not exist.
-   * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 13 dynamic
@@ -3126,7 +3126,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
@@ -3169,7 +3169,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
@@ -3190,7 +3190,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
@@ -3210,7 +3210,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 18 dynamic
@@ -3276,7 +3276,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -3295,7 +3295,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @throws { BusinessError } 17700001 - The specified bundle name was not found.
@@ -3331,7 +3331,7 @@ declare namespace notificationManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
@@ -3865,8 +3865,6 @@ declare namespace notificationManager {
     /**
      * 表示是否开启锁屏通知。
      * 
-     * 26.0.0
-     * 
      * - true：开启。
      * - false：关闭。
      *
@@ -3878,8 +3876,6 @@ declare namespace notificationManager {
  	 
     /**
      * 表示是否开启横幅通知。
-     * 
-     * 26.0.0
      * 
      * - true：开启。
      * - false：关闭。
@@ -3893,8 +3889,6 @@ declare namespace notificationManager {
     /**
      * 表示是否开启通知角标数字展示。
      * 
-     * 26.0.0
-     * 
      * - true：开启。
      * - false：关闭。
      *
@@ -3906,8 +3900,6 @@ declare namespace notificationManager {
 
     /**
      * 表示应用通知使能状态。
-     * 
-     * 26.0.0
      * 
      * - true：开启。
      * - false：关闭。
@@ -3991,7 +3983,6 @@ declare namespace notificationManager {
 
     /**
      * 紧急事件。
-     * 此接口为系统接口。
      *
      * @syscap SystemCapability.Notification.Notification
      * @systemapi

@@ -23,7 +23,7 @@
  * Represents a JS API-compatible Array.
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Array<T> implements ReadonlyArray<T>, Iterable<T> {
@@ -33,7 +33,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { T } first - The first element of the array.
      * @param { T[] } d - The rest of the elements to initialize the array with.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(first: T, ...d: T[]);
@@ -45,7 +45,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     <br>The value range is all integers.
      * @param { function } initializer - A function that generates an element for a given index.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(arrayLen: int, initializer: (index: int) => T);
@@ -55,7 +55,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *
      * @returns { IterableIterator<T> } An iterator over all values.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     $_iterator(): IterableIterator<T>;
@@ -65,7 +65,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *
      * @returns { int } The length of the array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     get length(): int;
@@ -77,7 +77,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     <br>The value range is all integers.
      * @returns { T } The element at the specified index.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     $_get(idx: int): T;
@@ -89,7 +89,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     <br>The value range is all integers.
      * @param { T } val - The value to set at the specified index.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     $_set(idx: int, val: T): void;
@@ -100,7 +100,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { T[] } items - The elements to initialize the array with.
      * @returns { Array<T> } A new Array instance with the given elements.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static $_invoke<T>(...items: T[]): Array<T>;
@@ -111,7 +111,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { FixedArray<T> } arr - The source primitive array.
      * @returns { Array<T> } A new Array instance containing the elements from the source array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static from<T>(arr: FixedArray<T>): Array<T>;
@@ -122,7 +122,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { ArrayLike<T> } arr - An array-like object to convert to an array.
      * @returns { Array<T> } A new Array instance containing the elements from the array-like object.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static from<T>(arr: ArrayLike<T>): Array<T>;
@@ -133,7 +133,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { ArrayLike<T> | Iterable<T> } iterable - An iterable or array-like object to convert to an array.
      * @returns { Array<T> } A new Array instance containing the elements from the iterable.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static from<T>(iterable: ArrayLike<T> | Iterable<T>): Array<T>;
@@ -145,7 +145,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { function } mapfn - A mapping function to call on every element of the array.
      * @returns { Array<U> } A new Array instance with the mapped values.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static from<T, U>(values: FixedArray<T>, mapfn: (v: T, k: int) => U): Array<U>;
@@ -159,7 +159,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { function } mapfn - A mapping function to call on every element of the array.
      * @returns { Array<U> } A new Array instance with the mapped values.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static from<T, U>(iterable: ArrayLike<T> | Iterable<T>, mapfn: (v: T, k: int) => U): Array<U>;
@@ -170,7 +170,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { Any } o - The value to be checked.
      * @returns { boolean } True if the value is an Array; otherwise, false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static isArray(o: Any): boolean;
@@ -181,7 +181,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { function } callbackfn - A function that accepts up to three arguments. forEach calls the callbackfn
      *     function one time for each element in the array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     forEach(callbackfn: (value: T, index: int, array: Array<T>) => void): void;
@@ -194,7 +194,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { T } initialValue - The value to fill the array with.
      * @returns { Array<T> } A new Array instance filled with the initial value.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public static create<T>(arrayLength: int, initialValue: T): Array<T>;
@@ -207,7 +207,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     conversion of each element.
      * @returns { this } The sorted array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public sort(comparator?: (a: T, b: T) => int): this;
@@ -217,7 +217,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *
      * @returns { Array<T> } A new sorted array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public toSorted(): Array<T>;
@@ -228,7 +228,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { function } comparator - A function that defines the sort order.
      * @returns { Array<T> } A new sorted array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public toSorted(comparator: (a: T, b: T) => int): Array<T>;
@@ -238,7 +238,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *
      * @returns { IterableIterator<int> } A new Array Iterator object.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public keys(): IterableIterator<int>;
@@ -248,7 +248,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *
      * @returns { IterableIterator<[int, T]> } A new Array Iterator object.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public entries(): IterableIterator<[int, T]>;
@@ -259,7 +259,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { int } newLen - The new length of the array
      *     <br>The value range is all integers.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     set length(newLen: int);
@@ -270,7 +270,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { T[] } val - The elements to add to the end of the array.
      * @returns { int } The new length of the array upon which the method was called.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public push(...val: T[]): int;
@@ -284,7 +284,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { T[] } items - The elements to add to the array, beginning from start.
      * @returns { Array<T> } An array containing the deleted elements.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public splice(start: int, del: int | undefined, ...items: T[]): Array<T>;
@@ -295,7 +295,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { T[] } values - The elements to add to the front of the array.
      * @returns { int } The new length of the array.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public unshift(...values: T[]): int;
@@ -306,7 +306,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { function } predicate - A function to execute on each value in the array.
      * @returns { int } The index of the first element that satisfies the provided testing function; otherwise, -1.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public findIndex(predicate: (value: T, index: int, array: Array<T>) => boolean): int;
@@ -318,7 +318,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     predicate function one time for each element in the array.
      * @returns { Array<T> } A new array with the elements that pass the test.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public filter(predicate: (value: T, index: int, array: Array<T>) => boolean): Array<T>;
@@ -330,7 +330,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @returns { T | undefined } The value of the first element that satisfies the provided testing function;
      *     otherwise, undefined.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public find(predicate: (value: T, index: int, array: Array<T>) => boolean): T | undefined;
@@ -342,7 +342,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { function } predicate - A function to execute on each value in the array.
      * @returns { T | undefined } The value of the element if found; otherwise, undefined.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public findLast(predicate: (elem: T, index: int, array: Array<T>) => boolean): T | undefined;
@@ -355,7 +355,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     coercible to the Boolean value false, or until the end of the array.
      * @returns { boolean } True if the predicate returns true for all elements in the array; otherwise, false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public every(predicate: (value: T, index: int, array: Array<T>) => boolean): boolean;
@@ -368,7 +368,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     coercible to the Boolean value true, or until the end of the array.
      * @returns { boolean } True if the predicate returns true for at least one element in the array; otherwise, false.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public some(predicate: (value: T, index: int, array: Array<T>) => boolean): boolean;
@@ -380,7 +380,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { function } predicate - A function to execute on each value in the array.
      * @returns { int } The index of the first element that satisfies the provided testing function; otherwise, -1.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public findLastIndex(predicate: (element: T, index: int, array: Array<T>) => boolean): int;
@@ -394,7 +394,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @returns { T } The accumulated result.
      * @throws { TypeError } Throws - a TypeError if the array is empty and no initial value is provided.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reduce(callbackfn: (previousValue: T, currentValue: T, index: int, array: Array<T>) => T): T;
@@ -408,7 +408,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { U } initialValue - The initial value of the accumulator.
      * @returns { U } The accumulated result.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reduce<U = T>(callbackfn: (previousValue: U, currentValue: T, index: int, array: Array<T>) => U,
@@ -424,7 +424,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @param { U } initialValue - The initial value of the accumulator.
      * @returns { U } The accumulated result.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reduceRight<U>(callbackfn: (previousValue: U, currentValue: T, index: int, array: Array<T>) => U,
@@ -438,7 +438,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      *     executes, the returned value is added to the new array.
      * @returns { Array<U> } A new array with each element being the result of the callback function.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public map<U>(callbackfn: (value: T, index: int, array: Array<T>) => U): Array<U>;
@@ -453,7 +453,7 @@ class Array<T> implements ReadonlyArray<T>, Iterable<T> {
      * @returns { T } The accumulated result.
      * @throws { TypeError } Throws - a TypeError if the array is empty and no initial value is provided.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public reduceRight(callbackfn: (previousValue: T, currentValue: T, index: int, array: Array<T>) => T): T;

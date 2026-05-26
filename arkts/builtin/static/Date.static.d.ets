@@ -23,7 +23,7 @@
  * Date JS API-compatible class
  *
  * @syscap SystemCapability.Utils.Lang
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 24 staticonly
  */
 class Date {
@@ -32,7 +32,7 @@ class Date {
      * Default constructor.Initializes Date instance with current time.
      *
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor();
@@ -43,7 +43,7 @@ class Date {
      *
      * @param { long | string | Date } value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(value: long | string | Date);
@@ -67,7 +67,7 @@ class Date {
      * @param { int } [ms] - ms
      *     <br>The value range is all integers.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     constructor(year: int, monthIndex: int, day?: int, hours?: int, minutes?: int, seconds?: int, ms?: int);
@@ -79,7 +79,7 @@ class Date {
      *
      * @returns { long } Returns the current time in milliseconds.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static now(): long;
@@ -99,7 +99,7 @@ class Date {
      * @returns { long } get new date value
      * @throws { RangeError } if - the argument doesn't represent a valid date.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 24 staticonly
      */
     static parse(dateStr: string): long;
@@ -109,7 +109,7 @@ class Date {
      *
      * @returns { long } return the primitive value of a `Date` object
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public valueOf(): long;
@@ -119,7 +119,7 @@ class Date {
      *
      * @returns { int }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getDate(): int;
@@ -131,7 +131,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setDate(value: int): long;
@@ -141,7 +141,7 @@ class Date {
      *
      * @returns { int }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCDate(): int;
@@ -153,7 +153,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCDate(value: int): long;
@@ -165,7 +165,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } set UTCDay
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCDay(value: int): long;
@@ -176,7 +176,7 @@ class Date {
      *
      * @returns { int } get day
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getDay(): int;
@@ -186,7 +186,7 @@ class Date {
      *
      * @returns { int } get UTCday
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCDay(): int;
@@ -196,7 +196,7 @@ class Date {
      *
      * @returns { int } get Year
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getYear(): int;
@@ -208,7 +208,7 @@ class Date {
      *
      * @returns { int } get the UTCYear
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCFullYear(): int;
@@ -221,7 +221,7 @@ class Date {
      *
      * @returns { int } get fullyear
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getFullYear(): int;
@@ -233,7 +233,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCFullYear(value: int): long;
@@ -247,7 +247,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCFullYear(value: int, month: int): long;
@@ -263,7 +263,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCFullYear(value: int, month: int, date: int): long;
@@ -274,7 +274,7 @@ class Date {
      * @param { int } value - new year
      *     <br>The value range is all integers.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setYear(value: int): void;
@@ -286,7 +286,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setFullYear(value: int): long;
@@ -300,7 +300,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setFullYear(value: int, month: int): long;
@@ -316,7 +316,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setFullYear(value: int, month: int, date: int): long;
@@ -328,7 +328,7 @@ class Date {
      *
      * @returns { int } get new date hour value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getHours(): int;
@@ -338,7 +338,7 @@ class Date {
      *
      * @returns { int } get new date hour value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCHours(): int;
@@ -350,7 +350,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setHours(value: int): long;
@@ -364,7 +364,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setHours(value: int, min: int): long;
@@ -380,7 +380,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setHours(value: int, min: int, sec: int): long;
@@ -398,7 +398,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setHours(value: int, min: int, sec: int, ms: int): long;
@@ -410,7 +410,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCHours(value: int): long;
@@ -424,7 +424,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCHours(value: int, min: int): long;
@@ -440,7 +440,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCHours(value: int, min: int, sec: int): long;
@@ -458,7 +458,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCHours(value: int, min: int, sec: int, ms: int): long;
@@ -468,7 +468,7 @@ class Date {
      *
      * @returns { int }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getMilliseconds(): int;
@@ -480,7 +480,7 @@ class Date {
      * @param { Date } d - to be converted to milliseconds.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public static UTC(d: Date): long;
@@ -493,7 +493,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public static UTC(year: int): long;
@@ -518,7 +518,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public static UTC(year: int, month: int, day?: int, hours?: int, minutes?: int, seconds?: int, ms?: int): long;
@@ -528,7 +528,7 @@ class Date {
      *
      * @returns { int }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCMilliseconds(): int;
@@ -540,7 +540,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setMilliseconds(value: int): long;
@@ -552,7 +552,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCMilliseconds(value: int): long;
@@ -562,7 +562,7 @@ class Date {
      * @returns { int } An integer number, between 0 and 59
      *     representing the seconds in the given date according to local time.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getSeconds(): int;
@@ -572,7 +572,7 @@ class Date {
      *
      * @returns { int } the seconds in the specified date according to universal time.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCSeconds(): int;
@@ -584,7 +584,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setSeconds(value: int): long;
@@ -598,7 +598,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setSeconds(value: int, ms: int): long;
@@ -610,7 +610,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCSeconds(value: int): long;
@@ -624,7 +624,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long }
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCSeconds(value: int, ms: int): long;
@@ -635,7 +635,7 @@ class Date {
      * @returns { int } An integer number, between 0 and 59
      *     representing the minutes in the given date according to local time.
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getMinutes(): int;
@@ -647,7 +647,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCMinutes(value: int): long;
@@ -661,7 +661,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCMinutes(value: int, sec: int): long;
@@ -677,7 +677,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCMinutes(value: int, sec: int, ms: int): long;
@@ -687,7 +687,7 @@ class Date {
      *
      * @returns { int } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCMinutes(): int;
@@ -699,7 +699,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setMinutes(value: int): long;
@@ -713,7 +713,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setMinutes(value: int, sec: int): long;
@@ -729,7 +729,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setMinutes(value: int, sec: int, ms: int): long;
@@ -740,7 +740,7 @@ class Date {
      *
      * @returns { int } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getMonth(): int;
@@ -751,7 +751,7 @@ class Date {
      *
      * @returns { int } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getUTCMonth(): int;
@@ -763,7 +763,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setMonth(month: int): long;
@@ -777,7 +777,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setMonth(month: int, date: int): long;
@@ -789,7 +789,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCMonth(month: int): long;
@@ -803,7 +803,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setUTCMonth(month: int, date: int): long;
@@ -814,7 +814,7 @@ class Date {
      *
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getTime(): long;
@@ -826,7 +826,7 @@ class Date {
      * @param { long } value - new ms
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setTime(value: long): long;
@@ -837,7 +837,7 @@ class Date {
      *
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public getTimezoneOffset(): long;
@@ -850,7 +850,7 @@ class Date {
      *     <br>The value range is all integers.
      * @returns { long } get new date value
      * @syscap SystemCapability.Utils.Lang
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public setTimezoneOffset(value: int): long;

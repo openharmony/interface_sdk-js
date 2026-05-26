@@ -53,7 +53,7 @@ export interface WorkerOptions {
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
-   * @atomicservice [since 11]
+   * @atomicservice [since 12]
    * @since 7 dynamiconly
    */
   shared?: boolean;

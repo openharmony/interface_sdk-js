@@ -20,6 +20,7 @@
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
+import type cert from './@ohos.security.cert';
 
 /**
  * Provides http related APIs.
@@ -850,16 +851,85 @@ declare namespace http {
     */
    export type TlsOptions = 'system' | TlsConfig;
  
-   /**
-    * Remote Validation Type.
-    * @typedef {'system' | 'skip'}
-    * @syscap SystemCapability.Communication.NetStack
-    * @atomicservice
-    * @since 18 dynamic
-    * @since 23 static
-    */
-   export type RemoteValidation = 'system' | 'skip';
- 
+  /**
+   * Remote Validation Type.
+   * @unionmember { 'system' } use system validation.
+   * @unionmember { 'skip' } skip validation.
+   * @unionmember { ValidationCallback } [ since 26.0.0 dynamic&static ] use custom validation.
+   * @syscap SystemCapability.Communication.NetStack
+   * @atomicservice
+   * @since 18 dynamic
+   * @since 23 static
+   */
+  export type RemoteValidation = 'system' | 'skip' | ValidationCallback;
+
+  /**
+   * X509 certificate.
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type X509Cert = cert.X509Cert;
+
+  /**
+   * The validation context of {@link ValidationCallback}
+   *
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export interface ValidationContext {  
+    /**
+     * The raw data which in PEM format of certificate.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pemCerts: string[];
+
+    /**
+     * X509 certificate chain.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    x509Certs: X509Cert[];
+
+    /**
+     * The host of this request.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    host: string;
+
+    /**
+     * The real IP which this request connect to.
+     *
+     * @syscap SystemCapability.Communication.NetStack
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ip: string;
+  }
+  
+  /**
+   * Self defined remote validation.
+   * This API uses a promise to return the result.
+   *
+   * @param { ValidationContext } context - Certificate context.
+   * @returns { boolean | Promise<boolean> } Returns a boolean value indicating whether the validation is successful.
+   *     Promise used to return the result. The value true indicates valid, and false indicates invalid.
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type ValidationCallback = (context: ValidationContext) => boolean | Promise<boolean>;
+
    /**
     * The server's authentication type.
     * @typedef {'basic' | 'ntlm' | 'digest'}

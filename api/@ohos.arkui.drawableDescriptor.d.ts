@@ -156,6 +156,17 @@ export class DrawableDescriptor {
    * @since 26.0.0 dynamic
    */
   isReleased(): boolean;
+
+  /**
+   * Redraw the DrawableDescriptor. Does nothing if the DrawableDescriptor is not bound to any component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  invalidate(): void;
 }
 
 /**
@@ -577,7 +588,6 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -586,7 +596,6 @@ declare interface HdrCompositionConfig {
  * Rectangle area for HDR composition.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -598,7 +607,6 @@ rect: Rectangle;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -609,7 +617,6 @@ export class PictureDrawableDescriptor extends DrawableDescriptor {
   * @param { image.Picture } src - Indicates the resource to create PictureDrawableDescriptor.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
-  * @crossplatform
   * @atomicservice
   * @since 26.0.0 dynamic
   */
@@ -621,7 +628,6 @@ export class PictureDrawableDescriptor extends DrawableDescriptor {
   * @param { HdrCompositionConfig } config - Indicates the HDR composition config.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
-  * @crossplatform
   * @atomicservice
   * @since 26.0.0 dynamic
   */

@@ -2862,6 +2862,17 @@ declare namespace hiAppEvent {
      * @since 26.0.0 dynamic&static
      */
     jsHeapLogtype?: string;
+
+    /**
+     * This parameter is used to control whether to output refined external log file names.
+     * The default value is false.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiAppEvent
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    useRefinedLogFileName?: boolean;
   }
 
   /**

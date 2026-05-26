@@ -853,6 +853,7 @@ declare enum ResizeDirection {
  * Describes the display rotation of the device.
  *
  * @syscap SystemCapability.Test.UiTest
+ * @crossplatform [since 26.0.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  * @since 23 static
@@ -862,6 +863,7 @@ declare enum DisplayRotation {
      * The device display is not rotated and is in its original vertical orientation. 
      *
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -872,6 +874,7 @@ declare enum DisplayRotation {
      * The device display rotates 90° clockwise and is in landscape orientation. 
      *
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -882,6 +885,7 @@ declare enum DisplayRotation {
      * The device display rotates 180° clockwise and is in reverse vertical orientation.
      *
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -892,6 +896,7 @@ declare enum DisplayRotation {
      * The device display rotates 270° clockwise and is in reverse landscape orientation.
      *
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -2973,6 +2978,7 @@ declare class Driver {
      *     Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @test
@@ -3286,6 +3292,7 @@ declare class Driver {
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -3537,6 +3544,7 @@ declare class Driver {
      *      2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -3597,6 +3605,7 @@ declare class Driver {
      *     The size of the current device screen is **Point.x * Point.y**.
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -3614,6 +3623,7 @@ declare class Driver {
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @throws { BusinessError } 17000007 - Parameter verification failed.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 20 dynamic
      * @since 23 static
@@ -3709,6 +3719,7 @@ declare class Driver {
      *     Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -3930,6 +3941,7 @@ declare class Driver {
      *     Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 10 dynamic
      * @since 23 static
@@ -4350,6 +4362,7 @@ declare class Driver {
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @throws { BusinessError } 17000007 - Parameter verification failed.
      * @syscap SystemCapability.Test.UiTest
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 22 dynamic
      * @since 23 static

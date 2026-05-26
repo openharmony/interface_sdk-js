@@ -168,27 +168,26 @@ export interface RenderResourceFactory {
   createShader(params: SceneResourceParameters): Promise<Shader>;
 
   /**
-    * Create an image.
-    *
-    * @param { SceneResourceParameters } params - the param of creating an image
-    * @returns { Promise<Image> } promise an image
-    * @syscap SystemCapability.ArkUi.Graphics3D
-    * @since 20 dynamic
-    * @since 23 static
-    */
+   * Create an image.
+   *
+   * @param { SceneResourceParameters } params - the param of creating an image
+   * @returns { Promise<Image> } promise an image
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @since 20 dynamic
+   * @since 23 static
+   */
   createImage(params: SceneResourceParameters): Promise<Image>;
 
   /**
-    * Create an image stream.
-    *
-    * @param { SceneResourceParameters } params - the param of creating a image stream
-    *     Create a stream image
-    * @returns { Promise<ImageStream> } promise an image stream
-    * @syscap SystemCapability.ArkUi.Graphics3D
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
-    createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
+   * Create an image stream.
+   *
+   * @param { SceneResourceParameters } params - the param of creating an image stream
+   * @returns { Promise<ImageStream> } promise an image stream
+   * @syscap SystemCapability.ArkUi.Graphics3D
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  createImageStream(params: SceneResourceParameters): Promise<ImageStream>;
 
   /**
    * Create a Mesh from an array of vertices.

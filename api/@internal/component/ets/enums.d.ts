@@ -11490,7 +11490,7 @@ declare enum CrownAction {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
-   * @since 18 dynamic
+   * @since 18 dynamiconly
    * @deprecated since 24
    */
   BEGIN = 0,
@@ -11854,7 +11854,7 @@ declare enum ColorSpace {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   BT2020 = 2,
 }
