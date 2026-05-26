@@ -1393,7 +1393,7 @@ declare namespace camera {
     /**
      * Sets the torch mode to {@link camera.TorchMode.ON} with the specified torch level.
      *
-     * @param { double } torchLevel - the specified torch level.
+     * @param { double } torchLevel - the specified torch level, the value range is [0.0, 1.0]
      * @throws { BusinessError } 202 - Not System Application. [since 23 - 24]
      * @throws { BusinessError } 7400102 - Operation not allowed.
      * @throws { BusinessError } 7400201 - Camera service fatal error.
