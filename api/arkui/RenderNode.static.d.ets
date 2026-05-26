@@ -648,7 +648,7 @@ export declare class RenderNode {
    * @returns { boolean } - Returns true if the RenderNode is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isDisposed(): boolean;
 
