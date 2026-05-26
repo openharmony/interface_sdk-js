@@ -2191,7 +2191,7 @@ declare namespace camera {
     /**
      * Delay close camera.
      *
-     * @param { int } time - delay time for turning off camera.
+     * @param { int } time - delay time for turning off camera, in units of second.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
@@ -2362,7 +2362,7 @@ declare namespace camera {
     /**
      * Obtains the physical camera orientation in the current fold state of the device.
      *
-     * @returns { int } Physical camera orientation.
+     * @returns { int } Physical camera orientation. The unit is degree. The value range is [0, 360].
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @atomicservice
      * @since 22 dynamic
@@ -3721,7 +3721,7 @@ declare namespace camera {
     /**
      * Obtains the focal length in use.
      *
-     * @returns { double } Focal length, in mm. If the operation fails, an error code defined in
+     * @returns { double } Focal length, in units of mm. If the operation fails, an error code defined in
      *     [CameraErrorCode]{@link camera.CameraErrorCode} is returned.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4124,7 +4124,7 @@ declare namespace camera {
     /**
      * Obtains the current white balance value.
      *
-     * @returns { int } White balance value.
+     * @returns { int } White balance value, in units of K (Kelvin)
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -4142,7 +4142,7 @@ declare namespace camera {
      * [getWhiteBalanceRange]{@link camera.WhiteBalanceQuery.getWhiteBalanceRange} to check the
      * white balance value range supported by the device.
      *
-     * @param { int } whiteBalance - White balance value.
+     * @param { int } whiteBalance - White balance value, in units of K (Kelvin)
      * @throws { BusinessError } 202 - Not System Application. [since 12 - 19]
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -4158,7 +4158,8 @@ declare namespace camera {
     /**
      * Sets color tint.
      *
-     * @param { int } colorTint - Color tint.
+     * @param { int } colorTint - Color tint, the supported range can be obtained by calling
+     *     [getColorTintRange]{@link camera.WhiteBalanceQuery.getColorTintRange}.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
@@ -8630,7 +8631,8 @@ declare namespace camera {
     /**
      * Sets physical aperture value.
      *
-     * @param { double } aperture - physical aperture value.
+     * @param { double } aperture - physical aperture value. The supported physical aperture range can be obtained by 
+     *     calling [getSupportedPhysicalApertures]{@link camera.ApertureQuery.getSupportedPhysicalApertures}
      * @throws { BusinessError } 202 - Not System Application. [since 11 - 23]
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws {BusinessError} 7400102 - Operation not allowed, the inputDevice or the session is abnormal. [since 24]
@@ -9114,7 +9116,7 @@ declare namespace camera {
     /**
      * Obtains the manual exposure duration in use.
      *
-     * @returns { int } The current exposure value.
+     * @returns { int } The current exposure value, in units of ms
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400103 - Session not config.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect. [since 12]
@@ -9128,7 +9130,7 @@ declare namespace camera {
     /**
      * Gets current exposure value.
      *
-     * @returns { int } The current exposure value.
+     * @returns { int } The current exposure value, in units of microsecond
      * @throws { BusinessError } 7400102 - Operation not allowed, session or inputdevice maybe abnormal.
      * @throws { BusinessError } 7400103 - Session not config.
      * @syscap SystemCapability.Multimedia.Camera.Core
@@ -16216,7 +16218,8 @@ declare namespace camera {
     /**
      * Sets a time-lapse shooting interval.
      *
-     * @param { int } interval - Shooting interval, in ms.
+     * @param { int } interval - Shooting interval, in units of ms, the supported range can be obtained by calling
+     *     [getSupportedTimeLapseIntervalRange]{@link camera.TimeLapsePhotoSession.getSupportedTimeLapseIntervalRange}
      * @throws { BusinessError } 202 - Not System Application.
      * @throws { BusinessError } 7400101 - Parameter missing or parameter type incorrect.
      * @throws { BusinessError } 7400103 - Session not config.
@@ -16373,7 +16376,7 @@ declare namespace camera {
     /**
      * Gets the control center height.
      *
-     * @returns { double } the control center height.
+     * @returns { double } the control center height, in units of vp.
      * @throws { BusinessError } 202 - Not System Application.
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
