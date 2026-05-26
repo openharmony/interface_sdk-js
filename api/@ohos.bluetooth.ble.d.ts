@@ -6907,6 +6907,15 @@ declare namespace ble {
      * @since 26.0.0 dynamic&static
      */
     isExtended?: boolean;
+    /**
+     * Configuration of scan enhance mode.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    scanEnhanceMode?: ScanEnhanceMode;
   }
 
   /**
@@ -7089,6 +7098,36 @@ declare namespace ble {
      * @since 23 static
      */
     extendedProperties?: boolean;
+  }
+
+  /**
+   * Describes the configuration of scan enhance mode.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface ScanEnhanceMode{
+    /**
+     * The mode of scan enhance.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enhanceMode: EnhanceMode;
+    /**
+     * The duration of scan enhance.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    timeout: int;
   }
 
   /**
@@ -7872,6 +7911,53 @@ declare namespace ble {
      * @since 23 dynamic&static
      */
     phyMode?: CodedPhyMode;
+  }
+  
+  /**
+   * Scan enhance mode.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum EnhanceMode {
+    /**
+     * Balanced scan performance and other bluetooth service performance.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BLE_SCAN_ENHANCE_MODE_BALANCED = 0,
+    /**
+     * The scan performance is improved, and the performance of other bluetooth services is mildly affected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BLE_SCAN_ENHANCE_MODE_MEDIUM = 1,
+    /**
+     * The scan performance is ensured as much as possible, and the performance of other bluetooth services is affected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BLE_SCAN_ENHANCE_MODE_FAST = 2,
+    /**
+     * The scan performance is fully ensured, and the performance of other bluetooth services is aggressively affected.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    BLE_SCAN_ENHANCE_MODE_ULTRA_FAST = 3
   }
 }
 
