@@ -1495,17 +1495,11 @@ declare namespace photoAccessHelper {
   interface PhotoProxy {}
 
   /**
-   * A media asset manager class, used for manipulating the read and write operations of media assets.
+   * The MediaAssetManager class is used for manipulating the read and write operations of media assets.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 11
-   */
-  /**
-   * A media asset manager class, used for manipulating the read and write operations of media assets.
-   *
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   class MediaAssetManager {
@@ -6150,26 +6144,10 @@ declare namespace photoAccessHelper {
   /**
    * Helper functions to access photos and albums.
    *
-   * @interface PhotoAccessHelper
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @since 10
-   */
-  /**
-   * Helper functions to access photos and albums.
-   *
-   * @interface PhotoAccessHelper
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Helper functions to access photos and albums.
-   *
-   * @interface PhotoAccessHelper
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    * @since 23 static
    */
   interface PhotoAccessHelper {
@@ -6177,30 +6155,22 @@ declare namespace photoAccessHelper {
      * Obtains image and video assets. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - Options for fetching the image and video assets.
-     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback used to return the image and video assets obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900012 - Permission denied
+     * @param { FetchOptions } options - Retrieval options.
+     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback function. If files from the album are
+     *     obtained successfully, **err** is **undefined**, and **data** is the result set of the obtained image and
+     *     video data ([FetchResult]{@link @ohos.file.photoAccessHelper:photoAccessHelper}). Otherwise, **err** is an
+     *     error object.
+     * @throws { BusinessError } 201 - Permission denied [since 12]
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 13900012 - Permission denied [since 10 - 11]
      * @throws { BusinessError } 13900020 - Invalid argument
      * @throws { BusinessError } 14000011 - System inner fail
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 10
-     */
-    /**
-     * Obtains image and video assets. This API uses an asynchronous callback to return the result.
-     *
-     * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { FetchOptions } options - Options for fetching the image and video assets.
-     * @param { AsyncCallback<FetchResult<PhotoAsset>> } callback - Callback used to return the image and video assets obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 13900020 - Invalid argument
-     * @throws { BusinessError } 14000011 - System inner fail
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>): void;
@@ -11231,43 +11201,34 @@ declare namespace photoAccessHelper {
    */
   class PhotoViewPicker {
     /**
-     * Pull up the photo picker based on the selection mode.
+     * Starts a **photoPicker** page for the user to select one or more images or videos. This API uses a promise to 
+     * return the result. You can pass in **PhotoSelectOptions** to specify the type and maximum number of the files to 
+     * select. A **PhotoSelectResult** object is returned.
+     * 
+     * > **NOTE**
+     * >
+     * > **photoUris** in the PhotoSelectResult object returned by this API has permanent authorization and can be used 
+     * > only by calling 
+     * > [photoAccessHelper.getAssets]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoAccessHelper.getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult<PhotoAsset>>)}
+     * > . For details, see 
+     * > [Using a Media File URI](docroot://file-management/user-file-uri-intro.md#using-a-media-file-uri).
      *
-     * @param { PhotoSelectOptions } [option] - represents the options provided in select mode.
-     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @since 10
-     */
-    /**
-     * Pull up the photo picker based on the selection mode.
-     *
-     * @param { PhotoSelectOptions } [option] - represents the options provided in select mode.
-     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 13900042 - Unknown error
-     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Pull up the photo picker based on the selection mode.
-     *
-     * @param { PhotoSelectOptions } [option] - represents the options provided in select mode.
-     * @returns { Promise<PhotoSelectResult> } Returns the uris for the selected files.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     * <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @param { PhotoSelectOptions } [option] - Options for selecting files. If this parameter is not specified, up to 5
+     *     0 images and videos are selected by default.
+     * @returns { Promise<PhotoSelectResult> } Promise used to return information about the images or videos selected.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types; 
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 13900042 - Unknown error
      * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
-     *     1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
+     *     <br>1. An illegal enumeration value was passed to PhotoSelectOptions.globalMovingPhotoState.
      *     Only MOVING_PHOTO_ENABLE and MOVING_PHOTO_DISABLE are supported for configuration;
+     *     <br>2. An illegal enumeration value was passed to PhotoSelectOptions.assetCompatibleAbility. [since 12]
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      * @since 26.0.0 static
      */
     select(option?: PhotoSelectOptions): Promise<PhotoSelectResult>;
