@@ -1887,7 +1887,7 @@ declare namespace request {
      * @stagemodelonly
      * @since 23 static
      */
-    const VISIBILITY_COMPLETION: int = 1;
+    const VISIBILITY_COMPLETION: int;
     /**
      * ([Notification]{@link request.agent.Notification} 
      * visibility type) Displays progress notifications.
@@ -1903,7 +1903,7 @@ declare namespace request {
      * @stagemodelonly
      * @since 23 static
      */
-    const VISIBILITY_PROGRESS: int = 2;
+    const VISIBILITY_PROGRESS: int;
     /**
      * Defines action options.
      *
