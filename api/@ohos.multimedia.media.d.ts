@@ -5390,7 +5390,7 @@ declare namespace media {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    LIP_ASYNC_COUNT  =  'lip_async_count',
+    LIP_ASYNC_COUNT  = 'lip_async_count',
 
     /**
      * The Cumulative time the player is in stalling state.
@@ -5398,7 +5398,7 @@ declare namespace media {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    TOTAL_LIP_ASYNC_TIME  =  'total_lip_async_time',
+    TOTAL_LIP_ASYNC_TIME  = 'total_lip_async_time',
   }
 
   /**
