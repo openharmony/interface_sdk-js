@@ -5393,7 +5393,7 @@ declare namespace media {
     LIP_ASYNC_COUNT  = 'lip_async_count',
 
     /**
-     * The Cumulative time the player is in stalling state.
+     * The cumulative time the player is in stalling state.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
