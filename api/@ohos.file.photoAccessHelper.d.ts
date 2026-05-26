@@ -361,7 +361,7 @@ declare namespace photoAccessHelper {
    * @systemapi [since 10 - 11]
    * @publicapi [since 12]
    * @atomicservice [since 12]
-   * @since 12 dynamic
+   * @since 10 dynamic
    * @since 23 static
    */
   export enum PhotoSubtype {
