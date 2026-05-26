@@ -107,7 +107,7 @@ declare namespace thermal {
   /**
    * 订阅热档位变化时的回调提醒。使用callback异步回调。
    *
-   * @param { AsyncCallback<ThermalLevel> } callback - 回调函数。AsyncCallback只返回一个参数，为热档位信息。
+   * @param { AsyncCallback<ThermalLevel> } callback - 回调函数，返回变化后的热档位；该参数是一个函数类型。
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9

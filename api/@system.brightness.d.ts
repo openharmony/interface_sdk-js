@@ -14,6 +14,11 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * The **brightness** module provides APIs for querying and adjusting the screen brightness and mode.
  * 
  * > **NOTE**
@@ -26,8 +31,6 @@
  * > to use APIs of [@ohos.brightness]{@link @ohos.brightness:brightness}. <!--DelEnd-->The substitute APIs are 
  * > available only for system applications.
  *
- * @file
- * @kit BasicServicesKit
  */
 
 /**

@@ -50,7 +50,6 @@ declare namespace power {
    *
    * @permission ohos.permission.REBOOT
    * @param { string } reason - 重启原因。例如，“updater”表示重启后进入更新模式。如果未指定该参数，系统将在重启后进入正常模式。
-   *     reason参数必须为字符串类型。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -62,7 +61,7 @@ declare namespace power {
    * 重启设备。
    *
    * @permission ohos.permission.REBOOT
-   * @param { string } reason - 重启原因；该参数必须为字符串类型。
+   * @param { string } reason - 重启原因。例如，“updater”表示重启后进入更新模式。如果未指定该参数，系统将在重启后进入正常模式。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -221,7 +220,7 @@ declare namespace power {
   function hibernate(clearMemory: boolean): void;
 
   /**
-   * 设置熄屏超时时间，单位毫秒。
+   * 设置熄屏超时时间。
    *
    * @permission ohos.permission.POWER_MANAGER [since 19]
    * @param { long } timeout - 熄屏超时时间，单位是毫秒，大于0代表熄屏超时时间，-1代表恢复默认超时时间，其它是无效值。

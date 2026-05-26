@@ -109,10 +109,10 @@ declare namespace thermal {
   }
 
   /**
-   * Subscribes to the thermal level changes. This API uses an asynchronous callback to return thermal level.
+   * Subscribes to the thermal level changes. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<ThermalLevel> } callback - Callback used to return thermal level. The return value contains
-   *     only one parameter, that is, thermal level.
+   * @param { AsyncCallback<ThermalLevel> } callback - Callback used to return thermal level. This parameter is of the
+   *     function type.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -146,8 +146,7 @@ declare namespace thermal {
   function unsubscribeThermalLevel(callback?: AsyncCallback<void>): void;
 
   /**
-   * Unregisters the callback to be invoked when the thermal level changes. This API uses an asynchronous callback to
-   * return the result.
+   * Unregisters from the thermal level changes. This API uses an asynchronous callback to return the result.
    *
    * @param { Callback<void> } callback - (Optional) Callback that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
@@ -158,7 +157,7 @@ declare namespace thermal {
   function unregisterThermalLevelCallback(callback?: Callback<void>): void;
 
   /**
-   * Obtains this thermal level.
+   * Obtains the current thermal level.
    *
    * @returns { ThermalLevel } Thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
@@ -169,7 +168,7 @@ declare namespace thermal {
   function getThermalLevel(): ThermalLevel;
 
   /**
-   * Obtains this thermal level.
+   * Obtains the current thermal level.
    *
    * @returns { ThermalLevel } Thermal level.
    * @syscap SystemCapability.PowerManager.ThermalManager
