@@ -3263,7 +3263,7 @@ declare namespace sensor {
   /**
    * Subscribes to only one data change of the linear acceleration sensor.
    *
-   * @permission ohos.permission.ACCELERATION
+   * @permission ohos.permission.ACCELEROMETER
    * @param { SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION } type - Type of the sensor to subscribe to, which is
    *     **SENSOR_TYPE_ID_LINEAR_ACCELERATION**.
    * @param { Callback<LinearAccelerometerResponse> } callback - One-shot callback used to return the linear
