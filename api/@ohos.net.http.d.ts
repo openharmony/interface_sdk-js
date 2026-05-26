@@ -557,12 +557,10 @@ declare namespace http {
 
     /**
      * Indicates whether to enable partial chain verification.
-     * Default value is false, meaning the certificate chain must verify up to a trusted root CA.
+     * The default value is true when SslType is set to TLS, and false when SslType is set to TLCP.
+     * If set to false, the certificate chain must verify up to a trusted root CA.
      * If set to true, the verification succeeds if the chain builds to a trusted intermediate CA,
      * without requiring a path to a trusted root CA.
-     * Security Warning: Enabling this reduces security posture. It should only be used in controlled
-     * environments (e.g., enterprise internal PKI) where specific intermediate CAs are explicitly trusted.
-     * Misuse may expose the application to Man-in-the-Middle (MITM) attacks.
      *
      * @syscap SystemCapability.Communication.NetStack
      * @stagemodelonly
