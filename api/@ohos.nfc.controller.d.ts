@@ -131,6 +131,16 @@ declare namespace nfcController {
   function isNfcAvailable(): boolean;
 
   /**
+   * Checks whether a device supports NFC.
+   *
+   * @returns { boolean } Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
+   * @syscap SystemCapability.Communication.NFC.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isNfcSupported(): boolean;
+
+  /**
    * register nfc state changed event.
    *
    * @param { 'nfcStateChange' } type The type to register.

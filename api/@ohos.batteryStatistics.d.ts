@@ -195,7 +195,7 @@ declare namespace batteryStats {
   function getAppPowerPercent(uid: int): double;
 
   /**
-   * Obtains the power consumption of a hardware unit according to the consumption type, in unit of mAh
+   * Obtains the power consumption of a hardware unit according to the consumption type, in unit of mAh.
    *
    * @param { ConsumptionType } type - Power consumption type. The value must be an enum.
    * @returns { double } Power consumption of the hardware unit corresponding to the power consumption type, in unit
@@ -246,7 +246,7 @@ declare namespace batteryStats {
     uid: int;
 
     /**
-     * The type related with the power consumption info.
+     * The power consumption type.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi
@@ -256,7 +256,7 @@ declare namespace batteryStats {
     type: ConsumptionType;
 
     /**
-     * The power consumption value(mAh).
+     * The power consumption, in unit of mAh.
      *
      * @syscap SystemCapability.PowerManager.BatteryStatistics
      * @systemapi

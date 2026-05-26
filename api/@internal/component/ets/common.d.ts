@@ -19419,6 +19419,17 @@ declare interface PopupCommonOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -20382,6 +20393,17 @@ declare interface PopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -21118,6 +21140,17 @@ declare interface CustomPopupOptions {
    * @since 26.0.0 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+  /**
+   * Defines the display level of the popup.
+   *
+   * @type { ?LevelMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  levelMode?: LevelMode;
 }
 
 /**
@@ -22779,6 +22812,7 @@ declare class TouchResult {
  *
  * @interface DepthVector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -22789,6 +22823,7 @@ declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22800,6 +22835,7 @@ declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22811,6 +22847,7 @@ declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22823,6 +22860,7 @@ declare interface DepthVector3 {
  *
  * @interface DepthVector4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -22834,6 +22872,7 @@ declare interface DepthVector4 {
    * @type { double }
    * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22845,6 +22884,7 @@ declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22856,6 +22896,7 @@ declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22867,6 +22908,7 @@ declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22879,6 +22921,7 @@ declare interface DepthVector4 {
  *
  * @interface DepthColorRGB
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -22889,6 +22932,7 @@ declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22900,6 +22944,7 @@ declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22911,6 +22956,7 @@ declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22923,6 +22969,7 @@ declare interface DepthColorRGB {
  *
  * @interface SpatialPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -22933,6 +22980,7 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22944,6 +22992,7 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22955,6 +23004,7 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22966,6 +23016,7 @@ declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -22978,6 +23029,7 @@ declare interface SpatialPosition {
  *
  * @interface SpatialEffectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -22988,6 +23040,7 @@ declare interface SpatialEffectParams {
    *
    * @type { SpatialPosition | double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -23000,6 +23053,7 @@ declare interface SpatialEffectParams {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -31646,6 +31700,7 @@ declare class CommonMethod<T> {
    * @param { SpatialEffectParams | undefined } params - Spatial effect parameters.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic

@@ -1845,7 +1845,7 @@ declare namespace relationalStore {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    mode: relationalStore.SyncMode;
+    mode: SyncMode;
 
     /**
      * Indicates whether the sync operation should be download‑only.

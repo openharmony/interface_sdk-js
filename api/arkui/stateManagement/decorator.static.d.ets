@@ -18,6 +18,7 @@
  * @kit ArkUI
  */
 import { SystemProperties } from '../component/enums';
+import { ReusePoolOwnership } from '../component/customComponent';
 
 /**
  * Define a custom component API that provides variables-related functionality.
@@ -717,7 +718,17 @@ export declare interface IDecoratedUpdatableVariable<T> {
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset State variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define PropRef decoration variable interface.
@@ -729,7 +740,17 @@ export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVar
  * @since 23 static
  */
 export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>,
-    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {}
+    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset State variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define LocalStoragePropRef decoration variable interface.
@@ -740,7 +761,16 @@ export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableV
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset State variable when the @Reusable Component instance is reused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(): void;
+}
 
 /**
  * Define Link decoration variable interface.
@@ -751,7 +781,17 @@ export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecor
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset Link variable when the @Reusable Component instance is reused.
+   *
+   * @param { LinkSourceType<T> } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: LinkSourceType<T>): void;
+}
 
 /**
  * Define Provide decoration variable interface.
@@ -762,7 +802,17 @@ export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVari
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset Link variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define Consume decoration variable interface.
@@ -773,7 +823,19 @@ export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableV
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset Consume variable when the @Reusable Component instance is reused.
+   *
+   * @param { string } provideAlias - alias
+   * @param { WatchFuncType } [watchFinc] - watch function type
+   * @param { ConsumeOptions<T> } [consumeOptions] - options with default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): void;
+}
 
 /**
  * Define ObjectLink decoration variable interface.
@@ -785,7 +847,17 @@ export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableV
  * @since 23 static
  */
 export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmutableVariable<T>,
-    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {}
+    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset ObjectLink variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define StorageLink decoration variable interface.
@@ -807,7 +879,16 @@ export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMuta
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset source for this @StoragePropRef variable
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(): void;
+}
 
 /**
  * Define LocalStorageLink decoration variable interface.
@@ -1400,8 +1481,21 @@ export declare interface IStateMgmtFactory {
    */
   makeSyncMonitor(pathInfos: IMonitorPathInfo[], monitorCallback: MonitorCallback,
     options?: MakeMonitorOptions): IMonitorDecoratedVariable;
-}
 
+  /**
+   * Create global reuse pool on a custom component.
+   *
+   * @param { ReusePoolOwnership } reusePool - reuse pool type.
+   * @param { Class[] } poolAccepts - custom comopnents that reuse pool accepts.
+   * @param { IVariableOwner } owningView - custom component that owns the global pool.
+   * @returns { IGlobalReusePoolVariable } global reuse pool handle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  makeGlobalReusePool(reusePool: ReusePoolOwnership,
+      poolAccepts: Class[], owningView: IVariableOwner): IGlobalReusePoolVariable;
+}
 
 /**
  * Define V2 decorated variable interface.
@@ -1726,3 +1820,13 @@ export declare interface IObservedAnyProp {
    */
   addRefAnyProp(): void;
 }
+
+/**
+ * Global reuse pool handle.
+ *
+ * @interface IGlobalReusePoolVariable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IGlobalReusePoolVariable { }

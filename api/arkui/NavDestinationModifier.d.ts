@@ -27,6 +27,7 @@
  * @extends NavDestinationAttribute
  * @implements AttributeModifier<NavDestinationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12
 */
@@ -36,6 +37,7 @@
  * @extends NavDestinationAttribute
  * @implements AttributeModifier<NavDestinationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -47,6 +49,7 @@ export declare class NavDestinationModifier extends NavDestinationAttribute impl
    * 
    * @param { NavDestinationAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic

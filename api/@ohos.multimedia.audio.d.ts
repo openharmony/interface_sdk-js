@@ -1250,12 +1250,26 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
+    /**
+     * Hearing aid audio device.
+     * Note: This original device type can be obtained after it is declared via
+     *     {@link AudioRoutingManager#declareDeviceTypesCompatibility}.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 26.0.0 dynamic&static
+     */
     HEARING_AID = 30,
     /**
-     * Nearlink Device.
+     * Nearlink device.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20 dynamic
      * @since 23 static
+     */
+    /**
+     * Nearlink device.
+     * Note: This original device type can be obtained after it is declared via
+     *     {@link AudioRoutingManager#declareDeviceTypesCompatibility}.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @since 26.0.0 dynamic&static
      */
     NEARLINK = 31,
     /**
@@ -1296,6 +1310,15 @@ declare namespace audio {
      */
     DEFAULT = 1000,
   }
+
+  /**
+   * Defines the device type array.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Device
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type DeviceTypeArray = Array<DeviceType>;
 
   /**
    * Enumerates the active device types.
@@ -5090,6 +5113,25 @@ declare namespace audio {
      * @since 23 static
      */
     getExcludedDevices(usage: DeviceUsage): AudioDeviceDescriptors;
+
+    /**
+     * Declares the original device types that the application has adapted to.
+     * By default, the system returns anonymous device types. This method allows applications to
+     * declare which specific device types they have explicitly adapted to. Once declared, the system
+     * will return the original device types to the application instead of the anonymous ones.
+     * Note: This method only supports device types introduced from API 20 onwards (such as hearing aids
+     * and nearlink devices). If this interface is not called for these new device types, the application
+     * will only be able to obtain anonymous device types.
+     * Legacy device types prior to API 20 do not need this declaration.
+     *
+     * @param { DeviceTypeArray } deviceTypes - Array of original device types the application has adapted to.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, the param deviceTypes contains value
+     *     that is invalid enum or is not device type introduced in API 20 onwards.
+     * @syscap SystemCapability.Multimedia.Audio.Device
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    declareDeviceTypesCompatibility(deviceTypes: DeviceTypeArray): void;
 
     /**
      * Get active output device descriptors in current audio device situaion

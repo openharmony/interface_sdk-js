@@ -1260,6 +1260,17 @@ declare namespace cloudSync {
      */
     constructor();
     /**
+     * A constructor used to create a CloudFileCache object.
+     *
+     * @param { string } bundleName - Name of the bundle that need to start download task and subscribes download progress.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    constructor(bundleName: string);
+    /**
      * Subscribes to cloud file cache download progress change event. This method uses a callback to get download progress changes.
      *
      * @param { 'progress' } event - event type.
@@ -1529,6 +1540,26 @@ declare namespace cloudSync {
      * @since 26.0.0 dynamic&static
      */
     getDownloadList(uris: Array<string>): Promise<Array<DownloadProgress>>;
+    /**
+     * Query the total size of cached files.
+     *
+     * @returns { Promise<long> } - Return the total size of cached files.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+     getCachedTotalSize(): Promise<long>;
+    /**
+     * Clean all downloaded files except those not yet migrated to the cloud or those that are being written to.
+     *
+     * @returns { Promise<void> } - Return Promise.
+     * @throws { BusinessError } 13900010 - Try again.
+     * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+     cleanFileCache(): Promise<void>;
   }
 
   /**

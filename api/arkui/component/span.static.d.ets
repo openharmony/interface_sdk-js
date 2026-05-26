@@ -333,7 +333,7 @@ export declare interface SpanAttribute {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     default debugLine(sourceLine: string, moduleName?: string): this;
 

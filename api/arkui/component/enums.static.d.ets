@@ -4775,7 +4775,7 @@ export enum CompetitionStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 23 staticonly
  */
 export enum AttributeModifierState {
@@ -4784,7 +4784,7 @@ export enum AttributeModifierState {
    * Normal state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   NORMAL = 0,
@@ -4793,7 +4793,7 @@ export enum AttributeModifierState {
    * Pressed state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   PRESSED = 1,
@@ -4802,7 +4802,7 @@ export enum AttributeModifierState {
    * Focused state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   FOCUSED = 1 << 1,
@@ -4811,7 +4811,7 @@ export enum AttributeModifierState {
    * Disabled state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   DISABLED = 1 << 2,
@@ -4820,10 +4820,19 @@ export enum AttributeModifierState {
    * Selected state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
-  SELECTED = 1 << 3
+  SELECTED = 1 << 3,
+
+  /**
+   * Hovered state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  HOVERED = 1 << 4
 }
 
 /**
@@ -5314,4 +5323,87 @@ export declare enum OperateIntention {
      * @since 26.0.0 static
      */
     BACK_PRESS = 2
+}
+
+/**
+ * Defines the position of the edge light effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum EdgeLightPosition {
+  /**
+   * Edge light effect in the upper left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOP_LEFT = 0,
+  /**
+   * Edge light effect is in the upper right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOP_RIGHT = 1,
+  /**
+   * Edge light effect is in the lower left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BOTTOM_LEFT = 2,
+  /**
+   * Edge light effect is in the lower right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BOTTOM_RIGHT = 3,
+  /**
+   * Edge light effect is on the top edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOP = 4,
+  /**
+   * The light effect starts from the bottom edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BOTTOM = 5,
+  /**
+   * Edge light effect is on the left edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT = 6,
+  /**
+   * Edge light effect is on the right edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT = 7,
 }

@@ -20,6 +20,7 @@
 
 import { MonitorValueCallback, MonitorCallback, IMonitorDecoratedVariable, IVariableOwner } from './decorator';
 import { CustomComponentLifecycle } from '../component/customComponent';
+import { WrappedBuilder, CustomBuilder } from '../component/builder';
 /**
  * UIUtils is a state management tool class for operating the observed data.
  *
@@ -525,6 +526,90 @@ export declare interface MonitorBaseOptions {
 }
 
 /**
+ * IReusePool is a reuse pool interface for custom component.
+ *
+ * @interface IReusePool
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IReusePool {
+  /**
+   * Get IReusableInfo for given Component/V2 in the pool.
+   *
+   * @param { Class } componentConstructor - @ReusableV2 @ComponentV2 or @Reusable @Component.
+   * @param { string } [reuseId] - the reuse-id
+   * @returns { IReusableInfo[] | IReusableInfo | undefined } undefined if this pool does not accepts
+   *     given Component.
+   *     returns IReusableInfo if this pool accepts given Component/V2, reuseId was not used to recycle instances
+   *     returns IReusableInfo[] if this pool accepts given Component/V2, reuseId was used to recycle instances.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static 
+   */
+  getReusableInfo(componentConstructor: Class,
+    reuseId?: string): IReusableInfo[] | IReusableInfo | undefined;
+
+  /**
+   * Then preRender function pre-render n instances and add to pool.
+   *
+   * @param { WrappedBuilder<CustomBuilder> } builder - builder a WrappedBuilder containing a @Builder
+   *     function thant accepts no parameter.
+   * @param { int } times - number of times to exec the given @Builder function.
+   * @returns { Promise<void> } promise with no return value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  preRender(builder: WrappedBuilder<CustomBuilder>, times: int): Promise<void>;
+}
+
+/**
+ * IReusableInfo is a reuse pool inforamtion interface for custom component.
+ *
+ * @interface IReusableInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IReusableInfo {
+  /**
+   * Current number of @Reusable/V2 component instances in pool.
+   * count is usually <= maxCount. It is allowed to be larger for shor time
+   * because pool clean happens asynchronously.
+   *
+   * @type { int }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly count: int;
+
+  /**
+   * Maximum number of permissible @Reusable/V2 component instances
+   * The default is 100. The maximal value is 200.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  maxCount: int;
+
+  /**
+   * Reuse id.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly reuseId?: string;
+}
+
+/**
  * CustomComponentContext is a state management tool for operating the observed data.
  *
  * @interface CustomComponentContext
@@ -533,6 +618,16 @@ export declare interface MonitorBaseOptions {
  * @since 26.0.0 static
  */
 export declare interface CustomComponentContext {
+  /**
+   * The getCustomComponentReusePool function gets the reuse pool.
+   *
+   * @returns { IReusePool | undefined } Returns the recyclepool instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getCustomComponentReusePool(): IReusePool | undefined;
+
   /**
    * Register active nad inactive callback.
    *

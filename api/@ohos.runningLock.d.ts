@@ -40,7 +40,7 @@ declare namespace runningLock {
    */
   class RunningLock {
     /**
-     * Locks a running lock.
+     * Locks and holds a **RunningLock** object.
      *
      * @permission ohos.permission.RUNNING_LOCK
      * @param { number } timeout - Duration for locking and holding the **RunningLock** object, in ms.
@@ -158,7 +158,7 @@ declare namespace runningLock {
   }
 
   /**
-   * Checks whether the system supports the running lock of a specified type. This API uses an asynchronous callback to
+   * Checks whether a specified type of {@link RunningLock} is supported. This API uses an asynchronous callback to
    * return the result.
    *
    * @param { RunningLockType } type - Type of the running lock.
@@ -174,7 +174,7 @@ declare namespace runningLock {
   function isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the system supports the running lock of a specified type. This API uses a promise to return the
+   * Checks whether a specified type of {@link RunningLock} is supported. This API uses a promise to return the
    * result.
    *
    * @param { RunningLockType } type - Type of the running lock.
@@ -188,7 +188,7 @@ declare namespace runningLock {
   function isRunningLockTypeSupported(type: RunningLockType): Promise<boolean>;
 
   /**
-   * Checks whether the system supports the running lock of a specified type.
+   * Checks whether a specified type of {@link RunningLock} is supported.
    *
    * @param { RunningLockType } type - Type of the running lock. The value must be an enum.
    * @returns { boolean } The value **true** indicates that the specified type of the running lock is supported, and the
@@ -211,7 +211,6 @@ declare namespace runningLock {
    * @param { AsyncCallback<RunningLock> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined** and data is the created **RunningLock** object. Otherwise, **err** is an
    *     error object. **AsyncCallback** has encapsulated an API of the **RunningLock** class.
-   * Indicates the callback contains the {@link RunningLock} object.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -235,7 +234,7 @@ declare namespace runningLock {
   function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
 
   /**
-   * Creates a running lock. This API uses an asynchronous callback to return the result.
+   * Creates a {@link RunningLock} object. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name - Name of the **RunningLock** object. The value must be a string.
@@ -252,7 +251,7 @@ declare namespace runningLock {
   function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
   /**
-   * Creates a running lock. This API uses a promise to return the result.
+   * Creates a {@link RunningLock} object. This API uses a promise to return the result.
    *
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name - Name of the **RunningLock** object. The value must be a string.
