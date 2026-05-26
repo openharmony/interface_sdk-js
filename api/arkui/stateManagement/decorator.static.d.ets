@@ -1477,6 +1477,20 @@ export declare interface IStateMgmtFactory {
   makeEnv<T>(owner: IVariableOwner, envValue: string | SystemEnvKey<T>, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
 
   /**
+   * Create a CustomEnv variable instance.
+   *
+   * @param { IVariableOwner } owner - custom component owner
+   * @param { CustomEnvKey<T> } envKey - custom env key
+   * @param { string } varName - variable name that is decorated by @CustomEnv
+   * @param { T } localInitValue - custom env variable initValue.
+   * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv variable instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T): ICustomEnvDecoratedVariable<T>;
+
+  /**
    * Create a synchronous monitored variable instance.
    *
    * @param { IMonitorPathInfo[] } pathInfos - monitor path to its accessor.
@@ -1547,6 +1561,15 @@ export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutabl
  * @since 24 static
  */
 export declare interface IEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
+
+/**
+ * Define CustomEnv decoration variable interface.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface ICustomEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Define Consumer decoration variable interface.
@@ -1840,6 +1863,34 @@ export declare interface IObservedAnyProp {
 export declare interface IGlobalReusePoolVariable { }
 
 /**
+ * Defines the custom environment Key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class CustomEnvKey<S> {
+  /**
+   * create CustomEnvKey
+   *
+   * @returns { CustomEnvKey<T> } CustomEnvKey
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static create<T>(): CustomEnvKey<T>;
+ 	 
+   /**
+    * constructor.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+   protected constructor();
+}
+
+/**
  * Defines the class of System Env Key.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1958,3 +2009,22 @@ export declare class ReadonlyEnvKey {
    */
   static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
 }
+
+/**
+ * Defining CustomEnv PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface CustomEnv {
+  /**
+   * Key value input by the user.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  value: string;
+};
