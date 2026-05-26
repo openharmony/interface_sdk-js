@@ -1550,6 +1550,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
    * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
    * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1591,6 +1593,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
    * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
    * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

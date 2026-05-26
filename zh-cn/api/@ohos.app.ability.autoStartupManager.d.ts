@@ -33,6 +33,7 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi [since 11 - 20]
+ * @publicapi [since 21]
  * @since 11 dynamic
  * @since 23 static
  */
