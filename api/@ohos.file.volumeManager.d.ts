@@ -1163,7 +1163,7 @@ declare namespace volumeManager {
    * @throws { BusinessError } 13600005 - Incorrect volume state.
    * @throws { BusinessError } 13600008 - No such object.
    * @throws { BusinessError } 13600010 - The input parameter is invalid.
-   * @throws { BusinessError } 13600025 - Format partition failed.
+   * @throws { BusinessError } 13600032 - Format partition failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
