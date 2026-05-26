@@ -23,7 +23,7 @@ import { Resource } from '../../global/resource';
 import pointer from '../../@ohos.multimodalInput.pointer';
 import image from '../../@ohos.multimedia.image';
 import unifiedDataChannel from '../../@ohos.data.unifiedDataChannel';
-import promptAction from '../../@ohos.promptAction';
+import promptAction, { LevelMode } from '../../@ohos.promptAction';
 import uniformTypeDescriptor from '../../@ohos.data.uniformTypeDescriptor';
 import Want from '../../@ohos.app.ability.Want';
 import { IntentionCode } from '../../@ohos.multimodalInput.intentionCode';
@@ -8395,6 +8395,15 @@ export declare interface PopupCommonOptions {
      * @since 26.0.0 static
      */
     backgroundEffect?: BackgroundEffectOptions;
+    /**
+     * Defines the display level of the popup.
+     *
+     * @type { ?LevelMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    levelMode?: LevelMode;
 
   /**
    * Callback function when the popup disappears.
@@ -8909,6 +8918,15 @@ export declare interface PopupOptions {
      * @since 26.0.0 static
      */
     backgroundEffect?: BackgroundEffectOptions;
+    /**
+     * Defines the display level of the popup.
+     *
+     * @type { ?LevelMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    levelMode?: LevelMode;
 
   /**
    * Callback function before the popup closeAnimation starts.
@@ -9314,6 +9332,15 @@ export declare interface CustomPopupOptions {
      * @since 26.0.0 static
      */
     backgroundEffect?: BackgroundEffectOptions;
+    /**
+     * Defines the display level of the popup.
+     *
+     * @type { ?LevelMode }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    levelMode?: LevelMode;
 
   /**
    * Callback function when the popup appears.
