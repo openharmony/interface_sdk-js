@@ -45,11 +45,13 @@ declare namespace userAuth {
   const MAX_ALLOWABLE_REUSE_DURATION: 300000;
   /**
    * Maximum reuse duration of the authentication result, in milliseconds. The value is 300000.
+   * The value range is all integers.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
    * @since 23 static
    */
-  const MAX_ALLOWABLE_REUSE_DURATION: int = 300000;
+  const MAX_ALLOWABLE_REUSE_DURATION: int;
 
   /**
    * Permanent lockout duration, in milliseconds. The value is 0x7fffffff.
@@ -57,9 +59,18 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   const PERMANENT_LOCKOUT_DURATION: int = 0x7fffffff;
+
+  /**
+   * Permanent lockout duration, in milliseconds. The value is 0x7fffffff.
+   * The value range is all integers.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const PERMANENT_LOCKOUT_DURATION: int;
 
   /**
    * Enumerates the authentication results.
