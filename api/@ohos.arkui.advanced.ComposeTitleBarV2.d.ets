@@ -239,6 +239,8 @@ export declare class ComposeTitleBarV2MenuItem {
    * @param { ComposeTitleBarV2MenuItemParams } [params] - Parameters for creating a menu item instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   constructor(params?: ComposeTitleBarV2MenuItemParams);

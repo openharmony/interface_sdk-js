@@ -74,6 +74,7 @@ export interface PromptOptionsV2Config {
   marginType: MarginTypeV2;
 
   /**
+   * Top margin of the ExceptionPromptV2.
    * Distance from the top to the content area of ExceptionPromptV2.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -83,7 +84,8 @@ export interface PromptOptionsV2Config {
   marginTop: Dimension;
 
   /**
-   * Icon of ExceptionPromptV2.
+   * Icon style of the ExceptionPromptV2.
+   * If this parameter is not set or is set to undefined, the icon is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -92,7 +94,8 @@ export interface PromptOptionsV2Config {
   icon?: ResourceStr;
 
   /**
-   * SymbolGlyphModifier of ExceptionPromptV2.
+   * Symbol icon style of the ExceptionPromptV2, which has higher priority than icon.
+   * If this parameter is not set or is set to undefined, the symbol icon is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -101,7 +104,14 @@ export interface PromptOptionsV2Config {
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Tip text of ExceptionPromptV2.
+   * Text content of the ExceptionPromptV2.
+   * By default, the following text resources are provided:
+   * 1. ohos_network_not_connected: displayed when no Internet connection.
+   * 2. ohos_network_connected_unstable: displayed when the Internet connection is unstable.
+   * 3. ohos_unstable_connect_server: displayed when the server fails to be connected.
+   * 4. ohos_custom_network_tips_left: displayed when an Internet connection is available
+   *   but the location fails to be obtained.
+   * If this parameter is not set or is set to undefined, the text content is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,7 +120,8 @@ export interface PromptOptionsV2Config {
   tip?: ResourceStr;
 
   /**
-   * Right icon button text of ExceptionPromptV2.
+   * Text of the icon on the right of the ExceptionPromptV2.
+   * If this parameter is not set or is set to undefined, the text is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -119,7 +130,10 @@ export interface PromptOptionsV2Config {
   actionText?: ResourceStr;
 
   /**
-   * Control concealment of ExceptionPromptV2.
+   * Whether the ExceptionPromptV2 is displayed.
+   * true: The exception prompt is displayed.
+   * false: The exception prompt is hidden.
+   * Default value: false.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -139,7 +153,8 @@ export interface PromptOptionsV2Config {
 @ObservedV2
 export declare class PromptOptionsV2 {
   /**
-   * Icon of ExceptionPromptV2.
+   * Icon style of the ExceptionPromptV2.
+   * If this parameter is not set or is set to undefined, the icon is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -149,7 +164,8 @@ export declare class PromptOptionsV2 {
   public icon?: ResourceStr;
 
   /**
-   * SymbolGlyphModifier of ExceptionPromptV2.
+   * Symbol icon style of the ExceptionPromptV2, which has higher priority than icon.
+   * If this parameter is not set or is set to undefined, the symbol icon is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,7 +175,14 @@ export declare class PromptOptionsV2 {
   public symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Tip text of ExceptionPromptV2.
+   * Text content of the ExceptionPromptV2.
+   * By default, the following text resources are provided:
+   * 1. ohos_network_not_connected: displayed when no Internet connection.
+   * 2. ohos_network_connected_unstable: displayed when the Internet connection is unstable.
+   * 3. ohos_unstable_connect_server: displayed when the server fails to be connected.
+   * 4. ohos_custom_network_tips_left: displayed when an Internet connection is available
+   *   but the location fails to be obtained.
+   * If this parameter is not set or is set to undefined, the text content is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -170,7 +193,7 @@ export declare class PromptOptionsV2 {
 
   /**
    * Margin Type  of ExceptionPromptV2.
-   * Margin from the content area to the edge of the container
+   * Margin from the content area to the edge of the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -180,7 +203,8 @@ export declare class PromptOptionsV2 {
   public marginType: MarginTypeV2;
 
   /**
-   * Right icon button text of ExceptionPromptV2
+   * Text of the icon on the right of the ExceptionPromptV2.
+   * If this parameter is not set or is set to undefined, the text is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -190,6 +214,7 @@ export declare class PromptOptionsV2 {
   public actionText?: ResourceStr;
 
   /**
+   * Top margin of the ExceptionPromptV2.
    * Distance from the top to the content area of ExceptionPromptV2.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -200,7 +225,10 @@ export declare class PromptOptionsV2 {
   public marginTop: Dimension;
 
   /**
-   * Control concealment of ExceptionPromptV2.
+   * Whether the ExceptionPromptV2 is displayed.
+   * true: The exception prompt is displayed.
+   * false: The exception prompt is hidden.
+   * Default value: false.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -250,7 +278,7 @@ declare type OnActionTextClickCallback = () => void;
 export declare struct ExceptionPromptV2 {
 
   /**
-   * Configuration information of ExceptionPromptV2.
+   * ExceptionPromptV2 configuration.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -259,7 +287,7 @@ export declare struct ExceptionPromptV2 {
   options: PromptOptionsV2;
 
   /**
-   * Callback when clicking the text on the left.
+   * Callback invoked when the prompt text on the left is clicked.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -269,7 +297,7 @@ export declare struct ExceptionPromptV2 {
   onTipClick?: OnTipClickCallback;
 
   /**
-   * Callback when click the icon button.
+   * Callback invoked when the icon on the right is clicked.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

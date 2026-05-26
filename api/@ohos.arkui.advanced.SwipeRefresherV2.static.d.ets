@@ -20,7 +20,6 @@
  */
 import { Builder, ComponentV2 } from './@ohos.arkui.component';
 import { Param, Require } from '@ohos.arkui.stateManagement';
-
 /**
  * Declare component SwipeRefresherV2
  *
