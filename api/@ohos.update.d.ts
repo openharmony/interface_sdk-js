@@ -1667,7 +1667,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * Duration required for restoring factory settings.
+     * Duration required for restoring factory settings，in seconds.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
