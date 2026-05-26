@@ -168,7 +168,7 @@ declare namespace photoAccessHelper {
   * @since 21 dynamic
   * @since 26.0.0 static
   */
-  class ContextRecoveryInfo {
+  export class ContextRecoveryInfo {
     /**
      * The album URI from which the user exited during the last selection.
      * The default value is empty string.
@@ -355,23 +355,16 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Enumerates the PhotoAsset types.
-   *
-   * @enum { int } PhotoSubtype
+   * Enumerates the [PhotoAsset]{@link photoAccessHelper.PhotoAsset} types.
+   * 
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * Enumerates the PhotoAsset types.
-   *
-   * @enum { int } PhotoSubtype
-   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @systemapi [since 10 - 11]
+   * @publicapi [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
-  enum PhotoSubtype {
+  export enum PhotoSubtype {
     /**
      * Default Photo Type
      *
@@ -443,7 +436,7 @@ declare namespace photoAccessHelper {
    * @since 12 dynamic
    * @since 23 static
    */
-  enum DynamicRangeType {
+  export enum DynamicRangeType {
     /**
      * Standard dynamic range (SDR).
      *
@@ -4238,7 +4231,7 @@ declare namespace photoAccessHelper {
    * @since 23 dynamic
    * @since 26.0.0 static
    */
-  interface CreationSetting {  
+  export interface CreationSetting {  
     /**
      * Title of the asset
      *
@@ -10191,7 +10184,7 @@ declare namespace photoAccessHelper {
    * @since 12 dynamic
    * @since 26.0.0 static
    */
-  class BaseSelectOptions {
+  export class BaseSelectOptions {
     /**
      * The Type of the file in the picker window.
      *
@@ -15397,7 +15390,7 @@ declare namespace photoAccessHelper {
    * @since 23 dynamic
    * @since 26.0.0 static
    */
-  class AutoPlayScene {
+  export class AutoPlayScene {
     /**
      * Type of moving photo scene.
      *
@@ -15625,7 +15618,7 @@ declare namespace photoAccessHelper {
    * @since 22 dynamic
    * @since 23 static
    */
-  enum VideoMode {
+  export enum VideoMode {
     /**
      * Default type
      *
