@@ -449,6 +449,25 @@ export declare interface TextAttribute extends CommonMethod {
      */
     default textIndent(value: Length | undefined): this;
     /**
+        * Specify the tail indentation for each line in a text block.
+        *
+        * <p><strong>Description</strong>:
+        * <br>When a single LengthMetrics value is provided, all rows share the same tail indentation.
+        * <br>When an array is provided, the i-th element specifies the trailing indentation of the i-th line.
+        * If the number of lines of text exceeds the length of the array, the last element in the array is used.
+        * for the remaining lines.
+        * <br>A negative value is treated as 0.
+        * <br>If this parameter is set to undefined, the default value 0 is used.
+        * </p>
+        *
+        * @param { LengthMetrics | Array<LengthMetrics> | undefined } value - The tail indent value(s).Default value is 0
+        * @returns { TextAttribute } The attribute of the text.
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+    default tailIndents(value: LengthMetrics | Array<LengthMetrics> | undefined): this;
+    /**
      * Set the word break type.
      *
      * <p><strong>NOTE</strong>:
