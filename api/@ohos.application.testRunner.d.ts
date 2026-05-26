@@ -77,7 +77,6 @@ interface TestRunner {
    * Prepare the unit testing environment for running test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 23 static
    */
   onPrepare: OnPrepareFn;
@@ -95,7 +94,6 @@ interface TestRunner {
    * Run all test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 23 static
    */
   onRun: OnRunFn;
