@@ -142,3 +142,22 @@ export declare function DistortionComponent(
     options?: DistortionComponentOptions,
     content_?:CustomBuilder,
 ): DistortionComponentAttribute;
+
+
+
+/**
+ * Defines a DistortionComponent that provides spatial distortion visual effects.
+ *
+ * @param { CustomBuilderT<DistortionComponentAttribute> } style_ - DistortionComponent attribute instance.
+ * @param { CustomBuilder } [content_] - container.
+ * @returns { DistortionComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function DistortionComponent(
+    style_: CustomBuilderT<DistortionComponentAttribute>,
+    content_?:CustomBuilder,
+): DistortionComponentAttribute;
