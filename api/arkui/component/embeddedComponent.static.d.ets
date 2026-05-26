@@ -24,8 +24,9 @@ import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { Callback, ErrorCallback ,BusinessError} from '../../@ohos.base'
 import { AttributeModifier, CommonMethod, TerminationInfo } from './common'
 import { EmbeddedType } from './enums'
-import { ComponentContent } from '../ComponentContent'
-import { VoidCallback } from '../Units'
+import { Builder } from '@ohos.arkui.component';
+import { ComponentContentBase } from '../ComponentContent'
+import { VoidCallback } from './units';
 /**
  * Enumeration of different types of EmbeddedDpiFollowStrategy.
  *
@@ -34,7 +35,7 @@ import { VoidCallback } from '../Units'
  * @stagemodelonly
  * @since 26.0.0 static
  */
-declare enum EmbeddedDpiFollowStrategy {
+export declare enum EmbeddedDpiFollowStrategy {
     /**
      * Follow the host application's DPI configuration.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -49,7 +50,7 @@ declare enum EmbeddedDpiFollowStrategy {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    FOLLOW_UI_EXTENSION_ABILITY_DPI = 1,
+    FOLLOW_UI_EXTENSION_ABILITY_DPI = 1
 }
 
 /**
@@ -60,7 +61,7 @@ declare enum EmbeddedDpiFollowStrategy {
 * @stagemodelonly
 * @since 26.0.0 static
 */
-declare enum EmbeddedWindowModeFollowStrategy {
+export declare enum EmbeddedWindowModeFollowStrategy {
     /**
      * Follow the host application's window mode configuration.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -70,44 +71,44 @@ declare enum EmbeddedWindowModeFollowStrategy {
     FOLLOW_HOST_WINDOW_MODE = 0,
 
     /**
-     * Follow the host EmbeddedUIExtensionAbility's window mode configuration.
+     * Follow the EmbeddedUIExtensionAbility's window mode configuration.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1,
+    FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE = 1
 }
 
 /**
-* This interface is used to set the options for EmbeddedComponentAttribute during construction
+* This interface is used to set the options for EmbeddedComponentAttribute during construction.
 *
 * @interface EmbeddedOptions
 * @syscap SystemCapability.ArkUI.ArkUI.Full
 * @stagemodelonly
 * @since 26.0.0 static
 */
-declare interface EmbeddedOptions {
+export declare interface EmbeddedOptions {
     /**
      * Set placeholder.
-     * If set placeholder ComponentContent, show placeholder node when connection is not established.
+     * If set placeholder ComponentContentBase, show placeholder node when connection is not established.
      *
-     * @type { ?ComponentContent }
+     * @type { ?ComponentContentBase }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    placeholder?: ComponentContent;
+    placeholder?: ComponentContentBase;
 
     /**
      * Set Areachange placeholder.
      * If the Areachange placeholder is set, the placeholder node is displayed until
      * the EmbeddedComponent size change is complete.
-     * @type { ?Record<string, ComponentContent> }
+     * @type { ?Record<string, ComponentContentBase> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    areaChangePlaceholder?: Record<string, ComponentContent>;
+    areaChangePlaceholder?: Record<string, ComponentContentBase>;
 
     /**
      * Set EmbeddedComponent Content Dpi Follow Strategy.
@@ -154,6 +155,19 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
   setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType): this;
 
   /**
+   * Sets embedded component options.
+   *
+   * @param { Want } loader - indicates initialization parameter.
+   * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
+   * @param { EmbeddedOptions } [options] - indicates type of the EmbeddedComponent options.
+   * @returns { this } EmbeddedComponentAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setEmbeddedComponentOptions(loader: Want, type?: EmbeddedType, options?: EmbeddedOptions): this;
+
+  /**
    * Called when the provider of the embedded UI is terminated.
    *
    * @param { Callback<TerminationInfo> | undefined } callback
@@ -195,7 +209,7 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  onDrawReady(callback: VoidCallback | undefined): this;
+  onDrawReady(callback: VoidCallback | undefined ): this;
 }
 
 /**
@@ -210,8 +224,24 @@ export declare interface EmbeddedComponentAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function EmbeddedComponent(
+    loader: Want, type?: EmbeddedType
+): EmbeddedComponentAttribute;
+
+/**
+ * Defines EmbeddedComponent Component.
+ *
+ * @param { Want } loader - indicates initialization parameter.
+ * @param { EmbeddedType } [type] - indicates type of the EmbeddedComponent.
+ * @param { EmbeddedOptions } [options] - indicates type of the EmbeddedComponent options.
+ * @returns { EmbeddedComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@ComponentBuilder
+export declare function EmbeddedComponent(
     loader: Want, type?: EmbeddedType, options?: EmbeddedOptions
-): EmbeddedComponentAttribute
+): EmbeddedComponentAttribute;
 
 /**
  * Defines EmbeddedComponent Component.It requires call setEmbeddedComponentOptions at start of the component attribute set-up,
