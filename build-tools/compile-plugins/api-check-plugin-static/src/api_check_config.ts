@@ -14,6 +14,7 @@
  */
 
 import path from 'path';
+import * as arkts from '@koalaui/libarkts';
 import {
   PERMISSION_TAG_CHECK_NAME,
   PERMISSION_TAG_CHECK_ERROR,
@@ -30,9 +31,6 @@ import {
   CROSSPLATFORM_TAG_CHECK_ERROR,
   DEPRECATED_TAG_CHECK_NAME,
   DEPRECATED_TAG_CHECK_WARNING,
-  FA_TAG_CHECK_NAME,
-  FA_TAG_HUMP_CHECK_NAME,
-  FA_TAG_CHECK_ERROR,
   ATOMICSERVICE_BUNDLE_TYPE,
   ATOMICSERVICE_TAG_CHECK_NAME,
   ATOMICSERVICE_TAG_CHECK_ERROR,
@@ -42,16 +40,19 @@ import {
   STAGE_TAG_CHECK_NAME,
   STAGE_TAG_HUMP_CHECK_NAME,
   STAGE_TAG_CHECK_ERROR,
-  STAGE_COMPILE_MODE
+  AVAILABLE_TAG_NAME,
+  AVAILABLE_DECORATOR_WARNING,
+  AVAILABLE_FILE_NAME
 } from '../utils/api_check_plugin_define';
 import { globalObject } from '../index';
 import {
-  checkPermissionTag,
-  checkSinceTag,
-  checkSyscapTag,
-  checkSystemTag,
-  checkTestTag,
+  checkPermissionValue,
+  checkSinceValue,
+  checkSyscapAbility,
+  checkAvailableDecorator,
+  checkSystemApiTag,
   getJsDocNodeCheckConfigItem,
+  checkStageModuleValue,
   isCardFile,
   pushLog,
   collectInfo
@@ -62,11 +63,143 @@ import {
   CurrentAddress,
   DiagnosticCategory,
   JsDocNodeCheckConfig,
-  JsDocNodeCheckConfigItem
+  JsDocNodeCheckConfigItem,
+  ConditionCheckResult,
+  JsDocNodeCheckConfigItemInterface
 } from '../api-check-wrapper';
+import {
+  checkFileHasAvailableByFileName
+} from '../utils/validators/available_decorator_utils';
+import { initComparisonFunctions } from '../utils/api_check_base_utils';
 
 const jsDocNodeCheckConfigCache: Map<string, Map<string, JsDocNodeCheckConfig>> =
   new Map<string, Map<string, JsDocNodeCheckConfig>>();
+
+function getAvailableCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const availableConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [SINCE_TAG_NAME],
+    message: SINCE_TAG_CHECK_ERROR,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: true,
+    checkJsDocSuppressorValidCallback: checkAvailableDecorator
+  };
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(availableConfig));
+}
+
+function getFindModuleCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const cannotFindNameConfig: JsDocNodeCheckConfigItem = {
+    tagName: [],
+    message: FIND_MODULE_WARNING,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: true
+  };
+  checkConfigArray.push(cannotFindNameConfig);
+}
+
+function getDeprecatedCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const deprecatedConfig: JsDocNodeCheckConfigItem = {
+    tagName: [DEPRECATED_TAG_CHECK_NAME],
+    message: DEPRECATED_TAG_CHECK_WARNING,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: false
+  };
+  checkConfigArray.push(deprecatedConfig);
+}
+
+function getSystemApiCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const systemApiConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [SYSTEM_API_TAG_CHECK_NAME],
+    message: SYSTEM_API_TAG_CHECK_WARNING,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: false,
+    checkJsDocSuppressorValidCallback: checkSystemApiTag
+  };
+  checkConfigArray.push(systemApiConfig);
+}
+
+function getSinceCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const sinceConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [SINCE_TAG_NAME],
+    message: SINCE_TAG_CHECK_ERROR,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: false,
+    checkJsDocSuppressorValidCallback: checkSinceValue
+  };
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(sinceConfig));
+}
+
+function getSyscapCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const syscapConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [SYSCAP_TAG_CHECK_NAME],
+    message: SYSCAP_TAG_CHECK_WARNING,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: false,
+    checkJsDocSuppressorValidCallback: checkSyscapAbility
+  };
+  checkConfigArray.push(syscapConfig);
+}
+
+function getTestCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const testConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [TEST_TAG_CHECK_NAME],
+    message: TEST_TAG_CHECK_ERROR,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: false
+  };
+  checkConfigArray.push(testConfig);
+}
+
+function getPermissionCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const permissionConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [PERMISSION_TAG_CHECK_NAME],
+    message: PERMISSION_TAG_CHECK_ERROR,
+    type: DiagnosticCategory.WARNING,
+    tagNameShouldExisted: false,
+    checkJsDocSuppressorValidCallback: checkPermissionValue
+  };
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(permissionConfig));
+}
+
+function getFormCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const formConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [FORM_TAG_CHECK_NAME],
+    message: FORM_TAG_CHECK_ERROR,
+    type: DiagnosticCategory.ERROR,
+    tagNameShouldExisted: true
+  };
+  checkConfigArray.push(formConfig);
+}
+
+function getCrossplatformCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[], logType: DiagnosticCategory): void {
+  const crossplatformConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [CROSSPLATFORM_TAG_CHECK_NAME],
+    message: CROSSPLATFORM_TAG_CHECK_ERROR,
+    type: logType,
+    tagNameShouldExisted: true
+  };
+  checkConfigArray.push(crossplatformConfig);
+}
+
+function getStageModuleCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const stageModelOnlyConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [STAGE_TAG_CHECK_NAME, STAGE_TAG_HUMP_CHECK_NAME],
+    message: STAGE_TAG_CHECK_ERROR,
+    type: DiagnosticCategory.ERROR,
+    tagNameShouldExisted: false,
+    checkJsDocSuppressorValidCallback: checkStageModuleValue
+  };
+  checkConfigArray.push(getJsDocNodeCheckConfigItem(stageModelOnlyConfig));
+}
+
+function getAtomicserviceCheckConfig(checkConfigArray: JsDocNodeCheckConfigItem[]): void {
+  const atomicserviceConfig: JsDocNodeCheckConfigItemInterface = {
+    tagName: [ATOMICSERVICE_TAG_CHECK_NAME],
+    message: ATOMICSERVICE_TAG_CHECK_ERROR,
+    type: DiagnosticCategory.ERROR,
+    tagNameShouldExisted: true
+  };
+  checkConfigArray.push(atomicserviceConfig);
+}
 
 /**
  * 根据ProjectConfig对象存入JsDoc校验规则
@@ -85,60 +218,53 @@ function getJsDocNodeCheckConfig(fileName: string, sourceFileName: string): JsDo
   if (result !== undefined) {
     return result;
   }
-  // 预留check条件
-  let needCheckResult: boolean = true;
+  let needCheckResult: boolean = false;
   const checkConfigArray: JsDocNodeCheckConfigItem[] = [];
   const apiName: string = path.basename(fileName);
   const sourceBaseName: string = path.basename(sourceFileName);
-  if (/(?<!\.d)\.ts$/g.test(fileName)) {
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([], FIND_MODULE_WARNING,
-      DiagnosticCategory.WARNING, true));
+  result = {
+    nodeNeedCheck: needCheckResult,
+    checkConfig: checkConfigArray
+  };
+  initComparisonFunctions();
+  if (globalObject.projectConfig.systemModules.includes(apiName)) {
+    byFileName.set(sourceFileName, result);
+    return result;
   }
-  if (!globalObject.projectConfig.systemModules.includes(apiName) &&
-    (globalObject.projectConfig.allModulesPaths.includes(path.normalize(sourceFileName)))) {
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([DEPRECATED_TAG_CHECK_NAME],
-      DEPRECATED_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false));
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([SYSTEM_API_TAG_CHECK_NAME],
-      SYSTEM_API_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false,checkSystemTag));
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([SINCE_TAG_NAME],
-      SINCE_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false, checkSinceTag));
-    // TODO: 预览文件 & CanIUse
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([SYSCAP_TAG_CHECK_NAME],
-      SYSCAP_TAG_CHECK_WARNING, DiagnosticCategory.WARNING, false, checkSyscapTag));
+  if (checkFileHasAvailableByFileName(sourceFileName)) {
+    needCheckResult = true;
+    getAvailableCheckConfig(checkConfigArray);
+  } else if (globalObject.projectConfig.allModulesPaths.includes(path.normalize(sourceFileName))) {
+    needCheckResult = true;
+    getDeprecatedCheckConfig(checkConfigArray);
+    getSystemApiCheckConfig(checkConfigArray);
+    if (sourceBaseName !== AVAILABLE_FILE_NAME) {
+      getSinceCheckConfig(checkConfigArray);
+    }
+    if (globalObject.projectConfig.deviceTypes && globalObject.projectConfig.deviceTypes.length > 0) {
+      getSyscapCheckConfig(checkConfigArray);
+    }
     if (globalObject.projectConfig.projectRootPath) {
       const ohosTestDir = path.resolve(globalObject.projectConfig.projectRootPath, 'entry', 'src', 'ohosTest');
       if (!path.resolve(fileName).startsWith(ohosTestDir)) {
-        checkConfigArray.push(getJsDocNodeCheckConfigItem([TEST_TAG_CHECK_NAME],
-          TEST_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false,checkTestTag));
+        getTestCheckConfig(checkConfigArray);
       }
     }
-    checkConfigArray.push(getJsDocNodeCheckConfigItem([PERMISSION_TAG_CHECK_NAME],
-      PERMISSION_TAG_CHECK_ERROR, DiagnosticCategory.WARNING, false, checkPermissionTag));
+    getPermissionCheckConfig(checkConfigArray);
     if (isCardFile(fileName)) {
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([FORM_TAG_CHECK_NAME],
-        FORM_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, true));
+      getFormCheckConfig(checkConfigArray);
     }
     if (globalObject.projectConfig.isCrossplatform) {
       const logType: DiagnosticCategory =
         globalObject.projectConfig.ignoreCrossplatformCheck !== true ? DiagnosticCategory.ERROR :
           DiagnosticCategory.WARNING;
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([CROSSPLATFORM_TAG_CHECK_NAME],
-        CROSSPLATFORM_TAG_CHECK_ERROR, logType, true));
+      getCrossplatformCheckConfig(checkConfigArray, logType);
     }
-    if (globalObject.projectConfig.compileMode === STAGE_COMPILE_MODE) {
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([FA_TAG_CHECK_NAME, FA_TAG_HUMP_CHECK_NAME],
-        FA_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, false));
-    } else if (globalObject.projectConfig.compileMode !== '') {
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([STAGE_TAG_CHECK_NAME, STAGE_TAG_HUMP_CHECK_NAME],
-        STAGE_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, false));
-    }
+    getStageModuleCheckConfig(checkConfigArray);
     if (globalObject.projectConfig.bundleType === ATOMICSERVICE_BUNDLE_TYPE &&
       globalObject.projectConfig.compileSdkVersion >= ATOMICSERVICE_TAG_CHECK_VERSION) {
-      checkConfigArray.push(getJsDocNodeCheckConfigItem([ATOMICSERVICE_TAG_CHECK_NAME],
-        ATOMICSERVICE_TAG_CHECK_ERROR, DiagnosticCategory.ERROR, true));
+      getAtomicserviceCheckConfig(checkConfigArray);
     }
-  } else {
-    needCheckResult = false;
   }
   result = {
     nodeNeedCheck: needCheckResult,
