@@ -19,8 +19,7 @@
  */
 
 /**
- * Defines a common callback. You can set **data** to customize the data type of the information returned by the
- * callback.
+ * 通用回调函数。开发者在使用时，可自定义data的类型，回调将返回对应类型的信息。
  *
  * @syscap SystemCapability.Base
  * @since 23 static
@@ -28,8 +27,7 @@
 export type Callback<T> = (data: T) => void;
 
 /**
- * Defines a common callback that carries an error parameter. The information returned by the callback is of
- * the [BusinessError]{@link BusinessError} type.
+ * 通用回调函数，携带错误参数。回调返回的信息为[BusinessError]{@link BusinessError}类型的信息。
  *
  * @syscap SystemCapability.Base
  * @since 23 static
@@ -37,7 +35,7 @@ export type Callback<T> = (data: T) => void;
 export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
 
 /**
- * Defines a common callback that carries an error parameter and asynchronous return value.
+ * 通用回调函数，携带错误参数和异步返回值。错误参数为[BusinessError]{@link BusinessError}类型的信息。异步返回值的类型由开发者自定义，回调将返回对应类型的信息。
  *
  * @syscap SystemCapability.Base
  * @since 23 static
@@ -45,51 +43,54 @@ export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
 export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined) => void;
 
 /**
- * Defines the error parameter.
+ * 错误参数。
  *
  * @syscap SystemCapability.Base
  * @since 23 static
  */
 export declare class BusinessError<T = void> extends Error {
   /**
-   * A constructor used to create a BusinessError object
+   * BusinessError的构造函数。
    *
    * @syscap SystemCapability.Base
    * @since 23 static
    */
   constructor();
   /**
-   * A constructor used to create a BusinessError object
-   *
-   * @param { int } code - Error code information returned when the interface call fails.
-   * @param { Error } error - Incorrect parameters.
+    * BusinessError的构造函数。
+    *
+   * @param { int } code - 接口调用失败返回的错误码信息
+    *     <br>取值范围为全体整数。
+   * @param { Error } error - 错误参数。
    * @syscap SystemCapability.Base
    * @since 23 static
    */
   constructor(code: int, error: Error);
   /**
-   * A constructor used to create a BusinessError object
-   *
-   * @param { int } code - The value range is all integers.
-   * @param { T } data - Common callback information during interface invocation.
-   * @param { Error } error - Incorrect parameters.
+    * BusinessError的构造函数。
+    *
+   * @param { int } code - 接口调用失败返回的错误码信息
+    *     <br>取值范围为全体整数。
+   * @param { T } data - 接口调用时的公共回调信息。
+   * @param { Error } error - 错误参数。
    * @syscap SystemCapability.Base
    * @since 23 static
    */
   constructor(code: int, data: T, error: Error);
   /**
-   * A constructor used to create a BusinessError object
-   *
-   * @param { int } code - Error code information returned when the interface call fails.
-   * @param { string } message - The error message description returned when the interface call fails.
-   * @param { T } [data] - Common callback information during interface invocation.
+    * BusinessError的构造函数。
+    *
+   * @param { int } code - 接口调用失败返回的错误码信息
+    *     <br>取值范围为全体整数。
+   * @param { string } message - 接口调用失败返回的错误信息描述。
+   * @param { T } [data] - 接口调用时的公共回调信息。
    * @syscap SystemCapability.Base
    * @since 23 static
    */
   constructor(code: int, message: string, data?: T);
 
   /**
-   * Defines the additional information for business
+   * 定义与业务相关的附加信息。
    *
    * @syscap SystemCapability.Base
    * @since 23 static
@@ -98,9 +99,9 @@ export declare class BusinessError<T = void> extends Error {
  }
 
 /**
- * In ArkTS static typing, for literals where the hierarchy and the number
- * of attributes per level are uncertain, you can use RecordData for initialization.
+ * RecordData 是一个联合类型，用于层级和每层数量都不确定的对象结构。
  *
+ * @
  * @unionmember { undefined } Undefined type.
  * @unionmember { null } Null type.
  * @unionmember { Object } Object type.
