@@ -6686,6 +6686,8 @@ declare namespace webview {
      * [clearPrefetchedResource]{@link webview.WebviewController.clearPrefetchedResource}清除不需要的post请求缓存，否则会自动清除最早预获取的
      * post缓存。如果要使用预获取的资源缓存，开发者需要在正式发起的post请求的请求头中增加键值“ArkWebPostCacheKey”，其内容为对应缓存的cacheKey。
      *
+     * 内存缓存中的资源由内核自动管理，当注入的资源过多导致内存压力过大，内核自动释放未使用的资源，应避免注入大量资源到内存缓存中。
+     *
      * @param { RequestInfo } request - 预获取请求的信息。
      * @param { Array<WebHeader> } [additionalHeaders] - 预获取请求的附加HTTP请求头。 <br>传入undefined或null会抛出异常错误码401。
      * @param { string } [cacheKey] - 用于后续查询预获取资源缓存的key。仅支持字母和数字，未传入或传入空则取默认值url作为key。<br>传入undefined或null会抛出异常错误码401。
