@@ -1608,6 +1608,14 @@ declare namespace update {
   export interface FactoryResetStrategy {
     /**
      * Reset scope.
+     * 
+     * Partition level covered by the reset operation:
+     * - **DATA**: Clears user data only (applications, settings, accounts, etc.).
+     *   Characteristics: Fast execution, system partition preserved, user data logically deleted.
+     *
+     * - **DATA_AND_OS**: Clears user data and resets the system partition.
+     *   Characteristics: High security, involves complete erasure or overwriting of the system partition, typically
+     *     accompanied by system reinstallation, longer execution time.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1617,21 +1625,14 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * Reset strategy.The specific meaning of this strategy depends on the value of scope field.
+     * Reset scope description. This field provides a detailed specification of the scope.
      *
-     * - When scope is set to DATA, this field typically indicates a "Quick Erase".
-     *   This is suitable for clearing only user data(apps, settings, accounts, etc.) while keeping the system
-     *     partition intact.
-     *   It is fast, but the data may not be thoroughly overwritten.
+     * Example values (for reference; specific descriptions should be formulated based on actual needs to best convey the intent):
+     * - "QUICK_ERASE": Quick erase
+     * - "DEEP_ERASE": Deep erase
+     * - Note: It is recommended to provide a valid description. If left empty, log records will lack effective information when
+     *     anomalies occur, which may increase troubleshooting difficulty.
      *
-     * - When scope is set to DATA_AND_OS, this field typically indicates a "Deep Erase".
-     *   This is suitable for clearing user data and reinstalling/resetting the system.
-     *   It involves a complete wipe or rewrite of the system partition, offering higher security but taking longer
-     *     to complete.
-     *
-     * - Note: Leaving this value empty is not recommended, as it may increase the difficulty of
-     *     troubleshooting in the event of an exception.
-     * 
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @stagemodelonly

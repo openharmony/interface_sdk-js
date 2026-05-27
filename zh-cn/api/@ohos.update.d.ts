@@ -1610,7 +1610,6 @@ declare namespace update {
      * 值示例（供参考，具体描述信息根据实际需要加以表述，能说明意图为佳）：
      * - "QUICK_ERASE"：快速擦除
      * - "DEEP_ERASE"：深度擦除
-     *
      * - 注意：建议填写有效表述。若为空，当发生异常时，日志记录缺乏有效信息，可能增加排查的难度。
      *
      * @syscap SystemCapability.Update.UpdateService
