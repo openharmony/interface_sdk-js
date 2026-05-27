@@ -561,7 +561,6 @@ declare namespace data {
    * Open the system APN selection menu, which is presented in a semi-modal form and can
    * be used to select a specific APN. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.GET_NETWORK_INFO
    * @param { Context } context - Indicates Context instance.
    * @returns { Promise<void> } The promise returned by the function.
    * @syscap SystemCapability.Telephony.CellularData
