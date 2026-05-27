@@ -243,6 +243,8 @@ declare namespace autoFillManager {
    * Defines the view data used for auto-fill.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -253,6 +255,8 @@ declare namespace autoFillManager {
    * Defines the view data used for auto-fill.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -262,6 +266,8 @@ declare namespace autoFillManager {
    * Defines the page node information used for auto-fill.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -272,6 +278,8 @@ declare namespace autoFillManager {
    * Defines the page node information used for auto-fill.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -281,6 +289,8 @@ declare namespace autoFillManager {
    * The enum of auto fill type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -291,6 +301,8 @@ declare namespace autoFillManager {
    * The enum of auto fill type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -300,6 +312,8 @@ declare namespace autoFillManager {
    * Defines the information about an auto-fill request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -310,6 +324,8 @@ declare namespace autoFillManager {
    * Defines the information about an auto-fill request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -319,6 +335,8 @@ declare namespace autoFillManager {
    * Defines the information about an auto-save request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -329,6 +347,8 @@ declare namespace autoFillManager {
    * Defines the information about an auto-save request.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 static
@@ -451,6 +471,8 @@ declare namespace autoFillManager {
    * Defines the rectangle used for auto-fill.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -461,6 +483,8 @@ declare namespace autoFillManager {
    * Defines the rectangle used for auto-fill.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -527,19 +551,23 @@ declare namespace autoFillManager {
   export type PopupPlacement = _PopupPlacement;
 
   /**
-  * The enum of auto fill trigget type.
-  *
-  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-  * @stagemodelonly
-  * @atomicservice
-  * @since 26.0.0 dynamic
-  */
+   * The enum of auto fill trigget type.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   export { AutoFillTriggerType };
 
   /**
    * The enum of auto fill trigget type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @since 26.0.0 static
    */

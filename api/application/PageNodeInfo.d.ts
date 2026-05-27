@@ -31,6 +31,8 @@ import AutoFillRect from './AutoFillRect';
  * PageNodeInfo defines the page node information used for auto-fill.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi [since 11 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static
@@ -41,6 +43,8 @@ export default interface PageNodeInfo {
    * The value should be an integer
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -62,6 +66,8 @@ export default interface PageNodeInfo {
    * The auto fill type of page node.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -83,6 +89,8 @@ export default interface PageNodeInfo {
    * The value of page node.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -93,6 +101,8 @@ export default interface PageNodeInfo {
    * The placeholder of page node.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -125,6 +135,8 @@ export default interface PageNodeInfo {
    * The rect of page node.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -135,6 +147,8 @@ export default interface PageNodeInfo {
    * Is the page node in the focus.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static

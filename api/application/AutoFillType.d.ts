@@ -22,6 +22,8 @@
  * AutoFillType enumerates the types of elements to be automatically filled in.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi [since 11 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static
@@ -31,6 +33,8 @@ export enum AutoFillType {
    * Undefined type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -41,6 +45,8 @@ export enum AutoFillType {
    * Password.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -51,6 +57,8 @@ export enum AutoFillType {
    * Username.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -61,6 +69,8 @@ export enum AutoFillType {
    * New password.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static

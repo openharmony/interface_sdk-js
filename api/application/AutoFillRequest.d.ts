@@ -39,6 +39,8 @@ import { AutoFillTriggerType } from './AutoFillTriggerType';
  * Defines the information about an auto-fill request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi [since 11 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static
@@ -48,6 +50,8 @@ export interface FillRequest {
    * Type of the element to be automatically filled in.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -58,6 +62,8 @@ export interface FillRequest {
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -94,6 +100,8 @@ export interface FillRequest {
    * Trigger type for the autofill service.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
@@ -105,6 +113,8 @@ export interface FillRequest {
  * Defines the information about an auto-saving request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @systemapi [since 11 - 24]
+s * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic&static
@@ -114,6 +124,8 @@ export interface SaveRequest {
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic&static
