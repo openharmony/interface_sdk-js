@@ -4526,6 +4526,7 @@ declare namespace text {
      * Follows the high contrast mode for text rendering in the system settings.
      *
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 22]
      * @since 20 dynamic
      * @since 23 static
