@@ -3158,12 +3158,13 @@ declare namespace window {
    *     [Configuration]{@link @ohos.window:window.Configuration}. When searching for the main window, use
    *     [getWindowName](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getwindowname12) to obtain the
    *     window name of the current instance.
-   * @returns { Window } Window found. If the window with the specified name does not exist, an empty object is
-   *     returned.
+   * @returns { Window } Window found. If the window with the specified name does not exist, error code 1300002
+   *     is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
-   * @throws { BusinessError } 1300002 - This window state is abnormal.
-   *     Possible cause: The window is not created or destroyed.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+   *     1. The window is not created or destroyed.
+   *     2. Window not found.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
