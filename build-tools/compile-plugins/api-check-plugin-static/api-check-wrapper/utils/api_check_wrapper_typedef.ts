@@ -22,7 +22,6 @@ export enum DiagnosticCategory {
   WARNING = 0,
   ERROR = 1
 }
-
 /**
  * ApiCheckWrapper服务，绑定校验规则
  */
