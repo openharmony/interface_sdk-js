@@ -721,15 +721,6 @@ export { StepperModifier } from './arkui/StepperModifier';
 export { UIPickerComponentModifier } from './arkui/UIPickerComponentModifier';
 
 /**
- * Export ModifierUtils, which provides utility methods for modifier and attribute operations.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 26.0.0 dynamiconly
- */
-export { ModifierUtils } from './arkui/ModifierUtils';
-
-/**
  * Export ContainerReaderModifier, which is used to expose applyNormalAttribute function.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -739,3 +730,14 @@ export { ModifierUtils } from './arkui/ModifierUtils';
  * @since 26.0.0 dynamiconly
  */
 export { ContainerReaderModifier } from './arkui/ContainerReaderModifier';
+
+/**
+ * Export ModifierUtils, which provides utility methods for modifier and attribute operations.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamiconly
+ */
+export { ModifierUtils } from './arkui/ModifierUtils';
+
+
