@@ -1060,25 +1060,28 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
       code: '',
       description: '',
       cause: message,
-      position: fileInfo
+      position: fileInfo,
+      solutions: ['']
   }
   const availableVersionRegex: RegExp = /^The runtime OS for the current project is .+\. The OS version number .+ is invalid\./;
   const availableNotSupportedRegex: RegExp = /^The runtime OS for the current project is .+\. @Available is not supported on the OS: .+\./;
   if (availableVersionRegex.test(message)) {
     const info = {
-      code: '117060016',
+      code: '11706016',
       description: 'Invalid version format in @Available decorator.',
       cause: message,
-      position: fileInfo
+      position: fileInfo,
+      solutions: ['Change the version number to an integer between 1 and 999, or use the standardized M.S.F format.']
     };
     diagnosticInfo = info;
   }
   if (availableNotSupportedRegex.test(message)) {
     const info = {
-      code: '117060017',
+      code: '11706017',
       description: 'Invalid version format in @Available decorator.',
       cause: message,
-      position: fileInfo
+      position: fileInfo,
+      solutions: ['Change the version number to an integer between 1 and 999, or use the standardized M.S.F format.']
     };
     diagnosticInfo = info;
   }
