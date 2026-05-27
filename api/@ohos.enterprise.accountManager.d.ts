@@ -281,6 +281,81 @@ declare namespace accountManager {
    * @since 19
    */
   function getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy;
+
+  /**
+   * Adds a normal OS account using the name.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } name - the OS account name. It cannot be empty.
+   * @returns { Promise<osAccount.OsAccountInfo> } Returns the information about the added OS account.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201003 - Failed to add an OS account.
+   * @throws { BusinessError } 9201040 - The number of accounts reaches the upper limit.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * The application does not have the permission required to call the API.
+   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+   * 1. The operation is restricted by the OS-account constraint.
+   * 2. The required privilege for the operation has not been granted.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function createNormalOsAccount(admin: Want, name: string): Promise<osAccount.OsAccountInfo>;
+
+  /**
+   * Removes an OS account by ID.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_LOCAL_ACCOUNTS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * <br>The value must be an integer greater than or equal to 101.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201041 - Restricted account.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * The application does not have the permission required to call the API.
+   * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
+   * 1. The operation is restricted by the OS-account constraint.
+   * 2. The required privilege for the operation has not been granted.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeOsAccount(admin: Want, accountId: number): Promise<void>;
+
+  /**
+   * Activates a specified OS account by ID.
+   *
+   * @permission ohos.permission.ENTERPRISE_INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { number } accountId - accountId indicates the local ID of the OS account.
+   * <br>The value must be an integer greater than or equal to 100.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201041 - Restricted account.
+   * @throws { BusinessError } 9201046 - The number of signed-in accounts reaches the upper limit.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function activateOsAccount(admin: Want, accountId: number): Promise<void>;
 }
 
 export default accountManager;
