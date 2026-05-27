@@ -2391,7 +2391,8 @@ declare namespace uniformTypeDescriptor {
      * @returns { boolean } Returns **true** if the data type belongs to or is the same as the specified uniform data
      *     type; returns **false** if they are not related.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -2410,7 +2411,8 @@ declare namespace uniformTypeDescriptor {
      * @returns { boolean } Returns **true** if the data type is a lower-level type of the specified uniform data type;
      *     returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -2429,7 +2431,8 @@ declare namespace uniformTypeDescriptor {
      * @returns { boolean } Returns **true** if the data type is a higher-level type of the specified uniform data type;
      *     returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -2445,7 +2448,8 @@ declare namespace uniformTypeDescriptor {
      * @param { TypeDescriptor } typeDescriptor - Uniform data type to compare.
      * @returns { boolean } Returns **true** if the type IDs are the same; returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 20]
@@ -2462,7 +2466,8 @@ declare namespace uniformTypeDescriptor {
    * @returns { TypeDescriptor } **TypeDescriptor** object obtained. If the uniform data type does not exist, **null**
    *     is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameter types.
+   *     <br>2.Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -2477,7 +2482,8 @@ declare namespace uniformTypeDescriptor {
    * @returns { TypeDescriptor | null } Returns the uniform type descriptor corresponding to the uniform data type ID
    *     or null if the uniform data type does not exist.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types.
+   *     <br>2.Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @since 23 static
@@ -2497,7 +2503,8 @@ declare namespace uniformTypeDescriptor {
    *     if specified). If no match is found, the data type dynamically generated based on the rules specified by the
    *     input parameters is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -2518,7 +2525,8 @@ declare namespace uniformTypeDescriptor {
    *     specified). If no match is found, the data type dynamically generated based on the rules specified by the input
    *     parameters is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -2539,7 +2547,8 @@ declare namespace uniformTypeDescriptor {
    *     specified). If no match is found, the data types dynamically generated based on the rules specified by the
    *     input parameters are returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -2559,7 +2568,8 @@ declare namespace uniformTypeDescriptor {
    *     ). If no match is found, the data types dynamically generated based on the rules specified by the input
    *     parameters are returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types;
+   *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @crossplatform [since 20]
