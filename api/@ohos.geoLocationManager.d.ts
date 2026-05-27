@@ -2501,18 +2501,27 @@ declare namespace geoLocationManager {
   function getCurrentDistrict(request: DistrictInfoRequest): Promise<DistrictInfo>;
 
   /**
-   * Obtain post-processing trajectory information under specific sport mode.
+   * Obtain post-processing trajectory information under specific sport mode. Only
+   * [SKIING]{@link geoLocationManager.SportsType.SKIING} is supported currently.
+   *
+   * Before calling this API, you need to call
+   * [on('locationChange')]{@link geoLocationManager.on('locationChange')} and set the input parameter
+   * [sportsType]{@link geoLocationManager.ContinuousLocationRequest.sportsType} to the specific sport mode to start
+   * tracking.
+   *
+   * Returns data within 24 hours since tracking started; Subsequent calls return only new records.
    *
    * @permission ohos.permission.LOCATION
    * @param { SportsType } sportsType - Indicate the type of sports.
-   * @returns { Promise<ArrayBuffer> } Promise used to return ${ArrayBuffer}.
+   * @returns { Promise<Array<Location>> } Promise used to return `Array<Location>`.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call
-   *     ${geoLocationManager.getPostProcessingTrack} due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call this API due to limited device 
+   *     capabilities.
    * @throws { BusinessError } 3301000 - The location service is unavailable.
    * @throws { BusinessError } 3301100 - The location switch is off.
-   * @throws { BusinessError } 3301200 - Failed to obtain the post processing track.
+   * @throws { BusinessError } 3301200 - Failed to obtain the post processing track because sports type is not 
+   *     supported.
    * @syscap SystemCapability.Location.Location.Gnss
    * @stagemodelonly
    * @atomicservice
