@@ -2694,6 +2694,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2789,6 +2790,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 26.0.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -2802,6 +2804,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2814,6 +2817,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2827,6 +2831,7 @@ declare interface SwiperContentAnimatedTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 26.0.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -2838,6 +2843,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2850,6 +2856,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2862,6 +2869,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2874,6 +2882,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2885,6 +2894,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
