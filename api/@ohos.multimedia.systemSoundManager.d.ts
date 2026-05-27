@@ -995,7 +995,7 @@ declare namespace systemSoundManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    getMockHapticRingtonePlayer(context: BaseContext, thapticUri: string): Promise<RingtonePlayer | null>;
+    getMockHapticRingTonePlayer(context: BaseContext, hapticUri: string): Promise<RingtonePlayer | null>;
 
     /**
      * Obtains a mock haptic ringtone player for playing vibration files and their corresponding mock haptic
@@ -1022,7 +1022,7 @@ declare namespace systemSoundManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    getMockHapticRingtonePlayer(context: BaseContext, type: RingtoneType, ringtoneUri: string): Promise<RingtonePlayer | null>;
+    getMockHapticRingTonePlayer(context: BaseContext, type: RingtoneType, ringtoneUri: string): Promise<RingtonePlayer | null>;
 
     /**
      * Sets the system tone uri to system.
