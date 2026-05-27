@@ -138,8 +138,8 @@ declare namespace volumeManager {
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
      * @systemapi
-     * @since 12 dynamic
-     * @since 23 static
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     partitionNum?: int;
 
