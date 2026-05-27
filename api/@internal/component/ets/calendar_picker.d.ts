@@ -168,7 +168,7 @@ declare interface CalendarOptions {
 
   /**
    * Defines the disabled date range for the calendar picker.
-   * 
+   *
    * @type { ?DateRange[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -259,7 +259,6 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @since 11 dynamic
    */
   edgeAlign(alignType: CalendarAlign, offset?: Offset): CalendarPickerAttribute;
-
   /**
    * Set the alignment between entry and calendar dialog.
    * @param { Optional<CalendarAlign> } alignType - The type of alignment between entry and calendar dialog.
@@ -352,7 +351,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
 
   /**
    * Defines whether the calendar picker marks today.
-   * 
+   *
    * @param { boolean } enabled - whether the calendar picker marks today.
    * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -697,7 +696,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * Defines the calendar picker marks today.
-   * 
+   *
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -707,6 +706,38 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * @since 19 dynamic
    */
   markToday?: boolean;
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects,
+   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation Mode of the dialog.
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edgeLight animation Mode of the dialog.
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**

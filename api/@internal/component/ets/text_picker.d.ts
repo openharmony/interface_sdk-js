@@ -41,7 +41,7 @@ declare interface TextPickerRangeContent {
   /**
    * Image resource.
    * If the value is a string, such as **"/common/hello.png"**, it represents the path to the image.
-   * 
+   *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,7 +51,7 @@ declare interface TextPickerRangeContent {
   /**
    * Image resource.
    * If the value is a string, such as **"/common/hello.png"**, it represents the path to the image.
-   * 
+   *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -67,7 +67,7 @@ declare interface TextPickerRangeContent {
    * <p><strong>NOTE</strong>:
    * <br>If the text length exceeds the column width, the text will be truncated.
    * </p>
-   * 
+   *
    * @type { ?(string | Resource) }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -80,7 +80,7 @@ declare interface TextPickerRangeContent {
    *
    * <p><strong>NOTE</strong>:
    * <br>If the text length exceeds the column width, the text will be truncated.
-   * </p> 
+   * </p>
    *
    * @type { ?(string | Resource) }
    * @default ""
@@ -118,7 +118,7 @@ declare interface TextCascadePickerRangeContent {
    * <p><strong>NOTE</strong>:
    * If the text length exceeds the column width, the text will be truncated.
    * </p>
-   * 
+   *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -305,7 +305,7 @@ declare interface TextPickerOptions {
    * The index is zero-based.
    * For a single-column picker, use a value of the number type.
    * For a multi-column (linked) picker, use a value of the number[].
-   * 
+   *
    * @type { ?(number | number[]) }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -413,7 +413,7 @@ declare interface DividerOptions {
    * <br>If the value is less than 0, the default value is used.
    * <br>The maximum value allowed is half the height of the column.
    * </p>
-   * 
+   *
    * @type { ?Dimension }
    * @default 2.0px
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -492,7 +492,7 @@ declare interface TextPickerTextStyle extends PickerTextStyle {
    * the size setting in font is ineffective.
    * The default maximum number of lines is 1,
    * and the default height adaptation mode is MIN_FONT_SIZE_FIRST.
-   * 
+   *
    * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -685,7 +685,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   defaultPickerItemHeight(height: Optional<number | string>): TextPickerAttribute;
 
   /**
@@ -724,7 +724,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   canLoop(isLoop: Optional<boolean>): TextPickerAttribute;
 
   /**
@@ -761,7 +761,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   disappearTextStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
@@ -813,7 +813,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   textStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
@@ -863,7 +863,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selectedTextStyle(style: Optional<PickerTextStyle>): TextPickerAttribute;
 
   /**
@@ -979,7 +979,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   onChange(callback: Optional<OnTextPickerChangeCallback>): TextPickerAttribute;
 
   /**
@@ -1077,7 +1077,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selectedIndex(index: Optional<number | number[]>): TextPickerAttribute;
 
   /**
@@ -1103,7 +1103,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   divider(textDivider: Optional<DividerOptions | null>): TextPickerAttribute;
 
   /**
@@ -1147,7 +1147,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * <br>Avoid changing the attribute data during the animation process of this component.
    * </p>
    *
-   * @param { Optional<Dimension> } height - THeight of the fade effect at the top and bottom edges of 
+   * @param { Optional<Dimension> } height - THeight of the fade effect at the top and bottom edges of
    * <br>the content area.
    * @default 36vp
    * @returns { TextPickerAttribute }
@@ -1156,7 +1156,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   gradientHeight(height: Optional<Dimension>): TextPickerAttribute;
 
   /**
@@ -1795,13 +1795,13 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * <br>2. You can set the callback event for changing the dialog box display effect in onWillAppear.
    * <br>the settings take effect next time the dialog box appears.
    * </p>
-   * 
+   *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * 
+   *
    * @since 12 dynamic
    */
   onWillAppear?: () => void;
@@ -1815,7 +1815,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * <br>2. If the user closes the dialog box immediately after it appears,
    * onWillDisappear is invoked before onDidAppear.
    * </p>
-   * 
+   *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1837,7 +1837,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @atomicservice
    * @since 12 dynamic
    */
-  shadow?: ShadowOptions | ShadowStyle; 
+  shadow?: ShadowOptions | ShadowStyle;
 
   /**
    * Whether to enable the hover mode.
@@ -1907,6 +1907,38 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 23 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects,
+   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation Mode of the dialog.
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edgeLight animation Mode of the dialog.
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**
@@ -2234,7 +2266,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @atomicservice
    * @since 20 dynamic
    */
-  shadow?: ShadowOptions | ShadowStyle; 
+  shadow?: ShadowOptions | ShadowStyle;
 
   /**
    * Defines whether to respond to the hover mode.
@@ -2406,4 +2438,3 @@ declare const TextPicker: TextPickerInterface;
  * @since 11 dynamic
  */
 declare const TextPickerInstance: TextPickerAttribute;
-
