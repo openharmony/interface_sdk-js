@@ -560,9 +560,10 @@ declare namespace data {
   /**
    * Open the system APN selection menu, which is presented in a semi-modal form and can
    * be used to select a specific APN. This API uses a promise to return the result.
+   * If there is no SIM card or the device does not support the APN menu, the menu cannot be displayed.
    *
    * @param { Context } context - Indicates Context instance.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Telephony.CellularData
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
