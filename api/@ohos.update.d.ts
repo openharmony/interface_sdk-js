@@ -1629,7 +1629,7 @@ declare namespace update {
      *   It involves a complete wipe or rewrite of the system partition, offering higher security but taking longer
      *     to complete.
      *
-     * - Note: Leaving ths value empty is not recommended, as it may increase the difficulty of
+     * - Note: Leaving this value empty is not recommended, as it may increase the difficulty of
      *     troubleshooting in the event of an exception.
      * 
      * @syscap SystemCapability.Update.UpdateService
