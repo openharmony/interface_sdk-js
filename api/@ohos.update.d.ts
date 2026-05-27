@@ -1617,8 +1617,21 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * Reset strategy.
+     * Reset strategy.The specific meaning of this strategy depends on the value of scope field.
      *
+     * - When scope is set to DATA, this field typically indicates a "Quick Erase".
+     *   This is suitable for clearing only user data(apps, settings, accounts, etc.) while keeping the system
+     *     partition intact.
+     *   It is fast, but the data may not be thoroughly overwritten.
+     *
+     * - When scope is set to DATA_AND_OS, this field typically indicates a "Deep Erase".
+     *   This is suitable for clearing user data and reinstalling/resetting the system.
+     *   It involves a complete wipe or rewrite of the system partition, offering higher security but taking longer
+     *     to complete.
+     *
+     * - Note: Leaving ths value empty is not recommended, as it may increase the difficulty of
+     *     troubleshooting in the event of an exception.
+     * 
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
      * @stagemodelonly
@@ -1667,7 +1680,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * Duration required for restoring factory settings，in seconds.
+     * Duration required for restoring factory settings, in seconds.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

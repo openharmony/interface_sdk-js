@@ -1598,7 +1598,15 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * 重置策略。
+     * 重置策略。该策略的具体含义取决于scope字段的值。
+     * 
+     * - 当scope为DATA时，此字段通常表示"快速擦除"。
+     *   适用于仅清除用户数据(应用、设置、帐户等)，保留系统分区，速度快但数据可能未彻底覆写。
+     *
+     * - 当scope为DATA_AND_OS时，此字段通常表示"深度擦除"。
+     *   适用于清除用户数据并重装/重置系统，涉及系统分区的完整擦除或重写，安全性更高但耗时较长。
+     *
+     * - 注意：不建议为空值，当发生异常时，可能增加排查的难度。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
