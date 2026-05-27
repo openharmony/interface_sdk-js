@@ -2188,8 +2188,19 @@ declare namespace tag {
    * @syscap SystemCapability.Communication.NFC.Tag
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   const SKIP_NDEF = 11;
+
+  /**
+   * Skip NDEF when app is reading a card in the foreground.
+   * The value range is all integers.
+   *
+   * @syscap SystemCapability.Communication.NFC.Tag
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 static
+   */
+  const SKIP_NDEF: int;
 }
 export default tag;
