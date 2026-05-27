@@ -1857,17 +1857,19 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.DLP_POLICY_MANAGER
      * @param { Array<string> } appLists - The appIdentifiers of applications to be put under controlled
-     *     <br>The value range of Array is (0, 100], and the value range of String is (0, 4096].
+     *     <br>The maximum length is 100.
+     *     <br>The value range of Array is [0, 100], and the value range of String is [0, 4096].
      * @param { number } [userId] - The target userId for which the controlled app list is configured.
-     *     If not specified, the current user is used by default.
+     *     If not specified, the current user is used by default
+     *     <br>The value range is all integers.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
-     * @throws { BusinessError } 19110005 - The specified userId is inconsistent with the current userId.
-     * @throws { BusinessError } 19110006 - The specified userId belongs to a personal space user and
-     *     cannot be controlled.
+     * @throws { BusinessError } 19100023 - The specified userId is inconsistent with the current userId.
+     * @throws { BusinessError } 19100024 - The specified userId belongs to a personal space user and
+     *     cannot be managed.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
      * @since 26.0.0
