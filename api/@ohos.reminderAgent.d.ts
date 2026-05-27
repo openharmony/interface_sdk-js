@@ -400,6 +400,7 @@ declare namespace reminderAgent {
 
     /**
      * Ringing duration, in seconds. The default value is **1**.
+     * Unit: s.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -420,6 +421,7 @@ declare namespace reminderAgent {
 
     /**
      * Reminder snooze interval, in seconds. The default value is **0**.
+     * Unit: s.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
@@ -582,6 +584,7 @@ declare namespace reminderAgent {
   interface ReminderRequestTimer extends ReminderRequest {
     /**
      * Number of seconds in the countdown timer.
+     * Unit: s.
      *
      * @syscap SystemCapability.Notification.ReminderAgent
      * @since 7 dynamiconly
