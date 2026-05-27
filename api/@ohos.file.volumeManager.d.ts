@@ -932,9 +932,9 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600005 - Incorrect volume state.
-   * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13600023 - Disc not erasable.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600026 - Erase operation failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
@@ -946,19 +946,18 @@ declare namespace volumeManager {
    * Ejects a volume. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
-   * @param { string } volumeId - Volume ID.
+   * @param { string } diskId - The diskId of disk.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600005 - Incorrect volume state.
-   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function eject(volumeId: string): Promise<void>;
+  function eject(diskId: string): Promise<void>;
 
   /**
    * Creates an ISO image from a volume. This API uses a promise to return the result.
@@ -970,8 +969,9 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
    * @throws { BusinessError } 13600005 - Incorrect volume state.
-   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600024 - Empty disc.
    * @throws { BusinessError } 13600025 - Failed to write the ISO file.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -991,10 +991,8 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600005 - Incorrect volume state.
-   * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13600026 - Insufficient disc space.
-   * @throws { BusinessError } 13600027 - Source data not found.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600028 - Burn operation failed.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
@@ -1012,8 +1010,8 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600008 - No such object.
-   * @throws { BusinessError } 13600029 - No ongoing operation.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
@@ -1031,10 +1029,9 @@ declare namespace volumeManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600005 - Incorrect volume state.
-   * @throws { BusinessError } 13600008 - No such object.
+   * @throws { BusinessError } 13600002 - Not supported filesystem.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
    * @throws { BusinessError } 13600030 - Verification failed.
-   * @throws { BusinessError } 13600031 - Data mismatch.
    * @syscap SystemCapability.FileManagement.StorageService.Volume
    * @systemapi
    * @stagemodelonly
