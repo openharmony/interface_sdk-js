@@ -13214,7 +13214,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   /**
    * Metadata set of an image.
    *
-   * @typedef ImageMetadata
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -13223,7 +13222,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Exif metadata.
      *
-     * @type { ?ExifMetadata }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -13233,7 +13231,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Huawei Camera metadata.
      *
-     * @type { ?MakerNoteHuaweiMetadata }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -13243,7 +13240,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Heifs metadata.
      *
-     * @type { ?HeifsMetadata }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -13253,7 +13249,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Dng metadata.
      *
-     * @type { ?DngMetadata }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -13271,6 +13266,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Gif metadata.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -13279,6 +13275,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Tiff metadata.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -13295,6 +13292,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Png metadata.
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -13320,18 +13318,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Describes image decoding parameters.
+   * Describes the image decoding options.
    *
-   * @typedef DecodingOptionsForPicture
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @since 13 dynamic
    * @since 23 static
    */
   interface DecodingOptionsForPicture {
     /**
-     * Expected set of auxiliary picture types, default to decoding all auxiliary pictures.
+     * Auxiliary picture type. If no auxiliary picture type is specified or an empty array is passed, the system decodes
+     * all available auxiliary picture types.
+     * 
+     * To exclude all auxiliary picture, you can decode the auxiliary picture to a PixelMap and use the PixelMap to 
+     * create a Picture that contains only the main picture.
      *
-     * @type { Array<AuxiliaryPictureType> }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
      * @since 23 static
@@ -13342,7 +13342,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Desired size of the main pixel map. The value (0, 0) indicates that the pixels are decoded
      * based on the original image size.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -13352,7 +13351,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Desired Pixel format, RGBA_8888\BGRA_8888\RGB_565\NV12\NV21 are supported.
      *
-     * @type { ?PixelMapFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -13394,18 +13392,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
    /**
-   * Describes auxiliary picture information.
+   * Describes the auxiliary picture information.
    *
-   * @typedef AuxiliaryPictureInfo
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 13 dynamic
    * @since 23 static
    */
   interface AuxiliaryPictureInfo {
     /**
-     * Indicates auxiliary picture type.
+     * Auxiliary picture type.
      *
-     * @type { AuxiliaryPictureType }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -13413,9 +13409,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     auxiliaryPictureType: AuxiliaryPictureType;
 
     /**
-     * Indicates image dimensions specified by a {@link Size} interface.
+     * Image size.
      *
-     * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -13423,9 +13418,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     size: Size;
 
     /**
-     * The number of byte per row.
+     * Row stride.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -13433,30 +13427,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     rowStride: int;
 
     /**
-     * Indicates image format.
-     *
-     * @type { PixelMapFormat }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamic
-     * @since 23 static
-     */
+      * Pixel format.
+      *
+      * @syscap SystemCapability.Multimedia.Image.Core
+      * @since 13 dynamic
+      * @since 23 static
+      */
      pixelFormat: PixelMapFormat;
 
     /**
-     * Indicates color space for pixel map.
-     *
-     * @type { colorSpaceManager.ColorSpaceManager }
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @since 13 dynamic
-     * @since 23 static
-     */
+      * Color space.
+      *
+      * @syscap SystemCapability.Multimedia.Image.Core
+      * @since 13 dynamic
+      * @since 23 static
+      */
      colorSpace: colorSpaceManager.ColorSpaceManager;
   }
 
   /**
    * Describes raw data in an image.
    *
-   * @typedef ImageRawData
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @stagemodelonly
    * @since 24 dynamic&static
@@ -13465,7 +13456,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Binary data of the raw image.
      *
-     * @type { ArrayBuffer }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -13475,7 +13465,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Number of bits that each pixel actually occupies in the buffer data.
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -13484,88 +13473,42 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * The **ImageSource** class provides APIs to obtain image information.
+   * 
+   * Before calling any API in ImageSource, you must use 
+   * [image.createImageSource]{@link @ohos.multimedia.image:image.createImageSource(uri: string)} to create an 
    * ImageSource instance.
+   * 
+   * All APIs in ImageSource cannot be called concurrently.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
+   * [release]{@link image.ImageSource.release(callback: AsyncCallback<void>)} to free the memory promptly. Before 
+   * releasing the instance, ensure that all asynchronous operations associated with the instance have finished and the 
+   * instance is no longer needed.
    *
-   * @typedef ImageSource
    * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @since 6
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * ImageSource instance.
-   *
-   * @typedef ImageSource
-   * @syscap SystemCapability.Multimedia.Image.ImageSource
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   interface ImageSource {
     /**
-     * Obtains information about an image with the specified sequence number and uses a callback
-     * to return the result.
+     * Obtains the image information with the specified index. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
-     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
-     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
+     * @param { int } index - Index of the image source. The default value is **0**, indicating the first image. If this
+     *     parameter is set to N, the (N+1)th image is used. For single-frame images, the value is always **0**. For
+     *     multi-frame images such as animations, the value ranges from 0 to (Number of frames – 1).
+     * @param { AsyncCallback<ImageInfo> } callback - Callback used to return the result. If the operation is successful
+     *     , **err** is **undefined** and **data** is the image information obtained; otherwise, **err** is an error
+     *     object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Obtains information about an image with the specified sequence number and uses a callback
-     * to return the result.
-     *
-     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
-     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
-     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains information about an image with the specified sequence number and uses a callback
-     * to return the result.
-     *
-     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
-     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
-     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about an image with the specified sequence number and uses a callback
-     * to return the result.
-     *
-     * @param { int } index Sequence number of an image.
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      */
     getImageInfo(index: int, callback: AsyncCallback<ImageInfo>): void;
 
@@ -13581,38 +13524,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImageInfo(index: int, callback: AsyncCallback<ImageInfo | undefined>): void;
 
     /**
-     * Obtains information about this image and uses a callback to return the result.
+     * Obtains the image information. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
+     * @param { AsyncCallback<ImageInfo> } callback - Callback used to return the result. If the operation is successful
+     *     , **err** is **undefined** and **data** is the image information obtained; otherwise, **err** is an error
+     *     object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Obtains information about this image and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains information about this image and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about this image and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<ImageInfo> } callback Callback used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      */
     getImageInfo(callback: AsyncCallback<ImageInfo>): void;
 
@@ -13626,48 +13547,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImageInfo(callback: AsyncCallback<ImageInfo | undefined>): void;
 
     /**
-     * Get image information from image source.
+     * Obtains the image information. This API uses a promise to return the result.
      *
-     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
-     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
-     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
+     * @param { int } index - Index of the image source. The default value is **0**, indicating the first image. If this
+     *     parameter is set to N, the (N+1)th image is used. For single-frame images, the value is always **0**. For
+     *     multi-frame images such as animations, the value ranges from 0 to (Number of frames – 1).
+     * @returns { Promise<ImageInfo> } Promise used to return the image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Get image information from image source.
-     *
-     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
-     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
-     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Get image information from image source.
-     *
-     * @param { number } index Sequence number of an image. The default value is 0, indicating the first image.
-     * When the value is N, it refers to the (N-1)th image. In single-frame image scenarios, the value must be 0.
-     * In multi-frame image scenarios such as animations, the valid range is 0 to (frame count - 1).
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get image information from image source.
-     *
-     * @param { int } index Sequence number of an image. If this parameter is not specified, the default value 0 is used.
-     * @returns { Promise<ImageInfo> } A Promise instance used to return the image information.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 6 dynamic
      */
     getImageInfo(index?: int): Promise<ImageInfo>;
 
@@ -13683,10 +13573,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImageInfo(index?: int): Promise<ImageInfo | undefined>;
 
     /**
-     * Get image information from image source synchronously.
+     * Obtains the image information with the specified index. This API returns the result synchronously.
+     * 
+     * > **NOTE**
+     * >
+     * > This API operates synchronously and will block the current thread during execution. It should not be invoked 
+     * > from the main thread, as doing so can lead to application lag, frame drops, or delayed responsiveness. For 
+     * > details, see 
+     * > [Overview of Concurrency in Time-Consuming Tasks](docroot://arkts-utils/time-consuming-task-overview.md).
      *
-     * @param { int } index - Index of sequence images. If this parameter is not specified, default value is 0.
-     * @returns { ImageInfo } The image information.
+     * @param { int } index - Index of the image source. The default value is **0**, indicating the first image. If this
+     *     parameter is set to N, the (N+1)th image is used. For single-frame images, the value is always **0**. For
+     *     multi-frame images such as animations, the value ranges from 0 to (Number of frames – 1).
+     * @returns { ImageInfo } Image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
@@ -13696,7 +13595,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Get image information from image source synchronously.
      *
-     * @param { int } [index] Index of sequence image. If this parameter is specified, default value is 0.
+     * @param { int } [index] - Index of sequence image. If this parameter is specified, default value is 0
+     *     <br>The value range is all integers.
      * @returns { ImageInfo | undefined } The image information.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 23 static
@@ -13704,46 +13604,32 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImageInfoSync(index?: int): ImageInfo | undefined;
 
     /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
+     * Creates a PixelMap object based on decoding options. This API uses a promise to return the result. This API uses 
+     * a promise to return the result.
+     * 
+     * Starting from API version 15, you are advised to use 
+     * [createPixelMapUsingAllocator]{@link image.ImageSource.createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType)}
+     * . This API can be used to specify the memory type 
+     * [AllocatorType]{@link @ohos.multimedia.image:image.AllocatorType} of the output PixelMap. For details, see 
+     * [Optimizing Memory for Image Decoding (ArkTS)](docroot://media/image/image-allocator-type.md).
+     * 
+     * > **NOTE**
+     * >
+     * > - This method is not thread-safe and does not support concurrent calls on the same ImageSource instance.
+     * >
+     * > - Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * > [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * >
+     * > - Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+     * > finished and the instance is no longer needed.
      *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @param { DecodingOptions } options - Decoding options.
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     createPixelMap(options?: DecodingOptions): Promise<PixelMap>;
 
@@ -13759,38 +13645,32 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createPixelMap(options?: DecodingOptions): Promise<PixelMap | undefined>;
 
     /**
-     * Creates a PixelMap object. This method uses a callback to return the object.
+     * Creates a PixelMap object based on the default parameters. This API uses an asynchronous callback to return the 
+     * result.
+     * 
+     * Starting from API version 15, you are advised to use 
+     * [createPixelMapUsingAllocator]{@link image.ImageSource.createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType)}
+     * . This API can be used to specify the memory type 
+     * [AllocatorType]{@link @ohos.multimedia.image:image.AllocatorType} of the output PixelMap. For details, see 
+     * [Optimizing Memory for Image Decoding (ArkTS)](docroot://media/image/image-allocator-type.md).
+     * 
+     * > **NOTE**
+     * >
+     * > - This method is not thread-safe and does not support concurrent calls on the same ImageSource instance.
+     * >
+     * > - Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * > [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * >
+     * > - Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+     * > finished and the instance is no longer needed.
      *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+     * @param { AsyncCallback<PixelMap> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is undefined and **data** is the PixelMap object obtained; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Creates a PixelMap object. This method uses a callback to return the object.
-     *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap object. This method uses a callback to return the object.
-     *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Creates a PixelMap object. This method uses a callback to return the object.
-     *
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     createPixelMap(callback: AsyncCallback<PixelMap>): void;
 
@@ -13804,46 +13684,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createPixelMap(callback: AsyncCallback<PixelMap | undefined>): void;
 
     /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
-     * return the object.
+     * Creates a PixelMap object based on decoding options. This API uses a promise to return the result. This API uses 
+     * an asynchronous callback to return the result.
+     * 
+     * Starting from API version 15, you are advised to use 
+     * [createPixelMapUsingAllocator]{@link image.ImageSource.createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType)}
+     * . This API can be used to specify the memory type 
+     * [AllocatorType]{@link @ohos.multimedia.image:image.AllocatorType} of the output PixelMap. For details, see 
+     * [Optimizing Memory for Image Decoding (ArkTS)](docroot://media/image/image-allocator-type.md).
+     * 
+     * > **NOTE**
+     * >
+     * > - This method is not thread-safe and does not support concurrent calls on the same ImageSource instance.
+     * >
+     * > - Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * > [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * >
+     * > - Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+     * > finished and the instance is no longer needed.
      *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
+     * @param { DecodingOptions } options - Decoding options.
+     * @param { AsyncCallback<PixelMap> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is undefined and **data** is the PixelMap object obtained; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Creates a PixelMap object based on image decoding parameters. This method uses a callback to
-     * return the object.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AsyncCallback<PixelMap> } callback Callback used to return the PixelMap object.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap>): void;
 
@@ -13859,23 +13726,34 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createPixelMap(options: DecodingOptions, callback: AsyncCallback<PixelMap | undefined>): void;
 
     /**
-     * Creates a PixelMap based on decoding parameters, the memory type used by the PixelMap can be specified by
-     * allocatorType. By default, the system selects the memory type based on the image type, image size, platform
-     * capability, etc. When processing the PixelMap returned by this interface, please always consider the impact of
-     * stride.
+     * Creates a PixelMap object based on decoding options and memory type. This API uses a promise to return the 
+     * result. For details, see 
+     * [Optimizing Memory for Image Decoding (ArkTS)](docroot://media/image/image-allocator-type.md).
+     * 
+     * > **NOTE**
+     * >
+     * > - This method is not thread-safe and does not support concurrent calls on the same ImageSource instance.
+     * >
+     * > - Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * > [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * >
+     * > - Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+     * > finished and the instance is no longer needed.
      *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AllocatorType } allocatorType Indicate which memory type will be used by the returned PixelMap.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @param { DecodingOptions } options - Decoding options.
+     * @param { AllocatorType } allocatorType - Type of the memory. The default value is **AllocatorType.AUTO**.
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700101 - Bad source. e.g.,1. Image has invalid width or height. 2. Image source incomplete.
-     * 3. Read image data failed. 4. Codec create failed.
+     *     2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700101 - Bad source. e.g.,1. Image has invalid width or height. 2. Image source
+     *     incomplete.
+     *     3. Read image data failed. 4. Codec create failed.
      * @throws { BusinessError } 7700102 - Unsupported mimetype.
-     * @throws { BusinessError } 7700103 - Image too large. This status code is thrown when an error occurs during the process of
-     * checking size.
+     * @throws { BusinessError } 7700103 - Image too large. This status code is thrown when an error occurs during the
+     *     process of
+     *     checking size.
      * @throws { BusinessError } 7700201 - Unsupported allocator type, e.g., use share memory to decode a HDR image as
-     * only DMA supported hdr metadata.
+     *     only DMA supported hdr metadata.
      * @throws { BusinessError } 7700203 - Unsupported options, e.g, cannot convert image into desired pixel format.
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
@@ -13890,8 +13768,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * capability, etc. When processing the PixelMap returned by this interface, please always consider the impact of
      * stride.
      *
-     * @param { DecodingOptions } [options] Image decoding parameters.
-     * @param { AllocatorType } [allocatorType] Indicate which memory type will be used by the returned PixelMap.
+     * @param { DecodingOptions } [options] - Image decoding parameters.
+     * @param { AllocatorType } [allocatorType] - Indicate which memory type will be used by the returned PixelMap.
      * @returns { Promise<PixelMap | undefined> } A Promise instance used to return the PixelMap object.
      * @throws { BusinessError } 7700101 - Bad source.
      * @throws { BusinessError } 7700102 - Unsupported mimetype.
@@ -13909,10 +13787,29 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
       : Promise<PixelMap | undefined>;
 
     /**
-     * Create a PixelMap object based on image decoding parameters synchronously.
+     * Creates a PixelMap object based on decoding options. This API returns the result synchronously.
+     * 
+     * Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
+     * 
+     * Starting from API version 15, you are advised to use 
+     * [createPixelMapUsingAllocatorSync]{@link image.ImageSource.createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType)}
+     * . This API can be used to specify the memory type 
+     * [AllocatorType]{@link @ohos.multimedia.image:image.AllocatorType} of the output PixelMap. For details, see 
+     * [Optimizing Memory for Image Decoding (ArkTS)](docroot://media/image/image-allocator-type.md).
+     * 
+     * > **NOTE**
+     * >
+     * > This API operates synchronously and will block the current thread during execution. It should not be invoked 
+     * > from the main thread, as doing so can lead to application lag, frame drops, or delayed responsiveness. For 
+     * > details, see 
+     * > [Overview of Concurrency in Time-Consuming Tasks](docroot://arkts-utils/time-consuming-task-overview.md).
      *
-     * @param { DecodingOptions } options - Image decoding parameters.
-     * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
+     * @param { DecodingOptions } options - Decoding options.
+     * @returns { PixelMap } PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamic
@@ -13930,23 +13827,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createPixelMapSync(options?: DecodingOptions): PixelMap | undefined;
 
     /**
-     * Creates a PixelMap based on decoding parameters synchronously, the memory type used by the PixelMap can be
-     * specified by allocatorType. By default, the system selects the memory type based on the image type, image size,
-     * platform capability, etc. When processing the PixelMap returned by this interface, please always consider the
-     * impact of stride.
+     * Creates a PixelMap object based on decoding options and memory type. This API returns the result synchronously. 
+     * For details, see [Optimizing Memory for Image Decoding (ArkTS)](docroot://media/image/image-allocator-type.md).
+     * 
+     * Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
+     * 
+     * > **NOTE**
+     * >
+     * > This API operates synchronously and will block the current thread during execution. It should not be invoked 
+     * > from the main thread, as doing so can lead to application lag, frame drops, or delayed responsiveness. For 
+     * > details, see 
+     * > [Overview of Concurrency in Time-Consuming Tasks](docroot://arkts-utils/time-consuming-task-overview.md).
      *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AllocatorType } allocatorType Indicate which memory type will be used by the returned PixelMap.
-     * @returns { PixelMap } Return the PixelMap. If decoding fails, return undefined.
+     * @param { DecodingOptions } options - Decoding options.
+     * @param { AllocatorType } allocatorType - Type of the memory. The default value is **AllocatorType.AUTO**.
+     * @returns { PixelMap } PixelMap object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700101 - Bad source. e.g.,1. Image has invalid width or height. 2. Image source incomplete.
-     * 3. Read image data failed. 4. Codec create failed.
+     *     2.Incorrect parameter types; 3.Parameter verification failed.
+     * @throws { BusinessError } 7700101 - Bad source. e.g.,1. Image has invalid width or height. 2. Image source
+     *     incomplete.
+     *     3. Read image data failed. 4. Codec create failed.
      * @throws { BusinessError } 7700102 - Unsupported mimetype.
-     * @throws { BusinessError } 7700103 - Image too large. This status code is thrown when an error occurs during the process of
-     * checking size.
+     * @throws { BusinessError } 7700103 - Image too large. This status code is thrown when an error occurs during the
+     *     process of
+     *     checking size.
      * @throws { BusinessError } 7700201 - Unsupported allocator type, e.g., use share memory to decode a HDR image as
-     * only DMA supported hdr metadata.
+     *     only DMA supported hdr metadata.
      * @throws { BusinessError } 7700203 - Unsupported options, e.g, cannot convert image into desired pixel format.
      * @throws { BusinessError } 7700301 - Failed to decode image.
      * @throws { BusinessError } 7700302 - Failed to allocate memory.
@@ -13961,8 +13871,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * platform capability, etc. When processing the PixelMap returned by this interface, please always consider the
      * impact of stride.
      *
-     * @param { DecodingOptions } [options] Image decoding parameters.
-     * @param { AllocatorType } [allocatorType] Indicate which memory type will be used by the returned PixelMap.
+     * @param { DecodingOptions } [options] - Image decoding parameters.
+     * @param { AllocatorType } [allocatorType] - Indicate which memory type will be used by the returned PixelMap.
      * @returns { PixelMap | undefined } Return the PixelMap. If decoding fails, return undefined.
      * @throws { BusinessError } 7700101 - Bad source.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
@@ -13979,18 +13889,35 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap | undefined;
 
     /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
-     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
-     * For static images, it returns a single frame of image data.
+     * Creates an array of PixelMap objects based on decoding options. This API uses a promise to return the result.
+     * 
+     * For dynamic images such as GIF and WebP images, this API returns the data of each frame of the image. For static 
+     * images, this API returns the data of the unique frame of the image.
+     * 
+     * > **NOTE**
+     * >
+     * > - This method is not thread-safe and does not support concurrent calls on the same ImageSource instance.
+     * >
+     * > - Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * > [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * >
+     * > - Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+     * > finished and the instance is no longer needed.
+     * >
+     * > - This function decodes all frames at once. If the number of frames is high or the size of individual frames is
+     * > large, it can lead to significant memory usage. In these cases, you are advised to use the **Image** component 
+     * > for displaying animations. The **Image** component decodes frames one by one, which uses less memory than this 
+     * > function.
      *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
+     * @param { DecodingOptions } options - Decoding options.
+     * @returns { Promise<Array<PixelMap>> } Promise used to return an array of PixelMap objects.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -14001,48 +13928,43 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
-     */
-     /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a promise to
-     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
-     * For static images, it returns a single frame of image data.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @returns { Promise<Array<PixelMap>> } A Promise instance used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
-     * @throws { BusinessError } 62980109 - Failed to crop the image.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
-     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     createPixelMapList(options?: DecodingOptions): Promise<Array<PixelMap>>;
 
     /**
-     * Creates a PixelMap array. This method uses a callback to return the array.
-     * For animated images such as GIF and WebP, this interface returns the image data of each frame.
-     * For static images, it returns a single frame of image data.
+     * Creates an array of PixelMap objects based on the default parameters. This API uses an asynchronous callback to 
+     * return the result.
+     * 
+     * For dynamic images such as GIF and WebP images, this API returns the data of each frame of the image. For static 
+     * images, this API returns the data of the unique frame of the image.
+     * 
+     * > **NOTE**
+     * >
+     * > - This method is not thread-safe and does not support concurrent calls on the same ImageSource instance.
+     * >
+     * > - Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * > [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * >
+     * > - Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+     * > finished and the instance is no longer needed.
+     * >
+     * > - This function decodes all frames at once. If the number of frames is high or the size of individual frames is
+     * > large, it can lead to significant memory usage. In these cases, you are advised to use the **Image** component 
+     * > for displaying animations. The **Image** component decodes frames one by one, which uses less memory than this 
+     * > function.
      *
-     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @param { AsyncCallback<Array<PixelMap>> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is undefined and **data** is the array of PixelMap objects obtained; otherwise, **err**
+     *     is an error object.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -14053,48 +13975,44 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap array. This method uses a callback to return the array.
-     * For animated images such as GIF and WebP, this interface returns the image data of each frame.
-     * For static images, it returns a single frame of image data.
-     *
-     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
-     * @throws { BusinessError } 62980109 - Failed to crop the image.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
-     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     createPixelMapList(callback: AsyncCallback<Array<PixelMap>>): void;
 
     /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
-     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
-     * For static images, it returns a single frame of image data.
+     * Creates an array of PixelMap objects based on decoding options. This API uses an asynchronous callback to return 
+     * the result.
+     * 
+     * For dynamic images such as GIF and WebP images, this API returns the data of each frame of the image. For static 
+     * images, this API returns the data of the unique frame of the image.
+     * 
+     * > **NOTE**
+     * >
+     * > - This method is not thread-safe and does not support concurrent calls on the same ImageSource instance.
+     * >
+     * > - Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
+     * > [release]{@link @ohos.multimedia.image:image.PixelMap.release()} to free the memory promptly.
+     * >
+     * > - Before releasing the instance, ensure that all asynchronous operations associated with the instance have 
+     * > finished and the instance is no longer needed.
+     * >
+     * > - This function decodes all frames at once. If the number of frames is high or the size of individual frames is
+     * > large, it can lead to significant memory usage. In these cases, you are advised to use the **Image** component 
+     * > for displaying animations. The **Image** component decodes frames one by one, which uses less memory than this 
+     * > function.
      *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
+     * @param { DecodingOptions } options - Decoding options.
+     * @param { AsyncCallback<Array<PixelMap>> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is undefined and **data** is the array of PixelMap objects obtained; otherwise, **err**
+     *     is an error object.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980109 - Failed to crop the image.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -14105,42 +14023,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Creates a PixelMap array based on image decoding parameters. This method uses a callback to
-     * return the array. For animated images such as GIF and WebP, this interface returns the image data of each frame.
-     * For static images, it returns a single frame of image data.
-     *
-     * @param { DecodingOptions } options Image decoding parameters.
-     * @param { AsyncCallback<Array<PixelMap>> } callback Callback used to return the PixelMap array.
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980099 - The shared memory data is abnormal.
-     * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
-     * @throws { BusinessError } 62980109 - Failed to crop the image.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @throws { BusinessError } 62980173 - The DMA memory does not exist.
-     * @throws { BusinessError } 62980174 - The DMA memory data is abnormal.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array<PixelMap>>): void;
 
     /**
-     * Obtains the array of delay time in an image. This method uses a promise to return the array.
+     * Obtains an array of delay times. This API uses a promise to return the result. This API applies only to images in
+     * GIF or WebP format.
      *
-     * @returns { Promise<Array<int>> } A Promise instance used to return the array.
+     * @returns { Promise<Array<int>> } Promise used to return an array of delay times.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -14150,34 +14044,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the array of delay time in an image. This method uses a promise to return the array.
-     *
-     * @returns { Promise<Array<int>> } A Promise instance used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980110 - The image source data is incorrect.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - Failed to decode the image header.
-     * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getDelayTimeList(): Promise<Array<int>>;
 
     /**
-     * Obtains the array of delay time in an image. This method uses a callback to return the array.
+     * Obtains an array of delay times. This API uses an asynchronous callback to return the result. This API applies 
+     * only to images in GIF or WebP format.
      *
-     * @param { AsyncCallback<Array<int>> } callback Callback used to return the array.
+     * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the array of delay times obtained; otherwise, **err** is
+     *     an error object.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
@@ -14187,34 +14067,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the array of delay time in an image. This method uses a callback to return the array.
-     *
-     * @param { AsyncCallback<Array<int>> } callback Callback used to return the array.
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980110 - The image source data is incorrect.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - Failed to decode the image header.
-     * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getDelayTimeList(callback: AsyncCallback<Array<int>>): void;
 
     /**
-     * Obtains the array of disposal type in a gif image. This method uses a promise to return the array.
+     * Obtains the list of disposal types. This API uses a promise to return the result. It is used only for GIF images.
      *
-     * @returns { Promise<Array<int>> } A Promise instance used to return the array.
+     * @returns { Promise<Array<int>> } Promise used to return an array of disposal types.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @throws { BusinessError } 62980149 - Invalid MIME type for the image source.
@@ -14226,15 +14089,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getDisposalTypeList(): Promise<Array<int>>;
 
     /**
-     * Obtains the count of frame in an image. This method uses a promise to return the number.
+     * Obtains the number of frames. This API uses a promise to return the result.
      *
-     * @returns { Promise<int> } A Promise instance used to return the number.
+     * @returns { Promise<int> } Promise used to return the number of frames.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -14242,40 +14105,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the count of frame in an image. This method uses a promise to return the number.
-     *
-     * @returns { Promise<int> } A Promise instance used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980112 - The image format does not match.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - Failed to decode the image header.
-     * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getFrameCount(): Promise<int>;
 
     /**
-     * Obtains the count of frame in an image. This method uses a callback to return the number.
+     * Obtains the number of frames. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<int> } callback Callback used to return the number.
+     * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the number of frames obtained; otherwise, **err** is an error
+     *     object.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980116 - Failed to decode the image.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
@@ -14283,46 +14129,32 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980137 - Invalid media operation.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Obtains the count of frame in an image. This method uses a callback to return the number.
-     *
-     * @param { AsyncCallback<int> } callback Callback used to return the number.
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980112 - The image format does not match.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980116 - Failed to decode the image.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - Failed to decode the image header.
-     * @throws { BusinessError } 62980137 - Invalid media operation.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 10 dynamic
      * @since 23 static
      */
     getFrameCount(callback: AsyncCallback<int>): void;
 
     /**
-     * Obtains the value of a property in an image with the specified index. This method uses a
-     * promise to return the property value in a string.
+     * Obtains the value of a property with the specified index in this image. This API uses a promise to return the 
+     * result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF<sup>12+</sup>, WEBP<sup>23+</sup>, or DNG<sup>23+</
+     * sup> format and contain Exif information. (The supported formats may vary depending on the hardware.)
      *
-     * @param { PropertyKey } key - Name of the property whose value is to be obtained.
-     * @param { ImagePropertyOptions } options - Index of the image.
-     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
+     * @param { PropertyKey } key - Name of the property.
+     * @param { ImagePropertyOptions } options - Image properties, including the image index and default property value.
+     * @returns { Promise<string> } Promise used to return the property value. If the operation fails, the default value
+     *     is returned.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2
+     *     .Incorrect parameter types;3.Parameter verification failed;
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980103 - The image data is not supported.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980111 - The image source data is incomplete.
      * @throws { BusinessError } 62980112 - The image format does not match.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid image parameter.
      * @throws { BusinessError } 62980118 - Failed to create the image plugin.
      * @throws { BusinessError } 62980122 - Failed to decode the image header.
@@ -14330,125 +14162,81 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Obtains the value of a property in an image with the specified index. This method uses a
-     * promise to return the property value in a string.
-     *
-     * @param { PropertyKey } key - Name of the property whose value is to be obtained.
-     * @param { ImagePropertyOptions } options - Index of the image.
-     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;3.Parameter verification failed;
-     * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
-     * @throws { BusinessError } 62980103 - The image data is not supported.
-     * @throws { BusinessError } 62980110 - The image source data is incorrect.
-     * @throws { BusinessError } 62980111 - The image source data is incomplete.
-     * @throws { BusinessError } 62980112 - The image format does not match.
-     * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
-     * @throws { BusinessError } 62980115 - Invalid image parameter.
-     * @throws { BusinessError } 62980118 - Failed to create the image plugin.
-     * @throws { BusinessError } 62980122 - Failed to decode the image header.
-     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
-     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     getImageProperty(key: PropertyKey, options?: ImagePropertyOptions): Promise<string>;
 
     /**
-     * Obtains the value of a property in an image with the specified index. This method uses a
-     * promise to return the property value in a string.
+     * Obtains the value of a property with the specified index in this image. This API uses a promise to return the 
+     * result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF<sup>12+</sup>, or WEBP<sup>23+</sup> format and 
+     * contain the Exif information. (The supported formats may vary depending on the hardware.)
      *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { GetImagePropertyOptions } options Index of the image.
-     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
+     * @param { string } key - Name of the property.
+     * @param { GetImagePropertyOptions } options - Image properties, including the image index and default property
+     *     value.
+     * @returns { Promise<string> } Promise used to return the property value. If the operation fails, the default value
+     *     is returned.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamiconly
      * @deprecated since 11
-     * @useinstead image.ImageSource#getImageProperty
-     */
-    /**
-     * Obtains the value of a property in an image with the specified index. This method uses a
-     * promise to return the property value in a string.
-     *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { GetImagePropertyOptions } options Index of the image.
-     * @returns { Promise<string> } A Promise instance used to return the property value. If the operation fails, the default value is returned.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamiconly
-     * @deprecated since 11
-     * @useinstead image.ImageSource#getImageProperty
+     * @useinstead image.ImageSource.getImageProperty(key: PropertyKey, options?: ImagePropertyOptions)
      */
     getImageProperty(key: string, options?: GetImagePropertyOptions): Promise<string>;
 
     /**
-     * Obtains the value of a property in this image. This method uses a callback to return the
-     * property value in a string.
+     * Obtains the value of a property with the specified index in this image. This API uses an asynchronous callback to
+     * return the result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF<sup>12+</sup>, or WEBP<sup>23+</sup> format and 
+     * contain the Exif information. (The supported formats may vary depending on the hardware.)
      *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, an error message is returned.
+     * @param { string } key - Name of the property.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the property value obtained; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamiconly
      * @deprecated since 11
-     * @useinstead image.ImageSource#getImageProperty
-     */
-    /**
-     * Obtains the value of a property in this image. This method uses a callback to return the
-     * property value in a string.
-     *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, an error message is returned.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamiconly
-     * @deprecated since 11
-     * @useinstead image.ImageSource#getImageProperty
+     * @useinstead image.ImageSource.getImageProperty(key: PropertyKey, options?: ImagePropertyOptions)
      */
     getImageProperty(key: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the value of a property in an image with the specified index. This method uses
-     * a callback to return the property value in a string.
+     * Obtains the value of a property in this image. This API uses an asynchronous callback to return the result.
+     * This API applies only to images that are in JPEG, PNG, HEIF<sup>12+</sup>, or WEBP<sup>23+</sup> format and 
+     * contain the Exif information. (The supported formats may vary depending on the hardware.)
      *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { GetImagePropertyOptions } options Index of the image.
-     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, the default value is returned.
+     * @param { string } key - Name of the property.
+     * @param { GetImagePropertyOptions } options - Image properties, including the image index and default property
+     *     value.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the property value obtained; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 7
+     * @crossplatform [since 10]
+     * @since 7 dynamiconly
      * @deprecated since 11
-     * @useinstead image.ImageSource#getImageProperty
-     */
-    /**
-     * Obtains the value of a property in an image with the specified index. This method uses
-     * a callback to return the property value in a string.
-     *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { GetImagePropertyOptions } options Index of the image.
-     * @param { AsyncCallback<string> } callback Callback used to return the property value. If the operation fails, the default value is returned.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamiconly
-     * @deprecated since 11
-     * @useinstead image.ImageSource#getImageProperty
+     * @useinstead image.ImageSource.getImageProperty(key: PropertyKey, options?: ImagePropertyOptions)
      */
     getImageProperty(key: string, options: GetImagePropertyOptions, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the value of properties in an image. This method uses a promise to return the property values in array
-     * of records.
+     * Obtains the values of properties with the given names in this image. This API uses a promise to return the 
+     * result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF, WEBP<sup>23+</sup>, or DNG<sup>23+</sup>format and 
+     * contain Exif information. (The supported formats may vary depending on the hardware.)
      *
-     * @param { Array<PropertyKey> } key - Name of the properties whose value is to be obtained.
-     * @returns { Promise<Record<PropertyKey, string|null>> } Array of Records instance used to return the
-     * property values. If the operation fails, the null is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
+     * @param { Array<PropertyKey> } key - Array of properties names.
+     * @returns { Promise<Record<PropertyKey, string|null>> } Promise used to return the property values. If the
+     *     operation fails, **null** is returned.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2
+     *     .Incorrect parameter types; 3.Parameter verification failed;
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980110 - The image source data is incorrect.
      * @throws { BusinessError } 62980113 - Unknown image format.
      *     The image data provided is not in a recognized or supported format, or it may be corrupted.
@@ -14479,12 +14267,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImageProperties(key: Array<PropertyKey>): Promise<Record<string, string|null>>;
 
     /**
-     * Obtains the value of a property in the image.
+     * Obtains the value of a specified Exif property. This API returns the result synchronously.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API applies only to images that are in JPEG, PNG, HEIF, WEBP<sup>23+</sup>, or DNG<sup>23+</sup>format 
+     * > and contain Exif information. (The supported formats may vary depending on the hardware.)
+     * >
+     * > - Exif information is metadata of the image, including shooting time, camera model, aperture, focal length, and
+     * > ISO.
+     * >
+     * > - This API operates synchronously and will block the current thread during execution. It should not be invoked 
+     * > from the main thread, as doing so can lead to application lag, frame drops, or delayed responsiveness. For 
+     * > details, see 
+     * > [Overview of Concurrency in Time-Consuming Tasks](docroot://arkts-utils/time-consuming-task-overview.md).
      *
-     * @param { PropertyKey } key Property name.
-     * @returns { string } Value of the property.
+     * @param { PropertyKey } key - Name of the property.
+     * @returns { string } Value of the specified Exif property. If retrieval fails, the default value of the property
+     *     is returned. For details about the meaning of each data value, see
+     *     [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}.
      * @throws { BusinessError } 7700101  - Bad source. e.g.,1. Image has invalid width or height. 2. Image
-     * source incomplete. 3. Read image data failed. 4. Codec create failed.
+     *     source incomplete. 3. Read image data failed. 4. Codec create failed.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700202 - Unsupported metadata. For example, key is not supported.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -14498,7 +14301,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @param { PropertyKey } key Property name.
      * @returns { string | undefined } Value of the property.
      * @throws { BusinessError } 7700101  - Bad source. e.g.,1. Image has invalid width or height. 2. Image
-     * source incomplete. 3. Read image data failed. 4. Codec create failed.
+     *     source incomplete. 3. Read image data failed. 4. Codec create failed.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700202 - Unsupported metadata. For example, key is not supported.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -14507,102 +14310,96 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getImagePropertySync(key: PropertyKey): string | undefined;
 
     /**
-     * Modify the value of a property in an image with the specified key. This method uses a
-     * promise to return the property value in a string.
+     * Modifies the value of a property in this image. This API uses a promise to return the result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF<sup>12+</sup>, or WEBP<sup>23+</sup> format and 
+     * contain the Exif information. (The supported formats may vary depending on the hardware.)
+     * 
+     * > **NOTE**
+     * >
+     * > The property byte length is changed when the **modifyImageProperty** API is called to modify the value of a 
+     * > property. Currently, you can call the API in an ImageSource instance created based on a file descriptor or path
+     * > , but not an ImageSource instance created based on buffers.
      *
-     * @param { PropertyKey } key - Name of the property whose value is to be modified.
-     * @param { string } value - The value to be set to property.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
+     * @param { PropertyKey } key - Name of the property.
+     * @param { string } value - New value of the property.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2
+     *     .Incorrect parameter types;
      * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
      * @throws { BusinessError } 62980133 - The EXIF data is out of range.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
-     * @since 11
-     */
-    /**
-     * Modify the value of a property in an image with the specified key. This method uses a
-     * promise to return the property value in a string.
-     *
-     * @param { PropertyKey } key - Name of the property whose value is to be modified.
-     * @param { string } value - The value to be set to property.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
-     * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
-     * @throws { BusinessError } 62980133 - The EXIF data is out of range.
-     * @throws { BusinessError } 62980135 - The EXIF value is invalid.
-     * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 12 dynamic
+     * @since 11 dynamic
      * @since 23 static
      */
     modifyImageProperty(key: PropertyKey, value: string): Promise<void>;
 
     /**
-     * Modify the value of a property in an image with the specified key. This method uses a
-     * promise to return the property value in a string.
+     * Modifies the value of a property in this image. This API uses a promise to return the result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF<sup>12+</sup>, or WEBP<sup>23+</sup> format and 
+     * contain the Exif information. (The supported formats may vary depending on the hardware.)
+     * 
+     * > **NOTE**
+     * >
+     * > - The property byte length is changed when the **modifyImageProperty** API is called to modify the value of a 
+     * > property. Currently, you can call the API in an ImageSource instance created based on a file descriptor or path
+     * > , but not an ImageSource instance created based on buffers.
      *
-     * @param { string } key Name of the property whose value is to be modified.
-     * @param { string } value The value to be set to property.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @param { string } key - Name of the property.
+     * @param { string } value - New value of the property.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 9
+     * @crossplatform [since 10]
+     * @since 9 dynamiconly
      * @deprecated since 11
-     * @useinstead image.ImageSource#modifyImageProperty
-     */
-    /**
-     * Modify the value of a property in an image with the specified key. This method uses a
-     * promise to return the property value in a string.
-     *
-     * @param { string } key Name of the property whose value is to be modified.
-     * @param { string } value The value to be set to property.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamiconly
-     * @deprecated since 11
-     * @useinstead image.ImageSource#modifyImageProperty
+     * @useinstead image.ImageSource.modifyImageProperty(key: PropertyKey, value: string)
      */
     modifyImageProperty(key: string, value: string): Promise<void>;
 
     /**
-     * Modify the value of a property in an image with the specified key. This method uses a callback to return the
-     * property value in a string.
+     * Modifies the value of a property in this image. This API uses an asynchronous callback to return the result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF<sup>12+</sup>, or WEBP<sup>23+</sup> format and 
+     * contain the Exif information. (The supported formats may vary depending on the hardware.)
+     * 
+     * > **NOTE**
+     * >
+     * > - The property byte length is changed when the **modifyImageProperty** API is called to modify the value of a 
+     * > property. Currently, you can call the API in an ImageSource instance created based on a file descriptor or path
+     * > , but not an ImageSource instance created based on buffers.
      *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { string } value The value to be set to property.
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { string } key - Name of the property.
+     * @param { string } value - New value of the property.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 9
+     * @crossplatform [since 10]
+     * @since 9 dynamiconly
      * @deprecated since 11
-     * @useinstead image.ImageSource#modifyImageProperty
-     */
-    /**
-     * Modify the value of a property in an image with the specified key. This method uses a callback to return the
-     * property value in a string.
-     *
-     * @param { string } key Name of the property whose value is to be obtained.
-     * @param { string } value The value to be set to property.
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamiconly
-     * @deprecated since 11
-     * @useinstead image.ImageSource#modifyImageProperty
+     * @useinstead image.ImageSource.modifyImageProperty(key: PropertyKey, value: string)
      */
     modifyImageProperty(key: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Modify the value of properties in an image with the specified keys.
+     * Modifies the values of properties in this image. This API uses a promise to return the result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF, or WEBP<sup>23+</sup> format and contain the Exif 
+     * information. (The supported formats may vary depending on the hardware.)
+     * 
+     * > **NOTE**
+     * >
+     * > The property byte length is changed when the **modifyImageProperties** API is called to modify the values of 
+     * > properties. Currently, you can call the API in an ImageSource instance created based on a file descriptor or 
+     * > path, but not an ImageSource instance created based on buffers.
      *
-     * @param { Record<PropertyKey, string|null> } records - Array of the property Records whose values are to
-     * be modified.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails, an
-     * error message is returned.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed;
+     * @param { Record<PropertyKey, string|null> } records - Array of property names and property values.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified; 2
+     *     .Incorrect parameter types; 3.Parameter verification failed;
      * @throws { BusinessError } 62980123 - The image does not support EXIF decoding.
      * @throws { BusinessError } 62980135 - The EXIF value is invalid.
      * @throws { BusinessError } 62980146 - The EXIF data failed to be written to the file.
@@ -14629,14 +14426,25 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     modifyImageProperties(records: Record<string, string|null>): Promise<void>;
 
     /**
-     * Modify the value of properties in an image with the specified keys. The method is more efficient than
-     * modifyImageProperties, as it completes batch data modifications in memory with a single write operation
-     * to the file.
+     * Modifies image properties in batches. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > - Calling this API to modify properties alters the property byte length. You are advised to create an 
+     * > [image.createImageSource]{@link @ohos.multimedia.image:image.createImageSource(fd: int)} instance by passing a 
+     * > file descriptor or an 
+     * > [image.createImageSource]{@link @ohos.multimedia.image:image.createImageSource(uri: string)} instance by 
+     * > passing a URI.
+     * >
+     * > - This API modifies batch data in memory and writes the data to the file in a single operation. It is more 
+     * > efficient than 
+     * > [modifyImageProperties]{@link image.ImageSource.modifyImageProperties(records: Record<PropertyKey, string|null>)}
+     * > .
+     * >
+     * > - This API applies only to images that are in JPEG, PNG, HEIF, or WEBP format and contain the Exif information.
      *
-     * @param { Record<string, string|null> } records - Property Records whose values are to be modified,
-     *     when the value is set to null the tag will be removed.
-     * @returns { Promise<void> } A Promise instance used to return the operation result. If the operation fails,
-     *     an error message is returned.
+     * @param { Record<string, string|null> } records - Key-value pairs of image property names and property values.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700202 - Unsupported metadata. For example, the property key is not supported,
      *     or the property value is invalid.
@@ -14667,89 +14475,38 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     modifyImageAllProperties(records: Record<string, string|null>): Promise<void>;
 
     /**
-     * Update the data in the incremental ImageSource.
+     * Updates incremental data. This API uses a promise to return the result.
      *
-     * @param { ArrayBuffer } buf The data to be updated.
-     * @param { boolean } isFinished If is it finished.
-     * @param { number } value The offset of data.
-     * <br>Unit:bytes.
-     * @param { number } length The length fo buf.
-     * <br>Unit:bytes.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
+     * @param { ArrayBuffer } buf - Buffer for storing the incremental data.
+     * @param { boolean } isFinished - Whether data update is complete. The value **true** means that the data update is
+     *     complete and the last segment of data is stored in the buffer. The value **false** means that the data update
+     *     is still in progress.
+     * @param { int } offset - Offset of the data in the buffer, measured from the start of the entire image file, in
+     *     bytes. [since 11]
+     * @param { int } length - Length of the buffer, in bytes.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 9
-     */
-    /**
-     * Update the data in the incremental ImageSource.
-     *
-     * @param { ArrayBuffer } buf The data to be updated.
-     * @param { boolean } isFinished If is it finished.
-     * @param { number } value The offset of data.
-     * <br>Unit:bytes.
-     * @param { number } length The length fo buf.
-     * <br>Unit:bytes.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Update the data in the incremental ImageSource.
-     *
-     * @param { ArrayBuffer } buf The data to be updated.
-     * @param { boolean } isFinished If is it finished.
-     * @param { int } offset The offset of data.
-     * <br>Unit:bytes.
-     * @param { int } length The length fo buf.
-     * <br>Unit:bytes.
-     * @returns { Promise<void> } A Promise instance used to return the property value.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     updateData(buf: ArrayBuffer, isFinished: boolean, offset: int, length: int): Promise<void>;
 
     /**
-     * Update the data in the incremental ImageSource.
+     * Updates incremental data. This API uses an asynchronous callback to return the result.
      *
-     * @param { ArrayBuffer } buf The data to be updated.
-     * @param { boolean } isFinished If is it finished.
-     * @param { number } value The offset of data.
-     * <br>Unit:bytes.
-     * @param { number } length The length fo buf.
-     * <br>Unit:bytes.
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { ArrayBuffer } buf - Buffer for storing the incremental data.
+     * @param { boolean } isFinished - Whether data update is complete. The value **true** means that the data update is
+     *     complete and the last segment of data is stored in the buffer. The value **false** means that the data update
+     *     is still in progress.
+     * @param { int } offset - Offset of the data in the buffer, measured from the start of the entire image file, in
+     *     bytes. [since 11]
+     * @param { int } length - Length of the buffer, in bytes.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 9
-     */
-    /**
-     * Update the data in the incremental ImageSource.
-     *
-     * @param { ArrayBuffer } buf The data to be updated.
-     * @param { boolean } isFinished If is it finished.
-     * @param { number } value The offset of data.
-     * <br>Unit:bytes.
-     * @param { number } length The length fo buf.
-     * <br>Unit:bytes.
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Update the data in the incremental ImageSource.
-     *
-     * @param { ArrayBuffer } buf The data to be updated.
-     * @param { boolean } isFinished If is it finished.
-     * @param { int } offset The offset of data.
-     * <br>Unit:bytes.
-     * @param { int } length The length fo buf.
-     * <br>Unit:bytes.
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @since 9 dynamic
      * @since 23 static
      */
     updateData(
@@ -14761,68 +14518,60 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     ): void;
 
     /**
-     * Releases an ImageSource instance and uses a callback to return the result.
+     * Releases this ImageSource instance. This API uses an asynchronous callback to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImageSource instance, call this API to free the 
+     * memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Releases an ImageSource instance and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases an ImageSource instance and uses a promise to return the result.
+     * Releases this ImageSource instance. This API uses a promise to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImageSource instance, call this API to free the 
+     * memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 6
-     */
-    /**
-     * Releases an ImageSource instance and uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      * @since 23 static
      */
     release(): Promise<void>;
 
     /**
-     * Creates a Picture object based on image decoding parameters. This method uses a promise to
-     * return the object.
+     * Creates a Picture object based on decoding options. This API uses a promise to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using a Picture instance, call 
+     * [release]{@link @ohos.multimedia.image:image.Picture.release} to free the memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
-     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types; 3.Parameter verification failed.
+     * @param { DecodingOptionsForPicture } options - Decoding options.
+     * @returns { Promise<Picture> } Promise used to return the Picture object.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
+     *     2.Parameter verification failed.
      * @throws { BusinessError } 7700301 - Decode failed.
+     * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
+     *     a failure in converting an image into the desired pixel format. [since 24]
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
      */
-    /**
-     * Creates a Picture object based on image decoding parameters. This method uses a promise to
-     * return the object.
-     *
-     * @param { DecodingOptionsForPicture } options - Image decoding parameters.
-     * @returns { Promise<Picture> } A Promise instance used to return the Picture object.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types; 3.Parameter verification failed.
-     * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
-     * a failure in converting an image into the desired pixel format.
-     * @throws { BusinessError } 7700301 - Decode failed.
-     * @syscap SystemCapability.Multimedia.Image.ImageSource
-     * @since 24 dynamic
-     */
-    createPicture(options?: DecodingOptionsForPicture): Promise<Picture>
+    createPicture(options?: DecodingOptionsForPicture): Promise<Picture>;
 
     /**
      * Creates a Picture object based on image decoding parameters. This method uses a promise to
@@ -14834,13 +14583,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 23 static
      */
-    createPicture(options?: DecodingOptionsForPicture): Promise<Picture | undefined>
+    createPicture(options?: DecodingOptionsForPicture): Promise<Picture | undefined>;
 
     /**
-     * Decodes an image at the specified index into a Picture object.
+     * Creates a **Picture** object using a specified image (only GIF and HEIF<sup>23+</sup> images currently). This API
+     * uses a promise to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using a Picture instance, call 
+     * [release]{@link @ohos.multimedia.image:image.Picture.release} to free the memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { int } index Image index.
-     * @returns { Promise<Picture> } Promise that returns the Picture object.
+     * @param { int } index - Index of the image. The value range is [0, Number of frames – 1].
+     * @returns { Promise<Picture> } Promise used to return the Picture object.
      * @throws { BusinessError } 7700101 - Bad source.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700103 - Image too large.
@@ -14864,7 +14620,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 23 static
      */
-    createPictureAtIndex(index: int): Promise<Picture | undefined>;
+    createPictureAtIndex(index : int): Promise<Picture | undefined>;
 
     /**
      * Decodes to a SDR PixelMap, using a as wide gamut as possible.
@@ -14923,12 +14679,45 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly supportedFormats: Array<string>;
 
     /**
-     * Reads image metadata. You can use propertyKeys to specify the keys of metadata. If propertyKeys is not
-     * specified, all metadata that can be read is returned.
+     * Reads image metadata. You can use **propertyKeys** to specify the keys of metadata. This API uses a promise to 
+     * return the result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF, WEBP, or DNG format and contain Exif information. (
+     * The supported formats may vary depending on the hardware.)
+     * 
+     * > **NOTE**
+     * >
+     * > When reading a DNG image, this API applies special handling to some **propertyKeys**. For details about the 
+     * > values of the following properties, see [PropertyKey]{@link @ohos.multimedia.image:image.PropertyKey}:
+     * >
+     * > - **NewSubfileType**, **ImageWidth**, **ImageLength**, **DefaultCropSize**, **Orientation**, **Compression**, 
+     * > **PhotometricInterpretation**, **PlanarConfiguration**, **RowsPerStrip**, **StripOffsets**, **StripByteCounts**
+     * > , **SamplesPerPixel**, **BitsPerSample**, **YCbCrCoefficients**, **YCbCrSubSampling**, **YCbCrPositioning**, 
+     * > **ReferenceBlackWhite**, **XResolution**, **YResolution**, and **ResolutionUnit**: For these properties, values
+     * > related to the main image are returned.
+     * >
+     * > - **ImageUniqueID**: The value is verified based on the specifications. If the value fails to comply with the 
+     * > specifications, an empty string is returned.
+     * >
+     * > - **ExifVersion**, **FlashpixVersion**, and **ColorSpace**: If the image does not contain these properties, an 
+     * > error code is returned.
+     * >
+     * > - **DNGVersion**: If the value is earlier than **1.0.0.0**, **1.0.0.0** is returned.
+     * >
+     * > - **GPSVersionID**: If there is no valid GPS data, the GPS version number is cleared and **0** is returned.
+     * >
+     * > - **GPSAltitudeRef**: If **GPSAltitude** is not set, this property is set to **0xFFFFFFFF**.
+     * >
+     * > - **ISOSpeedRatings**: If its value is **0** or **65535**, the recommended exposure index is used first. If the
+     * > recommended exposure index does not exist, the standard output sensitivity, ISO speed, and exposure index are 
+     * > used in sequence.
      *
-     * @param { string[] } [propertyKeys] - Keys of metadata.
-     * @param { int } [index] - Frame number. The first frame is used by default.
-     * @returns { Promise<ImageMetadata> } Promise used to return the metadata.
+     * @param { string[] } [propertyKeys] - Array of properties names. If **propertyKeys** is not specified, all
+     *     supported metadata is returned.
+     * @param { int } [index] - Index of the property to be obtained. The default value is **0**.
+     * @returns { Promise<ImageMetadata> } Promise used to return the **ImageMetadata** object, which contains the
+     *     metadata object corresponding to the image property name. You can obtain the image property values through
+     *     this metadata object.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700202 - Unsupported metadata.
      * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: 1. The index is negative.
@@ -14940,10 +14729,28 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readImageMetadata(propertyKeys?: string[], index?: int): Promise<ImageMetadata>;
 
     /**
-     * Write metadata into the image source.
+     * Modifies image properties in batches. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > - Calling this API to modify properties alters the property byte length. You are advised to create an 
+     * > [image.createImageSource]{@link @ohos.multimedia.image:image.createImageSource(fd: int)} instance by passing a 
+     * > file descriptor or an 
+     * > [image.createImageSource]{@link @ohos.multimedia.image:image.createImageSource(uri: string)} instance by 
+     * > passing a URI.
+     * >
+     * > - This API modifies batch data in memory and writes the data to the file in a single operation. It is more 
+     * > efficient than 
+     * > [modifyImageProperties]{@link image.ImageSource.modifyImageProperties(records: Record<PropertyKey, string|null>)}
+     * > .
+     * >
+     * > - This API applies only to images that are in JPEG, PNG, or HEIF format and contain the Exif information. 
+     * > Before modifying properties, use the **supportedFormats** property to check whether the device supports Exif 
+     * > information read/write in HEIF format.
      *
-     * @param { ImageMetadata } imageMetadata - ImageMetadata to write into the image source.
-     * @returns { Promise<void> } Returns void.
+     * @param { ImageMetadata } imageMetadata - Image metadata set. If all property values in **imageMetadata** are
+     *     empty, all Exif metadata is cleared.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700202 - Unsupported metadata.
      * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: The imageSource object is released.
@@ -14954,10 +14761,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     writeImageMetadata(imageMetadata: ImageMetadata): Promise<void>;
 
     /**
-     * Check whether JPEG image is progressive. This method uses a promise to return the boolean.
+     * Checks whether a JPEG image is progressive. This API uses a promise to return the result.
      *
-     * @returns { Promise<boolean> } A Promise instance used to return true if the ImageSource refers to
-     *     a progressive JPEG, false otherwise. If the operation fails, an error message is returned.
+     * @returns { Promise<boolean> } Promise object. The value **true** indicates that the JPEG image is progressive,
+     *     and the value **false** indicates the opposite.
      * @throws { BusinessError } 7700101 - Bad source.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
@@ -14969,16 +14776,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     isJpegProgressive(): Promise<boolean>;
 
     /**
-     * Read metadata of the image source, use metadataType to specify metadata of interest. If metadataType
-     * is not specified, all supported metadata will be returned.
+     * Reads the metadata of an image source. You can use **metadataTypes** to specify the metadata types. If 
+     * **metadataTypes** is not specified, all supported metadata is returned. This API uses a promise to return the 
+     * result.
+     * 
+     * This API applies only to images that are in JPEG, PNG, HEIF, WEBP, DNG, or HEIFS format. (The supported formats 
+     * may vary depending on the hardware.)
+     * 
+     * > **NOTE**
+     * >
+     * > - **EXIF_METADATA** applies to JPEG, PNG, HEIF, WEBP, and DNG images.
+     * >
+     * > - **HEIFS_METADATA** applies to HEIFS images.
+     * >
+     * > - If the input **MetadataType** does not match the image format, error code **7700102** will be returned.
      *
-     * @param { MetadataType[] } [metadataTypes] - Metadata of interest.
-     * @param { int }[index] - Index of interest, default is 0.
-     * @returns { Promise<ImageMetadata> } Promise that returns the metadata of the image source.
+     * @param { MetadataType[] } [metadataTypes] - Metadata type array. If this parameter is left empty, all supported
+     *     metadata is obtained.
+     * @param { int }[index] - Image frame number for metadata retrieval. The default value is **0**.
+     *     <br>- For single-frame images, the value can only be 0.
+     *     <br>- For multi-frame images such as animations, the value ranges from
+     *     0 to (Number of frames – 1).
+     * @returns { Promise<ImageMetadata> } Promise used to return the **ImageMetadata** object, which contains the
+     *     corresponding metadata object. You can obtain the image property values through this metadata object.
      * @throws { BusinessError } 7700102 - Unsupported MIME type.
      * @throws { BusinessError } 7700202 - Unsupported metadata.
      * @throws { BusinessError } 7700204 - Invalid parameter. Possible causes: 1.The index is negative.
-     * 2. The index is greater than or equal to the number of frames in the image.
+     *     2. The index is greater than or equal to the number of frames in the image.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -14986,16 +14810,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readImageMetadataByType(metadataTypes?: MetadataType[], index?: int): Promise<ImageMetadata>;
 
     /**
-    * Obtains raw data from an image.
-    *
-    * @returns { Promise<ImageRawData> } A Promise instance used to return image raw data.
-    * @throws { BusinessError } 7700101 - Bad source.
-    * @throws { BusinessError } 7700102 - Unsupported MIME type.
-    * @syscap SystemCapability.Multimedia.Image.ImageSource
-    * @stagemodelonly
-    * @since 24 dynamic&static
-    */
-    createImageRawData(): Promise<ImageRawData>
+     * Obtains raw data from an image.
+     *
+     * @returns { Promise<ImageRawData> } A Promise instance used to return image raw data.
+     * @throws { BusinessError } 7700101 - Bad source.
+     * @throws { BusinessError } 7700102 - Unsupported MIME type.
+     * @syscap SystemCapability.Multimedia.Image.ImageSource
+     * @stagemodelonly
+     * @since 24 dynamic&static
+     */
+    createImageRawData(): Promise<ImageRawData>;
 
     /**
      * Creates a thumbnail image based on image decoding parameters.
@@ -15073,120 +14897,75 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * ImagePacker instance.
+   * The **ImagePacker** class provides APIs to compress and encode images.
+   * 
+   * Before calling any API in ImagePacker, you must use 
+   * [image.createImagePacker]{@link @ohos.multimedia.image:image.createImagePacker} to create an ImagePacker instance.
+   * During encoding, do not modify or release the ImageSource, PixelMap, or Picture object that is being used as the 
+   * input. Otherwise, a crash or other undefined behavior may occur.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImagePacker instance, call 
+   * [release]{@link image.ImagePacker.release(callback: AsyncCallback<void>)} to free the memory promptly. Before 
+   * releasing the instance, ensure that all asynchronous operations associated with the instance have finished and the 
+   * instance is no longer needed.
+   * 
+   * Currently, the following formats are supported: jpeg, webp, png, heic<sup>12+</sup>, and gif<sup>18+</sup>. (The 
+   * supported formats may vary depending on the hardware. You can refer to the **supportedFormats** property of 
+   * ImagePacker to see which ones are supported.)
    *
-   * @typedef ImagePacker
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @since 6
-   */
-  /**
-   * ImagePacker instance.
-   *
-   * @typedef ImagePacker
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * ImagePacker instance.
-   *
-   * @typedef ImagePacker
-   * @syscap SystemCapability.Multimedia.Image.ImagePacker
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    * @since 23 static
    */
   interface ImagePacker {
     /**
-     * Compresses or packs an image and uses a callback to return the result.
+     * Compresses or re-encodes an image. This API uses an asynchronous callback to return the result.
      *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @param { ImageSource } source - Image source to compress or re-encode.
+     * @param { PackingOption } option - Encoding parameters.
+     * @param { AsyncCallback<ArrayBuffer> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the compressed or encoded image data; otherwise, **err**
+     *     is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a callback to return the result.
-     *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a callback to return the result.
-     *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
     packing(source: ImageSource, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
+     * Compresses or re-encodes an image. This API uses a promise to return the result.
      *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @param { ImageSource } source - Image source to compress or re-encode.
+     * @param { PackingOption } option - Encoding parameters.
+     * @returns { Promise<ArrayBuffer> } Promise used to return the compressed or encoded image data.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a promise to return the result.
-     *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a promise to return the result.
-     *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 6 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
     packing(source: ImageSource, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
+     * Compresses or re-encodes an image. This API uses a promise to return the result.
      *
-     * @param { ImageSource } source Image to be processed.
-     * @param { PackingOption } options Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @param { ImageSource } source - Image source to compress or re-encode.
+     * @param { PackingOption } options - Encoding parameters.
+     * @returns { Promise<ArrayBuffer> } Promise used to return the compressed or encoded image data.
      * @throws { BusinessError } 401 - If the parameter is invalid.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
@@ -15200,94 +14979,69 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToData(source: ImageSource, options: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs an image and uses a callback to return the result.
+     * Compresses or re-encodes an image. This API uses an asynchronous callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If the message "PixelMap mismatch" is returned, the parameters are abnormal. The possible cause is that the 
+     * > PixelMap object is released in advance. You need to check the code and ensure that the PixelMap object is 
+     * > released after this API is called.
      *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
+     * @param { PixelMap } source - PixelMap to compress or re-encode.
+     * @param { PackingOption } option - Encoding parameters.
+     * @param { AsyncCallback<ArrayBuffer> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **undefined** and **data** is the compressed or encoded image data; otherwise, **err**
+     *     is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 8
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a callback to return the result.
-     *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a callback to return the result.
-     *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @param { AsyncCallback<ArrayBuffer> } callback Callback used to return the packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
     packing(source: PixelMap, option: PackingOption, callback: AsyncCallback<ArrayBuffer>): void;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
+     * Compresses or re-encodes an image. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If the message "PixelMap mismatch" is returned, the parameters are abnormal. The possible cause is that the 
+     * > PixelMap object is released in advance. You need to check the code and ensure that the PixelMap object is 
+     * > released after this API is called.
      *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @param { PixelMap } source - PixelMap to compress or re-encode.
+     * @param { PackingOption } option - Encoding parameters.
+     * @returns { Promise<ArrayBuffer> } Promise used to return the compressed or encoded image data.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 8
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a promise to return the result.
-     *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10
-     * @deprecated since 13
-     * @useinstead image.ImagePacker#packToData
-     */
-    /**
-     * Compresses or packs an image and uses a promise to return the result.
-     *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } option Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamiconly
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamiconly
      * @deprecated since 13
      * @useinstead image.ImagePacker#packToData
      */
     packing(source: PixelMap, option: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
+     * Compresses or re-encodes an image. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If error code 401 is returned, the parameters are abnormal. The possible cause is that the PixelMap object is
+     * > released in advance. You need to check the code and ensure that the PixelMap object is released after this API 
+     * > is called.
      *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { PackingOption } options Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @param { PixelMap } source - PixelMap to compress or re-encode.
+     * @param { PackingOption } options - Encoding parameters.
+     * @returns { Promise<ArrayBuffer> } Promise used to return the compressed or encoded image data.
      * @throws { BusinessError } 401 - If the parameter is invalid.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
      * @throws { BusinessError } 62980172 - Failed to encode icc.
@@ -15301,13 +15055,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToData(source: PixelMap, options: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses a Pixelmap sequence into gif.
+     * Encodes multiple PixelMap objects into GIF data. This API uses a promise to return the result.
      *
-     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be encoded.
-     * @param { PackingOptionsForSequence } options Options for image packing.
-     * @returns { Promise<ArrayBuffer> } encoded buffer.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types;3.Parameter verification failed.
+     * @param { Array<PixelMap> } pixelmapSequence - PixelMaps to encode.
+     * @param { PackingOptionsForSequence } options - Options for encoding animated images.
+     * @returns { Promise<ArrayBuffer> } Promise used to return the encoded data.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *     2.Incorrect parameter types;3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic
@@ -15316,18 +15070,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToDataFromPixelmapSequence(pixelmapSequence: Array<PixelMap>, options: PackingOptionsForSequence): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs an image into a file and uses a callback to return the result.
+     * Encodes the image source into a file based on the specified encoding parameters. This API uses an asynchronous 
+     * callback to return the result.
      *
-     * @param { ImageSource } source Image to be processed.
-     * @param { int } fd ID of a file descriptor.
-     * @param { PackingOption } options Options for image packing.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @param { ImageSource } source - Image source to encode.
+     * @param { int } fd - File descriptor.
+     * @param { PackingOption } options - Encoding parameters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -15341,18 +15098,20 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToFile(source: ImageSource, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
     /**
-     * Compresses or packs an image into a file and uses a promise to return the result.
+     * Encodes the image source into a file based on the specified encoding parameters. This API uses a promise to 
+     * return the result.
      *
-     * @param { ImageSource } source Image to be processed.
-     * @param { int } fd ID of a file descriptor.
-     * @param { PackingOption } options Options for image packing.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @param { ImageSource } source - Image source to encode.
+     * @param { int } fd - File descriptor.
+     * @param { PackingOption } options - Encoding parameters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -15366,18 +15125,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToFile(source: ImageSource, fd: int, options: PackingOption): Promise<void>;
 
     /**
-     * Compresses or packs an image into a file and uses a callback to return the result.
+     * Encodes the PixelMap into a file based on the specified encoding parameters. This API uses an asynchronous 
+     * callback to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If error code 62980115 is returned, the parameters are abnormal. The possible cause is that the PixelMap 
+     * > object is released in advance. You need to check the code and ensure that the PixelMap object is released after
+     * > this API is called.
      *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { int } fd ID of a file descriptor.
-     * @param { PackingOption } options Options for image packing.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @param { PixelMap } source - PixelMap to encode.
+     * @param { int } fd - File descriptor.
+     * @param { PackingOption } options - Encoding parameters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -15391,18 +15159,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToFile(source: PixelMap, fd: int, options: PackingOption, callback: AsyncCallback<void>): void;
 
     /**
-     * Compresses or packs an image into a file and uses a promise to return the result.
+     * Encodes the PixelMap into a file based on the specified encoding parameters. This API uses a promise to return 
+     * the result.
+     * 
+     * > **NOTE**
+     * >
+     * > If error code 62980115 is returned, the parameters are abnormal. The possible cause is that the PixelMap 
+     * > object is released in advance. You need to check the code and ensure that the PixelMap object is released after
+     * > this API is called.
      *
-     * @param { PixelMap } source PixelMap to be processed.
-     * @param { int } fd ID of a file descriptor.
-     * @param { PackingOption } options Options for image packing.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @param { PixelMap } source - PixelMap to encode.
+     * @param { int } fd - File descriptor.
+     * @param { PackingOption } options - Encoding parameters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 62980096 - The operation failed. Possible cause: 1.Image upload exception.
-     * 2. Decoding process exception. 3. Insufficient memory.
+     *     2. Decoding process exception. 3. Insufficient memory.
      * @throws { BusinessError } 62980101 - The image data is abnormal.
-     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs during the process of checking size.
+     * @throws { BusinessError } 62980106 - The image data is too large. This status code is thrown when an error occurs
+     *     during the process of checking size.
      * @throws { BusinessError } 62980113 - Unknown image format.
-     * The image data provided is not in a recognized or supported format, or it may be corrupted.
+     *     The image data provided is not in a recognized or supported format, or it may be corrupted.
      * @throws { BusinessError } 62980115 - Invalid input parameter.
      * @throws { BusinessError } 62980119 - Failed to encode the image.
      * @throws { BusinessError } 62980120 - Add pixelmap out of range.
@@ -15416,14 +15192,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToFile(source: PixelMap, fd: int, options: PackingOption): Promise<void>;
 
     /**
-     * Compresses a Pixelmap sequence into gif.
+     * Encodes multiple PixelMaps into a GIF file. This API uses a promise to return the result.
      *
-     * @param { Array<PixelMap> } pixelmapSequence PixelMaps to be encoded.
-     * @param { int } fd File descriptor of the output encoded file.
-     * @param { PackingOptionsForSequence } options Options for image packing.
-     * @returns { Promise<void> } void.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types;3.Parameter verification failed.
+     * @param { Array<PixelMap> } pixelmapSequence - PixelMaps to encode.
+     * @param { int } fd - File descriptor.
+     * @param { PackingOptionsForSequence } options - Options for encoding animated images.
+     * @returns { Promise<void> } that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *     2.Incorrect parameter types;3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Failed to encode image.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 18 dynamic
@@ -15432,49 +15208,48 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packToFileFromPixelmapSequence(pixelmapSequence: Array<PixelMap>, fd: int, options: PackingOptionsForSequence): Promise<void>;
 
      /**
-     * Releases an ImagePacker instance and uses a callback to return the result.
+     * Releases this ImagePacker instance. This API uses an asynchronous callback to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImagePacker instance, call this API to free the 
+     * memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Releases an ImagePacker instance and uses a callback to return the result.
-     *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      * @since 23 static
      */
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases an ImagePacker instance and uses a promise to return the result.
+     * Releases this ImagePacker instance. This API uses a promise to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImagePacker instance, call this API to free the 
+     * memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Releases an ImagePacker instance and uses a promise to return the result.
-     *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      * @since 23 static
      */
     release(): Promise<void>;
 
     /**
-     * Compresses or packs an image and uses a promise to return the result.
+     * Compresses or re-encodes an image. This API uses a promise to return the result.
      *
-     * @param { Picture } picture Picture to be processed.
-     * @param { PackingOption } options Option for image packing.
-     * @returns { Promise<ArrayBuffer> } A Promise instance used to return the compressed or packed data.
+     * @param { Picture } picture - Picture to compress or re-encode.
+     * @param { PackingOption } options - Encoding parameters.
+     * @returns { Promise<ArrayBuffer> } Promise used to return the compressed or encoded image data.
      * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13 dynamic
@@ -15483,20 +15258,21 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packing(picture: Picture, options: PackingOption): Promise<ArrayBuffer>;
 
     /**
-     * Compresses or packs an image into a file and uses a promise to return the result.
+     * Encodes the Picture into a file based on the specified encoding parameters. This API uses a promise to return the
+     * result.
      *
-     * @param { Picture } picture Picture to be processed.
-     * @param { int } fd ID of a file descriptor.
-     * @param { PackingOption } options Options for image packing.
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
-     * @throws { BusinessError } 401 - Parameter error.Possible causes: 1.Mandatory parameters are left unspecified.
-     * 2.Incorrect parameter types. 3.Parameter verification failed.
+     * @param { Picture } picture - Picture to encode.
+     * @param { int } fd - File descriptor.
+     * @param { PackingOption } options - Encoding parameters.
+     * @returns { Promise<void> } that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7800301 - Encode failed.
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @since 13 dynamic
      * @since 23 static
      */
-    packToFile(picture: Picture, fd: int, options: PackingOption): Promise<void>
+    packToFile(picture: Picture, fd: int, options: PackingOption): Promise<void>;
 
     /**
      * Compresses or packs an image into a file and uses a promise to return the result.
@@ -15531,41 +15307,41 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     packBinaryImageToTiffData(bufferInfo: BinaryBufferInfo, options?: PackingOptionsForTiff): Promise<ArrayBuffer>;
 
     /**
-     * Supported image formats.
+     * Supported formats for image encoding, including jpeg, webp, png, heic<sup>12+</sup>, and gif<sup>18+</sup>. (The 
+     * supported formats may vary depending on the hardware.)
      *
-     * @type { Array<string> }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @since 6
-     */
-    /**
-     * Supported image formats.
-     *
-     * @type { Array<string> }
-     * @readonly
-     * @syscap SystemCapability.Multimedia.Image.ImagePacker
-     * @crossplatform
-     * @since 10 dynamic
+     * @crossplatform [since 10]
+     * @since 6 dynamic
      * @since 23 static
      */
     readonly supportedFormats: Array<string>;
   }
 
   /**
-   * Provides basic image operations, including obtaining image information, and reading and writing image data.
+   * The **Image** class is used to obtain image content.
+   * 
+   * An Image instance is returned when 
+   * [readNextImage]{@link @ohos.multimedia.image:image.ImageReceiver.readNextImage(callback: AsyncCallback<Image>)} and
+   * [readLatestImage]{@link @ohos.multimedia.image:image.ImageReceiver.readLatestImage(callback: AsyncCallback<Image>)}
+   * are called.
+   * 
+   * Image properties are initialized only during image creation and cannot be changed later. These properties do not 
+   * affect the actual image content. You should always rely on the properties written by the image producer, that is, 
+   * the content actually sent to the [ImageReceiver]{@link @ohos.multimedia.image:image.ImageReceiver} by the data source.
+   * Images occupy a large amount of memory. When you finish using an Image instance, call 
+   * [release]{@link image.Image.release(callback: AsyncCallback<void>)} to free the memory promptly. Before releasing 
+   * the instance, ensure that all asynchronous operations associated with the instance have finished and the instance 
+   * is no longer needed.
    *
-   * @typedef Image
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 9 dynamic
    * @since 23 static
    */
   interface Image {
     /**
-     * Gets the image area, which always covers the entire image and can not be modified.
-     * clipRect.size equals to the size of the image.
-     * clipRect.x and clipRect.y are always 0, indicating the top-left corner of the image.
+     * Image area to be cropped.
      *
-     * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15575,8 +15351,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image size.
      *
-     * @type { Size }
-     * @readonly
+     * If the Image object stores camera preview stream data (YUV image data), the width and height in **size**
+     * reflect the dimensions of the YUV image.
+     *
+     * If the Image object stores camera capture stream data (JPEG image data), given that it is an encoded file,
+     * the width in **size** is the size of the JPEG file, while the height is set to **1**.
+     *
+     * The type of data stored in the Image object depends on whether the application passes the surface ID in the
+     * receiver to a previewOutput or captureOutput object of the camera.
+     *
+     * For details about the best practices of camera preview and photo capture, see
+     * [Dual-Channel Preview (ArkTS)](docroot://media/camera/camera-dual-channel-preview.md) and
+     * [Photo Capture Sample (ArkTS)](docroot://media/camera/camera-shooting-case.md).
+     *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15584,10 +15371,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly size: Size;
 
     /**
-     * Image format.
+     * Image format. For details, see 
+     * [OH_NativeBuffer_Format](docroot://reference/apis-arkgraphics2d/c-apis/capi-buffer-common-h.md#oh_nativebuffer_format).
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15595,11 +15381,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly format: int;
 
     /**
-     * Image timestamp.
-     * <br>Unit:ns.
+     * Image timestamp. Timestamps, measured in nanoseconds, are usually monotonically increasing. The specific meaning 
+     * and baseline of these timestamps are determined by the image producer, which is the camera in the camera preview 
+     * and photo scenarios. As a result, images from different producers may carry timestamps with distinct meanings and
+     * baselines, making direct comparison between them infeasible. To obtain the generation time of a photo, you can 
+     * use 
+     * [getImageProperty]{@link @ohos.multimedia.image:image.ImageSource.getImageProperty(key: PropertyKey, options?: ImagePropertyOptions)}
+     * to read the related Exif information.
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamic
      * @since 23 static
@@ -15609,8 +15398,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Color space of the image.
      *
-     * @type { colorSpaceManager.ColorSpace }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -15618,10 +15405,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly colorSpace: colorSpaceManager.ColorSpace;
 
     /**
-     * Get component buffer from image and uses a callback to return the result.
+     * Obtains the component buffer from the Image instance based on the color component type. This API uses an 
+     * asynchronous callback to return the result.
      *
-     * @param { ComponentType } componentType The component type of image.
-     * @param { AsyncCallback<Component> } callback Callback used to return the component buffer.
+     * @param { ComponentType } componentType - Component type. (Currently, only **ComponentType:JPEG** is supported.
+     *     The actual format is determined by the producer, for example, camera.)
+     * @param { AsyncCallback<Component> } callback - Callback used to return the result. If the operation is successful
+     *     , **err** is **undefined** and **data** is the component buffer obtained; otherwise, **err** is an error
+     *     object.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15629,10 +15420,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getComponent(componentType: ComponentType, callback: AsyncCallback<Component>): void;
 
     /**
-     * Get component buffer from image and uses a promise to return the result.
+     * Obtains the component buffer from the Image instance based on the color component type. This API uses a promise 
+     * to return the result.
      *
-     * @param { ComponentType } componentType The component type of image.
-     * @returns { Promise<Component> } A Promise instance used to return the component buffer.
+     * @param { ComponentType } componentType - Component type. (Currently, only **ComponentType:JPEG** is supported.
+     *     The actual format is determined by the producer, for example, camera.)
+     * @returns { Promise<Component> } Promise used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15640,9 +15433,18 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getComponent(componentType: ComponentType): Promise<Component>;
 
     /**
-     * Release current image to receive another and uses a callback to return the result.
+     * Releases this Image instance. This API uses an asynchronous callback to return the result.
+     * 
+     * The corresponding resources must be released before another image arrives.
+     * 
+     * Images occupy a large amount of memory. When you finish using an Image instance, call this API to free the memory
+     * promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15650,9 +15452,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Release current image to receive another and uses a promise to return the result.
+     * Releases this Image instance. This API uses a promise to return the result.
+     * 
+     * The corresponding resources must be released before another image arrives.
+     * 
+     * Images occupy a large amount of memory. When you finish using an Image instance, call this API to free the memory
+     * promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamic
      * @since 23 static
@@ -15660,9 +15470,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(): Promise<void>;
 
     /**
-     * Obtains the image buffer data.
+     * Obtains ImageBufferData from an image.
+     * 
+     * > **NOTE**
+     * >
+     * > **byteBuffer** in **ImageBufferData** is a shallow copy of the internal buffer. When the lifecycle of an image 
+     * > ends, do not perform any operations on **byteBuffer**, as this may lead to undefined behavior.
      *
-     * @returns { ImageBufferData | null } Image data obtained. If the operation fails, null is returned.
+     * @returns { ImageBufferData | null } Struct that encapsulates the image data buffer. If no struct is obtained,
+     *     **null** is returned.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -15670,10 +15486,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getBufferData(): ImageBufferData | null;
 
     /**
-     * Obtains HDR metadata.
-     * 
-     * @param { HdrMetadataKey } key Key of the HDR metadata.
-     * @returns { HdrMetadataValue | null } HDR metadata obtained. If no HDR metadata exists, null is returned.
+     * Obtains the HDR metadata from an image based on the HDR metadata type.
+     *
+     * @param { HdrMetadataKey } key - HDR metadata key.
+     * @returns { HdrMetadataValue | null } Value of the HDR metadata key. If the image does not have HDR metadata,
+     *     **null** is returned.
      * @throws { BusinessError } 7600206 - Invalid parameter.
      * @throws { BusinessError } 7600302 - Memory copy failed.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -15684,19 +15501,33 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Image receiver object.
+   * The **ImageReceiver** class provides APIs to obtain the surface ID of a component, read the latest image, read the 
+   * next image, and release the ImageReceiver instance. The ImageReceiver acts as the receiver and consumer of images. 
+   * Its parameter properties do not actually affect the received images. The configuration of image properties should 
+   * be done on the sending side (the producer), such as when creating a camera preview stream with 
+   * [createPreviewOutput]{@link @ohos.multimedia.camera:camera.CameraManager.createPreviewOutput(profile: Profile, surfaceId: string)}
+   * .
+   * Before calling any APIs in ImageReceiver, you must use 
+   * [image.createImageReceiver]{@link @ohos.multimedia.image:image.createImageReceiver(size: Size, format: ImageFormat, capacity: int)}
+   * to create an ImageReceiver instance.
+   * Since API version 23, you are advised to use 
+   * [image.createImageReceiver]{@link @ohos.multimedia.image:image.createImageReceiver(size: Size, format: ImageFormat, capacity: int)} to
+   * create an **ImageReceiver** instance based on the passed 
+   * [ImageReceiverOptions]{@link  @ohos.multimedia.image:image.ImageReceiverOptions}. 
+   * Images occupy a large amount of memory. When you finish using an ImageReceiver instance, call 
+   * [release]{@link image.ImageReceiver.release(callback: AsyncCallback<void>)} to free the memory promptly. Before 
+   * releasing the instance, ensure that all asynchronous operations associated with the instance have finished and the 
+   * instance is no longer needed.
    *
-   * @typedef ImageReceiver
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 9 dynamic
    * @since 23 static
    */
   interface ImageReceiver {
     /**
-     * Image size.
+     * Image size. This parameter does not affect the size of the received image. The actual returned size is determined
+     * by the producer, for example, the camera.
      *
-     * @type { Size }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15704,10 +15535,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly size: Size;
 
     /**
-     * Image capacity.
+     * Maximum number of images that can be accessed at the same time. This parameter is used only as an expected value.
+     * The actual capacity is determined by the device hardware.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15715,10 +15545,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly capacity: int;
 
     /**
-     * Image format.
+     * Image format. The value is an enum value of [ImageFormat]{@link @ohos.multimedia.image:image.ImageFormat}. (
+     * Currently, only **ImageFormat:JPEG** is supported. The format actually returned depends on the producer, for 
+     * example, camera.)
      *
-     * @type { ImageFormat }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15726,10 +15556,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly format: ImageFormat;
 
     /**
-     * Get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
-     * and uses a callback to return the result.
+     * Obtains a surface ID for the camera or other components. This API uses an asynchronous callback to return the 
+     * result.
      *
-     * @param { AsyncCallback<string> } callback Callback used to return the surface id.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the surface ID obtained. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15737,10 +15568,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getReceivingSurfaceId(callback: AsyncCallback<string>): void;
 
     /**
-     * Get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
-     * and uses a promise to return the result.
+     * Obtains a surface ID for the camera or other components. This API uses a promise to return the result.
      *
-     * @returns { Promise<string> } A Promise instance used to return the surface id.
+     * @returns { Promise<string> } Promise used to return the surface ID.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15748,9 +15578,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getReceivingSurfaceId(): Promise<string>;
 
     /**
-     * Get lasted image from receiver and uses a callback to return the result.
+     * Reads the latest image from the ImageReceiver instance. This API uses an asynchronous callback to return the 
+     * result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called to receive data only after the 
+     * > [on]{@link image.ImageReceiver.on(type: 'imageArrival', callback: AsyncCallback<void>)} callback is triggered. 
+     * > When the [Image]{@link @ohos.multimedia.image:image.Image} object returned by this API is no longer needed, call 
+     * > [release]{@link @ohos.multimedia.image:image.Image.release(callback: AsyncCallback<void>)} to release the 
+     * > object. New data can be received only after the release.
      *
-     * @param { AsyncCallback<Image> } callback Callback used to return the latest image.
+     * @param { AsyncCallback<Image> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the latest image obtained; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15758,9 +15598,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readLatestImage(callback: AsyncCallback<Image>): void;
 
     /**
-     * Get lasted image from receiver and uses a promise to return the result.
+     * Reads the latest image from the ImageReceiver instance. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called to receive data only after the 
+     * > [on]{@link image.ImageReceiver.on(type: 'imageArrival', callback: AsyncCallback<void>)} callback is triggered. 
+     * > When the [Image]{@link @ohos.multimedia.image:image.Image} object returned by this API is no longer needed, call 
+     * > [release]{@link @ohos.multimedia.image:image.Image.release(callback: AsyncCallback<void>)} to release the 
+     * > object. New data can be received only after the release.
      *
-     * @returns { Promise<Image> } A Promise instance used to return the latest image.
+     * @returns { Promise<Image> } Promise used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15768,9 +15616,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readLatestImage(): Promise<Image>;
 
     /**
-     * Get next image from receiver and uses a callback to return the result.
+     * Reads the next image from the ImageReceiver instance. This API uses an asynchronous callback to return the 
+     * result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called to receive data only after the 
+     * > [on]{@link image.ImageReceiver.on(type: 'imageArrival', callback: AsyncCallback<void>)} callback is triggered. 
+     * > When the [Image]{@link @ohos.multimedia.image:image.Image} object returned by this API is no longer needed, call 
+     * > [release]{@link @ohos.multimedia.image:image.Image.release(callback: AsyncCallback<void>)} to release the 
+     * > object. New data can be received only after the release.
      *
-     * @param { AsyncCallback<Image> } callback Callback used to return the next image.
+     * @param { AsyncCallback<Image> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the next image obtained. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15778,9 +15636,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readNextImage(callback: AsyncCallback<Image>): void;
 
     /**
-     * Get next image from receiver and uses a promise to return the result.
+     * Reads the next image from the ImageReceiver instance. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called to receive data only after the 
+     * > [on]{@link image.ImageReceiver.on(type: 'imageArrival', callback: AsyncCallback<void>)} callback is triggered. 
+     * > When the [Image]{@link @ohos.multimedia.image:image.Image} object returned by this API is no longer needed, call 
+     * > [release]{@link @ohos.multimedia.image:image.Image.release(callback: AsyncCallback<void>)} to release the 
+     * > object. New data can be received only after the release.
      *
-     * @returns { Promise<Image> } A Promise instance used to return the next image.
+     * @returns { Promise<Image> } Promise used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15788,17 +15654,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readNextImage(): Promise<Image>;
 
     /**
-     * Subscribe callback when receiving an image
+     * Listens for image arrival events. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'imageArrival' } type Callback used to return the next image.
-     * @param { AsyncCallback<void> } callback Callback used to return image.
+     * @param { 'imageArrival' } type - Type of event to listen for. The value is fixed at **'imageArrival'**, which is
+     *     triggered when an image is received.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
 
     /**
-     * Subscribe callback when receiving an image
+     * Subscribe callback when receiving an image.
      *
      * @param { AsyncCallback<void> } callback Callback used to return image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
@@ -15807,28 +15675,36 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     onImageArrival(callback: AsyncCallback<void>): void;
 
     /**
-     * Remove callback subscriptions when releasing buffer
+     * Unregisters the callback function that is triggered when the buffer is released. This API uses an asynchronous 
+     * callback to return the result.
      *
-     * @param { 'imageArrival' } type - Event type.
-     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @param { 'imageArrival' } type - Type of event, which is **'imageArrival'**.
+     * @param { AsyncCallback<void> } callback - Callback to unregister.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 13 dynamic
      */
     off(type: 'imageArrival', callback?: AsyncCallback<void>): void;
 
     /**
-     * Remove callback subscriptions when releasing buffer
-     *s
-     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * Remove callback subscriptions when releasing buffer.
+     *
+     * @param { AsyncCallback<void> } [callback] - Callback to be removed.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 23 static
      */
     offImageArrival(callback?: AsyncCallback<void>): void;
 
     /**
-     * Release image receiver instance and uses a callback to return the result.
+     * Releases this ImageReceiver instance. This API uses an asynchronous callback to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImageReceiver instance, call this API to free 
+     * the memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15836,9 +15712,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Release image receiver instance and uses a promise to return the result.
+     * Releases this ImageReceiver instance. This API uses a promise to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImageReceiver instance, call this API to free 
+     * the memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 9 dynamic
      * @since 23 static
@@ -15847,19 +15729,26 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Image creator object.
+   * The ImageCreator class provides APIs for applications to request an image data area and compile image data.
+   * 
+   * Before calling any APIs in ImageCreator, you must use 
+   * [image.createImageCreator]{@link @ohos.multimedia.image:image.createImageCreator(size: Size, format: ImageFormat, capacity: int)}
+   * to create an ImageCreator instance. ImageCreator does not support multiple threads.
+   * 
+   * Images occupy a large amount of memory. When you finish using an ImageCreator instance, call 
+   * [release]{@link image.ImageCreator.release(callback: AsyncCallback<void>)} to free the memory promptly. Before 
+   * releasing the instance, ensure that all asynchronous operations associated with the instance have finished and the 
+   * instance is no longer needed.
    *
-   * @typedef ImageCreator
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 9 dynamic
    * @since 23 static
    */
   interface ImageCreator {
     /**
-     * Image capacity.
+     * Maximum number of images that can be accessed at the same time. This parameter is used only as an expected value.
+     * The actual capacity is determined by the device hardware.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15869,8 +15758,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Image format.
      *
-     * @type { ImageFormat }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15878,9 +15765,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly format: ImageFormat;
 
     /**
-     * Apply for new graphic buffer from free queue and use a callback to return the result.
+     * Obtains an image buffer from the idle queue and writes image data into it. This API uses an asynchronous callback
+     * to return the result.
      *
-     * @param { AsyncCallback<Image> } callback Callback to return the operation result.
+     * @param { AsyncCallback<Image> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined** and **data** is the latest image obtained; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15888,9 +15777,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     dequeueImage(callback: AsyncCallback<Image>): void;
 
     /**
-     * Apply for new graphic buffer from free queue and uses a promise to return the result.
+     * Obtains an image buffer from the idle queue and writes image data into it. This API uses a promise to return the 
+     * result.
      *
-     * @returns { Promise<Image> } A Promise instance used to return the operation result.
+     * @returns { Promise<Image> } Promise used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15898,10 +15788,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     dequeueImage(): Promise<Image>;
 
     /**
-     * Queue buffer to dirty queue and uses a callback to return the result.
+     * Places the drawn image in the queue. This API uses an asynchronous callback to return the result.
      *
-     * @param { Image } image
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { Image } image - Drawn image.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15909,10 +15800,10 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     queueImage(image: Image, callback: AsyncCallback<void>): void;
 
     /**
-     * Queue buffer to dirty queue and uses a promise to return the result.
+     * Places the drawn image in the queue. This API uses a promise to return the result.
      *
-     * @param { Image } image
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @param { Image } image - Drawn image.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15920,10 +15811,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     queueImage(image: Image): Promise<void>;
 
     /**
-     * Subscribe callback when releasing buffer
+     * Listens for image release events. This API uses an asynchronous callback to return the result.
      *
-     * @param { 'imageRelease' } type Callback used to return the operation result.
-     * @param { AsyncCallback<void> } callback Callback used to return the operation result.
+     * @param { 'imageRelease' } type - Type of event, which is **'imageRelease'**.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      */
@@ -15939,10 +15831,12 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     onImageRelease(callback: AsyncCallback<void>): void;
 
     /**
-     * Remove callback subscriptions when releasing buffer
+     * Unregisters the callback function that is triggered when the buffer is released. This API uses an asynchronous 
+     * callback to return the result.
      *
-     * @param { 'imageRelease' } type - Event type.
-     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @param { 'imageRelease' } type - Type of event, which is **'imageRelease'**.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is null; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 13 dynamic
      */
@@ -15951,16 +15845,23 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Remove callback subscriptions when releasing buffer
      *
-     * @param { AsyncCallback<void> } callback Callback to be removed.
+     * @param { AsyncCallback<void> } [callback] - Callback to be removed.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 23 static
      */
     offImageRelease(callback?: AsyncCallback<void>): void;
 
     /**
-     * Releases buffer in bufferqueue instance and uses a callback to return the result.
+     * Releases this ImageCreator instance. This API uses an asynchronous callback to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImageCreator instance, call this API to free the
+     * memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @param { AsyncCallback<void> } callback Callback to return the operation result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15968,9 +15869,15 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Releases buffer in bufferqueue instance and uses a promise to return the result.
+     * Releases this ImageCreator instance. This API uses a promise to return the result.
+     * 
+     * Images occupy a large amount of memory. When you finish using an ImageCreator instance, call this API to free the
+     * memory promptly.
+     * 
+     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
+     * and the instance is no longer needed.
      *
-     * @returns { Promise<void> } A Promise instance used to return the operation result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageCreator
      * @since 9 dynamic
      * @since 23 static
@@ -15979,9 +15886,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
-   * Obtains the image formats (MIME types) that can be decoded.
+   * Obtains the supported decoding formats, represented by MIME types.
    *
-   * @returns { string[] } Returns an array of the supported image formats.
+   * @returns { string[] } List of supported decoding formats (MIME types).
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @since 20 dynamic
    * @since 23 static
@@ -15989,9 +15896,9 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   function getImageSourceSupportedFormats(): string[];
 
   /**
-   * Obtains the image formats (MIME types) that can be encoded.
+   * Obtains the supported encoding formats, represented by MIME types.
    *
-   * @returns { string[] } Returns an array of the supported image formats.
+   * @returns { string[] } List of supported encoding formats (MIME types).
    * @syscap SystemCapability.Multimedia.Image.ImagePacker
    * @since 20 dynamic
    * @since 23 static
