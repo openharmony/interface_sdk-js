@@ -281,7 +281,7 @@ declare namespace unifiedDataChannel {
      * @param { UnifiedRecord } record - Data record in the **UnifiedData** object. It is a **UnifiedRecord** object or
      *     its child class object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -306,7 +306,7 @@ declare namespace unifiedDataChannel {
      *
      * @param { UnifiedRecord } record - Data record to add. It is a **UnifiedRecord** child class object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -342,7 +342,7 @@ declare namespace unifiedDataChannel {
      *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      * @returns { boolean } Returns **true** if the specified data type exists; returns **false** otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @crossplatform [since 14]
@@ -568,7 +568,7 @@ declare namespace unifiedDataChannel {
      *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      * @param { ValueType } value - Value of the data to add.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
@@ -584,7 +584,7 @@ declare namespace unifiedDataChannel {
      *     [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}.
      * @returns { ValueType } Value obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types.
+     *     <br>2.Incorrect parameter types.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
      * @atomicservice
@@ -2166,7 +2166,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<string> } callback - Callback used to return the key (unique identifier) of the data
    *     inserted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
@@ -2185,7 +2185,7 @@ declare namespace unifiedDataChannel {
    * @param { UnifiedData } data - Data to insert.
    * @returns { Promise<string> } Promise used to return the key of the data inserted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
@@ -2204,7 +2204,7 @@ declare namespace unifiedDataChannel {
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the data is updated successfully,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
@@ -2222,7 +2222,7 @@ declare namespace unifiedDataChannel {
    * @param { UnifiedData } data - Data to update.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
@@ -2244,7 +2244,7 @@ declare namespace unifiedDataChannel {
    *     **key** is specified. If there is no intersection between the specified **intention** and **key**, an error
    *     object is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
@@ -2266,7 +2266,7 @@ declare namespace unifiedDataChannel {
    *     obtained when only **key** is specified. If there is no intersection between the specified **intention** and
    *     **key**, an error object is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
@@ -2287,7 +2287,7 @@ declare namespace unifiedDataChannel {
    *     **intention** and **key** are specified, the intersection of the two deleted is returned. If there is no
    *     intersection between the two, an error object is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
@@ -2308,7 +2308,7 @@ declare namespace unifiedDataChannel {
    *     <br>If both **intention** and **key** are specified, the intersection of the two deleted is returned. If there 
    *     is no intersection between the two, an error object is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-   *     <br>2.Incorrect parameters types.
+   *     <br>2.Incorrect parameter types.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice [since 11]
