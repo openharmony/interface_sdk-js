@@ -1633,6 +1633,7 @@ export declare class UIObserver {
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @since 24 static
    */
   onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
@@ -1645,6 +1646,7 @@ export declare class UIObserver {
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @since 24 static
    */
   offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
