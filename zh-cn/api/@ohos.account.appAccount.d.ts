@@ -1175,7 +1175,7 @@ declare namespace appAccount {
      * 订阅指定应用的账号信息变更事件。
      *
      * @param { Array<string> } owners - 应用账号所有者的包名列表。
-     * @param { Callback<Array<AppAccountInfo>> } callback - A需要注册的回调函数，返回信息为发生变更的应用账号列表。
+     * @param { Callback<Array<AppAccountInfo>> } callback - 需要注册的回调函数，返回信息为发生变更的应用账号列表。
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owners.
      * @syscap SystemCapability.Account.AppAccount
