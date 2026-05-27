@@ -2129,6 +2129,18 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default shaderStyle(shader: ShaderStyle | undefined): this;
+
+    /**
+     * Whether to enable punctuation overflow at line ends.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default punctuationOverflow(enabled: boolean | undefined): this;
 }
 
 /**

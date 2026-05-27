@@ -2318,6 +2318,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 26.0.0 dynamic
    */
   shaderStyle(shader: ShaderStyle | undefined): TextAreaAttribute;
+
+  /**
+   * Whether to enable punctuation overflow at line ends.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  punctuationOverflow(enabled: Optional<boolean>): TextAreaAttribute;
 }
 
 /**
