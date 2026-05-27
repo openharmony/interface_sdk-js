@@ -19,8 +19,7 @@
  */
 
 /**
- * Defines a common callback. You can set **data** to customize the data type of the information returned by the
- * callback.
+ * 通用回调函数。开发者在使用时，可自定义data的类型，回调将返回对应类型的信息。
  *
  * @typedef { Callback } [since 6 - 11]
  * @typedef { Callback<T> } [since 12]
@@ -32,7 +31,7 @@
  */
 export interface Callback<T> {
   /**
-   * Common callback information.
+   * 接口调用时的公共回调信息。
    *
    * @param { T } data
    * @syscap SystemCapability.Base
@@ -45,8 +44,7 @@ export interface Callback<T> {
 }
 
 /**
- * Defines a common callback that carries an error parameter. The information returned by the callback is of
- * the [BusinessError]{@link BusinessError} type.
+ * 通用回调函数，携带错误参数。回调返回的信息为[BusinessError]{@link BusinessError}类型的信息。
  *
  * @typedef ErrorCallback [since 6 - 10]
  * @typedef ErrorCallback<T extends Error = BusinessError> [since 11]
@@ -57,7 +55,7 @@ export interface Callback<T> {
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
   /**
-   * Common error information about the API invoking failure.
+   * 接口调用失败的公共错误信息。
    *
    * @param { T } err
    * @syscap SystemCapability.Base
@@ -69,7 +67,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 }
 
 /**
- * Defines a common callback that carries an error parameter and asynchronous return value.
+ * 通用回调函数，携带错误参数和异步返回值。
  *
  * @typedef AsyncCallback [since 6 - 11]
  * @typedef AsyncCallback<T, E = void> [since 12]
@@ -81,12 +79,10 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  */
 export interface AsyncCallback<T, E = void> {
   /**
-   * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
-   * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
-   * developer.
+   * 通用回调函数，携带错误参数和异步返回值。错误参数为[BusinessError]{@link BusinessError}类型的信息。异步返回值的类型由开发者自定义，回调将返回对应类型的信息。
    *
-   * @param { BusinessError<E> } err Common error information about the API invoking failure.
-   * @param { T } data Common callback information.
+   * @param { BusinessError<E> } err 接口调用失败的公共错误信息。
+   * @param { T } data 接口调用时的公共回调信息。
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -97,7 +93,7 @@ export interface AsyncCallback<T, E = void> {
 }
 
 /**
- * Defines the error parameter.
+ * 错误参数。
  *
  * @typedef BusinessError [since 6 - 11]
  * @typedef BusinessError<T = void> [since 12]
@@ -109,7 +105,7 @@ export interface AsyncCallback<T, E = void> {
  */
 export interface BusinessError<T = void> extends Error {
   /**
-   * Common error information about the API invoking failure.
+   * 接口调用失败返回的错误码信息。
    *
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
@@ -119,7 +115,7 @@ export interface BusinessError<T = void> extends Error {
    */
   code: number;
   /**
-   * Common callback information. If this parameter is left empty, no related information is returned.
+   * 接口调用时的公共回调信息。如果不填，则回调不返回相关信息。
    *
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]

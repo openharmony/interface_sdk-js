@@ -34,8 +34,7 @@
  */
 export @interface Available {
   /**
-   * Minimum available version, which consists of two parts: system type and version number. The system type can be
-   * omitted only when it is OpenHarmony, for example, **'OpenHarmony 20'** or **'20'**.
+   * minApiVersion用于标识最低可用版本，由两部分组成：系统类型+版本号。仅当系统类型为OpenHarmony时可省略系统类型。例如：'OpenHarmony 20'，'20'。
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
@@ -49,7 +48,7 @@ export @interface Available {
 }
 
 /**
- * Defines the warning types that support suppression.
+ * 本模块定义了OpenHarmony ArkTS API的注解类型，如生命周期最小可用版本等。
  *
  * @syscap SystemCapability.Base
  * @stagemodelonly
@@ -61,7 +60,7 @@ export @interface Available {
  */
 export const enum SuppressWarningsType {
   /**
-   * Compatibility warning.
+   * 支持消除兼容性告警。
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
@@ -73,7 +72,7 @@ export const enum SuppressWarningsType {
    */
   COMPATIBILITY = 'compatibility',
   /**
-   * Multi-device warning.
+   * 支持消除多设备告警。
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
@@ -85,7 +84,7 @@ export const enum SuppressWarningsType {
    */
   SYSCAP = 'syscap',
   /**
-   * Support for suppressing generated permission warnings.
+   * 支持屏蔽生成的权限警告。
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
@@ -112,7 +111,7 @@ export const enum SuppressWarningsType {
  */
 export @interface SuppressWarnings {
   /**
-   * Rules that support warning suppression.
+   * 支持告警消除的规则集合。
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
