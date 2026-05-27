@@ -411,13 +411,18 @@ export declare @interface Monitor {
 export declare @interface Env {
   /**
    * Key value input by the user.
-   *
-   * @type { SystemProperties }
+   * On API 26.0.0 and above, it can also support a string literal in the
+   * format "ReadonlyEnvKey.<keyName>" or "WritableEnvKey.<keyName>".
+   * The key name must be one declared in {@link ReadonlyEnvKey} or
+   * {@link WritableEnvKey}. Arbitrary strings are not supported.
+   * 
+   * @type { SystemProperties } key - key value input by the user. [since 22 - 24]
+   * @type { string } key - key value input by the user, only support . [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
-  value: SystemProperties;
+  value:  string;
 };
 
 /**
@@ -1456,9 +1461,11 @@ export declare interface IStateMgmtFactory {
 
   /**
    * Create a Env variable instance.
+   * On API 26.0.0 and above, it can also support SystemEnvKey type for envValue.
    *
    * @param { IVariableOwner } owner - custom component owner
-   * @param { string } envValue - type of environment value to obtain
+   * @param { string } envValue - type of environment value to obtain [since 22 - 24]
+   * @param { string | SystemEnvKey<T> } envValue - system environment key [since 26.0.0]
    * @param { string } varName - variable name that is decorated by @Env
    * @param { EnvOptions<T> } [envOptions] - additional options for makeEnv
    * @returns { IEnvDecoratedVariable<T> } Env variable instance
@@ -1466,7 +1473,7 @@ export declare interface IStateMgmtFactory {
    * @stagemodelonly
    * @since 24 static
    */
-  makeEnv<T>(owner: IVariableOwner, envValue: string, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
+  makeEnv<T>(owner: IVariableOwner, envValue: string | SystemEnvKey<T>, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
 
   /**
    * Create a synchronous monitored variable instance.
@@ -1830,3 +1837,57 @@ export declare interface IObservedAnyProp {
  * @since 26.0.0 static
  */
 export declare interface IGlobalReusePoolVariable { }
+
+/**
+ * Defines the class of System Env Key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class SystemEnvKey<T> {
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  protected constructor();
+}
+ 	 
+/**
+ * Defines writable system environment variable keys.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
+
+/**
+ * Define read-only system environment variable keys.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
+
+/**
+ * Defines the writable system environment key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class WritableEnvKey {}
+
+/**
+ * Defines the readonly system environment key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ReadonlyEnvKey {}
