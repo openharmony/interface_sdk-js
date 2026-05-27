@@ -6033,6 +6033,10 @@ declare namespace webview {
      * cleared. To use the prefetched resource cache, you need to add the key value **ArkWebPostCacheKey** to the header
      * of the POST request. The content of the key value is the cacheKey of the corresponding cache.
      *
+     * Resources in the memory cache are automatically managed by the ArkWeb engine. When the injected resources are
+     * excessive and cause significant memory pressure, the engine will automatically release unused resources. It is
+     * advisable to avoid injecting a large number of resources into the memory cache.
+     *
      * @param { RequestInfo } request - Information about the prefetched request.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the prefetched request.<br>If
      *     **undefined** or **null** is passed, error code **401** will be thrown.
