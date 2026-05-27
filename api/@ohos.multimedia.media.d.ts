@@ -11190,6 +11190,21 @@ declare namespace media {
      * @since 26.0.0 dynamic&static
      */
     addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
+
+    /**
+     * Sets whether the captured screen content automatically rotates to keep the image upright.
+     *
+     * @param { boolean } enable - Indicates whether to enable automatic rotation. The default value is **false**.
+     *     A value of **true** indicates automatic rotation and the image content in the output frame remains upright.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 801 - Capability not supported. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setContentAutoRotation(enable: boolean): Promise<void>;
 	
     /**
      * Subscribes to screen capture state changes. An application can subscribe to only one screen capture state change 
