@@ -15597,6 +15597,19 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 23 static
      */
     default backToTop(backToTop: boolean | undefined): this;
+    /**
+     * Sets the scrollbar track height.
+     *
+     * @param { LengthMetrics | undefined } height - Scrollbar track height.
+     *     <br>The value must be greater than or equal to 0, If set to undefined or a value less than 0, the default
+     *     value is used, If set to 0, the scrollbar is not displayed.
+     *     <br>Default value: adaptive to the height of the scrollable component.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollBarHeight(height: LengthMetrics | undefined): this;
 }
 /**
  * The actual offset by which the scrollable scrolls.
