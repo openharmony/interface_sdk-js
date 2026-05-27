@@ -2437,7 +2437,7 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    delete(config: DataProxyConfig): Promise<DataProxyResult[]>;
+    deleteMyPublishedData(config: DataProxyConfig): Promise<DataProxyResult[]>;
 
     /**
      * Gets published data specified by the URIs.
