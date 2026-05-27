@@ -3382,6 +3382,51 @@ declare namespace notificationManager {
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
 
   /**
+   * 设置通知开关状态。使用Promise异步回调。
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } switchName - 通知开关名称。取值为：**DEAL**，**LOGISTICS**。
+   * @param { boolean } switchState - 是否启用通知开关。true表示启用通知开关，false表示禁用。
+   * @param { int } userId - 用户ID。
+   *     <br>取值为所有整数。
+   * @returns { Promise<void> } Promise对象，无返回值。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Database operation failed.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setNotificationSwitch(switchName: string, switchState: boolean, userId: int): Promise<void>;
+
+  /**
+   * 获取通知开关状态。使用Promise异步回调。
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } switchName - 通知开关名称。取值为：**DEAL**，**LOGISTICS**。
+   * @param { int } userId - 用户ID。
+   *     <br>取值为所有整数。
+   * @returns { Promise<SwitchState> } Promise对象，返回通知开关状态。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Database operation failed.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getNotificationSwitch(switchName: string, userId: int): Promise<SwitchState>;
+
+  /**
    * 设置应用自定义铃声信息。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER

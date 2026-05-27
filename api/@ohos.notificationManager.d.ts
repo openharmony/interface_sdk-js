@@ -3577,6 +3577,52 @@ declare namespace notificationManager {
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
 
   /**
+   * Sets the notification switch state. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } switchName - Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
+   * @param { boolean } switchState - Whether to enable the notification switch. The value **true** means to enable the
+   *     notification switch, and **false** means the opposite.
+   * @param { int } userId - User ID
+   *     <br>The value range is all integers.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Database operation failed.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setNotificationSwitch(switchName: string, switchState: boolean, userId: int): Promise<void>;
+
+  /**
+   * Gets the notification switch state. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } switchName - Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
+   * @param { int } userId - User ID
+   *     <br>The value range is all integers.
+   * @returns { Promise<SwitchState> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Database operation failed.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600008 - The user does not exist.
+   * @throws { BusinessError } 1600012 - No memory space.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getNotificationSwitch(switchName: string, userId: int): Promise<SwitchState>;
+
+  /**
    * Sets the custom ringtone information for an application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
