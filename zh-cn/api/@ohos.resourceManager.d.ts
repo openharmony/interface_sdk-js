@@ -24,8 +24,8 @@ import { AsyncCallback as _AsyncCallback } from './@ohos.base';
 import { DrawableDescriptor } from './@ohos.arkui.drawableDescriptor';
 
 /**
- * 本模块提供资源获取能力。根据当前的[Configuration]{@link resourceManager.Configuration}配置，获取最匹配的应用资源或系统资源。具体匹配规则参考
- * [资源匹配](docroot://quick-start/resource-categories-and-access.md#资源匹配)。
+ * 本模块提供资源获取能力。根据当前的[Configuration]{@link resourceManager.Configuration}配置，获取最匹配的应用资源或系统资源。
+ * 具体匹配规则参考[资源匹配](docroot://quick-start/resource-categories-and-access.md#资源匹配)。
  * Configuration配置包括语言、区域、横竖屏、颜色模式、Mcc（移动国家码）和Mnc（移动网络码）、Device capability（设备类型）、Density（分辨率）。
  *
  * @syscap SystemCapability.Global.ResourceManager
@@ -1324,8 +1324,10 @@ declare namespace resourceManager {
      * 获取指定资源ID对应的字符串，并根据args参数对字符串进行格式化，使用同步方式返回。
      *
      * @param { number } resId - 资源ID值。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } 资源ID值对应的格式化字符串。
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -1379,8 +1381,10 @@ declare namespace resourceManager {
      * 获取指定resource对象对应的字符串，并根据args参数对字符串进行格式化，使用同步方式返回。
      *
      * @param { Resource } resource - 资源信息。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } resource对象对应的格式化字符串。
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -1417,9 +1421,10 @@ declare namespace resourceManager {
      * 获取指定资源名称对应的字符串，并根据args参数对字符串进行格式化，使用同步方式返回。
      *
      * @param { string } resName - 资源名称。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
-     * @returns { string } 资源名称对应的格式化字符串。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -1759,8 +1764,10 @@ declare namespace resourceManager {
      * @param { number } resId - 资源ID值。
      * @param { number } num - 数量值（整数）。根据当前语言的
      *     [单复数规则](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html)获取该数量值对应的字符串。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } 资源ID值对应的格式化单复数字符串。
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1804,8 +1811,10 @@ declare namespace resourceManager {
      * @param { Resource } resource - 资源信息。
      * @param { number } num - 数量值（整数）。根据当前语言的
      *     [单复数规则](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html)获取该数量值对应的字符串。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } resource对象对应的格式化单复数字符串。
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1834,8 +1843,10 @@ declare namespace resourceManager {
      * @param { string } resName - 资源名称。
      * @param { number } num - 数量值（整数）。根据当前语言的
      *     [单复数规则](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html)获取该数量值对应的字符串。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } 资源名称对应的格式化单复数字符串。
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -1880,8 +1891,10 @@ declare namespace resourceManager {
      * @param { number } resId - 资源ID值。
      * @param { number } num - 数量值（浮点数）。根据当前语言的
      *     [单复数规则](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html)获取该数量值对应的字符串。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } 资源ID值对应的格式化单复数字符串。
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1924,8 +1937,10 @@ declare namespace resourceManager {
      * @param { Resource } resource - 资源信息。
      * @param { number } num - 数量值（浮点数）。根据当前语言的
      *     [单复数规则](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html)获取该数量值对应的字符串。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } resource对象对应的格式化单复数字符串。
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1954,8 +1969,10 @@ declare namespace resourceManager {
      * @param { string } resName - 资源名称。
      * @param { number } num - 数量值（浮点数）。根据当前语言的
      *     [单复数规则](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html)获取该数量值对应的字符串。
-     * @param { Array<string | number> } args - 格式化字符串资源参数。<br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。<br>说明
-     *     ：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。<br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
+     * @param { Array<string | number> } args - 格式化字符串资源参数。
+     *     <br>支持参数类型：`%d`、`%f`、`%s`、`%%`、`%数字$d`、`%数字$f`、`%数字$s`。
+     *     <br>说明：`%%`转义为`%`; `%数字$d`中的数字表示使用args中的第几个参数。
+     *     <br>举例：`%%d`格式化后为`%d`字符串; `%1$d`表示使用第一个参数。
      * @returns { string } 资源名称对应的格式化单复数字符串。
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -2234,7 +2251,9 @@ declare namespace resourceManager {
      *
      * @param { long } resId - 资源ID值。
      * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。
-     * @param { int } type - - 1表示获取主题资源包中应用的分层图标资源。<br> - 0或缺省表示获取应用自身图标资源。
+     * @param { int } type - 图标类型。默认值为0。
+     *     <br>0：表示获取应用自身图标资源。
+     *     <br>1：表示获取主题资源包中应用的分层图标资源。
      * @returns { DrawableDescriptor } 资源ID值对应的DrawableDescriptor对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2254,7 +2273,9 @@ declare namespace resourceManager {
      *
      * @param { string } resName - 资源名称。
      * @param { int } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。
-     * @param { int } type - - 1表示获取主题资源包中应用的分层图标资源。<br> - 0或缺省表示获取应用自身图标资源。
+     * @param { int } type - 图标类型。默认值为0。
+     *     <br>0：表示获取应用自身图标资源。
+     *     <br>1：表示获取主题资源包中应用的分层图标资源。
      * @returns { DrawableDescriptor } 资源名称对应的DrawableDescriptor对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2281,7 +2302,9 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - 资源信息。
      * @param { number } density - 资源获取需要的屏幕密度，0或缺省表示默认屏幕密度。
-     * @param { number } type - - 1表示获取主题资源包中应用的分层图标资源。<br> - 0或缺省表示获取应用自身图标资源。
+     * @param { number } type - 图标类型。默认值为0。
+     *     <br>0：表示获取应用自身图标资源。
+     *     <br>1：表示获取主题资源包中应用的分层图标资源。
      * @returns { DrawableDescriptor } 资源ID值对应的DrawableDescriptor对象。
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
@@ -2871,8 +2894,10 @@ declare namespace resourceManager {
     /**
      * 获取应用的语言列表。
      *
-     * @param { boolean } [includeSystem] - 是否包含系统资源，默认值为false。 <br> - false：表示仅获取应用资源的语言列表。 <br> - true：表示获取系统资源和应用资源的语
-     *     言列表。 <br>当使用系统资源管理对象获取语言列表时，includeSystem值无效，始终返回系统资源语言列表。
+     * @param { boolean } [includeSystem] - 是否包含系统资源，默认值为false。
+     *     <br> - false：表示仅获取应用资源的语言列表。
+     *     <br> - true：表示获取系统资源和应用资源的语言列表。
+     *     <br>当使用系统资源管理对象获取语言列表时，includeSystem值无效，始终返回系统资源语言列表。
      * @returns { Array<string> } 返回获取的语言列表，列表中的字符串由语言、脚本（可选）、地区（可选），按照顺序使用中划线“-”连接组成。
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @syscap SystemCapability.Global.ResourceManager
