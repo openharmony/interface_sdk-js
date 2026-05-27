@@ -515,6 +515,11 @@ declare namespace resourceManager {
    * > For details, see 
    * > [Accessing Resources](docroot://quick-start/resource-categories-and-access.md#accessing-resources).
    * >
+   * > - In API version 22 and earlier versions, an exception is thrown due to an invalid ID when the intermediate-code
+   * > HAR or bytecode HAR accesses resources through resource ID-related APIs. From API version 23, the
+   * > intermediate-code HAR or bytecode HAR can properly access resources through resource ID-related APIs.
+   * > For details, see [Accessing Resources](docroot://quick-start/resource-categories-and-access.md#accessing-resources).
+   * >
    * > - For details about the content of the test files used in the sample code, see 
    * > [Appendix](docroot://reference/apis-localization-kit/js-apis-resource-manager.md#appendix).
    *
@@ -1091,8 +1096,7 @@ declare namespace resourceManager {
      * result.
      *
      * @param { string } resName - Resource name.
-     * @param { _AsyncCallback<string> } callback - Callback used to return the result, which is the string 
-     *     corresponding to the specified resource ID.
+     * @param { _AsyncCallback<string> } callback - Callback used to return the obtained string.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -1380,10 +1384,12 @@ declare namespace resourceManager {
      * the result synchronously.
      *
      * @param { number } resId - Resource ID.
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -1438,10 +1444,12 @@ declare namespace resourceManager {
      * returns the result synchronously.
      *
      * @param { Resource } resource - Resource object.
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource object.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
@@ -1475,14 +1483,16 @@ declare namespace resourceManager {
     getStringByNameSync(resName: string): string;
 
     /**
-     * Obtains a string based on the specified resource ame and formats the string based on **args**. This API returns 
+     * Obtains a string based on the specified resource name and formats the string based on **args**. This API returns 
      * the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
@@ -1572,8 +1582,8 @@ declare namespace resourceManager {
      *
      * @param { number } resId - Resource ID.
      * @returns { number } Integer or float value corresponding to the specified resource ID.
-     *     An integer indicates the original value, and a float number without a unit indicates the original value and a float 
-     *     number with the unit of vp or fp indicates the px value. For details, see the sample code.
+     *     An integer indicates the original value, and a float number without a unit indicates the original value and 
+     *     a float number with the unit of vp or fp indicates the px value. For details, see the sample code.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1621,8 +1631,8 @@ declare namespace resourceManager {
      *
      * @param { Resource } resource - Resource object.
      * @returns { number } Integer or float number.
-     *     An integer indicates the original value, and a float number without a unit indicates the original value and a float 
-     *     number with the unit of vp or fp indicates the px value.
+     *     An integer indicates the original value, and a float number without a unit indicates the original value and 
+     *     a float number with the unit of vp or fp indicates the px value.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1643,8 +1653,8 @@ declare namespace resourceManager {
      *
      * @param { string } resName - Resource name.
      * @returns { number } Integer or float value corresponding to the specified resource name.
-     *     An integer indicates the original value, and a float number without a unit indicates the original value and a float 
-     *     number with the unit of vp or fp indicates the px value.
+     *     An integer indicates the original value, and a float number without a unit indicates the original value and 
+     *     a float number with the unit of vp or fp indicates the px value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -1837,10 +1847,12 @@ declare namespace resourceManager {
      * @param { number } num - Integer number used to obtain the corresponding string representation based on the 
      *     current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource ID.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1887,10 +1899,12 @@ declare namespace resourceManager {
      * @param { number } num - Integer number used to obtain the corresponding string representation based on the 
      *     current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource object.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -1922,10 +1936,12 @@ declare namespace resourceManager {
      * @param { number } num - Integer number used to obtain the corresponding string representation based on the 
      *     current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -1973,10 +1989,12 @@ declare namespace resourceManager {
      * @param { number } num - Quantity value (a floating point number), used to obtain the corresponding string 
      *     representation based on the current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource ID.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2022,10 +2040,12 @@ declare namespace resourceManager {
      * @param { number } num - Quantity value (a floating point number), used to obtain the corresponding string 
      *     representation based on the current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource object.
      * @throws { BusinessError } 9001001 - Invalid resource ID.
      * @throws { BusinessError } 9001002 - No matching resource is found based on the resource ID.
@@ -2057,10 +2077,12 @@ declare namespace resourceManager {
      * @param { number } num - Quantity value (a floating point number), used to obtain the corresponding string 
      *     representation based on the current language's 
      *     [plural rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html).
-     * @param { Array<string | number> } args - Arguments for formatting strings.<br>Supported value types include `%d`,
-     *     `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.<br>Note: `%%` is converted to `%`. **number** in
-     *     `%number$d` indicates the sequence number of the parameter in **args**.<br>For example, `%%d` is converted to
-     *     `%d` after formatting, and `%1$d` indicates that the first parameter is used.
+     * @param { Array<string | number> } args - Arguments for formatting strings.
+     *     <br>Supported value types include `%d`, `%f`, `%s`, `%%`, `%number$d`, `%number$f`, and `%number$s`.
+     *     <br>Note: `%%` is converted to `%`. **number** in `%number$d` indicates the sequence number of the parameter 
+     *     in **args**.
+     *     <br>For example, `%%d` is converted to `%d` after formatting, and `%1$d` indicates that the first parameter 
+     *     is used.
      * @returns { string } Formatted string corresponding to the specified resource name.
      * @throws { BusinessError } 9001003 - Invalid resource name.
      * @throws { BusinessError } 9001004 - No matching resource is found based on the resource name.
@@ -2353,8 +2375,9 @@ declare namespace resourceManager {
      *
      * @param { long } resId - Resource ID.
      * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
-     * @param { int } type - - **1**: Layered icon resource of the application in the theme resource package.<br> - 
-     *     **0** or default value: Icon resource of the application.
+     * @param { int } type - Icon type. The Default value is **0**.
+     *     <br>**0**: Icon resource of the application.
+     *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2375,8 +2398,9 @@ declare namespace resourceManager {
      *
      * @param { string } resName - Resource name.
      * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
-     * @param { int } type - - **1**: Layered icon resource of the application in the theme resource package.<br> - 
-     *     **0** or default value: Icon resource of the application.
+     * @param { int } type - Icon type. The Default value is **0**.
+     *     <br>**0**: Icon resource of the application.
+     *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Incorrect parameter types;
@@ -2398,8 +2422,9 @@ declare namespace resourceManager {
      * @param { Resource } resource - Resource object.
      * @param { number } density - Screen density. The default value or value **0** indicates the default screen 
      *     density.
-     * @param { number } type - - **1**: Layered icon resource of the application in the theme resource package.<br> -
-     *     **0** or default value: Icon resource of the application.
+     * @param { number } type - Icon type. The Default value is **0**.
+     *     <br>**0**: Icon resource of the application.
+     *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2
      *     .Parameter verification failed.
@@ -2678,8 +2703,8 @@ declare namespace resourceManager {
     getRawFdSync(path: string): RawFileDescriptor;
 
     /**
-     * Obtains the fd of the HAP where a specific rawfile in the **resources/rawfile** directory is located. This API 
-     * returns the result synchronously.
+     * Closes the file descriptor (fd) of the HAP where the **rawfile** file in the **resources/rawfile** directory is 
+     * located. This API returns the result synchronously.
      *
      * @param { string } path - Path of the rawfile.
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
@@ -3016,10 +3041,10 @@ declare namespace resourceManager {
     /**
      * Obtains the language list of an application.
      *
-     * @param { boolean } [includeSystem] - Whether system resources are included. The default value is **false**.<br> -
-     *     **false**: Only application resources are included.<br> - **true**: Both system and application resources are
-     *     included.<br>If the value of **includeSystem** is invalid, the language list of system resources will be 
-     *     returned.
+     * @param { boolean } [includeSystem] - Whether system resources are included. The default value is **false**.
+     *     <br> - **false**: Only application resources are included.
+     *     <br> - **true**: Both system and application resources are included.
+     *     <br>If the value of **includeSystem** is invalid, the language list of system resources will be returned.
      * @returns { Array<string> } Language list. The strings in the list are comprised of the language, script (optional
      *     ), and region (optional), which are connected by a hyphen (-).
      * @throws { BusinessError } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
