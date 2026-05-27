@@ -11306,6 +11306,17 @@ declare namespace media {
     audioCodec?: CodecMimeType;
 
     /**
+     * Encoding format of the output audio. If the specified format is not supported, prepare will fail.
+     * Default value: AUDIO_AAC.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @stagemodelonly
+     * @atomicservice [since 22]
+     * @since 26.0.0 dynamic&static
+     */
+    audioCodecV2?: CodecMimeType;
+
+    /**
      * Container format of the output video file. Currently, only MP4 is supported.
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
