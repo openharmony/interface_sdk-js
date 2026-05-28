@@ -619,14 +619,14 @@ export declare interface IReusableInfo {
  */
 export declare interface CustomComponentContext {
   /**
-   * The getCustomComponentReusePool function gets the reuse pool.
+   * Get global reuse pool from current custom component.
    *
    * @returns { IReusePool | undefined } Returns the recyclepool instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  getCustomComponentReusePool(): IReusePool | undefined;
+  getReusePool(): IReusePool | undefined;
 
   /**
    * Register active nad inactive callback.
