@@ -253,13 +253,13 @@ declare namespace uriPermissionManager {
    * > [getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath} API. For URIs combined by the application, the
    * > system cannot guarantee their functions.
    *
-   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 18]
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 11]
    * @param { string } uri - URI of the file. The scheme has a fixed value of **file**. For details, see
    *     [FileUri]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}.
    * @param { string } targetBundleName - Bundle name of the application, from which the permission is revoked.
    * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is successful, **0** is
    *     returned; otherwise, **-1** is returned.
-   * @throws { BusinessError } 201 - Permission denied. [since 10 - 18]
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 11]
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -312,13 +312,13 @@ declare namespace uriPermissionManager {
    * > [getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath} API. For URIs combined by the application, the
    * > system cannot guarantee their functions.
    *
-   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 18]
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 11]
    * @param { string } uri - URI of the file. The scheme has a fixed value of **file**. For details, see
    *     [FileUri]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}.
    * @param { string } targetBundleName - Bundle name of the target application.
    * @returns { Promise<number> } Promise used to return the result. If the operation is successful, **0** is returned;
    *     otherwise, **-1** is returned.
-   * @throws { BusinessError } 201 - Permission denied. [since 10 - 18]
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 11]
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;

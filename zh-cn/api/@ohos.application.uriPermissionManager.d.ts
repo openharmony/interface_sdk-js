@@ -208,11 +208,11 @@ declare namespace uriPermissionManager {
    * > - 因URI处理涉及编解码，传入的URI需要使用[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}接口获取。对于应用自行拼接的URI，系统无法保证
    * > 其功能。
    *
-   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 18]
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 11]
    * @param { string } uri - 指向文件的URI，scheme固定为"file"，参考[FileUri]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}。
    * @param { string } targetBundleName - 被撤销授权uri的应用包名。
    * @param { AsyncCallback<number> } callback - 回调函数。返回0表示有权限，返回-1表示无权限。
-   * @throws { BusinessError } 201 - Permission denied. [since 10 - 18]
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 11]
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -257,11 +257,11 @@ declare namespace uriPermissionManager {
    * > - 因URI处理涉及编解码，传入的URI需要使用[getUriFromPath]{@link @ohos.file.fileuri:fileUri.getUriFromPath}接口获取。对于应用自行拼接的URI，系统无法保证
    * > 其功能。
    *
-   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 18]
+   * @permission ohos.permission.PROXY_AUTHORIZATION_URI [since 10 - 11]
    * @param { string } uri - 指向文件的URI，scheme固定为"file"，参考[FileUri]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}。
    * @param { string } targetBundleName - 被授权URI的应用包名。
    * @returns { Promise<number> } Promise对象。返回0表示有权限，返回-1表示无权限。
-   * @throws { BusinessError } 201 - Permission denied. [since 10 - 18]
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 11]
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;

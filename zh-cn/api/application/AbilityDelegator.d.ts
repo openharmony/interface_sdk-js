@@ -423,7 +423,7 @@ export interface AbilityDelegator {
    * @returns { Promise<UIAbility> } Promise对象，返回前应用顶部Ability。
    * @throws { BusinessError } 16000100 - Calling GetCurrentTopAbility failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @crossplatform [sicne 10]
+   * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static

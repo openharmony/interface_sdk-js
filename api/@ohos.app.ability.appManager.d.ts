@@ -1847,7 +1847,6 @@ declare namespace appManager {
    *  by [KeepAliveBundleInfo]{@link appManager.KeepAliveBundleInfo}. This API uses a promise to return the result.
    * This API can be properly called on PCs/2-in-1 devices. If it is called on other devices, error code 801 is
    * returned.
-   * **Required permissions**: ohos.permission.MANAGE_APP_KEEP_ALIVE
    *
    * @permission ohos.permission.MANAGE_APP_KEEP_ALIVE
    * @returns { Promise<Array<KeepAliveBundleInfo>> } Promise used to return the array of keep-alive application information.
