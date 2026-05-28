@@ -70,6 +70,10 @@ declare namespace PiPWindow {
    *     [PiPTemplateType]{@link PiPWindow.PiPTemplateType}, and **controlGroups** (if specified) must match the value
    *     of **templateType**. For details, see [PiPControlGroup]{@link PiPWindow.PiPControlGroup}.
    * @returns { Promise<PiPController> } Promise used to return the PiP controller.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -91,6 +95,10 @@ declare namespace PiPWindow {
    * @param { typeNode.XComponent } contentNode - Content to be rendered in the PiP window. The parameter value cannot
    *     be empty.
    * @returns { Promise<PiPController> } Promise used to return the PiP controller.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified.
+   *     <br>2. Incorrect parameter types.
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @syscap SystemCapability.Window.SessionManager
@@ -1018,6 +1026,7 @@ declare namespace PiPWindow {
      *     to update the aspect ratio of the PiP window.
      * @param { int } height - Height of the media content, in px. The value must be an integer greater than 0. It is
      *     used to update the aspect ratio of the PiP window.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -1032,6 +1041,7 @@ declare namespace PiPWindow {
      *     the **VIDEO_PLAY_PAUSE**, **MICROPHONE_SWITCH**, **CAMERA_SWITCH**, and **MUTE_SWITCH** component types are
      *     supported. If other component types are passed, they do not take effect and no error is reported.
      * @param { PiPControlStatus } status - Status of the component displayed on the PiP controller.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1045,6 +1055,10 @@ declare namespace PiPWindow {
      * @param { typeNode.XComponent } contentNode - Content to be rendered in the PiP window. The parameter value cannot
      *     be empty.
      * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1061,6 +1075,7 @@ declare namespace PiPWindow {
      * @param { PiPControlType } controlType - Type of the component displayed on the PiP controller.
      * @param { boolean } enabled - Enabled status of the component displayed on the PiP controller. **true** if enabled
      *     , **false** otherwise.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1266,6 +1281,7 @@ declare namespace PiPWindow {
      * @param { 'pipWindowSizeChange' } type - Event type. The value is fixed at **'pipWindowSizeChange'**, indicating
      *     that the PiP window size changes.
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the size of the current PiP window.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: Callback is already registered.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1295,6 +1311,10 @@ declare namespace PiPWindow {
      * @param { Callback<PiPWindowSize> } callback - Callback used to return the size of the current PiP window. If a
      *     value is passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions
      *     to the specified event are canceled.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @syscap SystemCapability.Window.SessionManager
