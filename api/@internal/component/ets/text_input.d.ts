@@ -3767,6 +3767,19 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 26.0.0 dynamic
    */
   shaderStyle(shader: ShaderStyle | undefined): TextInputAttribute;
+
+  /**
+   * Whether to enable punctuation overflow at line ends.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  punctuationOverflow(enabled: Optional<boolean>): TextInputAttribute;
 }
 
 /**

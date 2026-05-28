@@ -1972,6 +1972,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @since 26.0.0 dynamic
    */
   incrementalUpdatePolicy(policy: IncrementalUpdatePolicy | undefined): TextAttribute;
+
+  /**
+   * Whether to enable punctuation overflow at line ends.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  punctuationOverflow(enabled: Optional<boolean>): TextAttribute;
 }
 
 /**
