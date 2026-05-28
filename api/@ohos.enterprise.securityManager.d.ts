@@ -599,6 +599,110 @@ declare namespace securityManager {
   function uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: int): void;
 
   /**
+   * Sets the permissions that are disallowed to be granted for an account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } permission - permission indicates the name of the permission.
+   * @param { boolean } disallow - true if disallowed granted for the account, otherwise false.
+   * @param { number } accountId - accountId indicates the ID of OS account
+   *     <br>The value must be an integer greater than or equal to 0.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201045 - This permission cannot be disallowed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setDisallowedPermission(admin: Want, permission: string, disallow: boolean, accountId: number): void;
+
+  /**
+   * Gets the permissions that are disallowed to be granted for an account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - admin indicates the administrator ability information.
+   * @param { number } accountId - accountId indicates the ID of OS account
+   *     <br>The value must be an integer greater than or equal to 0.
+   * @returns { Array<string> } the list of permissions that are disallowed to be granted for the account.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedPermissions(admin: Want | null, accountId: number): Array<string>;
+
+  /**
+   * Adds the application to the list of applications allowed to grant the permission.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } permission - permission indicates the name of the permission.
+   * @param { common.ApplicationInstance } applicationInstance - applicationInstance indicates
+   *     the application that need to be added to the list of applications allowed to grant the permission.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201015 - The application is not installed.
+   * @throws { BusinessError } 9201044 - This permission is not disallowed.
+   *     Applications cannot be added to or removed from the trustlist.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function addAllowedPermissionBundle(admin: Want, permission: string, applicationInstance: common.ApplicationInstance): void;
+
+  /**
+   * Removes the application from the list of applications allowed to grant the permission.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { string } permission - permission indicates the name of the permission.
+   * @param { common.ApplicationInstance } applicationInstance - applicationInstance indicates
+   *     the application need to be removed from the list of applications allowed to grant the permission.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201044 - This permission is not disallowed.
+   *     Applications cannot be added to or removed from the trustlist.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeAllowedPermissionBundle(admin: Want, permission: string, applicationInstance: common.ApplicationInstance): void;
+
+  /**
+   * Gets the applications that are allowed to be granted the permission.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want | null } admin - admin indicates the administrator ability information.
+   * @param { string } permission - permission indicates the name of the permission.
+   * @param { number } accountId - accountId indicates the ID of OS account
+   *     <br>The value must be an integer greater than or equal to 0.
+   * @returns { Array<common.ApplicationInstance> } the list of applications
+   *     that are allowed to be granted the permission.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedPermissionBundles(admin: Want | null, permission: string, accountId: number): Array<common.ApplicationInstance>;
+
+  /**
    * Sets the watermark image to be displayed on the screen.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
