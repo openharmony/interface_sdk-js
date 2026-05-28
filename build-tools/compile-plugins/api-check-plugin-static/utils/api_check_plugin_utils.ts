@@ -1078,10 +1078,10 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
   if (availableNotSupportedRegex.test(message)) {
     const info = {
       code: '11706017',
-      description: 'Invalid OS name in @Available decorator.',
+      description: 'Invalid OSName in @Available decorator.',
       cause: message,
       position: fileInfo,
-      solutions: ['Use the correct OS name matching the project runtime OS, or omit OS name and use version number only.']
+      solutions: ['Use the correct OSName allowed by the runtimeOS.']
     };
     diagnosticInfo = info;
   }
