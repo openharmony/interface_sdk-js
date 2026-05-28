@@ -63,7 +63,16 @@ declare namespace restrictions {
      * @since 26.0.0
      */
     SUDO = 4,
-    
+
+    /**
+     * Traffic redirection.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    TRAFFIC_REDIRECTION = 5,
+
     /**
      * Core dump
      *
