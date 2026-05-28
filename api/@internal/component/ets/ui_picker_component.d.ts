@@ -274,6 +274,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */

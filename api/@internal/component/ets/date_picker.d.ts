@@ -674,6 +674,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
    */
@@ -1461,6 +1462,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
    */
