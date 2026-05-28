@@ -1603,13 +1603,15 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * 重置策略。描述具体的重置操作策略，根据不同的scope范围，包含以下策略：
+     * 重置范围描述，此字段是对scope的细化描述。
      *
-     * 对于DATA范围，需包含"fast earse"等快速擦除策略表述。
-     * 对于DATA_AND_OS范围，需包含"deep erase"等深度擦除策略表述。
-     * 
-     * 说明：具体策略值应根据实际业务需求和安全要求进行定义，建议填写有效表述。
-     * 若为空字符串，异常场景下日志将缺少关键诊断上下文，不利于问题定位与排查。
+     * 取值示例（供参考）：
+     * - "QUICK_ERASE"：scope值为DATA时填写。
+     * - "DEEP_ERASE"： scope值为DATA_AND_OS时填写。
+     *
+     * 注意：
+     * 1. 建议始终填写有效内容。若为空，当发生异常时，日志将缺乏有效信息，增加排查难度。
+     * 2. 该字段仅用于记录描述，不参与业务逻辑的分支判断（逻辑由scope决定），字段描述必须保持与scope类型一一对应。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

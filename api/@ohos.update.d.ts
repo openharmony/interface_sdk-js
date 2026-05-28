@@ -1609,7 +1609,7 @@ declare namespace update {
     /**
      * Reset scope.Available values:
      * 
-     * - DATA: Indicates "fast erase", erasing only the user data partition (app data, user settings, account info, etc.), leaving the system partition intact.
+     * - DATA: Indicates "quick erase", erasing only the user data partition (app data, user settings, account info, etc.), leaving the system partition intact.
      *   Factory reset completes quickly but user data may not be thoroughly overwritten.
      *
      * - DATA_AND_OS: Indicates "deep erase", erasing both the user data partition and the system partition. Factory reset takes longer and requires system reinstallation.
@@ -1622,13 +1622,15 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * Reset strategy. Describes the specific reset operation strategy. Depending on the scope, available strategies include:
+     * Reset scope description, providing a detailed specification of the scope field.
      *
-     * For the DATA scope, a quick erase strategy such as "fast erase" should be specified.
-     * For the DATA_AND_OS scope, a deep erase strategy such as "deep erase" should be specified.
+     * Value examples (for reference):
+     * - "QUICK_ERASE": Used when the scope value is DATA.
+     * - "DEEP_ERASE": Used when the scope value is DATA_AND_OS.
      *
-     * Note: Specific strategy values should be defined based on actual business requirements and security standards. A meaningful description is recommended.
-     * If left as an empty string, logs in exception scenarios will lack critical diagnostic context, hindering issue localization and troubleshooting.
+     * Note:
+     * 1. A meaningful description is recommended. If left empty, logs will lack effective information when anomalies occur, increasing troubleshooting difficulty.
+     * 2. This field is used solely for descriptive recording and does not affect business logic branching (logic is determined by the scope field). The field description must maintain a one-to-one correspondence with the scope type.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
