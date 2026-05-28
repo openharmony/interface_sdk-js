@@ -126,7 +126,7 @@ declare namespace hiRetrieval {
   function getLastParticipationTimestamp(): long;
 
   /**
-   * Trigger the HiRetrieval functionality, make is start working.
+   * Trigger the HiRetrieval functionality, make it start working.
    *
    * @throws { BusinessError } 36000001 - Initialization error.
    *                                      Possibly caused by invoking this function before invoking init function.
