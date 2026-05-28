@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { Size } from './Graphics';
+import { Size } from './arkui/Graphics';
 /**
  * Defines the configuration options for ContainerReader component.
  * Used to specify the parameters for container dimension reading and breakpoint analysis.
