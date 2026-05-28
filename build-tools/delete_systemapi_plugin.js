@@ -72,7 +72,7 @@ function start() {
       outputPath = opts.output;
       inputDir = opts.input;
       etsType = opts.type;
-      buildSdkPath = opts.build_sdk_path;
+      buildSdkPath = opts.buildSdkPath;
       isClosedSource = opts.isClosedSource;
       collectDeclaration(opts.input);
     });
@@ -90,6 +90,9 @@ function collectDeclaration(inputDir) {
     readFile(arktsPath, utFiles); // 读取文件
     tsTransform(sortApiList(utFiles), deleteSystemApi);
     tsTransformKitFile(kitPath);
+    const nodePath = process.argv[0];
+    const etsDeleteSystemApi = path.resolve(__dirname,'package_tools/src/deleteTool/entry.js')
+    execSync(`${nodePath} ${etsDeleteSystemApi} --input ${inputDir} --output ${outputPath} --build_sdk_path ${buildSdkPath}`).toString('utf-8');
   } catch (error) {
     console.error('DELETE_SYSTEM_PLUGIN ERROR: ', error);
   }
@@ -409,18 +412,6 @@ function tsTransform(utFiles, callback) {
     if (!isTransformer) {
       writeFile(url, content);
       return;
-    }
-    const uiFileDir = path.resolve(inputDir, 'arkui', 'component');
-    // 过滤文件，仅处理涉及到静态独有语法的API文件，且暂时过滤组件接口文件
-    if (/\@memo/.test(content) && !url.includes(uiFileDir) && etsType === 'ets2') {
-      const nodePath = process.argv[0];
-      // 执行ets2panda解析
-      currentApiFileContent =
-        execSync(`cd ./package_tools/src/deleteTool && ${nodePath} ./entry.js --input ${url} --build_sdk_path ${buildSdkPath}`).toString('utf-8');
-      needParseWithStatic = true;
-    } else {
-      currentApiFileContent = '';
-      needParseWithStatic = false;
     }
     // dts文件处理
     const fileName = processFileName(url);
