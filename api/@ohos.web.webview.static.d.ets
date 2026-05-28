@@ -3782,9 +3782,14 @@ declare namespace webview {
         static getDefaultUserAgent(): string;
 
         /**
-         * Register a callback to intercept web pages playing media.
+         * Called when the
+         * [application takes over media playback of the web page](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
+         * and a media file is played on the web page.
          *
-         * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
+         * If the application does not take over media playback on the web page, this callback is not invoked.
+         *
+         * @param { CreateNativeMediaPlayerCallback } callback - Callback when the application
+         *      takes over media playback on the web page.
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
@@ -5880,8 +5885,6 @@ declare namespace webview {
      *
      * > **NOTE**
      * >
-     * > - The initial APIs of this interface are supported since API version 12.
-     * >
      * > - The sample effect is subject to the actual device.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -6080,8 +6083,6 @@ declare namespace webview {
      *
      * > **NOTE**
      * >
-     * > - The initial APIs of this interface are supported since API version 12.
-     * >
      * > - The sample effect is subject to the actual device.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -6225,8 +6226,6 @@ declare namespace webview {
      *
      * > **NOTE**
      * >
-     * > - The initial APIs of this class are supported since API version 12.
-     * >
      * > - The sample effect is subject to the actual device.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -6234,21 +6233,21 @@ declare namespace webview {
      */
     class MediaSourceInfo {
         /**
-         * Source type, most time is URL.
+         * Type of the media source.
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         type: SourceType;
         /**
-         * Media source, most time is Uri.
+         * Address of the media source.
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
          */
         source: string;
         /**
-         * Media format, such as mp4, webm, m3u8 etc.
+         * Format of the media source, which may be empty. You need to determine the format by yourself.
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static
@@ -6299,13 +6298,10 @@ declare namespace webview {
 
     /**
      * Implements a **NativeMediaPlayerSurfaceInfo** object to provide the surface information used for same-layer
-     * rendering
-     * [when the application takes over the media playback of the web page](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
-     * .
+     * rendering [when the application takes over the media playback of the web page]
+     * (docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12).
      *
      * > **NOTE**
-     * >
-     * > - The initial APIs of this class are supported since API version 12.
      * >
      * > - The sample effect is subject to the actual device.
      *
@@ -6323,7 +6319,7 @@ declare namespace webview {
          */
         id: string;
         /**
-         * [RectEvent](docroot://reference/apis-arkweb/arkts-apis-webview-i.md#rectevent12)
+         * Position of the surface.
          *
          * @syscap SystemCapability.Web.Webview.Core
          * @since 23 static

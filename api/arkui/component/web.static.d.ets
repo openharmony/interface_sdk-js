@@ -956,21 +956,27 @@ export declare interface ScreenCaptureConfig {
   captureMode: WebCaptureMode;
 }
 /**
- * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
+ * Implements the **FullScreenExitHandler** object to notify you that the **Web** component exits full screen mode.
+ * For details about the sample code,
+ * see [onFullScreenEnter](./arkts-basic-components-web-events.md#onfullscreenenter9).
+ *
+ * > **NOTE**
+ * >
+ * > - The sample effect is subject to the actual device.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare class FullScreenExitHandler {
   /**
-   * Constructor.
+   * Constructs a **FullScreenExitHandler** API.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   constructor();
   /**
-   * Exit the full screen mode.
+   * Exits full screen mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
@@ -1597,37 +1603,48 @@ export declare class PermissionRequest {
   grant(resources: Array<string>): void;
 }
 /**
- * Defines the onScreenCapture callback, related to {@link onScreenCapture} method.
+ * Implements the **ScreenCaptureHandler** object for accepting or rejecting a screen capture request.
+ * For details about the sample code,
+ * see [onScreenCaptureRequest](./arkts-basic-components-web-events.md#onscreencapturerequest10).
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this component are supported since API version 8.
+ * >  Updates will be marked with a superscript to indicate their earliest API version.
+ * >
+ * > - The initial APIs of this class are supported since API version 10.
+ * >
+ * > - The sample effect is subject to the actual device.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare class ScreenCaptureHandler {
   /**
-   * Constructor.
+   * Constructs a **ScreenCaptureHandler** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   constructor();
   /**
-   * Gets the source of the webpage that attempted to access the restricted resource.
+   * Obtains the origin of this web page.
    *
-   * @returns { string }
+   * @returns { string } Origin of the web page that requests the permission.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   getOrigin(): string;
   /**
-   * Grant origin access to a given resource.
+   * Grants the screen capture permission.
    *
-   * @param { ScreenCaptureConfig } config The screen capture configuration.
+   * @param { ScreenCaptureConfig } config Screen capture configuration.
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   grant(config: ScreenCaptureConfig): void;
   /**
-   * Reject the request.
+   * Rejects this screen capture request.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
@@ -6933,14 +6950,14 @@ export declare enum CredentialType {
     CREDENTIAL_UKEY = 4,
   }
 /**
- * Defines the camera capture state change info.
+ * Defines the state information of the camera before and after the callback is triggered.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare interface CameraCaptureStateChangeInfo {
   /**
-   * The original camera capture state.
+   * 	Original state.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
@@ -6948,7 +6965,7 @@ export declare interface CameraCaptureStateChangeInfo {
   originalState: CameraCaptureState;
 
   /**
-   * The new camera capture state.
+   * New state.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
@@ -6956,28 +6973,28 @@ export declare interface CameraCaptureStateChangeInfo {
   newState: CameraCaptureState;
 }
 /**
- * Indicates current camera capture state of current web page.
+ * Enumerates the camera capture states.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 static
  */
 export declare enum CameraCaptureState {
   /**
-   * None of any cameras are in use.
+   * 	The camera is not working.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   NONE = 0,
   /**
-   * This web page is not actively using camera capturing.
+   * The camera is paused.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static
    */
   PAUSED = 1,
   /**
-   * This web page is actively using camera capturing.
+   * The camera is active.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static

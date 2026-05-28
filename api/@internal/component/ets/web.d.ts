@@ -1422,7 +1422,13 @@ declare interface ScreenCaptureConfig {
 }
 
 /**
- * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
+ * Implements the **FullScreenExitHandler** object to notify you that the **Web** component exits full screen mode.
+ * For details about the sample code,
+ * see [onFullScreenEnter](./arkts-basic-components-web-events.md#onfullscreenenter9).
+ *
+ * > **NOTE**
+ * >
+ * > - The sample effect is subject to the actual device.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 18]
@@ -1431,7 +1437,7 @@ declare interface ScreenCaptureConfig {
  */
 declare class FullScreenExitHandler {
   /**
-   * Constructor.
+   * Constructs a **FullScreenExitHandler** API.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -1441,7 +1447,7 @@ declare class FullScreenExitHandler {
   constructor();
 
   /**
-   * Exit the full screen mode.
+   * Exits full screen mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 18]
@@ -2379,7 +2385,17 @@ declare enum ProtectedResourceType {
 }
 
 /**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
+ * Implements the **PermissionRequest** object.For details about the sample code,
+ * see [onPermissionRequest](./arkts-basic-components-web-events.md#onpermissionrequest9).
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this component are supported since API version 8.
+ * > Updates will be marked with a superscript to indicate their earliest API version.
+ * >
+ * > - The initial APIs of this class are supported since API version 9.
+ * >
+ * > - The sample effect is subject to the actual device.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -2444,7 +2460,18 @@ declare class PermissionRequest {
 }
 
 /**
- * Defines the onScreenCapture callback, related to {@link onScreenCapture} method.
+ * Implements the **ScreenCaptureHandler** object for accepting or rejecting a screen capture request.
+ * For details about the sample code,
+ * see [onScreenCaptureRequest](./arkts-basic-components-web-events.md#onscreencapturerequest10).
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this component are supported since API version 8.
+ * >  Updates will be marked with a superscript to indicate their earliest API version.
+ * >
+ * > - The initial APIs of this class are supported since API version 10.
+ * >
+ * > - The sample effect is subject to the actual device.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice [since 11]
@@ -2452,7 +2479,7 @@ declare class PermissionRequest {
  */
 declare class ScreenCaptureHandler {
   /**
-   * Constructor.
+   * Constructs a **ScreenCaptureHandler** object.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -2461,9 +2488,9 @@ declare class ScreenCaptureHandler {
   constructor();
 
   /**
-   * Gets the source of the webpage that attempted to access the restricted resource.
+   * Obtains the origin of this web page.
    *
-   * @returns { string }
+   * @returns { string } Origin of the web page that requests the permission.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -2471,9 +2498,9 @@ declare class ScreenCaptureHandler {
   getOrigin(): string;
 
   /**
-   * Grant origin access to a given resource.
+   * Grants the screen capture permission.
    *
-   * @param { ScreenCaptureConfig } config The screen capture configuration.
+   * @param { ScreenCaptureConfig } config Screen capture configuration.
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -2481,7 +2508,7 @@ declare class ScreenCaptureHandler {
   grant(config: ScreenCaptureConfig): void;
 
   /**
-   * Reject the request.
+   * Rejects this screen capture request.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice [since 11]
@@ -10026,10 +10053,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable AVSession for web pages.
+   * Sets whether to support an application to connect to media controller. If this attribute is not explicitly set,
+   * the application can connect to media controller by default.
    *
-   * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means
-   *     the opposite.
+   * @param { boolean } enabled - Whether to support an application to connect to media controller.<br>The
+   *     value **true** means to support an application to connect to media controller, and **false** means the
+   *     opposite.<br>When **undefined** or **null** is passed in, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic

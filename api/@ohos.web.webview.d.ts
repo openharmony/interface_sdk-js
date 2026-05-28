@@ -8908,8 +8908,6 @@ declare namespace webview {
    *
    * > **NOTE**
    * >
-   * > - The initial APIs of this interface are supported since API version 12.
-   * >
    * > - The sample effect is subject to the actual device.
    *
    * @syscap SystemCapability.Web.Webview.Core
@@ -9101,9 +9099,14 @@ declare namespace webview {
   }
 
   /**
-   * The bridge between web core and native media player.
-   * Apps should implements this interface, and pass an instance to web core.
-   * Then web core can control native media player by this bridge.
+   * Instance of the API class between the web media player and the ArkWeb kernel.
+   * 
+   * The ArkWeb kernel uses an object of this interface class to
+   * control the player created by the application to take over web page media.
+   * 
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
    *
    * @typedef NativeMediaPlayerBridge
    * @syscap SystemCapability.Web.Webview.Core
@@ -9112,12 +9115,12 @@ declare namespace webview {
    */
   interface NativeMediaPlayerBridge {
     /**
-     * Notify native media player that the rect of video tag has changed.
+     * Updates the surface position information.
      *
-     * @param { number } x - The x position of video tag in web component, Unit: px.
-     * @param { number } y - The y position of video tag in web component, Unit: px.
-     * @param { number } width - The width of video tag, Unit: px.
-     * @param { number } height - The height of video tag, Unit: px.
+     * @param { number } x - X coordinate of the surface relative to the **Web** component, Unit: px.
+     * @param { number } Y coordinate of the surface relative to the **Web** component, Unit: px.
+     * @param { number } width - Width of the surface, Unit: px.
+     * @param { number } height - Height of the surface, Unit: px.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9125,7 +9128,7 @@ declare namespace webview {
     updateRect(x: number, y: number, width: number, height: number): void
 
     /**
-     * Request to play.
+     * Plays this video.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9134,7 +9137,7 @@ declare namespace webview {
     play(): void
 
     /**
-     * Request to pause.
+     * Pauses playback.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9143,11 +9146,9 @@ declare namespace webview {
     pause(): void
 
     /**
-     * Request to fast forward / back forward to targetTime.
-     *  targetTime: float
-     *   value range: [0 - duration]
+     * Seeks to a specific time point in the media.
      *
-     * @param { number } targetTime - The target time to FF/BF to, Unit: seconds.
+     * @param { number } targetTime - Target time point, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9155,11 +9156,11 @@ declare namespace webview {
     seek(targetTime: number): void
 
     /**
-     * Request to change volume of native media player.
-     *  volume: float
-     *   value range: [0 - 1.0]
+     * Sets the playback volume.
      *
-     * @param { number } volume - The volume of native media player.
+     * @param { number } volume - Playback volume.Value range: [0, 1.0].
+     *  The value **0** indicates mute, and the value **1.0** indicates the maximum volume.
+     * 
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9167,9 +9168,11 @@ declare namespace webview {
     setVolume(volume: number): void
 
     /**
-     * Request to mute native media player.
+     * Sets the muted status.
      *
-     * @param { boolean } muted - Should mute native media player.
+     * @param { boolean } muted - Whether to mute the player.
+     *  The value **true** means to mute the player, and **false** means the opposite.
+     * 
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9177,11 +9180,11 @@ declare namespace webview {
     setMuted(muted: boolean): void
 
     /**
-     * Request to change playback rate of native media player.
-     *  playbackRate: float
-     *   value range: [0 - 10.0]
+     * Sets the playback rate.
      *
-     * @param { number } playbackRate - The playback rate of native media player.
+     * @param { number } playbackRate - Playback rate.
+     *  Value range: [0, 10.0]. The value **1** indicates the original speed of playback.
+     * 
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9189,7 +9192,7 @@ declare namespace webview {
     setPlaybackRate(playbackRate: number): void
 
     /**
-     * Request to release native media player.
+     * Releases this player.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9198,7 +9201,7 @@ declare namespace webview {
     release(): void
 
     /**
-     * Request to enter fullscreen.
+     * Enables the player to enter full screen mode.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9207,7 +9210,7 @@ declare namespace webview {
     enterFullscreen(): void
 
     /**
-     * Request to exit fullscreen.
+     * Enables the player to exit full screen mode.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9216,7 +9219,7 @@ declare namespace webview {
     exitFullscreen(): void
 
     /**
-     * Resume the native media player.
+     * Resumes the player and its status information.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
@@ -9224,11 +9227,9 @@ declare namespace webview {
     resumePlayer?(): void
 
     /**
-     * Suspend to release native media player, not the NativeMediaPlayerBridge. The
-     * embedder should save the status of player when release the native media player
-     * through NativeMediaPlayerBridge.
+     * Suspends the player and save its status information.
      *
-     * @param { SuspendType } type - The scenario for suspending the media player.
+     * @param { SuspendType } type - Suspension type of the player.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -9288,7 +9289,11 @@ declare namespace webview {
   }
 
   /**
-   * Media source information. Uri and format.
+   * Implements a **MediaSourceInfo** object to provide the information about the media source.
+   *
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9296,7 +9301,7 @@ declare namespace webview {
    */
   class MediaSourceInfo {
     /**
-     * Source type, most time is URL.
+     * Type of the media source.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
@@ -9304,7 +9309,7 @@ declare namespace webview {
     type: SourceType;
 
     /**
-     * Media source, most time is Uri.
+     * Address of the media source.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9313,7 +9318,7 @@ declare namespace webview {
     source: string;
 
     /**
-     * Media format, such as mp4, webm, m3u8 etc.
+     * Format of the media source, which may be empty. You need to determine the format by yourself.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9365,13 +9370,10 @@ declare namespace webview {
 
   /**
    * Implements a **NativeMediaPlayerSurfaceInfo** object to provide the surface information used for same-layer
-   * rendering
-   * [when the application takes over the media playback of the web page](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
-   * .
-   *
+   * rendering [when the application takes over the media playback of the web page]
+   * (docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12).
+   * 
    * > **NOTE**
-   * >
-   * > - The initial APIs of this class are supported since API version 12.
    * >
    * > - The sample effect is subject to the actual device.
    *
@@ -9381,7 +9383,8 @@ declare namespace webview {
    */
   class NativeMediaPlayerSurfaceInfo {
     /**
-     * Id of surface.
+     * Surface ID, which is the **psurfaceid** of the native image used for rendering at the same layer.
+     * For details, see [NativeEmbedDataInfo](./arkts-basic-components-web-i.md#nativeembeddatainfo11).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9390,7 +9393,7 @@ declare namespace webview {
     id: string;
 
     /**
-     * Surface rect info.
+     *  Position of the surface.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
