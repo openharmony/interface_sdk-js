@@ -3552,6 +3552,216 @@ declare namespace contact {
    * @since 24
    */
   function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int, withinTime: int): Promise<boolean>;
+
+  /**
+   * Sync multiple contacts in batches into contacts database.
+   *
+   * A maximum of 400 contacts can be synchronized in batches. The invoking party must be in the foreground.
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { ContactSyncMode } mode - Indicates the type of contact synchronization mode.
+   * @param { ContactSyncProgress } progress - Indicates the information about the contact synchronization progress.
+   * @param { Array<Contact> } contacts - Indicates the array of contact information to be synchronized into the database.
+   * @returns { Promise<Array<int>> } Returns the array of contacts creation results. Valid contact ID (which can be
+   * obtained by {@link Contact#getId()}) indicates that the creation was successful.
+   * {@link Contact#INVALID_CONTACT_ID} indicates the creation failed.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
+   * @throws { BusinessError } 16700003 - Background usage is prohibited.
+   * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
+   * @throws { BusinessError } 16700103 - User canceled.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function syncContacts(context: Context, mode: ContactSyncMode, progress: ContactSyncProgress, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * Queries information about ongoing contact synchronization for the calling application.
+   *
+   * If the returned contact synchronization information is empty, the invoking party does not synchronize contacts or
+   * the contact synchronization is complete.
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @returns { Promise<Array<ContactSyncInfo>> } Returns the array of contacts synchronization information for the
+   * calling application. Returns null if no contacts are being synchronized.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function queryContactSyncInfo(context: Context): Promise<Array<ContactSyncInfo>>;
+
+  /**
+   * Imports multiple contacts through UI interaction。
+   *
+   *  A maximum of 100 contacts can be imported at a time。
+   *
+   * @param { Context } context - Indicates the context of the application or capability.
+   * @param { Array<Contact> } contacts - Inicates the array of contact information to be imported into the database。
+   * @returns { Promise<Array<int>> } Returns the array of contacts creation results. Valid contact ID {which can be
+   *  obtained by [getId]{@link Contact#getId()}) indicates that the creation was successful.
+   * [INVALID_CONTACT_ID]{@link Contact#INVALID_CONTACT_ID} indicates that the creation failed.
+   * -2 indicates that user has not selected this contact。
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
+   * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
+   * @throws { BusinessError } 16700103 - User canceled.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function importContactsViaUI(context: Context, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * The type of contact synchronization mode.
+   * 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  enum ContactSyncMode {
+
+    /**
+     * Indicates that contacts differing between cloud and local will be inserted or updated in the database.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    MODE_INCREMENTAL = 1,
+
+    /**
+     * Indicates that all local contacts will be replaced by cloud contacts.
+     *
+     * When the cloud overwrite local mode is used for batch synchronization, all local contacts
+     *  (excluding third-party contacts) are deleted during the first batch synchronization.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    MODE_CLOUD_BASED = 2
+  }
+
+  /**
+   * Information about the contact synchronization progress.
+   *
+   * Contains the sync ID, current batch, and total batch.
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  interface ContactSyncProgress {
+    /**
+     * Indicates the sync identifier used for synchronizing all contacts.
+     *
+     * The value should start from 0.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    syncId: int;
+
+    /**
+     * Indicates the identifier of the current batch of contacts to be synchronized.
+     *
+     * The range of values is from 1 to totalBatches.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    currentBatch: int;
+
+    /**
+     * Indicates the total number of batches of contacts to be synchronized.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    totalBatches: int;
+  }
+
+  /**
+   * Information about contact synchronization for the calling application.
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  interface ContactSyncInfo {
+
+    /**
+     * The contact synchronization mode.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+    */
+    mode: ContactSyncMode;
+    /**
+     * Indicates the sync identifier used for synchronizing all contacts.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    syncId: int;
+
+    /**
+     * Indicates the array of batch identifiers for contacts that have been synchronized successfully.
+     *
+     * The range of values is from 1 to totalBatches.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    completedBatches: Array<int>;
+
+    /**
+     * Indicates the total number of batches of contacts to be synchronized.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    totalBatches: int;
+
+    /**
+     * Indicates the latest timestamp the contacts were synchronized in milliseconds.
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    lastSyncTime: int;
+  }
 }
 
 export default contact;

@@ -3282,6 +3282,211 @@ declare namespace contact {
    * @since 24
    */
   function hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: int, withinTime: int): Promise<boolean>;
+
+  /**
+   * 批量同步多个联系人至联系人数据库。
+   *
+   *  最多可批量同步400个联系人。调用方必须处于前台。
+   *
+   * @permission ohos.permission.WRITE_CONTACTS
+   * @param { Context } context - 应用上下文Context。
+   * @param { ContactSyncMode } mode - 表示联系人同步模式的类型。
+   * @param { ContactSyncProgress } progress - 表示联系人同步进度的相关信息。
+   * @param { Array<Contact> } contacts - 表示需要同步至数据库的联系人信息数组。
+   * @returns { Promise<Array<int>> } 返回联系人创建结果的数组。有效的联系人ID (可为通过 {@link Contact#getId()}) 
+   * 获得的值表示创建成功。
+   * {@link Contact#INVALID_CONTACT_ID} 表示创建失败。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
+   * @throws { BusinessError } 16700003 - Background usage is prohibited.
+   * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
+   * @throws { BusinessError } 16700103 - User canceled.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function syncContacts(context: Context, mode: ContactSyncMode, progress: ContactSyncProgress, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * 查询调用应用程序正在进行的联系人同步信息。
+   *
+   * 如果返回的联系人同步信息为空，则调用方不进行联系人同步或联系人同步已完成。
+   *
+   * @permission ohos.permission.READ_CONTACTS
+   * @param { Context } context - 应用上下文Context。
+   * @returns { Promise<Array<ContactSyncInfo>> } 返回调用应用程序的联系人同步信息数组。如果没有正在同步的联系人，则返回null。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 16700001 - General error.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function queryContactSyncInfo(context: Context): Promise<Array<ContactSyncInfo>>;
+
+  /**
+   * 通过UI交互批量导入多个联系人。
+   *
+   *  每次最多可导入100个联系人。
+   *
+   * @param { Context } context - 应用上下文Context。
+   * @param { Array<Contact> } contacts - 表示待导入数据库的联系人信息数组。
+   * @returns { Promise<Array<int>> } 返回联系人创建结果的数组。有效的联系人ID (可通过[getId]{@link Contact#getId()获取}) 表示创建成功。
+   * 返回值为-1[INVALID_CONTACT_ID]{@link Contact#INVALID_CONTACT_ID} 表示创建失败。-2表示用户未选择该联系人。
+   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
+   * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
+   * @throws { BusinessError } 16700103 - User canceled.
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  function importContactsViaUI(context: Context, contacts: Array<Contact>): Promise<Array<int>>;
+
+  /**
+   * 同步模式的类型。
+   * 
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  enum ContactSyncMode {
+
+    /**
+     * 表示将在数据库中插入或更新云端和本地之间不同的联系人。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    MODE_INCREMENTAL = 1,
+
+    /**
+     * 表示所有本地联系人将被云联系人替换。
+     *
+     * 当使用云覆盖本地模式进行批量同步时，在第一次批量同步期间会删除所有本地联系人（第三方联系人除外）。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    MODE_CLOUD_BASED = 2
+  }
+
+  /**
+   * 联系人同步进度的信息。
+   *
+   * 包含同步ID、当前批次和总批次。
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  interface ContactSyncProgress {
+    /**
+     * 表示用于同步所有联系人的同步标识符。
+     *
+     * 该值应从0开始。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    syncId: int;
+
+    /**
+     * 表示要同步的当前联系人批次的标识符。
+     *
+     * 值的范围是从1到totalBatches。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    currentBatch: int;
+
+    /**
+    * 表示要同步的联系人批次总数。
+    *
+    * @syscap SystemCapability.Applications.ContactsData
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.0.0
+    */
+    totalBatches: int;
+  }
+
+  /**
+   * 调用应用程序相关的联系人同步的信息。
+   *
+   * @syscap SystemCapability.Applications.ContactsData
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0
+   */
+  interface ContactSyncInfo {
+
+    /**
+     * 联系人同步模式。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+    */
+    mode: ContactSyncMode;
+    /**
+     * 表示用于同步所有联系人的同步标识符。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+    */
+    syncId: int;
+
+    /**
+     * 表示已成功同步的联系人的批处理标识符数组。
+     *
+     * 值的范围是从1到totalBatches。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+    */
+    completedBatches: Array<int>;
+
+    /**
+     * 指示要同步的联系人批次总数。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+    */
+    totalBatches: int;
+
+    /**
+     * 指示联系人同步的最新时间戳（毫秒）。
+     *
+     * @syscap SystemCapability.Applications.ContactsData
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0
+     */
+    lastSyncTime: int;
+  }
 }
 
 export default contact;
