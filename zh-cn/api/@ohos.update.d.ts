@@ -1588,14 +1588,12 @@ declare namespace update {
    */
   export interface FactoryResetStrategy {
     /**
-     * 重置范围。
+     * 重置范围。取值如下：
+     * 
+     * - DATA：表示"快速擦除"，仅清除用户数据分区（应用数据、用户设置、账号信息等），保留系统分区。
+     *   恢复出厂设置耗时短但数据可能未被彻底覆写。
      *
-     * 重置操作覆盖的分区层级：
-     * - **DATA**：仅清除用户数据（应用、设置、账号等）。
-     *   特点：速度快，系统分区保留，用户数据逻辑删除。
-     *
-     * - **DATA_AND_OS**：清除用户数据并重置系统分区。
-     *   特点：高安全性，涉及系统分区的完整擦除或重写，通常伴随系统重装，耗时较长。
+     * - DATA_AND_OS：表示"深度擦除"，同时清除用户数据分区与系统分区，恢复出厂设置耗时较长，需重装系统。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1605,12 +1603,13 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * 重置范围描述，此字段是对scope的细化描述。
+     * 重置策略。描述具体的重置操作策略，根据不同的scope范围，包含以下策略：
+     *
+     * 对于DATA范围，需包含"fast earse"等快速擦除策略表述。
+     * 对于DATA_AND_OS范围，需包含"deep erase"等深度擦除策略表述。
      * 
-     * 值示例（供参考，具体描述信息根据实际需要加以表述，能说明意图为佳）：
-     * - "QUICK_ERASE"：快速擦除
-     * - "DEEP_ERASE"：深度擦除
-     * - 注意：建议填写有效表述。若为空，当发生异常时，日志记录缺乏有效信息，可能增加排查的难度。
+     * 说明：具体策略值应根据实际业务需求和安全要求进行定义，建议填写有效表述。
+     * 若为空字符串，异常场景下日志将缺少关键诊断上下文，不利于问题定位与排查。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

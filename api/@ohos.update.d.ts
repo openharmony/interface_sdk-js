@@ -1607,15 +1607,12 @@ declare namespace update {
    */
   export interface FactoryResetStrategy {
     /**
-     * Reset scope.
+     * Reset scope.Available values:
      * 
-     * Partition level covered by the reset operation:
-     * - **DATA**: Clears user data only (applications, settings, accounts, etc.).
-     *   Characteristics: Fast execution, system partition preserved, user data logically deleted.
+     * - DATA: Indicates "fast erase", erasing only the user data partition (app data, user settings, account info, etc.), leaving the system partition intact.
+     *   Factory reset completes quickly but user data may not be thoroughly overwritten.
      *
-     * - **DATA_AND_OS**: Clears user data and resets the system partition.
-     *   Characteristics: High security, involves complete erasure or overwriting of the system partition, typically
-     *     accompanied by system reinstallation, longer execution time.
+     * - DATA_AND_OS: Indicates "deep erase", erasing both the user data partition and the system partition. Factory reset takes longer and requires system reinstallation.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1625,13 +1622,13 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * Reset scope description. This field provides a detailed specification of the scope.
+     * Reset strategy. Describes the specific reset operation strategy. Depending on the scope, available strategies include:
      *
-     * Example values (for reference; specific descriptions should be formulated based on actual needs to best convey the intent):
-     * - "QUICK_ERASE": Quick erase
-     * - "DEEP_ERASE": Deep erase
-     * - Note: It is recommended to provide a valid description. If left empty, log records will lack effective information when
-     *     anomalies occur, which may increase troubleshooting difficulty.
+     * For the DATA scope, a quick erase strategy such as "fast erase" should be specified.
+     * For the DATA_AND_OS scope, a deep erase strategy such as "deep erase" should be specified.
+     *
+     * Note: Specific strategy values should be defined based on actual business requirements and security standards. A meaningful description is recommended.
+     * If left as an empty string, logs in exception scenarios will lack critical diagnostic context, hindering issue localization and troubleshooting.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
