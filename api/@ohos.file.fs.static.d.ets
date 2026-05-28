@@ -40,93 +40,93 @@ declare namespace fileIo {
    */
   namespace OpenMode {
     /**
-     * Read only Permission.
+     * Read only Permission. The value is 0o0.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const READ_ONLY = 0o0;
+    const READ_ONLY: int;
     /**
-     * Write only Permission.
+     * Write only Permission. The value is 0o1.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const WRITE_ONLY = 0o1;
+    const WRITE_ONLY: int;
     /**
-     * Write and Read Permission.
+     * Write and Read Permission. The value is 0o2.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const READ_WRITE = 0o2;
+    const READ_WRITE: int;
     /**
-     * If not exist, create file.
+     * If not exist, create file. The value is 0o100.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const CREATE = 0o100;
+    const CREATE: int;
     /**
-     * File truncate len 0.
+     * File truncate len 0. The value is 0o1000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const TRUNC = 0o1000;
+    const TRUNC: int;
     /**
-     * File append write.
+     * File append write. The value is 0o2000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const APPEND = 0o2000;
+    const APPEND: int;
     /**
-     * File open in nonblocking mode.
+     * File open in nonblocking mode. The value is 0o4000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const NONBLOCK = 0o4000;
+    const NONBLOCK: int;
     /**
-     * File is Dir.
+     * File is Dir. The value is 0o200000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const DIR = 0o200000;
+    const DIR: int;
     /**
-     * File is not symbolic link.
+     * File is not symbolic link. The value is 0o400000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const NOFOLLOW = 0o400000;
+    const NOFOLLOW: int;
     /**
-     * SYNC IO.
+     * SYNC IO. The value is 0o4010000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const SYNC = 0o4010000;
+    const SYNC: int;
     /**
-     * UNCACHE IO.
+     * UNCACHE IO. The value is 0o10000000000.
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    const UNCACHE = 0o10000000000;
+    const UNCACHE: int;
   }
 
 /**
