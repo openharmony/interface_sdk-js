@@ -2327,12 +2327,12 @@ declare namespace geoLocationManager {
    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
    * @param { BeaconFence } [beaconFence] - Indicates the details of the beacon fence.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission	 
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    * required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeBeaconFence}
    * due to limited device capabilities.
    * @throws { BusinessError } 3501602 - Failed to delete the fence due to incorrect beacon fence information.
-   * @syscap SystemCapability.Location.Location.Geofence	 
+   * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
    */
