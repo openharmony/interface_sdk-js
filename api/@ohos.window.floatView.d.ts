@@ -162,6 +162,17 @@ declare namespace floatView {
      * @since 26.0.0 dynamic&static
      */
     templateType: FloatViewTemplateType;
+
+    /**
+     * This field controls whether user confirmation is required when the close button is clicked.
+     * **true** if clicking the close button requires user confirmation, otherwise no confirmation is needed.
+     * Default value: default value is false.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isConfirmOnClose?: boolean;
   }
 
   /**
