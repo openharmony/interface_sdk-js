@@ -4040,6 +4040,9 @@ declare namespace cryptoFramework {
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c. [since 26.0.0]
+     * @throws { BusinessError } 17620003 - parameter check failed. [since 26.0.0]
+     * @throws { BusinessError } 17620004 - invalid function call. [since 26.0.0]
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -4059,15 +4062,34 @@ declare namespace cryptoFramework {
      * @param { int | Uint8Array | boolean } itemValue - the value of the specified parameter.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17620004 - invalid function call.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
+
+    /**
+     * Set the specified parameter to the sign object.
+     * Currently, only the ML-DSA parameters ML_DSA_DETERMINISTIC and ML_DSA_MU are supported. For ML_DSA_CONTEXT param,
+     * use [setSignSpec()]{@link cryptoFramework.Sign.setSignSpec(itemType: SignSpecItem, itemValue: int | Uint8Array)}.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { boolean } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    setSignSpec(itemType: SignSpecItem, itemValue: boolean): void;
 
     /**
      * Obtains signing specifications. Currently, only RSA is supported.
@@ -4584,6 +4606,9 @@ declare namespace cryptoFramework {
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c. [since 26.0.0]
+     * @throws { BusinessError } 17620003 - parameter check failed. [since 26.0.0]
+     * @throws { BusinessError } 17620004 - invalid function call. [since 26.0.0]
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 11 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -4597,21 +4622,40 @@ declare namespace cryptoFramework {
     /**
      * Set the specified parameter to the verify object.
      * Currently, only PSS_SALT_LEN in RSA and USER_ID in SM2 and ML_DSA_DETERMINISTIC/ML_DSA_MU/ML_DSA_CONTEXT in
-     *     ML-DSA are supported.
+     * ML-DSA are supported.
      *
      * @param { SignSpecItem } itemType - indicates the specified parameter type.
      * @param { int | Uint8Array | boolean } itemValue - the value of the specified parameter.
      * @throws { BusinessError } 801 - this operation is not supported.
      * @throws { BusinessError } 17620001 - memory operation failed.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
      * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17620004 - invalid function call.
      * @throws { BusinessError } 17630001 - crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Signature
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array | boolean): void;
+
+    /**
+     * Set the specified parameter to the verify object.
+     * Currently, only the ML-DSA parameters ML_DSA_DETERMINISTIC and ML_DSA_MU are supported. For ML_DSA_CONTEXT param,
+     * use [setVerifySpec()]{@link cryptoFramework.Verify.setVerifySpec(itemType: SignSpecItem, itemValue: int | Uint8Array)}.
+     *
+     * @param { SignSpecItem } itemType - indicates the specified parameter type.
+     * @param { boolean } itemValue - the value of the specified parameter.
+     * @throws { BusinessError } 17620002 - failed to convert parameters between arkts and c.
+     * @throws { BusinessError } 17620003 - parameter check failed.
+     * @throws { BusinessError } 17620004 - invalid function call.
+     * @syscap SystemCapability.Security.CryptoFramework.Signature
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    setVerifySpec(itemType: SignSpecItem, itemValue: boolean): void;
 
     /**
      * Obtains signature verification specifications. Currently, only RSA is supported.
@@ -4855,7 +4899,7 @@ declare namespace cryptoFramework {
     DSA_P_BN = 101,
 
     /**
-     * Parameter **q**, prime factor of (p ¨C 1) in the DSA algorithm.
+     * Parameter **q**, prime factor of (p - 1) in the DSA algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
@@ -5463,7 +5507,7 @@ declare namespace cryptoFramework {
     p: bigint;
 
     /**
-     * Parameter **q**, prime factor of (p ¨C 1) in the DSA algorithm.
+     * Parameter **q**, prime factor of (p - 1) in the DSA algorithm.
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey [since 12]
