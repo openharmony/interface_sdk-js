@@ -73,7 +73,8 @@ declare class UIExtensionContentSession {
   /**
    * 发送数据给UIExtensionComponent控件。
    *
-   * @param { Record<string, Object> } data - 发送给UIExtensionComponent控件的数据参数。
+   * @param { object } data - 发送给UIExtensionComponent控件的数据参数。 [since 10 - 10]
+   * @param { Record<string, Object> } data - 发送给UIExtensionComponent控件的数据参数。 [since 11]
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.

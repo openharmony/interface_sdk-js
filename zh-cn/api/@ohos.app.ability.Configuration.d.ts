@@ -122,6 +122,8 @@ export interface Configuration {
    * [ApplicationContext](./js-apis-inner-application-applicationContext.md)和
    * [AbilityStage](./js-apis-app-ability-abilityStage.md)组件容器中订阅。
    *
+   * @type { ?number } [since 9 - 10]
+   * @type { ?long } [since 11]
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -154,6 +156,8 @@ export interface Configuration {
    * 
    * 支持开发者[设置应用字体大小](../../application-models/subscribe-system-environment-variable-changes.md#设置字体大小)。
    *
+   * @type { ?number } [since 12 - 17]
+   * @type { ?double } [since 18]
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform [since 18]
    * @atomicservice

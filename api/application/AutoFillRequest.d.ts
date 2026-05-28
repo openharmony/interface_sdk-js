@@ -220,7 +220,7 @@ export interface FillRequestCallback {
    * Called when an auto-fill request is canceled.
    *
    * @param { string } [fillContent] - Content returned to the input method framework when the auto-fill request is
-   *     canceled.
+   *     canceled. [since 12]
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:

@@ -676,7 +676,7 @@ declare class UIAbility extends Ability {
    * > For versions prior to API version 18, only synchronous calls are supported. Starting from API version 18, 
    * > asynchronous calls are also supported.
    *
-   * @param { object } wantParam - Data to be migrated. [since 9 - 11]
+   * @param { object } wantParam - Data to be migrated. [since 9 - 10]
    * @param { Record<string, Object> } wantParam - Data to be migrated. [since 11]
    * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue. [since 9 - 11]
    * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Whether the migration is
@@ -826,7 +826,7 @@ declare class UIAbility extends Ability {
    * service to be shared in this callback.
    *
    * @param { object } wantParam - Data to share. [since 10 - 10]
-   * @param { Record<string, Object> } wantParam - Data to share.
+   * @param { Record<string, Object> } wantParam - Data to share. [since 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice [since 11]

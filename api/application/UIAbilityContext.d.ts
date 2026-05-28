@@ -506,7 +506,7 @@ declare class UIAbilityContext extends Context {
    * > permission is verified by the DSoftBus subsystem only when the link between applications is established. No 
    * > verification is conducted during the application launch phase.
    *
-   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION [since 9 - 13]
+   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION [since 9 - 10]
    * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 11]
    * @param { Want } want - Information about the UIAbility to start, including the ability name, module name, bundle name, 
    *     device ID, and parameters (optional). If **'ohos.aafwk.param.callAbilityToForeground'** in **parameters** is set to 
@@ -518,14 +518,14 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 13]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
    *     2.Sending restart message to system service failed. 3.System service failed to communicate with dependency module.
    *     4.Non-system applications are only allowed to call this interface across devices, not on the current device.
-   * @throws { BusinessError } 16200001 - The caller has been released. [since 9 - 13]
+   * @throws { BusinessError } 16200001 - The caller has been released. [since 9 - 9]
    * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
    * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater
@@ -1392,9 +1392,9 @@ declare class UIAbilityContext extends Context {
    *     **err** is **0**. Otherwise, **err** contains the corresponding error code and error information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1416,9 +1416,9 @@ declare class UIAbilityContext extends Context {
    * > [removeMissionAfterTerminate](docroot://quick-start/module-configuration-file.md#abilities) to **true**.
    *
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1449,9 +1449,9 @@ declare class UIAbilityContext extends Context {
    *     **err** is **0**. Otherwise, **err** contains the corresponding error code and error information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1479,9 +1479,9 @@ declare class UIAbilityContext extends Context {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.

@@ -618,7 +618,7 @@ declare class UIAbility extends Ability {
    * >
    * > 对于API version 18（不含18） 之前版本仅支持同步调用，从API version 18及后续版本可支持异步调用。
    *
-   * @param { object } wantParam - 开发者通过该参数保存待迁移的数据。 [since 9 - 11]
+   * @param { object } wantParam - 开发者通过该参数保存待迁移的数据。 [since 9 - 10]
    * @param { Record<string, Object> } wantParam - 开发者通过该参数保存待迁移的数据。 [since 11]
    * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue. [since 9 - 11]
    * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } 表示是否同意迁移的结果：
@@ -746,7 +746,7 @@ declare class UIAbility extends Ability {
    * 当跨端分享原子化服务时，系统触发该回调。开发者可以在该回调中设置待分享原子化服务的标题、摘要和URL等数据。
    *
    * @param { object } wantParam - 待分享的数据。 [since 10 - 10]
-   * @param { Record<string, Object> } wantParam - 待分享的数据。
+   * @param { Record<string, Object> } wantParam - 待分享的数据。 [since 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice [since 11]

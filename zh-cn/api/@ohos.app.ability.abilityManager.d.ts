@@ -385,9 +385,11 @@ declare namespace abilityManager {
    * [onShare]{@link @ohos.app.ability.UIAbility:UIAbility.onShare(wantParam: Record<string, Object>)}回调并返回分享数据。使用
    * callback异步回调。
    *
-   * @param { int } missionId - 目标应用的missionId，最大为2<sup>31</sup>-1。。
+   * @param { int } missionId - 目标应用的missionId，最大为2<sup>31</sup>-1。
+   * @param { AsyncCallback<{ [key: string]: Object }> } callback - 回调函数。当接口调用成功，err为undefined，data为获取到的分享数据；否则为错误对象。可进行错误处理或其他自
+   *     定义处理。 [since 10 - 10]
    * @param { AsyncCallback<Record<string, Object>> } callback - 回调函数。当接口调用成功，err为undefined，data为获取到的分享数据；否则为错误对象。可进行错误处理或其他自
-   *     定义处理。
+   *     定义处理。 [since 11]
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
