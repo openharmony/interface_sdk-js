@@ -2192,7 +2192,7 @@ declare namespace dataShare {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    delete(config: DataProxyConfig): Promise<DataProxyResult[]>;
+    deleteMyPublishedData(config: DataProxyConfig): Promise<DataProxyResult[]>;
 
     /**
      * Obtains a specified shared configuration item based on the URI. This API uses a promise to return the result.
