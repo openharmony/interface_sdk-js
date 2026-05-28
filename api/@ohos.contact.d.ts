@@ -3599,22 +3599,22 @@ declare namespace contact {
   function queryContactSyncInfo(context: Context): Promise<Array<ContactSyncInfo>>;
 
   /**
-   * Imports multiple contacts through UI interaction。
+   * Imports multiple contacts through UI interaction.
    *
-   *  A maximum of 100 contacts can be imported at a time。
+   *  A maximum of 100 contacts can be imported at a time.
    *
    * @param { Context } context - Indicates the context of the application or capability.
-   * @param { Array<Contact> } contacts - Inicates the array of contact information to be imported into the database。
-   * @returns { Promise<Array<int>> } Returns the array of contacts creation results. Valid contact ID {which can be
+   * @param { Array<Contact> } contacts - Indicates the array of contact information to be imported into the database.
+   * @returns { Promise<Array<int>> } Returns the array of contacts creation results. Valid contact ID (which can be
    *  obtained by [getId]{@link Contact#getId()}) indicates that the creation was successful.
-   * [INVALID_CONTACT_ID]{@link Contact#INVALID_CONTACT_ID} indicates that the creation failed.
-   * -2 indicates that user has not selected this contact。
+   * [INVALID_CONTACT_ID]{@link Contact.INVALID_CONTACT_ID} indicates the creation failed.
+   * -2 indicates that the user has not selected this contact.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
    * @throws { BusinessError } 16700103 - User canceled.
-   * @syscap SystemCapability.Applications.ContactsData
+   * @syscap SystemCapability.Applications.Contacts
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0

@@ -3333,14 +3333,14 @@ declare namespace contact {
    *
    * @param { Context } context - 应用上下文Context。
    * @param { Array<Contact> } contacts - 表示待导入数据库的联系人信息数组。
-   * @returns { Promise<Array<int>> } 返回联系人创建结果的数组。有效的联系人ID (可通过[getId]{@link Contact#getId()获取}) 表示创建成功。
-   * 返回值为-1[INVALID_CONTACT_ID]{@link Contact#INVALID_CONTACT_ID} 表示创建失败。-2表示用户未选择该联系人。
+   * @returns { Promise<Array<int>> } 返回联系人创建结果的数组。返回的联系人ID有效 (可通过[getId]{@link Contact#getId()}获取) 表示创建成功。
+   * 返回值为-1[INVALID_CONTACT_ID]{@link Contact.INVALID_CONTACT_ID} 表示创建失败。-2表示用户未选择该联系人。
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
    * @throws { BusinessError } 16700103 - User canceled.
-   * @syscap SystemCapability.Applications.ContactsData
+   * @syscap SystemCapability.Applications.Contacts
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0
