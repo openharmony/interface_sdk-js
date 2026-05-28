@@ -19,7 +19,7 @@
  */
 import type { Callback, AsyncCallback } from './@ohos.base';
 import InputMethodSubtype from './@ohos.InputMethodSubtype';
-import { UIContext } from "./@ohos.arkui.UIContext";
+import { UIContext } from './@ohos.arkui.UIContext';
 /*** if arkts dynamic */
 import type { ElementName } from './bundleManager/ElementName';
 import type { PanelInfo } from './@ohos.inputMethod.Panel';
@@ -1037,9 +1037,33 @@ declare namespace inputMethod {
     offImeHide(callback?: Callback<Array<InputWindowInfo>>): void;
 
     /**
+     * Get the cursor information of a specified user.
+     *
+     * @param { int } [userId] - the user ID. If not provided:
+     *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
+     *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
+     *     The value should be an integer.
+     * @returns { CursorInfo } the information of the cursor of the specified display.
+     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 12800003 - input method client error. Possible causes:
+     *     1. No edit box is bound to the current input method application under the specified user.
+     * @throws { BusinessError } 12800008 - input method manager service error. Possible causes:
+     *     a system error, such as null pointer, IPC exception.
+     * @throws { BusinessError } 12800023 - the specified user does not exist.
+     * @throws { BusinessError } 12800024 - the specified user is not in the foreground.
+     * @throws { BusinessError } 12800025 - cross-user operation denied.
+     *     Only user 0 applications are authorized for this operation.
+     * @syscap SystemCapability.MiscServices.InputMethodFramework
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getCursorInfo(userId?: int): CursorInfo;
+    
+    /**
      * <p>Get the default input method ability.</p>
      * <p>To optimize performance, only the 'name' and 'id' properties which can uniquely identify an input method ability
-     * are included in the returned InputMethodProperty object.</p>
+     *  are included in the returned InputMethodProperty object.</p>
      *
      * @returns { InputMethodProperty } property of the default input method.Only contains 'name' and 'id' properties.
      * @throws { BusinessError } 202 - not system application.
@@ -1051,29 +1075,7 @@ declare namespace inputMethod {
      * @since 26.0.0 dynamic&static
      */
     getDefaultInputMethodAbility(): InputMethodProperty;
-
-    /** 
-      * Get the cursor infomation of a specified user. 
-      * 
-      * @param { int } [userId] - the ID of the specified user, defaults to the foreground user ID of the screen. 
-      * @returns { CursorInfo } the promise returned by the function. 
-      * @throws { BusinessError } 202 - not system application. 
-      * @throws { BusinessError } 12800003 - input method client error. Possible causes: 
-      *     1. No edit box is bound to the current input method application under the specified user. 
-      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause: 
-      *     a system error, such as null pointer, IPC exception. 
-      * @throws { BusinessError } 12800023 - the specified user does not exit. 
-      * @throws { BusinessError } 12800024 - the specified user is not in the foregeound. 
-      * @throws { BusinessError } 12800025 - cross-user operation denied. 
-      *     Only user 0 applications are authorized for this operation. 
-      * @syscap SystemCapability.MiscServices.InputMethodFramework 
-      * @systemapi 
-      * @stagemodelonly 
-      * @since 26.0.0 dynamic&static 
-      */ 
-     getCursorInfo(userId?: int): CursorInfo;
   }
-
   /**
    * A control class that encapsulates APIs for input method management, which can only be invoked after an 
    * **InputMethodController** instance is obtained via 
@@ -2240,13 +2242,13 @@ declare namespace inputMethod {
      */
     onGetTextIndexAtCursor(callback: GetTextIndexAtCursorCallback): void;
    /**
-     * Unregister the callback of getTextIndexAtCursor.
-     *
-     * @param { GetTextIndexAtCursorCallback } [callback] - the callback called when the input method gets cursor index.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @stagemodelonly
-     * @since 23 static
-     */
+    * Unregister the callback of getTextIndexAtCursor.
+    * 
+    * @param { GetTextIndexAtCursorCallback } [callback] - the callback called when the input method gets cursor index.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @stagemodelonly
+    * @since 23 static
+    */
     offGetTextIndexAtCursor(callback?:GetTextIndexAtCursorCallback): void;
 
    /**
@@ -2259,14 +2261,14 @@ declare namespace inputMethod {
      */
     onSetPreviewText(callback: SetPreviewTextCallback): void;
    /**
-     * Unsubscribe 'setPreviewText' event.
-     *
-     * @param { SetPreviewTextCallback } [callback] - optional, the callback called when the input method
-     *     sets preview text.
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @stagemodelonly
-     * @since 23 static
-     */
+    * Unsubscribe 'setPreviewText' event.
+    * 
+    * @param { SetPreviewTextCallback } [callback] - optional, the callback called when the input method
+    *     sets preview text.
+    * @syscap SystemCapability.MiscServices.InputMethodFramework
+    * @stagemodelonly
+    * @since 23 static
+    */
     offSetPreviewText(callback?:SetPreviewTextCallback): void;
 
    /**
@@ -2794,16 +2796,6 @@ declare namespace inputMethod {
      * @since 23 static
      */
     abilityName?: string;
-
-    /**
-     * Whether the editor supports consuming key events.
-     *
-     * @default false
-     * @syscap SystemCapability.MiscServices.InputMethodFramework
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    consumeKeyEvents?: boolean;
   }
 
   /**
@@ -2875,7 +2867,7 @@ declare namespace inputMethod {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
- 	  displayId?: long;
+    displayId?: long;
   }
 
   /**
