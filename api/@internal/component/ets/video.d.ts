@@ -674,6 +674,17 @@ declare interface VideoOptions {
    * @since 11 dynamic
    */
   controller?: VideoController;
+  
+  /**
+   * controllerAsync of video.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  controllerAsync?: VideoControllerAsync;
 
   /**
    * image ai options of video.
@@ -952,6 +963,122 @@ declare class VideoController {
    * @since 12 dynamic
    */
   reset(): void;
+}
+
+/**
+ * Video playback controller class for asynchronous operations.
+ * Provides methods to control video playback, timing, and display mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare class VideoControllerAsync {
+  /**
+   * Creates a VideoControllerAsync instance.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  constructor();
+  /**
+   * Starts video playback asynchronously.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  start(): Promise<void>;
+  /**
+   * Pauses video playback asynchronously.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  pause(): Promise<void>;
+  /**
+   * Stops video playback asynchronously.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  stop(): Promise<void>;
+  /**
+   * Sets the current playback time without specifying seek mode.
+   *
+   * @param { double } value - The target time in seconds
+   *     <br>Unit: Seconds, The value must be greater than or equal to 0, The maximum value is the total duration of the
+   *     video. If the duration exceeds the maximum value, the system jumps to the end of the video.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  setCurrentTime(value: double);
+  /**
+   * Requests fullscreen display for the video.
+   *
+   * @param { boolean } value - true to enter fullscreen, false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  requestFullscreen(value: boolean);
+  /**
+   * Exits fullscreen display mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  exitFullscreen();
+  /**
+   * Sets the current playback time with specified seek mode.
+   *
+   * @param { double } value - The target time in seconds
+   *     <br>Unit: Seconds, The value must be greater than or equal to 0, The maximum value is the total duration of the
+   *     video. If the duration exceeds the maximum value, the system jumps to the end of the video.
+   * @param { SeekMode } seekMode - The seek mode to use for time adjustment.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  setCurrentTime(value: double, seekMode: SeekMode);
+  /**
+   * Resets the video controller asynchronously.
+   * Restores the controller to its initial state.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  reset(): Promise<void>;
 }
 
 /**
