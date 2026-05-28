@@ -46,6 +46,24 @@ declare namespace screen {
   function getAllScreens(callback: AsyncCallback<Array<Screen>>): void;
 
   /**
+   * Obtains all screens. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<Array<Screen>> } callback - Callback used to return the result. If obtaining all screens is
+   *     successful is successful, **err** is **undefined**, and the returned object is screen object set obtained.
+   *     Otherwise, **err** is an error object.
+   * @param { boolean } [isNeedUnused] - Indicates whether unused screen information is required.
+   *     This parameter is optional. If not provided, the unused screen information will not be returned
+   *     <br>Default value: false.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAllScreens(callback: AsyncCallback<Array<Screen>>, isNeedUnused?: boolean): void;
+
+  /**
    * Obtains all screens. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<Screen>> } Promise used to return all the Screen objects obtained.
@@ -57,6 +75,22 @@ declare namespace screen {
    * @since 23 static
    */
   function getAllScreens(): Promise<Array<Screen>>;
+
+  /**
+   * Obtains all screens. This API uses a promise to return the result.
+   *
+   * @param { boolean } [isNeedUnused] - Indicates whether unused screen information is required.
+   *     This parameter is optional. If not provided, the unused screen information will not be returned
+   *     <br>Default value: false.
+   * @returns { Promise<Array<Screen>> } Promise used to return all the Screen objects obtained.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 1400001 - Invalid display or screen.
+   * @syscap SystemCapability.WindowManager.WindowManager.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAllScreens(isNeedUnused?: boolean): Promise<Array<Screen>>;
 
   /**
    * Subscribes to events related to the screen state.
@@ -1036,6 +1070,16 @@ declare namespace screen {
      * @since 26.0.0 dynamic&static
      */
     readonly densityDpi?: double;
+
+    /**
+     * The screen is in use
+     *
+     * @syscap SystemCapability.WindowManager.WindowManager.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    readonly isInUse?: boolean;
   }
 
   /**
