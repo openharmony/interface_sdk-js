@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.HiviewDFX.HiChecker
  * @since 12 dynamic
- * @since 26.0.0 static
+ * @since 26.1.0 static
  */
 declare namespace jsLeakWatcher {
   /**
@@ -32,7 +32,7 @@ declare namespace jsLeakWatcher {
    * @param { boolean } isEnable - Whether to enable **jsLeakWatcher**. **true**: yes; **false**: no.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   function enable(isEnable: boolean): void;
 
@@ -43,7 +43,7 @@ declare namespace jsLeakWatcher {
    * @param { string } msg - Custom object information.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   function watch(obj: object, msg: string): void;
 
@@ -56,7 +56,7 @@ declare namespace jsLeakWatcher {
    *     Otherwise, an empty string is returned.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   function check(): string;
 
@@ -70,7 +70,7 @@ declare namespace jsLeakWatcher {
    *     returned. Otherwise, an empty array is returned.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   function dump(filePath: string): Array<string>;
 
@@ -100,7 +100,7 @@ declare namespace jsLeakWatcher {
    *     3.Parameter verification failed.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 20 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   function enableLeakWatcher(isEnabled: boolean, configs: Array<string>, callback: Callback<Array<string>>): void;
 
@@ -110,7 +110,7 @@ declare namespace jsLeakWatcher {
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
    * @since 24 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   export declare enum MonitorObjectType {
     /**
@@ -119,7 +119,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     ALL = -1,
     /**
@@ -128,7 +128,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     CUSTOM_COMPONENT = 1 << 0,
     /**
@@ -137,7 +137,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     WINDOW = 1 << 1,
     /**
@@ -146,7 +146,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     NODE_CONTAINER = 1 << 2,
     /**
@@ -155,7 +155,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     X_COMPONENT = 1 << 3,
     /**
@@ -164,7 +164,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     ABILITY = 1 << 4
   }
@@ -176,7 +176,7 @@ declare namespace jsLeakWatcher {
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
    * @since 24 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   interface LeakWatcherConfig {
     /**
@@ -187,7 +187,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     monitorObjectTypes: MonitorObjectType;
     /**
@@ -203,7 +203,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     objectUniqueIDs?: Array<int>;
     /**
@@ -214,7 +214,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     checkInterval?: int;
     /**
@@ -228,7 +228,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     fgLeakCountThreshold?: int;
     /**
@@ -242,7 +242,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     bgLeakCountThreshold?: int;
     /**
@@ -254,7 +254,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     maxStoredHeapDumps?: int;
     /**
@@ -271,7 +271,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     dumpHeapWaitTimeMs?: int;
     /**
@@ -288,7 +288,7 @@ declare namespace jsLeakWatcher {
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
      * @since 24 dynamic
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     exclusionList?: Array<string>;
   }
@@ -319,7 +319,7 @@ declare namespace jsLeakWatcher {
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @FaAndStageModel
    * @since 24 dynamic
-   * @since 26.0.0 static
+   * @since 26.1.0 static
    */
   function enableLeakWatcher(isEnabled: boolean, configs: LeakWatcherConfig, callback: Callback<Array<string>>): void;
 }
