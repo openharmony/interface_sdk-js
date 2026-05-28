@@ -19,13 +19,11 @@
  */
 
 /**
- * The **usb** module provides USB device management functions, including USB device list query, bulk data transfer,
- * control transfer, and permission control.
- *
- * > **NOTE**
+ * 本模块主要提供管理USB设备的相关功能，包括查询USB设备列表、批量数据传输、控制命令传输、权限控制等。
+ * 
+ * > **说明：**
  * >
- * > The APIs provided by this module are no longer maintained since API version 9. You are advised to use
- * > [@ohos.usbManager]{@link @ohos.usbManager:usbManager}.
+ * > 从API version 9开始，该接口不再维护，推荐使用新接口[@ohos.usbManager]{@link @ohos.usbManager:usbManager}。
  *
  * @syscap SystemCapability.USB.USBManager
  * @since 8 dynamiconly
@@ -34,9 +32,9 @@
  */
 declare namespace usb {
   /**
-   * Obtains the USB device list.
+   * 获取USB设备列表。
    *
-   * @returns { Array<Readonly<USBDevice>> } USB device list.
+   * @returns { Array<Readonly<USBDevice>> } 设备信息列表。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -45,13 +43,12 @@ declare namespace usb {
   function getDevices(): Array<Readonly<USBDevice>>;
 
   /**
-   * Connects to a USB device.
+   * 打开USB设备。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备信息以及device，再调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, and then call
-   * [usb.requestRight]{@link usb.requestRight} to request the device access permission.
-   *
-   * @param { USBDevice } device - USB device information.
-   * @returns { Readonly<USBDevicePipe> } USB device pipe for data transfer.
+   * @param { USBDevice } device - USB设备信息。
+   * @returns { Readonly<USBDevicePipe> } 指定的传输通道对象。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -60,11 +57,10 @@ declare namespace usb {
   function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
 
   /**
-   * Checks whether the application has the permission to access the device.
+   * 判断是否有权访问该设备。
    *
-   * @param { string } deviceName - Device name.
-   * @returns { boolean } Returns **true** if the application has the permission to access the device; returns **false**
-   *     otherwise.
+   * @param { string } deviceName - 设备名称。
+   * @returns { boolean } true表示有访问设备的权限，false表示没有访问设备的权限。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -73,13 +69,10 @@ declare namespace usb {
   function hasRight(deviceName: string): boolean;
 
   /**
-   * Requests the temporary permission for the application to access a USB device. This API uses a promise to return the
-   * result. System applications are granted the device access permission by default, and you do not need to apply for
-   * the permission separately.
+   * 请求软件包的临时权限以访问设备。使用Promise异步回调。系统应用默认拥有访问设备权限，无需调用此接口申请。
    *
-   * @param { string } deviceName - Device name.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the temporary
-   *     device access permissions are granted; and the value **false** indicates the opposite.
+   * @param { string } deviceName - 设备名称。
+   * @returns { Promise<boolean> } Promise对象，返回临时权限的申请结果。返回true表示临时权限申请成功；返回false则表示临时权限申请失败。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -88,10 +81,10 @@ declare namespace usb {
   function requestRight(deviceName: string): Promise<boolean>;
 
   /**
-   * Converts the USB function list in the string format to a numeric mask in Device mode.
+   * 在设备模式下，将字符串形式的USB功能列表转化为数字掩码。
    *
-   * @param { string } funcs - Function list in string format.
-   * @returns { number } Function list in numeric mask format.
+   * @param { string } funcs - 字符串形式的功能列表。
+   * @returns { number } 转化后的数字掩码的功能列表。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -101,10 +94,10 @@ declare namespace usb {
   function usbFunctionsFromString(funcs: string): number;
 
   /**
-   * Converts the USB function list in the numeric mask format to a string in Device mode.
+   * 在设备模式下，将数字掩码形式的USB功能列表转化为字符串。
    *
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { string } Function list in string format.
+   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @returns { string } 转化后的字符串形式的功能列表。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -114,11 +107,10 @@ declare namespace usb {
   function usbFunctionsToString(funcs: FunctionType): string;
 
   /**
-   * Sets the current USB function list in Device mode.
+   * 在设备模式下，设置当前的USB功能列表。
    *
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
-   *     successful, and **false** indicates the opposite.
+   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @returns { Promise<boolean> } Promise对象，返回设置成功与否的结果。true表示设置成功，false表示设置失败。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -128,9 +120,9 @@ declare namespace usb {
   function setCurrentFunctions(funcs: FunctionType): Promise<boolean>;
 
   /**
-   * Obtains the numeric mask combination for the USB function list in Device mode.
+   * 在设备模式下，获取当前的USB功能列表的数字组合掩码。
    *
-   * @returns { FunctionType } Numeric mask combination for the USB function list.
+   * @returns { FunctionType } 当前的USB功能列表的数字组合掩码。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -140,9 +132,9 @@ declare namespace usb {
   function getCurrentFunctions(): FunctionType;
 
   /**
-   * Obtains the list of all physical USB ports.
+   * 获取所有物理USB端口描述信息。
    *
-   * @returns { Array<USBPort> } List of physical USB ports.
+   * @returns { Array<USBPort> } USB端口描述信息列表。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -152,10 +144,10 @@ declare namespace usb {
   function getPorts(): Array<USBPort>;
 
   /**
-   * Obtains the mask combination for the supported mode list of a given USB port.
+   * 获取指定的端口支持的模式列表的组合掩码。
    *
-   * @param { number } portId - Port number.
-   * @returns { PortModeType } Mask combination for the supported mode list.
+   * @param { number } portId - 端口号。
+   * @returns { PortModeType } 支持的模式列表的组合掩码。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -165,14 +157,12 @@ declare namespace usb {
   function getSupportedModes(portId: number): PortModeType;
 
   /**
-   * Sets the role types supported by a specified port, which can be **powerRole** (for charging) and **dataRole** (for
-   * data transfer).
+   * 设置指定的端口支持的角色模式，包含充电角色、数据传输角色。
    *
-   * @param { number } portId - Port number.
-   * @param { PowerRoleType } powerRole - Role for charging.
-   * @param { DataRoleType } dataRole - Role for data transfer.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
-   *     successful, and **false** indicates the opposite.
+   * @param { number } portId - 端口号。
+   * @param { PowerRoleType } powerRole - 充电的角色。
+   * @param { DataRoleType } dataRole - 数据传输的角色。
+   * @returns { Promise<boolean> } Promise对象，返回设置成功与否的结果。true表示设置成功，false表示设置失败。
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -182,17 +172,15 @@ declare namespace usb {
   function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<boolean>;
 
   /**
-   * Claims a USB interface.
+   * 注册通信接口。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备信息以及interfaces；调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；调
+   * 用[usb.connectDevice]{@link usb.connectDevice}接口得到devicepipe作为参数。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and USB interfaces,
-   * call [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
-   *
-   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
-   * @param { USBInterface } iface - USB interface, which is used to determine the index of the interface to claim.
-   * @param { boolean } [force] - Whether to forcibly claim the USB interface. The default value is **false**,
-   *     indicating not to forcibly claim the USB interface.
-   * @returns { number } Returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址。
+   * @param { USBInterface } iface - 用于确定需要获取接口的索引。
+   * @param { boolean } [force] - 可选参数，是否强制获取。默认值为false?，表示不强制获取。
+   * @returns { number } 注册通信接口成功返回0；注册通信接口失败返回其他错误码。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -201,14 +189,13 @@ declare namespace usb {
   function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
 
   /**
-   * Releases a USB interface.
+   * 释放注册过的通信接口。
+   * 
+   * 需要调用[usb.claimInterface]{@link usb.claimInterface}先获取接口，才能使用此方法释放接口。
    *
-   * Before you do this, ensure that you have claimed the interface by calling
-   * [usb.claimInterface]{@link usb.claimInterface}.
-   *
-   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
-   * @param { USBInterface } iface - USB interface, which is used to determine the index of the interface to release.
-   * @returns { number } Returns **0** if the USB interface is successfully released; returns an error code otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址。
+   * @param { USBInterface } iface - 用于确定需要释放接口的索引。
+   * @returns { number } 释放接口成功返回0；释放接口失败返回其他错误码。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -217,15 +204,14 @@ declare namespace usb {
   function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
   /**
-   * Sets the device configuration.
+   * 设置设备配置。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备信息以及config；调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；调用
+   * [usb.connectDevice]{@link usb.connectDevice}得到devicepipe作为参数。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and device
-   * configuration, call [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
-   *
-   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
-   * @param { USBConfig } config - USB configuration to set.
-   * @returns { number } Returns **0** if the USB configuration is successfully set; returns an error code otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址。
+   * @param { USBConfig } config - 用于确定需要设置的配置。
+   * @returns { number } 设置设备配置成功返回0；设置设备配置失败返回其他错误码。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -234,16 +220,15 @@ declare namespace usb {
   function setConfiguration(pipe: USBDevicePipe, config: USBConfig): number;
 
   /**
-   * Sets a USB interface.
+   * 设置设备接口。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备列表以及interfaces；调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；调
+   * 用[usb.connectDevice]{@link usb.connectDevice}得到devicepipe作为参数；调用[usb.claimInterface]{@link usb.claimInterface}注册通信接
+   * 口。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and interfaces, call
-   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter, and call
-   * [usb.claimInterface]{@link usb.claimInterface} to claim the USB interface.
-   *
-   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
-   * @param { USBInterface } iface - USB interface to set.
-   * @returns { number } Returns **0** if the USB interface is successfully set; returns an error code otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址。
+   * @param { USBInterface } iface - 用于确定需要设置的接口。
+   * @returns { number } 设置设备接口成功返回0；设置设备接口失败返回其他错误码。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -252,15 +237,13 @@ declare namespace usb {
   function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
   /**
-   * Obtains the raw USB descriptor.
+   * 获取原始的USB描述符。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备列表；调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；调用
+   * [usb.connectDevice]{@link usb.connectDevice}接口得到devicepipe作为参数。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
-   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
-   *
-   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
-   * @returns { Uint8Array } Returns the raw USB descriptor if the operation is successful; returns **undefined**
-   *     otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址。
+   * @returns { Uint8Array } 返回获取的原始数据；失败返回undefined。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -269,15 +252,13 @@ declare namespace usb {
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
   /**
-   * Obtains the file descriptor.
+   * 获取文件描述符。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备列表；调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；调用
+   * [usb.connectDevice]{@link usb.connectDevice}接口得到devicepipe作为参数。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
-   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
-   *
-   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
-   * @returns { number } Returns the file descriptor of the USB device if the operation is successful; returns **-1**
-   *     otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定总线号和设备地址。
+   * @returns { number } 返回设备对应的文件描述符；失败返回-1。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -286,18 +267,15 @@ declare namespace usb {
   function getFileDescriptor(pipe: USBDevicePipe): number;
 
   /**
-   * Performs control transfer.
+   * 控制传输。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备列表；调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；调用
+   * [usb.connectDevice]{@link usb.connectDevice}接口得到devicepipe作为参数。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
-   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
-   *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the USB device.
-   * @param { USBControlParams } controlparam - Control transfer parameters.
-   * @param { number } [timeout] - Timeout duration in ms. This parameter is optional. The default value is **0**,
-   *     indicating no timeout.
-   * @returns { Promise<number> } Promise used to return the result, which is the size of the transmitted or received
-   *     data block if the transfer is successful, or **-1** if an exception has occurred.
+   * @param { USBDevicePipe } pipe - 用于确定设备。
+   * @param { USBControlParams } controlparam - 控制传输参数。
+   * @param { number } [timeout] - 超时时间（单位：ms），可选参数，默认为0不超时。
+   * @returns { Promise<number> } Promise对象，获取传输或接收到的数据块大小。失败返回-1。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -306,20 +284,17 @@ declare namespace usb {
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
 
   /**
-   * Performs bulk transfer.
+   * 批量传输。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备信息列表以及endpoint；再调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；
+   * 然后调用[usb.connectDevice]{@link usb.connectDevice}接口得到返回数据devicepipe之后，再次获取接口
+   * [usb.claimInterface]{@link usb.claimInterface}；再调用usb.bulkTransfer接口。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and endpoints, call
-   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter, and call
-   * [usb.claimInterface]{@link usb.claimInterface} to claim the USB interface.
-   *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the USB device.
-   * @param { USBEndpoint } endpoint - USB endpoint, which is used to determine the USB port for data transfer.
-   * @param { Uint8Array } buffer - Buffer for writing or reading data.
-   * @param { number } [timeout] - Timeout duration in ms. This parameter is optional. The default value is **0**,
-   *     indicating no timeout.
-   * @returns { Promise<number> } Promise used to return the result, which is the size of the transmitted or received
-   *     data block if the transfer is successful, or **-1** if an exception has occurred.
+   * @param { USBDevicePipe } pipe - 用于确定设备。
+   * @param { USBEndpoint } endpoint - 用于确定传输的端口。
+   * @param { Uint8Array } buffer - 用于写入或读取的缓冲区。
+   * @param { number } [timeout] - 超时时间（单位：ms），可选参数，默认为0不超时。
+   * @returns { Promise<number> } Promise对象，获取传输或接收到的数据块大小。失败返回-1。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -333,14 +308,13 @@ declare namespace usb {
   ): Promise<number>;
 
   /**
-   * Closes a USB device pipe.
+   * 关闭设备消息控制通道。
+   * 
+   * 需要调用[usb.getDevices]{@link usb.getDevices}获取设备列表；调用[usb.requestRight]{@link usb.requestRight}获取设备请求权限；调用
+   * [usb.connectDevice]{@link usb.connectDevice}得到devicepipe作为参数。
    *
-   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
-   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
-   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
-   *
-   * @param { USBDevicePipe } pipe - USB device pipe.
-   * @returns { number } Returns **0** if the USB device pipe is closed successfully; returns an error code otherwise.
+   * @param { USBDevicePipe } pipe - 用于确定USB设备消息控制通道。
+   * @returns { number } 关闭设备消息控制通道成功返回0；关闭设备消息控制通道失败返回其他错误码。
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -349,8 +323,7 @@ declare namespace usb {
   function closePipe(pipe: USBDevicePipe): number;
 
   /**
-   * Represents the USB endpoint from which data is sent or received. You can obtain the USB endpoint through
-   * [USBInterface]{@link usb.USBInterface}.
+   * 通过USB发送和接收数据的端口。通过[USBInterface]{@link usb.USBInterface}获取。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -359,7 +332,7 @@ declare namespace usb {
    */
   interface USBEndpoint {
     /**
-     * Endpoint address.
+     * 端点地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -369,7 +342,7 @@ declare namespace usb {
     address: number;
 
     /**
-     * Endpoint attributes.
+     * 端点属性。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -379,7 +352,7 @@ declare namespace usb {
     attributes: number;
 
     /**
-     * Endpoint interval.
+     * 端点间隔。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -389,7 +362,7 @@ declare namespace usb {
     interval: number;
 
     /**
-     * Maximum size of data packets on the endpoint.
+     * 端点最大数据包大小。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -399,7 +372,7 @@ declare namespace usb {
     maxPacketSize: number;
 
     /**
-     * Endpoint direction.
+     * 端点的方向。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -409,7 +382,7 @@ declare namespace usb {
     direction: USBRequestDirection;
 
     /**
-     * Endpoint number.
+     * 端点号。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -419,7 +392,7 @@ declare namespace usb {
     number: number;
 
     /**
-     * Endpoint type.
+     * 端点类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -429,7 +402,7 @@ declare namespace usb {
     type: number;
 
     /**
-     * Unique ID of the interface to which the endpoint belongs.
+     * 端点所属的接口的唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -440,8 +413,7 @@ declare namespace usb {
   }
 
   /**
-   * Represents a USB interface. One [USBConfig]{@link usb.USBConfig} can contain multiple **USBInterface** instances,
-   * each providing a specific function.
+   * 一个[USBConfig]{@link usb.USBConfig}中可以含有多个USBInterface，每个USBInterface提供一个功能。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -450,7 +422,7 @@ declare namespace usb {
    */
   interface USBInterface {
     /**
-     * Unique ID of the USB interface.
+     * 接口的唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -460,7 +432,7 @@ declare namespace usb {
     id: number;
 
     /**
-     * Interface protocol.
+     * 接口的协议。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -470,7 +442,7 @@ declare namespace usb {
     protocol: number;
 
     /**
-     * Device type.
+     * 设备类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -480,7 +452,7 @@ declare namespace usb {
     clazz: number;
 
     /**
-     * Device subclass.
+     * 设备子类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -490,7 +462,7 @@ declare namespace usb {
     subClass: number;
 
     /**
-     * Settings for alternating between descriptors of the same USB interface.
+     * 在同一个接口中的多个描述符中进行切换设置。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -500,7 +472,7 @@ declare namespace usb {
     alternateSetting: number;
 
     /**
-     * Interface name.
+     * 接口名称。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -510,7 +482,7 @@ declare namespace usb {
     name: string;
 
     /**
-     * Endpoints that belong to the USB interface.
+     * 当前接口所包含的端点。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -521,8 +493,7 @@ declare namespace usb {
   }
 
   /**
-   * Represents the USB configuration. One [USBDevice]{@link usb.USBDevice} can contain multiple **USBConfig**
-   * instances.
+   * USB配置，一个[USBDevice]{@link usb.USBDevice}中可以含有多个配置。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -531,7 +502,7 @@ declare namespace usb {
    */
   interface USBConfig {
     /**
-     * Unique ID of the USB configuration.
+     * 配置的唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -541,7 +512,7 @@ declare namespace usb {
     id: number;
 
     /**
-     * Configuration attributes.
+     * 配置的属性。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -551,7 +522,7 @@ declare namespace usb {
     attributes: number;
 
     /**
-     * Maximum power consumption, in mA.
+     * 最大功耗，以毫安为单位。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -561,7 +532,7 @@ declare namespace usb {
     maxPower: number;
 
     /**
-     * Configuration name, which can be left empty.
+     * 配置的名称，可以为空。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -571,7 +542,7 @@ declare namespace usb {
     name: string;
 
     /**
-     * Support for remote wakeup.
+     * 检查当前配置是否支持远程唤醒。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -581,7 +552,7 @@ declare namespace usb {
     isRemoteWakeup: boolean;
 
     /**
-     * Support for independent power supplies.
+     * 检查当前配置是否支持独立电源。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -591,7 +562,7 @@ declare namespace usb {
     isSelfPowered: boolean;
 
     /**
-     * Supported interface attributes.
+     * 配置支持的接口属性。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -602,7 +573,7 @@ declare namespace usb {
   }
 
   /**
-   * Represents the USB device information.
+   * USB设备信息。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -611,7 +582,7 @@ declare namespace usb {
    */
   interface USBDevice {
     /**
-     * Bus address.
+     * 总线地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -621,7 +592,7 @@ declare namespace usb {
     busNum: number;
 
     /**
-     * Device address.
+     * 设备地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -631,7 +602,7 @@ declare namespace usb {
     devAddress: number;
 
     /**
-     * Sequence number.
+     * 序列号。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -641,7 +612,7 @@ declare namespace usb {
     serial: string;
 
     /**
-     * Device name.
+     * 设备名字。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -651,7 +622,7 @@ declare namespace usb {
     name: string;
 
     /**
-     * Device manufacturer.
+     * 产商信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -661,7 +632,7 @@ declare namespace usb {
     manufacturerName: string;
 
     /**
-     * Product name.
+     * 产品信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -671,7 +642,7 @@ declare namespace usb {
     productName: string;
 
     /**
-     * Version.
+     * 版本。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -681,7 +652,7 @@ declare namespace usb {
     version: string;
 
     /**
-     * Vendor ID.
+     * 厂商ID。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -691,7 +662,7 @@ declare namespace usb {
     vendorId: number;
 
     /**
-     * Product ID.
+     * 产品ID。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -701,7 +672,7 @@ declare namespace usb {
     productId: number;
 
     /**
-     * Device class.
+     * 设备类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -711,7 +682,7 @@ declare namespace usb {
     clazz: number;
 
     /**
-     * Device subclass.
+     * 设备子类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -721,7 +692,7 @@ declare namespace usb {
     subClass: number;
 
     /**
-     * Device protocol code.
+     * 设备协议码。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -731,7 +702,7 @@ declare namespace usb {
     protocol: number;
 
     /**
-     * Device configuration descriptor information.
+     * 设备配置描述符信息。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -742,7 +713,7 @@ declare namespace usb {
   }
 
   /**
-   * Represents a USB device pipe, which is used to determine a USB device.
+   * USB设备消息传输通道，用于确定设备。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -751,7 +722,7 @@ declare namespace usb {
    */
   interface USBDevicePipe {
     /**
-     * Bus address.
+     * 总线地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -761,7 +732,7 @@ declare namespace usb {
     busNum: number;
 
     /**
-     * Device address.
+     * 设备地址。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -772,7 +743,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates power role types.
+   * 电源角色类型。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -782,7 +753,7 @@ declare namespace usb {
    */
   export enum PowerRoleType {
     /**
-     * None
+     * 无。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -793,7 +764,7 @@ declare namespace usb {
     NONE = 0,
 
     /**
-     * External power supply.
+     * 外部供电。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -804,7 +775,7 @@ declare namespace usb {
     SOURCE = 1,
 
     /**
-     * Internal power supply.
+     * 内部供电。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -816,7 +787,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates data role types.
+   * 数据角色类型。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -826,7 +797,7 @@ declare namespace usb {
    */
   export enum DataRoleType {
     /**
-     * None
+     * 无。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -837,7 +808,7 @@ declare namespace usb {
     NONE = 0,
 
     /**
-     * USB host.
+     * 主设备角色。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -848,7 +819,7 @@ declare namespace usb {
     HOST = 1,
 
     /**
-     * USB device.
+     * 从设备角色。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -860,7 +831,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates USB port mode types.
+   * USB端口模式类型。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -870,7 +841,7 @@ declare namespace usb {
    */
   export enum PortModeType {
     /**
-     * None
+     * 无。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -881,7 +852,7 @@ declare namespace usb {
     NONE = 0,
 
     /**
-     * Upstream facing port, which functions as the sink of power supply.
+     * 数据上行，需要外部供电。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -892,7 +863,7 @@ declare namespace usb {
     UFP = 1,
 
     /**
-     * Downstream facing port, which functions as the source of power supply.
+     * 数据下行，对外提供电源。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -903,8 +874,7 @@ declare namespace usb {
     DFP = 2,
 
     /**
-     * Dynamic reconfiguration port (DRP), which can function as the DFP (host) or UFP (device). It is not supported
-     * currently.
+     * 既可以做DFP(Host)，也可以做UFP(Device)，当前不支持。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -915,7 +885,7 @@ declare namespace usb {
     DRP = 3,
 
     /**
-     * Not supported currently.
+     * 当前不支持。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -927,7 +897,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates USB port roles.
+   * USB设备端口角色信息。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -937,7 +907,7 @@ declare namespace usb {
    */
   interface USBPortStatus {
     /**
-     * Current USB mode.
+     * 当前的USB模式。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -948,7 +918,7 @@ declare namespace usb {
     currentMode: number;
 
     /**
-     * Current power role.
+     * 当前设备充电模式。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -959,7 +929,7 @@ declare namespace usb {
     currentPowerRole: number;
 
     /**
-     * Current data role.
+     * 当前设备数据传输模式。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -971,7 +941,7 @@ declare namespace usb {
   }
 
   /**
-   * Represents a USB port.
+   * USB设备端口。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -981,7 +951,7 @@ declare namespace usb {
    */
   interface USBPort {
     /**
-     * Unique identifier of a USB port.
+     * USB端口唯一标识。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -992,7 +962,7 @@ declare namespace usb {
     id: number;
 
     /**
-     * Numeric mask combination for the supported mode list.
+     * USB端口所支持的模式的数字组合掩码。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1003,7 +973,7 @@ declare namespace usb {
     supportedModes: PortModeType;
 
     /**
-     * USB port role.
+     * USB端口角色。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1015,7 +985,7 @@ declare namespace usb {
   }
 
   /**
-   * Represents control transfer parameters.
+   * 控制传输参数。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -1024,7 +994,7 @@ declare namespace usb {
    */
   interface USBControlParams {
     /**
-     * Request type.
+     * 请求类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1034,7 +1004,7 @@ declare namespace usb {
     request: number;
 
     /**
-     * Request target type.
+     * 请求目标类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1044,7 +1014,7 @@ declare namespace usb {
     target: USBRequestTargetType;
 
     /**
-     * Control request type.
+     * 请求控制类型。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1054,7 +1024,7 @@ declare namespace usb {
     reqType: USBControlRequestType;
 
     /**
-     * Request parameter value.
+     * 请求参数。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1064,7 +1034,7 @@ declare namespace usb {
     value: number;
 
     /**
-     * Index of the request parameter value.
+     * 请求参数value对应的索引值。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1074,7 +1044,7 @@ declare namespace usb {
     index: number;
 
     /**
-     * Buffer for writing or reading data.
+     * 用于写入或读取的缓冲区。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1085,7 +1055,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates request target types.
+   * 请求目标类型。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -1094,7 +1064,7 @@ declare namespace usb {
    */
   export enum USBRequestTargetType {
     /**
-     * Device.
+     * 设备。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1104,7 +1074,7 @@ declare namespace usb {
     USB_REQUEST_TARGET_DEVICE = 0,
 
     /**
-     * Interface.
+     * 接口。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1114,7 +1084,7 @@ declare namespace usb {
     USB_REQUEST_TARGET_INTERFACE = 1,
 
     /**
-     * Endpoint.
+     * 端点。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1124,7 +1094,7 @@ declare namespace usb {
     USB_REQUEST_TARGET_ENDPOINT = 2,
 
     /**
-     * Other.
+     * 其他。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1135,7 +1105,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates control request types.
+   * 控制请求类型。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -1144,7 +1114,7 @@ declare namespace usb {
    */
   export enum USBControlRequestType {
     /**
-     * Standard.
+     * 标准。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1154,7 +1124,7 @@ declare namespace usb {
     USB_REQUEST_TYPE_STANDARD = 0,
 
     /**
-     * Class.
+     * 类。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1164,7 +1134,7 @@ declare namespace usb {
     USB_REQUEST_TYPE_CLASS = 1,
 
     /**
-     * Vendor.
+     * 厂商。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1175,7 +1145,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates request directions.
+   * 请求方向。
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
@@ -1184,7 +1154,7 @@ declare namespace usb {
    */
   export enum USBRequestDirection {
     /**
-     * Request for writing data from the host to the device.
+     * 写数据，主设备往从设备。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1194,7 +1164,7 @@ declare namespace usb {
     USB_REQUEST_DIR_TO_DEVICE = 0,
 
     /**
-     * Request for reading data from the device to the host.
+     * 读数据，从设备往主设备。
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
@@ -1205,7 +1175,7 @@ declare namespace usb {
   }
 
   /**
-   * Enumerates USB device function types.
+   * USB设备侧功能。
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -1215,7 +1185,7 @@ declare namespace usb {
    */
   export enum FunctionType {
     /**
-     * No function.
+     * 没有功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1226,7 +1196,7 @@ declare namespace usb {
     NONE = 0,
 
     /**
-     * ACM function.
+     * acm功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1237,7 +1207,7 @@ declare namespace usb {
     ACM = 1,
 
     /**
-     * ECM function.
+     * ecm功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1248,7 +1218,7 @@ declare namespace usb {
     ECM = 2,
 
     /**
-     * HDC function.
+     * hdc功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1259,7 +1229,7 @@ declare namespace usb {
     HDC = 4,
 
     /**
-     * Media transmission.
+     * 媒体传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1270,7 +1240,7 @@ declare namespace usb {
     MTP = 8,
 
     /**
-     * Image transmission.
+     * 图片传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1281,7 +1251,7 @@ declare namespace usb {
     PTP = 16,
 
     /**
-     * Network sharing.
+     * 网络共享。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1292,7 +1262,7 @@ declare namespace usb {
     RNDIS = 32,
 
     /**
-     * MIDI function.
+     * midi功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1303,7 +1273,7 @@ declare namespace usb {
     MIDI = 64,
 
     /**
-     * Audio function.
+     * 音频功能。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1314,7 +1284,7 @@ declare namespace usb {
     AUDIO_SOURCE = 128,
 
     /**
-     * NCM transmission.
+     * ncm传输。
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
