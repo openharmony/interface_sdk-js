@@ -1202,6 +1202,27 @@ export declare class UpdatablePickerConfigs {
    * @since 24 dynamic
    */
   backgroundOpacity?: number;
+
+  
+  /**
+   * Support set photoBrowserMargin
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  photoBrowserMargin?: Margin;
+
+  /**
+   * Support set gridMargin
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  gridMargin?: Margin;
 }
 
 /**
