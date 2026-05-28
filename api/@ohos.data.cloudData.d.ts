@@ -758,7 +758,7 @@ declare namespace cloudData {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    static queryLastSyncInfo(
+    static batchQueryLastSyncInfo(
         accountId: string,
         bundleInfos: Array<BundleInfo>
     ): Promise<Record<string, Record<string, SyncInfo>>>;
@@ -943,16 +943,15 @@ declare namespace cloudData {
     ): Promise<void>;
 
     /**
-     * Sync data to cloud.
+     * Sync data to cloud. This API uses a promise to return the result.
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
-     * @param { BundleInfo } bundleInfo -  BundleInfo configuration.
+     * @param { BundleInfo } bundleInfo - BundleInfo configuration.
      *     <br>the instance object of {@link BundleInfo}
-     * @param { relationalStore.CloudSyncConfig } config -  Indicates cloud sync configuration.
+     * @param { relationalStore.CloudSyncConfig } config - Indicates cloud sync configuration.
      *     <br>the instance object of {@link relationalStore.CloudSyncConfig}
-     * @param { Callback<relationalStore.ProgressDetails> } progress - the specified sync condition by
-     *     <br>the instance object of {@link ProgressDetails}.
-     * @returns { Promise<void> } : The promise returned by the function.
+     * @param { Callback<relationalStore.ProgressDetails> } progress - Callback used to return the sync progress.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed,
      *     <br>usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application is not a system application.
@@ -964,7 +963,7 @@ declare namespace cloudData {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    static cloudSync(
+    static cloudSyncEx(
         bundleInfo: BundleInfo,
         config: relationalStore.CloudSyncConfig,
         progress: Callback<relationalStore.ProgressDetails>
