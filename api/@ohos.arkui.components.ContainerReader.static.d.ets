@@ -113,12 +113,14 @@ export declare interface ContainerReaderAttribute extends CommonMethod {
   /**
    * Set ContainerReader options.
    *
-   * @returns { ContainerReaderAttribute } Returns the instance of the ContainerReaderAttribute.
+   * @param { ContainerReaderInfo } value - Used to specify the parameters for container dimension reading and
+   *     breakpoint analysis
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
-  default setContainerReaderOptions(): this;
+  default setContainerReaderOptions(value: ContainerReaderInfo): this;
 
   /**
    * Sets the attribute modifier.
