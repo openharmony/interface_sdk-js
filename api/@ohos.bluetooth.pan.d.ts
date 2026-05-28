@@ -23,7 +23,6 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
 /**
  * Provides methods to accessing bluetooth PAN(Personal Area Networking Profile)-related capabilities.
  *
- * @namespace pan
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @stagemodelonly
  * @since 10 dynamic
@@ -33,7 +32,6 @@ declare namespace pan {
   /**
    * Base interface of profile.
    *
-   * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 10 dynamic
@@ -46,7 +44,7 @@ declare namespace pan {
    *
    * @returns { PanProfile } Returns the instance of pan profile.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
@@ -58,8 +56,6 @@ declare namespace pan {
   /**
    * Manager pan host profile.
    *
-   * @extends BaseProfile
-   * @typedef PanProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 10 dynamic
@@ -94,7 +90,7 @@ declare namespace pan {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -116,7 +112,7 @@ declare namespace pan {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -136,24 +132,16 @@ declare namespace pan {
      * @permission ohos.permission.ACCESS_BLUETOOTH
      * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
      * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 10 dynamic
-     */
-    /**
-     * Obtains the tethering enable or disable.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs. [since 10 - 24]
      * @throws { BusinessError } 801 - Capability not supported.
      *     Only can be called on phone, tablet, and 2in1 devices.
      *     Failed to call the API when the short-range chip is not inserted on 2in1 device.
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi [since 10 - 24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 10 dynamic
+     * @since 26.0.0 static
      */
     isTetheringOn(): boolean;
 

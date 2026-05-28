@@ -24,34 +24,20 @@ import type constant from './@ohos.bluetooth.constant';
 /**
  * Provides basic profile methods.
  *
- * @namespace baseProfile
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 10
- */
-/**
- * Provides basic profile methods.
- *
- * @namespace baseProfile
- * @syscap SystemCapability.Communication.Bluetooth.Core
- * @crossplatform
- * @since 13 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 13]
+ * @since 10 dynamic
  * @since 23 static
  */
 declare namespace baseProfile {
   /**
    * Indicate the profile connection state.
    *
-   * @typedef { constant.ProfileConnectionState } ProfileConnectionState
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Indicate the profile connection state.
-   *
-   * @typedef { constant.ProfileConnectionState } ProfileConnectionState
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
@@ -59,9 +45,9 @@ declare namespace baseProfile {
   /**
    * Enum for connection strategy of the profile
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -71,6 +57,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -80,6 +67,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -89,6 +77,7 @@ declare namespace baseProfile {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -98,17 +87,10 @@ declare namespace baseProfile {
   /**
    * Enum for cause of disconnect.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 12
-   */
-  /**
-   * Enum for cause of disconnect.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 12 dynamic
    * @since 23 static
    */
   enum DisconnectCause {
@@ -116,14 +98,9 @@ declare namespace baseProfile {
      * User disconnect device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 12
-     */
-    /**
-     * User disconnect device.
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 12 dynamic
      * @since 23 static
      */
     USER_DISCONNECT = 0,
@@ -131,6 +108,7 @@ declare namespace baseProfile {
      * The connection needs to be initiated from the keyboard side.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -139,6 +117,7 @@ declare namespace baseProfile {
      * The connection needs to be initiated from the mouse side.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -147,6 +126,7 @@ declare namespace baseProfile {
      * The connection needs to be initiated from the car side.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -155,6 +135,7 @@ declare namespace baseProfile {
      * Too many devices are currently connected.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -163,6 +144,7 @@ declare namespace baseProfile {
      * Connection failed due to an internal error.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -172,34 +154,20 @@ declare namespace baseProfile {
   /**
    * Profile state change parameters.
    *
-   * @typedef StateChangeParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Profile state change parameters.
-   *
-   * @typedef StateChangeParam
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   export interface StateChangeParam {
     /**
      * The address of device
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * The address of device
-     *
-     * @type { string }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     deviceId: string;
@@ -207,17 +175,10 @@ declare namespace baseProfile {
     /**
      * Profile state value
      *
-     * @type { ProfileConnectionState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Profile state value
-     *
-     * @type { ProfileConnectionState }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     state: ProfileConnectionState;
@@ -225,36 +186,57 @@ declare namespace baseProfile {
     /**
      * Cause of disconnect
      *
-     * @type { DisconnectCause }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 12
-     */
-    /**
-     * Cause of disconnect
-     *
-     * @type { DisconnectCause }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 12 dynamic
      * @since 23 static
      */
     cause: DisconnectCause;
+
+    /**
+     * PAN role of the device
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    role?: PanRole;
+  }
+
+  /**
+   * Enum for PAN profile role.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum PanRole {
+    /**
+     * The PAN role of the device is PANNAP.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ROLE_PANNAP = 0,
+    /**
+     * The PAN role of the device is PANU.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ROLE_PANU = 1
   }
 
   /**
    * Base interface of profile.
    *
-   * @typedef BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Base interface of profile.
-   *
-   * @typedef BaseProfile
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   export interface BaseProfile {
@@ -268,7 +250,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -276,6 +258,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -291,7 +274,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -299,6 +282,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -313,7 +297,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -321,6 +305,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -335,7 +320,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -343,6 +328,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -350,8 +336,13 @@ declare namespace baseProfile {
 
     /**
      * Obtains the connected devices list of profile.
+     * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+     * the type of the peer device address is real.
+     * Otherwise, the type of the peer device address is virtual.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 24]
+     * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+     *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
      * @returns { Array<string> } Returns the address of connected devices list.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -360,22 +351,9 @@ declare namespace baseProfile {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Obtains the connected devices list of profile.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { Array<string> } Returns the address of connected devices list.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     getConnectedDevices(): Array<string>;
@@ -388,74 +366,57 @@ declare namespace baseProfile {
      * @returns { ProfileConnectionState } Returns the connection state.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Obtains the profile connection state.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-     * @returns { ProfileConnectionState } Returns the connection state.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     getConnectionState(deviceId: string): ProfileConnectionState;
 
     /**
      * Subscribe the event reported when the profile connection state changes .
+     * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+     * the type of the peer device address is real.
+     * Otherwise, the type of the peer device address is virtual.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 24]
+     * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+     *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed. [since 10 - 24]
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Subscribe the event reported when the profile connection state changes .
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
      * Subscribe the event reported when the profile connection state changes .
+     * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+     * the type of the peer device address is real.
+     * Otherwise, the type of the peer device address is virtual.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 23 - 24]
+     * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+     *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
+     * @stagemodelonly
+     * @crossplatform [since 23]
      * @since 23 static
      */
     onConnectionStateChange(callback: Callback<StateChangeParam>): void;
@@ -468,24 +429,12 @@ declare namespace baseProfile {
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Unsubscribe the event reported when the profile connection state changes .
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      */
     off(type: 'connectionStateChange', callback?: Callback<StateChangeParam>): void;
 
@@ -497,6 +446,7 @@ declare namespace baseProfile {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @crossplatform
      * @since 23 static
      */

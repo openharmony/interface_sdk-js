@@ -25,43 +25,21 @@ import type common from './@ohos.bluetooth.common';
 /**
  * Provides methods to operate or manage Bluetooth.
  *
- * @namespace connection
  * @syscap SystemCapability.Communication.Bluetooth.Core
- * @since 10
- */
-/**
- * Provides methods to operate or manage Bluetooth.
- *
- * @namespace connection
- * @syscap SystemCapability.Communication.Bluetooth.Core
- * @atomicservice
- * @since 12
- */
-/**
- * Provides methods to operate or manage Bluetooth.
- *
- * @namespace connection
- * @syscap SystemCapability.Communication.Bluetooth.Core
- * @crossplatform
- * @atomicservice
- * @since 13 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 13]
+ * @atomicservice [since 12]
+ * @since 10 dynamic
  * @since 23 static
  */
 declare namespace connection {
   /**
    * Indicate the profile connection state.
    *
-   * @typedef { constant.ProfileConnectionState } ProfileConnectionState
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Indicate the profile connection state.
-   *
-   * @typedef { constant.ProfileConnectionState } ProfileConnectionState
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   type ProfileConnectionState = constant.ProfileConnectionState;
@@ -69,17 +47,10 @@ declare namespace connection {
   /**
    * Indicate the profile id.
    *
-   * @typedef { constant.ProfileId } ProfileId
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Indicate the profile id.
-   *
-   * @typedef { constant.ProfileId } ProfileId
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   type ProfileId = constant.ProfileId;
@@ -87,25 +58,12 @@ declare namespace connection {
   /**
    * Indicate the profile uuid.
    *
-   * @typedef { constant.ProfileUuids } ProfileUuids
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * Indicate the profile uuid.
-   *
-   * @typedef { constant.ProfileUuids } ProfileUuids
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 12
-   */
-  /**
-   * Indicate the profile uuid.
-   *
-   * @typedef { constant.ProfileUuids } ProfileUuids
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @systemapi [since 10 - 11]
+   * @publicapi [since 12]
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   type ProfileUuids = constant.ProfileUuids;
@@ -113,17 +71,10 @@ declare namespace connection {
   /**
    * Indicate the major class of a bluetooth device.
    *
-   * @typedef { constant.MajorClass } MajorClass
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Indicate the major class of a bluetooth device.
-   *
-   * @typedef { constant.MajorClass } MajorClass
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   type MajorClass = constant.MajorClass;
@@ -131,17 +82,10 @@ declare namespace connection {
   /**
    * Indicate the major minor class of a bluetooth device.
    *
-   * @typedef { constant.MajorMinorClass } MajorMinorClass
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Indicate the major minor class of a bluetooth device.
-   *
-   * @typedef { constant.MajorMinorClass } MajorMinorClass
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   type MajorMinorClass = constant.MajorMinorClass;
@@ -149,10 +93,10 @@ declare namespace connection {
   /**
    * Bluetooth device address.
    *
-   * @typedef { common.BluetoothAddress } BluetoothAddress
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 21 dynamic
-   * @since 23 static
+   * @since 26.0.0 static
    */
   type BluetoothAddress = common.BluetoothAddress;
 
@@ -161,9 +105,9 @@ declare namespace connection {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { ProfileId } [profileId] - Indicate the profile id. This is an optional parameter.
-   *                                  With profileId, returns the current connection state of this profile, {@link ProfileConnectionState}.
-   *                                  Without profileId, if any profile is connected, {@link ProfileConnectionState#STATE_CONNECTED} is returned.
-   *                                  Otherwise, {@link ProfileConnectionState#STATE_DISCONNECTED} is returned.
+   *     With profileId, returns the current connection state of this profile, {@link ProfileConnectionState}.
+   *     Without profileId, if any profile is connected, {@link ProfileConnectionState#STATE_CONNECTED} is returned.
+   *     Otherwise, {@link ProfileConnectionState#STATE_DISCONNECTED} is returned.
    * @returns { ProfileConnectionState } Returns the connection state.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Incorrect parameter types.
@@ -173,27 +117,9 @@ declare namespace connection {
    * @throws { BusinessError } 2900004 - Profile not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Get the profile connection state of the current device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { ProfileId } [profileId] - Indicate the profile id. This is an optional parameter.
-   *                                  With profileId, returns the current connection state of this profile, {@link ProfileConnectionState}.
-   *                                  Without profileId, if any profile is connected, {@link ProfileConnectionState#STATE_CONNECTED} is returned.
-   *                                  Otherwise, {@link ProfileConnectionState#STATE_DISCONNECTED} is returned.
-   * @returns { ProfileConnectionState } Returns the connection state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900004 - Profile not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getProfileConnectionState(profileId?: ProfileId): ProfileConnectionState;
@@ -206,48 +132,16 @@ declare namespace connection {
    * @param { AsyncCallback<void> } callback - the callback of pairDevice.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Starts pairing with a remote Bluetooth device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { AsyncCallback<void> } callback - the callback of pairDevice.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Starts pairing with a remote Bluetooth device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { AsyncCallback<void> } callback - the callback of pairDevice.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function pairDevice(deviceId: string, callback: AsyncCallback<void>): void;
@@ -260,48 +154,16 @@ declare namespace connection {
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Starts pairing with a remote Bluetooth device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<void> } Returns the promise object.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Starts pairing with a remote Bluetooth device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<void> } Returns the promise object.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function pairDevice(deviceId: string): Promise<void>;
@@ -318,6 +180,7 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @crossplatform
    * @since 21 dynamic
    * @since 23 static
@@ -336,13 +199,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -360,13 +224,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -379,9 +244,9 @@ declare namespace connection {
    * If both p192Data and p256Data are used simultaneously, p256Data takes effect.
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { BluetoothTransport } transport - Indicates the transport of a remote Bluetooth device.
-   * @param { OobData | null } p192Data - The out-of-band data (P192), or null if not available.
-   * @param { OobData | null } p256Data - The out-of-band data (P256), or null if not available.
+   * @param { BluetoothTransport } transport  - Indicates the transport of a remote Bluetooth device.
+   * @param { OobData | null } p192Data  - The out-of-band data (P192), or null if not available.
+   * @param { OobData | null } p256Data  - The out-of-band data (P256), or null if not available.
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
@@ -391,10 +256,36 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function pairDeviceOutOfBand(transport: BluetoothTransport, p192Data: OobData | null,
     p256Data: OobData | null): Promise<void>;
+
+  /**
+   * Starts pairing with the specific remote Bluetooth device using the Out Of Band mechanism.
+   * This function is asynchronous, and the pairing status is obtained by listening to the bondStateChange event.
+   * If both p192Data and p256Data are not used, the function call will fail.
+   * If both p192Data and p256Data are used simultaneously, p256Data takes effect.
+   *
+   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+   * @param { BluetoothTransport } transport - Indicates the transport of a remote Bluetooth device.
+   * @param { OobData } [p192Data] - The out-of-band data (P192).
+   * @param { OobData } [p256Data] - The out-of-band data (P256).
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2900003 - Bluetooth disabled.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function startPairOutOfBand(deviceId: string, transport: BluetoothTransport, p192Data?: OobData,
+    p256Data?: OobData): Promise<void>;
 
   /**
    * Remove a paired remote device.
@@ -405,13 +296,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -426,13 +318,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -447,13 +340,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -468,13 +362,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -488,48 +383,16 @@ declare namespace connection {
    * @returns { string } Returns the device name in character string format.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Obtains the name of a peer Bluetooth device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { string } Returns the device name in character string format.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Obtains the name of a peer Bluetooth device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { string } Returns the device name in character string format.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function getRemoteDeviceName(deviceId: string): string;
 
@@ -538,16 +401,18 @@ declare namespace connection {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { boolean } [alias] - Indicates whether to obtain the device alias. If the parameter is not provided, the device alias is obtained by default.
+   * @param { boolean } [alias] - Indicates whether to obtain the device alias. If the parameter is not provided, the
+   *     device alias is obtained by default.
    * @returns { string } Returns the device name in character string format.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Failed to obtain the name or alias of the peer Bluetooth device.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 16 dynamic
    * @since 23 static
@@ -557,50 +422,20 @@ declare namespace connection {
   /**
    * Obtains the class of a peer Bluetooth device.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 17]
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @returns { DeviceClass } The class of the remote device.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 17]
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Obtains the class of a peer Bluetooth device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { DeviceClass } The class of the remote device.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13
-   */
-  /**
-   * Obtains the class of a peer Bluetooth device.
-   *
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { DeviceClass } The class of the remote device.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getRemoteDeviceClass(deviceId: string): DeviceClass;
@@ -615,7 +450,9 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Get transport failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 20 dynamic
+   * @since 26.0.0 static
    */
   function getRemoteDeviceTransport(deviceId: string): BluetoothTransport;
 
@@ -629,28 +466,22 @@ declare namespace connection {
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Obtains the Bluetooth local name of a device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { string } Returns the name the device.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getLocalName(): string;
 
   /**
    * Obtains the list of Bluetooth devices that have been paired with the current device.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -658,36 +489,10 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Obtains the list of Bluetooth devices that have been paired with the current device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Obtains the list of Bluetooth devices that have been paired with the current device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getPairedDevices(): Array<string>;
@@ -700,48 +505,16 @@ declare namespace connection {
    * @returns { BondState } Returns the pair state.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
-   */
-  /**
-   * Obtains the pair state of a specified device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { BondState } Returns the pair state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Obtains the pair state of a specified device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { BondState } Returns the pair state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   function getPairState(deviceId: string): BondState;
@@ -751,15 +524,17 @@ declare namespace connection {
    *
    * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
+   * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or
+   *     {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -774,12 +549,13 @@ declare namespace connection {
    * @param { AsyncCallback<void> } callback - the callback of setDevicePinCode.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -794,12 +570,13 @@ declare namespace connection {
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -813,14 +590,15 @@ declare namespace connection {
    * @param { string } name - Indicates a valid Bluetooth name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
-   * @since 23 static
+   * @since 26.0.0 static
    * @deprecated since 12
    */
   function setLocalName(name: string): void;
@@ -833,12 +611,13 @@ declare namespace connection {
    * @param { int } duration - Indicates the duration in seconds, in which the host is discoverable.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -855,21 +634,9 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Obtains the Bluetooth scanning mode of a device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { ScanMode } Returns the Bluetooth scanning mode.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getBluetoothScanMode(): ScanMode;
@@ -884,34 +651,10 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Starts scanning Bluetooth devices.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Starts scanning Bluetooth devices.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function startBluetoothDiscovery(): void;
@@ -926,34 +669,10 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Stops Bluetooth device scanning.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Stops Bluetooth device scanning.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   function stopBluetoothDiscovery(): void;
@@ -969,21 +688,9 @@ declare namespace connection {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 11
-   */
-  /**
-   * Check if bluetooth is discovering.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { boolean } Returns {@code true} if the local device is discovering; returns {@code false} otherwise.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 11 dynamic
    * @since 23 static
    */
   function isBluetoothDiscovering(): boolean;
@@ -996,13 +703,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1016,13 +724,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1035,47 +744,18 @@ declare namespace connection {
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @param { AsyncCallback<Array<ProfileUuids>> } callback - the callback of getRemoteProfileUuids.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * Obtains the profile UUIDs supported by the remote device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { AsyncCallback<Array<ProfileUuids>> } callback - the callback of getRemoteProfileUuids.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs. [since 10 - 11]
    * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 12
-   */
-  /**
-   * Obtains the profile UUIDs supported by the remote device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { AsyncCallback<Array<ProfileUuids>> } callback - the callback of getRemoteProfileUuids.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @systemapi [since 10 - 11]
+   * @publicapi [since 12]
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getRemoteProfileUuids(deviceId: string, callback: AsyncCallback<Array<ProfileUuids>>): void;
@@ -1087,47 +767,18 @@ declare namespace connection {
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @returns { Promise<Array<ProfileUuids>> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * Obtains the profile UUIDs supported by the remote device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<Array<ProfileUuids>> } Returns the promise object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs. [since 10 - 11]
    * @throws { BusinessError } 401 - Invalid parameter.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 12
-   */
-  /**
-   * Obtains the profile UUIDs supported by the remote device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<Array<ProfileUuids>> } Returns the promise object.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @systemapi [since 10 - 11]
+   * @publicapi [since 12]
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   function getRemoteProfileUuids(deviceId: string): Promise<Array<ProfileUuids>>;
@@ -1135,37 +786,23 @@ declare namespace connection {
   /**
    * Connects all allowed bluetooth profiles between the local and remote device.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 11 - 15]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 16]
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @param { AsyncCallback<void> } callback - the callback result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Connects all allowed bluetooth profiles between the local and remote device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @param { AsyncCallback<void> } callback - the callback result.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs. [since 11 - 15]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi [since 11 - 15]
+   * @publicapi [since 16]
    * @stagemodelonly
-   * @since 16 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function connectAllowedProfiles(deviceId: string, callback: AsyncCallback<void>): void;
@@ -1173,37 +810,23 @@ declare namespace connection {
   /**
    * Connects all allowed bluetooth profiles between the local and remote device.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 11 - 15]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 16]
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 11
-   */
-  /**
-   * Connects all allowed bluetooth profiles between the local and remote device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<void> } Returns the promise object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs. [since 11 - 15]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi [since 11 - 15]
+   * @publicapi [since 16]
    * @stagemodelonly
-   * @since 16 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   function connectAllowedProfiles(deviceId: string): Promise<void>;
@@ -1217,7 +840,7 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -1238,10 +861,11 @@ declare namespace connection {
    * @returns { Promise<BatteryInfo> } Returns battery info.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -1250,36 +874,21 @@ declare namespace connection {
   /**
    * Obtains the product ID of a remote device.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 11 - 15]
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @returns { string } Returns the remote device's product ID.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied. [since 11 - 15]
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 11
-   */
-  /**
-   * Obtains the product ID of a remote device.
-   *
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { string } Returns the remote device's product ID.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 16 dynamic
+   * @stagemodelonly
+   * @since 11 dynamic
    * @since 23 static
    */
   function getRemoteProductId(deviceId: string): string;
@@ -1287,37 +896,25 @@ declare namespace connection {
   /**
    * Disconnects all allowed bluetooth profiles between the local and remote device.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 11 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 26.0.0]
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs. [since 11 - 24]
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 11 dynamic
-   * @since 23 static
-   */
-  /**
-   * Disconnects all allowed bluetooth profiles between the local and remote device.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<void> } Returns the promise object.
-   * @throws { BusinessError } 201 - Permission denied.
+   *     2. Incorrect parameter types. 3. Parameter verification failed. [since 11 - 24]
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API when the short-range chip is not inserted on 2in1 device.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   function disconnectAllowedProfiles(deviceId: string): Promise<void>;
 
@@ -1330,15 +927,16 @@ declare namespace connection {
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
    */
-    function setRemoteDeviceName(deviceId: string, name: string): Promise<void>;
+  function setRemoteDeviceName(deviceId: string, name: string): Promise<void>;
 
   /**
    * Set remote device custom type.
@@ -1349,11 +947,12 @@ declare namespace connection {
    * @returns { Promise<void> } Returns the promise object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -1362,31 +961,19 @@ declare namespace connection {
   /**
    * Get remote device custom type.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 12 - 17]
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @returns { Promise<DeviceType> } Returns the device type.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission denied. [since 12 - 17]
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs. [since 18]
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
-   * @since 12
-   */
-  /**
-   * Get remote device custom type.
-   *
-   * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
-   * @returns { Promise<DeviceType> } Returns the device type.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 18 dynamic
+   * @stagemodelonly
+   * @since 12 dynamic
    * @since 23 static
    */
   function getRemoteDeviceType(deviceId: string): Promise<DeviceType>;
@@ -1400,13 +987,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -1417,13 +1005,14 @@ declare namespace connection {
    *
    * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
    * @returns { Promise<long> } Returns latest connection time.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -1438,13 +1027,14 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -1464,7 +1054,8 @@ declare namespace connection {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function generateLocalOobData(transport: BluetoothTransport): Promise<OobData>;
 
@@ -1485,7 +1076,8 @@ declare namespace connection {
    *     Detailed error messages can be used to assist in locating the problem.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 26.0.0 static
    */
   function getVirtualAddressByHash(algorithmType: HashAlgorithmType, hashValue: string): string;
 
@@ -1524,60 +1116,43 @@ declare namespace connection {
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed. [since 10 - 24]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Subscribe the event reported when a remote Bluetooth device is discovered.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Subscribe the event reported when a remote Bluetooth device is discovered.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function on(type: 'bluetoothDeviceFind', callback: Callback<Array<string>>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 23 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @crossplatform
    * @since 23 static
    */
@@ -1593,34 +1168,10 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   function off(type: 'bluetoothDeviceFind', callback?: Callback<Array<string>>): void;
 
@@ -1640,44 +1191,44 @@ declare namespace connection {
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC [since 12 - 17]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 18 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed. [since 12 - 24]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Subscribe the event reported when a remote Bluetooth device is discovered.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 18 dynamic
+   * @systemapi [since 12 - 17]
+   * @publicapi [since 18]
+   * @stagemodelonly
+   * @since 12 dynamic
    */
   function on(type: 'discoveryResult', callback: Callback<Array<DiscoveryResult>>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 23 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function onDiscoveryResult(callback: Callback<Array<DiscoveryResult>>): void;
@@ -1685,27 +1236,18 @@ declare namespace connection {
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.GET_BLUETOOTH_PEERS_MAC [since 12 - 17]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 18]
    * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'discoveryResult' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<DiscoveryResult>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 18 dynamic
+   * @systemapi [since 12 - 17]
+   * @publicapi [since 18]
+   * @stagemodelonly
+   * @since 12 dynamic
    */
   function off(type: 'discoveryResult', callback?: Callback<Array<DiscoveryResult>>): void;
 
@@ -1718,50 +1260,49 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function offDiscoveryResult(callback?: Callback<Array<DiscoveryResult>>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is bonded.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed. [since 10 - 24]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Subscribe the event reported when a remote Bluetooth device is bonded.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
-   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    */
   function on(type: 'bondStateChange', callback: Callback<BondStateParam>): void;
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is bonded.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 23 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @crossplatform
    * @since 23 static
    */
@@ -1775,26 +1316,13 @@ declare namespace connection {
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Unsubscribe the event reported when a remote Bluetooth device is bonded.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
-   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    */
   function off(type: 'bondStateChange', callback?: Callback<BondStateParam>): void;
 
@@ -1807,6 +1335,7 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @crossplatform
    * @since 23 static
    */
@@ -1814,29 +1343,41 @@ declare namespace connection {
 
   /**
    * Subscribe the event of a pairing request from a remote Bluetooth device.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed. [since 10 - 24]
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    */
   function on(type: 'pinRequired', callback: Callback<PinRequiredParam>): void;
 
   /**
    * Subscribe the event of a pairing request from a remote Bluetooth device.
+   * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+   * the type of the peer device address is real.
+   * Otherwise, the type of the peer device address is virtual.
    *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 23 - 24]
+   * @permission ohos.permission.ACCESS_BLUETOOTH or (ohos.permission.ACCESS_BLUETOOTH and
+   *     ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function onPinRequired(callback: Callback<PinRequiredParam>): void;
@@ -1849,10 +1390,11 @@ declare namespace connection {
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    */
   function off(type: 'pinRequired', callback?: Callback<PinRequiredParam>): void;
@@ -1866,6 +1408,7 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function offPinRequired(callback?: Callback<PinRequiredParam>): void;
@@ -1879,6 +1422,7 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 12 dynamic
    */
   function on(type: 'batteryChange', callback: Callback<BatteryInfo>): void;
@@ -1891,6 +1435,7 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function onBatteryChange(callback: Callback<BatteryInfo>): void;
@@ -1904,6 +1449,7 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 12 dynamic
    */
   function off(type: 'batteryChange', callback?: Callback<BatteryInfo>): void;
@@ -1916,6 +1462,7 @@ declare namespace connection {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 23 static
    */
   function offBatteryChange(callback?: Callback<BatteryInfo>): void;
@@ -1929,7 +1476,9 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 23 dynamic&static
+   * @stagemodelonly
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function onScanModeChange(callback: Callback<ScanMode>): void;
 
@@ -1942,7 +1491,9 @@ declare namespace connection {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 23 dynamic&static
+   * @stagemodelonly
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   function offScanModeChange(callback?: Callback<ScanMode>): void;
 
@@ -1964,7 +1515,7 @@ declare namespace connection {
    * @since 26.0.0 dynamic&static
    */
   function onAclStateChange(callback: Callback<AclStateResult>): void;
-  
+
   /**
    * Unsubscribe the event of acl state changed from a remote device.
    * If the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC, the type of the peer device address is real.
@@ -1987,78 +1538,58 @@ declare namespace connection {
   /**
    * Describes the class of a bluetooth device.
    *
-   * @typedef BondStateParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Describes the class of a bluetooth device.
-   *
-   * @typedef BondStateParam
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   interface BondStateParam {
     /**
      * Address of a Bluetooth device.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Address of a Bluetooth device.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     deviceId: string;
     /**
      * Profile connection state of the device.
      *
-     * @type { BondState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Profile connection state of the device.
-     *
-     * @type { BondState }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     state: BondState;
     /**
      * Cause of unbond.
      *
-     * @type { UnbondCause }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 12
-     */
-    /**
-     * Cause of unbond.
-     *
-     * @type { UnbondCause }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 12 dynamic
      * @since 23 static
      */
     cause: UnbondCause;
+    /**
+     * Cause message of unbond.
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    causeMessage?: string;
   }
 
   /**
    * Describes the bond key param.
    *
-   * @typedef PinRequiredParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2066,8 +1597,8 @@ declare namespace connection {
     /**
      * ID of the device to pair.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2075,8 +1606,8 @@ declare namespace connection {
     /**
      * Key for the device pairing.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2084,9 +1615,9 @@ declare namespace connection {
     /**
      * Indicates the pairing type to a peer device.
      *
-     * @type { PinType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2096,68 +1627,40 @@ declare namespace connection {
   /**
    * Describes the class of a bluetooth device.
    *
-   * @typedef DeviceClass
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * Describes the class of a bluetooth device.
-   *
-   * @typedef DeviceClass
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   interface DeviceClass {
     /**
      * Major classes of Bluetooth devices.
      *
-     * @type { MajorClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Major classes of Bluetooth devices.
-     *
-     * @type { MajorClass }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     majorClass: MajorClass;
     /**
      * Major and minor classes of Bluetooth devices.
      *
-     * @type { MajorMinorClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Major and minor classes of Bluetooth devices.
-     *
-     * @type { MajorMinorClass }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     majorMinorClass: MajorMinorClass;
     /**
      * Class of the device.
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Class of the device.
-     *
-     * @type { int }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     classOfDevice: int;
@@ -2166,8 +1669,8 @@ declare namespace connection {
   /**
    * Enum for the transport of a remote device
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2176,6 +1679,7 @@ declare namespace connection {
      * The value of bluetooth transport BR/EDR.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2184,6 +1688,7 @@ declare namespace connection {
      * The value of bluetooth transport LE.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2192,16 +1697,18 @@ declare namespace connection {
      * The value of bluetooth transport DUAL.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 20 dynamic
-     * @since 23 static
+     * @since 26.0.0 static
      */
     TRANSPORT_DUAL = 2,
     /**
      * The unknown bluetooth transport.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 20 dynamic
-     * @since 23 static
+     * @since 26.0.0 static
      */
     TRANSPORT_UNKNOWN = 3
   }
@@ -2209,17 +1716,10 @@ declare namespace connection {
   /**
    * The enum of BR scan mode.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * The enum of BR scan mode.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 10 dynamic
    * @since 23 static
    */
   enum ScanMode {
@@ -2227,14 +1727,9 @@ declare namespace connection {
      * Indicates the scan mode is none
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the scan mode is none
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     SCAN_MODE_NONE = 0,
@@ -2242,14 +1737,9 @@ declare namespace connection {
      * Indicates the scan mode is connectable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the scan mode is connectable
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     SCAN_MODE_CONNECTABLE = 1,
@@ -2257,6 +1747,7 @@ declare namespace connection {
      * Indicates the scan mode is general discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2265,6 +1756,7 @@ declare namespace connection {
      * Indicates the scan mode is limited discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2273,14 +1765,9 @@ declare namespace connection {
      * Indicates the scan mode is connectable and general discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicates the scan mode is connectable and general discoverable
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 10 dynamic
      * @since 23 static
      */
     SCAN_MODE_CONNECTABLE_GENERAL_DISCOVERABLE = 4,
@@ -2288,6 +1775,7 @@ declare namespace connection {
      * Indicates the scan mode is connectable and limited discoverable
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2297,26 +1785,11 @@ declare namespace connection {
   /**
    * The enum of bond state.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10
-   */
-  /**
-   * The enum of bond state.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * The enum of bond state.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    * @since 23 static
    */
   enum BondState {
@@ -2324,22 +1797,10 @@ declare namespace connection {
      * Indicate the bond state is invalid
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicate the bond state is invalid
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Indicate the bond state is invalid
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     BOND_STATE_INVALID = 0,
@@ -2347,22 +1808,10 @@ declare namespace connection {
      * Indicate the bond state is bonding
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicate the bond state is bonding
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Indicate the bond state is bonding
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     BOND_STATE_BONDING = 1,
@@ -2370,22 +1819,10 @@ declare namespace connection {
      * Indicate the bond state is bonded
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10
-     */
-    /**
-     * Indicate the bond state is bonded
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Indicate the bond state is bonded
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @atomicservice [since 12]
+     * @since 10 dynamic
      * @since 23 static
      */
     BOND_STATE_BONDED = 2
@@ -2394,9 +1831,9 @@ declare namespace connection {
   /**
    * Enum for the type of pairing to a remote device
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2406,6 +1843,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2415,6 +1853,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2424,6 +1863,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2433,6 +1873,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2442,6 +1883,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2451,6 +1893,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2460,6 +1903,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2469,6 +1913,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2478,85 +1923,55 @@ declare namespace connection {
   /**
    * Describes the contents of the discovery results
    *
-   * @typedef DiscoveryResult
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi
-   * @since 12
-   */
-  /**
-   * Describes the contents of the discovery results
-   *
-   * @typedef DiscoveryResult
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 18 dynamic
+   * @systemapi [since 12 - 17]
+   * @publicapi [since 18]
+   * @stagemodelonly
+   * @since 12 dynamic
    * @since 23 static
    */
   interface DiscoveryResult {
     /**
      * Identify of the discovery device
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 12
-     */
-    /**
-     * Identify of the discovery device
-     *
-     * @type { string }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 18 dynamic
+     * @systemapi [since 12 - 17]
+     * @publicapi [since 18]
+     * @stagemodelonly
+     * @since 12 dynamic
      * @since 23 static
      */
     deviceId: string;
     /**
      * RSSI of the remote device
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 12
-     */
-    /**
-     * RSSI of the remote device
-     *
-     * @type { int }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 18 dynamic
+     * @systemapi [since 12 - 17]
+     * @publicapi [since 18]
+     * @stagemodelonly
+     * @since 12 dynamic
      * @since 23 static
      */
     rssi: int;
     /**
      * The local name of the device
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 12
-     */
-    /**
-     * The local name of the device
-     *
-     * @type { string }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 18 dynamic
+     * @systemapi [since 12 - 17]
+     * @publicapi [since 18]
+     * @stagemodelonly
+     * @since 12 dynamic
      * @since 23 static
      */
     deviceName: string;
     /**
      * The class of the device
      *
-     * @type { DeviceClass }
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi
-     * @since 12
-     */
-    /**
-     * The class of the device
-     *
-     * @type { DeviceClass }
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 18 dynamic
+     * @systemapi [since 12 - 17]
+     * @publicapi [since 18]
+     * @stagemodelonly
+     * @since 12 dynamic
      * @since 23 static
      */
     deviceClass: DeviceClass;
@@ -2565,8 +1980,8 @@ declare namespace connection {
   /**
    * Describes the contents of the battery information.
    *
-   * @typedef BatteryInfo
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -2574,9 +1989,9 @@ declare namespace connection {
     /**
      * Identify of the discovery device.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2584,8 +1999,8 @@ declare namespace connection {
     /**
      * Electricity value of the general device. {@code -1} means no power information.
      *
-     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2593,8 +2008,8 @@ declare namespace connection {
     /**
      * Electricity value of the left ear. {@code -1} means no power information.
      *
-     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2602,8 +2017,8 @@ declare namespace connection {
     /**
      * The charge state of the left ear.
      *
-     * @type { DeviceChargeState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2611,8 +2026,8 @@ declare namespace connection {
     /**
      * Electricity value of the right ear. {@code -1} means no power information.
      *
-     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2620,8 +2035,8 @@ declare namespace connection {
     /**
      * The charge state of the right ear.
      *
-     * @type { DeviceChargeState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2629,8 +2044,8 @@ declare namespace connection {
     /**
      * Electricity value of the box. {@code -1} means no power information.
      *
-     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2638,8 +2053,8 @@ declare namespace connection {
     /**
      * The charge state of the box.
      *
-     * @type { DeviceChargeState }
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2649,8 +2064,8 @@ declare namespace connection {
   /**
    * Enum for the charge state.
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -2659,6 +2074,7 @@ declare namespace connection {
      * Not support super charge, and not charged.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2667,6 +2083,7 @@ declare namespace connection {
      * Not support super charge, and in charging.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2675,6 +2092,7 @@ declare namespace connection {
      * Support super charge, and not charged.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2683,6 +2101,7 @@ declare namespace connection {
      * Support super charge, and in charging.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2692,9 +2111,9 @@ declare namespace connection {
   /**
    * Enum for the custom type of remote device.
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 12 dynamic
    * @since 23 static
    */
@@ -2704,6 +2123,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2713,6 +2133,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2722,6 +2143,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2731,6 +2153,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2740,6 +2163,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2749,6 +2173,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2758,6 +2183,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2767,6 +2193,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2776,17 +2203,10 @@ declare namespace connection {
   /**
    * Enum for cause of unbond.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 12
-   */
-  /**
-   * Enum for cause of unbond.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @crossplatform
-   * @since 13 dynamic
+   * @stagemodelonly
+   * @crossplatform [since 13]
+   * @since 12 dynamic
    * @since 23 static
    */
   enum UnbondCause {
@@ -2794,14 +2214,9 @@ declare namespace connection {
      * User proactively removed device.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 12
-     */
-    /**
-     * User proactively removed device.
-     *
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @crossplatform
-     * @since 13 dynamic
+     * @stagemodelonly
+     * @crossplatform [since 13]
+     * @since 12 dynamic
      * @since 23 static
      */
     USER_REMOVED = 0,
@@ -2809,6 +2224,7 @@ declare namespace connection {
      * Remote device shut down.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2817,6 +2233,7 @@ declare namespace connection {
      * Wrong PIN code.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2825,6 +2242,7 @@ declare namespace connection {
      * Remote device rejected.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2833,6 +2251,7 @@ declare namespace connection {
      * Internal error.
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
      * @since 12 dynamic
      * @since 23 static
      */
@@ -2841,9 +2260,9 @@ declare namespace connection {
   /**
    * Describes information about controlling the Bluetooth peripheral.
    *
-   * @typedef ControlDeviceActionParams
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -2851,9 +2270,9 @@ declare namespace connection {
     /**
      * Indicates the address of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2861,9 +2280,9 @@ declare namespace connection {
     /**
      * Indicates the control type.
      *
-     * @type { ControlType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2871,9 +2290,9 @@ declare namespace connection {
     /**
      * Indicates the control value.
      *
-     * @type { ControlTypeValue }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2881,9 +2300,9 @@ declare namespace connection {
     /**
      * Indicates the control object.
      *
-     * @type { ControlObject }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2893,9 +2312,9 @@ declare namespace connection {
   /**
    * Describes the control type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -2905,6 +2324,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2914,6 +2334,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2923,6 +2344,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2932,6 +2354,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2941,18 +2364,19 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
-    ERASE = 4,
+    ERASE = 4
   }
 
   /**
    * Describes the control type value.
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -2962,6 +2386,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2971,6 +2396,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -2980,18 +2406,19 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
-    QUERY = 2,
+    QUERY = 2
   }
 
   /**
    * Describes the control object.
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -3001,6 +2428,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3010,6 +2438,7 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3019,18 +2448,19 @@ declare namespace connection {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
-    LEFT_RIGHT_EAR = 2,
+    LEFT_RIGHT_EAR = 2
   }
 
   /**
    * Describes the cloud pair device.
    *
-   * @typedef TrustedPairedDevices
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -3041,6 +2471,7 @@ declare namespace connection {
      * @type { Array<TrustedPairedDevice> }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3050,9 +2481,9 @@ declare namespace connection {
   /**
    * Describes device of cloud pair.
    *
-   * @typedef TrustedPairedDevice
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 15 dynamic
    * @since 23 static
    */
@@ -3060,9 +2491,9 @@ declare namespace connection {
     /**
      * Indicates the device identify.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3070,9 +2501,9 @@ declare namespace connection {
     /**
      * Indicates the device type of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3080,9 +2511,9 @@ declare namespace connection {
     /**
      * Indicates the modelId of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3090,9 +2521,9 @@ declare namespace connection {
     /**
      * Indicates the manufactory of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3100,9 +2531,9 @@ declare namespace connection {
     /**
      * Indicates the productId of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3110,9 +2541,9 @@ declare namespace connection {
     /**
      * Indicates the HiLink version of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3120,9 +2551,9 @@ declare namespace connection {
     /**
      * Indicates the macAddress of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3130,9 +2561,9 @@ declare namespace connection {
     /**
      * Indicates the service type of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3140,9 +2571,9 @@ declare namespace connection {
     /**
      * Indicates the service id of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3150,9 +2581,9 @@ declare namespace connection {
     /**
      * The local name of the device
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3160,9 +2591,9 @@ declare namespace connection {
     /**
      * Indicates the uuid of the peripheral.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3170,9 +2601,9 @@ declare namespace connection {
     /**
      * Indicates the bluetoothClass of the peripheral.
      *
-     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3180,9 +2611,9 @@ declare namespace connection {
     /**
      * Indicates the token of the peripheral.
      *
-     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3190,9 +2621,9 @@ declare namespace connection {
     /**
      * Indicates the deviceNameTime of the peripheral.
      *
-     * @type { long }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3200,9 +2631,9 @@ declare namespace connection {
     /**
      * Indicates the securityAdvInfo of the peripheral.
      *
-     * @type { ArrayBuffer }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3210,9 +2641,9 @@ declare namespace connection {
     /**
      * Indicates the pairState of the peripheral.
      *
-     * @type { int }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 15 dynamic
      * @since 23 static
      */
@@ -3222,72 +2653,72 @@ declare namespace connection {
   /**
    * Out Of Band data used in Bluetooth device pairing.
    *
-   * @typedef OobData
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   interface OobData {
     /**
      * The address of remote Bluetooth device.
      *
-     * @type { BluetoothAddress }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     deviceId: BluetoothAddress;
     /**
      * Confirmation data in OOB pairing, with a size of 16 octets.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     confirmationHash: Uint8Array;
     /**
      * Randomizer data in OOB pairing, with a size of 16 octets.
      *
-     * @type { ?Uint8Array }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     randomizerHash?: Uint8Array;
     /**
      * The name of the remote Bluetooth device.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     deviceName?: string;
     /**
      * The role of the remote Bluetooth device.
      *
-     * @type { ?DeviceRole }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     deviceRole?: DeviceRole;
   }
   /**
    * Enum for the role of device.
    *
-   * @enum { int }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   enum DeviceRole {
     /**
@@ -3296,7 +2727,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     DEVICE_ROLE_PERIPHERAL_ONLY = 0,
     /**
@@ -3305,7 +2737,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     DEVICE_ROLE_CENTRAL_ONLY = 1,
     /**
@@ -3314,7 +2747,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     DEVICE_ROLE_BOTH_PREFER_PERIPHERAL = 2,
     /**
@@ -3323,7 +2757,8 @@ declare namespace connection {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic&static
+     * @since 23 dynamic
+     * @since 26.0.0 static
      */
     DEVICE_ROLE_BOTH_PREFER_CENTRAL = 3
   }
@@ -3362,15 +2797,17 @@ declare namespace connection {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 24 dynamic
+   * @since 26.0.0 static
    */
-  enum HashAlgorithmType {  
+  enum HashAlgorithmType {
     /**
      * SHA256 hash algorithm
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 24 dynamic
+     * @since 26.0.0 static
      */
     HASH_ALGORITHM_SHA256 = 0
   }
@@ -3400,31 +2837,32 @@ declare namespace connection {
      */
     state: AclState;
   }
-  
+
   /**
-  * The enum of acl state.
-  *
-  * @syscap SystemCapability.Communication.Bluetooth.Core
-  * @stagemodelonly
-  * @since 26.0.0 dynamic&static
-  */
+   * The enum of acl state.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
   export enum AclState {
     /**
-    * acl is connected
-    *
-    * @syscap SystemCapability.Communication.Bluetooth.Core
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+     * acl is connected
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     STATE_CONNECTED = 0,
     /**
-    * acl is disconnected
-    *
-    * @syscap SystemCapability.Communication.Bluetooth.Core
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+     * acl is disconnected
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     STATE_DISCONNECTED = 1
   }
 }
+
 export default connection;
