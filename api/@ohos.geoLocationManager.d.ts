@@ -2322,22 +2322,21 @@ declare namespace geoLocationManager {
   function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<number>;
 
   /**
-   * Remove a beacon fence.
-   *
-   * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION [since 20 - 24]
-   * @param { BeaconFence } [beaconFence] - Indicates the details of the beacon fence. [since 20]
-   * @returns { Promise<void> } The promise returned by the function. [since 20]
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API. [since 20 - 24]
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeBeaconFence}
-   *     due to limited device capabilities. [since 20]
-   * @throws { BusinessError } 3501602 - Failed to delete the fence due to incorrect beacon fence information.
-   *     [since 20]
-   * @syscap SystemCapability.Location.Location.Geofence [since 20]
-   * @atomicservice [since 20]
-   * @since 20 dynamic
-   */
-  function removeBeaconFence(beaconFence?: BeaconFence): Promise<void>;
+    * Remove a beacon fence.
+    *
+    * @permission ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION
+    * @param { BeaconFence } [beaconFence] - Indicates the details of the beacon fence.
+    * @returns { Promise<void> } The promise returned by the function.
+    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission	 
+    * required to call the API.
+    * @throws { BusinessError } 801 - Capability not supported. Failed to call ${geoLocationManager.removeBeaconFence}
+    * due to limited device capabilities.
+    * @throws { BusinessError } 3501602 - Failed to delete the fence due to incorrect beacon fence information.
+    * @syscap SystemCapability.Location.Location.Geofence	 
+    * @atomicservice
+    * @since 20 dynamic
+    */
+    function removeBeaconFence(beaconFence?: BeaconFence): Promise<void>;
 
   /**
    * Check whether the BeaconFence service is supported.
