@@ -1206,6 +1206,7 @@ declare namespace dlpPermission {
 
     /**
      * Defines the extended fields of the DLP file.
+     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
      * @since 24
