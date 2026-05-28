@@ -21,8 +21,7 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * The **cloudSyncManager** module provides APIs for managing device-cloud sync for applications. You can use the APIs
- * to manage the full download state, the reason why the full download stops, and number of local and cloud files.
+ * 该模块向云盘管理应用提供端云同步管理能力：包括全量下载的状态和停止原因，以及应用本地和云端文件数量信息。
  *
  * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
  * @since 10 dynamic
@@ -30,13 +29,12 @@ import type { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace cloudSyncManager {
   /**
-   * Changes the device-cloud file sync switch for an application. This API uses a promise to return the result.
+   * 异步方法修改应用的端云文件同步开关。使用Promise异步回调。
    *
-   * @param { string } accountId - Account ID.
-   * @param { string } bundleName - Bundle name.
-   * @param { boolean } status - State of the cloud-device file sync switch to set. The value **true** means to enable
-   *     this function; the value **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } accountId - 账号Id。
+   * @param { string } bundleName - 应用包名。
+   * @param { boolean } status - 修改的应用云同步开关状态。true为打开；false为关闭。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -50,15 +48,12 @@ declare namespace cloudSyncManager {
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean): Promise<void>;
 
   /**
-   * Changes the device-cloud file sync switch for an application. This API uses an asynchronous callback to return the
-   * result.
+   * 异步方法修改应用的端云文件同步开关。使用callback异步回调。
    *
-   * @param { string } accountId - Account ID.
-   * @param { string } bundleName - Bundle name of the application.
-   * @param { boolean } status - State of the cloud-device file sync switch to set. The value **true** means to enable
-   *     this function; the value **false** means the opposite.
-   * @param { AsyncCallback<void> } [callback] - Callback used to return the result of changing the device-cloud file
-   *     sync switch for an application.
+   * @param { string } accountId - 账号Id。
+   * @param { string } bundleName - 应用包名
+   * @param { boolean } status - 修改的应用云同步开关状态。true为打开；false为关闭。
+   * @param { AsyncCallback<void> } [callback] - 回调函数。异步修改应用的端云文件同步开关之后。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -72,12 +67,11 @@ declare namespace cloudSyncManager {
   function changeAppCloudSwitch(accountId: string, bundleName: string, status: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Notifies the device-cloud service that the cloud data of a specific application under a specified account has been
-   * changed. This API uses a promise to return the result.
+   * 通知端云服务指定账号下的特定应用云数据已发生变更。使用Promise异步回调。
    *
-   * @param { string } accountId - Account ID.
-   * @param { string } bundleName - Bundle name.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } accountId - 账号Id。
+   * @param { string } bundleName - 应用包名。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -91,12 +85,11 @@ declare namespace cloudSyncManager {
   function notifyDataChange(accountId: string, bundleName: string): Promise<void>;
 
   /**
-   * Notifies the device-cloud service that the cloud data of a specific application under a specified account has been
-   * changed. This API uses an asynchronous callback to return the result.
+   * 通知端云服务指定账号下的特定应用云数据已发生变更。使用callback异步回调。
    *
-   * @param { string } accountId - Account ID.
-   * @param { string } bundleName - Bundle name.
-   * @param { AsyncCallback<void> } [callback] - Callback used to return the application data change in the cloud.
+   * @param { string } accountId - 账号Id。
+   * @param { string } bundleName - 应用包名。
+   * @param { AsyncCallback<void> } [callback] - 回调函数。异步通知端云服务应用的云数据变更之后的。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -110,14 +103,12 @@ declare namespace cloudSyncManager {
   function notifyDataChange(accountId: string, bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Enables device-cloud sync. This API uses a promise to return the result.
+   * 异步方法使能端云协同能力。使用Promise异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Account ID.
-   * @param { Record<string, boolean> } switches - Whether to enable the device-cloud sync feature. The application
-   *     bundle name is a string. The switch status is a Boolean value. The value **true** means to enable this function
-   *     ; the value **false** means the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } accountId - 账号Id。
+   * @param { Record<string, boolean> } switches - 应用的端云协同特性使能开关，string类型为应用包名，boolean类型为开关状态。true为打开；false为关闭。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -131,14 +122,12 @@ declare namespace cloudSyncManager {
   function enableCloud(accountId: string, switches: Record<string, boolean>): Promise<void>;
 
   /**
-   * Enables device-cloud sync. This API uses an asynchronous callback to return the result.
+   * 异步方法使能端云协同能力。使用callback异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Account ID.
-   * @param { Record<string, boolean> } switches - Whether to enable the device-cloud sync feature. The application
-   *     bundle name is a string. The switch status is a Boolean value. The value **true** means to enable this function
-   *     ; the value **false** means the opposite.
-   * @param { AsyncCallback<void> } [callback] - Callback used to return the result of enabling device-cloud sync.
+   * @param { string } accountId - 账号Id。
+   * @param { Record<string, boolean> } switches - 应用的端云协同特性使能开关，string类型为应用包名，boolean类型为开关状态。true为打开；false为关闭。
+   * @param { AsyncCallback<void> } [callback] - 回调函数。异步使能端云协同能力之后。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -156,11 +145,11 @@ declare namespace cloudSyncManager {
   ): void;
 
   /**
-   * Disables device-cloud sync. This API uses a promise to return the result.
+   * 异步方法去使能端云协同能力。使用Promise异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Account ID.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } accountId - 账号Id。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -174,11 +163,11 @@ declare namespace cloudSyncManager {
   function disableCloud(accountId: string): Promise<void>;
 
   /**
-   * Disables device-cloud sync. This API uses an asynchronous callback to return the result.
+   * 异步方法去使能端云协同能力。使用callback异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Account ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result of disabling device-cloud sync.
+   * @param { string } accountId - 账号Id。
+   * @param { AsyncCallback<void> } callback - 回调函数。异步去使能端云协同能力之后。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -192,7 +181,7 @@ declare namespace cloudSyncManager {
   function disableCloud(accountId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Enumerates the actions that can be taken to clear local cloud data.
+   * 清理本地云相关数据时的Action，为枚举类型。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -201,7 +190,7 @@ declare namespace cloudSyncManager {
    */
   enum Action {
     /**
-     * Clear the cloud identifier but retain the files cached locally.
+     * 仅清除云端标识，保留本地缓存文件。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -211,7 +200,7 @@ declare namespace cloudSyncManager {
     RETAIN_DATA = 0,
 
     /**
-     * Clear the cloud identifier and the files cached locally.
+     * 清除云端标识信息，若存在本地缓存文件，一并删除。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -222,13 +211,13 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Callback used to clear the cloud data locally. This API uses a promise to return the result.
+   * 异步方法清理本地云相关数据。使用Promise异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Account ID.
-   * @param { Record<string, Action> } appActions - Action to perform. The bundle name of the application whose data is
-   *     to be cleared is a string. [Action]{@link cloudSyncManager.Action} specifies the action to perform.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } accountId - 账号Id。
+   * @param { Record<string, Action> } appActions - 清理动作类型，string类型为待清理应用包名， [Action]{@link cloudSyncManager.Action}为清理动
+   *     作类型。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -242,13 +231,13 @@ declare namespace cloudSyncManager {
   function clean(accountId: string, appActions: Record<string, Action>): Promise<void>;
 
   /**
-   * Callback used to clear the cloud data locally. This API uses an asynchronous callback to return the result.
+   * 异步方法清理本地云相关数据。使用callback异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { string } accountId - Account ID.
-   * @param { Record<string, Action> } appActions - Action to perform. The bundle name of the application whose data is
-   *     to be cleared is a string. [Action]{@link cloudSyncManager.Action} specifies the action to perform.
-   * @param { AsyncCallback<void> } callback - Callback used to clear the cloud data locally.
+   * @param { string } accountId - 账号Id。
+   * @param { Record<string, Action> } appActions - 清理动作类型，string类型为待清理应用包名， [Action]{@link cloudSyncManager.Action}为清理动
+   *     作类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。异步方法清理本地云相关数据。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:1.Mandatory parameters are left
@@ -262,13 +251,12 @@ declare namespace cloudSyncManager {
   function clean(accountId: string, appActions: Record<string, Action>, callback: AsyncCallback<void>): void;
 
   /**
-   * Notifies the device-cloud service of the cloud data change information of a specified user. This API uses a promise
-   * to return the result.
+   * 通知端云服务应用指定用户的云数据变更信息。使用Promise异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { int } userId - User ID.
-   * @param { ExtraData } extraData - Represents the cloud data change information.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } userId - 用户Id。
+   * @param { ExtraData } extraData - 云端数据变更信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
    *     system API.
@@ -284,13 +272,12 @@ declare namespace cloudSyncManager {
   function notifyDataChange(userId: int, extraData: ExtraData): Promise<void>;
 
   /**
-   * Notifies the device-cloud service of the cloud data change information of a specified user. This API uses an
-   * asynchronous callback to return the result.
+   * 通知端云服务应用指定用户的云数据变更信息。使用callback异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { int } userId - User ID.
-   * @param { ExtraData } extraData - Represents the cloud data change information.
-   * @param { AsyncCallback<void> } callback - Callback used to return the application data change in the cloud.
+   * @param { int } userId - 用户Id。
+   * @param { ExtraData } extraData - 云端数据变更信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。异步通知端云服务应用的云数据变更之后。
    * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
    *     system API.
@@ -306,7 +293,7 @@ declare namespace cloudSyncManager {
   function notifyDataChange(userId: int, extraData: ExtraData, callback: AsyncCallback<void>): void;
 
   /**
-   * Represents the cloud data change information.
+   * 云端数据变更信息。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -315,7 +302,7 @@ declare namespace cloudSyncManager {
    */
   interface ExtraData {
     /**
-     * Change event ID.
+     * 变更事件id。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -324,7 +311,7 @@ declare namespace cloudSyncManager {
      */
     eventId: string;
     /**
-     * Represents the cloud data change information.
+     * 云端数据变更信息。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -335,7 +322,7 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Enumerates the reasons why the full download stops. The default value is **NO_STOP**.
+   * 全量下载停止原因的枚举，默认值为NO_STOP。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
@@ -343,7 +330,7 @@ declare namespace cloudSyncManager {
    */
   enum DownloadStopReason {
     /**
-     * Downloading.
+     * 下载中未停止。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -351,7 +338,7 @@ declare namespace cloudSyncManager {
      */
     NO_STOP = 0,
     /**
-     * Downloading. Mobile network and Wi-Fi are unavailable.
+     * 下载过程中，移动数据网络和WIFI均不可用。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -359,7 +346,7 @@ declare namespace cloudSyncManager {
      */
     NETWORK_UNAVAILABLE = 1,
     /**
-     * Downloading. The device storage is full.
+     * 下载过程中，当前设备空间不足。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -367,7 +354,7 @@ declare namespace cloudSyncManager {
      */
     LOCAL_STORAGE_FULL = 2,
     /**
-     * Downloading. The device temperature exceeds the upper limit.
+     * 下载过程中，设备温度过高。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -375,7 +362,7 @@ declare namespace cloudSyncManager {
      */
     TEMPERATURE_LIMIT = 3,
     /**
-     * Downloading. The user stops the download.
+     * 下载过程中，客户端主动停止下载。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -383,7 +370,7 @@ declare namespace cloudSyncManager {
      */
     USER_STOPPED = 4,
     /**
-     * Downloading. The application is uninstalled.
+     * 下载过程中，云文件所属应用被卸载。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -391,7 +378,7 @@ declare namespace cloudSyncManager {
      */
     APP_UNLOAD = 5,
     /**
-     * Downloading. The download stops due to other reasons, for example, the cloud server does not respond.
+     * 下载过程中，因其他原因停止下载，如：云服务器未响应等。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -401,7 +388,7 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Enumerates the full download states.
+   * 全量下载任务状态的枚举。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
@@ -409,7 +396,7 @@ declare namespace cloudSyncManager {
    */
   enum DownloadState {
     /**
-     * Downloading.
+     * 下载中未停止。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -417,7 +404,7 @@ declare namespace cloudSyncManager {
      */
     RUNNING = 0,
     /**
-     * Downloaded.
+     * 下载完成。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -425,7 +412,7 @@ declare namespace cloudSyncManager {
      */
     COMPLETED = 1,
     /**
-     * Downloading stopped.
+     * 下载停止。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -433,7 +420,7 @@ declare namespace cloudSyncManager {
      */
     STOPPED = 2,
     /**
-     * Indicates that the download task is missing.
+     * 下载任务不存在。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -444,7 +431,7 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Describes the state type of transfer task.
+   * 搬迁任务状态的枚举。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -453,7 +440,7 @@ declare namespace cloudSyncManager {
    */
   enum TransferState {
     /**
-     * Indicates that the transfer task is running.
+     * 搬迁中。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -462,7 +449,7 @@ declare namespace cloudSyncManager {
      */
     RUNNING = 0,
     /**
-     * Indicates that the transfer task has been finished.
+     * 搬迁完成。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -471,7 +458,7 @@ declare namespace cloudSyncManager {
      */
     COMPLETED = 1,
     /**
-     * Indicates that the transfer task has been stopped.
+     * 搬迁停止。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -482,7 +469,7 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Describes the state type of transfer stop reason.
+   * 搬迁停止原因的枚举。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -491,7 +478,7 @@ declare namespace cloudSyncManager {
    */
   enum TransferStopReason {
     /**
-     * Indicates that the transfer task stopped by switch off.
+     * 搬迁过程中，云服务开关关闭。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -500,7 +487,7 @@ declare namespace cloudSyncManager {
      */
     SWITCH_OFF = 0,
     /**
-     * Indicates that the transfer task stopped by account logout.
+     * 搬迁过程中，账户登出。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -509,7 +496,7 @@ declare namespace cloudSyncManager {
      */
     ACCOUNT_LOGOUT = 1,
     /**
-     * Indicates that the transfer task stopped by other reason.
+     * 搬迁过程中，其他原因导致停止。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -520,7 +507,7 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Represents the number and size of local and cloud files of an application.
+   * 应用本地和云端文件个数以及大小信息。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
@@ -528,7 +515,7 @@ declare namespace cloudSyncManager {
    */
   interface CloudFileInfo {
     /**
-     * Total number of cloud files that are not downloaded locally. The value range is [0, INT32_MAX].
+     * 本地未下载的云端文件总个数，取值范围[0, INT32_MAX]，单位：个。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -536,7 +523,7 @@ declare namespace cloudSyncManager {
      */
     cloudFileCount: int;
     /**
-     * Total size of cloud files that are not downloaded locally, in bytes. The value range is [0, INT64_MAX].
+     * 本地未下载的云端文件总大小，取值范围[0, INT64_MAX]，单位：Byte。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -544,7 +531,7 @@ declare namespace cloudSyncManager {
      */
     cloudFileTotalSize: long;
     /**
-     * Total number of local files that are not uploaded to the cloud. The value range is [0, INT32_MAX].
+     * 本地未上传云端的文件总个数，取值范围[0, INT32_MAX]，单位：个。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -552,7 +539,7 @@ declare namespace cloudSyncManager {
      */
     localFileCount: int;
     /**
-     * Total size of local files that are not uploaded to the cloud, in bytes. The value range is [0, INT64_MAX].
+     * 本地未上传云端的文件总大小，取值范围[0, INT64_MAX]，单位：Byte。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -560,7 +547,7 @@ declare namespace cloudSyncManager {
      */
     localFileTotalSize: long;
     /**
-     * Total number of local files that have been uploaded to the cloud. The value range is [0, INT32_MAX].
+     * 本地已上传云端的文件总个数，取值范围[0, INT32_MAX]，单位：个。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -568,7 +555,7 @@ declare namespace cloudSyncManager {
      */
     bothFileCount: int;
     /**
-     * Total size of local files that have been uploaded to the cloud, in bytes. The value range is [0, INT64_MAX].
+     * 本地已上传云端的文件总大小，取值范围[0, INT64_MAX]，单位：Byte。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -578,7 +565,7 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Defines the TransferProgress data structure.
+   * 搬迁任务的进度信息。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -587,7 +574,7 @@ declare namespace cloudSyncManager {
    */
   interface TransferProgress {
     /**
-     * Describes the state type of transfer task.
+     * 搬迁任务的状态。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -596,9 +583,7 @@ declare namespace cloudSyncManager {
      */
     state: TransferState;
     /**
-     * successful count in TransferProgress.
-     * The value should be an integer.
-     * <br>Unit:Pcs.
+     * 已搬迁的文件个数，取值范围[0, INT32_MAX]，单位：个。进度异常时返回-1。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -607,9 +592,7 @@ declare namespace cloudSyncManager {
      */
     successfulCount: int;
     /**
-     * failed count in TransferProgress.
-     * The value should be an integer.
-     * <br>Unit:Pcs.
+     * 搬迁失败的文件个数，取值范围[0, INT32_MAX]，单位：个。进度异常时返回-1。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -618,9 +601,7 @@ declare namespace cloudSyncManager {
      */
     failedCount: int;
     /**
-     * total count in TransferProgress.
-     * The value should be an integer.
-     * <br>Unit:Pcs.
+     * 待搬迁文件总个数，取值范围[0, INT32_MAX]，单位：个。进度异常时返回-1。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -629,8 +610,7 @@ declare namespace cloudSyncManager {
      */
     totalCount: int;
     /**
-     * transferred size in TransferProgress.
-     * <br>Unit:Byte.
+     * 已搬迁的数据大小，取值范围[0, INT64_MAX)，单位：Byte。进度异常时返回INT64_MAX。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -639,8 +619,7 @@ declare namespace cloudSyncManager {
      */
     transferredSize: long;
     /**
-     * Total size in TransferProgress.
-     * <br>Unit:Byte.
+     * 需要搬迁的文件总大小，取值范围[0, INT64_MAX)，单位：Byte。进度异常时返回INT64_MAX。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -649,7 +628,7 @@ declare namespace cloudSyncManager {
      */
     totalSize: long;
     /**
-     * Describes the state type of transfer stop reason.
+     * 搬迁停止的原因。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -660,7 +639,7 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Describes the full download progress.
+   * 全量下载任务的进度信息。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @since 20 dynamic
@@ -668,7 +647,7 @@ declare namespace cloudSyncManager {
    */
   class DownloadProgress {
     /**
-     * Download state.
+     * 下载任务的状态。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -676,7 +655,7 @@ declare namespace cloudSyncManager {
      */
     state: DownloadState;
     /**
-     * Number of downloaded files. The value range is [0, INT32_MAX]. If the progress is abnormal, **-1** is returned.
+     * 已下载的文件个数，取值范围[0, INT32_MAX]，单位：个。进度异常时返回-1。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -684,8 +663,7 @@ declare namespace cloudSyncManager {
      */
     successfulCount: int;
     /**
-     * Number of files that fail to be downloaded. The value range is [0, INT32_MAX]. If the progress is abnormal,
-     * **-1** is returned.
+     * 下载失败的文件个数，取值范围[0, INT32_MAX]，单位：个。进度异常时返回-1。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -693,8 +671,7 @@ declare namespace cloudSyncManager {
      */
     failedCount: int;
     /**
-     * Total number of files to be downloaded. The value range is [0, INT32_MAX]. If the progress is abnormal, **-1** is
-     * returned.
+     * 待下载文件总个数，取值范围[0, INT32_MAX]，单位：个。进度异常时返回-1。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -702,8 +679,7 @@ declare namespace cloudSyncManager {
      */
     totalCount: int;
     /**
-     * Size of the downloaded data, in bytes. The value range is
-     * [0, INT64_MAX). If the progress is abnormal, **INT64_MAX** is returned.
+     * 已下载数据大小，取值范围[0, INT64_MAX)，单位：Byte。进度异常时返回INT64_MAX。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -711,8 +687,7 @@ declare namespace cloudSyncManager {
      */
     downloadedSize: long;
     /**
-     * Total size of the files to be downloaded, in bytes. The value range is
-     * [0, INT64_MAX). If the progress is abnormal, **INT64_MAX** is returned.
+     * 需要下载文件的总大小，取值范围[0, INT64_MAX)，单位：Byte。进度异常时返回INT64_MAX。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -720,7 +695,7 @@ declare namespace cloudSyncManager {
      */
     totalSize: long;
     /**
-     * Reason why the download stops.
+     * 下载停止的原因。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @since 20 dynamic
@@ -730,9 +705,9 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Full download: provides the capability of downloading cloud data for applications.
-   *
-   * It supports the full download of cloud application files.
+   * 全量下载：为云盘管理应用提供集中下载云端数据的能力。
+   * 
+   * 云盘全量下载对象，用于支撑云盘管理应用完成云盘文件的全量下载流程。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -741,10 +716,10 @@ declare namespace cloudSyncManager {
    */
   class DowngradeDownload {
     /**
-     * A constructor used to create an instance of the **DowngradeDownload** class with a specified bundle name.
+     * 全量下载对象的构造函数，用于获取指定包名的DowngradeDownload类的实例。
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @param { string } bundleName - Bundle name.
+     * @param { string } bundleName - 应用包名。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
      *     uses system API.
@@ -760,11 +735,10 @@ declare namespace cloudSyncManager {
      */
     constructor(bundleName: string);
     /**
-     * Obtains the size and count of files for applications requiring full download, including those stored only locally
-     * , only in the cloud, or both locally and in the cloud. This API uses a promise to return the result.
+     * 获取需要全量下载的应用仅位于本地、仅位于云端或者本地和云端均有的文件大小和个数信息。使用Promise异步回调。
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @returns { Promise<CloudFileInfo> } Promise used to return the local and cloud file information.
+     * @returns { Promise<CloudFileInfo> } Promise对象，返回携带本地与云端文件信息的对象。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
      *     uses system API.
@@ -781,15 +755,13 @@ declare namespace cloudSyncManager {
      */
     getCloudFileInfo(): Promise<CloudFileInfo>;
     /**
-     * Starts the full download for the specified application's cloud files. This API uses a promise to return the
-     * result. This API uses an asynchronous callback to return the result.
-     *
-     * Repeated triggering of a full download task will throw an error (22400006).
+     * 启动指定应用的云文件的全量下载，使用Promise异步回调。使用callback异步回调。
+     * 
+     * 同一应用存在正在执行的全量下载任务的情况下，重复触发会返回错误信息（22400006）。
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @param { Callback<DownloadProgress> } callback - Callback used to return the download progress. The parameter is
-     *     **DownloadProgress**, and the return value is **void**.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Callback<DownloadProgress> } callback - 回调函数。全量下载进度，参数为DownloadProgress，返回值为void。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
      *     uses system API.
@@ -809,11 +781,10 @@ declare namespace cloudSyncManager {
      */
     startDownload(callback: Callback<DownloadProgress>): Promise<void>;
     /**
-     * Stops the full download task triggered by [startDownload]{@link cloudSyncManager.DowngradeDownload.startDownload}
-     * . This API uses a promise to return the result.
+     * 停止由[startDownload]{@link cloudSyncManager.DowngradeDownload.startDownload}触发的全量下载任务，使用Promise异步回调。
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @returns { Promise<void> } Promise that returns no value.
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
      *     uses system API.
@@ -829,11 +800,13 @@ declare namespace cloudSyncManager {
      */
     stopDownload(): Promise<void>;
     /**
-     * Start to migrate the downloaded full data to the specified public directory of file management.
+     * 将云盘目录下已完成本地下载的文件搬迁至指定目录，过程中通过回调上报搬迁进度。使用callback异步回调。
+     * 
+     * 同一应用存在正在执行的搬迁任务的情况下，重复触发会返回错误信息（22400006）。
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-     * @param { string } targetUri - Transfer target Uri.
-     * @param { Callback<TransferProgress> } callback - Callback function.
+     * @param { string } targetUri - 用于存放搬迁后的文件路径URI，必须以“/file://docs/storage/Users/currentUser/”为前缀。
+     * @param { Callback<TransferProgress> } callback - 回调函数，返回搬迁进度。
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 13900001 - Operation not permitted. Possible causes:
@@ -855,11 +828,13 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Supports querying the execution status of full data download tasks for integrated cloud drive applications.
+   * 查询接入云盘的应用的全量下载任务状态。使用Promise异步回调。
+   * 
+   * 由于返回的DownloadProgress对象中不包含包名信息，因此在批量查询多个应用时，调用方需自行记录应用包名。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { Array<string> } bundleNames - array of bundleName.
-   * @returns { Promise<Array<DownloadProgress>> } - Return Promise.
+   * @param { Array<string> } bundleNames - 需要查询的应用包名数组，每个元素为应用的包名字符串，包名数组大小上限为20个。
+   * @returns { Promise<Array<DownloadProgress>> } - Promise对象，返回查询的全量下载任务的状态信息数组。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13900010 - Try again.
@@ -874,8 +849,7 @@ declare namespace cloudSyncManager {
   function getDowngradeDownloadTaskState(bundleNames: Array<string>): Promise<Array<DownloadProgress>>;
 
   /**
-   * Specifies a result object that contains the application bundle name and the status information about whether there
-   * are files that have not been uploaded to the cloud in the cloud storage space.
+   * 检测结果对象，包含应用包名及其在云盘存储空间内是否存在未上云文件的状态信息。
    *
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi
@@ -883,7 +857,7 @@ declare namespace cloudSyncManager {
    */
   interface LocalFilePresentStatus {
     /**
-     * Bundle name.
+     * 应用包名。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -891,8 +865,7 @@ declare namespace cloudSyncManager {
      */
     bundleName: string;
     /**
-     * Whether there are local files that have not been synchronized to the cloud in the cloud storage space of the
-     * application. The value **true** indicates that such file exists, and the value **false** indicates the opposite.
+     * 该应用在云盘存储空间内是否存在尚未同步至云端的本地文件。true 表示存在， false 表示不存在。
      *
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
      * @systemapi
@@ -902,14 +875,11 @@ declare namespace cloudSyncManager {
   }
 
   /**
-   * Obtains the existence status of local files for multiple applications and checks whether there are files that
-   * have not been uploaded to the cloud in the cloud storage space. This API uses a promise to return the result.
+   * 对接入云盘的应用，检测其在云盘存储空间内是否存在未上云文件，支持同时查询多个应用。使用Promise异步回调。
    *
    * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
-   * @param { Array<string> } bundleNames - Array of application bundle names to be checked. Each element is the
-   *     bundle name of an application.
-   * @returns { Promise<Array<LocalFilePresentStatus>> } Promise used to return an array of objects. Each object in
-   *     the array contains the bundle name of the application to be checked and the local file existence status.
+   * @param { Array<string> } bundleNames - 需要检测的应用包名数组。每个元素为应用的包名字符串。
+   * @returns { Promise<Array<LocalFilePresentStatus>> } Promise对象，返回对象数组，数组内每个对象包含指定检测的应用包名及其本地文件存在状态。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13600001 - IPC error. Possible causes:
