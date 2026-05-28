@@ -5954,25 +5954,50 @@ declare namespace audio {
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-     DEFAULT_BEHAVIOR = 0x00000000,
-
-      /**
-      * Non-privacy VoIP, allowed to be recorded.
-      *
-      * @syscap SystemCapability.Multimedia.Audio.Core
-      * @stagemodelonly
-      * @since 26.0.0 dynamic&static
-      */
-      VOIP_PRIVACY_TYPE_PUBLIC = 0x00000001,
+    DEFAULT_BEHAVIOR = 0x00000000,
 
     /**
-     * When the audio stream is interrupted by the system, it performs a forced mute instead.
+     * Non-privacy VoIP, allowed to be recorded.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    VOIP_PRIVACY_TYPE_PUBLIC = 0x00000001,
+
+    /**
+     * When the system needs to stop or pause the audio stream, it performs a forced mute instead.
+     * In the audio session scenario, the application will receive a notification
+     * {@link #AUDIO_SESSION_STATE_CHANGE_HINT_MUTE} when muted
+     * and a notification {@link #AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE} when resumed.
+     * In the AudioRenderer and AudioCapturer scenarios, the application will receive a notification
+     * {@link #INTERRUPT_HINT_MUTE} when muted
+     * and a notification {@link #INTERRUPT_HINT_UNMUTE} when resumed.
+     * This flag cannot coexist with {@link #PAUSE_WHEN_INTERRUPTED}; if both flags are set,
+     * only {@link #PAUSE_WHEN_INTERRUPTED} will take effect.
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 24 dynamic&static
      */
-    MUTE_WHEN_INTERRUPTED = 0x00000002
+    MUTE_WHEN_INTERRUPTED = 0x00000002,
+
+    /**
+     * When the system needs to stop the audio stream, it performs a pause instead.
+     * In the audio session scenario, the application will receive a notification
+     * {@link #AUDIO_SESSION_STATE_CHANGE_HINT_PAUSE} when paused
+     * and a notification {@link #AUDIO_SESSION_STATE_CHANGE_HINT_RESUME} when resumed.
+     * In the AudioRenderer and AudioCapturer scenarios, the application will receive a notification
+     * {@link #INTERRUPT_HINT_PAUSE} when paused
+     * and a notification {@link #INTERRUPT_HINT_RESUME} when resumed.
+     * This flag cannot coexist with {@link #MUTE_WHEN_INTERRUPTED}; if both flags are set,
+     * only this flag will take effect.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PAUSE_WHEN_INTERRUPTED = 0x00000004
   }
 
   /**
