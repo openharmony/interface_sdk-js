@@ -294,6 +294,19 @@ declare interface DepthComponentOptions {
    * @since 26.0.0 dynamic
    */
   depthSpace?: DepthSpaceType;
+
+  /**
+   * Scale factor for 3D rendering window, applied to both width and height.
+   * Value range: [0.0, 1.0]. Values outside this range are invalid and the default value is used.
+   *
+   * @default 1.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  render3DScale?: double;
 }
 
 /**
