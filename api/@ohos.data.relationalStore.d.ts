@@ -1818,7 +1818,7 @@ declare namespace relationalStore {
      * @since 24 dynamic&static
      */
     flag?: DistributedOrigin;
-        
+
     /**
      * Specifies the data origin sources device ID.
      *
@@ -1928,7 +1928,7 @@ declare namespace relationalStore {
      */
     DELETED_FLAG_FIELD = '#_deleted_flag'
   }
-  
+
   /**
    * Describes the data origin sources.
    *

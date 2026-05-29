@@ -122,17 +122,17 @@ declare namespace sendableRelationalStore {
    * @unionmember { Assets } The value is an array of assets.
    *     <br>If the value type is **Assets**, the type in the SQL statement for creating a table must be **ASSETS**.
    * @unionmember { collections.Float32Array } The value is an array of 32-bit floating-point numbers.
-   *     <br>If the field type is **collections.Float32Array**, the type in the SQL statement for creating a table must be
-   *     **floatvector(128)**.
+   *     <br>If the field type is **collections.Float32Array**, the type in the SQL statement for creating a table must
+   *     be **floatvector(128)**.
    * @unionmember { bigint } The value is an integer of any length.
-   *     <br>If the value type is bigint, the type in the SQL statement for creating a table must be **UNLIMITED INT**. For
-   *     details, see [Persisting RDB Store Data](docroot://database/data-persistence-by-rdb-store.md).
+   *     <br>If the value type is bigint, the type in the SQL statement for creating a table must be **UNLIMITED INT**.
+   *     For details, see [Persisting RDB Store Data](docroot://database/data-persistence-by-rdb-store.md).
    *     <br>**NOTE**
-   *     <br>The bigint type does not support value comparison and cannot be used with the following predicates: **between**,
-   *     **notBetween**, **greaterThan**, **lessThan**, **greaterThanOrEqualTo**, **lessThanOrEqualTo**, **orderByAsc**,
-   *     and **orderByDesc**
-   *     <br>To write a value of bigint type, use **BigInt()** or add **n** to the end of the value, for example,'let data =
-   *     BigInt(1234)' or 'let data = 1234n'.
+   *     <br>The bigint type does not support value comparison and cannot be used with the following predicates:
+   *     **between**, **notBetween**, **greaterThan**, **lessThan**, **greaterThanOrEqualTo**, **lessThanOrEqualTo**,
+   *     **orderByAsc**, and **orderByDesc**
+   *     <br>To write a value of bigint type, use **BigInt()** or add **n** to the end of the value, for example,
+   *     'let data = BigInt(1234)' or 'let data = 1234n'.
    *     <br>If data of the number type is written to a bigint field, the type of the return value obtained (queried) is
    *     number but not bigint.
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
