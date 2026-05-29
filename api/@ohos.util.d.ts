@@ -2660,6 +2660,7 @@ declare namespace util {
     /**
      * If abort is **true**, the application will crash, if abort is **false**, the application will not crash.
  	   * Default **true**.
+     * 
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @crossplatform
