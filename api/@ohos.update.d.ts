@@ -1608,11 +1608,12 @@ declare namespace update {
   export interface FactoryResetStrategy {
     /**
      * Reset scope.Available values:
-     * 
-     * - DATA: Indicates "quick erase", erasing only the user data partition (app data, user settings, account info, etc.), leaving the system partition intact.
-     *   Factory reset completes quickly but user data may not be thoroughly overwritten.
      *
-     * - DATA_AND_OS: Indicates "deep erase", erasing both the user data partition and the system partition. Factory reset takes longer and requires system reinstallation.
+     * - DATA: Indicates "quick erase", erasing only the user data partition (app data, user settings, account info, etc.).
+     *   Factory reset takes less time.
+     *
+     * - DATA_AND_OS: Indicates "deep erase", erasing both the user data partition and the system partition.
+     *   Factory reset takes longer time.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1622,15 +1623,9 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * Reset scope description, providing a detailed specification of the scope field.
-     *
-     * Value examples (for reference):
-     * - "QUICK_ERASE": Used when the scope value is DATA.
-     * - "DEEP_ERASE": Used when the scope value is DATA_AND_OS.
-     *
-     * Note:
-     * 1. A meaningful description is recommended. If left empty, logs will lack effective information when anomalies occur, increasing troubleshooting difficulty.
-     * 2. This field is used solely for descriptive recording and does not affect business logic branching (logic is determined by the scope field). The field description must maintain a one-to-one correspondence with the scope type.
+     * Reset scope description, providing supplementary details for the scope field.
+     * A meaningful value must be provided to match the corresponding erase scenario. If left empty, logs will lack effective information 
+     * when anomalies occur, increasing troubleshooting difficulty.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

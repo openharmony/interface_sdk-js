@@ -1590,10 +1590,9 @@ declare namespace update {
     /**
      * 重置范围。取值如下：
      * 
-     * - DATA：表示"快速擦除"，仅清除用户数据分区（应用数据、用户设置、账号信息等），保留系统分区。
-     *   恢复出厂设置耗时短但数据可能未被彻底覆写。
+     * - DATA：表示"快速擦除"，仅清除用户数据分区（应用数据、用户设置、账号信息等），恢复出厂设置耗时较短。
      *
-     * - DATA_AND_OS：表示"深度擦除"，同时清除用户数据分区与系统分区，恢复出厂设置耗时较长，需重装系统。
+     * - DATA_AND_OS：表示"深度擦除"，同时清除用户数据分区与系统分区，恢复出厂设置耗时较长。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1603,15 +1602,8 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * 重置范围描述，此字段是对scope的细化描述。
-     *
-     * 取值示例（供参考）：
-     * - "QUICK_ERASE"：scope值为DATA时填写。
-     * - "DEEP_ERASE"： scope值为DATA_AND_OS时填写。
-     *
-     * 注意：
-     * 1. 建议始终填写有效内容。若为空，当发生异常时，日志将缺乏有效信息，增加排查难度。
-     * 2. 该字段仅用于记录描述，不参与业务逻辑的分支判断（逻辑由scope决定），字段描述必须保持与scope类型一一对应。
+     * 重置范围描述，此字段是对scope范围的补充描述。
+     * 要求填写有效内容，匹配上述擦除场景。若为空，当发生异常时，日志将缺乏有效信息，增加排查难度。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
