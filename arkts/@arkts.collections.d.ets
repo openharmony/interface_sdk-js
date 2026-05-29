@@ -1986,7 +1986,8 @@ declare namespace collections {
      * @static [since 18 - 21]
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Int8Array } New ArkTS Int8Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
+     * @returns { Int8Array } New ArkTS Int8Array instance. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
@@ -2593,8 +2594,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray instance. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Uint8ClampedArray } New ArkTS Uint8ClampedArray instance. 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -3214,8 +3214,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint8Array } New ArkTS Uint8Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Uint8Array } New ArkTS Uint8Array instance. 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -3839,8 +3838,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Int16Array } New ArkTS Int16Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Int16Array } New ArkTS Int16Array instance. 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -4459,8 +4457,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint16Array } New ArkTS Uint16Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Uint16Array } New ArkTS Uint16Array instance. 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -5080,8 +5077,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Int32Array } New ArkTS Int32Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Int32Array } New ArkTS Int32Array instance. 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -5700,8 +5696,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Uint32Array } New ArkTS Uint32Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Uint32Array } New ArkTS Uint32Array instance. 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice
@@ -6307,8 +6302,7 @@ declare namespace collections {
      *
      * @param { number[] } items - Array of elements used to create the array. The number of elements can be zero, one,
      *     or more.
-     * @returns { Float32Array } New ArkTS Float32Array instance. Possible causes: 1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+     * @returns { Float32Array } New ArkTS Float32Array instance. 
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice

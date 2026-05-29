@@ -28,7 +28,7 @@
  */
 export interface WorkerOptions {
   /**
-   * Mode in which the Worker instance executes the script. The module type is not supported yet. The default value is
+   * Mode in which the Worker instance executes the script. The module type is not supported yet. The default value is 
    * classic.
    *
    * @syscap SystemCapability.Utils.Lang
@@ -53,7 +53,7 @@ export interface WorkerOptions {
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
-   * @atomicservice [since 11]
+   * @atomicservice [since 12]
    * @since 7 dynamiconly
    */
   shared?: boolean;
@@ -227,7 +227,7 @@ export interface Event {
 }
 
 /**
- * Provides detailed information about the exception that occurs during worker execution. The ErrorEvent class inherits
+ * Provides detailed information about the exception that occurs during worker execution. The ErrorEvent class inherits 
  * from Event.
  *
  * @syscap SystemCapability.Utils.Lang
@@ -328,9 +328,9 @@ export interface MessageEvents extends Event {
 }
 
 /**
- * Defines the object for which the ownership is to be transferred during data transfer. The object must be an
+ * Defines the object for which the ownership is to be transferred during data transfer. The object must be an 
  * ArrayBuffer instance.
- * After the ownership is transferred, the object becomes unavailable in the sender and can be used only in the
+ * After the ownership is transferred, the object becomes unavailable in the sender and can be used only in the 
  * receiver.
  *
  * @syscap SystemCapability.Utils.Lang
@@ -386,10 +386,6 @@ export interface WorkerEventListener {
    *
    * @param { Event } event - Event class for the callback to invoke.
    * @returns { void | Promise<void> }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
    * @syscap SystemCapability.Utils.Lang
@@ -403,8 +399,8 @@ export interface WorkerEventListener {
 /**
  * Type of message, only "message" and "messageerror".
  *
- * @unionmember { 'message' }
- * @unionmember { 'messageerror' }
+ * @unionmember { 'message' } 
+ * @unionmember { 'messageerror' } 
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
  * @atomicservice [since 12]
@@ -424,7 +420,7 @@ export interface EventTarget {
   /**
    * Adds an event listener to the worker.
    *
-   * @param { string } type - Type of the event to listen for.
+   * @param { string } type - type Type of the event to listen for.
    * @param { EventListener } listener - listener Callback to invoke when an event of the specified type occurs.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -436,7 +432,7 @@ export interface EventTarget {
   /**
    * Dispatches the event defined for the worker.
    *
-   * @param { Event } event - Event to dispatch.
+   * @param { Event } event - event Event to dispatch.
    * @returns { boolean }
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -448,8 +444,8 @@ export interface EventTarget {
   /**
    * Removes an event defined for the worker.
    *
-   * @param { string } type - Type of the event for which the event listener is removed.
-   * @param { EventListener } callback - Callback of the event listener to remove.
+   * @param { string } type - type Type of the event for which the event listener is removed.
+   * @param { EventListener } callback - callback Callback of the event listener to remove.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -480,12 +476,8 @@ export interface WorkerEventTarget {
   /**
    * Adds an event listener for the Worker thread. This API provides the same functionality as on9+.
    *
-   * @param { string } type - Type of the event to listen for.
+   * @param { string } type - type Type of the event to listen for.
    * @param { WorkerEventListener } listener - listener Callback to invoke when an event of the specified type occurs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
    * @syscap SystemCapability.Utils.Lang
@@ -497,12 +489,8 @@ export interface WorkerEventTarget {
   /**
    * Dispatches the event defined for the Worker thread.
    *
-   * @param { Event } event - Event to dispatch.
+   * @param { Event } event - event Event to dispatch.
    * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -513,12 +501,8 @@ export interface WorkerEventTarget {
   /**
    * Removes an event listener for the Worker thread. This API provides the same functionality as off9+.
    *
-   * @param { string } type - Type of the event for which the event listener is to be removed.
-   * @param { WorkerEventListener } [callback] - Callback to invoke when the listener is removed.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   * @param { string } type - type Type of the event for which the event listener is to be removed.
+   * @param { WorkerEventListener } [callback] - callback Callback to invoke when the listener is removed.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -680,7 +664,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
    * Send a message to be host thread from the worker
    *
    * @param { Object } messageObject - messageObject Data to be sent to the worker
-   * @param { PostMessageOptions } [options] - Option can be set for postmessage.
+   * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -703,7 +687,7 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
 
 /**
  * Implements communication between the Worker thread and the host thread. The postMessage API is used to send messages
- * to the host thread, and the close API is used to terminate the Worker thread. The ThreadWorkerGlobalScope class
+ * to the host thread, and the close API is used to terminate the Worker thread. The ThreadWorkerGlobalScope class 
  * inherits from GlobalScope9+.
  *
  * @syscap SystemCapability.Utils.Lang
@@ -717,7 +701,6 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * The event handler is executed in the Worker thread. In the callback function, this indicates the caller's
    * ThreadWorkerGlobalScope, and the ev type is MessageEvents, indicating the received message data.
    *
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
    * @syscap SystemCapability.Utils.Lang
@@ -732,7 +715,6 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * in the Worker thread. In the callback function, this indicates the caller's ThreadWorkerGlobalScope,
    * and the ev type is MessageEvents, indicating the received message data.
    *
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
    * @syscap SystemCapability.Utils.Lang
@@ -761,10 +743,6 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { ArrayBuffer[] } transfer - ArrayBuffer instance holding an array of objects for which the ownership
    *     is transferred to the host thread. After the transfer, the objects are available only in the host thread. The
    *     array cannot be null.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
@@ -785,10 +763,6 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    *     The objects are available only in the host thread. If this parameter is not specified, the default value
    *     undefined is used,
    *     and information is transferred to the host thread by copying data.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
@@ -809,10 +783,6 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * @param { ArrayBuffer[] } [transfer] - ArrayBuffer instance holding an array of objects for which the ownership is
    *     transferred to the host thread. After the transfer, the objects are available only in the host thread.
    *     The array cannot be null. The default value is an empty array.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @syscap SystemCapability.Utils.Lang
@@ -838,10 +808,6 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    *     <br>Unit:ms.
    * @param { Object[] } args - the method argument called on registered globalCallObject.
    * @returns { Object } Return the result of method if it has a return value, otherwise return void.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200004 - Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200019 - The globalCallObject is not registered.
@@ -900,7 +866,7 @@ type ErrorCallback = (err: ErrorEvent) => void;
  */
 declare namespace worker {
   /**
-   * Before using the following APIs, you must create a ThreadWorker instance. The ThreadWorker class inherits from
+   * Before using the following APIs, you must create a ThreadWorker instance. The ThreadWorker class inherits from 
    * WorkerEventTarget.
    *
    * @syscap SystemCapability.Utils.Lang
@@ -915,10 +881,6 @@ declare namespace worker {
      * @param { string } scriptURL - URL of the Worker thread file. For details about the rules, see Precautions for
      *     File URLs.
      * @param { WorkerOptions } [options] - Options that can be set for the Worker instance.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200003 - Worker initialization failed.
      * @throws { BusinessError } 10200007 - The worker file path is invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -931,7 +893,6 @@ declare namespace worker {
      * Called when the Worker thread exits. The event handler is executed in the host thread. In the callback function,
      * the code value is of the number type, where the value 1 indicates abnormal exit and 0 indicates normal exit.The default value is undefined.
      *
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
@@ -944,7 +905,6 @@ declare namespace worker {
      * Called when an exception occurs during worker execution. The event handler is executed in the host thread.
      * In the callback function, the err type is ErrorEvent, indicating the received abnormal data.
      *
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
@@ -957,11 +917,11 @@ declare namespace worker {
     /**
      * Called when an exception occurs within the lifecycle of the Worker thread.
      * The event handler is executed in the host thread.
-     *
+     * 
      * onerror can capture only exceptions generated by synchronous methods within the onmessage callback.
      * It cannot capture exceptions from multithreaded callbacks or modularization-related exceptions.
      * Once an exception is captured, the Worker thread will proceed to the destruction process and cannot be used.
-     *
+     * 
      * onAllErrors can capture global exceptions generated during the onmessage callback, timer callback,
      * and file execution of the Worker thread. After an exception is captured by onAllErrors,
      * the Worker thread remains alive and can continue to be used.
@@ -978,10 +938,9 @@ declare namespace worker {
 
     /**
      * Called when the host thread receives a message sent by the Worker thread through workerPort.postMessage.
-     * The event handler is executed in the host thread. In the callback function, the event type is MessageEvents,
+     * The event handler is executed in the host thread. In the callback function, the event type is MessageEvents, 
      * indicating the received message data.
      *
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
@@ -991,11 +950,10 @@ declare namespace worker {
      */
     onmessage?: (event: MessageEvents) => void;
     /**
-     * Called when the Worker thread receives a message that cannot be serialized. The event handler is executed in the
+     * Called when the Worker thread receives a message that cannot be serialized. The event handler is executed in the 
      * host thread.
      * In the callback function, the event type is MessageEvents, indicating the received message data.
      *
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
@@ -1012,10 +970,6 @@ declare namespace worker {
      * @param { ArrayBuffer[] } transfer - ArrayBuffer instance holding an array of objects for which the ownership
      *     is transferred to the Worker thread. After the transfer, the objects are available only in the Worker thread.
      *     The array cannot be null.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
@@ -1035,10 +989,6 @@ declare namespace worker {
      *     The objects are available only in the Worker thread. If this parameter is not specified, the default value
      *     undefined is used,
      *     and information is transferred to the Worker thread by copying data.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
@@ -1049,7 +999,7 @@ declare namespace worker {
     postMessage(message: Object, options?: PostMessageOptions): void;
 
     /**
-     * Sends a message from the host thread to the Worker thread. In the message, a sendable object is passed by
+     * Sends a message from the host thread to the Worker thread. In the message, a sendable object is passed by 
      * reference,
      * and a non-sendable object is passed by serialization.
      *
@@ -1060,10 +1010,6 @@ declare namespace worker {
      * @param { ArrayBuffer[] } [transfer] - ArrayBuffer instance holding an array of objects for which the ownership
      *     is transferred to the Worker thread. After the transfer, the objects are available only in the Worker thread.
      *     The array cannot be null. The default value is an empty array.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
@@ -1078,10 +1024,6 @@ declare namespace worker {
      *
      * @param { string } type - Type of the event to listen for.
      * @param { WorkerEventListener } listener - Callback to invoke when an event of the specified type occurs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
      * @syscap SystemCapability.Utils.Lang
@@ -1093,12 +1035,8 @@ declare namespace worker {
     /**
      * Adds an event listener for the Worker thread and removes the event listener after it is invoked once.
      *
-     * @param { string } type - Type of the event to listen for
+     * @param { string } type - type Type of the event to listen for
      * @param { WorkerEventListener } listener - listener Callback to invoke when an event of the specified type occurs
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
      * @syscap SystemCapability.Utils.Lang
@@ -1111,12 +1049,8 @@ declare namespace worker {
      * Removes an event listener for the Worker thread. This API provides the same functionality as removeEventListener9
      * +.
      *
-     * @param { string } type - Type of the event for which the event listener is removed.
+     * @param { string } type - type Type of the event for which the event listener is removed.
      * @param { WorkerEventListener } [listener] - listener Callback of the event listener to remove.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
      * @syscap SystemCapability.Utils.Lang
@@ -1138,12 +1072,8 @@ declare namespace worker {
     /**
      * Adds an event listener for the Worker thread. This API provides the same functionality as on9+.
      *
-     * @param { string } type - Type of the event to listen for.
+     * @param { string } type - type Type of the event to listen for.
      * @param { WorkerEventListener } listener Callback to invoke when an event of the specified type occurs.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
      * @syscap SystemCapability.Utils.Lang
@@ -1155,12 +1085,8 @@ declare namespace worker {
     /**
      * Dispatches the event defined for the Worker thread.
      *
-     * @param { Event } event - Event to dispatch.
+     * @param { Event } event - event Event to dispatch.
      * @returns { boolean }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -1171,12 +1097,8 @@ declare namespace worker {
     /**
      * Removes an event listener for the Worker thread. This API provides the same functionality as off9+.
      *
-     * @param { string } type - Type of the event for which the event listener is to be removed.
-     * @param { WorkerEventListener } [callback] - Callback to invoke when the listener is removed.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
+     * @param { string } type - type Type of the event for which the event listener is to be removed.
+     * @param { WorkerEventListener } [callback] - callback Callback to invoke when the listener is removed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -1203,10 +1125,6 @@ declare namespace worker {
      *     during method calling.
      * @param { Object } globalCallObject - Object to register. The ThreadWorker instance holds a strong reference to
      *     the object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1221,10 +1139,6 @@ declare namespace worker {
      *
      * @param { string } [instanceName] - Key used for registration. If this parameter is left blank,
      *     all registered objects registered in the ThreadWorker instance are unregistered.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @throws { BusinessError } 10200004 - Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1246,11 +1160,7 @@ declare namespace worker {
      * Creates a worker instance
      *
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
-     * @param { WorkerOptions } [options] - Options that can be set for the worker
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
+     * @param { WorkerOptions } [options] - options Options that can be set for the worker
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
      * @syscap SystemCapability.Utils.Lang
@@ -1273,7 +1183,7 @@ declare namespace worker {
      * Creates a worker instance
      *
      * @param { string } scriptURL - scriptURL URL of the script to be executed by the worker
-     * @param { WorkerOptions } options - Options that can be set for the worker
+     * @param { WorkerOptions } options - options Options that can be set for the worker
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -1333,7 +1243,7 @@ declare namespace worker {
      * Sends a message to the worker thread.
      * The data is transferred using the structured clone algorithm.
      *
-     * @param { Object } message - Data to be sent to the worker
+     * @param { Object } message - message - message Data to be sent to the worker
      * @param { ArrayBuffer[] } transfer - transfer ArrayBuffer instance that can be transferred.
      *     The transferList array cannot contain null.
      * @syscap SystemCapability.Utils.Lang
@@ -1347,8 +1257,8 @@ declare namespace worker {
      * Sends a message to the worker thread.
      * The data is transferred using the structured clone algorithm.
      *
-     * @param { Object } message - Data to be sent to the worker
-     * @param { PostMessageOptions } [options] - Option can be set for postmessage.
+     * @param { Object } message - message - message Data to be sent to the worker
+     * @param { PostMessageOptions } [options] - options Option can be set for postmessage.
      *     The transferList array cannot contain null.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1373,7 +1283,7 @@ declare namespace worker {
      * Adds an event listener to the worker
      * and removes the event listener automatically after it is invoked once.
      *
-     * @param { string } type - Type of the event to listen for
+     * @param { string } type - type Type of the event to listen for
      * @param { EventListener } listener - listener Callback to invoke when an event of the specified type occurs
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1385,7 +1295,7 @@ declare namespace worker {
     /**
      * Removes an event listener to the worker.
      *
-     * @param { string } type - Type of the event for which the event listener is removed.
+     * @param { string } type - type Type of the event for which the event listener is removed.
      * @param { EventListener } listener - listener Callback of the event listener to remove.
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1425,5 +1335,4 @@ declare namespace worker {
    */
   const workerPort: ThreadWorkerGlobalScope;
 }
-
 export default worker;
