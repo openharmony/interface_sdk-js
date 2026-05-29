@@ -2793,7 +2793,57 @@ declare namespace image {
      * @since 12 dynamic
      * @since 23 static
      */
-    GIF_LOOP_COUNT = 'GIFLoopCount'
+    GIF_LOOP_COUNT = 'GIFLoopCount',
+
+    /**
+     * Describes xtstyle template name.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    XTSTYLE_TEMPLATE_NAME = 'HwMnoteXtStyleTemplateName',
+
+    /**
+     * Describes xtstyle custom light and shadow.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    XTSTYLE_CUSTOM_LIGHT_AND_SHADOW = 'HwMnoteXtStyleCustomLightAndShadow',
+
+    /**
+     * Describes xtstyle custom saturation.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    XTSTYLE_CUSTOM_SATURATION = 'HwMnoteXtStyleCustomSaturation',
+
+    /**
+     * Describes xtstyle custom hue.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    XTSTYLE_CUSTOM_HUE = 'HwMnoteXtStyleCustomHue',
+
+    /**
+     * Describes xtstyle exposure param.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    XTSTYLE_EXPOSURE_PARAM = 'HwMnoteXtStyleExposureParam',
   }  
 
   /**
