@@ -71,7 +71,7 @@ export declare interface Colors {
     *
     * @type { ?ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @FaAndStageModel
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 26.0.0 dynamic
@@ -83,7 +83,7 @@ export declare interface Colors {
     *
     * @type { ?ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @FaAndStageModel
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 26.0.0 dynamic
@@ -95,7 +95,7 @@ export declare interface Colors {
     *
     * @type { ?ResourceColor }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @FaAndStageModel
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 26.0.0 dynamic
