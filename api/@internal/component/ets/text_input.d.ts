@@ -3739,34 +3739,6 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
  	 * @since 26.0.0 dynamic
  	 */
  	orphanCharOptimization(enabled: Optional<boolean>): TextInputAttribute;
-
-  /**
-   * Set the join style of the stroke.
-   *
-   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
-   *     Passing `undefined` resets it to the default value.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): TextInputAttribute;
- 
-  /**
-   * Set the shader style of the text, such as lineargradient or radialgradient.
-   *
-   * @param { ShaderStyle | undefined } shader - The shader style of the text.
-   *     Passing `undefined` resets it to the default value.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  shaderStyle(shader: ShaderStyle | undefined): TextInputAttribute;
 }
 
 /**
