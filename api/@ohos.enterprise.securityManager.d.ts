@@ -755,6 +755,24 @@ declare namespace securityManager {
   function setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number, properties: WatermarkProperties): void;
 
   /**
+   * Gets the bundle names of the applications that have been set watermark.
+   * 
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { Want } admin - admin indicates the administrator ability information.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *   <br>The value must be an integer greater than or equal to 0.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *   The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getWatermarkImageApps(admin: Want, accountId: number): Array<string>;
+
+  /**
    * Password policy.
    * 
    * @typedef PasswordPolicy
