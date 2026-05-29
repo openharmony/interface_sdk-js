@@ -2651,6 +2651,7 @@ declare namespace util {
 
   /**
    * Multi-thread detection functional parameter configuration
+   * 
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @crossplatform
@@ -2659,7 +2660,7 @@ declare namespace util {
   interface MultithreadingDetectionOptions {
     /**
      * If abort is **true**, the application will crash, if abort is **false**, the application will not crash.
- 	   * Default **true**.
+     * Default **true**.
      * 
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
