@@ -485,6 +485,7 @@ interface GridLayoutAlgorithmOptions {
  * @atomicservice
  * @since 24 dynamic
  */
+@ObservedV2
 export class GridLayoutAlgorithm implements LayoutAlgorithm {
     /**
      * Constructor.
@@ -508,7 +509,7 @@ export class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public columnsTemplate?: string | ItemFillPolicy;
+    @Trace public columnsTemplate?: string | ItemFillPolicy;
     /**
      * The spacing between columns.
      *
@@ -520,7 +521,7 @@ export class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public columnsGap?: LengthMetrics;
+    @Trace public columnsGap?: LengthMetrics;
     /**
      * The spacing between rows.
      *
@@ -532,5 +533,5 @@ export class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public rowsGap?: LengthMetrics;
+    @Trace public rowsGap?: LengthMetrics;
 }
