@@ -1852,11 +1852,11 @@ declare namespace userAuth {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Incorrect parameter types.
      * @throws { BusinessError } 12500001 - Authentication failed. [since 10 - 19]
-     * @throws { BusinessError } 12500001 - Authentication failed. [since 26]
+     * @throws { BusinessError } 12500001 - Authentication failed. [since 26.0.0]
      * @throws { BusinessError } 12500002 - General operation error.
      * @throws { BusinessError } 12500003 - Authentication canceled.
      * @throws { BusinessError } 12500004 - Authentication timeout. [since 10 - 19]
-     * @throws { BusinessError } 12500004 - Authentication timeout. [since 26]
+     * @throws { BusinessError } 12500004 - Authentication timeout. [since 26.0.0]
      * @throws { BusinessError } 12500005 - The authentication type is not supported.
      * @throws { BusinessError } 12500006 - The authentication trust level is not supported.
      * @throws { BusinessError } 12500007 - Authentication service is busy. [since 10 - 19]
