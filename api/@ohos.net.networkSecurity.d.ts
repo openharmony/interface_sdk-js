@@ -189,6 +189,32 @@ declare namespace networkSecurity {
   export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): int;
 
   /**
+   * Verifies the server certificate chain and returns a sorted chain.
+   *
+   * @param { CertBlob[] } cert - Certificate chain to be verified.
+   * @param { CertBlob } [caCert] - Incoming custom CA cert.
+   * @param { string } [hostname] - Hostname to be verified.
+   * @returns { Promise<CertBlob[]> } Returns a promise that resolves to the sorted certificate chain
+   *     (ordered from leaf to root) if verification succeeds.
+   * @throws { BusinessError } 2305001 - Unspecified error.
+   * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
+   * @throws { BusinessError } 2305004 - Unable to decrypt certificate signature.
+   * @throws { BusinessError } 2305006 - Unable to decode issuer public key.
+   * @throws { BusinessError } 2305007 - Certificate signature failure.
+   * @throws { BusinessError } 2305009 - Certificate is not yet valid.
+   * @throws { BusinessError } 2305010 - Certificate has expired.
+   * @throws { BusinessError } 2305018 - Self-signed certificate.
+   * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
+   * @throws { BusinessError } 2305027 - Certificate is untrusted.
+   * @throws { BusinessError } 2305069 - Invalid certificate verification context.
+   * @throws { BusinessError } 2305070 - Invalid hostname.
+   * @syscap SystemCapability.Communication.NetStack
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export function verifyCertChain(cert: CertBlob[], caCert?: CertBlob, hostname?: string): Promise<CertBlob[]>
+
+  /**
    * Checks whether the Cleartext traffic is permitted.
    * To invoke this method, you must have the {@code ohos.permission.INTERNET} permission.
    * @permission ohos.permission.INTERNET
