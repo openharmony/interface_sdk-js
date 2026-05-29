@@ -1114,16 +1114,22 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
  */
 function matchesRuleKeywords(rule: ErrorMatchRule, message: string): boolean {
   const hasAllKeywords = rule.keywords.every(keyword => message.includes(keyword));
-  if (!hasAllKeywords) return false;
+  if (!hasAllKeywords) {
+    return false;
+  }
 
   if (rule.excludeKeywords?.length) {
     const hasExcludedKeyword = rule.excludeKeywords.some(keyword => message.includes(keyword));
-    if (hasExcludedKeyword) return false;
+    if (hasExcludedKeyword) {
+      return false;
+    }
   }
 
   if (rule.optionalKeywords?.length) {
     const hasOptionalKeyword = rule.optionalKeywords.some(keyword => message.includes(keyword));
-    if (!hasOptionalKeyword) return false;
+    if (!hasOptionalKeyword) {
+      return false;
+    }
   }
 
   return true;
@@ -1146,7 +1152,9 @@ function generateTemplateKey(message: string, rule: ErrorMatchRule, runTimeOS: s
 
 function extractDynamicContent(message: string, extractors?: ContentExtractor[]): Record<string, string> {
   const extractedValues: Record<string, string> = {};
-  if (!extractors) return extractedValues;
+  if (!extractors) {
+    return extractedValues;
+  }
 
   for (const extractor of extractors) {
     const match = message.match(extractor.regex);
@@ -1176,7 +1184,9 @@ function findErrorMatchRule(message: string, runTimeOS: string): {
   const normalizedMessage = message.trim();
 
   for (const rule of ERROR_MATCH_RULES) {
-    if (!matchesRuleKeywords(rule, normalizedMessage)) continue;
+    if (!matchesRuleKeywords(rule, normalizedMessage)) {
+      continue;
+    }
 
     const templateKey = generateTemplateKey(normalizedMessage, rule, runTimeOS);
     const extractedValues = extractDynamicContent(normalizedMessage, rule.extractors);
