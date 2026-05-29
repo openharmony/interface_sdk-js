@@ -342,15 +342,6 @@ export enum UIState {
    * @since 24 static
    */
   SELECTED = 1 << 3,
-
-  /**
-   * The hovered state.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  HOVERED = 1 << 4,
 }
 
 /**
